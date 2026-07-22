@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Villa Arapiuns — Pousada na Floresta Amazônica</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --verde: #2d4a2f;
+      --verde-claro: #4a7c4e;
+      --verde-musgo: #6b8f6e;
+      --areia: #c8a96e;
+      --areia-claro: #e8d5a3;
+      --creme: #f7f1e8;
+      --branco: #ffffff;
+      --escuro: #1a1a18;
+      --cinza: #6b6b6b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--escuro);
+      color: var(--branco);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, transparent 100%);
+      transition: background 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(26,26,24,0.95);
+      backdrop-filter: blur(12px);
+      padding: 1rem 3rem;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--branco);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--areia); }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--areia); }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-slides {
+      position: absolute;
+      inset: 0;
+    }
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+    .hero-slide.active { opacity: 1; }
+    .hero-slide::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.45) 0%,
+        rgba(0,0,0,0.55) 40%,
+        rgba(0,0,0,0.72) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 2rem;
+      max-width: 800px;
+    }
+    .hero-logo {
+      width: 160px;
+      max-width: 40%;
+      margin: 0 auto 1.8rem auto;
+      display: block;
+      opacity: 0.9;
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--areia);
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--areia-claro);
+    }
+    .hero-subtitle {
+      font-size: 1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-cta {
+      display: inline-block;
+      padding: 0.9rem 2.5rem;
+      border: 1px solid var(--areia);
+      color: var(--areia);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .hero-cta:hover {
+      background: var(--areia);
+      color: var(--escuro);
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .hero-scroll::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.3);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50% { opacity: 0.8; transform: scaleY(1.2); }
+    }
+
+    /* ── SOBRE ── */
+    #sobre {
+      background: var(--creme);
+      color: var(--escuro);
+      padding: 8rem 3rem;
+    }
+    .sobre-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .sobre-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--verde-claro);
+      margin-bottom: 1.2rem;
+    }
+    .sobre-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--verde);
+      margin-bottom: 1.5rem;
+    }
+    .sobre-text {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: #444;
+      margin-bottom: 1.2rem;
+    }
+    .sobre-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--verde);
+      display: block;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cinza);
+      margin-top: 0.25rem;
+    }
+    .sobre-image {
+      position: relative;
+    }
+    .sobre-image img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      display: block;
+    }
+    .sobre-image::before {
+      content: '';
+      position: absolute;
+      top: -1.5rem;
+      left: -1.5rem;
+      right: 1.5rem;
+      bottom: 1.5rem;
+      border: 1px solid var(--areia);
+      z-index: 0;
+    }
+    .sobre-image img { position: relative; z-index: 1; }
+
+    /* ── GALERIA ── */
+    #galeria {
+      background: var(--escuro);
+      padding: 7rem 3rem;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .section-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--areia);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      line-height: 1.2;
+    }
+    .galeria-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+    .galeria-item {
+      overflow: hidden;
+      cursor: pointer;
+      height: 380px;
+    }
+    .galeria-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .galeria-item:hover img { transform: scale(1.05); }
+
+    /* ── PACOTES ── */
+    #pacotes {
+      background: var(--verde);
+      padding: 8rem 3rem;
+    }
+    #pacotes .section-title { color: var(--areia-claro); }
+    .pacotes-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+    .pacote-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(200,169,110,0.25);
+      padding: 3rem;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+    .pacote-card:hover { border-color: var(--areia); }
+    .pacote-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--areia);
+      border: 1px solid var(--areia);
+      padding: 0.3rem 0.8rem;
+      margin-bottom: 1.5rem;
+    }
+    .pacote-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+      color: var(--branco);
+    }
+    .pacote-duracao {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.08em;
+      margin-bottom: 2rem;
+    }
+    .pacote-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin: 1.5rem 0;
+    }
+    .pacote-section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--areia);
+      margin-bottom: 1rem;
+      margin-top: 1.5rem;
+    }
+    .pacote-itens {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .pacote-itens li {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.5;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .pacote-itens li::before {
+      content: '—';
+      color: var(--areia);
+      flex-shrink: 0;
+      font-size: 0.75rem;
+      margin-top: 0.1rem;
+    }
+    .pacote-itens li.nao {
+      opacity: 0.4;
+      text-decoration: line-through;
+    }
+    .pacote-itens li.nao::before { content: '×'; color: #888; }
+    .pacote-obs {
+      margin-top: 1.5rem;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.6;
+      font-style: italic;
+    }
+    .pacote-cta {
+      display: block;
+      margin-top: 2rem;
+      text-align: center;
+      padding: 0.9rem 2rem;
+      background: var(--areia);
+      color: var(--escuro);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+    .pacote-cta:hover { background: var(--areia-claro); }
+
+    /* ── ROTEIROS ── */
+    #roteiros {
+      background: var(--creme);
+      color: var(--escuro);
+      padding: 8rem 3rem;
+    }
+    #roteiros .section-tag { color: var(--verde-claro); }
+    #roteiros .section-title { color: var(--verde); }
+    .roteiros-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 4rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid rgba(45,74,47,0.25);
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 0.9rem 2rem;
+      background: transparent;
+      border: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--verde);
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+    }
+    .tab-btn.active {
+      background: var(--verde);
+      color: var(--branco);
+    }
+    .roteiro-panel { display: none; }
+    .roteiro-panel.active { display: block; }
+    .roteiro-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .roteiro-dia {
+      margin-bottom: 3rem;
+    }
+    .dia-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .dia-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--areia);
+      line-height: 1;
+    }
+    .dia-info {}
+    .dia-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--verde);
+    }
+    .dia-sub {
+      font-size: 0.78rem;
+      color: var(--cinza);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .timeline {
+      border-left: 2px solid rgba(45,74,47,0.15);
+      padding-left: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .timeline-item {
+      position: relative;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.3rem;
+      top: 0.4rem;
+      width: 8px;
+      height: 8px;
+      background: var(--areia);
+      border-radius: 50%;
+      border: 2px solid var(--creme);
+    }
+    .tl-hora {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--verde-claro);
+      margin-bottom: 0.2rem;
+    }
+    .tl-ativ {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--escuro);
+      margin-bottom: 0.25rem;
+    }
+    .tl-desc {
+      font-size: 0.85rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* ── REGRAS ── */
+    #regras {
+      background: var(--escuro);
+      padding: 7rem 3rem;
+      text-align: center;
+    }
+    .section-header {
+      text-align: center;
+    }
+    .regras-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      margin-top: 4rem;
+    }
+    .regra-group-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: var(--areia);
+      margin-bottom: 1.5rem;
+    }
+    .regra-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .regra-list li {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    .regra-list li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: var(--areia);
+      font-size: 0.6rem;
+      top: 0.25rem;
+    }
+
+    /* ── CONTATO ── */
+    #contato {
+      background: var(--verde);
+      padding: 8rem 3rem;
+      text-align: center;
+    }
+    .contato-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 300;
+      color: var(--branco);
+      margin-bottom: 1rem;
+    }
+    .contato-sub {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 480px;
+      margin: 0 auto 3rem;
+      line-height: 1.7;
+    }
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1.1rem 3rem;
+      background: #25D366;
+      color: var(--branco);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .whatsapp-btn:hover {
+      background: #20bf5a;
+      transform: translateY(-2px);
+    }
+    .whatsapp-btn svg { width: 22px; height: 22px; }
+    .contato-info {
+      margin-top: 3rem;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .contato-item {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .contato-item span {
+      display: block;
+      color: rgba(255,255,255,0.8);
+      margin-top: 0.25rem;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--escuro);
+      padding: 2rem 3rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    /* ── LINK TAXAS ── */
+    .link-taxas {
+      color: var(--areia);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .link-taxas:hover { opacity: 0.7; }
+
+    /* ── MODAL TAXAS ── */
+    .modal-taxas {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .modal-taxas.open { display: flex; }
+    .modal-taxas-box {
+      background: #1a1a1a;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 2.5rem;
+      max-width: 680px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      position: relative;
+    }
+    .modal-taxas-box h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--areia);
+      margin-bottom: 0.4rem;
+    }
+    .modal-taxas-box p.modal-sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 1.8rem;
+      letter-spacing: 0.05em;
+    }
+    .modal-taxas-close {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.5rem;
+      font-size: 1.8rem;
+      color: rgba(255,255,255,0.5);
+      cursor: pointer;
+      line-height: 1;
+      background: none;
+      border: none;
+    }
+    .modal-taxas-close:hover { color: #fff; }
+    .taxas-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    .taxas-table thead tr {
+      background: var(--verde);
+    }
+    .taxas-table thead th {
+      padding: 0.7rem 1rem;
+      text-align: left;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .taxas-table tbody tr {
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .taxas-table tbody tr:nth-child(even) {
+      background: rgba(255,255,255,0.03);
+    }
+    .taxas-table tbody td {
+      padding: 0.75rem 1rem;
+      color: rgba(255,255,255,0.8);
+    }
+    .taxas-table tbody td.valor {
+      color: var(--areia);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .taxas-note {
+      margin-top: 1.2rem;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.6;
+    }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 2rem;
+      right: 2.5rem;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+      opacity: 0.7;
+    }
+    .lightbox-close:hover { opacity: 1; }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.12);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      z-index: 1000;
+    }
+    .lightbox-nav:hover { background: rgba(255,255,255,0.25); }
+    .lightbox-prev { left: 1.5rem; }
+    .lightbox-next { right: 1.5rem; }
+    .lightbox-counter {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.5);
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+    }
+
+    /* ── WHATSAPP FLOAT ── */
+    .wa-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 90;
+      width: 58px;
+      height: 58px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .wa-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(37,211,102,0.5);
+    }
+    .wa-float svg { width: 30px; height: 30px; fill: white; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      nav.scrolled { padding: 0.8rem 1.5rem; }
+      .nav-links { display: none; }
+      #sobre { padding: 5rem 1.5rem; }
+      .sobre-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .sobre-image::before { display: none; }
+      .sobre-image img { height: 320px; }
+      #galeria { padding: 5rem 1.5rem; }
+      .galeria-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .galeria-item {
+        height: 200px;
+      }
+      #pacotes { padding: 5rem 1.5rem; }
+      .pacotes-grid { grid-template-columns: 1fr; gap: 2rem; }
+      #roteiros { padding: 5rem 1.5rem; }
+      #regras { padding: 5rem 1.5rem; }
+      .regras-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      #contato { padding: 5rem 1.5rem; }
+      .contato-info { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <ul class="nav-links">
+    <li><a href="#sobre">A Villa</a></li>
+    <li><a href="#galeria">Galeria</a></li>
+    <li><a href="#pacotes">Pacotes</a></li>    <li><a href="#contato">Reservas</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-slides">
+    <div class="hero-slide active" style="background-image: url('imgs/hero1.jpg')"></div>
+    <div class="hero-slide" style="background-image: url('imgs/hero2.jpg')"></div>
+    <div class="hero-slide" style="background-image: url('imgs/hero3.jpg')"></div>
+    <div class="hero-slide" style="background-image: url('imgs/hero4.jpg')"></div>
+    <div class="hero-slide" style="background-image: url('imgs/hero5.jpg')"></div>
+    <div class="hero-slide" style="background-image: url('imgs/hero6.jpg')"></div>
+  </div>
+  <div class="hero-content">
+    <img src="imgs/logo_crop.png" alt="Villa Arapiuns" class="hero-logo" />
+    <p class="hero-eyebrow">Rio Arapiuns · Amazônia · Pará</p>
+    <h1 class="hero-title">Durma na floresta,<br><em>acorde na Amazônia.</em></h1>
+    <p class="hero-subtitle">Uma pousada íntima às margens do Rio Arapiuns, onde cada dia começa num lago secreto e termina sob um céu estrelado.</p>
+    <a href="#pacotes" class="hero-cta">Ver Pacotes</a>
+  </div>
+  <div class="hero-scroll">Descer</div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="sobre-inner">
+    <div>
+      <p class="sobre-tag">A Villa Arapiuns</p>
+      <h2 class="sobre-title">Onde a floresta começa e o tempo para.</h2>
+      <p class="sobre-text">A Villa Arapiuns é uma pousada de turismo de base comunitária situada às margens do Rio Arapiuns, no Pará. Com 13 cabanas aconchegantes que comportam até 26 hóspedes, oferecemos uma experiência imersiva na Amazônia real — longe do turismo de massa, perto das comunidades ribeirinhas.</p>
+      <p class="sobre-text">Aqui, o hóspede não fica parado. A filosofia da casa é simples: você chega, deposita as malas, e parte direto para a aventura. Volta cansado do melhor jeito possível — pela floresta, pelo sol, pelas histórias. Come bem, dorme fundo.</p>
+      <p class="sobre-text">Em operação há 4 anos sem nenhum incidente, a Villa é uma porta de entrada segura e responsável para o coração da Amazônia.</p>
+      <div class="sobre-stats">
+        <div>
+          <span class="stat-num">13</span>
+          <span class="stat-label">Cabanas</span>
+        </div>
+        <div>
+          <span class="stat-num">4+</span>
+          <span class="stat-label">Anos de história</span>
+        </div>
+        <div>
+          <span class="stat-num">26</span>
+          <span class="stat-label">Hóspedes (máx.)</span>
+        </div>
+      </div>
+    </div>
+    <div class="sobre-image">
+      <img src="imgs/sobre.jpg" alt="Villa Arapiuns" />
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section id="galeria">
+  <div class="section-header">
+    <p class="section-tag">Galeria</p>
+    <h2 class="section-title">A Amazônia em cada detalhe</h2>
+  </div>
+  <div class="galeria-grid">
+    <div class="galeria-item" onclick="openLightbox('imgs/gal1.jpg')">
+      <img src="imgs/gal1.jpg" alt="Trilha na floresta — Villa Arapiuns" loading="lazy" />
+    </div>
+    <div class="galeria-item" onclick="openLightbox('imgs/gal2.jpg')">
+      <img src="imgs/gal2.jpg" alt="Caiaques no Rio Arapiuns — Villa Arapiuns" loading="lazy" />
+    </div>
+    <div class="galeria-item" onclick="openLightbox('imgs/gal3.jpg')">
+      <img src="imgs/gal3.jpg" alt="Interior da cabana — Villa Arapiuns" loading="lazy" />
+    </div>
+    <div class="galeria-item" onclick="openLightbox('imgs/gal4.jpg')">
+      <img src="imgs/gal4.jpg" alt="Café da manhã — Villa Arapiuns" loading="lazy" />
+    </div>
+    <div class="galeria-item" onclick="openLightbox('imgs/gal5.jpg')">
+      <img src="imgs/gal5.jpg" alt="Quarto da cabana — Villa Arapiuns" loading="lazy" />
+    </div>
+    <div class="galeria-item" onclick="openLightbox('imgs/gal6.jpg')">
+      <img src="imgs/gal6.jpg" alt="Cabana na floresta — Villa Arapiuns" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- PACOTES -->
+<section id="pacotes">
+  <div class="section-header">
+    <p class="section-tag">Nossos Pacotes</p>
+    <h2 class="section-title">Escolha a sua experiência</h2>
+  </div>
+  <div class="pacotes-grid">
+
+    <!-- PACOTE 1 -->
+    <div class="pacote-card">
+      <span class="pacote-badge">Pacote 1 Diária</span>
+      <h3 class="pacote-title">Clássico Arapiuns</h3>
+      <p class="pacote-duracao">1 noite · 2 dias</p>
+      <hr class="pacote-divider" />
+
+      <p class="pacote-section-label">Dia 1 — Comunidade + Floresta</p>
+      <ul class="pacote-itens">
+        <li>Trilha até o Lago Azul + passeio de canoa na lagoa secreta</li>
+        <li>Massagem tradicional + Banho de Cheiro com ervas da floresta (opcional)</li>
+        <li>Farinhada + Tecelagem + Redário na comunidade ribeirinha (opcional)</li>
+        <li>Pôr do sol na Ponta Grande</li>
+        <li>Fogueira + Jantar caprichado na Villa</li>
+      </ul>
+
+      <p class="pacote-section-label">Dia 2 — Retorno</p>
+      <ul class="pacote-itens">
+        <li>Café da manhã tranquilo + visita ao meliponário</li>
+        <li>Parada na Ponta do Toronó</li>
+        <li>Canal do Jari — trilha das preguiças*</li>
+      </ul>
+
+      <p class="pacote-obs">Almoços e atividades extras são pagos diretamente no local. <a href="#" class="link-taxas" onclick="openTaxas(event)">Confira atividades opcionais</a>.</p>
+      <a href="https://wa.me/5511969760096?text=Olá!%20Tenho%20interesse%20no%20Pacote%201%20Diária%20da%20Villa%20Arapiuns." class="pacote-cta" target="_blank">Solicitar via WhatsApp</a>
+    </div>
+
+    <!-- PACOTE 2 -->
+    <div class="pacote-card">
+      <span class="pacote-badge">Pacote 2 Diárias</span>
+      <h3 class="pacote-title">Imersão Completa</h3>
+      <p class="pacote-duracao">2 noites · 3 dias</p>
+      <hr class="pacote-divider" />
+
+      <p class="pacote-section-label">Dia 1 — Comunidade + Floresta</p>
+      <ul class="pacote-itens">
+        <li>Trilha até o Lago Azul + passeio de canoa na lagoa secreta</li>
+        <li>Massagem tradicional + Banho de Cheiro com ervas da floresta</li>
+        <li>Farinhada + Tecelagem + Redário na comunidade ribeirinha</li>
+        <li>Pôr do sol na Ponta Grande</li>
+        <li>Fogueira + Jantar caprichado na Villa</li>
+      </ul>
+
+      <p class="pacote-section-label">Dia 2 — Samaúma + Coroca</p>
+      <ul class="pacote-itens">
+        <li>Trilha até Atodi — visita à Samaúma, uma das maiores árvores da Amazônia</li>
+        <li>Visita à Coroca — criação de tartarugas + artesanato local</li>
+        <li>Jantar na Villa (piracaia surpresa ao hóspede)</li>
+      </ul>
+
+      <p class="pacote-section-label">Dia 3 — Retorno</p>
+      <ul class="pacote-itens">
+        <li>Café da manhã + visita ao meliponário</li>
+        <li>Parada na Ponta do Toronó</li>
+        <li>Canal do Jari — trilha das preguiças*</li>
+      </ul>
+
+      <p class="pacote-obs">Almoços e atividades extras são pagos diretamente no local. <a href="#" class="link-taxas" onclick="openTaxas(event)">Confira atividades opcionais</a>.</p>
+      <a href="https://wa.me/5511969760096?text=Olá!%20Tenho%20interesse%20no%20Pacote%202%20Diárias%20da%20Villa%20Arapiuns." class="pacote-cta" target="_blank">Solicitar via WhatsApp</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ROTEIROS -->
+
+<!-- REGRAS -->
+<section id="regras" style="text-align: center;">
+  <div class="section-header" style="text-align: center;">
+    <p class="section-tag">Informações importantes</p>
+    <h2 class="section-title">O que você precisa saber</h2>
+  </div>
+  <div class="regras-inner" style="justify-content: center;">
+    <div style="text-align: center;">
+      <h3 class="regra-group-title">O que levar</h3>
+      <ul class="regra-list" style="display: inline-block; text-align: left;">
+        <li>Roupas leves e frescas para a floresta</li>
+        <li>Protetor solar e repelente</li>
+        <li>Calçado confortável para trilha</li>
+        <li>Roupa de banho</li>
+        <li>Dinheiro em espécie para almoços nas comunidades</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <p class="section-tag" style="color: var(--areia-claro); margin-bottom: 1rem;">Reservas</p>
+  <h2 class="contato-title">Pronto para a sua<br>imersão na floresta?</h2>
+  <p class="contato-sub">Entre em contato pelo WhatsApp para verificar disponibilidade e reservar o seu pacote. Os grupos partem de Alter do Chão, Pará.</p>
+  <a href="https://wa.me/5511969760096?text=Olá!%20Tenho%20interesse%20em%20reservar%20um%20pacote%20na%20Villa%20Arapiuns." class="whatsapp-btn" target="_blank">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    Falar pelo WhatsApp
+  </a>
+  <div class="contato-info">
+    <div class="contato-item">
+      Localização
+      <span>Rio Arapiuns, Pará — Brasil</span>
+    </div>
+    <div class="contato-item">
+      Partida
+      <span>Alter do Chão, PA</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Villa Arapiuns · Turismo de Base Comunitária · Rio Arapiuns, Pará</p>
+</footer>
+
+<!-- MODAL TAXAS COMUNITÁRIAS -->
+<div class="modal-taxas" id="modalTaxas" onclick="closeTaxas(event)">
+  <div class="modal-taxas-box">
+    <button class="modal-taxas-close" onclick="closeTaxas()">×</button>
+    <h3>Atividades Extras (Opcional)</h3>
+    <p class="modal-sub">Atividades opcionais pagáveis diretamente nas comunidades · por pessoa</p>
+    <table class="taxas-table">
+      <thead>
+        <tr>
+          <th>Categoria</th>
+          <th>Item</th>
+          <th>Unidade</th>
+          <th>Custo Unit. (R$)</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Comunidade</td><td>Massagem + Banho de Cheiro (opcional)</td><td>por pessoa</td><td class="valor">R$ 150,00</td><td>Opcional</td></tr>
+        <tr><td>Comunidade</td><td>Oficina de artesanato/tecelagem (opcional)</td><td>por pessoa</td><td class="valor">R$ 20,00</td><td>Opcional</td></tr>
+        <tr><td>Comunidade</td><td>Farinhada (opcional)</td><td>por pessoa</td><td class="valor">R$ 70,00</td><td>Opcional</td></tr>
+        <tr><td>Atodi</td><td>Trilha pequena (Atodi) (opcional)</td><td>por pessoa</td><td class="valor">R$ 30,00</td><td>Opcional</td></tr>
+        <tr><td>Atodi</td><td>Trilha maior (Atodi) (opcional)</td><td>por pessoa</td><td class="valor">R$ 50,00</td><td>Opcional</td></tr>
+        <tr><td>Coroca</td><td>Visitação Coroca (opcional)</td><td>por pessoa</td><td class="valor">R$ 30,00</td><td>Opcional</td></tr>
+      </tbody>
+    </table>
+    <p class="taxas-note">* Valores pagos diretamente no local. O dinheiro fica integralmente com as comunidades ribeirinhas. Todas as atividades listadas são opcionais.</p>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <span class="lightbox-close" onclick="closeLightbox()">×</span>
+  <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1, event)">&#8249;</button>
+  <img id="lightbox-img" src="" alt="" />
+  <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1, event)">&#8250;</button>
+  <span class="lightbox-counter" id="lightbox-counter"></span>
+</div>
+
+<!-- WHATSAPP FLUTUANTE -->
+<a href="https://wa.me/5511969760096?text=Olá!%20Tenho%20interesse%20em%20reservar%20um%20pacote%20na%20Villa%20Arapiuns." class="wa-float" target="_blank" title="Fale no WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+  // NAV scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 80);
+  });
+
+  // HERO slideshow
+  const slides = document.querySelectorAll('.hero-slide');
+  let current = 0;
+  function nextSlide() {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }
+  setInterval(nextSlide, 5000);
+
+  // TABS roteiro
+  function showTab(tabId, btn) {
+    document.querySelectorAll('.roteiro-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // MODAL TAXAS
+  function openTaxas(e) {
+    if (e) e.preventDefault();
+    document.getElementById('modalTaxas').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeTaxas(e) {
+    if (e && e.target !== document.getElementById('modalTaxas')) return;
+    document.getElementById('modalTaxas').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // LIGHTBOX
+  const galImgs = Array.from(document.querySelectorAll('.galeria-item img')).map(img => img.src);
+  let galIndex = 0;
+
+  function openLightbox(src) {
+    galIndex = galImgs.findIndex(s => s === src || s.endsWith(src));
+    if (galIndex < 0) galIndex = 0;
+    updateLightbox();
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function updateLightbox() {
+    document.getElementById('lightbox-img').src = galImgs[galIndex];
+    document.getElementById('lightbox-counter').textContent = (galIndex + 1) + ' / ' + galImgs.length;
+  }
+  function lightboxNav(dir, e) {
+    e.stopPropagation();
+    galIndex = (galIndex + dir + galImgs.length) % galImgs.length;
+    updateLightbox();
+  }
+  function closeLightbox(e) {
+    if (e && e.target !== document.getElementById('lightbox')) return;
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { document.getElementById('lightbox').classList.remove('open'); document.getElementById('modalTaxas').classList.remove('open'); document.body.style.overflow = ''; }
+    if (e.key === 'ArrowRight') { if (document.getElementById('lightbox').classList.contains('open')) { galIndex = (galIndex + 1) % galImgs.length; updateLightbox(); } }
+    if (e.key === 'ArrowLeft')  { if (document.getElementById('lightbox').classList.contains('open')) { galIndex = (galIndex - 1 + galImgs.length) % galImgs.length; updateLightbox(); } }
+  });
+</script>
+
+</body>
+</html>
