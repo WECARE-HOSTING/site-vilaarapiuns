@@ -1,0 +1,120 @@
+---
+/**
+ * Lista de experiências: o nome revela a foto.
+ *
+ * Portado do "Reveal images" (21st.dev #1086). O original é React, mas
+ * ao ler o código se vê que não usa estado nem hooks — é só transição
+ * em group-hover. Então virou Astro puro: nenhum KB de JavaScript.
+ *
+ * Três defeitos do original, corrigidos aqui:
+ *   1. usava <h1> em cada item — vira <li> com <a>, que é o que é;
+ *   2. só respondia a hover, o que mata o componente no celular e no
+ *      teclado — agora responde a :focus-within, e onde não há hover as
+ *      fotos ficam visíveis o tempo todo;
+ *   3. cantos arredondados e sombra pesada não são deste site — aqui as
+ *      fotos entram levemente giradas, como duas polaroides na mesa.
+ */
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Voluta from '@/components/Voluta.astro';
+
+interface Experiencia {
+  nome: string;
+  detalhe: string;
+  fotos: [ImageMetadata, ImageMetadata];
+  alt: [string, string];
+  href?: string;
+}
+
+interface Props { itens: Experiencia[] }
+const { itens } = Astro.props;
+---
+
+<ul class="lista-exp">
+  {itens.map((e) => (
+    <li class="grupo relative border-t border-mata/12 first:border-t-0">
+      <a
+        href={e.href ?? '#'}
+        class="relative flex flex-col gap-1 py-7 outline-offset-8 md:py-9"
+      >
+        {/* O texto reserva a faixa da foto: sem isso a polaroide cobre a
+            legenda no celular, onde ela está sempre visível. */}
+        <span class="texto">
+          <span class="font-display text-titulo block text-mata transition-opacity duration-500">
+            {e.nome}
+          </span>
+          <span class="mt-1 flex items-start gap-2.5 text-cinza">
+            <Voluta class="mt-1.5 text-rede/60" />
+            <span>{e.detalhe}</span>
+          </span>
+        </span>
+
+        {/* as duas fotos, empilhadas e giradas como polaroides na mesa */}
+        <span class="fotos" aria-hidden="true">
+          <span class="foto foto-tras">
+            <Image src={e.fotos[1]} alt="" widths={[240, 480]} sizes="240px" class="h-full w-full object-cover" />
+          </span>
+          <span class="foto foto-frente">
+            <Image src={e.fotos[0]} alt="" widths={[240, 480]} sizes="240px" class="h-full w-full object-cover" />
+          </span>
+        </span>
+      </a>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .texto { padding-right: 6.25rem; }
+
+  .fotos {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    translate: 0 -50%;
+    width: 8.5rem;
+    height: 10.5rem;
+    pointer-events: none;
+  }
+
+  .foto {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background: var(--color-areia);
+    box-shadow: 0 10px 26px -12px rgb(34 64 43 / 0.5);
+  }
+
+  .foto-tras  { rotate: -5deg; translate: -1.75rem 0.5rem; }
+  .foto-frente{ rotate:  3.5deg; }
+
+  /* Sem hover (celular, tablet): as fotos ficam sempre visíveis, menores.
+     Um componente que só existe no hover não existe para metade das pessoas. */
+  @media (width < 48rem) {
+    .texto { padding-right: 6.75rem; }
+    .fotos { width: 5rem; height: 6.25rem; }
+    .foto-tras { translate: -1rem 0.35rem; }
+  }
+
+  @media (width >= 48rem) {
+    .texto { padding-right: 9.5rem; }
+  }
+
+  /* Onde existe hover, elas entram — e o nome recua para dar espaço à foto. */
+  @media (hover: hover) and (width >= 48rem) {
+    .foto {
+      scale: 0.55;
+      opacity: 0;
+      transition: scale 0.55s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    }
+    .foto-frente { transition-delay: 0.05s; }
+    .grupo:hover .foto,
+    .grupo:focus-within .foto { scale: 1; opacity: 1; }
+
+    .grupo:hover .font-display,
+    .grupo:focus-within .font-display { opacity: 0.45; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .foto { transition: opacity 0.2s ease; scale: 1; }
+  }
+</style>

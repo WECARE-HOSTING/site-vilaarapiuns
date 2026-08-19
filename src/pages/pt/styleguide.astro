@@ -14,11 +14,14 @@ import Campo from '@/components/Campo.astro';
 import Tinta from '@/components/Tinta.astro';
 import Voluta from '@/components/Voluta.astro';
 import Logo from '@/components/Logo.astro';
+import ListaExperiencias from '@/components/ListaExperiencias.astro';
 import { useTranslations } from '@/i18n/utils';
 import { Image } from 'astro:assets';
 import hero3 from '@/assets/imgs/hero3.jpg';
 import hero5 from '@/assets/imgs/hero5.jpg';
 import gal3 from '@/assets/imgs/gal3.jpg';
+import hero1 from '@/assets/imgs/hero1.jpg';
+import sobre from '@/assets/imgs/sobre.jpg';
 
 const locale = 'pt' as const;
 const t = useTranslations(locale);
@@ -32,6 +35,35 @@ const momentos = [
   { hora: '19:30', titulo: 'Jantar e fogueira na praia', refeicao: true },
 ];
 const rotulos = { incluso: t('dia.incluso'), comunidade: t('dia.comunidade') };
+
+// Só experiências cujas fotos eu confirmei olhando o arquivo. As demais
+// (Samaúma, Coroca, meliponário) entram na Fase 4, com foto própria.
+const experiencias = [
+  {
+    nome: 'Lago Azul',
+    detalhe: 'Trilha pela mata até a lagoa escondida, e canoa na água parada',
+    fotos: [hero3, hero5] as [typeof hero3, typeof hero5],
+    alt: ['Trilha de areia na floresta', 'Área comum da Villa'] as [string, string],
+  },
+  {
+    nome: 'Ponta Grande',
+    detalhe: 'O pôr do sol na praia de areia branca, no fim da tarde',
+    fotos: [hero1, hero3] as [typeof hero1, typeof hero3],
+    alt: ['Portão de madeira aberto para a praia', 'Trilha na floresta'] as [string, string],
+  },
+  {
+    nome: 'Fogueira na praia',
+    detalhe: 'Jantar à beira do rio, com velas na areia e piracaia',
+    fotos: [sobre, gal3] as [typeof sobre, typeof gal3],
+    alt: ['Fogueira e velas na praia à noite', 'Varanda com rede'] as [string, string],
+  },
+  {
+    nome: 'A rede, no fim do dia',
+    detalhe: 'A varanda da sua cabana, quando não sobra nada para fazer',
+    fotos: [gal3, sobre] as [typeof gal3, typeof sobre],
+    alt: ['Varanda com rede e luminária de fibra', 'Fogueira na praia'] as [string, string],
+  },
+];
 
 const cores = [
   { nome: 'areia',   hex: '#f7f1e8', uso: 'Fundo. A areia da praia.' },
@@ -74,17 +106,9 @@ const cores = [
         <div class="absolute inset-0 bg-gradient-to-t from-mata-fundo/95 via-mata-fundo/50 to-mata-fundo/20"></div>
         <div class="absolute inset-0 hidden bg-gradient-to-r from-mata-fundo via-mata-fundo/75 to-transparent to-65% md:block lg:to-58%"></div>
 
-        <div class="container-editorial relative flex min-h-[88svh] flex-col justify-end pb-14 pt-32 md:pb-20">
+        <div class="container-editorial relative flex min-h-[88svh] flex-col justify-end pb-10 pt-32 md:pb-12">
           <div class="max-w-[34rem] lg:max-w-[38rem]">
-            <Campo tone="claro" class="!text-areia/75">
-              <span>02°26′S&nbsp;&nbsp;55°16′W</span>
-              <Voluta class="text-areia/50" />
-              <span>1h30 de barco de Alter do Chão</span>
-              <Voluta class="text-areia/50" />
-              <span>13 cabanas</span>
-            </Campo>
-
-            <h1 class="font-display text-display mt-6 text-areia">
+            <h1 class="font-display text-display text-areia">
               Uma pousada na Amazônia.
               <span class="block text-areia/65">Não um passeio.</span>
             </h1>
@@ -99,6 +123,18 @@ const cores = [
               <a href="#" class="btn btn-claro px-4 sm:px-8">Ver os pacotes</a>
             </div>
           </div>
+
+          {/* Faixa de dados no pé da foto. Fica aqui, e não acima do título,
+              porque rótulo em cima de heading é o tique que denuncia a máquina —
+              e porque aqui ela responde "onde fica e como chego", que é a
+              primeira dúvida de quem vê a foto. */}
+          <Campo tone="claro" class="mt-12 border-t border-areia/20 pt-5 !text-areia/70">
+            <span>02°26′S&nbsp;&nbsp;55°16′W</span>
+            <Voluta class="text-areia/45" />
+            <span>1h30 de barco de Alter do Chão</span>
+            <Voluta class="text-areia/45" />
+            <span>13 cabanas · 26 hóspedes</span>
+          </Campo>
         </div>
 
         <!-- Nota de campo: encosta na borda da foto, como anotação a lápis -->
@@ -119,9 +155,7 @@ const cores = [
         <div class="container-editorial">
           <div class="grid items-center gap-y-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-x-20">
             <div class="lg:pr-4">
-              <Campo>13 cabanas <Voluta class="text-rede/50" /> 26 hóspedes <Voluta class="text-rede/50" /> 5+ anos</Campo>
-
-              <h2 class="font-display text-titulo mt-5">
+              <h2 class="font-display text-titulo">
                 Onde a floresta começa<br />e o tempo para de correr
               </h2>
 
@@ -165,13 +199,31 @@ const cores = [
         </div>
       </section>
 
+      <!-- ══════════ EXPERIÊNCIAS ══════════ -->
+      <section class="secao border-t border-mata/10">
+        <div class="container-editorial">
+          <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1fr)] lg:gap-x-20">
+            <div>
+              <h2 class="font-display text-titulo">O que se faz<br />durante o dia</h2>
+              <Tinta class="my-8 max-w-[12rem]" />
+              <p class="text-tinta/80">
+                Passe o mouse nos nomes. No celular as fotos já ficam à mostra —
+                um componente que só existe no hover não existe para metade das pessoas.
+              </p>
+            </div>
+            <div>
+              <ListaExperiencias itens={experiencias} />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- ══════════ UM DIA NA VILLA ══════════ -->
       <section class="secao bg-mata text-areia">
         <div class="container-editorial">
           <div class="grid gap-14 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-x-24">
             <div>
-              <Campo tone="claro">Pacote de 1 diária <Voluta class="text-areia/35" /> 06h30 às 21h00</Campo>
-              <h2 class="font-display text-titulo mt-5 text-areia">Um dia na Villa</h2>
+              <h2 class="font-display text-titulo text-areia">Um dia na Villa</h2>
               <Tinta class="my-8 max-w-[12rem]" tone="claro" />
               <p class="text-intro text-areia/75">
                 Um dia com horário só existe onde tem cozinha, barco e equipe.
@@ -185,6 +237,9 @@ const cores = [
             </div>
 
             <div class="lg:pt-2">
+              <Campo tone="claro" class="mb-6 border-b border-areia/15 pb-4">
+                Pacote de 1 diária <Voluta class="text-areia/35" /> 06h30 às 21h00
+              </Campo>
               <LinhaDoDia momentos={momentos} rotulos={rotulos} tone="escuro" />
             </div>
           </div>
@@ -213,8 +268,8 @@ const cores = [
       <!-- ══════════ REFERÊNCIA DAS PEÇAS ══════════ -->
       <section class="secao">
         <div class="container-editorial">
-          <Campo tone="escuro">Referência interna <Voluta class="text-cinza/50" /> não vai ao ar</Campo>
-          <h2 class="font-display text-secao mt-4">As peças</h2>
+          <h2 class="font-display text-secao">As peças</h2>
+          <Campo tone="escuro" class="mt-3">Referência interna <Voluta class="text-cinza/50" /> não vai ao ar</Campo>
           <Tinta class="my-8" />
 
           <div class="grid gap-x-16 gap-y-12 md:grid-cols-2">
