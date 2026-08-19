@@ -113,6 +113,27 @@
   }
 }
 
+
+/* ═══ Grão de papel ═══
+   Uma camada de ruído fixa sobre tudo, inclusive sobre as fotos.
+   É o que separa "impresso em papel de algodão" de "renderizado no
+   navegador" — e unifica fotos de câmeras diferentes numa textura só.
+   Custa ~600 bytes e nenhuma requisição. */
+@layer base {
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.055;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E");
+  }
+
+  @media print { body::after { display: none; } }
+}
+
 /* ═══ Utilitários de composição ═══ */
 
 /* Olho / eyebrow: caixa alta condensada, o eco do wordmark */
@@ -152,10 +173,10 @@
   padding-block: var(--spacing-secao);
 }
 
-/* Filete fino da marca */
-@utility filete {
-  border: 0;
-  border-top: 1px solid var(--color-areia-3);
+/* Sangria: quebra o container e ocupa a largura toda da tela */
+@utility sangria {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
 }
 
 /* ═══ Botões ═══

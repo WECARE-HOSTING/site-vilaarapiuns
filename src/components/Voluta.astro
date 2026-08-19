@@ -1,0 +1,18 @@
+---
+/**
+ * A voluta — a espiral de samambaia que aparece quatro vezes no seu logo.
+ * Vira a marca de lista e de "incluso" do site inteiro, no lugar do
+ * check genérico que todo template usa.
+ */
+interface Props { class?: string; vazada?: boolean }
+const { class: className = '', vazada = false } = Astro.props;
+---
+<svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class:list={['h-3.5 w-3.5 shrink-0', className]}>
+  <path
+    d="M13.5 3.5 C 13.5 9, 10.5 13, 6.5 13 A 4.6 4.6 0 1 1 6.5 3.8 A 2.7 2.7 0 1 0 6.5 9.2"
+    stroke="currentColor"
+    stroke-width={vazada ? 1.1 : 1.5}
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

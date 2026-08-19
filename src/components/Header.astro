@@ -26,6 +26,14 @@ const t = useTranslations(locale);
       : 'bg-areia border-areia-3 text-mata',
   ]}
 >
+  {/* Véu no topo: o menu precisa continuar legível sobre folhagem clara. */}
+  {sobreFoto && (
+    <div
+      class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-32 bg-gradient-to-b from-mata-fundo/75 to-transparent"
+      aria-hidden="true"
+    ></div>
+  )}
+
   <div class="container-editorial flex items-center justify-between gap-6">
     <a href={href(locale, 'home')} class="shrink-0" aria-label={t('site.name')}>
       <Logo tone={sobreFoto ? 'claro' : 'escuro'} />

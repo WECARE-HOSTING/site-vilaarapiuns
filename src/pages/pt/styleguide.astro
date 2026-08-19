@@ -1,45 +1,44 @@
 ---
 /**
  * Página interna de aprovação do design (Fase 1).
- * Não entra no menu nem no sitemap — some antes de publicar.
+ * Mostra a linguagem visual aplicada de verdade — hero, seções e a
+ * linha do dia — e só no fim a referência das peças.
+ * Fora do menu e do sitemap; some antes de publicar.
  */
 import '@/styles/global.css';
-import Logo from '@/components/Logo.astro';
-import Olho from '@/components/Olho.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import FaixaGarantias from '@/components/FaixaGarantias.astro';
 import LinhaDoDia from '@/components/LinhaDoDia.astro';
+import Campo from '@/components/Campo.astro';
+import Tinta from '@/components/Tinta.astro';
+import Voluta from '@/components/Voluta.astro';
+import Logo from '@/components/Logo.astro';
 import { useTranslations } from '@/i18n/utils';
 import { Image } from 'astro:assets';
-import hero1 from '@/assets/imgs/hero1.jpg';
+import hero3 from '@/assets/imgs/hero3.jpg';
+import hero5 from '@/assets/imgs/hero5.jpg';
 import gal3 from '@/assets/imgs/gal3.jpg';
-import sobre from '@/assets/imgs/sobre.jpg';
 
 const locale = 'pt' as const;
 const t = useTranslations(locale);
 
-const cores = [
-  { nome: 'areia',       hex: '#f7f1e8', uso: 'Fundo dominante. A areia branca do Arapiuns.' },
-  { nome: 'areia-2',     hex: '#efe4d2', uso: 'Superfície secundária, cards, faixas.' },
-  { nome: 'areia-3',     hex: '#e3d3ba', uso: 'Filetes e bordas.' },
-  { nome: 'mata',        hex: '#22402b', uso: 'Títulos e seções escuras. O verde da floresta.' },
-  { nome: 'rede',        hex: '#2f6b72', uso: 'ACENTO PRINCIPAL. Links, "incluso", a linha do dia.' },
-  { nome: 'brasa',       hex: '#a85c2c', uso: 'Só o botão de ação. A luz da fogueira.' },
-  { nome: 'tinta',       hex: '#1f1e1b', uso: 'Texto corrido.' },
-  { nome: 'cinza',       hex: '#635e56', uso: 'Texto secundário. Cinza quente, nunca neutro.' },
-];
-
 const momentos = [
-  { hora: '07:00', titulo: 'Café da manhã na varanda', detalhe: 'Frutas, tapioca e café — preparado na cozinha da Villa.', refeicao: true },
-  { hora: '08:30', titulo: 'Trilha até o Lago Azul', detalhe: 'Com guia da equipe. Canoa na lagoa secreta.' },
-  { hora: '12:30', titulo: 'Almoço na comunidade ribeirinha', detalhe: 'Peixe fresco, feito pela família que recebe o grupo.', tipo: 'comunidade' as const, refeicao: true },
+  { hora: '07:00', titulo: 'Café na varanda', detalhe: 'Tapioca, frutas do quintal, café passado na hora.', refeicao: true },
+  { hora: '08:30', titulo: 'Trilha até o Lago Azul', detalhe: 'Com o guia da casa. Canoa na lagoa escondida.' },
+  { hora: '12:30', titulo: 'Almoço na comunidade', detalhe: 'Peixe fresco, feito pela família que recebe o grupo.', tipo: 'comunidade' as const, refeicao: true },
   { hora: '14:00', titulo: 'Farinhada e tecelagem', detalhe: 'Oficina com as artesãs da comunidade.', tipo: 'comunidade' as const },
   { hora: '17:30', titulo: 'Pôr do sol na Ponta Grande' },
-  { hora: '19:30', titulo: 'Jantar e fogueira na praia', detalhe: 'Todas as refeições na Villa estão inclusas.', refeicao: true },
+  { hora: '19:30', titulo: 'Jantar e fogueira na praia', refeicao: true },
 ];
-
 const rotulos = { incluso: t('dia.incluso'), comunidade: t('dia.comunidade') };
+
+const cores = [
+  { nome: 'areia',   hex: '#f7f1e8', uso: 'Fundo. A areia da praia.' },
+  { nome: 'mata',    hex: '#22402b', uso: 'Títulos e seções escuras.' },
+  { nome: 'rede',    hex: '#2f6b72', uso: 'Acento. A rede da varanda.' },
+  { nome: 'brasa',   hex: '#a85c2c', uso: 'Só o botão de reserva. A fogueira.' },
+];
 ---
 
 <!doctype html>
@@ -55,212 +54,210 @@ const rotulos = { incluso: t('dia.incluso'), comunidade: t('dia.comunidade') };
   </head>
 
   <body>
-    <Header locale={locale} pageKey="home" />
+    <Header locale={locale} pageKey="home" sobreFoto />
 
-    <main class="pt-24">
-      <!-- ══ Abertura ══ -->
-      <section class="container-editorial pt-10 pb-14">
-        <Olho tone="cinza">Fase 1 · Design system para aprovação</Olho>
-        <h1 class="font-display text-titulo mt-4 max-w-3xl">
-          A cara do site, antes de qualquer página
-        </h1>
-        <p class="text-intro text-cinza mt-5 max-w-2xl">
-          Tudo aqui saiu das fotos da própria Villa e do seu logo — não de uma paleta pronta.
-          Aprove esta página e eu monto a home em cima dela.
-        </p>
+    <main>
+      <!-- ══════════ HERO ══════════ -->
+      <section class="relative min-h-[88svh] w-full overflow-hidden bg-mata-fundo">
+        <Image
+          src={hero3}
+          alt="Três pessoas caminhando numa trilha de areia na floresta, o guia da Villa à frente"
+          widths={[800, 1280, 1920, 2400]}
+          sizes="100vw"
+          loading="eager"
+          fetchpriority="high"
+          class="absolute inset-0 h-full w-full object-cover object-[72%_center]"
+        />
+        <!-- escurecimento só onde o texto pousa, para a foto não morrer -->
+        {/* No celular a tela é estreita: só o véu vertical, senão a foto some.
+            A partir de md entra o lateral, que abre a faixa escura do texto. */}
+        <div class="absolute inset-0 bg-gradient-to-t from-mata-fundo/95 via-mata-fundo/50 to-mata-fundo/20"></div>
+        <div class="absolute inset-0 hidden bg-gradient-to-r from-mata-fundo via-mata-fundo/75 to-transparent to-65% md:block lg:to-58%"></div>
+
+        <div class="container-editorial relative flex min-h-[88svh] flex-col justify-end pb-14 pt-32 md:pb-20">
+          <div class="max-w-[34rem] lg:max-w-[38rem]">
+            <Campo tone="claro" class="!text-areia/75">
+              <span>02°26′S&nbsp;&nbsp;55°16′W</span>
+              <Voluta class="text-areia/50" />
+              <span>1h30 de barco de Alter do Chão</span>
+              <Voluta class="text-areia/50" />
+              <span>13 cabanas</span>
+            </Campo>
+
+            <h1 class="font-display text-display mt-6 text-areia">
+              Uma pousada na Amazônia.
+              <span class="block text-areia/65">Não um passeio.</span>
+            </h1>
+
+            <p class="text-intro mt-7 max-w-md text-areia/85">
+              Treze cabanas às margens do Rio Arapiuns. Você chega, deixa as malas
+              e sai — o barco, a cozinha e o caminho são da casa.
+            </p>
+
+            <div class="mt-9 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:items-center sm:gap-4">
+              <a href="#" class="btn btn-primario px-4 sm:px-8">Consultar datas</a>
+              <a href="#" class="btn btn-claro px-4 sm:px-8">Ver os pacotes</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nota de campo: encosta na borda da foto, como anotação a lápis -->
+        <aside class="pointer-events-none absolute bottom-0 right-0 hidden max-w-xs bg-areia px-7 py-6 lg:block">
+          <Voluta class="mb-3 text-rede" />
+          <p class="text-sm leading-snug text-tinta">
+            À frente, o guia da Villa. Ninguém sai sozinho — e ninguém carrega mochila
+            atrás de reserva de barco.
+          </p>
+          <Tinta class="mt-4" tone="rede" />
+        </aside>
       </section>
 
       <FaixaGarantias locale={locale} />
 
-      <!-- ══ De onde veio ══ -->
-      <section class="container-editorial secao">
-        <Olho>De onde veio</Olho>
-        <h2 class="font-display text-secao mt-4 mb-10 max-w-2xl">
-          As cores não foram escolhidas. Foram encontradas.
-        </h2>
+      <!-- ══════════ A POUSADA ══════════ -->
+      <section class="secao overflow-hidden">
+        <div class="container-editorial">
+          <div class="grid items-center gap-y-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-x-20">
+            <div class="lg:pr-4">
+              <Campo>13 cabanas <Voluta class="text-rede/50" /> 26 hóspedes <Voluta class="text-rede/50" /> 5+ anos</Campo>
 
-        <div class="grid gap-8 md:grid-cols-3">
-          <figure>
-            <Image src={gal3} alt="Varanda de uma cabana à noite, com rede e luminária de fibra" widths={[400, 800, 1200]} sizes="(min-width: 768px) 30vw, 100vw" class="aspect-[4/3] w-full object-cover" />
-            <figcaption class="mt-3 text-sm text-cinza">
-              <span class="inline-block h-3 w-3 translate-y-0.5 bg-rede mr-2"></span>
-              A rede da varanda deu o <strong class="text-rede font-medium">verde-azulado</strong> — o acento principal do site.
-            </figcaption>
-          </figure>
-          <figure>
-            <Image src={sobre} alt="Fogueira e velas na praia à noite, à beira do rio" widths={[400, 800, 1200]} sizes="(min-width: 768px) 30vw, 100vw" class="aspect-[4/3] w-full object-cover" />
-            <figcaption class="mt-3 text-sm text-cinza">
-              <span class="inline-block h-3 w-3 translate-y-0.5 bg-brasa mr-2"></span>
-              A fogueira deu o <strong class="text-brasa font-medium">âmbar</strong>, reservado só ao botão de reserva.
-            </figcaption>
-          </figure>
-          <figure>
-            <Image src={hero1} alt="Portão de madeira da Villa aberto para a praia e o rio" widths={[400, 800, 1200]} sizes="(min-width: 768px) 30vw, 100vw" class="aspect-[4/3] w-full object-cover" />
-            <figcaption class="mt-3 text-sm text-cinza">
-              <span class="inline-block h-3 w-3 translate-y-0.5 bg-areia-3 mr-2"></span>
-              A areia da praia virou o <strong class="text-mata font-medium">fundo</strong> de todo o site.
-            </figcaption>
-          </figure>
-        </div>
-      </section>
+              <h2 class="font-display text-titulo mt-5">
+                Onde a floresta começa<br />e o tempo para de correr
+              </h2>
 
-      <!-- ══ Paleta ══ -->
-      <section class="bg-areia-2/50 border-y border-areia-3">
-        <div class="container-editorial secao">
-          <Olho>Paleta</Olho>
-          <h2 class="font-display text-secao mt-4 mb-10">Oito cores, dois acentos</h2>
+              <Tinta class="my-8 max-w-[14rem]" />
 
-          <div class="grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
-            {cores.map((c) => (
-              <div>
-                <div class="h-20 w-full border border-black/10" style={`background:${c.hex}`}></div>
-                <p class="olho mt-3 text-mata">{c.nome}</p>
-                <p class="numero text-xs text-cinza-claro mt-0.5">{c.hex}</p>
-                <p class="mt-1.5 text-sm text-cinza leading-snug">{c.uso}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <!-- ══ Tipografia ══ -->
-      <section class="container-editorial secao">
-        <Olho>Tipografia</Olho>
-        <h2 class="font-display text-secao mt-4 mb-3">Três vozes, duas famílias</h2>
-        <p class="text-cinza max-w-2xl mb-12">
-          Seu logo é uma condensada em caixa alta, com um desenho botânico feito à mão.
-          A tipografia do site responde a isso — e é por isso que troquei as fontes do plano original.
-        </p>
-
-        <div class="space-y-12">
-          <div class="grid gap-6 md:grid-cols-[10rem_1fr] md:gap-10">
-            <div>
-              <p class="olho text-rede">Fraunces</p>
-              <p class="text-sm text-cinza mt-1.5">Títulos. Serifa macia, de baixo contraste — o mesmo traço "feito à mão" do seu logo.</p>
-            </div>
-            <div class="min-w-0">
-              <p class="font-display text-display text-mata">Durma na floresta</p>
-              <p class="font-display text-titulo text-mata mt-2">Acorde na Amazônia</p>
-              <p class="font-display text-secao text-mata mt-4">Um dia começa no lago e termina na fogueira</p>
-            </div>
-          </div>
-
-          <hr class="filete" />
-
-          <div class="grid gap-6 md:grid-cols-[10rem_1fr] md:gap-10">
-            <div>
-              <p class="olho text-rede">Archivo Narrow</p>
-              <p class="text-sm text-cinza mt-1.5">Rótulos, menu, horários. Ecoa o wordmark ARAPIUNS.</p>
-            </div>
-            <div class="min-w-0 space-y-3">
-              <p class="olho text-mata text-base">A POUSADA · PENSÃO COMPLETA · EXPERIÊNCIAS · PACOTES</p>
-              <p class="numero text-2xl text-mata">07:00 · 12:30 · 17:30 · 19:30</p>
-              <p class="numero text-2xl text-mata">13 cabanas · 26 hóspedes · 1h30 de barco</p>
-            </div>
-          </div>
-
-          <hr class="filete" />
-
-          <div class="grid gap-6 md:grid-cols-[10rem_1fr] md:gap-10">
-            <div>
-              <p class="olho text-rede">Archivo</p>
-              <p class="text-sm text-cinza mt-1.5">Texto corrido. Mesma família da condensada, então tudo parece parente.</p>
-            </div>
-            <div class="min-w-0">
-              <p class="text-intro max-w-2xl">
-                A Villa Arapiuns é uma pousada às margens do rio, com treze cabanas e uma equipe
-                que cuida do barco, da cozinha e do caminho.
+              <p class="text-intro text-tinta/85">
+                A Villa Arapiuns é uma pousada de base comunitária às margens do rio,
+                no Pará. Não é um acampamento e não é um hotel: são treze cabanas de
+                madeira e palha, uma cozinha que funciona o dia inteiro e uma equipe
+                que conhece cada curva do caminho.
               </p>
-              <p class="mt-4 max-w-2xl text-cinza">
-                Você chega, deixa as malas e sai. Volta cansado do melhor jeito possível — pela floresta,
-                pelo sol, pelas histórias. Come bem, dorme fundo. Em mais de cinco anos de operação,
-                nenhum incidente.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- ══ Assinatura ══ -->
-      <section class="bg-mata text-areia">
-        <div class="container-editorial secao">
-          <div class="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
-            <div>
-              <Olho tone="areia">O elemento-assinatura</Olho>
-              <h2 class="font-display text-titulo text-areia mt-4">Um dia na Villa</h2>
-              <p class="text-intro text-areia/75 mt-6">
-                É a única coisa do site que nenhum concorrente tem — e faz três trabalhos de uma vez.
-              </p>
-              <ul class="mt-8 space-y-4 text-areia/70">
-                <li class="border-l-2 border-rede-claro pl-4">
-                  <strong class="text-areia font-medium">Prova que é pousada.</strong>{' '}
-                  Um dia com horário só existe onde tem cozinha, barco e equipe.
-                </li>
-                <li class="border-l-2 border-rede-claro pl-4">
-                  <strong class="text-areia font-medium">Acaba com a dúvida do que está incluso.</strong>{' '}
-                  Cada momento diz ali mesmo se é do pacote ou pago à comunidade.
-                </li>
-                <li class="border-l-2 border-rede-claro pl-4">
-                  <strong class="text-areia font-medium">É o rio.</strong>{' '}
-                  A linha que desce a página é a mesma água que leva o hóspede até lá.
-                </li>
+              <ul class="mt-8 space-y-3.5">
+                {[
+                  'Cozinha própria: café, almoço e jantar servidos na Villa, todos os dias.',
+                  'Barco de Alter do Chão até a pousada, ida e volta, dentro do pacote.',
+                  'Anfitrião local morando na Villa — não uma recepção que fecha às 18h.',
+                ].map((item) => (
+                  <li class="flex gap-3.5">
+                    <Voluta class="mt-1.5 text-rede" />
+                    <span class="text-tinta/80">{item}</span>
+                  </li>
+                ))}
               </ul>
             </div>
 
-            <div class="lg:pt-4">
+            <!-- foto rompe o container e sangra até a borda direita da tela -->
+            <div class="relative lg:mr-[calc(50%-50vw)]">
+              <Image
+                src={hero5}
+                alt="Área comum da Villa, com telhado de palha e estrutura de madeira"
+                widths={[600, 900, 1400]}
+                sizes="(min-width: 1024px) 55vw, 100vw"
+                class="aspect-[5/4] w-full object-cover lg:aspect-[4/3]"
+              />
+              <figcaption class="numero absolute -top-3 left-4 bg-areia px-3 py-1.5 text-[0.625rem] uppercase tracking-[0.16em] text-cinza lg:left-8">
+                Área comum · madeira e palha
+              </figcaption>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════ UM DIA NA VILLA ══════════ -->
+      <section class="secao bg-mata text-areia">
+        <div class="container-editorial">
+          <div class="grid gap-14 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-x-24">
+            <div>
+              <Campo tone="claro">Pacote de 1 diária <Voluta class="text-areia/35" /> 06h30 às 21h00</Campo>
+              <h2 class="font-display text-titulo mt-5 text-areia">Um dia na Villa</h2>
+              <Tinta class="my-8 max-w-[12rem]" tone="claro" />
+              <p class="text-intro text-areia/75">
+                Um dia com horário só existe onde tem cozinha, barco e equipe.
+                É por isso que o roteiro abre o site: ele prova, sem precisar
+                dizer, que isto aqui é uma pousada.
+              </p>
+              <p class="mt-5 text-areia/60">
+                E resolve a dúvida que fazia gente desistir: cada momento diz
+                ali mesmo se é do pacote ou pago direto à comunidade.
+              </p>
+            </div>
+
+            <div class="lg:pt-2">
               <LinhaDoDia momentos={momentos} rotulos={rotulos} tone="escuro" />
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ══ Componentes ══ -->
-      <section class="container-editorial secao">
-        <Olho>Componentes</Olho>
-        <h2 class="font-display text-secao mt-4 mb-10">As peças</h2>
-
-        <div class="grid gap-12 md:grid-cols-2 lg:gap-16">
-          <div>
-            <p class="olho text-cinza-claro mb-5">Botões</p>
-            <div class="flex flex-wrap items-center gap-4">
-              <a href="#" class="btn btn-primario">Reservar</a>
-              <a href="#" class="btn btn-secundario">Ver pacotes</a>
-              <a href="#" class="link-texto text-sm">Como chegar até a Villa</a>
-            </div>
-            <p class="mt-5 text-sm text-cinza">
-              O âmbar aparece cheio em um único lugar do site inteiro: o botão de reserva.
-              É o que faz o olho ir para lá sem precisar gritar.
-            </p>
+      <!-- ══════════ NOITE ══════════ -->
+      <section class="relative">
+        <Image
+          src={gal3}
+          alt="Varanda de uma cabana à noite, com rede e luminária de fibra acesa"
+          widths={[900, 1400, 2000]}
+          sizes="100vw"
+          class="h-[60svh] w-full object-cover"
+        />
+        <div class="absolute inset-0 flex items-end bg-gradient-to-t from-mata-fundo/85 to-transparent">
+          <div class="container-editorial pb-12">
+            <blockquote class="font-display max-w-2xl text-secao text-areia">
+              “Come bem, dorme fundo. Volta cansado do melhor jeito possível.”
+            </blockquote>
+            <Campo tone="claro" class="mt-4">Cabana 7 <Voluta class="text-areia/35" /> 21h40</Campo>
           </div>
+        </div>
+      </section>
 
-          <div>
-            <p class="olho text-cinza-claro mb-5">Olho de seção</p>
-            <div class="space-y-4">
-              <Olho>A pousada</Olho>
-              <Olho tone="brasa">Pacote 2 diárias</Olho>
-              <Olho tone="cinza">Rio Arapiuns · Pará</Olho>
+      <!-- ══════════ REFERÊNCIA DAS PEÇAS ══════════ -->
+      <section class="secao">
+        <div class="container-editorial">
+          <Campo tone="escuro">Referência interna <Voluta class="text-cinza/50" /> não vai ao ar</Campo>
+          <h2 class="font-display text-secao mt-4">As peças</h2>
+          <Tinta class="my-8" />
+
+          <div class="grid gap-x-16 gap-y-12 md:grid-cols-2">
+            <div>
+              <p class="numero mb-5 text-[0.6875rem] uppercase tracking-[0.16em] text-cinza">Paleta</p>
+              <div class="grid grid-cols-4 gap-3">
+                {cores.map((c) => (
+                  <div>
+                    <div class="aspect-square w-full border border-mata/12" style={`background:${c.hex}`}></div>
+                    <p class="numero mt-2 text-[0.625rem] uppercase tracking-[0.14em] text-mata">{c.nome}</p>
+                    <p class="mt-1 text-xs leading-snug text-cinza">{c.uso}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
 
-          <div>
-            <p class="olho text-cinza-claro mb-5">Marca</p>
-            <div class="flex flex-wrap items-center gap-8">
-              <Logo />
-              <div class="bg-mata px-6 py-4"><Logo tone="claro" /></div>
+            <div>
+              <p class="numero mb-5 text-[0.6875rem] uppercase tracking-[0.16em] text-cinza">Botões e marca</p>
+              <div class="flex flex-wrap items-center gap-4">
+                <a href="#" class="btn btn-primario">Reservar</a>
+                <a href="#" class="btn btn-secundario">Ver pacotes</a>
+              </div>
+              <div class="mt-6 flex flex-wrap items-center gap-6">
+                <Logo />
+                <div class="bg-mata px-5 py-3"><Logo tone="claro" /></div>
+              </div>
             </div>
-            <p class="mt-5 text-sm text-cinza">
-              Redesenhei o traço do logo em SVG: escala sem borrar, herda a cor do fundo
-              e pesa 1 KB no lugar dos 576 KB do PNG atual.
-            </p>
-          </div>
 
-          <div>
-            <p class="olho text-cinza-claro mb-5">Número em destaque</p>
-            <dl class="grid grid-cols-3 gap-6">
-              <div><dt class="font-display text-titulo text-mata leading-none">13</dt><dd class="olho text-cinza mt-2">Cabanas</dd></div>
-              <div><dt class="font-display text-titulo text-mata leading-none">26</dt><dd class="olho text-cinza mt-2">Hóspedes</dd></div>
-              <div><dt class="font-display text-titulo text-mata leading-none">5+</dt><dd class="olho text-cinza mt-2">Anos</dd></div>
-            </dl>
+            <div>
+              <p class="numero mb-5 text-[0.6875rem] uppercase tracking-[0.16em] text-cinza">Tipografia</p>
+              <p class="font-display text-titulo text-mata">Durma na floresta</p>
+              <p class="numero mt-3 text-xl text-mata">07:00 · 13 cabanas · 1h30 de barco</p>
+              <p class="mt-3 text-tinta/80">Texto corrido em Archivo, 350 de peso.</p>
+            </div>
+
+            <div>
+              <p class="numero mb-5 text-[0.6875rem] uppercase tracking-[0.16em] text-cinza">Traço e marca de lista</p>
+              <Tinta peso="medio" />
+              <ul class="mt-5 space-y-2">
+                <li class="flex gap-3"><Voluta class="mt-1.5 text-rede" /><span class="text-tinta/80">A voluta do seu logo, no lugar do check genérico.</span></li>
+                <li class="flex gap-3"><Voluta class="mt-1.5 text-rede" /><span class="text-tinta/80">Nenhum filete de 1px no site inteiro.</span></li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>

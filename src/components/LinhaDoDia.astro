@@ -30,14 +30,25 @@ const escuro = tone === 'escuro';
 ---
 
 <ol class:list={['relative', escuro ? 'text-areia' : 'text-tinta']}>
-  {/* o rio: a linha vertical que atravessa o dia */}
-  <div
-    class:list={[
-      'pointer-events-none absolute left-[4.25rem] top-3 bottom-3 w-px sm:left-[5.5rem]',
-      escuro ? 'bg-areia/25' : 'bg-rede/30',
-    ]}
+  {/* o rio: traçado à mão, com meandro — não um filete de 1px */}
+  <svg
+    viewBox="0 0 10 400"
+    preserveAspectRatio="none"
     aria-hidden="true"
-  ></div>
+    class:list={[
+      'pointer-events-none absolute left-[3.9rem] top-4 bottom-4 w-2.5 sm:left-[5.15rem]',
+      escuro ? 'text-areia/30' : 'text-rede/45',
+    ]}
+    fill="none"
+  >
+    <path
+      d="M5,0 C7.4,26 2.8,52 5.2,78 S7.8,130 4.6,156 S2.4,208 5.4,234 S7.6,286 4.4,312 S2.6,364 5,400"
+      stroke="currentColor"
+      stroke-width="1.3"
+      stroke-linecap="round"
+      vector-effect="non-scaling-stroke"
+    />
+  </svg>
 
   {momentos.map((m) => (
     <li class="relative grid grid-cols-[3.5rem_1.5rem_1fr] items-start gap-x-3 py-3.5 sm:grid-cols-[4.5rem_2rem_1fr] sm:gap-x-4">
