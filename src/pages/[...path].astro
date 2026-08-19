@@ -1,0 +1,28 @@
+---
+/**
+ * Roteador único do site.
+ *
+ * Gera as 10 páginas × 5 idiomas a partir do mapa em src/i18n/routes.ts,
+ * usando o slug traduzido de cada idioma (/pt/pacotes/ ↔ /en/packages/).
+ * Assim não existe um arquivo .astro duplicado por idioma.
+ */
+import { LOCALES, type Locale } from '@/i18n/config';
+import { PAGE_KEYS, SLUGS, type PageKey } from '@/i18n/routes';
+import PageRenderer from '@/content-pages/PageRenderer.astro';
+
+export function getStaticPaths() {
+  return LOCALES.flatMap((locale) =>
+    PAGE_KEYS.map((pageKey) => {
+      const slug = SLUGS[pageKey][locale];
+      return {
+        params: { path: slug ? `${locale}/${slug}` : locale },
+        props: { locale, pageKey },
+      };
+    })
+  );
+}
+
+const { locale, pageKey } = Astro.props as { locale: Locale; pageKey: PageKey };
+---
+
+<PageRenderer locale={locale} pageKey={pageKey} />

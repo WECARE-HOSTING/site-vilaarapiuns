@@ -1,0 +1,34 @@
+{
+  "site": {
+    "name": "Villa Arapiuns",
+    "tagline": "Pousada na Amazônia · Rio Arapiuns, Pará"
+  },
+  "nav": {
+    "lodge": "A Pousada",
+    "dining": "Pensão Completa",
+    "experiences": "Experiências",
+    "packages": "Pacotes",
+    "privateVilla": "Villa Privativa",
+    "gettingHere": "Como Chegar",
+    "gallery": "Galeria",
+    "reviews": "Avaliações",
+    "book": "Reservar",
+    "menu": "Menu",
+    "close": "Fechar",
+    "language": "Idioma"
+  },
+  "cta": {
+    "book": "Reservar",
+    "checkAvailability": "Consultar disponibilidade",
+    "whatsapp": "Falar no WhatsApp",
+    "seePackages": "Ver pacotes",
+    "learnMore": "Saiba mais"
+  },
+  "trust": {
+    "fullBoard": "Pensão completa na pousada",
+    "boat": "Barco de Alter do Chão incluso",
+    "team": "Equipe própria em toda a logística",
+    "host": "Anfitrião local na Villa",
+    "years": "5+ anos, zero incidentes"
+  }
+}

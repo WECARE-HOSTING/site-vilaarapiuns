@@ -1,0 +1,71 @@
+---
+import '@/styles/global.css';
+import { HTML_LANG, LOCALES, type Locale } from '@/i18n/config';
+import { href, type PageKey } from '@/i18n/routes';
+import { SITE } from '@/data/site';
+
+interface Props {
+  locale: Locale;
+  pageKey: PageKey;
+  title: string;
+  description: string;
+}
+
+const { locale, pageKey, title, description } = Astro.props;
+
+const canonical = new URL(href(locale, pageKey), SITE.domain).toString();
+
+// hreflang recíproco: cada idioma aponta para o MESMO conteúdo no slug dele.
+const alternates = LOCALES.map((l) => ({
+  lang: HTML_LANG[l],
+  url: new URL(href(l, pageKey), SITE.domain).toString(),
+}));
+---
+
+<!doctype html>
+<html lang={HTML_LANG[locale]}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    {alternates.map((a) => <link rel="alternate" hreflang={a.lang} href={a.url} />)}
+    <link rel="alternate" hreflang="x-default" href={new URL(href('en', pageKey), SITE.domain).toString()} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={HTML_LANG[locale].replace('-', '_')} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap"
+    />
+
+    <slot name="head" />
+  </head>
+
+  <body>
+    <a
+      href="#conteudo"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-verde focus:text-creme focus:px-5 focus:py-3"
+    >
+      Ir para o conteúdo
+    </a>
+
+    <slot name="header" />
+
+    <main id="conteudo">
+      <slot />
+    </main>
+
+    <slot name="footer" />
+  </body>
+</html>

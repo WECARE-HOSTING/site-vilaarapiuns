@@ -1,0 +1,32 @@
+---
+/**
+ * Despacha cada chave de página para o seu componente.
+ * Páginas ainda não construídas caem no Scaffold, que mostra em que fase
+ * do plano elas entram — assim o site nunca tem link quebrado durante a obra.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Scaffold from '@/content-pages/Scaffold.astro';
+import { useTranslations } from '@/i18n/utils';
+import { SITE } from '@/data/site';
+import type { Locale } from '@/i18n/config';
+import type { PageKey } from '@/i18n/routes';
+
+interface Props {
+  locale: Locale;
+  pageKey: PageKey;
+}
+
+const { locale, pageKey } = Astro.props;
+const t = useTranslations(locale);
+
+const title =
+  pageKey === 'home'
+    ? `${SITE.name} — ${t('site.tagline')}`
+    : `${t(`nav.${pageKey}`)} · ${SITE.name}`;
+
+const description = t('site.tagline');
+---
+
+<BaseLayout locale={locale} pageKey={pageKey} title={title} description={description}>
+  <Scaffold locale={locale} pageKey={pageKey} />
+</BaseLayout>
