@@ -19,7 +19,7 @@
   },
   "cta": {
     "book": "Reservar",
-    "checkAvailability": "Consultar disponibilidade",
+    "checkAvailability": "Consultar datas",
     "whatsapp": "Falar no WhatsApp",
     "seePackages": "Ver pacotes",
     "learnMore": "Saiba mais"
@@ -27,8 +27,23 @@
   "trust": {
     "fullBoard": "Pensão completa na pousada",
     "boat": "Barco de Alter do Chão incluso",
-    "team": "Equipe própria em toda a logística",
+    "team": "Equipe própria na logística",
     "host": "Anfitrião local na Villa",
     "years": "5+ anos, zero incidentes"
+  },
+  "dia": {
+    "incluso": "Incluso no pacote",
+    "comunidade": "Pago à comunidade"
+  },
+  "footer": {
+    "sobre": "Pousada de turismo de base comunitária às margens do Rio Arapiuns. Treze cabanas, pensão completa e uma equipe que cuida do barco, da cozinha e do caminho — para que você só precise chegar.",
+    "visita": "A Villa",
+    "reserva": "Planeje sua estadia",
+    "local": "Onde fica",
+    "partida": "Saída dos grupos",
+    "tipo": "Turismo de base comunitária"
+  },
+  "whatsapp": {
+    "geral": "Olá! Gostaria de saber mais sobre a Villa Arapiuns."
   }
 }

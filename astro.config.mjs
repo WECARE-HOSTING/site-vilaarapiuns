@@ -20,7 +20,13 @@ export default defineConfig({
     },
   },
 
-  integrations: [sitemap({ i18n: { defaultLocale: 'en', locales: { en: 'en', pt: 'pt-BR', es: 'es', de: 'de', ja: 'ja' } } })],
+  integrations: [
+    sitemap({
+      // A página de aprovação do design é interna: fora do sitemap.
+      filter: (page) => !page.includes('/styleguide'),
+      i18n: { defaultLocale: 'en', locales: { en: 'en', pt: 'pt-BR', es: 'es', de: 'de', ja: 'ja' } },
+    }),
+  ],
 
   vite: { plugins: [tailwindcss()] },
 });

@@ -1,0 +1,19 @@
+---
+/**
+ * "Olho" (eyebrow): rótulo em caixa alta condensada que abre cada seção.
+ * Carrega informação real — onde você está, ou o que a seção contém —
+ * nunca é enfeite.
+ */
+interface Props { tone?: 'rede' | 'brasa' | 'cinza' | 'areia'; class?: string }
+const { tone = 'rede', class: className = '' } = Astro.props;
+const cores = {
+  rede: 'text-rede',
+  brasa: 'text-brasa-claro',
+  cinza: 'text-cinza-claro',
+  areia: 'text-areia/70',
+};
+---
+<p class:list={['olho flex items-center gap-3', cores[tone], className]}>
+  <span class="inline-block h-px w-6 bg-current opacity-50"></span>
+  <slot />
+</p>

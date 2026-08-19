@@ -1,0 +1,33 @@
+---
+/**
+ * A promessa da Villa, repetida em toda página logo abaixo do topo.
+ * Existe porque o visitante estrangeiro precisa saber, em 3 segundos,
+ * que isto é uma pousada com estrutura — e não um passeio de um dia.
+ */
+import { useTranslations } from '@/i18n/utils';
+import type { Locale } from '@/i18n/config';
+
+interface Props { locale: Locale; tone?: 'claro' | 'escuro' }
+const { locale, tone = 'claro' } = Astro.props;
+const t = useTranslations(locale);
+
+const itens = ['fullBoard', 'boat', 'team', 'host', 'years'] as const;
+---
+
+<div
+  class:list={[
+    'border-y',
+    tone === 'claro' ? 'border-areia-3 bg-areia-2/60 text-mata' : 'border-areia/15 bg-mata-fundo text-areia',
+  ]}
+>
+  <ul class="container-editorial flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5 py-3.5 xl:flex-nowrap xl:justify-between">
+    {itens.map((k) => (
+      <li class="flex items-center gap-2.5">
+        <svg viewBox="0 0 14 14" class="h-3 w-3 shrink-0 text-rede" aria-hidden="true">
+          <path d="M1.5 7.5l3.5 3.5L12.5 3" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span class="olho whitespace-nowrap text-[0.625rem] opacity-85 xl:text-[0.6875rem]">{t(`trust.${k}`)}</span>
+      </li>
+    ))}
+  </ul>
+</div>

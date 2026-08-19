@@ -1,0 +1,92 @@
+---
+import Logo from '@/components/Logo.astro';
+import { LOCALES, LOCALE_NAMES, HTML_LANG, type Locale } from '@/i18n/config';
+import { PAGE_KEYS, href } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/utils';
+import { SITE, whatsappUrl } from '@/data/site';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const ano = 2026;
+const colunaVisita = ['lodge', 'dining', 'gallery'] as const;
+const colunaReserva = ['packages', 'privateVilla', 'gettingHere', 'reviews', 'book'] as const;
+---
+
+<footer class="bg-mata text-areia">
+  <div class="container-editorial py-16 md:py-20">
+    <div class="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr] lg:gap-16">
+      <div>
+        <Logo tone="claro" />
+        <p class="mt-6 max-w-sm text-sm leading-relaxed text-areia/70">
+          {t('footer.sobre')}
+        </p>
+
+        <div class="mt-8 flex flex-col gap-2 text-sm">
+          <a href={whatsappUrl(t('whatsapp.geral'))} class="link-texto w-fit text-areia decoration-areia/40">
+            {t('cta.whatsapp')}
+          </a>
+          {SITE.contact.email && (
+            <a href={`mailto:${SITE.contact.email}`} class="link-texto w-fit text-areia decoration-areia/40">
+              {SITE.contact.email}
+            </a>
+          )}
+        </div>
+      </div>
+
+      <nav aria-labelledby="rodape-visita">
+        <p id="rodape-visita" class="olho mb-5 text-areia/45">{t('footer.visita')}</p>
+        <ul class="space-y-2.5 text-sm">
+          {colunaVisita.map((k) => (
+            <li><a href={href(locale, k)} class="text-areia/80 hover:text-areia">{t(`nav.${k}`)}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="rodape-reserva">
+        <p id="rodape-reserva" class="olho mb-5 text-areia/45">{t('footer.reserva')}</p>
+        <ul class="space-y-2.5 text-sm">
+          {colunaReserva.map((k) => (
+            <li><a href={href(locale, k)} class="text-areia/80 hover:text-areia">{t(`nav.${k}`)}</a></li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+
+    <div class="mt-14 grid gap-6 border-t border-areia/15 pt-8 md:grid-cols-2">
+      <dl class="grid grid-cols-2 gap-6 text-sm sm:max-w-md">
+        <div>
+          <dt class="olho mb-1.5 text-areia/45">{t('footer.local')}</dt>
+          <dd class="text-areia/85">{SITE.location.river}, {SITE.location.state} — Brasil</dd>
+        </div>
+        <div>
+          <dt class="olho mb-1.5 text-areia/45">{t('footer.partida')}</dt>
+          <dd class="text-areia/85">{SITE.location.departsFrom}, {SITE.location.state}</dd>
+        </div>
+      </dl>
+
+      <div class="md:text-right">
+        <p class="olho mb-3 text-areia/45">{t('nav.language')}</p>
+        <ul class="flex flex-wrap gap-x-5 gap-y-2 text-sm md:justify-end">
+          {LOCALES.map((l) => (
+            <li>
+              <a
+                href={href(l, 'home')}
+                hreflang={HTML_LANG[l]}
+                lang={HTML_LANG[l]}
+                class:list={[l === locale ? 'text-areia' : 'text-areia/55 hover:text-areia/85']}
+              >
+                {LOCALE_NAMES[l]}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <p class="mt-10 text-xs text-areia/40">
+      © {ano} {SITE.name} · {t('footer.tipo')}
+    </p>
+  </div>
+</footer>

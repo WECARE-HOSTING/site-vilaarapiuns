@@ -1,0 +1,34 @@
+---
+/**
+ * Marca da Villa: o traço botânico do logo original, redesenhado em SVG
+ * para escalar, herdar a cor do contexto e pesar 1KB em vez de 576KB.
+ */
+interface Props { class?: string; tone?: 'escuro' | 'claro' }
+const { class: className = '', tone = 'escuro' } = Astro.props;
+const cor = tone === 'claro' ? 'text-areia' : 'text-mata';
+---
+
+<span class:list={['inline-flex items-center gap-3', cor, className]}>
+  <svg viewBox="0 0 64 44" class="h-8 w-auto shrink-0" fill="none" aria-hidden="true">
+    <g stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+      <!-- folha central -->
+      <path d="M32 42 C 28 30, 28 14, 32 3 C 36 14, 36 30, 32 42 Z" />
+      <!-- folhas internas -->
+      <path d="M32 42 C 24 32, 18 20, 17 9 C 25 17, 31 30, 32 42 Z" />
+      <path d="M32 42 C 40 32, 46 20, 47 9 C 39 17, 33 30, 32 42 Z" />
+      <!-- folhas rasantes -->
+      <path d="M32 42 C 21 40, 9 36, 2 30 C 12 29, 25 34, 32 42 Z" />
+      <path d="M32 42 C 43 40, 55 36, 62 30 C 52 29, 39 34, 32 42 Z" />
+      <!-- volutas: as espirais de samambaia do logo original -->
+      <path d="M24 27 a2.6 2.6 0 1 1 -2.4 -2.6 a1.5 1.5 0 1 0 1.4 1.5" />
+      <path d="M40 27 a2.6 2.6 0 1 0 2.4 -2.6 a1.5 1.5 0 1 1 -1.4 1.5" />
+      <path d="M16 36 a2.2 2.2 0 1 1 -2 -2.2 a1.3 1.3 0 1 0 1.2 1.3" />
+      <path d="M48 36 a2.2 2.2 0 1 0 2 -2.2 a1.3 1.3 0 1 1 -1.2 1.3" />
+    </g>
+  </svg>
+
+  <span class="flex flex-col leading-none">
+    <span class="olho text-[0.95rem] tracking-[0.22em]">ARAPIUNS</span>
+    <span class="olho text-[0.5rem] opacity-60 mt-1">Rio Arapiuns · Pará</span>
+  </span>
+</span>

@@ -1,0 +1,84 @@
+---
+/**
+ * ELEMENTO-ASSINATURA DO SITE — "a linha do dia".
+ *
+ * O produto da Villa não é uma lista de atrações: é um dia inteiro,
+ * organizado, do café ao fogo. Desenhar isso como um rio que desce a
+ * página faz três coisas de uma vez:
+ *   1. prova que existe estrutura e equipe (é uma pousada, não excursão);
+ *   2. resolve visualmente a confusão sobre o que está incluso —
+ *      cada momento diz se é incluso ou opcional, ali mesmo;
+ *   3. é a única coisa do site que ninguém mais tem.
+ */
+interface Momento {
+  hora: string;
+  titulo: string;
+  detalhe?: string;
+  /** incluso = pago no pacote · comunidade = pago à família ribeirinha */
+  tipo?: 'incluso' | 'comunidade';
+  refeicao?: boolean;
+}
+
+interface Props {
+  momentos: Momento[];
+  rotulos: { incluso: string; comunidade: string };
+  tone?: 'claro' | 'escuro';
+}
+
+const { momentos, rotulos, tone = 'claro' } = Astro.props;
+const escuro = tone === 'escuro';
+---
+
+<ol class:list={['relative', escuro ? 'text-areia' : 'text-tinta']}>
+  {/* o rio: a linha vertical que atravessa o dia */}
+  <div
+    class:list={[
+      'pointer-events-none absolute left-[4.25rem] top-3 bottom-3 w-px sm:left-[5.5rem]',
+      escuro ? 'bg-areia/25' : 'bg-rede/30',
+    ]}
+    aria-hidden="true"
+  ></div>
+
+  {momentos.map((m) => (
+    <li class="relative grid grid-cols-[3.5rem_1.5rem_1fr] items-start gap-x-3 py-3.5 sm:grid-cols-[4.5rem_2rem_1fr] sm:gap-x-4">
+      <time class:list={['numero pt-0.5 text-right text-sm', escuro ? 'text-areia/60' : 'text-cinza']}>
+        {m.hora}
+      </time>
+
+      <span class="relative flex justify-center pt-2" aria-hidden="true">
+        {/* refeição = círculo cheio · comunidade = anel âmbar · demais = ponto pequeno */}
+        {m.refeicao ? (
+          <span class:list={['block h-2.5 w-2.5 rounded-full', escuro ? 'bg-areia' : 'bg-rede']}></span>
+        ) : m.tipo === 'comunidade' ? (
+          <span class="block h-2.5 w-2.5 rounded-full border-2 border-brasa-claro bg-transparent"></span>
+        ) : (
+          <span class:list={['block h-1.5 w-1.5 rounded-full', escuro ? 'bg-areia/50' : 'bg-rede/50']}></span>
+        )}
+      </span>
+
+      <div class="min-w-0">
+        <p class="leading-snug">
+          <span class:list={[m.refeicao ? 'font-medium' : '']}>{m.titulo}</span>
+          {m.tipo === 'comunidade' && (
+            <span class="olho ml-2 whitespace-nowrap align-middle text-brasa-claro">{rotulos.comunidade}</span>
+          )}
+        </p>
+        {m.detalhe && (
+          <p class:list={['mt-0.5 text-sm', escuro ? 'text-areia/60' : 'text-cinza']}>{m.detalhe}</p>
+        )}
+      </div>
+    </li>
+  ))}
+</ol>
+
+<p class:list={['mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 border-t pt-4 text-sm',
+  escuro ? 'border-areia/15 text-areia/60' : 'border-areia-3 text-cinza']}>
+  <span class="flex items-center gap-2">
+    <span class:list={['h-2.5 w-2.5 rounded-full', escuro ? 'bg-areia' : 'bg-rede']}></span>
+    {rotulos.incluso}
+  </span>
+  <span class="flex items-center gap-2">
+    <span class="h-2.5 w-2.5 rounded-full border-2 border-brasa-claro"></span>
+    {rotulos.comunidade}
+  </span>
+</p>
