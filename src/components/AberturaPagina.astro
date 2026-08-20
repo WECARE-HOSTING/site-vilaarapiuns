@@ -1,0 +1,26 @@
+---
+/**
+ * Abertura de página interna.
+ *
+ * Existe para que as nove páginas internas não repitam nove versões ligeiramente
+ * diferentes do mesmo bloco — foi assim que o offset do cabeçalho virou dois
+ * números mágicos diferentes na fase anterior.
+ *
+ * Não leva olho de seção: o h1 carrega o próprio peso. Se houver dado de campo,
+ * ele entra depois do título, como `Campo` — dado, não rótulo decorativo.
+ */
+interface Props {
+  titulo: string;
+  intro?: string;
+  class?: string;
+}
+const { titulo, intro, class: className = '' } = Astro.props;
+---
+
+<section class:list={['pb-10 pt-12 md:pb-14 md:pt-16', className]}>
+  <div class="container-editorial">
+    <h1 class="font-display text-titulo max-w-[46rem]">{titulo}</h1>
+    {intro && <p class="lead container-texto mt-6 sm:mx-0">{intro}</p>}
+    <slot />
+  </div>
+</section>

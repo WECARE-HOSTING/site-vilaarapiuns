@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
+import react from '@astrojs/react';
 
 export default defineConfig({
   site: 'https://vilaarapiuns.com.br',
@@ -21,6 +22,9 @@ export default defineConfig({
   },
 
   integrations: [
+    // Só o carrossel do hero é React. Uma island, `client:visible`, e nada
+    // mais da árvore hidrata — ver src/components/CarrosselHero.tsx.
+    react(),
     sitemap({
       // A página de aprovação do design é interna: fora do sitemap.
       filter: (page) => !page.includes('/styleguide'),

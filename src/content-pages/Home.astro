@@ -1,0 +1,574 @@
+---
+/**
+ * HOME — mundo visual "painel de marchetaria".
+ *
+ * A gramática vem da porta de mogno de quarto-duplex.jpg e gal6.jpg: cunhas de
+ * veio oposto irradiando de um centro octogonal, separadas por emendas. Aqui a
+ * emenda é a régua do layout, a cunha é a região e o octógono é a forma
+ * reservada. (Esta nota dizia gal5.jpg até 20/08/2026, e estava errada: gal5 é
+ * um hóspede numa canoa em campo de vitórias-régias. Ver a nota de "A casa".)
+ *
+ * As quatro disciplinas herdadas da rodada de direção, e onde cada uma aparece:
+ *   1. Ornamento só como artefato real → toda linha desta página é `emenda`
+ *      (junta de folha) ou borda de corte. Nenhum traço decorativo.
+ *   2. Toda grandeza numa medida declarada → a travessia é uma lista de corte
+ *      numerada, com os números em algarismo tabular alinhado em coluna.
+ *   3. Uma região reservada sem tipo → PARCIALMENTE ABANDONADA no hero, por
+ *      decisão do cliente em 20/08/2026, ao escolher o carrossel React em vez
+ *      da rota em CSS que a preservava. No desktop o <h1> fica sobreposto à
+ *      foto. No celular ele volta ao fluxo, acima do palco, e nenhum tipo fica
+ *      sobre imagem — o público majoritário ainda vê a disciplina de pé.
+ *      Ela continua valendo integralmente no resto da página: "A casa" e o
+ *      fechamento não põem tipo sobre foto.
+ *      Registro: docs/superpowers/specs/2026-08-20-home-carrossel-hero-design.md
+ *   4. Coragem de densidade → o gancho não encolhe no celular (mínimo do
+ *      clamp em 3,25rem) e a travessia é empacotada densa, não arejada.
+ */
+import { Image, getImage } from 'astro:assets';
+import { CarrosselHero } from '@/components/CarrosselHero';
+import { CarrosselAcomodacoes } from '@/components/CarrosselAcomodacoes';
+import Campo from '@/components/Campo.astro';
+import FaixaGarantias from '@/components/FaixaGarantias.astro';
+import Voluta from '@/components/Voluta.astro';
+import LinhaDoDia from '@/components/LinhaDoDia.astro';
+import MapaSituacao from '@/components/MapaSituacao.astro';
+import { href } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/utils';
+import { SITE, preco, whatsappUrl } from '@/data/site';
+import { ACOMODACOES } from '@/data/acomodacoes';
+import type { Locale } from '@/i18n/config';
+
+import gal3 from '@/assets/imgs/gal3.jpg';
+
+// A tira do hero. Doze fotos.
+//
+// As de nome `C##` na nota abaixo vieram das pastas "Site - acomodações" e
+// "Site - experiências", que uma rodada anterior desta sessão descartou inteiras
+// por causa do prefixo "Captura de tela" e dos ~1290px. Foi erro meu: eu julguei
+// 64 arquivos pelo nome, sem abrir nenhum. Não são capturas com chrome de
+// página — são recortes limpos de fotografia, e é ONDE ESTÁ A GENTE do acervo.
+// A tira anterior era de paisagem vazia porque eu não tinha olhado.
+import bancoAreia from '@/assets/imgs/banco-areia.jpg';
+import travessiaBarco from '@/assets/imgs/travessia-barco.jpg';
+import supRio from '@/assets/imgs/sup-rio.jpg';
+import canoaVitorias from '@/assets/imgs/canoa-vitorias.jpg';
+import porsolGente from '@/assets/imgs/porsol-gente.jpg';
+import praiaEspreguicadeira from '@/assets/imgs/praia-espreguicadeira.jpg';
+import samaumaGrupo from '@/assets/imgs/samauma-grupo.jpg';
+import trilhaGuia from '@/assets/imgs/trilha-guia.jpg';
+import farinhada from '@/assets/imgs/farinhada.jpg';
+import bangaloPalafita from '@/assets/imgs/bangalo-palafita.jpg';
+import gal6 from '@/assets/imgs/gal6.jpg';
+import banheiroChuveiro from '@/assets/imgs/banheiro-chuveiro.jpg';
+import hero1 from '@/assets/imgs/hero1.jpg';
+
+// TERCEIRA RODADA (20/08/2026): o cliente pediu "umas 30 no total", arraste com
+// o mouse e loop infinito. Dezessete fotos novas entram aqui.
+//
+// REGRA HERDADA, e mantida: nada de fotografia noturna nesta tira, por pedido
+// do cliente numa rodada anterior. A única exceção é a piracaia (hero1), que ele
+// aprovou nominalmente. Ficaram de fora por isso, apesar de boas: varanda-noite,
+// luau-praia, piracaia-violao, sobre e jantar-peixe.
+//
+// Também de fora: tucuxi.jpg. É a única imagem do acervo que NÃO foi feita na
+// Villa (Wikimedia Commons, CC0) e o hero é onde a casa se apresenta — foto de
+// terceiro no hero seria a casa se apresentando com o que não é dela. Ela vive
+// nas Experiências e na Galeria, onde a legenda pode declarar a procedência.
+import aguaTransparente from '@/assets/imgs/agua-transparente.jpg';
+import banhoRioGrupo from '@/assets/imgs/banho-rio-grupo.jpg';
+import igapoCanoa from '@/assets/imgs/igapo-canoa.jpg';
+import igapoTroncos from '@/assets/imgs/igapo-troncos.jpg';
+import caiaques from '@/assets/imgs/caiaques.jpg';
+import massagem from '@/assets/imgs/massagem.jpg';
+import tecelagem from '@/assets/imgs/tecelagem.jpg';
+import bangaloOctogonal from '@/assets/imgs/bangalo-octogonal.jpg';
+import hero6 from '@/assets/imgs/hero6.jpg';
+import chale11 from '@/assets/imgs/chale-11.jpg';
+import passarelaRefeitorio from '@/assets/imgs/passarela-refeitorio.jpg';
+import pavilhaoPalha from '@/assets/imgs/pavilhao-palha.jpg';
+import deckYoga from '@/assets/imgs/deck-yoga.jpg';
+import quartoCasal from '@/assets/imgs/quarto-casal.jpg';
+import varandaRedeDuplex from '@/assets/imgs/varanda-rede-duplex.jpg';
+import cafeRefeitorio from '@/assets/imgs/cafe-refeitorio.jpg';
+import porDoSolPortao from '@/assets/imgs/por-do-sol-portao.jpg';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const momentos = [
+  { hora: '07:00', titulo: 'Café na varanda', detalhe: 'Tapioca, frutas do quintal, café passado na hora.', refeicao: true },
+  { hora: '08:30', titulo: 'Trilha até o Lago Azul', detalhe: 'Com o guia da casa. Canoa na lagoa escondida.' },
+  { hora: '12:30', titulo: 'Almoço na comunidade', detalhe: 'Peixe fresco, feito pela família que recebe o grupo.', tipo: 'comunidade' as const, refeicao: true },
+  { hora: '14:00', titulo: 'Farinhada e tecelagem', detalhe: 'Oficina com as artesãs da comunidade.', tipo: 'comunidade' as const },
+  { hora: '17:30', titulo: 'Pôr do sol na Ponta Grande' },
+  { hora: '19:30', titulo: 'Jantar e fogueira na praia', refeicao: true },
+];
+
+// Disciplina 2: cada etapa carrega a sua medida. Só o que é fato conhecido —
+// o tempo Santarém→Alter do Chão não está confirmado, então não é afirmado.
+const travessia = [
+  { n: '01', titulo: t('home.etapa1T'), detalhe: t('home.etapa1D'), medida: 'Santarém · PA' },
+  { n: '02', titulo: t('home.etapa2T'), detalhe: t('home.etapa2D'), medida: 'Alter do Chão' },
+  { n: '03', titulo: t('home.etapa3T'), detalhe: t('home.etapa3D'), medida: `${SITE.location.boatMinutes} min de barco`, incluso: true },
+];
+/* ══════════════════ A TIRA DO HERO ══════════════════
+   QUARTA RODADA. O cliente pediu menos casa e mais passeio, mais sol, o pôr do
+   sol no rio, o banheiro ("gringo gosta de ver isso"), e fora as escuras menos
+   a mesa de velas. Tudo isso está atendido aqui.
+
+   A MUDANÇA DESTA RODADA é outra, e nasceu de um erro meu: eu havia descartado
+   64 arquivos do acervo por causa do nome ("Captura de tela") e da resolução
+   (~1290px), sem abrir um único. Outra sessão abriu, e estava certa: são
+   recortes limpos de fotografia, e guardam quase toda a presença humana do
+   acervo. A tira que eu tinha montado era de paisagem vazia por causa disso.
+
+   Doze fotos, e agora SETE TÊM GENTE — o grupo embarcando, o pôr do sol com a
+   roda sentada na areia, a canoa nas vitórias-régias, o abraço na samaúma, a
+   trilha, as artesãs na farinhada, o stand-up. Uma pousada é o que se faz nela;
+   paisagem sem ninguém vende cartão-postal, não estadia.
+
+   A ordem é a de uma travessia: o rio, a chegada, o que se faz, a casa, a ceia.
+
+   Cada `alt` descreve o que está na foto — foram todas olhadas em folha de
+   contato, uma a uma. Cada `medida` é Disciplina 2 e só aceita fato confirmado
+   por `SITE`, pelo PRODUCT.md ou pela lista `momentos` acima; onde não há fato,
+   o campo fica VAZIO em vez de ganhar enfeite.
+
+   NOTA DE QUALIDADE, que é uma dívida real e não um detalhe: sete destas doze
+   têm entre 1286 e 1462px de largura de origem (as seis vindas das pastas de
+   recorte, mais banco-areia, que veio recompressa do Airbnb). O card do hero
+   chega a ~1120 CSS px, então em tela de densidade dupla elas ficam moles.
+   NENHUMA foi ampliada — ampliar não cria detalhe, só bytes e uma promessa
+   falsa. Trocar por original em alta depende do acervo que segue pendente com
+   o cliente; é a mesma pendência de "fotos em alta/drone" de sempre. O que se
+   escolheu aqui foi impacto humano a 1290px em vez de paisagem vazia a 3072px. */
+interface Slide {
+  id: string;
+  foto: ImageMetadata;
+  assunto: string;
+  /** Opcional de propósito: onde não há fato confirmado, o campo fica vazio. */
+  medida?: string;
+  alt: string;
+}
+
+const TIRA: Slide[] = [
+  /* A travessia e a água — do barco até o rio, que é o motivo de vir. */
+  { id: 'travessia', foto: travessiaBarco, assunto: 'A travessia', medida: `${SITE.location.boatMinutes} min de barco`,
+    alt: 'Grupo de hóspedes com mochilas embarcando num barco de madeira atracado na beira do rio, sob céu de nuvens altas' },
+  { id: 'banco', foto: bancoAreia, assunto: 'O banco de areia',
+    alt: 'Banco de areia dourada com pegadas, cortando água azul-turquesa dos dois lados, sob céu aberto com nuvens em leque' },
+  { id: 'agua', foto: aguaTransparente, assunto: 'A água transparente',
+    alt: 'Banco de areia dentro do rio, com a água rasa tão clara que se vê o fundo ondulado pela luz' },
+  { id: 'praia', foto: praiaEspreguicadeira, assunto: 'A praia da Villa', medida: 'pé na areia',
+    alt: 'Faixa de areia clara ao sol com espreguiçadeiras de madeira alinhadas à sombra das árvores, água do rio à frente' },
+  { id: 'banho', foto: banhoRioGrupo, assunto: 'O banho de rio',
+    alt: 'Fileira de mulheres lado a lado dentro da água rasa do rio, sorrindo de frente para a câmera' },
+  { id: 'canoa', foto: canoaVitorias, assunto: 'A canoa', medida: 'vitórias-régias',
+    alt: 'Canoa com cinco pessoas atravessando um campo de vitórias-régias, remada por um guia em pé na proa' },
+  { id: 'igapo', foto: igapoCanoa, assunto: 'O igapó',
+    alt: 'Canoa de madeira azul encostada na areia, diante de arbustos e palmeiras com o tronco dentro da água' },
+  { id: 'alagada', foto: igapoTroncos, assunto: 'A mata alagada', medida: 'janeiro a julho',
+    alt: 'Área alagada de água azul recortando tapetes de vegetação alaranjada, com troncos secos e claros deitados na superfície' },
+  { id: 'sup', foto: supRio, assunto: 'Stand-up no rio', medida: 'passeio à parte',
+    alt: 'Pessoa de pé numa prancha de stand-up, remando em água calma diante de uma margem de mata baixa' },
+  { id: 'caiaque', foto: caiaques, assunto: 'Os caiaques', medida: 'passeio à parte',
+    alt: 'Caiaques amarelo e laranja guardados em cavaletes sob um rancho de telhado de palha, na sombra da mata' },
+
+  /* A mata e a gente. Cinco fotos com pessoas — é o que faltava na primeira
+     tira, que era paisagem vazia. */
+  { id: 'trilha', foto: trilhaGuia, assunto: 'A trilha', medida: 'com o guia da casa',
+    alt: 'Três pessoas de mochila subindo uma trilha de terra clara, entre paredes de vegetação densa e iluminada' },
+  { id: 'samauma', foto: samaumaGrupo, assunto: 'A samaúma',
+    alt: 'Grupo de pessoas de braços abertos abraçando o tronco enorme de uma samaúma na mata' },
+  { id: 'massagem', foto: massagem, assunto: 'A massagem', medida: 'opcional',
+    alt: 'Massagem em esteira estendida na areia, sob um telhado de palha aberto para o rio' },
+  { id: 'farinhada', foto: farinhada, assunto: 'A farinhada', medida: 'paga direto à comunidade',
+    alt: 'Mulheres da comunidade e hóspedes em volta de um tacho de farinha, sob um rancho de palha' },
+  { id: 'tecelagem', foto: tecelagem, assunto: 'A tecelagem', medida: 'paga direto à comunidade',
+    alt: 'Artesã da comunidade sorrindo enquanto mostra o trançado de palha a duas hóspedes sentadas ao lado dela' },
+
+  /* A casa, de fora. Quatro unidades diferentes e três áreas comuns — a Villa
+     não tem um bangalô padrão, e a tira agora mostra isso em vez de afirmar. */
+  { id: 'octogonal', foto: bangaloOctogonal, assunto: 'O bangalô octogonal',
+    alt: 'Bangalô octogonal de madeira com telhado de palha, suspenso entre os troncos altos da floresta' },
+  { id: 'bangalo', foto: bangaloPalafita, assunto: 'O bangalô', medida: `${SITE.capacity.cabins} bangalôs`,
+    alt: 'Bangalô de madeira sobre palafitas, com escada externa e varanda, entre árvores altas ao sol' },
+  { id: 'duplex', foto: hero6, assunto: 'O duplex', medida: '2 pavimentos',
+    alt: 'Bangalô de dois andares em madeira sobre palafitas, com telhado de palha, entre as árvores' },
+  { id: 'chale', foto: chale11, assunto: 'O chalé',
+    alt: 'Fachada do chalé número 11 com rede armada na varanda, meio escondido pela vegetação em volta' },
+  { id: 'passarela', foto: passarelaRefeitorio, assunto: 'A passarela',
+    alt: 'Passarela de madeira serpenteando entre os troncos da floresta até a maloca de palha do refeitório' },
+  { id: 'pavilhao', foto: pavilhaoPalha, assunto: 'O pavilhão',
+    alt: 'Pavilhão comprido de telhado de palha sobre deck de madeira, entre as árvores' },
+  { id: 'shala', foto: deckYoga, assunto: 'A shala',
+    alt: 'Deck largo de madeira sob telhado de palha aberto para a mata, com espreguiçadeiras e samambaias na borda' },
+
+  /* Por dentro. */
+  { id: 'quarto', foto: gal6, assunto: 'O quarto', medida: `até ${SITE.capacity.maxGuests} hóspedes`,
+    alt: 'Cama de casal com roupa branca e manta xadrez de chocolate e aveia dobrada ao pé, ao lado de porta de mogno com medalhão octogonal' },
+  { id: 'casal', foto: quartoCasal, assunto: 'O quarto de casal',
+    alt: 'Quarto de madeira escura com cama de casal, manta xadrez dobrada ao pé e cadeira de madeira ao lado da janela' },
+  { id: 'varanda', foto: varandaRedeDuplex, assunto: 'A varanda',
+    alt: 'Varanda do pavimento superior com rede preta armada, cadeira de cipó e cesto trançado pendurado na parede de madeira' },
+  { id: 'banheiro', foto: banheiroChuveiro, assunto: 'O banheiro',
+    alt: 'Chuveiro de teto em latão despejando água num banheiro de paredes de madeira, com janela aberta para o verde' },
+
+  /* A mesa e o fim do dia. A tira fecha na piracaia, que é como a estadia fecha. */
+  { id: 'cafe', foto: cafeRefeitorio, assunto: 'O café da manhã', medida: '07:00',
+    alt: 'Mesa de café da manhã posta no pavilhão aberto: bolo, tapioca, fruta fatiada e jarra de suco vermelho, com a floresta atrás' },
+  { id: 'porsol', foto: porsolGente, assunto: 'O pôr do sol', medida: '17:30',
+    alt: 'Fileira de pessoas sentadas na areia de costas, vendo o sol baixar sobre a água larga do rio' },
+  { id: 'fimdetarde', foto: porDoSolPortao, assunto: 'O fim de tarde',
+    alt: 'Sol baixo alaranjado sobre a água larga do rio, visto de uma passarela de madeira, com o portão e a vegetação em silhueta' },
+  { id: 'piracaia', foto: hero1, assunto: 'A piracaia', medida: 'jantar na areia',
+    alt: 'Mesa comprida na praia à luz de velas: peixe assado, farinha e frutas servidos sobre folha de bananeira e esteira trançada' },
+];
+
+/* O astro:assets gera os derivados no build — os originais de 1 a 2 MB não vão
+   para o bundle.
+
+   Uma escala só, e larga. Na primeira rodada havia duas (uma para o campo de
+   fundo, outra para os cards pequenos); o campo de fundo foi removido e o card
+   passou a ocupar 80% da altura do palco, então a única escala que importa é a
+   dele: até ~1120 CSS px de largura, o que em tela de densidade dupla pede
+   ~1920 de origem. */
+const tira = await Promise.all(
+  TIRA.map(async (s) => {
+    const img = await getImage({
+      src: s.foto,
+      widths: [480, 720, 1080, 1440, 1920],
+      format: 'webp',
+    });
+    return {
+      id: s.id,
+      assunto: s.assunto,
+      medida: s.medida,
+      alt: s.alt,
+      src: img.src,
+      srcset: img.srcSet.attribute,
+      ar: s.foto.width / s.foto.height,
+    };
+  }),
+);
+
+/* ══════════════════ AS FOTOS DE "A CASA" ══════════════════
+   TERCEIRA RODADA (20/08/2026). A seção "A casa" tinha UMA foto, `gal5.jpg`,
+   legendada "Bangalô · porta de mogno, marchetaria radial". A foto é um hóspede
+   sentado numa canoa em campo de vitórias-régias: não há porta, não há mogno,
+   não há bangalô. O cliente viu e disse "tem uma foto de um cara no barco e tá
+   dizendo bangalô — tem que trocar essa foto, ou melhor, deixar um carrossel de
+   fotos somente das acomodações, umas 10".
+
+   A escolha dele é a certa por uma razão além do erro: aquele parágrafo é o
+   DIFERENCIAL do posicionamento — a casa e o material — e uma foto só não
+   sustenta a afirmação de que treze unidades são todas assim. Dez sustentam: o
+   carrossel sai do papel de ilustração e passa ao de prova.
+
+   Disciplina 3 fica de pé ali: nem seta, nem contador, nem legenda sobre a
+   fotografia — todo o comando mora abaixo do quadro.
+
+   Dez folhas de acomodação, a lista de `@/data/acomodacoes.ts`. A mesma lista
+   abre a página da pousada — por isso ela mora em data, e não aqui: duas listas
+   iguais em dois arquivos saem de sincronia na primeira troca de foto.
+
+   Escala menor que a do hero: aqui o quadro é a coluna direita de uma grade de
+   duas, a 46vw no desktop e a largura cheia no celular. O maior derivado que
+   qualquer tela pede é ~1440 de origem (720 CSS px em densidade dupla), e as dez
+   fotos são 2400×1600 nativas — nenhuma é ampliada, ao contrário de sete das
+   treze do hero. */
+const folhasAcomodacao = await Promise.all(
+  ACOMODACOES.map(async (a) => {
+    const img = await getImage({
+      src: a.foto,
+      widths: [480, 720, 1080, 1440],
+      format: 'webp',
+    });
+    return {
+      id: a.id,
+      assunto: a.assunto,
+      legenda: a.legenda,
+      alt: a.alt,
+      src: img.src,
+      srcset: img.srcSet.attribute,
+    };
+  }),
+);
+
+
+/* ══════════════════ O HERO ══════════════════
+   SEGUNDA RODADA. Na primeira, o carrossel era full-bleed com o h1 sobreposto
+   à foto. O cliente olhou e disse que não dava para ver as imagens — e estava
+   certo: o campo de fundo precisava de véu a 0,86 de opacidade para o tipo
+   passar AA por cima, o que deixava a fotografia a 14% de visibilidade.
+
+   O campo de fundo saiu. Consequências desta composição:
+     · Nada de tipo sobre fotografia, em lugar nenhum. A Disciplina 3 do design
+       system volta a valer integralmente, no celular e no desktop.
+     · Sem véu e sem gradiente: a foto aparece em cor cheia, uma única vez,
+       dentro do card — que cresceu para 80% da altura do palco.
+     · O h1, os CTAs, o intro e o Campo são Astro estático, fora da island.
+       Mesma composição nos dois tamanhos de tela; a versão anterior precisava
+       de posicionamento absoluto só no desktop, e isso morreu junto.
+
+   O h1 NÃO gira. O componente do 21st trocava um h2 por slide; título que muda
+   sozinho é ruim para indexação e pior para quem compara pousadas em várias
+   abas, que é metade do público. Cada slide carrega só assunto e medida.
+
+   O palco é deliberadamente MENOR que a viewport: o hero tem de mostrar que
+   existe página embaixo, porque é lá que está o preço.
+
+   Esta nota vive no frontmatter de propósito. Comentário <!-- --> em .astro é
+   enviado ao navegador; comentário de frontmatter não. */
+---
+
+<section class="bg-mata-funda pt-header">
+  <div class="container-editorial">
+
+    <div class="flex flex-col">
+
+    {/* No CELULAR a foto vem PRIMEIRO, o gancho depois.
+
+        Medido num container real de 390px: a 52px (o mínimo do token) este
+        gancho ocupa SETE linhas e 371px de altura, e empurrava o carrossel
+        quase todo para fora da primeira dobra. O visitante de celular — que é
+        o público #1 do PRODUCT.md — abria a home e via uma nesga de céu. O
+        cliente já reclamou duas vezes de não conseguir ver as imagens.
+
+        Inverter a ordem resolve isso sem encolher o tipo: a Disciplina 4 fica
+        de pé e a fotografia lidera onde ela precisa liderar. No desktop a
+        palavra volta a vir primeiro, porque lá as duas caem na dobra juntas. */}
+    <div class="order-2 mt-12 lg:order-1 lg:mt-0 lg:pt-12">
+      {/* Teto do corpo MENOR que o --text-display global (6rem). A 96px este
+          gancho quebra em quatro linhas a 1440px e empurra a fotografia para
+          fora da primeira dobra — o visitante vê parede de texto e uma nesga de
+          foto, que é a queixa que esta rodada existe para resolver. A 4rem cada
+          frase cabe numa linha só.
+
+          O MÍNIMO fica em 3,25rem, igual ao token: medido num container de
+          390px com a fonte real, o gancho NÃO estoura (scrollWidth idêntico ao
+          clientWidth em todos os corpos testados). Uma versão anterior baixou
+          para 2,75rem por causa de um estouro que não existia — era artefato de
+          screenshot em headless, que impõe janela mínima de 500px e recorta a
+          imagem no tamanho pedido. Medir dentro da página, não na foto dela. */}
+      <h1 class="font-display text-[clamp(3.25rem,4.6vw,4rem)] leading-[1.02] tracking-[0.01em]">
+        {t('home.hookA')}
+        <span class="block text-salvia">{t('home.hookB')}</span>
+      </h1>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href={href(locale, 'book')} class="btn btn-primario">{t('cta.book')}</a>
+        <a href={href(locale, 'packages')} class="btn btn-secundario">{t('cta.seePackages')}</a>
+      </div>
+    </div>
+
+    <div class="relative order-1 mt-8 h-[clamp(23rem,56svh,34rem)] lg:order-2 lg:mt-14">
+      <CarrosselHero
+        client:visible
+        items={tira}
+        rotulo="A Villa Arapiuns em trinta fotos"
+        rotuloArraste="arraste"
+        rotuloPosicao="Foto {n} de {total}"
+        className="absolute inset-0"
+      />
+    </div>
+
+    </div>
+
+    <div class="grid gap-8 py-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-end lg:gap-16 lg:py-16">
+      <p class="text-intro text-salvia">{t('home.intro')}</p>
+      <div>
+        <hr class="emenda border-t" />
+        <Campo class="mt-5">
+          {SITE.capacity.cabins} bangalôs
+          <Voluta class="text-ouro" />
+          até {SITE.capacity.maxGuests} hóspedes
+          <Voluta class="text-ouro" />
+          1h30 de lancha de {SITE.location.departsFrom}
+        </Campo>
+      </div>
+    </div>
+  </div>
+</section>
+
+<FaixaGarantias locale={locale} />
+
+<!-- ══════════════════ A TRAVESSIA: lista de corte ══════════════════
+     A informação mais densa da página, e a que resolve a maior ansiedade do
+     produto. Foi desenhada como cunha creme; o cliente aprovou o verde e o
+     fundo ficou. O texto usa `madeira-luz`, o marrom claro do impresso. -->
+<section class="cunha-topo secao">
+  <div class="container-editorial">
+    <div class="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
+      <div>
+        <h2 class="font-display text-titulo">{t('home.travessiaT')}</h2>
+        <p class="lead mt-4">{t('home.travessiaI')}</p>
+      </div>
+
+      <ol>
+        {travessia.map((e) => (
+          <li class="grid grid-cols-[2.5rem_1fr] gap-x-4 border-t emenda py-5 first:border-t-0 first:pt-0 sm:grid-cols-[3rem_1fr_auto] sm:gap-x-6">
+            <span class="numero etiqueta pt-1">{e.n}</span>
+            <div>
+              <h3 class="font-display text-secao">{e.titulo}</h3>
+              <p class="mt-1">{e.detalhe}</p>
+            </div>
+            <p class="numero etiqueta col-start-2 mt-2 flex items-center gap-2 sm:col-start-3 sm:mt-1 sm:justify-end sm:text-right">
+              {e.incluso && <Voluta class="text-ouro" />}
+              {e.medida}
+            </p>
+          </li>
+        ))}
+      </ol>
+    </div>
+
+    <!-- O mapa fecha a travessia: as três etapas dizem a ordem, o mapa diz o
+         lugar onde elas acontecem. Em largura cheia do container, e não dentro
+         da cunha estreita da esquerda, porque a 400px os rótulos do mapa ficam
+         ilegíveis — mapa ilegível é decoração, e decoração aqui é mentira. -->
+    <MapaSituacao locale={locale} class="mt-16" />
+
+    <a href={href(locale, 'gettingHere')} class="link-texto etiqueta mt-8 inline-block">
+      {t('nav.gettingHere')}
+    </a>
+  </div>
+</section>
+
+<!-- ══════════════════ A CASA: o diferencial, o material ══════════════════ -->
+<section class="cunha-base secao bg-mata-funda">
+  <div class="container-editorial">
+    <div class="grid gap-12 lg:grid-cols-2 lg:gap-20">
+      <div class="order-2 lg:order-1">
+        <h2 class="font-display text-titulo">{t('home.casaT')}</h2>
+        <hr class="emenda mt-6 max-w-40 border-t" />
+        <p class="mt-6">{t('home.casaP1')}</p>
+        <p class="mt-5">{t('home.casaP2')}</p>
+        <a href={href(locale, 'lodge')} class="link-texto etiqueta mt-8 inline-block">{t('cta.learnMore')}</a>
+      </div>
+
+      <!-- campo reservado: a marchetaria fala por si. Ver a nota do carrossel
+           de acomodações no frontmatter. -->
+      <div class="order-1 lg:order-2">
+        <CarrosselAcomodacoes
+          client:visible
+          folhas={folhasAcomodacao}
+          rotulo="As acomodações da Villa em dez fotos"
+          rotuloPosicao="Foto {n} de {total}"
+          rotuloAnterior="Foto anterior"
+          rotuloProxima="Próxima foto"
+          rotuloArraste="arraste"
+          sizes="(min-width: 1024px) 46vw, 100vw"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ UM DIA NA VILLA ══════════════════════ -->
+<section class="secao bg-mata">
+  <div class="container-editorial">
+    <div class="grid gap-12 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:gap-20">
+      <div>
+        <h2 class="font-display text-titulo">{t('home.diaT')}</h2>
+        <p class="lead mt-4">{t('home.diaI')}</p>
+      </div>
+      <LinhaDoDia
+        momentos={momentos}
+        rotulos={{ incluso: t('dia.incluso'), comunidade: t('dia.comunidade') }}
+        tone="escuro"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ DUAS MANEIRAS DE FICAR ═════════════
+     A estrutura central do produto, que o site não expressava. Duas folhas de
+     veio oposto encontrando-se numa emenda — não dois cards: sem raio, sem
+     sombra, a junta é que divide. O preço mora DENTRO da modalidade, porque
+     preço sem modalidade não informa: na pousada o barco não está incluso.
+
+     Os pisos vêm de src/data/site.ts e cada um carrega a sua condição. "A
+     partir de" sem a condição ao lado seria meia-verdade. -->
+<section class="cunha-topo secao">
+  <div class="container-editorial">
+    <h2 class="font-display text-titulo">{t('modo.titulo')}</h2>
+    <p class="lead container-texto mt-4 sm:mx-0">{t('modo.intro')}</p>
+
+    <div class="emenda mt-12 grid gap-10 border-t pt-10 md:grid-cols-2 md:gap-0">
+      {[
+        { t: t('modo.pousadaT'), d: t('modo.pousadaD'), inc: t('modo.pousadaInc'), fora: t('modo.pousadaFora'),
+          v: SITE.prices.pousadaMin, cond: t('modo.condPousada'), un: t('modo.porPax'), cta: 'lodge' as const },
+        { t: t('modo.pacoteT'), d: t('modo.pacoteD'), inc: t('modo.pacoteInc'), fora: t('modo.pacoteFora'),
+          v: SITE.prices.pacoteMin, cond: t('modo.condPacote'), un: t('modo.porPacote'), cta: 'packages' as const },
+      ].map((m, i) => (
+        <div class:list={['flex flex-col', i === 1 ? 'emenda md:border-l md:pl-10 lg:pl-16' : 'md:pr-10 lg:pr-16']}>
+          <h3 class="font-display text-secao">{m.t}</h3>
+          <p class="mt-3">{m.d}</p>
+
+          <dl class="mt-6 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2">
+            <dt class="etiqueta pt-1">{t('modo.inclusoRot')}</dt>
+            <dd class="flex items-start gap-2">
+              <Voluta class="mt-1.5 text-ouro" />
+              <span>{m.inc}</span>
+            </dd>
+            <dt class="etiqueta pt-1">{t('modo.foraRot')}</dt>
+            <dd class="text-salvia">{m.fora}</dd>
+          </dl>
+
+          <p class="emenda mt-auto border-t pt-6">
+            <span class="etiqueta block">{t('modo.aPartirDe')}</span>
+            <span class="numero cor-titulo mt-1 block text-titulo">
+              {preco(m.v, locale)}
+            </span>
+            <span class="numero etiqueta mt-1 block">{m.un} · {m.cond}</span>
+          </p>
+
+          <a href={href(locale, m.cta)} class="btn btn-secundario mt-6 self-start">{t('cta.learnMore')}</a>
+        </div>
+      ))}
+    </div>
+
+    <p class="numero etiqueta mt-10">{t('home.precoD')}</p>
+  </div>
+</section>
+
+<!-- ══════════════════ FECHAMENTO ══════════════════
+     A crítica achou que a última decisão oferecida ao visitante era um seletor
+     de idioma. Agora o fim da página é o pico emocional seguido da ação. -->
+{/* A citação leva assinatura de hóspede real: nome e mês de estadia, em
+    `home.fechaA` e `home.fechaH` (confirmados pelo cliente em 20/08/2026).
+    Assinatura só fica enquanto houver nome e data verificáveis — sem isso a
+    frase volta a ser da casa e a assinatura sai. */}
+<section class="relative">
+  <Image
+    src={gal3}
+    alt="Varanda de uma bangalô à noite, com rede e luminária de fibra acesa"
+    widths={[900, 1400, 1920]}
+    sizes="100vw"
+    loading="lazy"
+    decoding="async"
+    class="h-[65svh] min-h-80 w-full object-cover"
+  />
+  <div class="absolute inset-0 flex items-end bg-gradient-to-t from-mata-funda via-mata-funda/70 to-mata-funda/20">
+    <div class="container-editorial pb-12 sm:pb-16">
+      <blockquote class="font-display container-texto text-secao text-creme sm:mx-0">
+        “{t('home.fechaQ')}”
+      </blockquote>
+      <Campo class="mt-4">
+        {t('home.fechaA')}
+        <Voluta class="text-ouro" />
+        {t('home.fechaH')}
+      </Campo>
+
+      <hr class="emenda mt-10 border-t" />
+      <div class="mt-8 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <h2 class="font-display text-titulo">{t('home.fechaT')}</h2>
+          <p class="container-texto mt-3">{t('home.fechaD')}</p>
+        </div>
+        <a href={whatsappUrl(t('whatsapp.geral'))} class="btn btn-primario shrink-0">{t('cta.whatsapp')}</a>
+      </div>
+    </div>
+  </div>
+</section>

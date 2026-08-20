@@ -1,82 +1,141 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
+@source "../**/*.{astro,ts,tsx,js,jsx}";
 
-/* ═══════════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════════════════════════
    VILLA ARAPIUNS — sistema de design
-   ───────────────────────────────────────────────────────────────
-   As cores não vieram de uma paleta pronta: saíram das fotos da
-   própria Villa. A luminária de fibra e a fogueira dão o âmbar
-   (brasa); a rede da varanda e o rio dão o verde-azulado (rede);
-   a areia da praia dá o fundo; a mata dá o verde escuro.
-   ═══════════════════════════════════════════════════════════════ */
+   ───────────────────────────────────────────────────────────────────────────
+   MUNDO: painel de marchetaria.
+
+   A porta de mogno de gal5.jpg é um painel radial facetado — um campo central
+   octogonal com cunhas irradiando, cada uma com o veio em direção diferente,
+   separadas por emendas escuras. Essa é a gramática da página: a emenda do
+   embutido é a régua do layout, a cunha é a região, o octógono é a forma.
+
+   As cores saíram dos pixels dessas fotos, não de uma paleta pronta, e cada
+   par foreground/background abaixo foi calculado antes de ser escrito.
+
+   O QUE ESTE MUNDO NÃO É: fundo creme com serifa de alto contraste e acento
+   terracota. Essa combinação é o agrupamento em que interfaces geradas por
+   máquina caem, e a fase anterior deste site acertava os três alvos ao mesmo
+   tempo. O elemento CLARO daquele quarto não é creme — é a madeira de deriva
+   acinzentada da porta pálida. O creme ali é roupa de cama, área minoritária.
+
+   QUATRO DISCIPLINAS que esta direção herdou dos challengers recusados na
+   rodada de direção. São regras de qualidade, não roupa emprestada:
+     1. Todo ornamento é artefato real do sistema — emenda de folha, número de
+        peça, borda de corte. Nunca um floreio desenhado. (Sem isso, marchetaria
+        vira textura de madeira de fundo, que é o modo de falhar desta direção.)
+     2. Toda grandeza assenta numa medida declarada. Nenhum número flutua solto.
+     3. A composição reserva uma região onde tipo nenhum entra, para a
+        fotografia da casa nunca ser sobrescrita.
+     4. Coragem de densidade: uma palavra em corpo que não encolhe no celular,
+        e informação empacotada densa em vez de arejada em nada.
+   ═══════════════════════════════════════════════════════════════════════════ */
 @theme {
-  /* ── Fundos: a areia branca do Arapiuns ── */
-  --color-areia:      #f7f1e8;  /* fundo dominante */
-  --color-areia-2:    #efe4d2;  /* superfície secundária, cards */
-  --color-areia-3:    #e3d3ba;  /* filetes e bordas */
+  /* ── VERDE DA MARCA ──
+        Valor EXATO da capa do plano tarifário: #2e3a27, matiz 98°, presente e
+        idêntico nas páginas 1, 3 e 5. Mais um degrau escuro para o chão.
+        Nota que importa: o verde do impresso está em 98° e o do panfleto em
+        102°; os tons sálvia das duas peças, em 60–65°. A folhagem das fotos
+        quantiza em 60–76°. Impresso e fotografia CONCORDAM — o verde-azulado
+        de 138° da fase anterior era o ponto fora da curva. ── */
+  --color-mata-funda: #1d2418;  /* chão da página */
+  --color-mata:       #2e3a27;  /* superfície de seção — valor da marca */
 
-  /* ── Mata: verde profundo, quase preto. Seções escuras e títulos ── */
-  --color-mata:       #22402b;
-  --color-mata-fundo: #16281c;
+  /* ── CREME DA MARCA ──
+        Valor EXATO das páginas claras: #f6f1e6. Aqui o creme volta por
+        fidelidade de marca, não por default: é a superfície que o cliente
+        já imprime e distribui. É nela que mora a informação densa. ── */
+  --color-creme: #f6f1e6;
 
-  /* ── Rede: o verde-azulado da rede da varanda e da água do rio.
-        É o acento PRINCIPAL — links, marcações de "incluso", a linha do dia. ── */
-  --color-rede:       #2f6b72;
-  --color-rede-claro: #4e8f96;
-  --color-rede-fundo: #dfebeb;
+  /* ── SÁLVIA: os meios-tons, ~47–65°, comuns ao impresso e às fotos ── */
+  --color-salvia:       #b4b69f;  /* corpo sobre escuro: 5,8 / 7,7:1 */
 
-  /* ── Brasa: a luz da fogueira e da luminária de fibra.
-        Reservada a UMA coisa só — o botão de ação principal. ── */
-  --color-brasa:      #a85c2c;
-  --color-brasa-claro:#c0703a;
+  /* ── OURO: o rótulo em caixa alta sobre a capa verde, ~39° ── */
+  --color-ouro: #c2ab80;  /* links, etiquetas e anel de foco no escuro */
 
-  /* ── Texto ── */
-  --color-tinta:      #1f1e1b;
-  --color-cinza:      #635e56;  /* cinza quente, não neutro */
-  --color-cinza-claro:#918a7e;
+  /* ── MADEIRA: o mogno dos interiores e o marrom-ouro do impresso ── */
+  --color-madeira:       #65552e;  /* uso restante: cor da barra de rolagem */
+  /* Nota de projeto: houve aqui um `madeira-luz` (#b29f7e, 6,19:1). Saiu
+     porque no valor legível deste chão ele é perceptualmente o mesmo que o
+     `ouro` (7,16:1) — dois tans quentes cumprindo papéis distintos achatam a
+     hierarquia. O marrom claro da marca sobrevive como `ouro`, no registro de
+     etiqueta. Hierarquia em fundo escuro é LUMINÂNCIA primeiro, tamanho e peso
+     depois, matiz por último; a versão anterior invertia essa ordem. */
+
+  /* ── TERRACOTA: o acento da marca, #b3683e, matiz 21,5° — exatamente o
+        matiz da luminária de fibra em gal3.jpg. Impresso e foto concordam.
+        Quatro valores porque UM não passa AA em lado nenhum: o de marca
+        (#b3683e) fica em 3,8:1 tanto sobre creme quanto sobre verde, o que
+        serve régua, borda e número grande, mas não rótulo de botão. ── */
+  --color-terra:       #b3683e;  /* o valor da marca: régua, borda, número */
+  --color-terra-funda: #9a5430;  /* preenchimento do CTA, rótulo creme: 5,1:1 */
+  --color-terra-hover: #84461f;  /* hover ESCURECE: sobe para 6,5:1 */
+  --color-terra-luz:   #d39268;  /* terracota como TEXTO sobre verde: 4,6:1 */
 
   /* ── Tipografia ──
-     Fraunces: serifa de baixo contraste, macia, "feita à mão" —
-       conversa com o traço desenhado do logo.
-     Archivo Narrow: condensada em caixa alta — ecoa o wordmark ARAPIUNS.
-     Archivo: mesma superfamília, para texto corrido. ── */
-  --font-display: "Fraunces", ui-serif, Georgia, serif;
+     Display: a própria letra do logotipo. O wordmark ARAPIUNS não é de peso
+       ultraleve — é CONTORNO VAZADO, a linha de um sans largo e alto. Archivo
+       tem eixo de largura, então o display é Archivo expandida renderizada em
+       contorno, fiel ao ativo da marca. Nenhuma serifa: a Fraunces saiu.
+     Etiqueta: Archivo Narrow, o registro da lista de corte do marceneiro.
+     Corpo: Archivo. ── */
+  --font-display: "Archivo", ui-sans-serif, system-ui, sans-serif;
   --font-sans:    "Archivo", ui-sans-serif, system-ui, sans-serif;
   --font-label:   "Archivo Narrow", "Archivo", ui-sans-serif, sans-serif;
 
-  --text-display: clamp(2.75rem, 7vw, 5.25rem);
-  --text-display--line-height: 0.98;
-  --text-display--letter-spacing: -0.025em;
+  /* Disciplina 4: no maior corpo, o mínimo do clamp é grande de propósito.
+     A palavra não encolhe no celular. */
+  --text-display: clamp(3.25rem, 7vw, 6rem);
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: 0.01em;
 
   --text-titulo: clamp(2rem, 4.5vw, 3.25rem);
-  --text-titulo--line-height: 1.05;
-  --text-titulo--letter-spacing: -0.02em;
+  --text-titulo--line-height: 1.08;
+  --text-titulo--letter-spacing: 0;
 
   --text-secao: clamp(1.375rem, 2.5vw, 1.875rem);
   --text-secao--line-height: 1.2;
-  --text-secao--letter-spacing: -0.01em;
 
-  --text-intro: clamp(1.0625rem, 1.6vw, 1.3125rem);
+  /* 1,25× o corpo no menor viewport. Antes era 1,06× — sem hierarquia no
+     celular, que é onde está a maior parte do tráfego brasileiro. */
+  --text-intro: clamp(1.25rem, 1.6vw, 1.3125rem);
   --text-intro--line-height: 1.6;
 
-  --text-olho: 0.6875rem;
-  --text-olho--line-height: 1.3;
-  --text-olho--letter-spacing: 0.2em;
+  /* Etiqueta: 12px, não 11px. Abaixo disso o alvo de toque e a legibilidade
+     em kanji quebram, e este site tem japonês. */
+  --text-etiqueta: 0.75rem;
+  --text-etiqueta--line-height: 1.3;
+  --text-etiqueta--letter-spacing: 0.14em;
 
-  --spacing-secao: clamp(4rem, 9vw, 8rem);
+  --spacing-secao:  clamp(4rem, 9vw, 8rem);
+  --spacing-header: 5.5rem;
+
+  /* Disciplina 2: a medida declarada. Toda grandeza da página — 1h30,
+     13 cabanas, os quilômetros, o preço — assenta nesta escala. */
+  --spacing-medida: 1.5rem;
 }
 
 /* ═══ Base ═══
    Precisa ficar DENTRO de @layer base. Estilo sem camada vence qualquer
    utilitário do Tailwind — foi assim que um `h2 { color }` daqui apagou
-   um título branco sobre fundo escuro. */
+   um título claro sobre fundo escuro. */
 @layer base {
-  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    /* As partes que o navegador desenha também são o design. */
+    accent-color: var(--color-terra);
+    caret-color: var(--color-ouro);
+    scrollbar-color: var(--color-madeira) var(--color-mata-funda);
+    color-scheme: dark;
+  }
 
   body {
-    background-color: var(--color-areia);
-    color: var(--color-tinta);
+    background-color: var(--color-mata-funda);
+    color: var(--color-salvia);
     font-family: var(--font-sans);
-    font-weight: 350;
+    font-weight: 400;  /* 400, não 350: claro sobre escuro aparenta mais fino */
     font-size: 1rem;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
@@ -85,24 +144,42 @@
 
   h1, h2, h3 {
     font-family: var(--font-display);
-    font-weight: 400;
-    font-variation-settings: "opsz" 96, "SOFT" 30;
-    color: var(--color-mata);
+    font-weight: 600;
+    font-stretch: 125%;      /* eixo de largura da Archivo: o wordmark é LARGO */
+    color: var(--cor-titulo);
     text-wrap: balance;
   }
 
   p { text-wrap: pretty; }
 
-  ::selection { background-color: var(--color-rede); color: var(--color-areia); }
+  ::selection { background-color: var(--color-ouro); color: var(--color-mata-funda); }
+
+  /* Anel de foco por contexto. O chão agora é escuro, então o padrão é palha
+     (8,5:1 sobre breu) e a cunha clara declara `sobre-claro` para virar mogno
+     (5,8:1). Um anel único não existe: 3:1 da SC 1.4.11 tem de valer nos dois. */
+  :root {
+    --anel-foco: var(--color-creme);
+    /* Sobre madeira escura o filete de embutido é a linha CLARA — é assim na
+       marchetaria real, e é o que o marrom sobre breu (2,25:1) não conseguia. */
+    --cor-emenda: color-mix(in srgb, var(--color-salvia) 65%, transparent);
+    /* O preenchimento terracota fica em 2,8:1 contra o verde: sozinho ele não
+       delimita o botão (SC 1.4.11 pede 3:1). A aresta vem do contexto. */
+    --aresta-cta: var(--color-ouro);
+    /* Título por CONTEXTO. Sem isto, um `text-mata` escrito quando a
+       superfície era clara vira verde-sobre-verde quando a seção fica
+       escura — foi exatamente o que aconteceu na lista de experiências. */
+    --cor-titulo: var(--color-creme);
+    /* A etiqueta é um REGISTRO, não um brilho: mesma luminância do corpo, matiz
+       diferente. Era digitada solta em 20+ lugares — origem da inconsistência. */
+    --cor-etiqueta: var(--color-ouro);
+  }
 
   :focus-visible {
-    outline: 2px solid var(--color-rede);
+    outline: 2px solid var(--anel-foco);
     outline-offset: 3px;
-    border-radius: 1px;
+    border-radius: 0;   /* marchetaria não tem raio: a folha é cortada e mitrada */
   }
-}
 
-@layer base {
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after {
@@ -111,47 +188,90 @@
       transition-duration: 0.01ms !important;
     }
   }
-}
 
-
-/* ═══ Grão de papel ═══
-   Uma camada de ruído fixa sobre tudo, inclusive sobre as fotos.
-   É o que separa "impresso em papel de algodão" de "renderizado no
-   navegador" — e unifica fotos de câmeras diferentes numa textura só.
-   Custa ~600 bytes e nenhuma requisição. */
-@layer base {
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    pointer-events: none;
-    opacity: 0.055;
-    mix-blend-mode: multiply;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)'/%3E%3C/svg%3E");
+  /* ── Japonês ──
+     Tracking e entrelinha apertados colidem glifos em CJK, e a Archivo não tem
+     cobertura japonesa: sem isto cada kanji cai no system-ui glifo a glifo. */
+  :lang(ja) {
+    --text-display--letter-spacing: 0;
+    --text-display--line-height: 1.35;
+    --text-titulo--line-height: 1.4;
+    --text-etiqueta--letter-spacing: 0.04em;
+    --font-sans:    "Archivo", "Hiragino Sans", "Noto Sans JP", "Yu Gothic", ui-sans-serif, system-ui, sans-serif;
+    --font-display: "Archivo", "Hiragino Sans", "Noto Sans JP", "Yu Gothic", ui-sans-serif, sans-serif;
+    --font-label:   "Archivo Narrow", "Hiragino Sans", "Noto Sans JP", ui-sans-serif, sans-serif;
   }
-
-  @media print { body::after { display: none; } }
+  /* Caixa alta é no-op em kana/kanji, e 12px tracked fica ilegível. */
+  :lang(ja) .etiqueta { text-transform: none; font-size: 0.875rem; }
 }
 
-/* ═══ Utilitários de composição ═══ */
+/* ═══ Contexto ═══ */
 
-/* Olho / eyebrow: caixa alta condensada, o eco do wordmark */
-@utility olho {
+/* Para o que funciona como título sem ser h1/h2/h3 — o logotipo, o nome de um
+   avaliador, o nome de uma experiência dentro de um <a>.
+   Restaurado em 20/08: foi apagado junto com o utilitário `vazado` por um
+   regex guloso, e ficou como classe sem regra em 52 páginas. */
+@utility cor-titulo {
+  color: var(--cor-titulo);
+}
+
+/* ═══ Letra ═══ */
+
+/* Etiqueta. NÃO é olho de seção: nunca ponha isto acima de um título — o
+   título carrega o próprio peso. Serve para navegação, botão e dado. */
+@utility etiqueta {
+  color: var(--cor-etiqueta);
   font-family: var(--font-label);
-  font-size: var(--text-olho);
-  line-height: var(--text-olho--line-height);
-  letter-spacing: var(--text-olho--letter-spacing);
+  font-size: var(--text-etiqueta);
+  line-height: var(--text-etiqueta--line-height);
+  letter-spacing: var(--text-etiqueta--letter-spacing);
   text-transform: uppercase;
   font-weight: 600;
 }
 
-/* Horários e números: mesma condensada, com algarismos alinhados */
+/* ── A ESCADA DE TEXTO no chão escuro ──
+   TRÊS cores, não cinco. Cinco produziam quatro passos de 1,00× a 1,15× —
+   perceptualmente uma cor só, que foi exatamente a crítica recebida.
+
+   creme    14,2:1  A VOZ QUE FALA      título (display 600) e lead (20px 400)
+   salvia    7,7:1  A VOZ QUE INFORMA   corpo (16px) e meta (14px)
+   ouro      7,2:1  O REGISTRO          etiqueta, número, medida
+
+   O ouro ter o MESMO valor do corpo é correto para etiqueta: ela muda de
+   matiz, caixa, tracking, peso e fonte. O erro anterior foi ter três valores
+   quase iguais fingindo serem três degraus. Um passo decisivo (1,84×) entre
+   a voz que fala e a que informa vale mais que quatro passos indistinguíveis.
+   terra-luz entra só como acento com função.                               */
+
+/* Abertura de seção. Um degrau de 1,8× de luminância acima do corpo: é o que
+   separa "isto abre a seção" de "isto é o texto". */
+@utility lead {
+  font-size: var(--text-intro);
+  line-height: var(--text-intro--line-height);
+  font-weight: 400;
+  color: var(--color-creme);
+  text-wrap: pretty;
+}
+
+/* Legenda, nota de rodapé de seção, dado que acompanha sem competir. */
+@utility meta {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  /* MESMA cor do corpo, de propósito. Havia aqui um `salvia-funda` a 6,23:1,
+     que contra o corpo a 7,69:1 é um degrau de 1,15× — imperceptível, e nas
+     seções verdes ele encostava no piso do AA (4,69:1). Hierarquia falsa é
+     pior que nenhuma: aqui o degrau é o TAMANHO, que se lê. */
+  color: var(--color-salvia);
+}
+
+/* Números e horários: mesma condensada, algarismos alinhados em coluna. */
 @utility numero {
   font-family: var(--font-label);
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.02em;
 }
+
+/* ═══ Composição ═══ */
 
 @utility container-editorial {
   margin-inline: auto;
@@ -162,70 +282,133 @@
   @media (width >= 80rem) { padding-inline: 4rem; }
 }
 
+/* Medida de leitura de 65–75ch. */
 @utility container-texto {
   margin-inline: auto;
   width: 100%;
-  max-width: 40rem;
+  max-width: 68ch;
 }
 
-/* Seção com respiro editorial. Uma classe só, sem margens brigando entre si. */
 @utility secao {
   padding-block: var(--spacing-secao);
 }
 
-/* Sangria: quebra o container e ocupa a largura toda da tela */
-@utility sangria {
-  width: 100vw;
-  margin-inline: calc(50% - 50vw);
+/* ═══ Emenda ═══
+   O filete do embutido. Em marchetaria a emenda é onde duas folhas de veio
+   oposto se encontram — é estrutura, não enfeite, e é por isso que uma linha
+   de 1px é honesta aqui e um traço ondulado "desenhado à mão" não seria.
+   Disciplina 1. */
+@utility emenda {
+  border-color: var(--cor-emenda);
+}
+
+/* ═══ Cunha ═══
+   A forma do sistema: a peça mitrada que irradia do centro octogonal.
+   Sem raio, sempre. */
+@utility cunha-topo {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 3.5vw));
+}
+
+@utility cunha-base {
+  clip-path: polygon(0 3.5vw, 100% 0, 100% 100%, 0 100%);
+}
+
+@utility octogono {
+  clip-path: polygon(
+    29.29% 0%, 70.71% 0%, 100% 29.29%, 100% 70.71%,
+    70.71% 100%, 29.29% 100%, 0% 70.71%, 0% 29.29%
+  );
 }
 
 /* ═══ Botões ═══
-   Uma família, três pesos de intenção. O âmbar é exclusivo do
-   botão principal — é o único lugar do site onde ele aparece cheio. */
+   Tinta escura sobre preenchimento claro. A versão anterior punha texto claro
+   sobre âmbar e reprovava AA (4,42:1), piorando no hover (3,33:1). Aqui é
+   6,2:1 e o hover CLAREIA, subindo para 8,1:1. */
 @utility btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.625rem;
+  min-height: 3rem;
   font-family: var(--font-label);
   font-size: 0.8125rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 1rem 2rem;
+  padding: 0.875rem 2rem;
   border: 1px solid transparent;
+  border-radius: 0;
   transition: background-color 0.25s, color 0.25s, border-color 0.25s;
   cursor: pointer;
   text-align: center;
 }
 
 @utility btn-primario {
-  background-color: var(--color-brasa);
-  color: var(--color-areia);
-  &:hover { background-color: var(--color-brasa-claro); }
+  background-color: var(--color-terra-funda);
+  color: var(--color-creme);
+  border-color: var(--aresta-cta);
+  &:hover { background-color: var(--color-terra-hover); }
 }
 
 @utility btn-secundario {
   background-color: transparent;
-  color: var(--color-mata);
-  border-color: var(--color-mata);
-  &:hover { background-color: var(--color-mata); color: var(--color-areia); }
+  color: var(--color-ouro);
+  border-color: color-mix(in srgb, var(--color-ouro) 55%, transparent);
+  &:hover { background-color: var(--color-ouro); color: var(--color-mata-funda); }
 }
 
-@utility btn-claro {
-  background-color: transparent;
-  color: var(--color-areia);
-  border-color: color-mix(in srgb, var(--color-areia) 55%, transparent);
-  &:hover { background-color: var(--color-areia); color: var(--color-mata); }
+/* Comando do carrossel: o .btn-secundario reduzido ao alvo de toque mínimo da
+   SC 2.5.8 — quadrado de 44px, aresta reta. Não herda .btn porque .btn tem
+   padding de 2rem, o que daria um retângulo de 100px para uma seta de 16.
+
+   A ARESTA É 70%, e NÃO os 55% do .btn-secundario. Medido: ouro a 55% rende
+   3,15:1 sobre `mata-funda` e 2,70:1 sobre `mata` — o segundo REPROVA a SC
+   1.4.11, que pede 3:1 para o limite de um componente de interface. O
+   .btn-secundario sobrevive com 55% porque ele carrega TEXTO em caixa alta a
+   7,16:1: se a aresta some, o rótulo ainda diz onde está o botão. Aqui não há
+   rótulo — o alvo é um ícone, e a aresta é a única coisa que delimita a área
+   clicável. A 70% são 4,21:1 sobre `mata-funda` e 3,46:1 sobre `mata`, então o
+   comando passa nos DOIS chãos escuros do sistema.
+
+   Isto não é preciosismo de número: o carrossel é reutilizável, e os dois usos
+   de hoje estão sobre `mata-funda`. O terceiro, dentro de uma `secao bg-mata`
+   — que é o padrão mais comum destas páginas —, falharia em silêncio. */
+@utility seta-carrossel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  color: var(--color-ouro);
+  border: 1px solid color-mix(in srgb, var(--color-ouro) 70%, transparent);
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color 0.25s, color 0.25s, border-color 0.25s;
+  /* No hover o preenchimento é ouro cheio e o glifo vira mata-funda: 7,16:1,
+     e o próprio preenchimento marca o limite a 7,16:1 contra o chão. */
+  &:hover {
+    background-color: var(--color-ouro);
+    color: var(--color-mata-funda);
+  }
 }
 
-/* Link de texto com sublinhado que cresce no hover */
 @utility link-texto {
-  color: var(--color-rede);
+  color: var(--color-ouro);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.3em;
-  text-decoration-color: color-mix(in srgb, var(--color-rede) 40%, transparent);
+  text-decoration-color: color-mix(in srgb, var(--color-ouro) 50%, transparent);
+  transition: text-decoration-color 0.2s;
+  &:hover { text-decoration-color: currentColor; }
+}
+
+/* Sobre cunha clara. */
+@utility link-escuro {
+  color: var(--color-madeira-funda);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+  text-decoration-color: color-mix(in srgb, var(--color-madeira) 50%, transparent);
   transition: text-decoration-color 0.2s;
   &:hover { text-decoration-color: currentColor; }
 }

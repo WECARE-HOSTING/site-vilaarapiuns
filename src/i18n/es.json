@@ -1,1 +1,11 @@
-{}
+{
+  "modo": {
+    "aPartirDe": "Desde",
+    "porPax": "por persona / noche",
+    "porPacote": "por persona / 1 noche",
+    "porPacote2": "por persona / 2 noches",
+    "condPousada": "4 noches · habitación doble",
+    "condPacote": "1 noche · saliendo de Alter do Chão",
+    "condPacote2": "2 noches · saliendo de Alter do Chão"
+  }
+}

@@ -1,0 +1,106 @@
+---
+/**
+ * AVALIAÇÕES.
+ *
+ * O componente está pronto e ligado ao dado. O que não existe é o dado:
+ * `SITE.reviews` está todo null e não há avaliação real em lugar nenhum do
+ * repositório. Enquanto for assim, a página diz isso em vez de encher o espaço.
+ *
+ * Depoimento inventado foi pedido e recusado: num site que vende estadia a
+ * R$ 796 a noite num lugar remoto, prova social fabricada engana quem está
+ * decidindo pagar, e no Brasil é publicidade enganosa. A Fase 1 já havia
+ * atribuído uma frase editorial da casa a um hóspede inventado ("Bangalô 7 ·
+ * 21h40"); aquilo foi removido, e reintroduzir seria desfazer o conserto.
+ *
+ * PARA VER O COMPONENTE antes de ter dado real:
+ *   PREVIEW_AVALIACOES=1 npm run dev
+ * As amostras aparecem marcadas "Exemplo — substituir por avaliação real" e
+ * NUNCA entram no build de produção. Há um teste disso na verificação.
+ *
+ * PARA PREENCHER: cada item precisa de `origem` (Google, Airbnb, Booking) e,
+ * de preferência, `url` da avaliação original. O tipo obriga a origem.
+ */
+import { Image } from 'astro:assets';
+import AberturaPagina from '@/components/AberturaPagina.astro';
+import ListaAvaliacoes, { type Avaliacao } from '@/components/ListaAvaliacoes.astro';
+import { href } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/utils';
+import { SITE, whatsappUrl } from '@/data/site';
+import type { Locale } from '@/i18n/config';
+
+import varandaNoite from '@/assets/imgs/varanda-noite.jpg';
+import cafeManha from '@/assets/imgs/cafe-manha.jpg';
+import praiaEspreguicadeira from '@/assets/imgs/praia-espreguicadeira.jpg';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+/** Avaliações reais. Vazio até chegarem. */
+const reais: Avaliacao[] = [];
+
+/**
+ * Amostras SÓ para pré-visualizar a composição em desenvolvimento. O texto é
+ * deliberadamente identificado como exemplo e o nome é um marcador, não uma
+ * pessoa — para que ninguém possa confundir isto com depoimento de hóspede.
+ */
+const amostra: Avaliacao[] =
+  import.meta.env.PREVIEW_AVALIACOES === '1'
+    ? [
+        { nome: 'Nome do Hóspede', origem: 'Google', data: 'mês de 2026', nota: 5,
+          texto: 'Aqui entra o texto da avaliação real, como o hóspede escreveu, sem edição.',
+          foto: varandaNoite, fotoAlt: '', exemplo: true },
+        { nome: 'Nome do Hóspede', origem: 'Airbnb', data: 'mês de 2026', nota: 5,
+          texto: 'A segunda fileira inverte o lado, e a hachura de veio inverte com ela.',
+          foto: cafeManha, fotoAlt: '', exemplo: true },
+      ]
+    : [];
+
+const itens = reais.length ? reais : amostra;
+const temNota = Boolean(SITE.reviews.rating && SITE.reviews.count);
+---
+
+<AberturaPagina titulo={t('aval.h1')} intro={itens.length ? undefined : t('aval.intro')}>
+  {temNota && (
+    <p class="numero mt-6 text-titulo">
+      {SITE.reviews.rating!.toLocaleString('pt-BR', { minimumFractionDigits: 1 })} / 5
+      <span class="etiqueta ml-3 opacity-80">{SITE.reviews.count} avaliações</span>
+    </p>
+  )}
+</AberturaPagina>
+
+{itens.length ? (
+  <section class="pb-20">
+    <div class="container-editorial">
+      <ListaAvaliacoes itens={itens} />
+    </div>
+  </section>
+) : (
+  <section class="pb-20">
+    <div class="container-editorial">
+      <hr class="emenda max-w-40 border-t" />
+      <p class="container-texto mt-8 sm:mx-0">{t('aval.corpo')}</p>
+      <p class="mt-10 flex flex-wrap gap-3">
+        <a href={whatsappUrl(t('whatsapp.geral'))} class="btn btn-primario">{t('cta.whatsapp')}</a>
+        <a href={href(locale, 'lodge')} class="btn btn-secundario">Ver a pousada</a>
+      </p>
+
+      {/* UMA foto, e só enquanto não há avaliação. A página admite não ter
+          prova social; deixá-la inteiramente vazia de imagem faz o visitante
+          ler "site abandonado" em vez de "casa honesta". A foto não substitui
+          depoimento e não finge ser um — é a praia, sem legenda de elogio. */}
+      <figure class="mt-16">
+        <Image
+          src={praiaEspreguicadeira}
+          alt="Faixa de areia clara com espreguiçadeiras de madeira alinhadas à sombra das árvores, com a água do rio à frente"
+          widths={[800, 1200, 1800]}
+          sizes="(min-width: 1280px) 76rem, 100vw"
+          loading="lazy"
+          decoding="async"
+          class="aspect-[21/9] w-full object-cover"
+        />
+        <figcaption class="meta numero mt-3">A praia da Villa · fim de tarde</figcaption>
+      </figure>
+    </div>
+  </section>
+)}

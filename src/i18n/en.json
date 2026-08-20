@@ -1,1 +1,11 @@
-{}
+{
+  "modo": {
+    "aPartirDe": "From",
+    "porPax": "per person / night",
+    "porPacote": "per person / 1 night",
+    "porPacote2": "per person / 2 nights",
+    "condPousada": "4 nights · double room",
+    "condPacote": "1 night · departing from Alter do Chão",
+    "condPacote2": "2 nights · departing from Alter do Chão"
+  }
+}

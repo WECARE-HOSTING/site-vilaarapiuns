@@ -2,15 +2,14 @@
 /**
  * Marcador de seção.
  *
- * Substitui o "olho" com tracinho — aquele rótulo em caixa alta que
+ * Substitui o olho de seção com tracinho — aquele rótulo em caixa alta que
  * abre toda seção de todo site gerado por IA. Aqui o marcador carrega
  * DADO DE CAMPO verdadeiro: coordenada, tempo de barco, número de
- * cabanas, horário. A Villa é remota; a distância é o produto.
+ * bangalôs, horário. A Villa é remota; a distância é o produto.
  */
-interface Props { tone?: 'escuro' | 'claro' | 'rede'; class?: string }
-const { tone = 'rede', class: className = '' } = Astro.props;
-const cor = { escuro: 'text-cinza', claro: 'text-areia/55', rede: 'text-rede' }[tone];
+interface Props { class?: string }
+const { class: className = '' } = Astro.props;
 ---
-<p class:list={['numero flex flex-wrap items-center gap-x-3 gap-y-1 text-[0.6875rem] uppercase tracking-[0.16em]', cor, className]}>
+<p class:list={['numero etiqueta flex flex-wrap items-center gap-x-3 gap-y-1', className]}>
   <slot />
 </p>

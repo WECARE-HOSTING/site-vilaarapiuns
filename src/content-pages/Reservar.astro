@@ -1,0 +1,84 @@
+---
+/**
+ * RESERVAR — uma conversa, não um checkout.
+ *
+ * `SITE.contact.email` é null e não há motor de reserva: o site não promete
+ * canal que não existe. O WhatsApp já vai com mensagem preenchida, e a página
+ * diz o que ajuda informar de uma vez — porque a ida e volta de perguntas é o
+ * que faz a conversa morrer em rede ruim.
+ */
+import { Image } from 'astro:assets';
+import AberturaPagina from '@/components/AberturaPagina.astro';
+import Voluta from '@/components/Voluta.astro';
+import ListaCorte from '@/components/ListaCorte.astro';
+import varandaRedeDuplex from '@/assets/imgs/varanda-rede-duplex.jpg';
+import { href } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/utils';
+import { SITE, preco, whatsappUrl } from '@/data/site';
+import type { Locale } from '@/i18n/config';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const dePartir = t('modo.aPartirDe').toLocaleLowerCase(locale);
+const modos = [
+  { titulo: t('modo.pousadaT'), detalhe: t('modo.pousadaInc'), medida: `${dePartir} ${preco(SITE.prices.pousadaMin, locale)}` },
+  { titulo: t('modo.pacoteT'), detalhe: t('modo.pacoteInc'), medida: `${dePartir} ${preco(SITE.prices.pacoteMin, locale)}` },
+];
+---
+
+<AberturaPagina titulo={t('reservar.h1')} intro={t('reservar.intro')} />
+
+<section class="pb-20">
+  <div class="container-editorial">
+    <div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)] lg:gap-20">
+      <div>
+        <h2 class="font-display text-secao">{t('reservar.comoT')}</h2>
+        <ul class="mt-6 space-y-3">
+          {[t('reservar.c1'), t('reservar.c2'), t('reservar.c3'), t('reservar.c4')].map((c) => (
+            <li class="flex items-start gap-2.5"><Voluta class="mt-1.5" /><span>{c}</span></li>
+          ))}
+        </ul>
+
+        <p class="mt-10 flex flex-wrap gap-3">
+          <a href={whatsappUrl(t('whatsapp.geral'))} class="btn btn-primario">{t('cta.whatsapp')}</a>
+          <a href={href(locale, 'gettingHere')} class="btn btn-secundario">Como chegar</a>
+        </p>
+
+        <div class="emenda mt-12 border-t pt-6">
+          <p class="etiqueta">{t('reservar.respT')}</p>
+          <p class="mt-2">{t('reservar.respD')}</p>
+          {SITE.contact.instagram && (
+            <p class="numero etiqueta mt-4">
+              Instagram <a href={`https://instagram.com/${SITE.contact.instagram.replace('@', '')}`} class="link-texto">{SITE.contact.instagram}</a>
+            </p>
+          )}
+        </div>
+      </div>
+
+      <div>
+        <h2 class="font-display text-secao">Duas maneiras de ficar</h2>
+        <ListaCorte itens={modos} nivel="h3" class="mt-6" />
+        <p class="numero etiqueta mt-4 opacity-80">
+          {t('modo.pousadaT')}: {t('modo.condPousada')}. {t('modo.pacoteT')}: {t('modo.condPacote')}.
+        </p>
+
+        {/* UMA foto: é o que está sendo reservado. Página de contato não pede
+            atmosfera, mas pedir dados sem mostrar o produto é pedir fé. */}
+        <figure class="mt-10">
+          <Image
+            src={varandaRedeDuplex}
+            alt="Varanda de madeira com rede armada, cadeira de cipó e cesto trançado na parede, sob telhado de palha"
+            widths={[480, 800, 1200]}
+            sizes="(min-width: 1024px) 38vw, 100vw"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[4/3] w-full object-cover"
+          />
+          <figcaption class="meta numero mt-3">A varanda que espera · rede e palha</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>

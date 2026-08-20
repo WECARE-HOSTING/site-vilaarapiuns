@@ -1,1 +1,11 @@
-{}
+{
+  "modo": {
+    "aPartirDe": "最低料金",
+    "porPax": "1名 / 1泊あたり",
+    "porPacote": "1名 / 1泊あたり",
+    "porPacote2": "1名 / 2泊あたり",
+    "condPousada": "4泊 · ダブルルーム",
+    "condPacote": "1泊 · アルテル・ド・シャン発",
+    "condPacote2": "2泊 · アルテル・ド・シャン発"
+  }
+}

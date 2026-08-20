@@ -1,14 +1,28 @@
 ---
 /**
  * Despacha cada chave de página para o seu componente.
- * Páginas ainda não construídas caem no Scaffold, que mostra em que fase
- * do plano elas entram — assim o site nunca tem link quebrado durante a obra.
+ *
+ * O Scaffold continua existindo como rede de segurança: se uma chave nova
+ * entrar em routes.ts antes da página, o site ganha uma URL honesta em vez de
+ * um link quebrado. Hoje nenhuma chave cai nele.
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import FaixaGarantias from '@/components/FaixaGarantias.astro';
 import Scaffold from '@/content-pages/Scaffold.astro';
+
+import Home from '@/content-pages/Home.astro';
+import Pousada from '@/content-pages/Pousada.astro';
+import Mesa from '@/content-pages/Mesa.astro';
+import Experiencias from '@/content-pages/Experiencias.astro';
+import Pacotes from '@/content-pages/Pacotes.astro';
+import Privativa from '@/content-pages/Privativa.astro';
+import Chegar from '@/content-pages/Chegar.astro';
+import Galeria from '@/content-pages/Galeria.astro';
+import Avaliacoes from '@/content-pages/Avaliacoes.astro';
+import Reservar from '@/content-pages/Reservar.astro';
+
 import { useTranslations } from '@/i18n/utils';
 import { SITE } from '@/data/site';
 import type { Locale } from '@/i18n/config';
@@ -27,14 +41,35 @@ const title =
     ? `${SITE.name} — ${t('site.tagline')}`
     : `${t(`nav.${pageKey}`)} · ${SITE.name}`;
 
-const description = t('site.tagline');
+// Antes as 52 páginas construídas carregavam a MESMA description.
+const description = t(`desc.${pageKey}`);
+
+const PAGINAS = {
+  lodge: Pousada,
+  dining: Mesa,
+  experiences: Experiencias,
+  packages: Pacotes,
+  privateVilla: Privativa,
+  gettingHere: Chegar,
+  gallery: Galeria,
+  reviews: Avaliacoes,
+  book: Reservar,
+} as const;
+
+const Interna = PAGINAS[pageKey as keyof typeof PAGINAS];
 ---
 
 <BaseLayout locale={locale} pageKey={pageKey} title={title} description={description}>
   <Header slot="header" locale={locale} pageKey={pageKey} />
-  <div class="pt-20">
-    <FaixaGarantias locale={locale} />
-    <Scaffold locale={locale} pageKey={pageKey} />
-  </div>
+
+  {pageKey === 'home' ? (
+    <Home locale={locale} />
+  ) : (
+    <div class="pt-header">
+      <FaixaGarantias locale={locale} />
+      {Interna ? <Interna locale={locale} /> : <Scaffold locale={locale} pageKey={pageKey} />}
+    </div>
+  )}
+
   <Footer slot="footer" locale={locale} />
 </BaseLayout>

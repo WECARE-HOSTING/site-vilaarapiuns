@@ -8,24 +8,22 @@ import { useTranslations } from '@/i18n/utils';
 import Voluta from '@/components/Voluta.astro';
 import type { Locale } from '@/i18n/config';
 
-interface Props { locale: Locale; tone?: 'claro' | 'escuro' }
-const { locale, tone = 'claro' } = Astro.props;
+interface Props { locale: Locale }
+const { locale } = Astro.props;
 const t = useTranslations(locale);
 
-const itens = ['fullBoard', 'boat', 'team', 'host', 'years'] as const;
+// 4 itens, não 5: `years` afirmava "5+ anos, zero incidentes" sem nenhum dado
+// por trás (yearFounded é null e o site antigo dizia 4 anos). Removido em
+// PRODUCT.md como decisão aberta. 4 também cabe na memória de trabalho.
+const itens = ['fullBoard', 'boat', 'team', 'host'] as const;
 ---
 
-<div
-  class:list={[
-    'border-y',
-    tone === 'claro' ? 'border-areia-3 bg-areia-2/60 text-mata' : 'border-areia/15 bg-mata-fundo text-areia',
-  ]}
->
-  <ul class="container-editorial flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5 py-3.5 xl:flex-nowrap xl:justify-between">
+<div class="emenda border-y">
+  <ul class="container-editorial flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5 py-3.5 xl:justify-between">
     {itens.map((k) => (
       <li class="flex items-center gap-2.5">
-        <Voluta class="text-rede" />
-        <span class="olho whitespace-nowrap text-[0.625rem] opacity-85 xl:text-[0.6875rem]">{t(`trust.${k}`)}</span>
+        <Voluta class="text-ouro" />
+        <span class="etiqueta">{t(`trust.${k}`)}</span>
       </li>
     ))}
   </ul>

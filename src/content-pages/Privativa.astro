@@ -1,0 +1,125 @@
+---
+/**
+ * VILLA PRIVATIVA — exclusividade a partir de 15 pessoas.
+ *
+ * O número vem do plano tarifário 2026 ("direito de exclusividade acima de 15
+ * pessoas"). O código dizia 10 e foi corrigido; esta página usa o dado.
+ *
+ * RODADA DE FOTOGRAFIA (20/08/2026). Tinha UMA foto — de um pavilhão vazio —
+ * numa página que vende retiro, casamento e formação. Quem contrata a Villa
+ * inteira está comprando o seu grupo reunido, e era exatamente isso que não
+ * aparecia. As fotos desta página são as únicas do acervo com muita gente na
+ * mesma imagem, e é por isso que elas vivem aqui e não nas outras páginas.
+ */
+import { Image } from 'astro:assets';
+import AberturaPagina from '@/components/AberturaPagina.astro';
+import ListaCorte from '@/components/ListaCorte.astro';
+import Campo from '@/components/Campo.astro';
+import Voluta from '@/components/Voluta.astro';
+import { useTranslations } from '@/i18n/utils';
+import { SITE, whatsappUrl } from '@/data/site';
+import type { Locale } from '@/i18n/config';
+
+import banhoRioGrupo from '@/assets/imgs/banho-rio-grupo.jpg';
+import porDoSolGrupo from '@/assets/imgs/porsol-gente.jpg';
+import deckYoga from '@/assets/imgs/deck-yoga.jpg';
+import arenaBancos from '@/assets/imgs/arena-bancos.jpg';
+import refeitorioMesas from '@/assets/imgs/refeitorio-mesas.jpg';
+import luauPraia from '@/assets/imgs/luau-praia.jpg';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const blocos = [
+  { titulo: t('privativa.b1T'), detalhe: t('privativa.b1D'), medida: `${SITE.capacity.cabins} unidades` },
+  { titulo: t('privativa.b2T'), detalhe: t('privativa.b2D'), medida: `${SITE.capacity.minGuestsPrivate}+ pessoas`, marcado: true },
+  { titulo: t('privativa.b3T'), detalhe: t('privativa.b3D') },
+];
+
+/* Os espaços que um grupo ocupa junto. Cada legenda diz a peça, não o clima. */
+const ESPACOS = [
+  { foto: deckYoga,        legenda: 'A shala · deck coberto de palha',   alt: 'Deck de madeira sob telhado de palha aberto para a mata, com espreguiçadeira e samambaias na borda' },
+  { foto: refeitorioMesas, legenda: 'O refeitório · mesas compridas',    alt: 'Mesas compridas do refeitório postas com jogos americanos de palha trançada e canecas escuras' },
+  { foto: arenaBancos,     legenda: 'A roda de fogo · bancos de tronco', alt: 'Bancos de tronco maciço formando uma roda na areia da clareira, cercados pela mata' },
+  { foto: luauPraia,       legenda: 'A praia à noite · velas e fogueira', alt: 'Praia à noite com fogueira acesa, fileira de velas na areia e hóspedes reunidos sob as palmeiras' },
+] as const;
+---
+
+<AberturaPagina titulo={t('privativa.h1')} intro={t('privativa.intro')}>
+  <Campo class="mt-8">
+    {SITE.capacity.cabins} bangalôs
+    <Voluta />
+    até {SITE.capacity.maxGuests} hóspedes
+    <Voluta />
+    exclusividade a partir de {SITE.capacity.minGuestsPrivate}
+  </Campo>
+</AberturaPagina>
+
+<!-- campo reservado: o grupo, que é o que esta página vende -->
+<figure class="container-editorial">
+  <Image
+    src={banhoRioGrupo}
+    alt="Fileira de onze mulheres lado a lado dentro da água rasa do rio, sorrindo de frente para a câmera"
+    widths={[600, 900, 1288]}
+    sizes="(min-width: 1280px) 76rem, 100vw"
+    loading="eager"
+    fetchpriority="high"
+    class="aspect-[16/9] w-full object-cover"
+  />
+  <figcaption class="meta numero mt-3">Um grupo na água · a Villa inteira reservada</figcaption>
+</figure>
+
+<section class="cunha-topo secao bg-mata">
+  <div class="container-editorial">
+    <ListaCorte itens={blocos} nivel="h2" />
+    <p class="numero etiqueta mt-6">{t('privativa.nota')}</p>
+    <p class="mt-10">
+      <a href={whatsappUrl(t('whatsapp.geral'))} class="btn btn-primario">{t('cta.checkAvailability')}</a>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════ OS ESPAÇOS DO GRUPO ═══════════ -->
+<section class="secao">
+  <div class="container-editorial">
+    <h2 class="font-display text-titulo">Onde o grupo se reúne</h2>
+    <p class="lead container-texto mt-4 sm:mx-0">
+      Quatro espaços comuns, e na exclusividade eles são só do seu grupo: ninguém de fora entra na data.
+    </p>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {ESPACOS.map((e) => (
+        <figure>
+          <Image
+            src={e.foto}
+            alt={e.alt}
+            widths={[400, 600, 900]}
+            sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 100vw"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[4/3] w-full object-cover"
+          />
+          <figcaption class="meta numero mt-3">{e.legenda}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FECHAMENTO ═══════════ -->
+<section class="cunha-topo secao bg-mata">
+  <div class="container-editorial">
+    <figure>
+      <Image
+        src={porDoSolGrupo}
+        alt="Fileira de pessoas sentadas na beira da praia, de costas, vendo o sol baixar sobre o rio e abrir um rastro dourado na água"
+        widths={[600, 900, 1290]}
+        sizes="(min-width: 1280px) 76rem, 100vw"
+        loading="lazy" decoding="async"
+        class="aspect-[21/9] w-full object-cover"
+      />
+      <figcaption class="meta numero mt-3">Fim de tarde · a hora em que o grupo para junto</figcaption>
+    </figure>
+  </div>
+</section>

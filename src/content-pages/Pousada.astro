@@ -1,0 +1,466 @@
+---
+/**
+ * A POUSADA — a superfície onde o posicionamento vive.
+ *
+ * "A casa e o material" foi o diferencial escolhido, então esta página existe
+ * para mostrar madeira de perto: a marchetaria radial da porta, a tecelagem da
+ * manta, a fibra da luminária. A fotografia lidera e o tipo fica ao lado dela,
+ * nunca em cima.
+ *
+ * Fatos verificados nas fotos, não generalizados: as unidades VARIAM em tipo e
+ * em tamanho. A página não afirma um padrão único. O material de cobertura NÃO
+ * se descreve em lugar nenhum: os bangalôs duplos são de palha, os quartos/casa
+ * são de telha comum — nada de "telhado metálico", que era errado (cliente,
+ * 20/08/2026), e o cliente pediu para simplesmente não descrever isso.
+ *
+ * RODADA DE FOTOGRAFIA (20/08/2026). Duas mudanças:
+ *   · Os três tipos de unidade deixaram de ser uma lista de texto e passaram a
+ *     mostrar o quarto. Quem escolhe onde dormir quer ver a cama, não ler
+ *     "unidade de dois pavimentos". Depois viraram DUAS fotos por tipo — ver a
+ *     nota no array `tipos`.
+ *   · Seção nova "Como é viver aqui", com os três fatos que o cliente passou e
+ *     que nenhum concorrente tem: pouco mosquito, banho sem aquecedor,
+ *     nenhuma televisão.
+ *
+ * O MOSQUITO — leia antes de mexer. O texto anterior dizia "sem mosquito". O
+ * cliente atribui isso ao pH do rio, mas o mecanismo não se sustenta: rios de
+ * água clara como o Arapiuns têm pH próximo do neutro, e a literatura associa
+ * água ÁCIDA (rio Negro) a MAIS vetor de malária, não menos. O que é verdade e
+ * sustentável é o comparativo com a Amazônia de várzea, e é isso que está
+ * escrito. Não voltar a prometer zero — basta uma picada para o hóspede se
+ * sentir enganado. Registro: docs/superpowers/specs/2026-08-20-vender-com-as-imagens-design.md
+ *
+ * NENHUMA foto de quarto com mosquiteiro armado entra nesta página. Mosquiteiro
+ * ao lado de "praticamente sem mosquito" é uma contradição que o visitante vê
+ * antes de ler. O acervo tem duas dessas fotos; ambas ficaram de fora.
+ *
+ * RODADA DO CARROSSEL (20/08/2026). O cliente viu que a home ilustrava "A casa"
+ * com um hóspede numa canoa legendado como porta de mogno, e pediu no lugar um
+ * carrossel de dez fotos só de acomodação — "inclusive dentro do saiba mais
+ * dessa parte", que é esta página. Duas consequências aqui:
+ *   · A abertura era UMA foto do bangalô octogonal em 16/9. Passou a ser o
+ *     carrossel inteiro, em 3:2. A octogonal não se perdeu: é a segunda folha.
+ *     A página agora abre mostrando onde se dorme, que é o que quem chega nela
+ *     pelo "saiba mais" veio ver.
+ *   · A MESMA `gal5.jpg` errada estava em "A madeira, de perto", legendada
+ *     "Porta de mogno · cunhas radiais de veio oposto". Trocada — ver a nota
+ *     naquela seção.
+ * A lista das dez vive em `@/data/acomodacoes.ts`, compartilhada com a home.
+ *
+ * SOBREPOSIÇÃO CONHECIDA, e é dívida em aberto: cinco folhas do carrossel
+ * (quarto-casal, quarto-duplex, varanda-rede-duplex, bangalo-palafita e
+ * quarto-twin) reaparecem mais abaixo em "Tipos de unidade", e banheiro-pia e
+ * chale-11 em "As áreas comuns". Nada disso foi tocado porque o cliente pediu o
+ * carrossel e mais fotos por tipo, não uma reforma das seções que ele já
+ * aprovou. A grade de tipos, em especial, é carga e não enfeite: é ela que liga
+ * cada tipo tarifário à sua foto, e o carrossel não faz esse trabalho — ele não
+ * diz de que tipo é cada folha.
+ *
+ * O que a rodada de "mais fotos por tipo" (20/08/2026) reduziu foi a outra
+ * dívida do parágrafo anterior: `bangalo-externo` estava na grade de ÁREAS
+ * COMUNS legendada "Quarto casa", que é unidade e não área comum. Subiu para o
+ * tipo 01, e o lugar dela na grade ficou com `pavilhao-palha`, que é de fato
+ * área comum e é o "Pavilhão de refeições" da lista de corte ao lado. Continuam
+ * fora de lugar ali um banheiro privativo (banheiro-pia) e a fachada do chalé 11.
+ */
+import { Image, getImage } from 'astro:assets';
+import AberturaPagina from '@/components/AberturaPagina.astro';
+import { CarrosselAcomodacoes } from '@/components/CarrosselAcomodacoes';
+import ListaCorte from '@/components/ListaCorte.astro';
+import Campo from '@/components/Campo.astro';
+import Voluta from '@/components/Voluta.astro';
+import { href } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/utils';
+import { SITE } from '@/data/site';
+import { ACOMODACOES } from '@/data/acomodacoes';
+import type { Locale } from '@/i18n/config';
+
+import quartoVaranda from '@/assets/imgs/quarto-varanda.jpg';
+import cozinhaExterna from '@/assets/imgs/cozinha-externa.jpg';
+import quartoCasal from '@/assets/imgs/quarto-casal.jpg';
+import quartoDuplex from '@/assets/imgs/quarto-duplex.jpg';
+import varandaRedeDuplex from '@/assets/imgs/varanda-rede-duplex.jpg';
+import bangaloPalafita from '@/assets/imgs/bangalo-palafita.jpg';
+import quartoTwin from '@/assets/imgs/quarto-twin.jpg';
+import pavilhaoPalha from '@/assets/imgs/pavilhao-palha.jpg';
+import banheiroChuveiro from '@/assets/imgs/banheiro-chuveiro.jpg';
+import banheiroPia from '@/assets/imgs/banheiro-pia.jpg';
+import aguaTransparente from '@/assets/imgs/agua-transparente.jpg';
+import chale11 from '@/assets/imgs/chale-11.jpg';
+import varandaNoite from '@/assets/imgs/varanda-noite.jpg';
+import bangaloExterno from '@/assets/imgs/bangalo-externo.jpg';
+import deckYoga from '@/assets/imgs/deck-yoga.jpg';
+import arenaBancos from '@/assets/imgs/arena-bancos.jpg';
+import passarelaRefeitorio from '@/assets/imgs/passarela-refeitorio.jpg';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+/* ══════════ A ABERTURA ══════════
+   Era uma foto só — a octogonal, em 16/9. Virou as dez, em 3:2, porque quem
+   chega nesta página pelo "saiba mais" de "A casa" veio ver onde dorme, e uma
+   unidade não prova treze. A octogonal continua na página: é a segunda folha.
+
+   Na marcação, `client:load` e não `client:visible`: o carrossel é o primeiro
+   elemento da página, está sempre visível, e `visible` só adiaria a hidratação
+   do que o visitante já está olhando. `prioridade` faz a primeira folha sair do
+   build com fetchpriority alto — ela é o LCP daqui.
+
+   Escala maior que a da home: lá o quadro é uma coluna de grade a 46vw, aqui é
+   o container editorial inteiro (76rem de teto), então a tela de densidade dupla
+   pede ~2400 de origem — que é exatamente o que as dez têm, sem ampliar nenhuma.
+
+   ══════════ A MADEIRA, DE PERTO ══════════
+   A primeira figura daquela seção era `gal5.jpg` — o mesmo hóspede na canoa —
+   legendada "Porta de mogno · cunhas radiais de veio oposto". Nenhuma das duas
+   metades da legenda existia na foto. Entra `quarto-varanda.jpg`, que não estava
+   usada em parte alguma do site: paredes de mogno, porta de almofadas em relevo
+   aberta para a varanda com rede. É madeira de perto de verdade, e não repete
+   nenhuma das dez folhas do carrossel acima.
+
+   SEM LEGENDA, por instrução direta do cliente para essa figura. Por isso ela
+   deixou de ser <figure>: <figure> sem <figcaption> é semântica vazia, e um
+   <div> diz a mesma coisa sem prometer legenda. A `alt` continua, porque quem
+   não vê a foto continua precisando dela.
+
+   A marchetaria radial que `matP1` afirma NÃO ficou sem prova: está no carrossel
+   da abertura, nas folhas `quarto-casal-mogno` e `marchetaria`.
+
+   `quarto-varanda.jpg` tem DUAS camas de solteiro — a segunda entra no canto
+   direito do quadro. Aqui isso não pesa, porque a foto ilustra um parágrafo
+   sobre MATERIAL e não um tipo de unidade. Mas se ela algum dia migrar para a
+   grade de "Tipos de unidade", ela é twin, não casal. */
+const folhasAcomodacao = await Promise.all(
+  ACOMODACOES.map(async (a) => {
+    const img = await getImage({
+      src: a.foto,
+      widths: [640, 960, 1440, 1920, 2400],
+      format: 'webp',
+    });
+    return {
+      id: a.id,
+      assunto: a.assunto,
+      legenda: a.legenda,
+      alt: a.alt,
+      src: img.src,
+      srcset: img.srcSet.attribute,
+    };
+  }),
+);
+
+/* Os três tipos. A `medida` continua sendo o fato do plano tarifário, não um
+   adjetivo.
+
+   DUAS FOTOS POR TIPO (20/08/2026, pedido do cliente: "sobre os três tipos de
+   unidades, deixar com mais fotos de cada tipo"). Uma foto só obrigava a
+   escolher entre mostrar a UNIDADE e mostrar o QUARTO, e a grade escolhia
+   errado nos dois primeiros tipos: quem lê "1 pavimento" e "2 pavimentos"
+   precisa ver o volume da casa para entender a diferença, e quem vai dormir
+   precisa ver a cama. Com duas, cada coluna diz as duas coisas — o par é
+   sempre `a unidade por fora` + `o quarto por dentro`, na mesma ordem nas três
+   colunas, para a comparação entre tipos ser coluna a coluna.
+
+   A foto que já estava em cada tipo FICOU; o que entrou foi a que faltava.
+   Nenhuma das seis repete outra dentro da grade.
+
+   `bangalo-externo.jpg` subiu para o tipo 01 vindo da grade de ÁREAS COMUNS,
+   onde estava legendada "Quarto casa" — foto de unidade dentro de áreas
+   comuns, no lugar errado. O buraco que ela deixou lá foi preenchido por
+   `pavilhao-palha.jpg`, que ilustra o item "Pavilhão de refeições" da própria
+   lista de corte ao lado. NÃO usar `chale-13.jpg` junto de `bangalo-externo`:
+   são a MESMA unidade, o chalé 13, em dois enquadramentos (apurado com a
+   sessão que fez o carrossel da abertura).
+
+   Nenhuma `alt` nova descreve material de cobertura, pela mesma razão
+   registrada no cabeçalho deste arquivo. */
+const tipos = [
+  { n: '01', titulo: t('pousada.tipo1T'), detalhe: t('pousada.tipo1D'), medida: '1 pavimento',
+    fotos: [
+      { src: bangaloExterno,
+        alt: 'Chalé de um pavimento em madeira escura, sobre palafitas na areia, com varanda coberta na frente e escada de poucos degraus, entre os troncos da mata' },
+      { src: quartoCasal,
+        alt: 'Quarto de madeira escura com cama de casal, manta xadrez dobrada ao pé e cadeira de madeira ao lado da janela' },
+    ] },
+  { n: '02', titulo: t('pousada.tipo2T'), detalhe: t('pousada.tipo2D'), medida: '2 pavimentos',
+    fotos: [
+      { src: bangaloPalafita,
+        alt: 'Bangalô de dois pavimentos em madeira sobre palafitas, com escada externa subindo para a varanda de rede e uma copa aberta embaixo, no meio da floresta' },
+      { src: quartoDuplex,
+        alt: 'Cama de solteiro vista de lado, ao lado de uma porta de mogno cujas cunhas de veio oposto irradiam de um centro octogonal, com a porta da varanda aberta para a vegetação' },
+    ] },
+  { n: '03', titulo: t('pousada.tipo3T'), detalhe: t('pousada.tipo3D'), medida: '2 suítes',
+    fotos: [
+      { src: quartoTwin,
+        alt: 'Quarto com duas camas de solteiro de madeira, porta dupla aberta para a varanda onde há uma rede armada, e a mata logo atrás' },
+      { src: varandaRedeDuplex,
+        alt: 'Varanda do pavimento superior com rede preta armada, cadeira de cipó e cesto trançado pendurado na parede de madeira' },
+    ] },
+] as const;
+
+const comuns = [
+  { titulo: t('pousada.c1T'), detalhe: t('pousada.c1D') },
+  { titulo: t('pousada.c2T'), detalhe: t('pousada.c2D') },
+  { titulo: t('pousada.c3T'), detalhe: t('pousada.c3D') },
+  { titulo: t('pousada.c4T'), detalhe: t('pousada.c4D') },
+];
+
+/* "Como é viver aqui". Cada item é um fato do cliente com a foto que o mostra.
+   O do mosquito é o caso difícil: não existe fotografia de uma ausência. A foto
+   que entra é a da água clara — que é a razão de fato do comparativo, e não uma
+   ilustração de enfeite. A legenda descreve a água, não promete a ausência. */
+const viver = [
+  { k: 'mosquito', foto: aguaTransparente,
+    alt: 'Banco de areia dourada dentro do rio, com a água rasa tão clara que o fundo aparece ondulado pela luz',
+    legenda: 'Água clara · o fundo à vista',
+    titulo: t('pousada.mosquitoT'), texto: t('pousada.mosquitoD') },
+  { k: 'agua', foto: banheiroChuveiro,
+    alt: 'Chuveiro aberto num banheiro de madeira, a água caindo em fio contra a luz que entra pela janela',
+    legenda: 'O banho · sem aquecedor',
+    titulo: t('pousada.aguaT'), texto: t('pousada.aguaD') },
+  { k: 'tela', foto: varandaNoite,
+    alt: 'Varanda de madeira à noite com rede armada e luminária de fibra trançada acesa sob o telhado de palha',
+    legenda: 'A noite · rede e luminária de fibra',
+    titulo: t('pousada.telaT'), texto: t('pousada.telaD') },
+] as const;
+---
+
+<AberturaPagina titulo={t('pousada.h1')} intro={t('pousada.intro')}>
+  <Campo class="mt-8">
+    {SITE.capacity.cabins} bangalôs
+    <Voluta />
+    até {SITE.capacity.maxGuests} hóspedes
+    <Voluta />
+    arquitetura {SITE.architecture}
+  </Campo>
+</AberturaPagina>
+
+<!-- campo reservado: a unidade, sem tipo em cima. Ver a nota da abertura no
+     frontmatter. -->
+<div class="container-editorial">
+  <CarrosselAcomodacoes
+    client:load
+    folhas={folhasAcomodacao}
+    rotulo="As acomodações da Villa em dez fotos"
+    rotuloPosicao="Foto {n} de {total}"
+    rotuloAnterior="Foto anterior"
+    rotuloProxima="Próxima foto"
+    rotuloArraste="arraste"
+    sizes="(min-width: 1280px) 76rem, 100vw"
+    prioridade
+  />
+</div>
+
+<!-- ═══════════ A MADEIRA, DE PERTO ═══════════ -->
+<section class="secao">
+  <div class="container-editorial">
+    <div class="grid gap-12 lg:grid-cols-2 lg:gap-20">
+      <div>
+        <h2 class="font-display text-titulo">{t('pousada.matT')}</h2>
+        <hr class="emenda mt-6 max-w-40 border-t" />
+        <p class="mt-6">{t('pousada.matP1')}</p>
+        <p class="mt-5">{t('pousada.matP2')}</p>
+      </div>
+      <!-- A primeira peça vem SEM legenda, por instrução do cliente. Ver a nota
+           "A MADEIRA, DE PERTO" no frontmatter. -->
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-1">
+        <div>
+          <Image
+            src={quartoVaranda}
+            alt="Quarto de paredes de mogno com cama de solteiro e manta xadrez, ao lado de uma porta de madeira de almofadas em relevo aberta para a varanda, onde há uma rede armada"
+            widths={[640, 960, 1400]}
+            sizes="(min-width: 1024px) 46vw, (min-width: 640px) 45vw, 100vw"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[3/2] w-full object-cover"
+          />
+        </div>
+        <figure>
+          <Image
+            src={cozinhaExterna}
+            alt="Copa externa do bangalô com pia, balcão de madeira maciça e janela ripada aberta para a mata"
+            widths={[560, 900, 1400]}
+            sizes="(min-width: 1024px) 46vw, (min-width: 640px) 45vw, 100vw"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[3/2] w-full object-cover"
+          />
+          <figcaption class="meta numero mt-3">Copa externa · madeira maciça e janela ripada</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ COMO É VIVER AQUI ═══════════
+     Os três fatos que o cliente passou em 20/08 e que o site nunca disse. São
+     a resposta às três perguntas que o visitante internacional não faz em voz
+     alta: vou ser picado? vou tomar banho frio? vou morrer de tédio? -->
+<section class="cunha-topo secao bg-mata">
+  <div class="container-editorial">
+    <h2 class="font-display text-titulo">{t('pousada.viverT')}</h2>
+    <p class="lead container-texto mt-4 sm:mx-0">{t('pousada.viverI')}</p>
+
+    <div class="emenda mt-12 grid gap-10 border-t pt-10 lg:grid-cols-3 lg:gap-0">
+      {viver.map((v, i) => (
+        <div class:list={['flex flex-col', i > 0 ? 'emenda lg:border-l lg:pl-8 xl:pl-12' : 'lg:pr-8 xl:pr-12']}>
+          <figure>
+            <Image
+              src={v.foto}
+              alt={v.alt}
+              widths={[400, 600, 900]}
+              sizes="(min-width: 1024px) 30vw, 100vw"
+              loading="lazy"
+              decoding="async"
+              class="aspect-[3/2] w-full object-cover"
+            />
+            <figcaption class="meta numero mt-3">{v.legenda}</figcaption>
+          </figure>
+          <h3 class="font-display text-secao mt-6">{v.titulo}</h3>
+          <p class="mt-3">{v.texto}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TIPOS DE UNIDADE ═══════════
+     Antes era ListaCorte de texto puro. Quem escolhe onde vai dormir precisa
+     ver a cama — a lista virou grade com a fotografia de cada tipo. A lista de
+     corte continua viva na página, nas áreas comuns. -->
+<section class="secao">
+  <div class="container-editorial">
+    <h2 class="font-display text-titulo">{t('pousada.tiposT')}</h2>
+
+    <div class="mt-10 grid gap-10 md:grid-cols-3 md:gap-8">
+      {tipos.map((u) => (
+        <div class="flex flex-col">
+          {/* A pilha de duas fotos. Sem <figure>: não há legenda nesta grade —
+              o assunto de cada foto é o próprio tipo, dito no <h3> abaixo — e
+              <figure> sem <figcaption> é semântica vazia.
+
+              As duas não têm o mesmo quadro, de propósito. A primeira é 4/3 e
+              carrega a coluna; a segunda é 16/9, uma faixa mais baixa que lê
+              como complemento e não como segunda foto de igual peso. Com dois
+              quadros 4/3 a coluna fica alta demais e a grade de três colunas
+              empurra o texto para bem abaixo da dobra no celular. */}
+          <div class="flex flex-col gap-2">
+            {u.fotos.map((f, i) => (
+              <Image
+                src={f.src}
+                alt={f.alt}
+                widths={[400, 600, 900]}
+                sizes="(min-width: 768px) 30vw, 100vw"
+                loading="lazy"
+                decoding="async"
+                class:list={['w-full object-cover', i === 0 ? 'aspect-[4/3]' : 'aspect-[16/9]']}
+              />
+            ))}
+          </div>
+          <p class="numero etiqueta mt-4">{u.n}</p>
+          <h3 class="font-display text-secao mt-1">{u.titulo}</h3>
+          <p class="mt-2">{u.detalhe}</p>
+          {/* `mt-auto` empurra a medida para a base da coluna. Sem isto a régua
+              da emenda pousa onde o texto acabou, e as três colunas ficam com a
+              linha em três alturas diferentes — o mesmo recurso que a home usa
+              nas duas modalidades. */}
+          <p class="numero etiqueta emenda mt-auto border-t pt-3">{u.medida}</p>
+        </div>
+      ))}
+    </div>
+
+    <p class="numero etiqueta mt-8">{t('pousada.tiposNota')}</p>
+
+    <p class="mt-10 flex flex-wrap items-center gap-x-3 gap-y-2">
+      <a href={href(locale, 'packages')} class="btn btn-secundario">Ver pacotes</a>
+      <a href={href(locale, 'book')} class="btn btn-primario">Falar com a casa</a>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════ ÁREAS COMUNS ═══════════ -->
+<section class="cunha-topo secao bg-mata">
+  <div class="container-editorial">
+    <div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] lg:gap-20">
+      <div>
+        <h2 class="font-display text-titulo">{t('pousada.comunsT')}</h2>
+        <ListaCorte itens={comuns} class="mt-8" />
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-1">
+        <figure>
+          <Image
+            src={deckYoga}
+            alt="Deck de madeira sob telhado de palha aberto para a mata, com espreguiçadeira e samambaias na borda"
+            widths={[560, 900, 1400]}
+            sizes="(min-width: 1024px) 40vw, (min-width: 640px) 45vw, 100vw"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[3/2] w-full object-cover"
+          />
+          <figcaption class="meta numero mt-3">Shala · deck coberto de palha</figcaption>
+        </figure>
+        <figure>
+          <Image
+            src={pavilhaoPalha}
+            alt="Pavilhão comprido de telhado de palha sobre deck de madeira, aberto para a mata, com bancos de tronco e espreguiçadeira embaixo"
+            widths={[560, 900, 1400]}
+            sizes="(min-width: 1024px) 40vw, (min-width: 640px) 45vw, 100vw"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[3/2] w-full object-cover"
+          />
+          <figcaption class="meta numero mt-3">Pavilhão de refeições · deck de madeira</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- a casa por dentro e por fora: quatro peças que a lista nomeia -->
+    <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <figure>
+        <Image
+          src={passarelaRefeitorio}
+          alt="Passarela de madeira serpenteando entre os troncos da floresta até a maloca de palha do refeitório"
+          widths={[400, 600, 900]}
+          sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 100vw"
+          loading="lazy" decoding="async"
+          class="aspect-[4/3] w-full object-cover"
+        />
+        <figcaption class="meta numero mt-3">A passarela · liga tudo</figcaption>
+      </figure>
+      <figure>
+        <Image
+          src={arenaBancos}
+          alt="Bancos de tronco maciço formando uma roda na areia da clareira, cercados pela mata"
+          widths={[400, 600, 900]}
+          sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 100vw"
+          loading="lazy" decoding="async"
+          class="aspect-[4/3] w-full object-cover"
+        />
+        <figcaption class="meta numero mt-3">A roda de fogo · bancos de tronco</figcaption>
+      </figure>
+      <figure>
+        <Image
+          src={banheiroPia}
+          alt="Pia de banheiro com cuba branca sobre bancada de madeira, espelho e cestaria regional, sob teto de palha"
+          widths={[400, 600, 900]}
+          sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 100vw"
+          loading="lazy" decoding="async"
+          class="aspect-[4/3] w-full object-cover"
+        />
+        <figcaption class="meta numero mt-3">O banheiro · cuba e cestaria</figcaption>
+      </figure>
+      <figure>
+        <Image
+          src={chale11}
+          alt="Fachada do chalé número 11 com rede armada na varanda, meio escondido pela vegetação em volta"
+          widths={[400, 600, 900]}
+          sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 100vw"
+          loading="lazy" decoding="async"
+          class="aspect-[4/3] w-full object-cover"
+        />
+        <figcaption class="meta numero mt-3">Chalé 11 · rede na varanda</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>

@@ -25,13 +25,19 @@ import { SITE } from '@/data/site';
       })();
     </script>
     <style>
-      body { font-family: system-ui, sans-serif; background: #f7f1e8; color: #1a1a18;
-             display: grid; place-items: center; min-height: 100vh; margin: 0; }
-      ul { list-style: none; padding: 0; display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
-      a { color: #2d4a2f; }
+      /* Esta página não importa o global.css (é um redirect de 0s), então os
+         valores vêm cravados — mas são os tokens reais do @theme, não os
+         hexes do site antigo que estavam aqui. */
+      body { font-family: system-ui, sans-serif; background: #1d2418; color: #b4b69f;
+             display: grid; place-items: center; min-height: 100dvh; margin: 0;
+             padding: 2rem; text-align: center; }
+      h1 { font-weight: 400; font-size: 1.25rem; margin: 0 0 1.5rem; }
+      ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+      a { color: #c2ab80; padding: 0.25rem 0; display: inline-block; }
     </style>
   </head>
   <body>
+    <h1>{SITE.name}</h1>
     <nav aria-label="Escolha de idioma">
       <ul>
         {LOCALES.map((l) => <li><a href={`/${l}/`} hreflang={HTML_LANG[l]}>{LOCALE_NAMES[l]}</a></li>)}

@@ -30,7 +30,7 @@ interface Props { itens: Experiencia[] }
 const { itens } = Astro.props;
 ---
 
-<ul class="lista-exp">
+<ul>
   {itens.map((e) => (
     <li class="grupo relative border-t border-mata/12 first:border-t-0">
       <a
@@ -40,11 +40,11 @@ const { itens } = Astro.props;
         {/* O texto reserva a faixa da foto: sem isso a polaroide cobre a
             legenda no celular, onde ela está sempre visível. */}
         <span class="texto">
-          <span class="font-display text-titulo block text-mata transition-opacity duration-500">
+          <span class="font-display text-titulo cor-titulo block transition-opacity duration-500">
             {e.nome}
           </span>
-          <span class="mt-1 flex items-start gap-2.5 text-cinza">
-            <Voluta class="mt-1.5 text-rede/60" />
+          <span class="mt-1 flex items-start gap-2.5">
+            <Voluta class="mt-1.5 text-ouro/70" />
             <span>{e.detalhe}</span>
           </span>
         </span>
@@ -80,8 +80,8 @@ const { itens } = Astro.props;
     position: absolute;
     inset: 0;
     overflow: hidden;
-    background: var(--color-areia);
-    box-shadow: 0 10px 26px -12px rgb(34 64 43 / 0.5);
+    background: var(--color-salvia);
+    box-shadow: 0 10px 26px -12px rgb(0 0 0 / 0.6);
   }
 
   .foto-tras  { rotate: -5deg; translate: -1.75rem 0.5rem; }

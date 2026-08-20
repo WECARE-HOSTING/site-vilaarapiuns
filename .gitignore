@@ -14,3 +14,21 @@ dist/
 # sistema
 .DS_Store
 *.log
+
+# Acervo bruto de mídia (401MB) e documentos comerciais.
+# Os derivados de 2400px vivem em src/assets/imgs/ e são versionados.
+# Originais ficam no Drive; documento tarifário é confidencial.
+#
+# A BARRA INICIAL É OBRIGATÓRIA. Sem ela o git casa um diretório chamado
+# "Assets" em QUALQUER nível — e como o filesystem do macOS é
+# case-insensitive, `Assets/` também casava `src/assets/`. Resultado: toda
+# imagem nova em src/assets/imgs/ era ignorada em silêncio, contra a intenção
+# escrita duas linhas acima. Foi assim que bangalo-externo, cafe-manha,
+# caiaques, pavilhao-mata e varanda-noite ficaram fora do repositório.
+/Assets/
+
+# saída de pesquisa web (efêmera, não versionar)
+.firecrawl/
+
+# cache/estado local de ferramenta de review de UI (não é conteúdo do site)
+.impeccable/

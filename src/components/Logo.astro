@@ -1,34 +1,95 @@
 ---
 /**
- * Marca da Villa: o traço botânico do logo original, redesenhado em SVG
- * para escalar, herdar a cor do contexto e pesar 1KB em vez de 576KB.
+ * Marca da Villa, redesenhada com fidelidade ao ativo (src/assets/imgs/logo.png).
+ *
+ * O que a versão anterior errava, e por quê importa: ela desenhava CINCO gotas
+ * irradiando de um nó — um leque de palmeira. O logo real tem QUATRO folhas
+ * amendoadas em CONTORNO (duas eretas abertas em V, duas quase horizontais),
+ * todas convergindo num único ponto embaixo, cada uma com uma espiral LISA
+ * dentro. Separadas delas, em haste, três cabeças de samambaia com coroa de
+ * contas. Não existe roseta central: o que parecia roseta é a cabeça de topo.
+ *
+ * O wordmark também: ARAPIUNS não é de peso ultraleve, é CONTORNO VAZADO — a
+ * linha de um sans largo e alto. A versão anterior usava Archivo Narrow 600,
+ * condensada e semibold, o eixo oposto nas duas dimensões, enquanto o comentário
+ * do design system alegava "ecoar o wordmark". Aqui é Archivo expandida em
+ * contorno. Correção em 20/08: o wordmark é SÓLIDO, pesado e condensado.
+ *
+ * A palavra "Villa" NÃO está no logotipo original — então ela não entra no
+ * wordmark, mas entra na linha de baixo, porque antes o usuário vidente nunca
+ * via o nome do produto em lugar nenhum do cabeçalho.
+ *
+ * DECISÃO ABERTA: a assinatura do logo diz "Amazonas – Brasil", mas o Rio
+ * Arapiuns é no Pará, que é o que src/data/site.ts diz. Aqui vale o Pará,
+ * a verdade do produto. Ver PRODUCT.md.
  */
-interface Props { class?: string; tone?: 'escuro' | 'claro' }
-const { class: className = '', tone = 'escuro' } = Astro.props;
-const cor = tone === 'claro' ? 'text-areia' : 'text-mata';
+/*
+ * A cor vem do CONTEXTO, via --cor-titulo: creme sobre superfície escura,
+ * verde sobre a cunha creme. Antes havia um prop `tone`, e o cabeçalho passava
+ * 'escuro' — que significava "tinta escura para fundo claro". Quando o site
+ * virou de fundo escuro, o logotipo ficou verde sobre verde: 1:1, invisível
+ * em todas as 50 páginas. Prop que exige o autor saber a superfície é armadilha.
+ */
+interface Props { class?: string }
+const { class: className = '' } = Astro.props;
+const cor = 'cor-titulo';
+
+// As três cabeças com coroa: centro, esquerda, direita.
+const CABECAS = [
+  { cx: 60, cy: 26, haste: 'M60 50 C 60 42, 60 34, 60 31' },
+  { cx: 31, cy: 45, haste: 'M47 57 C 42 53, 36 49, 33.5 47.6' },
+  { cx: 89, cy: 45, haste: 'M73 57 C 78 53, 84 49, 86.5 47.6' },
+];
+const coroa = (cx: number, cy: number) =>
+  Array.from({ length: 6 }, (_, i) => {
+    const ang = (-150 + i * 52) * (Math.PI / 180);
+    return { cx: +(cx + Math.cos(ang) * 6.4).toFixed(2), cy: +(cy + Math.sin(ang) * 6.4).toFixed(2) };
+  });
+
+// Espiral lisa, uma dentro de cada folha.
+const espiral = (cx: number, cy: number, r = 4.6) =>
+  `M${cx + r} ${cy} A ${r} ${r} 0 1 1 ${cx} ${cy - r} ` +
+  `A ${r * 0.62} ${r * 0.62} 0 1 0 ${cx + r * 0.62} ${cy - r * 0.62 * 0.0} ` +
+  `A ${r * 0.3} ${r * 0.3} 0 1 1 ${cx} ${cy - r * 0.3}`;
 ---
 
-<span class:list={['inline-flex items-center gap-3', cor, className]}>
-  <svg viewBox="0 0 64 44" class="h-8 w-auto shrink-0" fill="none" aria-hidden="true">
-    <g stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-      <!-- folha central -->
-      <path d="M32 42 C 28 30, 28 14, 32 3 C 36 14, 36 30, 32 42 Z" />
-      <!-- folhas internas -->
-      <path d="M32 42 C 24 32, 18 20, 17 9 C 25 17, 31 30, 32 42 Z" />
-      <path d="M32 42 C 40 32, 46 20, 47 9 C 39 17, 33 30, 32 42 Z" />
-      <!-- folhas rasantes -->
-      <path d="M32 42 C 21 40, 9 36, 2 30 C 12 29, 25 34, 32 42 Z" />
-      <path d="M32 42 C 43 40, 55 36, 62 30 C 52 29, 39 34, 32 42 Z" />
-      <!-- volutas: as espirais de samambaia do logo original -->
-      <path d="M24 27 a2.6 2.6 0 1 1 -2.4 -2.6 a1.5 1.5 0 1 0 1.4 1.5" />
-      <path d="M40 27 a2.6 2.6 0 1 0 2.4 -2.6 a1.5 1.5 0 1 1 -1.4 1.5" />
-      <path d="M16 36 a2.2 2.2 0 1 1 -2 -2.2 a1.3 1.3 0 1 0 1.2 1.3" />
-      <path d="M48 36 a2.2 2.2 0 1 0 2 -2.2 a1.3 1.3 0 1 1 -1.2 1.3" />
+<span class:list={['inline-flex items-center gap-3.5', cor, className]}>
+  <svg viewBox="0 0 120 78" class="h-9 w-auto shrink-0" fill="none" aria-hidden="true">
+    <g stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round">
+      <!-- quatro folhas amendoadas em contorno, convergindo em (60,71) -->
+      <path d="M60 71 Q55 35 32 7 Q37 43 60 71 Z" />
+      <path d="M60 71 Q65 35 88 7 Q83 43 60 71 Z" />
+      <path d="M60 71 Q30 71 6 54 Q36 54 60 71 Z" />
+      <path d="M60 71 Q90 71 114 54 Q84 54 60 71 Z" />
+
+      <!-- uma espiral lisa dentro de cada folha -->
+      <path d={espiral(45, 34)} />
+      <path d={espiral(75, 34)} />
+      <path d={espiral(29, 62, 3.8)} />
+      <path d={espiral(91, 62, 3.8)} />
+
+      <!-- três cabeças de samambaia com coroa de contas, em haste -->
+      {CABECAS.map((c) => (
+        <g>
+          <path d={c.haste} />
+          <path d={`M${c.cx + 2.6} ${c.cy} A 2.6 2.6 0 1 1 ${c.cx} ${c.cy - 2.6} A 1.25 1.25 0 1 0 ${c.cx + 1.25} ${c.cy - 1.25}`} />
+          {coroa(c.cx, c.cy).map((b) => <circle cx={b.cx} cy={b.cy} r="1.7" />)}
+        </g>
+      ))}
     </g>
   </svg>
 
   <span class="flex flex-col leading-none">
-    <span class="olho text-[0.95rem] tracking-[0.22em]">ARAPIUNS</span>
-    <span class="olho text-[0.5rem] opacity-60 mt-1">Rio Arapiuns · Pará</span>
+    <!--
+      Medido no ativo em alta resolução (Assets/Media/.../3.png, 2000×2000):
+      ~365px de largura para ~85px de altura de caixa alta, ou seja ~0,53 de
+      largura por letra — CONDENSADA e PESADA, com espaçamento apertado.
+      Não é ultraleve nem em contorno: a versão branca sobre branco só mostrava
+      as bordas, e foi daí que veio o erro de leitura. A fase anterior usava
+      Archivo Narrow 600, que estava quase certo.
+      A assinatura do logo diz "AMAZONAS"; aqui vale Pará, a verdade do produto.
+    -->
+    <span class="font-label text-[1.25rem] font-bold leading-none tracking-[0.01em]">ARAPIUNS</span>
+    <span class="etiqueta mt-1.5 opacity-80">Villa · Rio Arapiuns, Pará</span>
   </span>
 </span>

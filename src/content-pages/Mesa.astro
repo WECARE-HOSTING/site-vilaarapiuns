@@ -1,0 +1,160 @@
+---
+/**
+ * A MESA — e o escopo, que é o ponto.
+ *
+ * O site afirmava "pensão completa" como se valesse para tudo. Não vale: na
+ * pousada é alimentação completa, nos pacotes é MEIA pensão (café e jantar).
+ * Esta página existe tanto para mostrar a comida quanto para deixar o escopo
+ * inequívoco — é a informação que gera reclamação quando falta.
+ *
+ * RODADA DE FOTOGRAFIA (20/08/2026). Tinha duas fotos, o que é pouco para a
+ * página que vende comida: nenhum prato aparecia, só mesas postas. Agora a
+ * página vai do café ao jantar na areia, e o prato aparece.
+ */
+import { Image } from 'astro:assets';
+import AberturaPagina from '@/components/AberturaPagina.astro';
+import ListaCorte from '@/components/ListaCorte.astro';
+import { href } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/utils';
+import type { Locale } from '@/i18n/config';
+
+import cafeRefeitorio from '@/assets/imgs/cafe-refeitorio.jpg';
+import cafeManha from '@/assets/imgs/cafe-manha.jpg';
+import refeitorioMesas from '@/assets/imgs/refeitorio-mesas.jpg';
+import mesaCaneca from '@/assets/imgs/mesa-caneca.jpg';
+import jantarPeixe from '@/assets/imgs/jantar-peixe.jpg';
+import hero2 from '@/assets/imgs/hero2.jpg';
+import luauPraia from '@/assets/imgs/luau-praia.jpg';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const escopo = [
+  { titulo: t('mesa.escopo1T'), detalhe: t('mesa.escopo1D'), medida: 'Pousada', marcado: true },
+  { titulo: t('mesa.escopo2T'), detalhe: t('mesa.escopo2D'), medida: 'Pacotes', marcado: true },
+];
+---
+
+<AberturaPagina titulo={t('mesa.h1')} intro={t('mesa.intro')} />
+
+<figure class="container-editorial">
+  <Image
+    src={cafeRefeitorio}
+    alt="Mesa de café da manhã posta no pavilhão aberto: bolo, tapioca, fruta fatiada e jarra de suco vermelho, com a floresta atrás"
+    widths={[800, 1200, 1800, 2400]}
+    sizes="(min-width: 1280px) 76rem, 100vw"
+    loading="eager"
+    fetchpriority="high"
+    class="aspect-[16/9] w-full object-cover"
+  />
+  <figcaption class="meta numero mt-3">Café da manhã · pavilhão aberto para a mata</figcaption>
+</figure>
+
+<!-- ═══════════ O ESCOPO ═══════════ -->
+<section class="secao">
+  <div class="container-editorial">
+    <div class="grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-20">
+      <div>
+        <h2 class="font-display text-titulo">{t('mesa.escopoT')}</h2>
+        <ListaCorte itens={escopo} class="mt-8" />
+        <p class="mt-10">
+          <a href={href(locale, 'packages')} class="link-texto etiqueta">Ver o que vem em cada pacote</a>
+        </p>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-1">
+        <figure>
+          <Image
+            src={refeitorioMesas}
+            alt="Mesas compridas do refeitório postas com jogos americanos de palha trançada e canecas escuras, abertas para o verde"
+            widths={[560, 900, 1400]}
+            sizes="(min-width: 1024px) 40vw, (min-width: 640px) 45vw, 100vw"
+            loading="lazy" decoding="async"
+            class="aspect-[3/2] w-full object-cover"
+          />
+          <figcaption class="meta numero mt-3">O refeitório · esteiras trançadas</figcaption>
+        </figure>
+        <figure>
+          <Image
+            src={mesaCaneca}
+            alt="Caneca de cerâmica azul apoiada num jogo americano de palha trançada, sobre a madeira da mesa"
+            widths={[560, 900, 1400]}
+            sizes="(min-width: 1024px) 40vw, (min-width: 640px) 45vw, 100vw"
+            loading="lazy" decoding="async"
+            class="aspect-[3/2] w-full object-cover"
+          />
+          <figcaption class="meta numero mt-3">A louça · cerâmica e palha</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ A PIRACAIA ═══════════
+     A refeição que fecha a estadia, e a única que não acontece na mesa. Três
+     fotos: o prato, a mesa de velas na areia, e a praia inteira à noite. -->
+<section class="cunha-topo secao bg-mata">
+  <div class="container-editorial">
+    <div class="grid gap-12 lg:grid-cols-2 lg:gap-20 lg:items-center">
+      <figure>
+        <Image
+          src={jantarPeixe}
+          alt="Peixes assados inteiros em travessas de barro à luz de velas, com farofa, limão e louça artesanal ao lado"
+          widths={[640, 960, 1400]}
+          sizes="(min-width: 1024px) 46vw, 100vw"
+          loading="lazy" decoding="async"
+          class="aspect-[3/2] w-full object-cover"
+        />
+        <figcaption class="meta numero mt-3">Peixe assado · travessa de barro</figcaption>
+      </figure>
+      <div>
+        <h2 class="font-display text-titulo">{t('mesa.piraT')}</h2>
+        <hr class="emenda mt-6 max-w-40 border-t" />
+        <p class="mt-6">{t('mesa.piraD')}</p>
+      </div>
+    </div>
+
+    <div class="mt-14 grid gap-6 sm:grid-cols-2">
+      <figure>
+        <Image
+          src={hero2}
+          alt="Mesa de jantar à luz de velas na praia: peixe, farinha e frutas servidos em folha de bananeira sobre esteira trançada"
+          widths={[560, 900, 1400]}
+          sizes="(min-width: 640px) 45vw, 100vw"
+          loading="lazy" decoding="async"
+          class="aspect-[3/2] w-full object-cover"
+        />
+        <figcaption class="meta numero mt-3">A mesa na areia · folha de bananeira</figcaption>
+      </figure>
+      <figure>
+        <Image
+          src={luauPraia}
+          alt="Praia à noite com fogueira acesa, fileira de velas na areia e hóspedes reunidos sob as palmeiras"
+          widths={[560, 900, 1400]}
+          sizes="(min-width: 640px) 45vw, 100vw"
+          loading="lazy" decoding="async"
+          class="aspect-[3/2] w-full object-cover"
+        />
+        <figcaption class="meta numero mt-3">Depois do jantar · fogueira e velas</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ O CAFÉ, DE PERTO ═══════════ -->
+<section class="secao">
+  <div class="container-editorial">
+    <figure>
+      <Image
+        src={cafeManha}
+        alt="Café da manhã na mesa comprida de madeira: esteiras redondas trançadas, canecas escuras, bolo, pão, fruta fatiada e jarra de suco, aberto para a floresta"
+        widths={[800, 1200, 1800, 2400]}
+        sizes="(min-width: 1280px) 76rem, 100vw"
+        loading="lazy" decoding="async"
+        class="aspect-[21/9] w-full object-cover"
+      />
+      <figcaption class="meta numero mt-3">Sete da manhã · tapioca, fruta do quintal, café passado na hora</figcaption>
+    </figure>
+  </div>
+</section>

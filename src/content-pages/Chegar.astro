@@ -1,0 +1,93 @@
+---
+/**
+ * COMO CHEGAR — a página que decide a reserva.
+ *
+ * "Tranquilizar é o produto" é o primeiro princípio em PRODUCT.md, e a maior
+ * ansiedade deste negócio é logística: voar até Santarém, achar a lancha,
+ * subir 1h30 de rio. Então esta página é DENSA: lista medida e dúvidas reais.
+ *
+ * Sem foto grande de propósito: aqui o visitante quer resposta, não atmosfera.
+ * E nenhuma etapa afirma tempo que não está confirmado: o trecho Santarém–Alter
+ * do Chão não tem duração declarada em documento nenhum.
+ *
+ * O MAPA é a exceção à regra de "sem imagem grande", e é exceção porque não é
+ * atmosfera: é a resposta à primeira pergunta de quem vai para a Amazônia —
+ * onde isso fica. Vem ANTES da lista de etapas de propósito: a lista dá a
+ * sequência, o mapa dá o lugar, e ninguém entende uma sequência de três baldeações
+ * sem antes ter o lugar na cabeça.
+ */
+import { Image } from 'astro:assets';
+import AberturaPagina from '@/components/AberturaPagina.astro';
+import MapaSituacao from '@/components/MapaSituacao.astro';
+import ListaCorte from '@/components/ListaCorte.astro';
+import chegadaBarco from '@/assets/imgs/chegada-barco.jpg';
+import { href } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/utils';
+import { SITE, whatsappUrl } from '@/data/site';
+import type { Locale } from '@/i18n/config';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const etapas = [
+  { n: '01', titulo: t('home.etapa1T'), detalhe: t('home.etapa1D'), medida: 'Santarém · PA' },
+  { n: '02', titulo: t('home.etapa2T'), detalhe: t('home.etapa2D'), medida: 'Alter do Chão' },
+  { n: '03', titulo: t('home.etapa3T'), detalhe: t('home.etapa3D'), medida: `${SITE.location.boatMinutes} min de lancha`, marcado: true },
+];
+
+const duvidas = [
+  { titulo: t('chegar.q1'), detalhe: t('chegar.a1') },
+  { titulo: t('chegar.q2'), detalhe: t('chegar.a2') },
+  { titulo: t('chegar.q3'), detalhe: t('chegar.a3') },
+  { titulo: t('chegar.q4'), detalhe: t('chegar.a4') },
+  { titulo: t('chegar.q5'), detalhe: t('chegar.a5') },
+];
+---
+
+<AberturaPagina titulo={t('chegar.h1')} intro={t('chegar.intro')} />
+
+<section class="pb-14">
+  <div class="container-editorial">
+    <h2 class="font-display text-titulo">{t('mapa.ondeT')}</h2>
+    <p class="text-intro container-texto mt-4 sm:mx-0">{t('mapa.ondeI')}</p>
+    <MapaSituacao locale={locale} class="mt-10" />
+  </div>
+</section>
+
+<section class="pb-20">
+  <div class="container-editorial">
+    <h2 class="font-display text-titulo">{t('home.travessiaT')}</h2>
+    <ListaCorte itens={etapas} nivel="h3" class="mt-8" />
+
+    {/* UMA foto, e depois da lista — não antes. A página é resposta, não
+        atmosfera: a lista dá a sequência e esta foto responde a única pergunta
+        que a sequência deixa aberta, que é como termina a etapa 03. Não há
+        segunda foto aqui de propósito. */}
+    <figure class="mt-12">
+      <Image
+        src={chegadaBarco}
+        alt="Pessoas desembarcando de um barco na água rasa junto à areia, com bagagem na mão"
+        widths={[600, 900, 1289]}
+        sizes="(min-width: 1280px) 76rem, 100vw"
+        loading="lazy"
+        decoding="async"
+        class="aspect-[21/9] w-full object-cover"
+      />
+      <figcaption class="meta numero mt-3">O fim da etapa 03 · desembarque na areia da Villa</figcaption>
+    </figure>
+
+    <h2 class="font-display text-titulo mt-16">{t('chegar.duvT')}</h2>
+    <ListaCorte itens={duvidas} class="mt-8" />
+
+    <div class="emenda mt-14 border-t pt-8">
+      <p class="container-texto sm:mx-0">
+        Se ficou dúvida que não está aqui, pergunte — é mais rápido que procurar.
+      </p>
+      <p class="mt-6 flex flex-wrap gap-3">
+        <a href={whatsappUrl(t('whatsapp.geral'))} class="btn btn-primario">{t('cta.whatsapp')}</a>
+        <a href={href(locale, 'packages')} class="btn btn-secundario">Ver pacotes com barco</a>
+      </p>
+    </div>
+  </div>
+</section>

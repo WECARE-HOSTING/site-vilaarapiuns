@@ -1,0 +1,201 @@
+---
+/**
+ * PACOTES — os dois roteiros fechados do panfleto, com preço.
+ *
+ * O roteiro item a item vem de "Panfleto Villa Arapiuns (8).pdf". Itens que o
+ * panfleto marca "(opcional)" são marcados como opcionais aqui também: o que
+ * está fechado e o que depende do grupo não se misturam.
+ *
+ * Preço: piso por pessoa em cada roteiro — R$ 1.600 para 1 noite,
+ * R$ 2.300 para 2 noites. A unidade vai junto do número.
+ * Nada da tabela de agências entra aqui — é documento confidencial.
+ *
+ * RODADA DE FOTOGRAFIA (20/08/2026). Esta era a página mais desproporcional do
+ * site: vendia o produto principal, com preço, e tinha UMA foto. O roteiro era
+ * uma lista de nomes de lugares que só significam algo para quem já foi.
+ * Agora existe a folha de contato do roteiro, e cada nome tem a sua imagem.
+ *
+ * DISCIPLINA DE LEGENDA: a legenda diz a ATIVIDADE, não o lugar, quando o
+ * lugar não está confirmado na foto. O acervo não vem com geolocalização, e
+ * escrever "Ponta Grande" embaixo de uma praia que talvez seja outra é o tipo
+ * de detalhe que o hóspede confere quando chega.
+ */
+import { Image } from 'astro:assets';
+import AberturaPagina from '@/components/AberturaPagina.astro';
+import Voluta from '@/components/Voluta.astro';
+import { href } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/utils';
+import { SITE, preco, whatsappUrl } from '@/data/site';
+import type { Locale } from '@/i18n/config';
+
+import porDoSolPortao from '@/assets/imgs/por-do-sol-portao.jpg';
+import igapoCanoa from '@/assets/imgs/igapo-canoa.jpg';
+import massagem from '@/assets/imgs/massagem.jpg';
+import farinhada from '@/assets/imgs/farinhada.jpg';
+import tecelagem from '@/assets/imgs/tecelagem.jpg';
+import porDoSolGrupo from '@/assets/imgs/porsol-gente.jpg';
+import luauPraia from '@/assets/imgs/luau-praia.jpg';
+import samauma from '@/assets/imgs/samauma-grupo.jpg';
+import jantarPeixe from '@/assets/imgs/jantar-peixe.jpg';
+import chegadaBarco from '@/assets/imgs/chegada-barco.jpg';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const roteiro1 = [
+  { nome: 'Lago Azul' },
+  { nome: 'Massagem e banho de cheiro', opc: true },
+  { nome: 'Farinhada, tecelagem e redário', opc: true },
+  { nome: 'Pôr do sol na Ponta Grande' },
+  { nome: 'Fogueira e jantar na pousada' },
+  { nome: 'Ponta do Toronó' },
+  { nome: 'Canal do Jari' },
+];
+const roteiro2 = [
+  { nome: 'Tudo do Clássico Arapiuns' },
+  { nome: 'Trilha de Atodi / Árvore Samaúma', opc: true },
+  { nome: 'Comunidade Coroca: tartarugas e artesanato', opc: true },
+  { nome: 'Piracaia — uma noite de sabores sob as estrelas' },
+];
+
+const pacotes = [
+  { t: t('pacote.p1T'), sub: t('pacote.p1Sub'), d: t('pacote.p1D'), itens: roteiro1,
+    valor: SITE.prices.pacoteMin,  un: t('modo.porPacote') },
+  { t: t('pacote.p2T'), sub: t('pacote.p2Sub'), d: t('pacote.p2D'), itens: roteiro2,
+    valor: SITE.prices.pacote2Min, un: t('modo.porPacote2') },
+];
+
+/* A folha de contato do roteiro. Oito das onze linhas dos dois roteiros têm
+   fotografia no acervo; as três que não têm (Lago Azul, Ponta do Toronó,
+   Comunidade Coroca) ficam de fora em vez de receber foto genérica. */
+const ROTEIRO_FOTOS = [
+  { foto: igapoCanoa,    legenda: 'A mata alagada',            alt: 'Canoa de madeira azul encostada na areia, diante de arbustos e palmeiras com o tronco dentro da água' },
+  { foto: porDoSolGrupo, legenda: 'Pôr do sol na praia',       alt: 'Fileira de pessoas sentadas na beira da praia, de costas, vendo o sol baixar e abrir um rastro dourado na água' },
+  { foto: farinhada,     legenda: 'Farinhada',                 alt: 'Moradores da comunidade e hóspedes em volta de um cocho, peneirando a massa de mandioca' },
+  { foto: tecelagem,     legenda: 'Tecelagem',                 alt: 'Artesã da comunidade sorrindo enquanto mostra o trançado de palha a duas hóspedes sentadas ao lado' },
+  { foto: massagem,      legenda: 'Massagem e banho de cheiro', alt: 'Massagem em esteira estendida na areia, sob um telhado de palha aberto para o rio' },
+  { foto: samauma,       legenda: 'Trilha da Samaúma',         alt: 'Grupo de pessoas de mãos dadas em volta do tronco enorme de uma samaúma, sem conseguir fechar o círculo' },
+  { foto: luauPraia,     legenda: 'Fogueira e jantar',         alt: 'Praia à noite com fogueira acesa, fileira de velas na areia e hóspedes reunidos sob as palmeiras' },
+  { foto: jantarPeixe,   legenda: 'Piracaia',                  alt: 'Peixes assados inteiros em travessas de barro à luz de velas, com farofa e limão ao lado' },
+] as const;
+---
+
+<AberturaPagina titulo={t('pacote.h1')} intro={t('pacote.intro')} />
+
+<figure class="container-editorial">
+  <Image
+    src={porDoSolPortao}
+    alt="Sol baixo alaranjado sobre a água larga do rio, visto de uma passarela de madeira, com o portão e a vegetação em silhueta"
+    widths={[800, 1200, 1800, 2400]}
+    sizes="(min-width: 1280px) 76rem, 100vw"
+    loading="eager"
+    fetchpriority="high"
+    class="aspect-[16/9] w-full object-cover"
+  />
+  <figcaption class="meta numero mt-3">Fim de tarde no rio · visto da passarela</figcaption>
+</figure>
+
+<!-- ═══════════ OS DOIS ROTEIROS ═══════════ -->
+<section class="cunha-topo secao bg-mata">
+  <div class="container-editorial">
+    <div class="emenda grid gap-12 border-t pt-10 md:grid-cols-2 md:gap-0">
+      {pacotes.map((p, i) => (
+        <div class:list={['flex flex-col', i === 1 ? 'emenda md:border-l md:pl-10 lg:pl-16' : 'md:pr-10 lg:pr-16']}>
+          <h2 class="font-display text-titulo">{p.t}</h2>
+          <p class="numero etiqueta mt-2">{p.sub}</p>
+          <p class="mt-4">{p.d}</p>
+
+          <ol class="mt-6 space-y-2.5">
+            {p.itens.map((it) => (
+              <li class="flex items-start gap-2.5">
+                <Voluta class="mt-1.5" />
+                <span>
+                  {it.nome}
+                  {it.opc && <span class="numero etiqueta ml-2 opacity-75">opcional</span>}
+                </span>
+              </li>
+            ))}
+          </ol>
+
+          <p class="emenda mt-auto border-t pt-6">
+            <span class="etiqueta block opacity-80">{t('modo.aPartirDe')}</span>
+            <span class="numero mt-1 block text-titulo">{preco(p.valor, locale)}</span>
+            <span class="numero etiqueta mt-1 block opacity-80">{p.un}</span>
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <div class="emenda mt-14 border-t pt-8">
+      <p class="etiqueta">{t('pacote.incT')}</p>
+      <p class="mt-2 flex items-start gap-2.5"><Voluta class="mt-1.5" /><span>{t('pacote.incD')}</span></p>
+      <p class="numero etiqueta mt-6 opacity-80">{t('pacote.opcNota')}</p>
+      <p class="mt-8 flex flex-wrap gap-3">
+        <a href={whatsappUrl(t('whatsapp.geral'))} class="btn btn-primario">{t('cta.checkAvailability')}</a>
+        <a href={href(locale, 'gettingHere')} class="btn btn-secundario">Como chegar</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ A FOLHA DE CONTATO DO ROTEIRO ═══════════
+     O roteiro acima é uma lista de nomes; esta seção é o que esses nomes são.
+     Oito fotos, quatro por linha no desktop, duas no celular. -->
+<section class="secao">
+  <div class="container-editorial">
+    <h2 class="font-display text-titulo">O roteiro, em fotografia</h2>
+    <p class="lead container-texto mt-4 sm:mx-0">
+      Nem todo item do roteiro tem foto no acervo — os que têm estão aqui, sem retoque e sem cenário montado.
+    </p>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {ROTEIRO_FOTOS.map((f) => (
+        <figure>
+          <Image
+            src={f.foto}
+            alt={f.alt}
+            widths={[400, 600, 900]}
+            sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 100vw"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[4/3] w-full object-cover"
+          />
+          <figcaption class="meta numero mt-3">{f.legenda}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ A CHEGADA ═══════════
+     Fecha a página onde ela começa de fato: a lancha que está inclusa no
+     pacote e que o visitante ainda não visualizou. -->
+<section class="cunha-topo secao bg-mata">
+  <div class="container-editorial">
+    <div class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-20">
+      <div>
+        <h2 class="font-display text-titulo">A lancha está inclusa</h2>
+        <hr class="emenda mt-6 max-w-40 border-t" />
+        <p class="mt-6">
+          Nos dois pacotes, o barco de {SITE.location.departsFrom} até a Villa e a volta já estão no preço.
+          São {SITE.location.boatMinutes} minutos de rio, e é a última etapa do caminho.
+        </p>
+        <a href={href(locale, 'gettingHere')} class="link-texto etiqueta mt-8 inline-block">
+          {t('nav.gettingHere')}
+        </a>
+      </div>
+      <figure>
+        <Image
+          src={chegadaBarco}
+          alt="Pessoas desembarcando de um barco na água rasa da praia, com bagagem na mão"
+          widths={[600, 900, 1289]}
+          sizes="(min-width: 1024px) 52vw, 100vw"
+          loading="lazy" decoding="async"
+          class="aspect-[3/2] w-full object-cover"
+        />
+        <figcaption class="meta numero mt-3">A chegada · desembarque na areia</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>

@@ -1,1 +1,11 @@
-{}
+{
+  "modo": {
+    "aPartirDe": "Ab",
+    "porPax": "pro Person / Nacht",
+    "porPacote": "pro Person / 1 Nacht",
+    "porPacote2": "pro Person / 2 Nächte",
+    "condPousada": "4 Nächte · Doppelzimmer",
+    "condPacote": "1 Nacht · ab Alter do Chão",
+    "condPacote2": "2 Nächte · ab Alter do Chão"
+  }
+}

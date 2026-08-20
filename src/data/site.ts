@@ -5,19 +5,37 @@
  * Itens marcados PENDENTE aguardam informação do cliente (ver plano).
  */
 
+import { HTML_LANG, type Locale } from '@/i18n/config';
+
 export const SITE = {
   name: 'Villa Arapiuns',
   domain: 'https://vilaarapiuns.com.br',
 
-  /** PENDENTE: ano exato de fundação. O texto usa "5+ anos" até chegar. */
+  /**
+   * DECISÃO ABERTA — ver PRODUCT.md. Não preencher sem confirmação.
+   * O antigo `yearsOperating: '5+'` foi removido junto com a alegação
+   * "5+ anos, zero incidentes": não havia dado por trás dela, e o site
+   * anterior dizia "4 anos". Nada de tempo de operação ou de histórico
+   * de segurança volta ao site sem número confirmado.
+   */
   yearFounded: null as number | null,
-  yearsOperating: '5+',
 
   capacity: {
+    /** O panfleto e a tabela comercial dizem "bangalôs", não "cabanas". */
     cabins: 13,
     maxGuests: 26,
-    minGuestsPrivate: 10,
+    /**
+     * CORRIGIDO a partir de "Plano tarifário para agências" (2026), que diz
+     * "direito de exclusividade acima de 15 pessoas". Este campo dizia 10.
+     */
+    minGuestsPrivate: 15,
   },
+
+  /** Arquitetura tapajônica. As unidades variam — ver PRODUCT.md. */
+  architecture: 'tapajônica',
+
+  /** Confirmado pelo cliente em 20/08/2026. */
+  childrenAllowed: true,
 
   location: {
     river: 'Rio Arapiuns',
@@ -29,27 +47,75 @@ export const SITE = {
   },
 
   contact: {
+    /** Canal público, o do panfleto: +55 11 96976-0096 */
     whatsapp: '5511969760096',
     /** PENDENTE: e-mail de destino do formulário de reserva. */
     email: null as string | null,
-    instagram: null as string | null,
+    instagram: '@villaarapiuns',
   },
 
   /**
-   * PENDENTE: valores reais. Exibidos como "a partir de".
-   * Deixe em null para o site mostrar "sob consulta" em vez de um número falso.
+   * Duas modalidades, com estrutura de preço diferente. Confirmado pelo
+   * cliente em 20/08/2026 e cruzado com os documentos em Assets/Docs.
+   *
+   * Aqui moram só os NÚMEROS. A condição de cada piso é frase, não dado, e
+   * por isso vive no dicionário: `modo.condPousada`, `modo.condPacote` e
+   * `modo.condPacote2`. Mexeu no número, confira a condição junto.
    */
   prices: {
     currency: 'BRL',
-    package1Night: null as number | null,
-    package2Nights: null as number | null,
-    privateVilla: null as number | null,
+
+    /**
+     * POUSADA — estadia com alimentação completa. Barco e passeios NÃO inclusos.
+     * R$ 796 é o PISO da tabela: por pessoa/noite em quarto duplo, a partir de
+     * 4 noites. O plano tarifário amarrava esse piso a um grupo de 20 pax; o
+     * cliente confirmou em 20/08/2026 que NÃO precisa ser grupo de 20, e a
+     * condição de grupo saiu do site. O que sobra da condição vai junto do
+     * número; "a partir de" sem condição seria meia-verdade.
+     */
+    pousadaMin: 796,
+
+    /**
+     * PACOTE COMPLETO — sai de Alter do Chão com barco, atividades e MEIA
+     * pensão (café e jantar). A partir de R$ 1.600 para 1 noite.
+     */
+    pacoteMin: 1600,
+
+    /**
+     * IMERSÃO COMPLETA — o mesmo pacote em 2 noites/3 dias, com Samaúma,
+     * Coroca e Piracaia. A partir de R$ 2.300 por pessoa.
+     */
+    pacote2Min: 2300,
   },
 
-  /** PENDENTE: nota e nº de avaliações, para o JSON-LD e o selo de confiança. */
+  /**
+   * PENDENTE: nota, quantidade e as avaliações em si.
+   *
+   * `itens` fica VAZIO até chegarem avaliações reais. O componente
+   * `ListaAvaliacoes` exige `origem` em cada item justamente para que nenhuma
+   * entre sem fonte rastreável: prova social sem origem é só afirmação.
+   * Depoimento inventado não entra aqui em nenhuma circunstância — ver
+   * PRODUCT.md, "Ausências que trabalho futuro não deve fabricar".
+   *
+   * VERIFICADO NA WEB EM 20/08/2026, e o resultado é o motivo de tudo aqui
+   * ainda ser null: a Villa NÃO TEM UMA ÚNICA AVALIAÇÃO PÚBLICA. O perfil do
+   * TripAdvisor existe e está vazio ("Este estabelecimento ainda não tem
+   * avaliações"); as listagens do grupo Expedia (Hotels.com, OwnerDirect) não
+   * têm comentário nem nota; não apareceu perfil do Google Business nem
+   * anúncio no Airbnb. Não é que faltou procurar — não existe o que buscar.
+   *
+   * `tripadvisorUrl` guarda a URL verificada, mas NÃO DEVE SER RENDERIZADA
+   * enquanto o perfil estiver vazio: mandar o visitante para uma página de
+   * avaliações sem avaliação nenhuma é pior do que não ter link. Ela está
+   * aqui porque é para lá que o cliente deve mandar os hóspedes avaliarem —
+   * é o canal que o estrangeiro consulta antes de reservar.
+   */
   reviews: {
     googleUrl: null as string | null,
-    tripadvisorUrl: null as string | null,
+    /** Perfil real, porém VAZIO em 20/08/2026. Não linkar até ter avaliação. */
+    tripadvisorUrl:
+      'https://www.tripadvisor.com.br/Hotel_Review-g673261-d33958784-Reviews-Villa_Arapiuns_Amazon_Lodge-Santarem_State_of_Para.html' as string | null,
+    airbnbUrl: null as string | null,
     rating: null as number | null,
     count: null as number | null,
   },
@@ -65,7 +131,46 @@ export const COMMUNITY_ACTIVITIES = [
   { key: 'coroca',      priceBRL: 30,  community: 'Coroca' },
 ] as const;
 
+/**
+ * Escreve um preço. A cobrança é em reais em QUALQUER idioma — o visitante
+ * alemão paga em BRL como o brasileiro —, então o símbolo nunca é convertido.
+ * O que acompanha o idioma é só a pontuação do milhar: R$ 2.300 em pt/es/de,
+ * R$ 2,300 em en/ja. Trocar a moeda por conversão estimada seria inventar
+ * um preço que ninguém cobra.
+ */
+export function preco(valor: number, locale: Locale): string {
+  const simbolo = SITE.prices.currency === 'BRL' ? 'R$' : SITE.prices.currency;
+  return `${simbolo} ${valor.toLocaleString(HTML_LANG[locale])}`;
+}
+
 /** Monta um link de WhatsApp com mensagem já preenchida. */
 export function whatsappUrl(message: string): string {
   return `https://wa.me/${SITE.contact.whatsapp}?text=${encodeURIComponent(message)}`;
 }
+
+/**
+ * AS DUAS MODALIDADES. É a estrutura central do produto e o site não a
+ * expressava — pior, afirmava "barco incluso" em toda página, o que só é
+ * verdade no pacote. O plano tarifário é explícito: na pousada, "não incluso:
+ * transfer de barco e passeios".
+ */
+export const MODALIDADES = [
+  {
+    key: 'pousada',
+    inclui: ['hospedagem', 'alimentacaoCompleta'],
+    naoInclui: ['barco', 'passeios'],
+    passeiosAvulsos: ['lagoAzul', 'farinhada', 'massagem'],
+  },
+  {
+    key: 'pacote',
+    inclui: ['transporte', 'hospedagem', 'meiaPensao', 'atividades'],
+    naoInclui: [],
+  },
+] as const;
+
+/** Os dois pacotes fechados do panfleto, saindo de Alter do Chão. */
+export const PACOTES = [
+  { key: 'classico', noites: 1, dias: 2, experiencias: 7 },
+  { key: 'imersao',  noites: 2, dias: 3, experiencias: 10 },
+] as const;
+

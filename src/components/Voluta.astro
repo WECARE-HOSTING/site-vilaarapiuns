@@ -1,18 +1,40 @@
 ---
 /**
- * A voluta — a espiral de samambaia que aparece quatro vezes no seu logo.
- * Vira a marca de lista e de "incluso" do site inteiro, no lugar do
- * check genérico que todo template usa.
+ * A voluta — a cabeça de samambaia do logo, COM a coroa de contas.
+ *
+ * Correção de leitura do ativo: o logo tem duas famílias de forma, não uma.
+ * Dentro de cada uma das quatro folhas há uma espiral LISA. Separadas delas,
+ * em haste, há três cabeças de samambaia cercadas por uma coroa de ~6 contas
+ * arredondadas. A versão anterior deste componente desenhava a espiral lisa,
+ * que é correta mas genérica — fiddlehead é o glifo padrão de qualquer eco-
+ * lodge. A coroa de contas é a única forma desta marca que ninguém mais tem,
+ * então é ela que vira a marca de lista e de "incluso" do site.
+ *
+ * Substitui o check genérico que todo template usa.
  */
 interface Props { class?: string; vazada?: boolean }
 const { class: className = '', vazada = false } = Astro.props;
+
+// A coroa: 6 contas em volta da bobina, com uma abertura onde entra a haste.
+// Geradas aqui em vez de escritas à mão para que a distribuição seja regular.
+const CX = 9.2;
+const CY = 6.8;
+const RAIO_COROA = 5.1;
+const contas = Array.from({ length: 6 }, (_, i) => {
+  const ang = (-125 + i * 47) * (Math.PI / 180);
+  return {
+    cx: +(CX + Math.cos(ang) * RAIO_COROA).toFixed(2),
+    cy: +(CY + Math.sin(ang) * RAIO_COROA).toFixed(2),
+  };
+});
 ---
-<svg viewBox="0 0 16 16" fill="none" aria-hidden="true" class:list={['h-3.5 w-3.5 shrink-0', className]}>
-  <path
-    d="M13.5 3.5 C 13.5 9, 10.5 13, 6.5 13 A 4.6 4.6 0 1 1 6.5 3.8 A 2.7 2.7 0 1 0 6.5 9.2"
-    stroke="currentColor"
-    stroke-width={vazada ? 1.1 : 1.5}
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
+<svg viewBox="0 0 18 16" fill="none" aria-hidden="true" class:list={['h-3.5 w-3.5 shrink-0', className]}>
+  <g stroke="currentColor" stroke-width={vazada ? 1 : 1.3} stroke-linecap="round" stroke-linejoin="round">
+    <!-- haste -->
+    <path d="M2 15 C 3.4 12.6, 5 10.8, 6.6 9.6" />
+    <!-- bobina: espiral de raio decrescente, o miolo da cabeça -->
+    <path d="M11.6 6.8 A 2.4 2.4 0 1 1 9.2 4.4 A 1.15 1.15 0 1 0 10.35 5.55" />
+    <!-- coroa de contas -->
+    {contas.map((c) => <circle cx={c.cx} cy={c.cy} r="1.35" />)}
+  </g>
 </svg>

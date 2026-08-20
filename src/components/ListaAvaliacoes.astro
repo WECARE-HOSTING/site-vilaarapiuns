@@ -1,0 +1,161 @@
+---
+/**
+ * Lista de avaliações — fileiras alternadas.
+ *
+ * Portado do "Testimonial Basic" (21st.dev #18913). O original é React com
+ * lucide-react; aqui é Astro puro, zero KB de JavaScript, como o
+ * ListaExperiencias que a Fase 1 já tinha portado do #1086.
+ *
+ * O que ficou do original, porque funciona:
+ *   · fileiras que ALTERNAM de lado — no mundo da marchetaria isso é veio
+ *     oposto de uma folha para a seguinte, então a estrutura ganha sentido
+ *     material em vez de ser só ritmo;
+ *   · autor em cima, separado por filete, e a citação grande embaixo.
+ *
+ * O que saiu:
+ *   · `rounded-2xl` / `rounded-3xl` — marchetaria não tem canto arredondado;
+ *   · o ícone Star do lucide-react — a estrela aqui é desenhada, traço único,
+ *     porque este site não tem biblioteca de ícone e não vai ganhar uma;
+ *   · o badge "04:32 // HD_PLAYBACK" e o thumbnail de vídeo — não existe vídeo,
+ *     e fingir player é figurino;
+ *   · a hachura a 45°. Eu a tinha mantido justificando "direção de veio", mas
+ *     veio real é irregular e segue a peça: uma diagonal uniforme de 1px a
+ *     cada 9px é hachura de desenho técnico, e sobre fotografia é figurino.
+ *     O detector marcou como `repeating-stripes-gradient` e estava certo.
+ *     A alternância de lado, que é estrutural, ficou;
+ *   · a foto do autor — não existe retrato de hóspede no acervo, e inventar
+ *     retrato seria pior que não ter. Ficam as iniciais dentro do octógono,
+ *     que é a forma deste sistema.
+ *
+ * O que ENTROU, e é o ponto:
+ *   · a FONTE de cada avaliação, visível e clicável. Uma avaliação que não se
+ *     pode rastrear não é prova social, é afirmação. O componente exige
+ *     `origem` no tipo — não dá para renderizar uma sem dizer de onde veio.
+ */
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+export interface Avaliacao {
+  nome: string;
+  /** Obrigatório de propósito: Google, Airbnb, Booking… Prova precisa de origem. */
+  origem: string;
+  /** Link para a avaliação original, quando houver. */
+  url?: string;
+  data?: string;
+  /** 1 a 5. */
+  nota: number;
+  texto: string;
+  /** Foto ligada à estadia, não retrato do hóspede. */
+  foto?: ImageMetadata;
+  fotoAlt?: string;
+  /** Marca visualmente como amostra. Nunca vai para produção. */
+  exemplo?: boolean;
+}
+
+interface Props {
+  itens: Avaliacao[];
+  /**
+   * Nível do nome. Quando a lista é a seção da página — o caso normal — ela
+   * vem logo depois do h1 e precisa ser h2, senão o outline pula nível.
+   */
+  nivel?: 'h2' | 'h3';
+}
+const { itens, nivel = 'h2' } = Astro.props;
+const T = nivel;
+
+const iniciais = (n: string) =>
+  n.trim().split(/\s+/).slice(0, 2).map((p) => p[0]?.toUpperCase() ?? '').join('');
+---
+
+<ul class="emenda border-t">
+  {itens.map((a, i) => {
+    const invertida = i % 2 === 1;
+    return (
+      <li class="emenda border-b">
+        <article
+          class:list={[
+            'grid items-stretch lg:grid-cols-12',
+            invertida ? 'lg:[direction:rtl]' : '',
+          ]}
+        >
+          {/* painel de mídia: a hachura é direção de veio e inverte com a fileira */}
+          <div class="relative overflow-hidden bg-mata lg:col-span-7 ltr">
+            {a.foto ? (
+              <Image
+                src={a.foto}
+                alt={a.fotoAlt ?? ''}
+                widths={[560, 900, 1400]}
+                sizes="(min-width: 1024px) 58vw, 100vw"
+                loading="lazy"
+                decoding="async"
+                class="aspect-[16/10] w-full object-cover"
+              />
+            ) : (
+              <div class="aspect-[16/10] w-full"></div>
+            )}
+          </div>
+
+          {/* painel de texto */}
+          <div class="emenda flex flex-col lg:col-span-5 lg:border-l ltr">
+            <div class="emenda flex items-center gap-4 border-b px-5 py-4 sm:px-6">
+              <span
+                class="octogono grid size-12 shrink-0 place-items-center bg-mata"
+                aria-hidden="true"
+              >
+                <span class="numero etiqueta">{iniciais(a.nome)}</span>
+              </span>
+              <div class="min-w-0">
+                <T class="font-display text-secao leading-tight">{a.nome}</T>
+                <p class="numero etiqueta mt-0.5 opacity-80">
+                  {a.url ? (
+                    <a href={a.url} rel="nofollow noopener" target="_blank" class="link-texto">{a.origem}</a>
+                  ) : (
+                    a.origem
+                  )}
+                  {a.data && <> · {a.data}</>}
+                </p>
+              </div>
+            </div>
+
+            <div class="flex flex-1 flex-col px-5 py-6 sm:px-6">
+              {a.exemplo && (
+                <p class="etiqueta mb-4 inline-flex w-fit border border-terra px-2 py-1 text-terra-luz">
+                  Exemplo — substituir por avaliação real
+                </p>
+              )}
+
+              <blockquote class="cor-titulo font-display text-secao">{a.texto}</blockquote>
+
+              <p class="mt-auto flex items-center gap-3 pt-6">
+                <span class="flex gap-1" aria-hidden="true">
+                  {Array.from({ length: 5 }, (_, s) => (
+                    <svg viewBox="0 0 20 20" class="size-4" aria-hidden="true">
+                      <path
+                        d="M10 1.6l2.6 5.5 6 .8-4.4 4.2 1.1 6L10 15.3 4.7 18.1l1.1-6L1.4 7.9l6-.8z"
+                        fill={s < Math.round(a.nota) ? 'currentColor' : 'none'}
+                        stroke="currentColor"
+                        stroke-width="1.2"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  ))}
+                </span>
+                {/* disciplina 2: a nota assenta numa medida declarada */}
+                <span class="numero etiqueta">
+                  {a.nota.toLocaleString('pt-BR', { minimumFractionDigits: 1 })} / 5
+                </span>
+              </p>
+            </div>
+          </div>
+        </article>
+      </li>
+    );
+  })}
+</ul>
+
+<style>
+  /* `direction: rtl` inverte a ordem das colunas sem duplicar markup; cada
+     painel volta a ltr para o texto não espelhar. */
+  .ltr { direction: ltr; }
+
+</style>

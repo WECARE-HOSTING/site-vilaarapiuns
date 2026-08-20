@@ -1,0 +1,65 @@
+---
+/**
+ * A lista de corte do marceneiro.
+ *
+ * É o dispositivo da disciplina 2 do mundo visual: toda grandeza assenta numa
+ * medida declarada, alinhada em coluna com algarismo tabular, e nenhum número
+ * flutua solto. Serve item de roteiro, tipo de unidade, área comum e pergunta
+ * frequente — o mesmo objeto, porque em todos os casos é "peça, descrição,
+ * medida" separados por uma emenda.
+ *
+ * As linhas são `emenda` (junta de folha), nunca traço decorativo.
+ */
+import Voluta from '@/components/Voluta.astro';
+
+interface Item {
+  /** Número da peça. Só quando a ordem informa algo. */
+  n?: string;
+  titulo: string;
+  detalhe?: string;
+  /** A medida: tempo, quantidade, condição. Sai em algarismo tabular. */
+  medida?: string;
+  /** Marca a peça com a voluta — usada para "está incluso". */
+  marcado?: boolean;
+}
+interface Props {
+  itens: Item[];
+  /**
+   * Nível do título de cada item. Quando a lista é a primeira coisa depois do
+   * h1 da página, ela É a seção — então precisa ser h2, senão o outline pula
+   * nível e o leitor de tela perde a hierarquia.
+   */
+  nivel?: 'h2' | 'h3' | 'h4';
+  class?: string;
+}
+const { itens, nivel = 'h3', class: className = '' } = Astro.props;
+const T = nivel;
+---
+
+<ol class:list={['emenda border-t', className]}>
+  {itens.map((it) => (
+    <li
+      class:list={[
+        'emenda grid gap-x-4 border-b py-5 sm:gap-x-6',
+        it.n ? 'grid-cols-[2.5rem_1fr] sm:grid-cols-[3rem_1fr_auto]' : 'grid-cols-1 sm:grid-cols-[1fr_auto]',
+      ]}
+    >
+      {it.n && <span class="numero etiqueta pt-1 opacity-75">{it.n}</span>}
+      <div>
+        <T class="font-display text-secao">{it.titulo}</T>
+        {it.detalhe && <p class="mt-1.5">{it.detalhe}</p>}
+      </div>
+      {it.medida && (
+        <p
+          class:list={[
+            'numero etiqueta mt-2 flex items-center gap-2 sm:mt-1 sm:justify-end sm:text-right',
+            it.n ? 'col-start-2 sm:col-start-3' : '',
+          ]}
+        >
+          {it.marcado && <Voluta />}
+          {it.medida}
+        </p>
+      )}
+    </li>
+  ))}
+</ol>

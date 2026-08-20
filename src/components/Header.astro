@@ -19,24 +19,24 @@ const t = useTranslations(locale);
   id="cabecalho"
   data-sobre-foto={sobreFoto ? '' : null}
   class:list={[
-    'fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,padding] duration-300',
+    'fixed inset-x-0 top-0 z-50 transition-[background-color,border-color] duration-300',
     'border-b py-4',
     sobreFoto
-      ? 'bg-transparent border-transparent text-areia'
-      : 'bg-areia border-areia-3 text-mata',
+      ? 'bg-transparent border-transparent text-salvia'
+      : 'bg-mata emenda text-salvia',
   ]}
 >
   {/* Véu no topo: o menu precisa continuar legível sobre folhagem clara. */}
   {sobreFoto && (
     <div
-      class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-32 bg-gradient-to-b from-mata-fundo/75 to-transparent"
+      class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-32 bg-gradient-to-b from-mata-funda/88 to-transparent"
       aria-hidden="true"
     ></div>
   )}
 
   <div class="container-editorial flex items-center justify-between gap-6">
     <a href={href(locale, 'home')} class="shrink-0" aria-label={t('site.name')}>
-      <Logo tone={sobreFoto ? 'claro' : 'escuro'} />
+      <Logo />
     </a>
 
     <!-- Menu em telas grandes -->
@@ -48,8 +48,13 @@ const t = useTranslations(locale);
               href={href(locale, k)}
               aria-current={k === pageKey ? 'page' : undefined}
               class:list={[
-                'olho transition-opacity hover:opacity-100',
-                k === pageKey ? 'opacity-100' : 'opacity-70',
+                'etiqueta inline-flex min-h-6 items-center transition-opacity',
+                // Hover e estado ativo eram a MESMA propriedade (opacity), então
+                // durante o movimento do mouse a página atual desaparecia.
+                // O sublinhado é o que marca a página; a opacidade só é hover.
+                k === pageKey
+                  ? 'opacity-100 underline decoration-1 underline-offset-[0.5rem]'
+                  : 'opacity-70 hover:opacity-100',
               ]}
             >
               {t(`nav.${k}`)}
@@ -63,15 +68,17 @@ const t = useTranslations(locale);
       <!-- Seletor de idioma: <details> nativo, funciona sem JS e no teclado -->
       <details class="relative group" data-idiomas>
         <summary
-          class="olho flex cursor-pointer list-none items-center gap-1.5 px-2 py-2 opacity-80 hover:opacity-100 [&::-webkit-details-marker]:hidden"
-          aria-label={t('nav.language')}
+          class="etiqueta flex min-h-11 cursor-pointer list-none items-center gap-1.5 px-2 opacity-80 hover:opacity-100 [&::-webkit-details-marker]:hidden"
         >
+          {/* O aria-label ficava por cima do texto visível "PT" e violava a
+              SC 2.5.3 (Label in Name). Agora o nome acessível CONTÉM o visível. */}
+          <span class="sr-only">{t('nav.language')}: </span>
           {locale.toUpperCase()}
           <svg viewBox="0 0 10 6" class="h-1.5 w-2.5 transition-transform group-open:rotate-180" aria-hidden="true">
             <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" />
           </svg>
         </summary>
-        <ul class="absolute right-0 top-full mt-2 min-w-44 border border-areia-3 bg-areia py-1 text-mata shadow-lg">
+        <ul class="emenda absolute right-0 top-full mt-2 min-w-44 border bg-mata py-1 text-salvia shadow-lg">
           {LOCALES.map((l) => (
             <li>
               <a
@@ -80,12 +87,13 @@ const t = useTranslations(locale);
                 lang={HTML_LANG[l]}
                 aria-current={l === locale ? 'true' : undefined}
                 class:list={[
-                  'flex items-center justify-between gap-4 px-4 py-2.5 text-sm hover:bg-areia-2',
-                  l === locale ? 'text-rede font-medium' : '',
+                  'flex items-center justify-between gap-4 px-4 py-3 text-sm hover:bg-madeira/30',
+                  l === locale ? 'text-ouro font-medium' : '',
                 ]}
               >
                 {LOCALE_NAMES[l]}
-                <span class="olho opacity-40">{l}</span>
+                {/* Era opacity-40 = 2,1:1. */}
+                <span class="etiqueta">{l}</span>
               </a>
             </li>
           ))}
@@ -96,86 +104,92 @@ const t = useTranslations(locale);
         {t('cta.book')}
       </a>
 
-      <!-- Botão do menu no celular -->
-      <button
-        type="button"
-        data-abre-menu
-        aria-expanded="false"
-        aria-controls="menu-movel"
-        class="olho -mr-2 flex items-center gap-2 p-2 lg:hidden"
-      >
-        <span class="sr-only sm:not-sr-only">{t('nav.menu')}</span>
-        <span class="flex h-3 w-5 flex-col justify-between" aria-hidden="true">
-          <span class="block h-px w-full bg-current"></span>
-          <span class="block h-px w-full bg-current"></span>
-          <span class="block h-px w-full bg-current"></span>
-        </span>
-      </button>
+      <!-- Menu do celular.
+           É um <details> nativo de propósito: antes o painel ficava atrás do
+           atributo `hidden`, removido só por script — então abaixo de 1024px
+           com JS desligado o site não tinha navegação NENHUMA. Agora abre sem
+           JS e no teclado; o script só acrescenta Esc, trava de foco e scroll. -->
+      <details class="group lg:hidden" data-menu>
+        <summary
+          class="etiqueta -mr-2 flex min-h-11 cursor-pointer list-none items-center gap-2 px-2 group-open:fixed group-open:top-4 group-open:right-5 group-open:z-[70] group-open:text-salvia [&::-webkit-details-marker]:hidden"
+        >
+          <span class="group-open:hidden">{t('nav.menu')}</span>
+          <span class="hidden group-open:inline">{t('nav.close')}</span>
+          <span class="flex h-3 w-5 flex-col justify-between group-open:hidden" aria-hidden="true">
+            <span class="block h-px w-full bg-current"></span>
+            <span class="block h-px w-full bg-current"></span>
+            <span class="block h-px w-full bg-current"></span>
+          </span>
+          <span class="hidden text-base leading-none group-open:inline" aria-hidden="true">&times;</span>
+        </summary>
+
+        <div class="fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-mata text-salvia">
+          <div class="container-editorial flex items-center py-4">
+            <Logo />
+          </div>
+
+          <nav class="container-editorial flex-1 py-6" aria-label={t('nav.menu')}>
+            <ul class="divide-y divide-salvia/15">
+              {NAV_KEYS.map((k) => (
+                <li>
+                  <a
+                    href={href(locale, k)}
+                    aria-current={k === pageKey ? 'page' : undefined}
+                    class:list={[
+                      'font-display block py-4 text-3xl',
+                      k === pageKey ? 'text-salvia underline decoration-1 underline-offset-[0.4rem]' : '',
+                    ]}
+                  >
+                    {t(`nav.${k}`)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            <a href={href(locale, 'book')} class="btn btn-primario mt-8 w-full">{t('cta.book')}</a>
+
+            <div class="mt-10 border-t border-salvia/15 pt-6">
+              <p class="etiqueta mb-3">{t('nav.language')}</p>
+              <ul class="flex flex-wrap gap-x-5 gap-y-1">
+                {LOCALES.map((l) => (
+                  <li>
+                    <a
+                      href={href(l, pageKey)}
+                      hreflang={HTML_LANG[l]}
+                      lang={HTML_LANG[l]}
+                      aria-current={l === locale ? 'true' : undefined}
+                      class:list={[
+                        'inline-block py-1.5 text-sm',
+                        l === locale ? 'text-salvia font-medium' : '',
+                      ]}
+                    >
+                      {LOCALE_NAMES[l]}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </details>
     </div>
   </div>
 </header>
 
-<!-- Menu do celular: painel inteiro, sem gaveta lateral apertada -->
-<div
-  id="menu-movel"
-  hidden
-  class="fixed inset-0 z-[60] flex flex-col bg-mata text-areia lg:hidden"
->
-  <div class="container-editorial flex items-center justify-between py-4">
-    <Logo tone="claro" />
-    <button type="button" data-fecha-menu class="olho p-2">
-      {t('nav.close')}
-      <span aria-hidden="true" class="ml-2 text-base leading-none">&times;</span>
-    </button>
-  </div>
-
-  <nav class="container-editorial flex-1 overflow-y-auto py-6" aria-label={t('nav.menu')}>
-    <ul class="divide-y divide-areia/15">
-      {NAV_KEYS.map((k) => (
-        <li>
-          <a href={href(locale, k)} class="font-display block py-4 text-3xl text-areia">
-            {t(`nav.${k}`)}
-          </a>
-        </li>
-      ))}
-    </ul>
-
-    <a href={href(locale, 'book')} class="btn btn-primario mt-8 w-full">{t('cta.book')}</a>
-
-    <div class="mt-10 border-t border-areia/15 pt-6">
-      <p class="olho mb-3 text-areia/50">{t('nav.language')}</p>
-      <ul class="flex flex-wrap gap-x-5 gap-y-2">
-        {LOCALES.map((l) => (
-          <li>
-            <a
-              href={href(l, pageKey)}
-              hreflang={HTML_LANG[l]}
-              lang={HTML_LANG[l]}
-              class:list={['text-sm', l === locale ? 'text-areia' : 'text-areia/55']}
-            >
-              {LOCALE_NAMES[l]}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </nav>
-</div>
-
 <script>
   const cabecalho = document.getElementById('cabecalho')!;
-  const menu = document.getElementById('menu-movel')!;
-  const abre = document.querySelector<HTMLButtonElement>('[data-abre-menu]')!;
-  const fecha = document.querySelector<HTMLButtonElement>('[data-fecha-menu]')!;
+  const menu = document.querySelector<HTMLDetailsElement>('[data-menu]');
   const idiomas = document.querySelector<HTMLDetailsElement>('[data-idiomas]');
 
   // Sobre foto, o cabeçalho só ganha fundo depois que a imagem sai da tela.
   if (cabecalho.hasAttribute('data-sobre-foto')) {
-    const solido = ['bg-areia', 'border-areia-3', 'text-mata', 'py-3'];
-    const transparente = ['bg-transparent', 'border-transparent', 'text-areia', 'py-4'];
+    const solido = ['bg-mata', 'emenda', 'text-salvia'];
+    const transparente = ['bg-transparent', 'border-transparent'];
     const aoRolar = () => {
       const rolou = window.scrollY > window.innerHeight * 0.75;
-      cabecalho.classList.toggle('backdrop-blur-sm', rolou);
+      // Sem backdrop-filter aqui: ele cria bloco de contenção e o painel
+      // `fixed inset-0` do menu, que é descendente do header, colapsaria
+      // para o tamanho da barra. E sobre bg-mata opaco o blur não faz nada.
       solido.forEach((c) => cabecalho.classList.toggle(c, rolou));
       transparente.forEach((c) => cabecalho.classList.toggle(c, !rolou));
     };
@@ -183,20 +197,44 @@ const t = useTranslations(locale);
     window.addEventListener('scroll', aoRolar, { passive: true });
   }
 
-  const abrirMenu = (aberto: boolean) => {
-    menu.hidden = !aberto;
-    abre.setAttribute('aria-expanded', String(aberto));
-    document.body.style.overflow = aberto ? 'hidden' : '';
-    if (aberto) menu.querySelector<HTMLAnchorElement>('a')?.focus();
-    else abre.focus();
-  };
+  if (menu) {
+    let scrollSalvo = 0;
 
-  abre.addEventListener('click', () => abrirMenu(true));
-  fecha.addEventListener('click', () => abrirMenu(false));
+    menu.addEventListener('toggle', () => {
+      if (menu.open) {
+        scrollSalvo = window.scrollY;
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+        // Antes o overflow era mutado sem restaurar: no iOS a posição sumia.
+        if (window.scrollY !== scrollSalvo) window.scrollTo(0, scrollSalvo);
+      }
+    });
+
+    // Trava de foco: sem isso o Tab saía do painel para dentro da página
+    // invisível atrás dele.
+    menu.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab' || !menu.open) return;
+      const focaveis = menu.querySelectorAll<HTMLElement>('summary, a[href], button:not([disabled])');
+      if (!focaveis.length) return;
+      const primeiro = focaveis[0];
+      const ultimo = focaveis[focaveis.length - 1];
+      if (e.shiftKey && document.activeElement === primeiro) {
+        e.preventDefault();
+        ultimo.focus();
+      } else if (!e.shiftKey && document.activeElement === ultimo) {
+        e.preventDefault();
+        primeiro.focus();
+      }
+    });
+  }
 
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape') return;
-    if (!menu.hidden) abrirMenu(false);
+    if (menu?.open) {
+      menu.open = false;
+      menu.querySelector('summary')?.focus();
+    }
     if (idiomas?.open) idiomas.open = false;
   });
 

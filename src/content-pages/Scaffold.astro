@@ -21,42 +21,42 @@ const FASE: Record<PageKey, string> = {
 ---
 
 <div class="container-editorial py-16">
-  <p class="olho text-areia">{SITE.name} · Fase 0 — estrutura</p>
+  <p class="etiqueta">{SITE.name} · Fase 0 — estrutura</p>
 
-  <h1 class="font-display text-titulo text-verde mt-3">
+  <h1 class="font-display text-titulo mt-3">
     {pageKey === 'home' ? t('site.name') : t(`nav.${pageKey}`)}
   </h1>
 
-  <p class="text-cinza mt-2">
-    <code class="bg-areia-fundo px-2 py-1 text-sm">{href(locale, pageKey)}</code>
-    <span class="ml-2">— conteúdo entra na <strong class="text-verde">{FASE[pageKey]}</strong></span>
+  <p class="mt-2">
+    <code class="bg-mata px-2 py-1 text-sm">{href(locale, pageKey)}</code>
+    <span class="ml-2">— conteúdo entra na <strong class="cor-titulo">{FASE[pageKey]}</strong></span>
   </p>
 
-  <hr class="my-10 border-areia-claro" />
+  <hr class="my-10 emenda" />
 
   <div class="grid gap-10 md:grid-cols-2">
     <section>
-      <h2 class="olho text-cinza mb-4">Páginas ({PAGE_KEYS.length})</h2>
+      <h2 class="etiqueta mb-4">Páginas ({PAGE_KEYS.length})</h2>
       <ul class="space-y-1">
         {PAGE_KEYS.map((k) => (
           <li>
             <a
               href={href(locale, k)}
               class:list={[
-                'underline underline-offset-4 decoration-areia hover:text-verde-claro',
-                k === pageKey ? 'text-verde font-medium' : 'text-escuro',
+                'underline underline-offset-4 decoration-madeira/70 hover:text-ouro',
+                k === pageKey ? 'text-creme font-medium' : 'text-salvia',
               ]}
             >
               {k === 'home' ? t('site.name') : t(`nav.${k}`)}
             </a>
-            {NAV_KEYS.includes(k) && <span class="olho text-areia ml-2">menu</span>}
+            {NAV_KEYS.includes(k) && <span class="etiqueta ml-2">menu</span>}
           </li>
         ))}
       </ul>
     </section>
 
     <section>
-      <h2 class="olho text-cinza mb-4">Esta página nos {LOCALES.length} idiomas</h2>
+      <h2 class="etiqueta mb-4">Esta página nos {LOCALES.length} idiomas</h2>
       <ul class="space-y-1">
         {LOCALES.map((l) => (
           <li>
@@ -64,17 +64,17 @@ const FASE: Record<PageKey, string> = {
               href={href(l, pageKey)}
               hreflang={l}
               class:list={[
-                'underline underline-offset-4 decoration-areia hover:text-verde-claro',
-                l === locale ? 'text-verde font-medium' : 'text-escuro',
+                'underline underline-offset-4 decoration-madeira/70 hover:text-ouro',
+                l === locale ? 'text-creme font-medium' : 'text-salvia',
               ]}
             >
               {LOCALE_NAMES[l]}
             </a>
-            <code class="text-cinza-claro text-sm ml-2">{href(l, pageKey)}</code>
+            <code class="meta ml-2">{href(l, pageKey)}</code>
           </li>
         ))}
       </ul>
-      <p class="text-sm text-cinza mt-4 max-w-prose">
+      <p class="meta mt-4 max-w-prose">
         Todos caem em português de propósito: enquanto estivermos construindo,
         o fallback é o PT. Na Fase 6 cada idioma passa a usar o seu dicionário.
       </p>

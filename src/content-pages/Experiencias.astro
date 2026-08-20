@@ -1,0 +1,332 @@
+---
+/**
+ * EXPERIÊNCIAS — agrupadas por elemento, não numa lista corrida.
+ *
+ * Agrupar em água / mata / gente resolve a falha de chunking que a crítica
+ * apontou: eram seis ou mais itens soltos, acima do limite de memória de
+ * trabalho. Três grupos de dois a cinco cabem.
+ *
+ * Cada item diz onde entra — incluso no pacote, à parte na pousada, ou pago
+ * direto à comunidade. Era a confusão central do produto.
+ *
+ * RODADA DE FOTOGRAFIA (20/08/2026). O cliente disse "vamos vender com as
+ * imagens", e esta era a página mais pobre do site: falava de igapó, pôr do
+ * sol, piracaia e comunidades sem mostrar nenhum dos quatro. Agora cada grupo
+ * abre com a sua fotografia, e o fim da página é uma folha de contato.
+ *
+ * Duas disciplinas do mundo visual governam a escolha das fotos:
+ *   · Disciplina 3 — tipo nenhum sobre fotografia. Toda foto é <figure> com a
+ *     legenda EMBAIXO. Nenhum gradiente, nenhum véu, nenhuma palavra em cima.
+ *   · Disciplina 2 — cada legenda diz o que a foto é, não o que ela evoca.
+ *
+ * RESOLUÇÃO: metade destas fotos veio de recorte do site antigo, a ~1290 px.
+ * São nítidas e limpas (foram conferidas uma a uma), mas não aguentam largura
+ * cheia — por isso vivem em coluna e em card, com `widths` que nunca passam do
+ * nativo. Ampliar não cria detalhe. Os originais em alta seguem pendentes com
+ * o fotógrafo, e quando chegarem é só trocar o arquivo.
+ */
+import { Image } from 'astro:assets';
+import AberturaPagina from '@/components/AberturaPagina.astro';
+import ListaCorte from '@/components/ListaCorte.astro';
+import Voluta from '@/components/Voluta.astro';
+import { href } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/utils';
+import type { Locale } from '@/i18n/config';
+
+/* 2400 px — aguentam largura cheia */
+import igapoCanoa from '@/assets/imgs/igapo-canoa.jpg';
+import caiaques from '@/assets/imgs/caiaques.jpg';
+import trilhaGrupo from '@/assets/imgs/trilha-guia.jpg';
+import luauPraia from '@/assets/imgs/luau-praia.jpg';
+import igarape from '@/assets/imgs/igarape.jpg';
+
+/* ~1200–1290 px — só coluna e card */
+import aguaTransparente from '@/assets/imgs/agua-transparente.jpg';
+import bancoAreia from '@/assets/imgs/banco-areia.jpg';
+import igapoTroncos from '@/assets/imgs/igapo-troncos.jpg';
+import porDoSolGrupo from '@/assets/imgs/porsol-gente.jpg';
+import samauma from '@/assets/imgs/samauma-grupo.jpg';
+import massagem from '@/assets/imgs/massagem.jpg';
+import farinhada from '@/assets/imgs/farinhada.jpg';
+import tecelagem from '@/assets/imgs/tecelagem.jpg';
+import piracaiaViolao from '@/assets/imgs/piracaia-violao.jpg';
+import tucuxi from '@/assets/imgs/tucuxi.jpg';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const agua = [
+  { titulo: 'Lago Azul', detalhe: 'Trilha curta até uma lagoa escondida, canoa e banho na água parada.', medida: 'No pacote', marcado: true },
+  { titulo: 'Ponta Grande', detalhe: 'Pôr do sol na praia de areia branca, com banho de rio. Dá para ir de caiaque; de barco também.', medida: 'No pacote', marcado: true },
+  { titulo: 'Canal do Jari', detalhe: 'Travessia pelo canal, entre a mata alagada.', medida: 'No pacote', marcado: true },
+  { titulo: 'Ponta do Toronó', detalhe: 'Outra praia do rio, mais adiante.', medida: 'No pacote', marcado: true },
+  /* Sem `medida`: boto não tem horário, e prometer avistamento é o tipo de
+     promessa que o hóspede cobra. O texto diz que costumam aparecer, não que
+     vão aparecer. */
+  { titulo: 'Os botos tucuxi', detalhe: 'Os botos do Arapiuns são os tucuxi — menores que os cor-de-rosa, e de hábito chegam perto da canoa.' },
+];
+const mata = [
+  { titulo: 'Trilha da Samaúma', detalhe: 'Caminhada até uma das maiores árvores da Amazônia, na comunidade de Atodi, com almoço local.', medida: 'Opcional' },
+  { titulo: 'Massagem e banho de cheiro', detalhe: 'Ervas da floresta, para depois da trilha.', medida: 'Opcional' },
+];
+const gente = [
+  { titulo: 'Farinhada e tecelagem', detalhe: 'Oficina com as artesãs da comunidade: a mandioca virando farinha, o tear virando manta.', medida: 'Pago à comunidade' },
+  { titulo: 'Comunidade Coroca', detalhe: 'A criação de tartarugas e o artesanato da comunidade.', medida: 'Pago à comunidade' },
+  { titulo: 'Piracaia', detalhe: 'Fogueira na areia, peixe assado à beira-rio, histórias sob as estrelas.', medida: 'No pacote de 2 noites', marcado: true },
+];
+
+/* A folha de contato do fim. Quatro fotos que não couberam nos grupos e que
+   fecham a página pelo que ela promete: o equipamento, a noite, a mata e a
+   água. Cada `alt` foi escrito olhando a foto. */
+const CONTATO = [
+  { foto: caiaques, alt: 'Caiaques amarelo e laranja guardados em cavaletes sob um rancho de telhado de palha, na sombra da mata', legenda: 'Os caiaques · abrigo de palha' },
+  { foto: piracaiaViolao, alt: 'Roda de hóspedes sentados na areia à noite em volta de uma fogueira, um deles com violão', legenda: 'Piracaia · fogueira na areia' },
+  { foto: igarape, alt: 'Igarapé de água escura correndo entre a vegetação fechada da floresta', legenda: 'Igarapé · água escura na mata' },
+  { foto: luauPraia, alt: 'Praia à noite com fogueira acesa, fileira de velas na areia e hóspedes reunidos sob as palmeiras', legenda: 'A noite na praia · velas e fogueira' },
+] as const;
+---
+
+<AberturaPagina titulo={t('exp.h1')} intro={t('exp.intro')} />
+
+<!-- campo reservado: a paisagem que dá nome à página, sem tipo em cima -->
+<figure class="container-editorial">
+  <Image
+    src={igapoCanoa}
+    alt="Canoa de madeira azul e branca encostada na areia clara, diante de arbustos e palmeiras com o tronco submerso na água do igapó"
+    widths={[800, 1200, 1800, 2400]}
+    sizes="(min-width: 1280px) 76rem, 100vw"
+    loading="eager"
+    fetchpriority="high"
+    class="aspect-[16/9] w-full object-cover"
+  />
+  <figcaption class="meta numero mt-3">Igapó · a mata com o pé na água</figcaption>
+</figure>
+
+<!-- ═══════════ NA ÁGUA ═══════════ -->
+<section class="secao">
+  <div class="container-editorial">
+    <h2 class="font-display text-titulo">{t('exp.agua')}</h2>
+
+    <div class="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-16">
+      <ListaCorte itens={agua} />
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-1">
+        <figure>
+          <Image
+            src={aguaTransparente}
+            alt="Banco de areia dourada avançando para dentro do rio, com a água rasa tão clara que se vê o fundo ondulado pela luz"
+            widths={[480, 800, 1200]}
+            sizes="(min-width: 1024px) 34vw, (min-width: 640px) 45vw, 100vw"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[4/3] w-full object-cover"
+          />
+          <figcaption class="meta numero mt-3">Água transparente · o fundo à vista</figcaption>
+        </figure>
+        <figure>
+          <Image
+            src={tucuxi}
+            alt="Dois botos tucuxi emergindo juntos na superfície de um rio, levantando respingo, a água refletindo o verde da mata"
+            widths={[480, 800, 1200]}
+            sizes="(min-width: 1024px) 34vw, (min-width: 640px) 45vw, 100vw"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[4/3] w-full object-cover"
+          />
+          {/* A única foto do site que não foi feita na Villa. A legenda diz a
+              espécie e não sugere o lugar — o acervo não tem foto de boto, e
+              inventar procedência seria mentir na legenda. */}
+          <figcaption class="meta numero mt-3">Boto tucuxi · <i>Sotalia fluviatilis</i></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ AS DUAS ESTAÇÕES ═══════════
+     Seção nova, e o maior ganho de venda da rodada. O visitante lê "janeiro a
+     julho: chuva" como defeito e desiste da data. Dito como paisagem — a mata
+     alagada por onde a canoa passa entre as copas — deixa de ser defeito e
+     passa a ser a coisa que só existe naquele semestre.
+
+     Duas folhas de veio oposto encontrando-se numa emenda, como as duas
+     modalidades da home: não são dois cards, é uma junta que divide. -->
+<section class="cunha-topo secao bg-mata">
+  <div class="container-editorial">
+    <h2 class="font-display text-titulo">{t('exp.estacoesT')}</h2>
+    <p class="lead container-texto mt-4 sm:mx-0">{t('exp.estacoesI')}</p>
+
+    <div class="emenda mt-12 grid gap-12 border-t pt-10 md:grid-cols-2 md:gap-0">
+      <div class="md:pr-10 lg:pr-16">
+        <figure>
+          <Image
+            src={igapoTroncos}
+            alt="Área alagada de água azul recortando tapetes de vegetação alaranjada, com troncos secos e claros deitados na superfície"
+            widths={[480, 800, 1200]}
+            sizes="(min-width: 768px) 45vw, 100vw"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[3/2] w-full object-cover"
+          />
+        </figure>
+        <h3 class="font-display text-secao mt-6">{t('exp.cheiaT')}</h3>
+        <p class="numero etiqueta mt-1">{t('exp.cheiaQuando')}</p>
+        <p class="mt-4">{t('exp.cheiaD')}</p>
+      </div>
+
+      <div class="emenda md:border-l md:pl-10 lg:pl-16">
+        <figure>
+          <Image
+            src={bancoAreia}
+            alt="Banco de areia dourada com uma trilha de pegadas, cortando a água azul dos dois lados, sob céu aberto"
+            widths={[480, 800, 1200]}
+            sizes="(min-width: 768px) 45vw, 100vw"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[3/2] w-full object-cover"
+          />
+        </figure>
+        <h3 class="font-display text-secao mt-6">{t('exp.secaT')}</h3>
+        <p class="numero etiqueta mt-1">{t('exp.secaQuando')}</p>
+        <p class="mt-4">{t('exp.secaD')}</p>
+      </div>
+    </div>
+
+    <p class="mt-10 flex items-start gap-2.5">
+      <Voluta class="mt-1.5 text-ouro" />
+      <span>{t('exp.estacoesNota')}</span>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════ NA MATA ═══════════ -->
+<section class="secao">
+  <div class="container-editorial">
+    <h2 class="font-display text-titulo">{t('exp.mata')}</h2>
+
+    <div class="mt-8 grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16">
+      <div class="order-2 lg:order-1 grid gap-6 sm:grid-cols-2 lg:grid-cols-1">
+        <figure>
+          <Image
+            src={samauma}
+            alt="Grupo de pessoas de mãos dadas em volta do tronco enorme de uma samaúma, sem conseguir fechar o círculo"
+            widths={[480, 800, 1200]}
+            sizes="(min-width: 1024px) 34vw, (min-width: 640px) 45vw, 100vw"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[4/3] w-full object-cover"
+          />
+          <figcaption class="meta numero mt-3">Samaúma · o tronco que o grupo não fecha</figcaption>
+        </figure>
+        <figure>
+          <Image
+            src={massagem}
+            alt="Massagem em esteira estendida na areia, sob um telhado de palha aberto para o rio"
+            widths={[480, 800, 1200]}
+            sizes="(min-width: 1024px) 34vw, (min-width: 640px) 45vw, 100vw"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[4/3] w-full object-cover"
+          />
+          <figcaption class="meta numero mt-3">Massagem · esteira na areia</figcaption>
+        </figure>
+      </div>
+
+      <div class="order-1 lg:order-2">
+        <ListaCorte itens={mata} />
+        <figure class="mt-10">
+          <Image
+            src={trilhaGrupo}
+            alt="Grupo de caminhantes com mochila subindo uma trilha de areia clara, entre paredes de vegetação alta"
+            widths={[640, 960, 1400]}
+            sizes="(min-width: 1024px) 46vw, 100vw"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[3/2] w-full object-cover"
+          />
+          <figcaption class="meta numero mt-3">Trilha · com o guia da casa</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ COM AS COMUNIDADES ═══════════ -->
+<section class="cunha-topo secao bg-mata">
+  <div class="container-editorial">
+    <h2 class="font-display text-titulo">{t('exp.gente')}</h2>
+
+    <div class="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-16">
+      <ListaCorte itens={gente} />
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-1">
+        <figure>
+          <Image
+            src={farinhada}
+            alt="Moradores da comunidade e hóspedes em volta de um cocho, peneirando a massa de mandioca na casa de farinha"
+            widths={[480, 800, 1200]}
+            sizes="(min-width: 1024px) 34vw, (min-width: 640px) 45vw, 100vw"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[4/3] w-full object-cover"
+          />
+          <figcaption class="meta numero mt-3">Farinhada · a mandioca virando farinha</figcaption>
+        </figure>
+        <figure>
+          <Image
+            src={tecelagem}
+            alt="Artesã da comunidade sorrindo enquanto mostra o trançado de palha a duas hóspedes sentadas ao lado dela"
+            widths={[480, 800, 1200]}
+            sizes="(min-width: 1024px) 34vw, (min-width: 640px) 45vw, 100vw"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[4/3] w-full object-cover"
+          />
+          <figcaption class="meta numero mt-3">Tecelagem · oficina com as artesãs</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <p class="numero etiqueta mt-12">{t('exp.nota')}</p>
+  </div>
+</section>
+
+<!-- ═══════════ A FOLHA DE CONTATO ═══════════ -->
+<section class="secao">
+  <div class="container-editorial">
+    <figure>
+      <Image
+        src={porDoSolGrupo}
+        alt="Fileira de pessoas sentadas na beira da praia, de costas, vendo o sol baixar sobre o rio e abrir um rastro dourado na água"
+        widths={[600, 900, 1290]}
+        sizes="(min-width: 1280px) 76rem, 100vw"
+        loading="lazy"
+        decoding="async"
+        class="aspect-[16/9] w-full object-cover"
+      />
+      <figcaption class="meta numero mt-3">Pôr do sol · a hora em que todo mundo para</figcaption>
+    </figure>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {CONTATO.map((f) => (
+        <figure>
+          <Image
+            src={f.foto}
+            alt={f.alt}
+            widths={[400, 600, 900]}
+            sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 100vw"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[4/3] w-full object-cover"
+          />
+          <figcaption class="meta numero mt-3">{f.legenda}</figcaption>
+        </figure>
+      ))}
+    </div>
+
+    <p class="mt-12">
+      <a href={href(locale, 'packages')} class="link-texto etiqueta">Ver os dois pacotes com roteiro fechado</a>
+    </p>
+  </div>
+</section>
