@@ -26,7 +26,7 @@ import ListaAvaliacoes, { type Avaliacao } from '@/components/ListaAvaliacoes.as
 import { href } from '@/i18n/routes';
 import { useTranslations } from '@/i18n/utils';
 import { SITE, whatsappUrl } from '@/data/site';
-import type { Locale } from '@/i18n/config';
+import { HTML_LANG, type Locale } from '@/i18n/config';
 
 import varandaNoite from '@/assets/imgs/varanda-noite.jpg';
 import cafeManha from '@/assets/imgs/cafe-manha.jpg';
@@ -63,8 +63,8 @@ const temNota = Boolean(SITE.reviews.rating && SITE.reviews.count);
 <AberturaPagina titulo={t('aval.h1')} intro={itens.length ? undefined : t('aval.intro')}>
   {temNota && (
     <p class="numero mt-6 text-titulo">
-      {SITE.reviews.rating!.toLocaleString('pt-BR', { minimumFractionDigits: 1 })} / 5
-      <span class="etiqueta ml-3 opacity-80">{SITE.reviews.count} avaliações</span>
+      {SITE.reviews.rating!.toLocaleString(HTML_LANG[locale], { minimumFractionDigits: 1 })} / 5
+      <span class="etiqueta ml-3 opacity-80">{SITE.reviews.count} {t('aval.reviewsCount')}</span>
     </p>
   )}
 </AberturaPagina>
@@ -72,7 +72,7 @@ const temNota = Boolean(SITE.reviews.rating && SITE.reviews.count);
 {itens.length ? (
   <section class="pb-20">
     <div class="container-editorial">
-      <ListaAvaliacoes itens={itens} />
+      <ListaAvaliacoes itens={itens} locale={locale} />
     </div>
   </section>
 ) : (
@@ -82,7 +82,7 @@ const temNota = Boolean(SITE.reviews.rating && SITE.reviews.count);
       <p class="container-texto mt-8 sm:mx-0">{t('aval.corpo')}</p>
       <p class="mt-10 flex flex-wrap gap-3">
         <a href={whatsappUrl(t('whatsapp.geral'))} class="btn btn-primario">{t('cta.whatsapp')}</a>
-        <a href={href(locale, 'lodge')} class="btn btn-secundario">Ver a pousada</a>
+        <a href={href(locale, 'lodge')} class="btn btn-secundario">{t('aval.ctaVerPousada')}</a>
       </p>
 
       {/* UMA foto, e só enquanto não há avaliação. A página admite não ter
@@ -99,7 +99,7 @@ const temNota = Boolean(SITE.reviews.rating && SITE.reviews.count);
           decoding="async"
           class="aspect-[21/9] w-full object-cover"
         />
-        <figcaption class="meta numero mt-3">A praia da Villa · fim de tarde</figcaption>
+        <figcaption class="meta numero mt-3">{t('aval.figPraia')}</figcaption>
       </figure>
     </div>
   </section>

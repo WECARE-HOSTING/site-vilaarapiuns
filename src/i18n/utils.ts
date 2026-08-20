@@ -1,4 +1,4 @@
-import { BUILD_LOCALE, DEFAULT_LOCALE, LOCALES, type Locale } from './config';
+import { DEFAULT_LOCALE, LOCALES, type Locale } from './config';
 import en from './en.json';
 import pt from './pt.json';
 import es from './es.json';
@@ -19,13 +19,13 @@ function lookup(dict: Dict, path: string): unknown {
 /**
  * Resolve uma chave de texto para o idioma pedido.
  *
- * Cadeia de fallback: idioma pedido → BUILD_LOCALE → DEFAULT_LOCALE.
- * Enquanto BUILD_LOCALE for 'pt', qualquer idioma ainda sem tradução cai em
- * português — o site nunca quebra e nunca mostra a chave crua.
+ * Cadeia de fallback: idioma pedido → DEFAULT_LOCALE. Cada idioma renderiza
+ * com seu próprio dicionário; se uma chave específica ainda faltar nele,
+ * cai em DEFAULT_LOCALE em vez de quebrar ou mostrar a chave crua.
  */
 export function useTranslations(locale: Locale) {
   return function t(key: string): string {
-    for (const candidate of [locale, BUILD_LOCALE, DEFAULT_LOCALE]) {
+    for (const candidate of [locale, DEFAULT_LOCALE]) {
       const value = lookup(DICTS[candidate], key);
       if (typeof value === 'string' && value.length > 0) return value;
     }
@@ -37,7 +37,7 @@ export function useTranslations(locale: Locale) {
 /** Igual a useTranslations, mas para chaves que guardam listas (ex: itens de um roteiro). */
 export function useList(locale: Locale) {
   return function tList<T = string>(key: string): T[] {
-    for (const candidate of [locale, BUILD_LOCALE, DEFAULT_LOCALE]) {
+    for (const candidate of [locale, DEFAULT_LOCALE]) {
       const value = lookup(DICTS[candidate], key);
       if (Array.isArray(value)) return value as T[];
     }

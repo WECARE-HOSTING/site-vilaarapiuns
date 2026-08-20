@@ -33,7 +33,7 @@ import Voluta from '@/components/Voluta.astro';
 import LinhaDoDia from '@/components/LinhaDoDia.astro';
 import MapaSituacao from '@/components/MapaSituacao.astro';
 import { href } from '@/i18n/routes';
-import { useTranslations } from '@/i18n/utils';
+import { useTranslations, useList } from '@/i18n/utils';
 import { SITE, preco, whatsappUrl } from '@/data/site';
 import { ACOMODACOES } from '@/data/acomodacoes';
 import type { Locale } from '@/i18n/config';
@@ -152,79 +152,35 @@ interface Slide {
   alt: string;
 }
 
-const TIRA: Slide[] = [
-  /* A travessia e a água — do barco até o rio, que é o motivo de vir. */
-  { id: 'travessia', foto: travessiaBarco, assunto: 'A travessia', medida: `${SITE.location.boatMinutes} min de barco`,
-    alt: 'Grupo de hóspedes com mochilas embarcando num barco de madeira atracado na beira do rio, sob céu de nuvens altas' },
-  { id: 'banco', foto: bancoAreia, assunto: 'O banco de areia',
-    alt: 'Banco de areia dourada com pegadas, cortando água azul-turquesa dos dois lados, sob céu aberto com nuvens em leque' },
-  { id: 'agua', foto: aguaTransparente, assunto: 'A água transparente',
-    alt: 'Banco de areia dentro do rio, com a água rasa tão clara que se vê o fundo ondulado pela luz' },
-  { id: 'praia', foto: praiaEspreguicadeira, assunto: 'A praia da Villa', medida: 'pé na areia',
-    alt: 'Faixa de areia clara ao sol com espreguiçadeiras de madeira alinhadas à sombra das árvores, água do rio à frente' },
-  { id: 'banho', foto: banhoRioGrupo, assunto: 'O banho de rio',
-    alt: 'Fileira de mulheres lado a lado dentro da água rasa do rio, sorrindo de frente para a câmera' },
-  { id: 'canoa', foto: canoaVitorias, assunto: 'A canoa', medida: 'vitórias-régias',
-    alt: 'Canoa com cinco pessoas atravessando um campo de vitórias-régias, remada por um guia em pé na proa' },
-  { id: 'igapo', foto: igapoCanoa, assunto: 'O igapó',
-    alt: 'Canoa de madeira azul encostada na areia, diante de arbustos e palmeiras com o tronco dentro da água' },
-  { id: 'alagada', foto: igapoTroncos, assunto: 'A mata alagada', medida: 'janeiro a julho',
-    alt: 'Área alagada de água azul recortando tapetes de vegetação alaranjada, com troncos secos e claros deitados na superfície' },
-  { id: 'sup', foto: supRio, assunto: 'Stand-up no rio', medida: 'passeio à parte',
-    alt: 'Pessoa de pé numa prancha de stand-up, remando em água calma diante de uma margem de mata baixa' },
-  { id: 'caiaque', foto: caiaques, assunto: 'Os caiaques', medida: 'passeio à parte',
-    alt: 'Caiaques amarelo e laranja guardados em cavaletes sob um rancho de telhado de palha, na sombra da mata' },
+/* As fotos ficam aqui (não se traduzem); assunto, medida e alt vêm de
+   `home.tiraItens` em cada `src/i18n/*.json`, casados por `id`. As três
+   medidas que dependem de um número de `SITE` (o barco, os bangalôs, os
+   hóspedes) usam um gabarito traduzido (`home.tiraMedida*`) preenchido aqui
+   com o número real — ver a nota de Disciplina 2 mais abaixo. */
+const FOTOS_TIRA: Record<string, ImageMetadata> = {
+  travessia: travessiaBarco, banco: bancoAreia, agua: aguaTransparente,
+  praia: praiaEspreguicadeira, banho: banhoRioGrupo, canoa: canoaVitorias,
+  igapo: igapoCanoa, alagada: igapoTroncos, sup: supRio, caiaque: caiaques,
+  trilha: trilhaGuia, samauma: samaumaGrupo, massagem, farinhada, tecelagem,
+  octogonal: bangaloOctogonal, bangalo: bangaloPalafita, duplex: hero6,
+  chale: chale11, passarela: passarelaRefeitorio, pavilhao: pavilhaoPalha,
+  shala: deckYoga, quarto: gal6, casal: quartoCasal, varanda: varandaRedeDuplex,
+  banheiro: banheiroChuveiro, cafe: cafeRefeitorio, porsol: porsolGente,
+  fimdetarde: porDoSolPortao, piracaia: hero1,
+};
 
-  /* A mata e a gente. Cinco fotos com pessoas — é o que faltava na primeira
-     tira, que era paisagem vazia. */
-  { id: 'trilha', foto: trilhaGuia, assunto: 'A trilha', medida: 'com o guia da casa',
-    alt: 'Três pessoas de mochila subindo uma trilha de terra clara, entre paredes de vegetação densa e iluminada' },
-  { id: 'samauma', foto: samaumaGrupo, assunto: 'A samaúma',
-    alt: 'Grupo de pessoas de braços abertos abraçando o tronco enorme de uma samaúma na mata' },
-  { id: 'massagem', foto: massagem, assunto: 'A massagem', medida: 'opcional',
-    alt: 'Massagem em esteira estendida na areia, sob um telhado de palha aberto para o rio' },
-  { id: 'farinhada', foto: farinhada, assunto: 'A farinhada', medida: 'paga direto à comunidade',
-    alt: 'Mulheres da comunidade e hóspedes em volta de um tacho de farinha, sob um rancho de palha' },
-  { id: 'tecelagem', foto: tecelagem, assunto: 'A tecelagem', medida: 'paga direto à comunidade',
-    alt: 'Artesã da comunidade sorrindo enquanto mostra o trançado de palha a duas hóspedes sentadas ao lado dela' },
+const MEDIDA_DINAMICA: Record<string, string> = {
+  travessia: t('home.tiraMedidaBarco').replace('{min}', String(SITE.location.boatMinutes)),
+  bangalo: t('home.tiraMedidaBangalos').replace('{n}', String(SITE.capacity.cabins)),
+  quarto: t('home.tiraMedidaHospedes').replace('{n}', String(SITE.capacity.maxGuests)),
+};
 
-  /* A casa, de fora. Quatro unidades diferentes e três áreas comuns — a Villa
-     não tem um bangalô padrão, e a tira agora mostra isso em vez de afirmar. */
-  { id: 'octogonal', foto: bangaloOctogonal, assunto: 'O bangalô octogonal',
-    alt: 'Bangalô octogonal de madeira com telhado de palha, suspenso entre os troncos altos da floresta' },
-  { id: 'bangalo', foto: bangaloPalafita, assunto: 'O bangalô', medida: `${SITE.capacity.cabins} bangalôs`,
-    alt: 'Bangalô de madeira sobre palafitas, com escada externa e varanda, entre árvores altas ao sol' },
-  { id: 'duplex', foto: hero6, assunto: 'O duplex', medida: '2 pavimentos',
-    alt: 'Bangalô de dois andares em madeira sobre palafitas, com telhado de palha, entre as árvores' },
-  { id: 'chale', foto: chale11, assunto: 'O chalé',
-    alt: 'Fachada do chalé número 11 com rede armada na varanda, meio escondido pela vegetação em volta' },
-  { id: 'passarela', foto: passarelaRefeitorio, assunto: 'A passarela',
-    alt: 'Passarela de madeira serpenteando entre os troncos da floresta até a maloca de palha do refeitório' },
-  { id: 'pavilhao', foto: pavilhaoPalha, assunto: 'O pavilhão',
-    alt: 'Pavilhão comprido de telhado de palha sobre deck de madeira, entre as árvores' },
-  { id: 'shala', foto: deckYoga, assunto: 'A shala',
-    alt: 'Deck largo de madeira sob telhado de palha aberto para a mata, com espreguiçadeiras e samambaias na borda' },
-
-  /* Por dentro. */
-  { id: 'quarto', foto: gal6, assunto: 'O quarto', medida: `até ${SITE.capacity.maxGuests} hóspedes`,
-    alt: 'Cama de casal com roupa branca e manta xadrez de chocolate e aveia dobrada ao pé, ao lado de porta de mogno com medalhão octogonal' },
-  { id: 'casal', foto: quartoCasal, assunto: 'O quarto de casal',
-    alt: 'Quarto de madeira escura com cama de casal, manta xadrez dobrada ao pé e cadeira de madeira ao lado da janela' },
-  { id: 'varanda', foto: varandaRedeDuplex, assunto: 'A varanda',
-    alt: 'Varanda do pavimento superior com rede preta armada, cadeira de cipó e cesto trançado pendurado na parede de madeira' },
-  { id: 'banheiro', foto: banheiroChuveiro, assunto: 'O banheiro',
-    alt: 'Chuveiro de teto em latão despejando água num banheiro de paredes de madeira, com janela aberta para o verde' },
-
-  /* A mesa e o fim do dia. A tira fecha na piracaia, que é como a estadia fecha. */
-  { id: 'cafe', foto: cafeRefeitorio, assunto: 'O café da manhã', medida: '07:00',
-    alt: 'Mesa de café da manhã posta no pavilhão aberto: bolo, tapioca, fruta fatiada e jarra de suco vermelho, com a floresta atrás' },
-  { id: 'porsol', foto: porsolGente, assunto: 'O pôr do sol', medida: '17:30',
-    alt: 'Fileira de pessoas sentadas na areia de costas, vendo o sol baixar sobre a água larga do rio' },
-  { id: 'fimdetarde', foto: porDoSolPortao, assunto: 'O fim de tarde',
-    alt: 'Sol baixo alaranjado sobre a água larga do rio, visto de uma passarela de madeira, com o portão e a vegetação em silhueta' },
-  { id: 'piracaia', foto: hero1, assunto: 'A piracaia', medida: 'jantar na areia',
-    alt: 'Mesa comprida na praia à luz de velas: peixe assado, farinha e frutas servidos sobre folha de bananeira e esteira trançada' },
-];
+const TIRA: Slide[] = useList(locale)<{ id: string; assunto: string; medida?: string; alt: string }>('home.tiraItens')
+  .map((item) => ({
+    ...item,
+    foto: FOTOS_TIRA[item.id],
+    medida: MEDIDA_DINAMICA[item.id] ?? item.medida,
+  }));
 
 /* O astro:assets gera os derivados no build — os originais de 1 a 2 MB não vão
    para o bundle.
@@ -278,8 +234,10 @@ const tira = await Promise.all(
    qualquer tela pede é ~1440 de origem (720 CSS px em densidade dupla), e as dez
    fotos são 2400×1600 nativas — nenhuma é ampliada, ao contrário de sete das
    treze do hero. */
+const textosAcomodacao = useList(locale)<{ id: string; assunto: string; legenda: string; alt: string }>('acomodacoes.itens');
 const folhasAcomodacao = await Promise.all(
   ACOMODACOES.map(async (a) => {
+    const texto = textosAcomodacao.find((tx) => tx.id === a.id)!;
     const img = await getImage({
       src: a.foto,
       widths: [480, 720, 1080, 1440],
@@ -287,9 +245,9 @@ const folhasAcomodacao = await Promise.all(
     });
     return {
       id: a.id,
-      assunto: a.assunto,
-      legenda: a.legenda,
-      alt: a.alt,
+      assunto: texto.assunto,
+      legenda: texto.legenda,
+      alt: texto.alt,
       src: img.src,
       srcset: img.srcSet.attribute,
     };
@@ -367,9 +325,9 @@ const folhasAcomodacao = await Promise.all(
       <CarrosselHero
         client:visible
         items={tira}
-        rotulo="A Villa Arapiuns em trinta fotos"
-        rotuloArraste="arraste"
-        rotuloPosicao="Foto {n} de {total}"
+        rotulo={t('carousel.heroLabel')}
+        rotuloArraste={t('carousel.drag')}
+        rotuloPosicao={t('carousel.photoPosition')}
         className="absolute inset-0"
       />
     </div>
@@ -381,11 +339,11 @@ const folhasAcomodacao = await Promise.all(
       <div>
         <hr class="emenda border-t" />
         <Campo class="mt-5">
-          {SITE.capacity.cabins} bangalôs
+          {t('home.tiraMedidaBangalos').replace('{n}', String(SITE.capacity.cabins))}
           <Voluta class="text-ouro" />
-          até {SITE.capacity.maxGuests} hóspedes
+          {t('home.tiraMedidaHospedes').replace('{n}', String(SITE.capacity.maxGuests))}
           <Voluta class="text-ouro" />
-          1h30 de lancha de {SITE.location.departsFrom}
+          {t('home.campoLancha').replace('{place}', SITE.location.departsFrom)}
         </Campo>
       </div>
     </div>
@@ -453,11 +411,11 @@ const folhasAcomodacao = await Promise.all(
         <CarrosselAcomodacoes
           client:visible
           folhas={folhasAcomodacao}
-          rotulo="As acomodações da Villa em dez fotos"
-          rotuloPosicao="Foto {n} de {total}"
-          rotuloAnterior="Foto anterior"
-          rotuloProxima="Próxima foto"
-          rotuloArraste="arraste"
+          rotulo={t('carousel.acomodacoesLabel')}
+          rotuloPosicao={t('carousel.photoPosition')}
+          rotuloAnterior={t('carousel.photoPrev')}
+          rotuloProxima={t('carousel.photoNext')}
+          rotuloArraste={t('carousel.drag')}
           sizes="(min-width: 1024px) 46vw, 100vw"
         />
       </div>

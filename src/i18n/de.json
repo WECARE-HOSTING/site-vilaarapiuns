@@ -1,5 +1,272 @@
 {
+  "site": {
+    "name": "Villa Arapiuns",
+    "tagline": "Lodge im Amazonasgebiet · Rio Arapiuns, Pará"
+  },
+  "nav": {
+    "lodge": "Die Lodge",
+    "dining": "Der Tisch",
+    "experiences": "Erlebnisse",
+    "packages": "Pakete",
+    "privateVilla": "Private Villa",
+    "gettingHere": "Anreise",
+    "gallery": "Galerie",
+    "reviews": "Bewertungen",
+    "book": "Buchen",
+    "menu": "Menü",
+    "close": "Schließen",
+    "language": "Sprache"
+  },
+  "cta": {
+    "book": "Buchen",
+    "checkAvailability": "Termine anfragen",
+    "whatsapp": "Über WhatsApp schreiben",
+    "seePackages": "Pakete ansehen",
+    "learnMore": "Mehr erfahren"
+  },
+  "trust": {
+    "fullBoard": "Vollpension in der Lodge",
+    "boat": "Boot ab Alter do Chão in den Paketen",
+    "team": "Eigenes Team für die Logistik",
+    "host": "Gastgeber vor Ort in der Villa"
+  },
+  "dia": {
+    "incluso": "Im Paket enthalten",
+    "comunidade": "Direkt an die Gemeinde gezahlt"
+  },
+  "footer": {
+    "sobre": "Lodge für gemeindebasierten Tourismus am Ufer des Rio Arapiuns. Dreizehn Bungalows, Vollpension in der Lodge und ein Team, das sich um die Küche, das Boot und den Weg kümmert — damit Sie nur noch ankommen müssen.",
+    "visita": "Die Villa",
+    "reserva": "Planen Sie Ihren Aufenthalt",
+    "local": "Wo wir sind",
+    "partida": "Abfahrt der Gruppen",
+    "tipo": "Gemeindebasierter Tourismus",
+    "brasil": "Brasilien"
+  },
+  "whatsapp": {
+    "geral": "Hallo! Ich würde gern mehr über die Villa Arapiuns erfahren.",
+    "preco": "Hallo! Ich würde gern den Übernachtungspreis der Villa Arapiuns erfahren."
+  },
+  "desc": {
+    "home": "Dreizehn Bungalows am Rio Arapiuns, 1,5 Stunden per Boot von Alter do Chão. Bleiben Sie mehrere Tage mit Vollpension, oder kommen Sie mit einem Paket, in dem Boot und Programm bereits feststehen.",
+    "lodge": "Die 13 Bungalows der Villa Arapiuns: zweigeschossige tapajónische Architektur, Mahagoni, Intarsien und handgewebte Stoffe.",
+    "dining": "Der Tisch der Villa Arapiuns: Fisch aus dem Fluss, Maniokmehl aus der Gemeinde, frisch aufgebrühter Kaffee — und die Piracaia am Flussufer.",
+    "experiences": "Wanderwege, Kanu, Strand und Werkstätten mit den Flussgemeinden des Arapiuns.",
+    "packages": "Pakete ab Alter do Chão mit Boot, Programm und Halbpension: eine Nacht mit sieben Erlebnissen oder zwei Nächte mit zehn.",
+    "privateVilla": "Die Villa Arapiuns zur alleinigen Nutzung: alle 13 Bungalows für eine einzige Gruppe, mit Exklusivrecht ab 15 Personen.",
+    "gettingHere": "So erreichen Sie die Villa Arapiuns: Flug nach Santarém, Transfer nach Alter do Chão und 1,5 Stunden mit dem Boot flussaufwärts.",
+    "gallery": "Fotos der Villa Arapiuns: die Bungalows, der Fluss, der Wald und die Gemeinden des Arapiuns.",
+    "reviews": "Was Gäste nach ihrem Aufenthalt in der Villa Arapiuns erzählen.",
+    "book": "Buchen Sie Ihren Aufenthalt in der Villa Arapiuns über WhatsApp und sprechen Sie direkt mit dem Haus."
+  },
+  "home": {
+    "hookA": "Eine Lodge im Amazonasgebiet.",
+    "hookB": "Kein Tagesausflug.",
+    "intro": "Der Strand ist Süßwasser, klar bis auf den Grund, und es gibt so gut wie keine Mücken. So ist der Arapiuns. Die Bungalows sind aus Holz, tapajónische Architektur, die Füße im Sand. Sie können für ein paar Tage kommen — oder hierbleiben. Schon mal daran gedacht?",
+    "travessiaT": "Die Überfahrt",
+    "travessiaI": "Das Ankommen gehört dazu. Drei Etappen, und die letzte ist unsere.",
+    "etapa1T": "Flug nach Santarém",
+    "etapa1D": "Flughafen Santarém, im Bundesstaat Pará. Hier beginnt sich die Reise zu lohnen.",
+    "etapa2T": "Santarém nach Alter do Chão",
+    "etapa2D": "Transfer auf dem Landweg bis in den Ort. Die Uhrzeit stimmen wir mit Ihnen ab.",
+    "etapa3T": "Alter do Chão zur Villa",
+    "etapa3D": "Das Boot des Hauses, flussaufwärts. In den Paketen enthalten; bei Lodge-Aufenthalten separat buchbar.",
+    "casaT": "Das Haus",
+    "casaP1": "Die Türen sind aus Mahagoni, mit Intarsien: Keile mit gegenläufiger Maserung, die von einem achteckigen Zentrum ausstrahlen, von Hand geschnitten und eingepasst. Dasselbe Achteck kehrt als Medaillon auf den Innentüren wieder.",
+    "casaP2": "Die Decken sind auf dem Webstuhl gewebt, kariert in Schokolade und Hafer. Die Lampe auf der Veranda besteht aus geflochtener Faser. Die Bungalows sind zweigeschossige tapajónische Architektur. Nichts davon stammt aus einem Katalog — und deshalb gleicht die Villa keiner anderen Lodge am Fluss.",
+    "diaT": "Ein Tag in der Villa",
+    "diaI": "Vom Kaffee auf der Veranda bis zum Feuer am Strand. Bei jedem Moment steht, ob er enthalten ist oder direkt an die Gemeinde gezahlt wird.",
+    "precoT": "Preis",
+    "precoSob": "Auf Anfrage",
+    "precoD": "Der Übernachtungspreis sinkt, je größer die Gruppe und je länger der Aufenthalt. Sagen Sie uns, wie viele Personen und wie viele Nächte, und wir antworten mit einem festen Preis über WhatsApp — ohne Formular.",
+    "fechaQ": "Sie kommen an, stellen das Gepäck ab und ziehen gleich wieder los. Sie kehren müde zurück, auf die bestmögliche Weise — vom Wald, von der Sonne, von den Geschichten. Sie essen gut und schlafen tief.",
+    "fechaT": "Sprechen Sie mit dem Haus",
+    "fechaD": "Wer antwortet, ist auch die Person, die Sie empfängt. Sagen Sie uns, wie viele Personen und welchen Zeitraum Sie im Sinn haben.",
+    "fechaA": "Gabriela",
+    "fechaH": "Gast · Juli 2026",
+    "tiraMedidaBarco": "{min} Min. mit dem Boot",
+    "tiraMedidaBangalos": "{n} Bungalows",
+    "tiraMedidaHospedes": "bis zu {n} Gäste",
+    "tiraItens": [
+      {
+        "id": "travessia",
+        "assunto": "Die Überfahrt",
+        "alt": "Eine Gruppe von Gästen mit Rucksäcken beim Einstieg in ein Holzboot, das am Flussufer vertäut ist, unter einem Himmel mit hohen Wolken"
+      },
+      {
+        "id": "banco",
+        "assunto": "Die Sandbank",
+        "alt": "Eine goldene Sandbank mit Fußspuren, die türkisblaues Wasser auf beiden Seiten durchschneidet, unter einem offenen Himmel mit fächerförmigen Wolken"
+      },
+      {
+        "id": "agua",
+        "assunto": "Das klare Wasser",
+        "alt": "Eine Sandbank mitten im Fluss, das flache Wasser so klar, dass der von Licht gewellte Grund zu sehen ist"
+      },
+      {
+        "id": "praia",
+        "assunto": "Der Strand der Villa",
+        "medida": "die Füße im Sand",
+        "alt": "Ein Streifen heller Sand in der Sonne mit hölzernen Liegestühlen im Schatten der Bäume, davor das Flusswasser"
+      },
+      {
+        "id": "banho",
+        "assunto": "Das Flussbad",
+        "alt": "Eine Reihe von Frauen, die nebeneinander im flachen Flusswasser stehen und lächelnd in die Kamera schauen"
+      },
+      {
+        "id": "canoa",
+        "assunto": "Das Kanu",
+        "medida": "Riesenseerosen",
+        "alt": "Ein Kanu mit fünf Personen, das ein Feld von Riesenseerosen durchquert, gepaddelt von einem am Bug stehenden Guide"
+      },
+      {
+        "id": "igapo",
+        "assunto": "Der Igapó",
+        "alt": "Ein blaues Holzkanu liegt am Sand, gegenüber Sträuchern und Palmen, deren Stämme im Wasser stehen"
+      },
+      {
+        "id": "alagada",
+        "assunto": "Der überflutete Wald",
+        "medida": "Januar bis Juli",
+        "alt": "Ein überflutetes Gebiet mit blauem Wasser, das Teppiche orangefarbener Vegetation durchschneidet, mit hellen, trockenen Stämmen auf der Oberfläche"
+      },
+      {
+        "id": "sup",
+        "assunto": "Stand-up-Paddeln auf dem Fluss",
+        "medida": "separater Ausflug",
+        "alt": "Eine Person steht auf einem Stand-up-Paddleboard und paddelt über ruhiges Wasser vor einem Ufer mit niedrigem Wald"
+      },
+      {
+        "id": "caiaque",
+        "assunto": "Die Kajaks",
+        "medida": "separater Ausflug",
+        "alt": "Gelbe und orange Kajaks auf Gestellen unter einem strohgedeckten Unterstand, im Schatten des Waldes"
+      },
+      {
+        "id": "trilha",
+        "assunto": "Der Pfad",
+        "medida": "mit dem Guide des Hauses",
+        "alt": "Drei Personen mit Rucksäcken erklimmen einen hellen Erdpfad zwischen Wänden aus dichtem, sonnendurchflutetem Bewuchs"
+      },
+      {
+        "id": "samauma",
+        "assunto": "Der Samaúma-Baum",
+        "alt": "Eine Gruppe von Menschen mit ausgestreckten Armen umarmt den riesigen Stamm eines Samaúma-Baums im Wald"
+      },
+      {
+        "id": "massagem",
+        "assunto": "Die Massage",
+        "medida": "optional",
+        "alt": "Massage auf einer Matte im Sand, unter einem strohgedeckten Dach mit Blick zum Fluss"
+      },
+      {
+        "id": "farinhada",
+        "assunto": "Die Farinhada",
+        "medida": "wird direkt an die Gemeinde bezahlt",
+        "alt": "Frauen aus der Gemeinde und Gäste um einen Maniokmehl-Kessel, unter einem strohgedeckten Unterstand"
+      },
+      {
+        "id": "tecelagem",
+        "assunto": "Das Weben",
+        "medida": "wird direkt an die Gemeinde bezahlt",
+        "alt": "Eine Kunsthandwerkerin der Gemeinde lächelt, während sie zwei neben ihr sitzenden Gästen die geflochtene Palmarbeit zeigt"
+      },
+      {
+        "id": "octogonal",
+        "assunto": "Der achteckige Bungalow",
+        "alt": "Ein achteckiger Holzbungalow mit Strohdach, erhöht zwischen den hohen Baumstämmen des Waldes"
+      },
+      {
+        "id": "bangalo",
+        "assunto": "Der Bungalow",
+        "alt": "Ein Holzbungalow auf Pfählen, mit Außentreppe und Veranda, zwischen hohen, sonnenbeschienenen Bäumen"
+      },
+      {
+        "id": "duplex",
+        "assunto": "Das Duplex",
+        "medida": "2 Stockwerke",
+        "alt": "Ein zweigeschossiger Holzbungalow auf Pfählen mit Strohdach, zwischen den Bäumen"
+      },
+      {
+        "id": "chale",
+        "assunto": "Das Chalet",
+        "alt": "Die Fassade von Chalet Nummer 11 mit einer aufgespannten Hängematte auf der Veranda, halb verborgen von der umgebenden Vegetation"
+      },
+      {
+        "id": "passarela",
+        "assunto": "Der Holzsteg",
+        "alt": "Ein Holzsteg schlängelt sich zwischen den Baumstämmen des Waldes bis zur strohgedeckten Maloca des Speisesaals"
+      },
+      {
+        "id": "pavilhao",
+        "assunto": "Der Pavillon",
+        "alt": "Ein langer, strohgedeckter Pavillon auf einer Holzterrasse, zwischen den Bäumen"
+      },
+      {
+        "id": "shala",
+        "assunto": "Die Shala",
+        "alt": "Eine breite Holzterrasse unter einem strohgedeckten, zum Wald hin offenen Dach, mit Liegestühlen und Farnen am Rand"
+      },
+      {
+        "id": "quarto",
+        "assunto": "Das Zimmer",
+        "alt": "Ein Doppelbett mit weißer Bettwäsche und einer gefalteten karierten Decke in Schokoladen- und Hafertönen am Fußende, neben einer Mahagonitür mit achteckigem Medaillon"
+      },
+      {
+        "id": "casal",
+        "assunto": "Das Doppelzimmer",
+        "alt": "Ein Zimmer aus dunklem Holz mit Doppelbett, einer am Fußende gefalteten karierten Decke und einem Holzstuhl am Fenster"
+      },
+      {
+        "id": "varanda",
+        "assunto": "Die Veranda",
+        "alt": "Eine Veranda im Obergeschoss mit aufgespannter schwarzer Hängematte, einem Rattanstuhl und einem geflochtenen Korb an der Holzwand"
+      },
+      {
+        "id": "banheiro",
+        "assunto": "Das Bad",
+        "alt": "Eine Messing-Deckenbrause lässt Wasser in ein Bad mit Holzwänden laufen, mit einem zum Grün hin geöffneten Fenster"
+      },
+      {
+        "id": "cafe",
+        "assunto": "Das Frühstück",
+        "medida": "07:00",
+        "alt": "Ein gedeckter Frühstückstisch im offenen Pavillon: Kuchen, Tapioka, geschnittenes Obst und ein Krug roter Saft, mit dem Wald im Hintergrund"
+      },
+      {
+        "id": "porsol",
+        "assunto": "Der Sonnenuntergang",
+        "medida": "17:30",
+        "alt": "Eine Reihe von Menschen sitzt mit dem Rücken zur Kamera im Sand und sieht zu, wie die Sonne über dem breiten Fluss untergeht"
+      },
+      {
+        "id": "fimdetarde",
+        "assunto": "Der späte Nachmittag",
+        "alt": "Die tiefstehende orangefarbene Sonne über dem breiten Fluss, gesehen von einem Holzsteg aus, mit Tor und Vegetation im Schattenriss"
+      },
+      {
+        "id": "piracaia",
+        "assunto": "Die Piracaia",
+        "medida": "Abendessen im Sand",
+        "alt": "Ein langer Tisch am Strand bei Kerzenlicht: gegrillter Fisch, Maniokmehl und Früchte, serviert auf einem Bananenblatt und einer geflochtenen Matte"
+      }
+    ],
+    "campoLancha": "1,5 Std. mit dem Boot ab {place}"
+  },
   "modo": {
+    "titulo": "Zwei Arten zu bleiben",
+    "intro": "Die Villa empfängt auf zwei Arten, und das ist nicht dasselbe Produkt. Wählen Sie danach, was Sie von Ihrer Zeit erwarten.",
+    "pousadaT": "Lodge-Aufenthalt",
+    "pousadaD": "Sie verbringen Ihre Tage in der Villa, mit Vollpension, und entscheiden selbst, was Sie tun — oder lassen. Boot und Ausflüge werden separat gebucht, je nach Interesse der Gruppe.",
+    "pousadaInc": "Unterkunft im Bungalow · Vollpension · Piracaia",
+    "pousadaFora": "Bootstransfer und Ausflüge",
+    "pacoteT": "Komplettpaket",
+    "pacoteD": "Startet in Alter do Chão, mit Boot, Programm und Aktivitäten bereits festgelegt. Eine Nacht mit sieben Erlebnissen oder zwei Nächte mit zehn.",
+    "pacoteInc": "Transport · Unterkunft · Halbpension · Aktivitäten",
+    "pacoteFora": "Nichts separat: das Programm steht fest",
+    "inclusoRot": "Enthalten",
+    "foraRot": "Separat",
     "aPartirDe": "Ab",
     "porPax": "pro Person / Nacht",
     "porPacote": "pro Person / 1 Nacht",
@@ -7,5 +274,579 @@
     "condPousada": "4 Nächte · Doppelzimmer",
     "condPacote": "1 Nacht · ab Alter do Chão",
     "condPacote2": "2 Nächte · ab Alter do Chão"
+  },
+  "pousada": {
+    "h1": "Dreizehn Bungalows aus Holz",
+    "intro": "Tapajónische Architektur auf Pfählen, zwischen den Bäumen und dem Süßwasserstrand. Bis zu 26 Gäste in der ganzen Villa — und nie mehr als das.",
+    "matT": "Das Holz, aus der Nähe",
+    "matP1": "Die Türen sind aus Mahagoni mit Intarsien: Keile mit gegenläufiger Maserung, die von einem achteckigen Zentrum ausstrahlen, von Hand geschnitten und eingepasst. Dasselbe Achteck kehrt als Medaillon auf den Innentüren wieder.",
+    "matP2": "Die Decken sind auf dem Webstuhl gewebt, kariert in Schokolade und Hafer. Die Lampe auf der Veranda besteht aus geflochtener Faser, die Matte auf dem Boden ebenso. Nichts stammt aus einem Katalog.",
+    "tiposT": "Drei Arten von Unterkunft",
+    "tipo1T": "Zimmer im Haus",
+    "tipo1D": "Bungalow auf Pfählen, mit eigener Veranda zum Wald hin.",
+    "tipo2T": "Maisonette-Zimmer",
+    "tipo2D": "Zweigeschossige Einheit mit Innentreppe.",
+    "tipo3T": "Zwei Maisonette-Zimmer",
+    "tipo3D": "Zwei Suiten in derselben Maisonette-Einheit — für Familien oder Gruppen, die zusammenbleiben möchten.",
+    "tiposNota": "Welche Art Sie bekommen, hängt von der Belegung am jeweiligen Datum ab. Sagen Sie uns die Gruppengröße, und wir finden die passende Aufteilung.",
+    "comunsT": "Die Gemeinschaftsbereiche",
+    "c1T": "Hängematten zwischen den Bäumen",
+    "c1D": "Hängematten im Schatten, mit Vogelstimmen. Die Pause zwischen einem Abenteuer und dem nächsten.",
+    "c2T": "Speisepavillon",
+    "c2D": "Palmdach, langer Holztisch, offen zum Wald.",
+    "c3T": "Süßwasserstrand",
+    "c3D": "Füße im Sand, klares Wasser. Es ist die Vorderseite der Lodge.",
+    "c4T": "Yoga-Shala",
+    "c4D": "Ein überdachter Raum für die Praxis — oder dafür, gar nichts zu tun.",
+    "viverT": "Wie es ist, hier zu leben",
+    "viverI": "Drei Dinge, nach denen vor der Ankunft niemand fragt und die danach alle erwähnen.",
+    "mosquitoT": "So gut wie keine Mücken",
+    "mosquitoD": "Das klare Wasser und die Sandstrände des Arapiuns haben weit weniger Mücken als der Überschwemmungswald des Amazonas. Abendessen im Sand ohne Mückenschutz ist die Überraschung, von der am häufigsten berichtet wird — gerade von denen, die das Gegenteil erwartet hatten.",
+    "aguaT": "Das Wasser kommt ohne Boiler",
+    "aguaD": "In der Villa gibt es keinen Warmwasserboiler: Die Dusche ist das Flusswasser selbst, mit der Temperatur, mit der es ankommt — und die ändert sich mit der Jahreszeit. Zum Trinken gibt es einen Filter: jederzeit sauberes Wasser.",
+    "telaT": "Es gibt keinen Fernseher",
+    "telaD": "Es gibt Starlink-Internet, um in Kontakt zu bleiben. Fernsehen nicht. Abends gibt es Gespräche, das Geräusch des Flusses und die Lust, früh schlafen zu gehen.",
+    "figCopaExterna": "Außenküche · Massivholz und Lattenfenster",
+    "figShala": "Shala · strohgedeckte Terrasse",
+    "figPavilhao": "Speisepavillon · Holzterrasse",
+    "ctaFalarComCasa": "Mit dem Haus sprechen",
+    "figPassarela": "Der Holzsteg · verbindet alles",
+    "figRodaFogo": "Der Feuerkreis · Bänke aus Baumstämmen",
+    "figBanheiro": "Das Bad · Becken und Korbwaren",
+    "figChale11": "Chalet 11 · Hängematte auf der Veranda",
+    "figAguaClara": "Klares Wasser · der Grund sichtbar",
+    "figBanhoSemAquecedor": "Die Dusche · ohne Boiler",
+    "figNoiteRedeLuminaria": "Die Nacht · Hängematte und Faserlampe",
+    "medida1Pavimento": "1 Stockwerk",
+    "medida2Pavimentos": "2 Stockwerke",
+    "medida2Suites": "2 Suiten",
+    "campoArquitetura": "{arch}-Architektur"
+  },
+  "mesa": {
+    "h1": "Der Tisch der Villa",
+    "intro": "Fisch aus dem Fluss, Maniokmehl aus der Gemeinde, Obst aus dem Garten und frisch aufgebrühter Kaffee. Eigene Küche, serviert im offenen Pavillon.",
+    "escopoT": "Was enthalten ist, hängt von der Aufenthaltsart ab",
+    "escopo1T": "Lodge-Aufenthalt: Vollpension",
+    "escopo1D": "Frühstück, Mittag- und Abendessen an jedem Tag des Aufenthalts — gekrönt von der Piracaia.",
+    "escopo2T": "Pakete: Halbpension",
+    "escopo2D": "Frühstück und Abendessen. Das Mittagessen an einem der Tage findet in der Gemeinde statt, als Teil des Programms.",
+    "piraT": "Die Piracaia",
+    "piraD": "Ein Feuer im Sand, gegrillter Fisch am Flussufer, ein Himmel voller Sterne. Es ist die Mahlzeit, die den Aufenthalt abschließt, und die einzige, die nicht am Tisch stattfindet.",
+    "ctaVerPacotes": "Sehen, was in jedem Paket enthalten ist",
+    "figRefeitorio": "Der Speisesaal · geflochtene Matten",
+    "figLouca": "Das Geschirr · Keramik und Palmstroh",
+    "figPeixeAssado": "Gegrillter Fisch · Tonplatte",
+    "figMesaAreia": "Der Tisch im Sand · Bananenblatt",
+    "figDepoisJantar": "Nach dem Abendessen · Feuer und Kerzen",
+    "figSeteDaManha": "Sieben Uhr morgens · Tapioka, Obst aus dem Garten, frisch gebrühter Kaffee"
+  },
+  "exp": {
+    "h1": "Was man hier unternimmt",
+    "intro": "Wanderung, Kanu, Strand und die Begegnung mit den Gemeinden am Fluss. Bei Lodge-Aufenthalten werden die Ausflüge separat gebucht; in den Paketen sind sie Teil des Programms.",
+    "agua": "Auf dem Wasser",
+    "mata": "Im Wald",
+    "gente": "Mit den Gemeinden",
+    "nota": "Manche Ausflüge werden direkt an die Familien gezahlt, die die Gruppe empfangen. Bei jedem Punkt steht, was gilt.",
+    "estacoesT": "Der Fluss hat zwei Jahreszeiten",
+    "estacoesI": "Es gibt keine schlechte Zeit zu kommen — es gibt zwei verschiedene Landschaften, und sie verändern, was möglich ist. Das Wasser ist in beiden warm und klar.",
+    "cheiaT": "Das Hochwasser",
+    "cheiaQuando": "Januar bis Juli",
+    "cheiaD": "Der Fluss steigt und dringt in den Wald ein. Die Igapós entstehen, der überflutete Wald, und das Kanu fährt mitten hindurch — zwischen den Baumkronen, dort, wo man den Rest des Jahres gehen würde.",
+    "secaT": "Das Niedrigwasser",
+    "secaQuando": "August bis Dezember",
+    "secaD": "Das Wasser zieht sich zurück und die Strände treten hervor: weiße Sandbänke, die es im Halbjahr zuvor nicht gab und die wieder verschwinden werden, wenn der Fluss steigt.",
+    "estacoesNota": "Das Wasser des Arapiuns ist das ganze Jahr über warm. Was sich zwischen den Jahreszeiten ändert, ist die Landschaft, nicht das Klima.",
+    "figIgapoAlt": "Ein blau-weißes Holzkanu liegt auf hellem Sand, gegenüber Sträuchern und Palmen, deren Stämme im Wasser des Igapó stehen",
+    "figAguaTransparente": "Klares Wasser · der Grund sichtbar",
+    "figAguaTransparenteAlt": "Eine goldene Sandbank reicht in den Fluss hinein, das flache Wasser so klar, dass der von Licht gewellte Grund zu sehen ist",
+    "figTucuxi": "Tucuxi-Delfin",
+    "figTucuxiAlt": "Zwei Tucuxi-Delfine tauchen gemeinsam an der Wasseroberfläche eines Flusses auf und wirbeln Gischt auf, das Wasser spiegelt das Grün des Waldes",
+    "figIgapoTroncosAlt": "Ein überflutetes Gebiet mit blauem Wasser, das Teppiche orangefarbener Vegetation durchschneidet, mit hellen, trockenen Stämmen auf der Oberfläche",
+    "figBancoAreiaAlt": "Eine goldene Sandbank mit einer Spur von Fußabdrücken, die blaues Wasser auf beiden Seiten durchschneidet, unter einem offenen Himmel",
+    "figSamauma": "Samaúma · der Stamm, den die Gruppe nicht umschließen kann",
+    "figSamaumaAlt": "Eine Gruppe von Menschen hält Händchen um den riesigen Stamm eines Samaúma-Baums, ohne den Kreis schließen zu können",
+    "figMassagem": "Massage · Matte im Sand",
+    "figMassagemAlt": "Massage auf einer Matte im Sand, unter einem strohgedeckten Dach mit Blick zum Fluss",
+    "figTrilha": "Pfad · mit dem Guide des Hauses",
+    "figTrilhaAlt": "Eine Gruppe von Wanderern mit Rucksäcken erklimmt einen hellen Sandpfad zwischen Wänden aus hoher Vegetation",
+    "figFarinhada": "Farinhada · Maniok wird zu Mehl",
+    "figFarinhadaAlt": "Bewohner der Gemeinde und Gäste um einen Trog, sieben den Maniokbrei im Mehlhaus",
+    "figTecelagem": "Weben · Workshop mit den Kunsthandwerkerinnen",
+    "figTecelagemAlt": "Eine Kunsthandwerkerin der Gemeinde lächelt, während sie zwei neben ihr sitzenden Gästen die geflochtene Palmarbeit zeigt",
+    "figPorSol": "Sonnenuntergang · die Stunde, in der alle innehalten",
+    "figPorSolAlt": "Eine Reihe von Menschen sitzt am Strandrand, mit dem Rücken zur Kamera, und sieht zu, wie die Sonne über dem Fluss untergeht und eine goldene Spur auf dem Wasser hinterlässt",
+    "linkPacotes": "Die beiden Pakete mit festem Reiseplan ansehen",
+    "aguaLista": [
+      {
+        "titulo": "Lago Azul",
+        "detalhe": "Ein kurzer Pfad zu einer versteckten Lagune, Kanufahrt und ein Bad im stillen Wasser.",
+        "medida": "Im Paket enthalten",
+        "marcado": true
+      },
+      {
+        "titulo": "Ponta Grande",
+        "detalhe": "Sonnenuntergang am weißen Sandstrand, mit einem Bad im Fluss. Man kann mit dem Kajak hinfahren, auch mit dem Boot.",
+        "medida": "Im Paket enthalten",
+        "marcado": true
+      },
+      {
+        "titulo": "Canal do Jari",
+        "detalhe": "Eine Durchfahrt durch den Kanal, zwischen dem überfluteten Wald.",
+        "medida": "Im Paket enthalten",
+        "marcado": true
+      },
+      {
+        "titulo": "Ponta do Toronó",
+        "detalhe": "Ein weiterer Flussstrand, weiter draußen.",
+        "medida": "Im Paket enthalten",
+        "marcado": true
+      },
+      {
+        "titulo": "Die Tucuxi-Delfine",
+        "detalhe": "Die Delfine des Arapiuns sind die Tucuxi — kleiner als die rosafarbenen, und sie kommen oft nah an das Kanu heran."
+      }
+    ],
+    "mataLista": [
+      {
+        "titulo": "Trilha da Samaúma",
+        "detalhe": "Eine Wanderung zu einem der größten Bäume des Amazonas, in der Gemeinde Atodi, mit einem lokalen Mittagessen.",
+        "medida": "Optional"
+      },
+      {
+        "titulo": "Massage und Kräuterbad",
+        "detalhe": "Waldkräuter, für die Zeit nach der Wanderung.",
+        "medida": "Optional"
+      }
+    ],
+    "genteLista": [
+      {
+        "titulo": "Farinhada und Weben",
+        "detalhe": "Ein Workshop mit den Kunsthandwerkerinnen der Gemeinde: Maniok wird zu Mehl, der Webstuhl wird zur Decke.",
+        "medida": "Wird an die Gemeinde bezahlt"
+      },
+      {
+        "titulo": "Comunidade Coroca",
+        "detalhe": "Die Schildkrötenzucht und das Kunsthandwerk der Gemeinde.",
+        "medida": "Wird an die Gemeinde bezahlt"
+      },
+      {
+        "titulo": "Piracaia",
+        "detalhe": "Ein Feuer im Sand, gegrillter Fisch am Flussufer, Geschichten unter den Sternen.",
+        "medida": "Im 2-Nächte-Paket enthalten",
+        "marcado": true
+      }
+    ],
+    "contato": [
+      {
+        "id": "caiaques",
+        "legenda": "Die Kajaks · strohgedeckter Unterstand",
+        "alt": "Gelbe und orange Kajaks auf Gestellen unter einem strohgedeckten Unterstand, im Schatten des Waldes"
+      },
+      {
+        "id": "piracaiaViolao",
+        "legenda": "Piracaia · Feuer im Sand",
+        "alt": "Ein Kreis von Gästen sitzt nachts im Sand um ein Feuer, einer von ihnen mit einer Gitarre"
+      },
+      {
+        "id": "igarape",
+        "legenda": "Igarapé · dunkles Wasser im Wald",
+        "alt": "Ein dunkler Igarapé-Bach fließt durch die dichte Vegetation des Waldes"
+      },
+      {
+        "id": "luauPraia",
+        "legenda": "Die Nacht am Strand · Kerzen und Feuer",
+        "alt": "Der Strand bei Nacht mit brennendem Feuer, einer Reihe von Kerzen im Sand und unter den Palmen versammelten Gästen"
+      }
+    ]
+  },
+  "pacote": {
+    "h1": "Zwei Pakete, ab Alter do Chão",
+    "intro": "Boot, Unterkunft, Halbpension und festes Programm. Sie kommen in Alter do Chão an, den Rest übernehmen wir.",
+    "p1T": "Klassiker Arapiuns",
+    "p1Sub": "1 Nacht · 2 Tage · 7 Erlebnisse",
+    "p1D": "Der Wald in einem einzigen Atemzug: der Sonnenuntergang und die Nacht in der Villa.",
+    "p2T": "Vollständiges Eintauchen",
+    "p2Sub": "2 Nächte · 3 Tage · 10 Erlebnisse",
+    "p2D": "Alles aus dem Klassiker, dazu die Samaúma, die Coroca und die Piracaia unter den Sternen.",
+    "incT": "In beiden enthalten",
+    "incD": "Transport · Unterkunft · Halbpension (Frühstück und Abendessen) · Aktivitäten des Programms",
+    "opcNota": "Als optional gekennzeichnete Punkte hängen vom Interesse der Gruppe ab.",
+    "opcionalLabel": "optional",
+    "roteiroFotoT": "Der Reiseplan in Bildern",
+    "roteiroFotoI": "Nicht jeder Programmpunkt hat ein Foto in unserem Archiv — die, die es haben, sind hier, unretuschiert und ohne Inszenierung.",
+    "lanchaT": "Das Boot ist inklusive",
+    "lanchaD": "In beiden Paketen ist das Boot von {place} zur Villa und zurück bereits im Preis enthalten. Es sind {min} Minuten auf dem Fluss, die letzte Etappe der Reise.",
+    "itemLagoAzul": "Lago Azul",
+    "itemMassagem": "Massage und Kräuterbad",
+    "itemFarinhadaRedario": "Farinhada, Weben und Hängemattenbereich",
+    "itemPorDoSolPontaGrande": "Sonnenuntergang in Ponta Grande",
+    "itemFogueiraJantar": "Lagerfeuer und Abendessen in der Lodge",
+    "itemPontaToronoo": "Ponta do Toronó",
+    "itemCanalJari": "Canal do Jari",
+    "itemTudoClassico": "Alles aus dem Klassik-Arapiuns-Paket",
+    "itemTrilhaAtodi": "Atodi-Pfad / Samaúma-Baum",
+    "itemComunidadeCoroca": "Gemeinde Coroca: Schildkröten und Kunsthandwerk",
+    "itemPiracaiaNoite": "Piracaia — ein Abend voller Aromen unter den Sternen",
+    "fotoMataAlagada": "Der überflutete Wald",
+    "fotoPorDoSolPraia": "Sonnenuntergang am Strand",
+    "fotoFarinhada": "Farinhada",
+    "fotoTecelagem": "Weben",
+    "fotoMassagem": "Massage und Kräuterbad",
+    "fotoSamauma": "Trilha da Samaúma",
+    "fotoFogueiraJantar": "Lagerfeuer und Abendessen",
+    "fotoPiracaia": "Piracaia",
+    "figFimDeTardeRio": "Später Nachmittag am Fluss · vom Holzsteg aus gesehen",
+    "figChegada": "Die Ankunft · Anlanden im Sand"
+  },
+  "chegar": {
+    "h1": "Anreise",
+    "intro": "Drei Etappen, und die letzte ist unsere. Die Reise gehört dazu — und deshalb ist die Villa nie überfüllt.",
+    "duvT": "Was meistens Sorgen macht",
+    "q1": "Und wenn mein Flug Verspätung hat?",
+    "a1": "Sagen Sie uns über WhatsApp Bescheid, sobald Sie es wissen. Das Boot fährt, wenn die Gruppe da ist; wir stimmen die Zeit neu mit Ihnen ab.",
+    "q2": "Muss ich das Boot separat buchen?",
+    "a2": "In den Paketen ist das Boot bereits enthalten. Bei Lodge-Aufenthalten wird der Transfer separat gebucht — fragen Sie ihn zusammen mit dem Preis an.",
+    "q3": "Wie lange dauert es von Santarém zur Villa?",
+    "a3": "Die Strecke Alter do Chão–Villa dauert 1,5 Stunden mit dem Boot. Die Zeit von Santarém nach Alter do Chão hängt vom Transfer ab, den wir mit Ihnen abstimmen.",
+    "q4": "Gibt es Handyempfang?",
+    "a4": "Der Empfang ist unbeständig. Klären Sie vorher, was zu klären ist, und sagen Sie denen Bescheid, die auf Nachricht warten.",
+    "q5": "Kann ich Kinder mitbringen?",
+    "a5": "Ja. Nennen Sie uns das Alter, wenn Sie mit uns sprechen, damit wir Unterkunft und Tagesrhythmus gemeinsam mit Ihnen planen können.",
+    "figFimEtapa3": "Das Ende von Etappe 03 · Ankunft im Sand der Villa",
+    "duvFinal": "Bleibt eine Frage offen, die hier nicht beantwortet wird, fragen Sie einfach — das ist schneller als suchen.",
+    "ctaVerPacotes": "Pakete mit Boot ansehen"
+  },
+  "mapa": {
+    "alt": "Karte der Region: Die Villa Arapiuns liegt am Ufer des Rio Arapiuns, im Westen. Im Osten, wo der Rio Tapajós auf den Amazonas trifft, liegen Alter do Chão und, etwas weiter, Santarém.",
+    "ampliar": "Karte vergrößern",
+    "fechar": "Schließen",
+    "dialogo": "Karte der Arapiuns-Region, vergrößert",
+    "aeroporto": "Flughafen in Santarém, PA",
+    "ondeT": "Wo die Villa liegt",
+    "ondeI": "Die Villa liegt am Rio Arapiuns, westlich von Alter do Chão. Die letzte Etappe führt über das Wasser, weil es dort keine Straße gibt — und genau das hält den Fluss leer."
+  },
+  "privativa": {
+    "h1": "Die ganze Villa, nur für Ihre Gruppe",
+    "intro": "Ab 15 Personen arbeitet die Villa exklusiv: die dreizehn Bungalows, der Pavillon, die Hängematten und der Strand, ohne Fremde.",
+    "b1T": "Dreizehn Bungalows",
+    "b1D": "Platz für bis zu 26 Gäste.",
+    "b2T": "Exklusivität ab 15",
+    "b2D": "Oberhalb dieser Zahl kommt an diesem Datum niemand sonst hinzu.",
+    "b3T": "Gemeinsam entworfenes Programm",
+    "b3D": "Hochzeit, Retreat, Weiterbildung, Geburtstag — der Tag richtet sich nach Ihrer Gruppe.",
+    "nota": "Gruppen über 26 Gäste: bitte Verfügbarkeit anfragen.",
+    "figGrupoAgua": "Eine Gruppe im Wasser · die ganze Villa reserviert",
+    "espacosT": "Wo die Gruppe zusammenkommt",
+    "espacosI": "Vier Gemeinschaftsräume, die bei Exklusivnutzung ausschließlich Ihrer Gruppe gehören: An Ihrem Termin kommt niemand von außerhalb herein.",
+    "figFimDeTarde": "Später Nachmittag · die Stunde, in der die Gruppe gemeinsam innehält",
+    "espacoShala": "Die Shala · strohgedeckte Terrasse",
+    "espacoRefeitorio": "Der Speisesaal · lange Tische",
+    "espacoRodaFogo": "Der Feuerkreis · Bänke aus Baumstämmen",
+    "espacoPraiaNoite": "Der Strand bei Nacht · Kerzen und Feuer",
+    "campoExclusividade": "Exklusivität ab {n} Personen"
+  },
+  "galeria": {
+    "h1": "Die Villa, in Fotografien",
+    "intro": "Fotos vom Haus, vom Fluss und von den Gemeinden. Alle in der Villa Arapiuns aufgenommen.",
+    "titulo_casa": "Das Haus",
+    "titulo_agua": "Das Wasser",
+    "titulo_mesa": "Der Tisch",
+    "titulo_gente": "Die Menschen",
+    "capitulos": [
+      {
+        "id": "casa",
+        "fotos": [
+          {
+            "id": "bangaloOctogonal",
+            "leg": "Achteckiger Bungalow",
+            "alt": "Ein achteckiger Holzbungalow mit Strohdach, erhöht zwischen den hohen Baumstämmen des Waldes"
+          },
+          {
+            "id": "hero6",
+            "leg": "Duplex-Bungalow",
+            "alt": "Ein zweigeschossiger Holzbungalow auf Pfählen mit Strohdach"
+          },
+          {
+            "id": "bangaloExterno",
+            "leg": "Zimmer im Haupthaus",
+            "alt": "Ein eingeschossiger Holzbungalow auf Pfählen, im Sand"
+          },
+          {
+            "id": "chale11",
+            "leg": "Chalet 11",
+            "alt": "Die Fassade von Chalet Nummer 11 mit einer Hängematte auf der Veranda, halb verborgen von der umgebenden Vegetation"
+          },
+          {
+            "id": "gal6",
+            "leg": "Die Einlegearbeit",
+            "alt": "Ein Doppelbett mit karierter Decke in Schokoladen- und Hafertönen, zwischen einer Innentür mit achteckigem Medaillon und einer Mahagonitür, deren Keile mit gegenläufiger Maserung von einem Zentrum ausstrahlen"
+          },
+          {
+            "id": "quartoCasal",
+            "leg": "Doppelzimmer",
+            "alt": "Ein Zimmer aus dunklem Holz mit Doppelbett, einer am Fußende gefalteten karierten Decke und einem Stuhl am Fenster"
+          },
+          {
+            "id": "varandaRedeDuplex",
+            "leg": "Die Veranda des Duplex",
+            "alt": "Eine Veranda im Obergeschoss mit aufgespannter schwarzer Hängematte, einem Rattanstuhl und einem geflochtenen Korb an der Wand"
+          },
+          {
+            "id": "varandaNoite",
+            "leg": "Die Veranda, am Ende des Tages",
+            "alt": "Die Veranda bei Nacht mit Hängematte, einer brennenden Lampe aus geflochtener Faser und Schaukelstühlen"
+          },
+          {
+            "id": "banheiroPia",
+            "leg": "Das Bad",
+            "alt": "Ein Waschbecken mit weißer Schale auf einer Holzablage, Spiegel und regionalen Korbwaren, unter einer strohgedeckten Decke"
+          },
+          {
+            "id": "pavilhaoPalha",
+            "leg": "Der Pavillon",
+            "alt": "Ein langer, strohgedeckter Pavillon auf einer Holzterrasse, zwischen den Bäumen"
+          },
+          {
+            "id": "deckYoga",
+            "leg": "Die Shala",
+            "alt": "Eine Holzterrasse unter einem strohgedeckten, zum Wald hin offenen Dach, mit Liegestuhl und Farnen"
+          },
+          {
+            "id": "passarelaRefeitorio",
+            "leg": "Der Holzsteg",
+            "alt": "Ein Holzsteg schlängelt sich zwischen den Baumstämmen des Waldes bis zur strohgedeckten Maloca des Speisesaals"
+          },
+          {
+            "id": "arenaBancos",
+            "leg": "Der Feuerkreis",
+            "alt": "Bänke aus massiven Baumstämmen bilden einen Kreis im Sand der Lichtung, umgeben von Wald"
+          }
+        ]
+      },
+      {
+        "id": "agua",
+        "fotos": [
+          {
+            "id": "bancoAreia",
+            "leg": "Sandbank",
+            "alt": "Eine goldene Sandbank mit einer Spur von Fußabdrücken, die blaues Wasser auf beiden Seiten durchschneidet"
+          },
+          {
+            "id": "aguaTransparente",
+            "leg": "Klares Wasser",
+            "alt": "Eine Sandbank mitten im Fluss, das flache Wasser so klar, dass der von Licht gewellte Grund zu sehen ist"
+          },
+          {
+            "id": "porDoSolPortao",
+            "leg": "Sonnenuntergang am Fluss",
+            "alt": "Die tiefstehende orangefarbene Sonne über dem breiten Fluss, gesehen vom Holzsteg aus, mit Vegetation im Schattenriss"
+          },
+          {
+            "id": "praiaEspreguicadeira",
+            "leg": "Der Strand der Villa",
+            "alt": "Ein Streifen heller Sand mit hölzernen Liegestühlen im Schatten der Bäume, in goldenem Licht"
+          },
+          {
+            "id": "igapoCanoa",
+            "leg": "Der Igapó",
+            "alt": "Ein blaues Holzkanu liegt am Sand, gegenüber Sträuchern und Palmen, deren Stämme im Wasser stehen"
+          },
+          {
+            "id": "igapoTroncos",
+            "leg": "Überfluteter Wald",
+            "alt": "Ein überflutetes Gebiet mit blauem Wasser, das Teppiche orangefarbener Vegetation durchschneidet, mit trockenen Stämmen auf der Oberfläche"
+          },
+          {
+            "id": "igarape",
+            "leg": "Igarapé",
+            "alt": "Ein dunkler Igarapé-Bach fließt durch die dichte Vegetation des Waldes"
+          },
+          {
+            "id": "hero4",
+            "leg": "Riesenseerosen",
+            "alt": "Ein Holzkanu hält in einem Feld von Riesenseerosen, mit einem am Bug sitzenden Mann, das Paddel in der Hand"
+          },
+          {
+            "id": "supRio",
+            "leg": "Stand-up-Paddeln",
+            "alt": "Eine Person steht auf einem Stand-up-Paddleboard und paddelt über ruhiges Wasser vor einem Ufer mit niedrigem Wald"
+          },
+          {
+            "id": "caiaques",
+            "leg": "Die Kajaks",
+            "alt": "Gelbe und orange Kajaks auf Gestellen unter einem strohgedeckten Unterstand"
+          },
+          {
+            "id": "tucuxi",
+            "leg": "Tucuxi-Delfin · Wikimedia Commons",
+            "alt": "Zwei Tucuxi-Delfine tauchen gemeinsam an der Wasseroberfläche eines Flusses auf und wirbeln Gischt auf"
+          }
+        ]
+      },
+      {
+        "id": "mesa",
+        "fotos": [
+          {
+            "id": "cafeRefeitorio",
+            "leg": "Das Frühstück",
+            "alt": "Ein gedeckter Frühstückstisch im offenen Pavillon: Kuchen, Tapioka, geschnittenes Obst und ein Krug roter Saft"
+          },
+          {
+            "id": "jantarPeixe",
+            "leg": "Gegrillter Fisch",
+            "alt": "Ganze gegrillte Fische auf Tonplatten bei Kerzenlicht, mit Farofa und Limette daneben"
+          },
+          {
+            "id": "hero2",
+            "leg": "Piracaia",
+            "alt": "Ein Abendtisch bei Kerzenlicht am Strand, mit Fisch und Maniokmehl auf einem Bananenblatt"
+          },
+          {
+            "id": "mesaCaneca",
+            "leg": "Das Geschirr",
+            "alt": "Ein blauer Keramikbecher auf einem geflochtenen Palmen-Set, auf dem Holztisch"
+          }
+        ]
+      },
+      {
+        "id": "gente",
+        "fotos": [
+          {
+            "id": "porDoSolGrupo",
+            "leg": "Die Stunde des Sonnenuntergangs",
+            "alt": "Eine Reihe von Menschen sitzt am Wasserrand, mit dem Rücken zur Kamera, und sieht zu, wie die Sonne über dem Fluss untergeht"
+          },
+          {
+            "id": "farinhada",
+            "leg": "Farinhada",
+            "alt": "Bewohner der Gemeinde und Gäste um einen Trog, sieben den Maniokbrei"
+          },
+          {
+            "id": "tecelagem",
+            "leg": "Weben",
+            "alt": "Eine Kunsthandwerkerin der Gemeinde lächelt, während sie zwei Gästen die geflochtene Palmarbeit zeigt"
+          },
+          {
+            "id": "samauma",
+            "leg": "Der Samaúma-Baum",
+            "alt": "Eine Gruppe von Menschen hält Händchen um den riesigen Stamm eines Samaúma-Baums, ohne den Kreis schließen zu können"
+          },
+          {
+            "id": "trilhaGrupo",
+            "leg": "Auf dem Pfad",
+            "alt": "Eine Gruppe von Wanderern mit Rucksäcken erklimmt einen hellen Sandpfad zwischen hoher Vegetation"
+          },
+          {
+            "id": "luauPraia",
+            "leg": "Die Nacht am Strand",
+            "alt": "Der Strand bei Nacht mit brennendem Feuer, einer Reihe von Kerzen im Sand und unter den Palmen versammelten Gästen"
+          },
+          {
+            "id": "artesanato",
+            "leg": "Das Kunsthandwerk",
+            "alt": "Ein Regal mit Körben, Töpfen und Taschen aus geflochtener Palme, regionales Kunsthandwerk"
+          }
+        ]
+      }
+    ]
+  },
+  "aval": {
+    "h1": "Bewertungen",
+    "intro": "Auf dieser Seite haben wir noch keine Bewertungen veröffentlicht.",
+    "corpo": "Wir zeigen lieber weder Note noch Erfahrungsbericht, wenn wir die Quelle nicht belegen können. Sobald es diese Seite gibt, wird sie überprüfbare Bewertungen enthalten, mit Herkunft und Datum. Bis dahin ist der direkteste Weg, mit denen zu sprechen, die Sie empfangen: Fragen Sie über WhatsApp, und wir erklären Ihnen, wie es funktioniert — ohne Verkaufsskript.",
+    "ctaVerPousada": "Die Lodge ansehen",
+    "figPraia": "Der Strand der Villa · später Nachmittag",
+    "reviewsCount": "Bewertungen"
+  },
+  "reservar": {
+    "h1": "Mit dem Haus sprechen",
+    "intro": "Es gibt kein Formular und keine Buchungsmaschine. Wer antwortet, ist auch die Person, die Sie empfängt.",
+    "comoT": "Was hilft, gleich zu sagen",
+    "c1": "Wie viele Personen, und das Alter der Kinder, falls welche mitkommen",
+    "c2": "Welche Termine Sie im Sinn haben, oder wie viele Nächte",
+    "c3": "Ob Sie einen Lodge-Aufenthalt oder ein Paket ab Alter do Chão möchten",
+    "c4": "Woher Sie anreisen, damit wir den Transfer mitdenken können",
+    "respT": "Antwort",
+    "respD": "Über WhatsApp, in der Sprache, in der Sie schreiben. Wenn der Empfang am Fluss schlecht ist, kann es ein paar Stunden dauern — das ist keine Gleichgültigkeit.",
+    "duasManeirasT": "Zwei Arten des Aufenthalts",
+    "figVaranda": "Die wartende Veranda · Hängematte und Stroh"
+  },
+  "a11y": {
+    "skipToContent": "Zum Inhalt springen"
+  },
+  "seo": {
+    "ogImageAlt": "Bungalow der Villa Arapiuns: Bett, gewebte Decke und Mahagonitür mit Einlegearbeit"
+  },
+  "carousel": {
+    "heroLabel": "Villa Arapiuns in dreißig Fotos",
+    "acomodacoesLabel": "Die Unterkünfte der Villa in zehn Fotos",
+    "photoPosition": "Foto {n} von {total}",
+    "photoPrev": "Vorheriges Foto",
+    "photoNext": "Nächstes Foto",
+    "drag": "ziehen"
+  },
+  "acomodacoes": {
+    "itens": [
+      {
+        "id": "bangalo-palafita",
+        "assunto": "Der Bungalow",
+        "legenda": "Zwei Stockwerke, auf Pfählen",
+        "alt": "Ein zweigeschossiger Holzbungalow auf Pfählen, mit Strohdach, Außentreppe und einer Veranda mit Hängematte, zwischen den Baumstämmen des Waldes"
+      },
+      {
+        "id": "bangalo-octogonal",
+        "assunto": "Der Achteckige",
+        "legenda": "Strohdach, zwischen den Bäumen",
+        "alt": "Ein achteckiger Holzbungalow auf Stelzen, mit kegelförmigem Strohdach und einem offenen Sitzbereich darunter, umgeben von Wald"
+      },
+      {
+        "id": "chale-11",
+        "assunto": "Das Chalet",
+        "legenda": "Ein Stockwerk, Hängematte auf der Veranda",
+        "alt": "Die Fassade von Chalet Nummer 11, eine eingeschossige Einheit aus dunklem Holz auf Pfosten, mit einer gestreiften Hängematte auf der überdachten Veranda"
+      },
+      {
+        "id": "varanda-rede",
+        "assunto": "Die Veranda",
+        "legenda": "Aufgespannte Hängematte und Rattanstuhl",
+        "alt": "Eine Veranda im Obergeschoss mit einer von einem Ende zum anderen gespannten schwarzen Hängematte, einem Rattanstuhl, einem runden Tisch und einem geflochtenen Teller an der Holzwand"
+      },
+      {
+        "id": "varanda-noite",
+        "assunto": "Die Veranda bei Nacht",
+        "legenda": "Lampe aus geflochtener Faser",
+        "alt": "Dieselbe Veranda nach Einbruch der Dunkelheit, mit aufgespannter Hängematte und einer hohen, brennenden Lampe aus geflochtener Faser unter dem Strohdach"
+      },
+      {
+        "id": "quarto-casal-mogno",
+        "assunto": "Das Doppelzimmer",
+        "legenda": "Mahagonitür, achteckiges Medaillon",
+        "alt": "Ein Doppelbett mit weißer Bettwäsche und einer gefalteten karierten Decke in Schokoladen- und Hafertönen am Fußende, zwischen einer Innentür mit achteckigem Medaillon und einer Mahagonitür mit radialer Einlegearbeit"
+      },
+      {
+        "id": "quarto-casal",
+        "assunto": "Das Bett",
+        "legenda": "Karierte Decke, auf dem Webstuhl gewebt",
+        "alt": "Ein Zimmer mit dunklen Holzwänden, Doppelbett, einer am Fußende gefalteten karierten Decke in Schokoladen- und Hafertönen, gerollten Handtüchern und einem Holzstuhl am offenen Fenster"
+      },
+      {
+        "id": "marchetaria",
+        "assunto": "Die Einlegearbeit",
+        "legenda": "Radiale Keile mit gegenläufiger Maserung",
+        "alt": "Ein Einzelbett mit gestreifter Tagesdecke, seitlich gesehen, neben einer Mahagonitür, deren Keile mit gegenläufiger Maserung von einem achteckigen Zentrum ausstrahlen, rechts das Strohdach"
+      },
+      {
+        "id": "quarto-twin",
+        "assunto": "Das Zwei-Bett-Zimmer",
+        "legenda": "Zwei Betten, Tür zur Veranda",
+        "alt": "Ein Zimmer mit zwei hölzernen Einzelbetten, einer Doppeltür, die zur Veranda hin offen steht, wo eine Hängematte aufgespannt ist, mit dem Wald direkt dahinter"
+      },
+      {
+        "id": "banheiro-pia",
+        "assunto": "Das Bad",
+        "legenda": "Keramikbecken und regionale Korbwaren",
+        "alt": "Ein weißes Keramikbecken auf einer Massivholzablage, mit einem hohen Wasserhahn, einem holzgerahmten Spiegel, geflochtenen Körben und dem über der Wand sichtbaren Strohdach"
+      }
+    ]
   }
 }

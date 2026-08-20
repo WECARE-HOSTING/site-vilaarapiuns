@@ -44,19 +44,19 @@ const { locale } = Astro.props;
 const t = useTranslations(locale);
 
 const roteiro1 = [
-  { nome: 'Lago Azul' },
-  { nome: 'Massagem e banho de cheiro', opc: true },
-  { nome: 'Farinhada, tecelagem e redário', opc: true },
-  { nome: 'Pôr do sol na Ponta Grande' },
-  { nome: 'Fogueira e jantar na pousada' },
-  { nome: 'Ponta do Toronó' },
-  { nome: 'Canal do Jari' },
+  { nome: t('pacote.itemLagoAzul') },
+  { nome: t('pacote.itemMassagem'), opc: true },
+  { nome: t('pacote.itemFarinhadaRedario'), opc: true },
+  { nome: t('pacote.itemPorDoSolPontaGrande') },
+  { nome: t('pacote.itemFogueiraJantar') },
+  { nome: t('pacote.itemPontaToronoo') },
+  { nome: t('pacote.itemCanalJari') },
 ];
 const roteiro2 = [
-  { nome: 'Tudo do Clássico Arapiuns' },
-  { nome: 'Trilha de Atodi / Árvore Samaúma', opc: true },
-  { nome: 'Comunidade Coroca: tartarugas e artesanato', opc: true },
-  { nome: 'Piracaia — uma noite de sabores sob as estrelas' },
+  { nome: t('pacote.itemTudoClassico') },
+  { nome: t('pacote.itemTrilhaAtodi'), opc: true },
+  { nome: t('pacote.itemComunidadeCoroca'), opc: true },
+  { nome: t('pacote.itemPiracaiaNoite') },
 ];
 
 const pacotes = [
@@ -70,14 +70,14 @@ const pacotes = [
    fotografia no acervo; as três que não têm (Lago Azul, Ponta do Toronó,
    Comunidade Coroca) ficam de fora em vez de receber foto genérica. */
 const ROTEIRO_FOTOS = [
-  { foto: igapoCanoa,    legenda: 'A mata alagada',            alt: 'Canoa de madeira azul encostada na areia, diante de arbustos e palmeiras com o tronco dentro da água' },
-  { foto: porDoSolGrupo, legenda: 'Pôr do sol na praia',       alt: 'Fileira de pessoas sentadas na beira da praia, de costas, vendo o sol baixar e abrir um rastro dourado na água' },
-  { foto: farinhada,     legenda: 'Farinhada',                 alt: 'Moradores da comunidade e hóspedes em volta de um cocho, peneirando a massa de mandioca' },
-  { foto: tecelagem,     legenda: 'Tecelagem',                 alt: 'Artesã da comunidade sorrindo enquanto mostra o trançado de palha a duas hóspedes sentadas ao lado' },
-  { foto: massagem,      legenda: 'Massagem e banho de cheiro', alt: 'Massagem em esteira estendida na areia, sob um telhado de palha aberto para o rio' },
-  { foto: samauma,       legenda: 'Trilha da Samaúma',         alt: 'Grupo de pessoas de mãos dadas em volta do tronco enorme de uma samaúma, sem conseguir fechar o círculo' },
-  { foto: luauPraia,     legenda: 'Fogueira e jantar',         alt: 'Praia à noite com fogueira acesa, fileira de velas na areia e hóspedes reunidos sob as palmeiras' },
-  { foto: jantarPeixe,   legenda: 'Piracaia',                  alt: 'Peixes assados inteiros em travessas de barro à luz de velas, com farofa e limão ao lado' },
+  { foto: igapoCanoa,    legenda: t('pacote.fotoMataAlagada'),   alt: 'Canoa de madeira azul encostada na areia, diante de arbustos e palmeiras com o tronco dentro da água' },
+  { foto: porDoSolGrupo, legenda: t('pacote.fotoPorDoSolPraia'), alt: 'Fileira de pessoas sentadas na beira da praia, de costas, vendo o sol baixar e abrir um rastro dourado na água' },
+  { foto: farinhada,     legenda: t('pacote.fotoFarinhada'),     alt: 'Moradores da comunidade e hóspedes em volta de um cocho, peneirando a massa de mandioca' },
+  { foto: tecelagem,     legenda: t('pacote.fotoTecelagem'),     alt: 'Artesã da comunidade sorrindo enquanto mostra o trançado de palha a duas hóspedes sentadas ao lado' },
+  { foto: massagem,      legenda: t('pacote.fotoMassagem'),      alt: 'Massagem em esteira estendida na areia, sob um telhado de palha aberto para o rio' },
+  { foto: samauma,       legenda: t('pacote.fotoSamauma'),       alt: 'Grupo de pessoas de mãos dadas em volta do tronco enorme de uma samaúma, sem conseguir fechar o círculo' },
+  { foto: luauPraia,     legenda: t('pacote.fotoFogueiraJantar'), alt: 'Praia à noite com fogueira acesa, fileira de velas na areia e hóspedes reunidos sob as palmeiras' },
+  { foto: jantarPeixe,   legenda: t('pacote.fotoPiracaia'),      alt: 'Peixes assados inteiros em travessas de barro à luz de velas, com farofa e limão ao lado' },
 ] as const;
 ---
 
@@ -93,7 +93,7 @@ const ROTEIRO_FOTOS = [
     fetchpriority="high"
     class="aspect-[16/9] w-full object-cover"
   />
-  <figcaption class="meta numero mt-3">Fim de tarde no rio · visto da passarela</figcaption>
+  <figcaption class="meta numero mt-3">{t('pacote.figFimDeTardeRio')}</figcaption>
 </figure>
 
 <!-- ═══════════ OS DOIS ROTEIROS ═══════════ -->
@@ -112,7 +112,7 @@ const ROTEIRO_FOTOS = [
                 <Voluta class="mt-1.5" />
                 <span>
                   {it.nome}
-                  {it.opc && <span class="numero etiqueta ml-2 opacity-75">opcional</span>}
+                  {it.opc && <span class="numero etiqueta ml-2 opacity-75">{t('pacote.opcionalLabel')}</span>}
                 </span>
               </li>
             ))}
@@ -133,7 +133,7 @@ const ROTEIRO_FOTOS = [
       <p class="numero etiqueta mt-6 opacity-80">{t('pacote.opcNota')}</p>
       <p class="mt-8 flex flex-wrap gap-3">
         <a href={whatsappUrl(t('whatsapp.geral'))} class="btn btn-primario">{t('cta.checkAvailability')}</a>
-        <a href={href(locale, 'gettingHere')} class="btn btn-secundario">Como chegar</a>
+        <a href={href(locale, 'gettingHere')} class="btn btn-secundario">{t('nav.gettingHere')}</a>
       </p>
     </div>
   </div>
@@ -144,9 +144,9 @@ const ROTEIRO_FOTOS = [
      Oito fotos, quatro por linha no desktop, duas no celular. -->
 <section class="secao">
   <div class="container-editorial">
-    <h2 class="font-display text-titulo">O roteiro, em fotografia</h2>
+    <h2 class="font-display text-titulo">{t('pacote.roteiroFotoT')}</h2>
     <p class="lead container-texto mt-4 sm:mx-0">
-      Nem todo item do roteiro tem foto no acervo — os que têm estão aqui, sem retoque e sem cenário montado.
+      {t('pacote.roteiroFotoI')}
     </p>
 
     <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -175,11 +175,10 @@ const ROTEIRO_FOTOS = [
   <div class="container-editorial">
     <div class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-20">
       <div>
-        <h2 class="font-display text-titulo">A lancha está inclusa</h2>
+        <h2 class="font-display text-titulo">{t('pacote.lanchaT')}</h2>
         <hr class="emenda mt-6 max-w-40 border-t" />
         <p class="mt-6">
-          Nos dois pacotes, o barco de {SITE.location.departsFrom} até a Villa e a volta já estão no preço.
-          São {SITE.location.boatMinutes} minutos de rio, e é a última etapa do caminho.
+          {t('pacote.lanchaD').replace('{place}', SITE.location.departsFrom).replace('{min}', String(SITE.location.boatMinutes))}
         </p>
         <a href={href(locale, 'gettingHere')} class="link-texto etiqueta mt-8 inline-block">
           {t('nav.gettingHere')}
@@ -194,7 +193,7 @@ const ROTEIRO_FOTOS = [
           loading="lazy" decoding="async"
           class="aspect-[3/2] w-full object-cover"
         />
-        <figcaption class="meta numero mt-3">A chegada · desembarque na areia</figcaption>
+        <figcaption class="meta numero mt-3">{t('pacote.figChegada')}</figcaption>
       </figure>
     </div>
   </div>

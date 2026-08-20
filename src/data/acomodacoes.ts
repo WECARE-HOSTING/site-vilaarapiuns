@@ -48,86 +48,24 @@ import quartoTwin from '@/assets/imgs/quarto-twin.jpg';
 import banheiroPia from '@/assets/imgs/banheiro-pia.jpg';
 
 export interface FotoAcomodacao {
-  /** Chave estável — usada como `key` de lista e como âncora de depuração. */
+  /** Chave estável — usada como `key` de lista, como âncora de depuração e
+   *  para casar com o texto traduzido em `acomodacoes.itens` (src/i18n/*.json). */
   id: string;
   foto: ImageMetadata;
-  /** O assunto, em .etiqueta. Ex.: "O bangalô". */
-  assunto: string;
-  /** O material ou a medida. Fato, não elogio. */
-  legenda: string;
-  /** O que está na foto, para quem não a vê. Escrito olhando a foto. */
-  alt: string;
 }
 
+/** Assunto, legenda e alt de cada foto vêm do dicionário (`acomodacoes.itens`
+ *  em cada `src/i18n/*.json`), casados por `id` — ver `folhaAcomodacaoTextos`
+ *  em `@/i18n/utils`. Aqui fica só a foto, que não se traduz. */
 export const ACOMODACOES: FotoAcomodacao[] = [
-  {
-    id: 'bangalo-palafita',
-    foto: bangaloPalafita,
-    assunto: 'O bangalô',
-    legenda: 'Dois pavimentos, sobre palafitas',
-    alt: 'Bangalô de madeira de dois pavimentos sobre palafitas, com telhado de palha, escada externa e varanda com rede, entre os troncos da mata',
-  },
-  {
-    id: 'bangalo-octogonal',
-    foto: bangaloOctogonal,
-    assunto: 'O octogonal',
-    legenda: 'Telhado de palha, entre as árvores',
-    alt: 'Bangalô octogonal de madeira suspenso sobre pilares, com telhado cônico de palha e uma copa aberta embaixo, cercado de floresta',
-  },
-  {
-    id: 'chale-11',
-    foto: chale11,
-    assunto: 'O chalé',
-    legenda: 'Um pavimento, rede na varanda',
-    alt: 'Fachada do chalé número 11, de um pavimento em madeira escura sobre estacas, com rede listrada armada na varanda coberta',
-  },
-  {
-    id: 'varanda-rede',
-    foto: varandaRedeDuplex,
-    assunto: 'A varanda',
-    legenda: 'Rede armada e cadeira de cipó',
-    alt: 'Varanda do pavimento superior com rede preta armada de ponta a ponta, cadeira de cipó, mesa redonda e um prato trançado na parede de madeira',
-  },
-  {
-    id: 'varanda-noite',
-    foto: varandaNoite,
-    assunto: 'A varanda à noite',
-    legenda: 'Luminária de fibra trançada',
-    alt: 'A mesma varanda depois do anoitecer, com rede armada e uma luminária alta de fibra trançada acesa sob o telhado de palha',
-  },
-  {
-    id: 'quarto-casal-mogno',
-    foto: gal6,
-    assunto: 'O quarto de casal',
-    legenda: 'Porta de mogno, medalhão octogonal',
-    alt: 'Cama de casal com roupa branca e manta xadrez de chocolate e aveia dobrada ao pé, entre uma porta interna com medalhão octogonal e uma porta de mogno com marchetaria radial',
-  },
-  {
-    id: 'quarto-casal',
-    foto: quartoCasal,
-    assunto: 'A cama',
-    legenda: 'Manta xadrez tecida em tear',
-    alt: 'Quarto de paredes de madeira escura com cama de casal, manta xadrez de chocolate e aveia dobrada ao pé, toalhas enroladas e uma cadeira de madeira junto à janela aberta',
-  },
-  {
-    id: 'marchetaria',
-    foto: quartoDuplex,
-    assunto: 'A marchetaria',
-    legenda: 'Cunhas radiais de veio oposto',
-    alt: 'Cama de solteiro com colcha listrada vista de lado, ao lado de uma porta de mogno cujas cunhas de veio oposto irradiam de um centro octogonal, com o telhado de palha à direita',
-  },
-  {
-    id: 'quarto-twin',
-    foto: quartoTwin,
-    assunto: 'O quarto twin',
-    legenda: 'Duas camas, porta para a varanda',
-    alt: 'Quarto com duas camas de solteiro de madeira, porta dupla aberta para a varanda onde há uma rede armada, e a mata logo atrás',
-  },
-  {
-    id: 'banheiro-pia',
-    foto: banheiroPia,
-    assunto: 'O banheiro',
-    legenda: 'Cuba de louça e cestaria regional',
-    alt: 'Cuba branca de louça sobre bancada de madeira maciça, com torneira alta, espelho de moldura de madeira, cestos trançados e o telhado de palha visível por cima da parede',
-  },
+  { id: 'bangalo-palafita', foto: bangaloPalafita },
+  { id: 'bangalo-octogonal', foto: bangaloOctogonal },
+  { id: 'chale-11', foto: chale11 },
+  { id: 'varanda-rede', foto: varandaRedeDuplex },
+  { id: 'varanda-noite', foto: varandaNoite },
+  { id: 'quarto-casal-mogno', foto: gal6 },
+  { id: 'quarto-casal', foto: quartoCasal },
+  { id: 'marchetaria', foto: quartoDuplex },
+  { id: 'quarto-twin', foto: quartoTwin },
+  { id: 'banheiro-pia', foto: banheiroPia },
 ];

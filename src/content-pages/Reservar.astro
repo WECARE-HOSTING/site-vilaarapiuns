@@ -43,7 +43,7 @@ const modos = [
 
         <p class="mt-10 flex flex-wrap gap-3">
           <a href={whatsappUrl(t('whatsapp.geral'))} class="btn btn-primario">{t('cta.whatsapp')}</a>
-          <a href={href(locale, 'gettingHere')} class="btn btn-secundario">Como chegar</a>
+          <a href={href(locale, 'gettingHere')} class="btn btn-secundario">{t('nav.gettingHere')}</a>
         </p>
 
         <div class="emenda mt-12 border-t pt-6">
@@ -58,7 +58,7 @@ const modos = [
       </div>
 
       <div>
-        <h2 class="font-display text-secao">Duas maneiras de ficar</h2>
+        <h2 class="font-display text-secao">{t('reservar.duasManeirasT')}</h2>
         <ListaCorte itens={modos} nivel="h3" class="mt-6" />
         <p class="numero etiqueta mt-4 opacity-80">
           {t('modo.pousadaT')}: {t('modo.condPousada')}. {t('modo.pacoteT')}: {t('modo.condPacote')}.
@@ -76,7 +76,7 @@ const modos = [
             decoding="async"
             class="aspect-[4/3] w-full object-cover"
           />
-          <figcaption class="meta numero mt-3">A varanda que espera · rede e palha</figcaption>
+          <figcaption class="meta numero mt-3">{t('reservar.figVaranda')}</figcaption>
         </figure>
       </div>
     </div>

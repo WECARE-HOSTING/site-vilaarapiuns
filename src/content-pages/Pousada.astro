@@ -70,7 +70,7 @@ import ListaCorte from '@/components/ListaCorte.astro';
 import Campo from '@/components/Campo.astro';
 import Voluta from '@/components/Voluta.astro';
 import { href } from '@/i18n/routes';
-import { useTranslations } from '@/i18n/utils';
+import { useTranslations, useList } from '@/i18n/utils';
 import { SITE } from '@/data/site';
 import { ACOMODACOES } from '@/data/acomodacoes';
 import type { Locale } from '@/i18n/config';
@@ -131,8 +131,10 @@ const t = useTranslations(locale);
    direito do quadro. Aqui isso não pesa, porque a foto ilustra um parágrafo
    sobre MATERIAL e não um tipo de unidade. Mas se ela algum dia migrar para a
    grade de "Tipos de unidade", ela é twin, não casal. */
+const textosAcomodacao = useList(locale)<{ id: string; assunto: string; legenda: string; alt: string }>('acomodacoes.itens');
 const folhasAcomodacao = await Promise.all(
   ACOMODACOES.map(async (a) => {
+    const texto = textosAcomodacao.find((tx) => tx.id === a.id)!;
     const img = await getImage({
       src: a.foto,
       widths: [640, 960, 1440, 1920, 2400],
@@ -140,9 +142,9 @@ const folhasAcomodacao = await Promise.all(
     });
     return {
       id: a.id,
-      assunto: a.assunto,
-      legenda: a.legenda,
-      alt: a.alt,
+      assunto: texto.assunto,
+      legenda: texto.legenda,
+      alt: texto.alt,
       src: img.src,
       srcset: img.srcSet.attribute,
     };
@@ -175,21 +177,21 @@ const folhasAcomodacao = await Promise.all(
    Nenhuma `alt` nova descreve material de cobertura, pela mesma razão
    registrada no cabeçalho deste arquivo. */
 const tipos = [
-  { n: '01', titulo: t('pousada.tipo1T'), detalhe: t('pousada.tipo1D'), medida: '1 pavimento',
+  { n: '01', titulo: t('pousada.tipo1T'), detalhe: t('pousada.tipo1D'), medida: t('pousada.medida1Pavimento'),
     fotos: [
       { src: bangaloExterno,
         alt: 'Chalé de um pavimento em madeira escura, sobre palafitas na areia, com varanda coberta na frente e escada de poucos degraus, entre os troncos da mata' },
       { src: quartoCasal,
         alt: 'Quarto de madeira escura com cama de casal, manta xadrez dobrada ao pé e cadeira de madeira ao lado da janela' },
     ] },
-  { n: '02', titulo: t('pousada.tipo2T'), detalhe: t('pousada.tipo2D'), medida: '2 pavimentos',
+  { n: '02', titulo: t('pousada.tipo2T'), detalhe: t('pousada.tipo2D'), medida: t('pousada.medida2Pavimentos'),
     fotos: [
       { src: bangaloPalafita,
         alt: 'Bangalô de dois pavimentos em madeira sobre palafitas, com escada externa subindo para a varanda de rede e uma copa aberta embaixo, no meio da floresta' },
       { src: quartoDuplex,
         alt: 'Cama de solteiro vista de lado, ao lado de uma porta de mogno cujas cunhas de veio oposto irradiam de um centro octogonal, com a porta da varanda aberta para a vegetação' },
     ] },
-  { n: '03', titulo: t('pousada.tipo3T'), detalhe: t('pousada.tipo3D'), medida: '2 suítes',
+  { n: '03', titulo: t('pousada.tipo3T'), detalhe: t('pousada.tipo3D'), medida: t('pousada.medida2Suites'),
     fotos: [
       { src: quartoTwin,
         alt: 'Quarto com duas camas de solteiro de madeira, porta dupla aberta para a varanda onde há uma rede armada, e a mata logo atrás' },
@@ -212,26 +214,26 @@ const comuns = [
 const viver = [
   { k: 'mosquito', foto: aguaTransparente,
     alt: 'Banco de areia dourada dentro do rio, com a água rasa tão clara que o fundo aparece ondulado pela luz',
-    legenda: 'Água clara · o fundo à vista',
+    legenda: t('pousada.figAguaClara'),
     titulo: t('pousada.mosquitoT'), texto: t('pousada.mosquitoD') },
   { k: 'agua', foto: banheiroChuveiro,
     alt: 'Chuveiro aberto num banheiro de madeira, a água caindo em fio contra a luz que entra pela janela',
-    legenda: 'O banho · sem aquecedor',
+    legenda: t('pousada.figBanhoSemAquecedor'),
     titulo: t('pousada.aguaT'), texto: t('pousada.aguaD') },
   { k: 'tela', foto: varandaNoite,
     alt: 'Varanda de madeira à noite com rede armada e luminária de fibra trançada acesa sob o telhado de palha',
-    legenda: 'A noite · rede e luminária de fibra',
+    legenda: t('pousada.figNoiteRedeLuminaria'),
     titulo: t('pousada.telaT'), texto: t('pousada.telaD') },
 ] as const;
 ---
 
 <AberturaPagina titulo={t('pousada.h1')} intro={t('pousada.intro')}>
   <Campo class="mt-8">
-    {SITE.capacity.cabins} bangalôs
+    {t('home.tiraMedidaBangalos').replace('{n}', String(SITE.capacity.cabins))}
     <Voluta />
-    até {SITE.capacity.maxGuests} hóspedes
+    {t('home.tiraMedidaHospedes').replace('{n}', String(SITE.capacity.maxGuests))}
     <Voluta />
-    arquitetura {SITE.architecture}
+    {t('pousada.campoArquitetura').replace('{arch}', SITE.architecture)}
   </Campo>
 </AberturaPagina>
 
@@ -241,11 +243,11 @@ const viver = [
   <CarrosselAcomodacoes
     client:load
     folhas={folhasAcomodacao}
-    rotulo="As acomodações da Villa em dez fotos"
-    rotuloPosicao="Foto {n} de {total}"
-    rotuloAnterior="Foto anterior"
-    rotuloProxima="Próxima foto"
-    rotuloArraste="arraste"
+    rotulo={t('carousel.acomodacoesLabel')}
+    rotuloPosicao={t('carousel.photoPosition')}
+    rotuloAnterior={t('carousel.photoPrev')}
+    rotuloProxima={t('carousel.photoNext')}
+    rotuloArraste={t('carousel.drag')}
     sizes="(min-width: 1280px) 76rem, 100vw"
     prioridade
   />
@@ -285,7 +287,7 @@ const viver = [
             decoding="async"
             class="aspect-[3/2] w-full object-cover"
           />
-          <figcaption class="meta numero mt-3">Copa externa · madeira maciça e janela ripada</figcaption>
+          <figcaption class="meta numero mt-3">{t('pousada.figCopaExterna')}</figcaption>
         </figure>
       </div>
     </div>
@@ -372,8 +374,8 @@ const viver = [
     <p class="numero etiqueta mt-8">{t('pousada.tiposNota')}</p>
 
     <p class="mt-10 flex flex-wrap items-center gap-x-3 gap-y-2">
-      <a href={href(locale, 'packages')} class="btn btn-secundario">Ver pacotes</a>
-      <a href={href(locale, 'book')} class="btn btn-primario">Falar com a casa</a>
+      <a href={href(locale, 'packages')} class="btn btn-secundario">{t('cta.seePackages')}</a>
+      <a href={href(locale, 'book')} class="btn btn-primario">{t('pousada.ctaFalarComCasa')}</a>
     </p>
   </div>
 </section>
@@ -398,7 +400,7 @@ const viver = [
             decoding="async"
             class="aspect-[3/2] w-full object-cover"
           />
-          <figcaption class="meta numero mt-3">Shala · deck coberto de palha</figcaption>
+          <figcaption class="meta numero mt-3">{t('pousada.figShala')}</figcaption>
         </figure>
         <figure>
           <Image
@@ -410,7 +412,7 @@ const viver = [
             decoding="async"
             class="aspect-[3/2] w-full object-cover"
           />
-          <figcaption class="meta numero mt-3">Pavilhão de refeições · deck de madeira</figcaption>
+          <figcaption class="meta numero mt-3">{t('pousada.figPavilhao')}</figcaption>
         </figure>
       </div>
     </div>
@@ -426,7 +428,7 @@ const viver = [
           loading="lazy" decoding="async"
           class="aspect-[4/3] w-full object-cover"
         />
-        <figcaption class="meta numero mt-3">A passarela · liga tudo</figcaption>
+        <figcaption class="meta numero mt-3">{t('pousada.figPassarela')}</figcaption>
       </figure>
       <figure>
         <Image
@@ -437,7 +439,7 @@ const viver = [
           loading="lazy" decoding="async"
           class="aspect-[4/3] w-full object-cover"
         />
-        <figcaption class="meta numero mt-3">A roda de fogo · bancos de tronco</figcaption>
+        <figcaption class="meta numero mt-3">{t('pousada.figRodaFogo')}</figcaption>
       </figure>
       <figure>
         <Image
@@ -448,7 +450,7 @@ const viver = [
           loading="lazy" decoding="async"
           class="aspect-[4/3] w-full object-cover"
         />
-        <figcaption class="meta numero mt-3">O banheiro · cuba e cestaria</figcaption>
+        <figcaption class="meta numero mt-3">{t('pousada.figBanheiro')}</figcaption>
       </figure>
       <figure>
         <Image
@@ -459,7 +461,7 @@ const viver = [
           loading="lazy" decoding="async"
           class="aspect-[4/3] w-full object-cover"
         />
-        <figcaption class="meta numero mt-3">Chalé 11 · rede na varanda</figcaption>
+        <figcaption class="meta numero mt-3">{t('pousada.figChale11')}</figcaption>
       </figure>
     </div>
   </div>

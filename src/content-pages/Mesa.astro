@@ -59,7 +59,7 @@ const escopo = [
         <h2 class="font-display text-titulo">{t('mesa.escopoT')}</h2>
         <ListaCorte itens={escopo} class="mt-8" />
         <p class="mt-10">
-          <a href={href(locale, 'packages')} class="link-texto etiqueta">Ver o que vem em cada pacote</a>
+          <a href={href(locale, 'packages')} class="link-texto etiqueta">{t('mesa.ctaVerPacotes')}</a>
         </p>
       </div>
 
@@ -73,7 +73,7 @@ const escopo = [
             loading="lazy" decoding="async"
             class="aspect-[3/2] w-full object-cover"
           />
-          <figcaption class="meta numero mt-3">O refeitório · esteiras trançadas</figcaption>
+          <figcaption class="meta numero mt-3">{t('mesa.figRefeitorio')}</figcaption>
         </figure>
         <figure>
           <Image
@@ -84,7 +84,7 @@ const escopo = [
             loading="lazy" decoding="async"
             class="aspect-[3/2] w-full object-cover"
           />
-          <figcaption class="meta numero mt-3">A louça · cerâmica e palha</figcaption>
+          <figcaption class="meta numero mt-3">{t('mesa.figLouca')}</figcaption>
         </figure>
       </div>
     </div>
@@ -106,7 +106,7 @@ const escopo = [
           loading="lazy" decoding="async"
           class="aspect-[3/2] w-full object-cover"
         />
-        <figcaption class="meta numero mt-3">Peixe assado · travessa de barro</figcaption>
+        <figcaption class="meta numero mt-3">{t('mesa.figPeixeAssado')}</figcaption>
       </figure>
       <div>
         <h2 class="font-display text-titulo">{t('mesa.piraT')}</h2>
@@ -125,7 +125,7 @@ const escopo = [
           loading="lazy" decoding="async"
           class="aspect-[3/2] w-full object-cover"
         />
-        <figcaption class="meta numero mt-3">A mesa na areia · folha de bananeira</figcaption>
+        <figcaption class="meta numero mt-3">{t('mesa.figMesaAreia')}</figcaption>
       </figure>
       <figure>
         <Image
@@ -136,7 +136,7 @@ const escopo = [
           loading="lazy" decoding="async"
           class="aspect-[3/2] w-full object-cover"
         />
-        <figcaption class="meta numero mt-3">Depois do jantar · fogueira e velas</figcaption>
+        <figcaption class="meta numero mt-3">{t('mesa.figDepoisJantar')}</figcaption>
       </figure>
     </div>
   </div>
@@ -154,7 +154,7 @@ const escopo = [
         loading="lazy" decoding="async"
         class="aspect-[21/9] w-full object-cover"
       />
-      <figcaption class="meta numero mt-3">Sete da manhã · tapioca, fruta do quintal, café passado na hora</figcaption>
+      <figcaption class="meta numero mt-3">{t('mesa.figSeteDaManha')}</figcaption>
     </figure>
   </div>
 </section>

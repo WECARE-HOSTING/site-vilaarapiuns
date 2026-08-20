@@ -26,7 +26,7 @@
  */
 import { Image } from 'astro:assets';
 import AberturaPagina from '@/components/AberturaPagina.astro';
-import { useTranslations } from '@/i18n/utils';
+import { useTranslations, useList } from '@/i18n/utils';
 import type { Locale } from '@/i18n/config';
 
 /* a casa */
@@ -92,77 +92,73 @@ interface Capitulo {
   fotos: Foto[];
 }
 
-const capitulos: Capitulo[] = [
-  {
-    id: 'casa',
-    titulo: 'A casa',
-    fotos: [
-      { src: bangaloOctogonal, alt: 'Bangalô octogonal de madeira com telhado de palha, suspenso entre os troncos altos da floresta', leg: 'Bangalô octogonal' },
-      { src: hero6, alt: 'Bangalô de dois andares em madeira sobre palafitas, com telhado de palha', leg: 'Bangalô duplex', alta: true },
-      { src: bangaloExterno, alt: 'Bangalô de um pavimento em madeira sobre palafitas, na areia', leg: 'Quarto casa' },
-      { src: chale11, alt: 'Fachada do chalé número 11 com rede armada na varanda, meio escondido pela vegetação', leg: 'Chalé 11' },
-      /* 20/08/2026 — a legenda "A marchetaria" estava em `gal5.jpg`, que é um
-         hóspede sentado numa canoa em campo de vitórias-régias. O cliente viu a
-         mesma foto com a mesma legenda errada na home e na página da pousada e
-         pediu a troca; aqui era o terceiro lugar. Entra `gal6.jpg`, que tem as
-         DUAS peças que a legenda promete: a porta de mogno com as cunhas radiais
-         e a porta interna com o medalhão octogonal.
+/* Só a foto e o `alta` (mera proporção de recorte, não texto) ficam aqui.
+   `titulo` de cada capítulo e `leg`/`alt` de cada foto vêm de
+   `galeria.titulo_<id>` e `galeria.capitulos` em cada `src/i18n/*.json`,
+   casados por `id` — ver a nota de `home.tiraItens` no mesmo espírito. */
+const FOTOS_GALERIA: Record<string, Record<string, { src: ImageMetadata; alta?: boolean }>> = {
+  casa: {
+    bangaloOctogonal: { src: bangaloOctogonal },
+    hero6: { src: hero6, alta: true },
+    bangaloExterno: { src: bangaloExterno },
+    chale11: { src: chale11 },
+    gal6: { src: gal6 },
+    quartoCasal: { src: quartoCasal, alta: true },
+    varandaRedeDuplex: { src: varandaRedeDuplex },
+    varandaNoite: { src: varandaNoite },
+    banheiroPia: { src: banheiroPia, alta: true },
+    pavilhaoPalha: { src: pavilhaoPalha },
+    deckYoga: { src: deckYoga },
+    passarelaRefeitorio: { src: passarelaRefeitorio },
+    arenaBancos: { src: arenaBancos },
+  },
+  agua: {
+    bancoAreia: { src: bancoAreia },
+    aguaTransparente: { src: aguaTransparente },
+    porDoSolPortao: { src: porDoSolPortao, alta: true },
+    praiaEspreguicadeira: { src: praiaEspreguicadeira },
+    igapoCanoa: { src: igapoCanoa },
+    igapoTroncos: { src: igapoTroncos, alta: true },
+    igarape: { src: igarape },
+    hero4: { src: hero4 },
+    supRio: { src: supRio },
+    caiaques: { src: caiaques },
+    tucuxi: { src: tucuxi },
+  },
+  mesa: {
+    cafeRefeitorio: { src: cafeRefeitorio },
+    jantarPeixe: { src: jantarPeixe, alta: true },
+    hero2: { src: hero2 },
+    mesaCaneca: { src: mesaCaneca },
+  },
+  gente: {
+    porDoSolGrupo: { src: porDoSolGrupo },
+    farinhada: { src: farinhada },
+    tecelagem: { src: tecelagem, alta: true },
+    samauma: { src: samauma },
+    trilhaGrupo: { src: trilhaGrupo },
+    luauPraia: { src: luauPraia },
+    artesanato: { src: artesanato },
+  },
+};
 
-         `gal5` não foi para outro capítulo porque não precisa: ela é a mesma
-         cena de `hero4.jpg`, que já está em "A água" como "Vitórias-régias". */
-      { src: gal6, alt: 'Cama de casal com manta xadrez de chocolate e aveia, entre uma porta interna com medalhão octogonal e uma porta de mogno cujas cunhas de veio oposto irradiam de um centro', leg: 'A marchetaria' },
-      { src: quartoCasal, alt: 'Quarto de madeira escura com cama de casal, manta xadrez dobrada ao pé e cadeira ao lado da janela', leg: 'Quarto de casal', alta: true },
-      { src: varandaRedeDuplex, alt: 'Varanda do pavimento superior com rede preta armada, cadeira de cipó e cesto trançado na parede', leg: 'Varanda do duplex' },
-      { src: varandaNoite, alt: 'Varanda à noite com rede, luminária de fibra trançada acesa e cadeiras de balanço', leg: 'Varanda, ao fim do dia' },
-      { src: banheiroPia, alt: 'Pia de banheiro com cuba branca sobre bancada de madeira, espelho e cestaria regional, sob teto de palha', leg: 'O banheiro', alta: true },
-      { src: pavilhaoPalha, alt: 'Pavilhão comprido de telhado de palha sobre deck de madeira, entre as árvores', leg: 'O pavilhão' },
-      { src: deckYoga, alt: 'Deck de madeira sob telhado de palha aberto para a mata, com espreguiçadeira e samambaias', leg: 'A shala' },
-      { src: passarelaRefeitorio, alt: 'Passarela de madeira serpenteando entre os troncos da floresta até a maloca de palha do refeitório', leg: 'A passarela' },
-      { src: arenaBancos, alt: 'Bancos de tronco maciço formando uma roda na areia da clareira, cercados pela mata', leg: 'A roda de fogo' },
-    ],
-  },
-  {
-    id: 'agua',
-    titulo: 'A água',
-    fotos: [
-      { src: bancoAreia, alt: 'Banco de areia dourada com uma trilha de pegadas, cortando a água azul dos dois lados', leg: 'Banco de areia' },
-      { src: aguaTransparente, alt: 'Banco de areia dentro do rio, com a água rasa tão clara que o fundo aparece ondulado pela luz', leg: 'Água transparente' },
-      { src: porDoSolPortao, alt: 'Sol baixo alaranjado sobre a água larga do rio, visto da passarela, com a vegetação em silhueta', leg: 'Pôr do sol no rio', alta: true },
-      { src: praiaEspreguicadeira, alt: 'Faixa de areia clara com espreguiçadeiras de madeira alinhadas à sombra das árvores, na luz dourada', leg: 'A praia da Villa' },
-      { src: igapoCanoa, alt: 'Canoa de madeira azul encostada na areia, diante de arbustos e palmeiras com o tronco dentro da água', leg: 'O igapó' },
-      { src: igapoTroncos, alt: 'Área alagada de água azul recortando tapetes de vegetação alaranjada, com troncos secos deitados', leg: 'Mata alagada', alta: true },
-      { src: igarape, alt: 'Igarapé de água escura correndo entre a vegetação fechada da floresta', leg: 'Igarapé' },
-      { src: hero4, alt: 'Canoa de madeira parada num campo de vitórias-régias, com um homem sentado na proa, remo na mão', leg: 'Vitórias-régias' },
-      { src: supRio, alt: 'Pessoa de pé numa prancha de stand-up, remando em água calma diante de uma margem de mata baixa', leg: 'Stand-up no rio' },
-      { src: caiaques, alt: 'Caiaques amarelo e laranja guardados em cavaletes sob um rancho de telhado de palha', leg: 'Os caiaques' },
-      /* A única foto de fora. A legenda diz a espécie, não o lugar. */
-      { src: tucuxi, alt: 'Dois botos tucuxi emergindo juntos na superfície de um rio, levantando respingo', leg: 'Boto tucuxi · Wikimedia Commons' },
-    ],
-  },
-  {
-    id: 'mesa',
-    titulo: 'A mesa',
-    fotos: [
-      { src: cafeRefeitorio, alt: 'Mesa de café da manhã posta no pavilhão aberto: bolo, tapioca, fruta fatiada e jarra de suco vermelho', leg: 'Café da manhã' },
-      { src: jantarPeixe, alt: 'Peixes assados inteiros em travessas de barro à luz de velas, com farofa e limão ao lado', leg: 'Peixe assado', alta: true },
-      { src: hero2, alt: 'Mesa de jantar à luz de velas na praia, com peixe e farinha em folha de bananeira', leg: 'Piracaia' },
-      { src: mesaCaneca, alt: 'Caneca de cerâmica azul apoiada num jogo americano de palha trançada, sobre a madeira da mesa', leg: 'A louça' },
-    ],
-  },
-  {
-    id: 'gente',
-    titulo: 'A gente',
-    fotos: [
-      { src: porDoSolGrupo, alt: 'Fileira de pessoas sentadas na beira da praia, de costas, vendo o sol baixar sobre o rio', leg: 'A hora do pôr do sol' },
-      { src: farinhada, alt: 'Moradores da comunidade e hóspedes em volta de um cocho, peneirando a massa de mandioca', leg: 'Farinhada' },
-      { src: tecelagem, alt: 'Artesã da comunidade sorrindo enquanto mostra o trançado de palha a duas hóspedes', leg: 'Tecelagem', alta: true },
-      { src: samauma, alt: 'Grupo de pessoas de mãos dadas em volta do tronco enorme de uma samaúma, sem fechar o círculo', leg: 'A samaúma' },
-      { src: trilhaGrupo, alt: 'Grupo de caminhantes com mochila subindo uma trilha de areia clara, entre vegetação alta', leg: 'Na trilha' },
-      { src: luauPraia, alt: 'Praia à noite com fogueira acesa, fileira de velas na areia e hóspedes reunidos sob as palmeiras', leg: 'A noite na praia' },
-      { src: artesanato, alt: 'Prateleira com cestos, potes e bolsas de palha trançada do artesanato da região', leg: 'O artesanato' },
-    ],
-  },
-];
+const TITULOS_CAPITULO: Record<string, string> = {
+  casa: t('galeria.titulo_casa'),
+  agua: t('galeria.titulo_agua'),
+  mesa: t('galeria.titulo_mesa'),
+  gente: t('galeria.titulo_gente'),
+};
+
+const capitulos: Capitulo[] = useList(locale)<{ id: string; fotos: { id: string; leg: string; alt: string }[] }>('galeria.capitulos')
+  .map((cap) => ({
+    id: cap.id,
+    titulo: TITULOS_CAPITULO[cap.id],
+    fotos: cap.fotos.map((f) => ({
+      ...FOTOS_GALERIA[cap.id][f.id],
+      leg: f.leg,
+      alt: f.alt,
+    })),
+  }));
 
 /* Só as três primeiras fotos da página inteira entram como `eager`. Um índice
    corrido entre capítulos é a diferença entre 3 imagens no caminho crítico e

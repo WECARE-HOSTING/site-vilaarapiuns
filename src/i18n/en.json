@@ -1,5 +1,272 @@
 {
+  "site": {
+    "name": "Villa Arapiuns",
+    "tagline": "Amazon Lodge · Arapiuns River, Pará"
+  },
+  "nav": {
+    "lodge": "The Lodge",
+    "dining": "The Table",
+    "experiences": "Experiences",
+    "packages": "Packages",
+    "privateVilla": "Private Villa",
+    "gettingHere": "Getting Here",
+    "gallery": "Gallery",
+    "reviews": "Reviews",
+    "book": "Book",
+    "menu": "Menu",
+    "close": "Close",
+    "language": "Language"
+  },
+  "cta": {
+    "book": "Book",
+    "checkAvailability": "Check dates",
+    "whatsapp": "Chat on WhatsApp",
+    "seePackages": "See packages",
+    "learnMore": "Learn more"
+  },
+  "trust": {
+    "fullBoard": "Full board on lodge stays",
+    "boat": "Boat from Alter do Chão in the packages",
+    "team": "Our own team on the logistics",
+    "host": "Local host at the Villa"
+  },
+  "dia": {
+    "incluso": "Included in the package",
+    "comunidade": "Paid to the community"
+  },
+  "footer": {
+    "sobre": "A community-based tourism lodge on the banks of the Arapiuns River. Thirteen bungalows, full board at the lodge and a team that looks after the kitchen, the boat and the journey — so that all you have to do is arrive.",
+    "visita": "The Villa",
+    "reserva": "Plan your stay",
+    "local": "Where we are",
+    "partida": "Group departures",
+    "tipo": "Community-based tourism",
+    "brasil": "Brazil"
+  },
+  "whatsapp": {
+    "geral": "Hello! I'd like to know more about Villa Arapiuns.",
+    "preco": "Hello! I'd like to know the nightly rate at Villa Arapiuns."
+  },
+  "desc": {
+    "home": "Thirteen bungalows on the Arapiuns River, 90 minutes by boat from Alter do Chão. Stay for days with full board, or come on a package with the boat and itinerary already arranged.",
+    "lodge": "The 13 bungalows of Villa Arapiuns: two-storey Tapajônica architecture, mahogany, marquetry and handwoven cloth.",
+    "dining": "The table at Villa Arapiuns: river fish, cassava flour from the community, coffee brewed to order — and the Piracaia at the water's edge.",
+    "experiences": "Trails, canoe, beach and workshops with the riverside communities of the Arapiuns.",
+    "packages": "Packages departing from Alter do Chão with boat, itinerary and half board: one night with seven experiences, or two nights with ten.",
+    "privateVilla": "Villa Arapiuns for exclusive use: all 13 bungalows for a single group, with exclusivity from 15 people.",
+    "gettingHere": "How to reach Villa Arapiuns: fly to Santarém, transfer to Alter do Chão and 90 minutes by boat upriver.",
+    "gallery": "Photographs of Villa Arapiuns: the bungalows, the river, the forest and the Arapiuns communities.",
+    "reviews": "What guests say after staying at Villa Arapiuns.",
+    "book": "Book your stay at Villa Arapiuns on WhatsApp and talk straight to the house."
+  },
+  "home": {
+    "hookA": "An Amazon lodge.",
+    "hookB": "Not a day trip.",
+    "intro": "The beach is fresh water, clear to the bottom, and there are hardly any mosquitoes. That is the Arapiuns. The bungalows are timber, Tapajônica architecture, feet in the sand. Come for a few days — or come and live here. Why not?",
+    "travessiaT": "The crossing",
+    "travessiaI": "Getting here is part of it. Three stages, and the last one is ours.",
+    "etapa1T": "Fly to Santarém",
+    "etapa1D": "Santarém airport, in Pará. This is where the journey starts to be worth it.",
+    "etapa2T": "Santarém to Alter do Chão",
+    "etapa2D": "Overland transfer to the village. We agree the time with you.",
+    "etapa3T": "Alter do Chão to the Villa",
+    "etapa3D": "The house boat, upriver. Included in the packages; arranged separately on lodge stays.",
+    "casaT": "The house",
+    "casaP1": "The doors are mahogany, inlaid: wedges of opposing grain radiating from an octagonal centre, cut and fitted by hand. The same octagon returns as a medallion on the interior doors.",
+    "casaP2": "The blankets are woven on a loom, checked in chocolate and oat. The veranda lamp is woven fibre. The bungalows are two-storey Tapajônica architecture. None of it came out of a catalogue — and that is why the Villa looks like no other lodge on the river.",
+    "diaT": "A day at the Villa",
+    "diaI": "From coffee on the veranda to the fire on the beach. Each moment tells you whether it is included or paid directly to the community.",
+    "precoT": "Price",
+    "precoSob": "On request",
+    "precoD": "The nightly rate comes down as the group grows and the stay lengthens. Tell us how many people and how many nights, and we come back with a firm price on WhatsApp — no forms.",
+    "fechaQ": "You arrive, drop your bags and head straight out. You come back tired in the best possible way — from the forest, the sun, the stories. You eat well and you sleep deeply.",
+    "fechaT": "Talk to the house",
+    "fechaD": "The person who answers is the person who welcomes you. Tell us how many people and what dates you have in mind.",
+    "fechaA": "Gabriela",
+    "fechaH": "guest · July 2026",
+    "tiraMedidaBarco": "{min} min by boat",
+    "tiraMedidaBangalos": "{n} bungalows",
+    "tiraMedidaHospedes": "up to {n} guests",
+    "tiraItens": [
+      {
+        "id": "travessia",
+        "assunto": "The crossing",
+        "alt": "A group of guests with backpacks boarding a wooden boat moored at the riverbank, under a sky of high clouds"
+      },
+      {
+        "id": "banco",
+        "assunto": "The sandbank",
+        "alt": "A golden sandbank with footprints, cutting through turquoise-blue water on both sides, under an open sky with fan-shaped clouds"
+      },
+      {
+        "id": "agua",
+        "assunto": "The clear water",
+        "alt": "A sandbank within the river, the shallow water so clear that the sunlit, rippled riverbed shows through"
+      },
+      {
+        "id": "praia",
+        "assunto": "The Villa's beach",
+        "medida": "feet in the sand",
+        "alt": "A strip of pale sand in the sun with wooden sun loungers lined up in the shade of the trees, the river in front"
+      },
+      {
+        "id": "banho",
+        "assunto": "The river bath",
+        "alt": "A row of women standing side by side in the shallow river water, smiling at the camera"
+      },
+      {
+        "id": "canoa",
+        "assunto": "The canoe",
+        "medida": "giant water lilies",
+        "alt": "A canoe carrying five people across a field of giant water lilies, paddled by a guide standing at the bow"
+      },
+      {
+        "id": "igapo",
+        "assunto": "The igapó",
+        "alt": "A blue wooden canoe resting on the sand, facing shrubs and palm trees with their trunks standing in the water"
+      },
+      {
+        "id": "alagada",
+        "assunto": "The flooded forest",
+        "medida": "January to July",
+        "alt": "A flooded area of blue water cutting through carpets of orange-toned vegetation, with pale dry trunks lying on the surface"
+      },
+      {
+        "id": "sup",
+        "assunto": "Stand-up paddling on the river",
+        "medida": "separate excursion",
+        "alt": "A person standing on a stand-up paddleboard, paddling across calm water facing a bank of low forest"
+      },
+      {
+        "id": "caiaque",
+        "assunto": "The kayaks",
+        "medida": "separate excursion",
+        "alt": "Yellow and orange kayaks stored on racks under a thatch-roofed shelter, in the shade of the forest"
+      },
+      {
+        "id": "trilha",
+        "assunto": "The trail",
+        "medida": "with the house guide",
+        "alt": "Three people with backpacks climbing a pale dirt trail, between walls of dense, sunlit vegetation"
+      },
+      {
+        "id": "samauma",
+        "assunto": "The samaúma tree",
+        "alt": "A group of people with arms outstretched, embracing the enormous trunk of a samaúma tree in the forest"
+      },
+      {
+        "id": "massagem",
+        "assunto": "The massage",
+        "medida": "optional",
+        "alt": "A massage on a mat laid out on the sand, under a thatched roof open to the river"
+      },
+      {
+        "id": "farinhada",
+        "assunto": "The farinhada",
+        "medida": "paid direct to the community",
+        "alt": "Community women and guests gathered around a cassava-flour pan, under a thatched shelter"
+      },
+      {
+        "id": "tecelagem",
+        "assunto": "The weaving",
+        "medida": "paid direct to the community",
+        "alt": "A community artisan smiling as she shows the woven palm work to two guests sitting beside her"
+      },
+      {
+        "id": "octogonal",
+        "assunto": "The octagonal bungalow",
+        "alt": "An octagonal timber bungalow with a thatched roof, raised among the tall tree trunks of the forest"
+      },
+      {
+        "id": "bangalo",
+        "assunto": "The bungalow",
+        "alt": "A timber bungalow on stilts, with an outdoor staircase and veranda, among tall trees in the sun"
+      },
+      {
+        "id": "duplex",
+        "assunto": "The duplex",
+        "medida": "2 floors",
+        "alt": "A two-storey timber bungalow on stilts, with a thatched roof, among the trees"
+      },
+      {
+        "id": "chale",
+        "assunto": "The chalet",
+        "alt": "The façade of chalet number 11, with a hammock strung on the veranda, half hidden by the surrounding vegetation"
+      },
+      {
+        "id": "passarela",
+        "assunto": "The boardwalk",
+        "alt": "A wooden boardwalk winding between the forest's tree trunks to the thatched dining hall"
+      },
+      {
+        "id": "pavilhao",
+        "assunto": "The pavilion",
+        "alt": "A long, thatched-roof pavilion on a wooden deck, among the trees"
+      },
+      {
+        "id": "shala",
+        "assunto": "The shala",
+        "alt": "A wide wooden deck under a thatched roof open to the forest, with loungers and ferns along the edge"
+      },
+      {
+        "id": "quarto",
+        "assunto": "The room",
+        "alt": "A double bed with white linen and a folded chocolate-and-oat check blanket at the foot, beside a mahogany door with an octagonal medallion"
+      },
+      {
+        "id": "casal",
+        "assunto": "The double room",
+        "alt": "A dark-timber room with a double bed, a folded check blanket at the foot and a wooden chair by the window"
+      },
+      {
+        "id": "varanda",
+        "assunto": "The veranda",
+        "alt": "An upper-floor veranda with a black hammock strung up, a wicker chair and a woven basket hanging on the timber wall"
+      },
+      {
+        "id": "banheiro",
+        "assunto": "The bathroom",
+        "alt": "A brass ceiling shower running water in a timber-walled bathroom, with a window open to the greenery"
+      },
+      {
+        "id": "cafe",
+        "assunto": "Breakfast",
+        "medida": "07:00",
+        "alt": "A breakfast table set in the open pavilion: cake, tapioca, sliced fruit and a jug of red juice, with the forest behind"
+      },
+      {
+        "id": "porsol",
+        "assunto": "The sunset",
+        "medida": "17:30",
+        "alt": "A row of people sitting on the sand with their backs to the camera, watching the sun sink over the wide river"
+      },
+      {
+        "id": "fimdetarde",
+        "assunto": "Late afternoon",
+        "alt": "The low orange sun over the wide river, seen from a wooden walkway, with the gate and vegetation in silhouette"
+      },
+      {
+        "id": "piracaia",
+        "assunto": "The piracaia",
+        "medida": "dinner on the sand",
+        "alt": "A long table on the beach by candlelight: grilled fish, cassava flour and fruit served on a banana leaf and a woven mat"
+      }
+    ],
+    "campoLancha": "1h30 by boat from {place}"
+  },
   "modo": {
+    "titulo": "Two ways to stay",
+    "intro": "The Villa hosts in two ways, and they are not the same product. Choose by what you want from your time.",
+    "pousadaT": "Lodge stay",
+    "pousadaD": "You spend your days at the Villa with full board, and choose what to do — or not do. Boat and excursions are arranged separately, according to the group's interest.",
+    "pousadaInc": "Bungalow accommodation · full board · Piracaia",
+    "pousadaFora": "Boat transfer and excursions",
+    "pacoteT": "Full package",
+    "pacoteD": "Departs from Alter do Chão with boat, itinerary and activities already arranged. One night with seven experiences, or two nights with ten.",
+    "pacoteInc": "Transport · accommodation · half board · activities",
+    "pacoteFora": "Nothing separate: the itinerary is set",
+    "inclusoRot": "Included",
+    "foraRot": "Separate",
     "aPartirDe": "From",
     "porPax": "per person / night",
     "porPacote": "per person / 1 night",
@@ -7,5 +274,579 @@
     "condPousada": "4 nights · double room",
     "condPacote": "1 night · departing from Alter do Chão",
     "condPacote2": "2 nights · departing from Alter do Chão"
+  },
+  "pousada": {
+    "h1": "Thirteen timber bungalows",
+    "intro": "Tapajônica architecture on stilts, between the trees and the freshwater beach. Up to 26 guests in the whole Villa — and never more than that.",
+    "matT": "The woodwork, up close",
+    "matP1": "The doors are mahogany, inlaid: wedges of opposing grain radiating from an octagonal centre, cut and fitted by hand. The same octagon returns as a medallion on the interior doors.",
+    "matP2": "The blankets are woven on a loom, checked in chocolate and oat. The veranda lamp is woven fibre, and so is the floor mat. Nothing came out of a catalogue.",
+    "tiposT": "Three types of unit",
+    "tipo1T": "House room",
+    "tipo1D": "Bungalow on stilts, with its own veranda facing the forest.",
+    "tipo2T": "Duplex room",
+    "tipo2D": "Two-storey unit with an internal staircase.",
+    "tipo3T": "Two duplex rooms",
+    "tipo3D": "Two suites in the same duplex unit — for a family or a group that wants to stay together.",
+    "tiposNota": "Which type you get depends on how full the date is. Tell us the size of your group and we will fit you in.",
+    "comunsT": "The common areas",
+    "c1T": "Hammocks among the trees",
+    "c1D": "Hammocks in the shade, with birdsong. The gap between one adventure and the next.",
+    "c2T": "Dining pavilion",
+    "c2D": "Thatched roof, long timber table, open to the forest.",
+    "c3T": "Freshwater beach",
+    "c3D": "Feet in the sand, clear water. It is the front of the lodge.",
+    "c4T": "Yoga shala",
+    "c4D": "A covered space for practice, or for doing nothing at all.",
+    "viverT": "What it is like to live here",
+    "viverI": "Three things nobody asks about before arriving, and everybody mentions afterwards.",
+    "mosquitoT": "Almost no mosquitoes",
+    "mosquitoD": "The clear water and sand beaches of the Arapiuns have far fewer mosquitoes than the floodplain Amazon. Dinner on the sand without repellent is the surprise that comes up most often from people who arrive expecting the opposite.",
+    "aguaT": "The water has no heater",
+    "aguaD": "There is no water heater at the Villa: your shower is the river itself, at whatever temperature it arrives — and that changes with the time of year. For drinking there is a filter: safe water at all times.",
+    "telaT": "There is no television",
+    "telaD": "There is Starlink internet, for keeping in touch. Television, no. At night what there is is conversation, the sound of the river and the urge to sleep early.",
+    "figCopaExterna": "Outdoor kitchen · solid timber and slatted window",
+    "figShala": "Shala · thatch-covered deck",
+    "figPavilhao": "Dining pavilion · wooden deck",
+    "ctaFalarComCasa": "Talk to the house",
+    "figPassarela": "The walkway · connects everything",
+    "figRodaFogo": "The fire circle · tree-trunk benches",
+    "figBanheiro": "The bathroom · basin and basketry",
+    "figChale11": "Chalet 11 · hammock on the veranda",
+    "figAguaClara": "Clear water · the riverbed in view",
+    "figBanhoSemAquecedor": "The shower · no heater",
+    "figNoiteRedeLuminaria": "Night · hammock and fibre lamp",
+    "medida1Pavimento": "1 floor",
+    "medida2Pavimentos": "2 floors",
+    "medida2Suites": "2 suites",
+    "campoArquitetura": "{arch} architecture"
+  },
+  "mesa": {
+    "h1": "The table at the Villa",
+    "intro": "River fish, cassava flour from the community, fruit from the garden and coffee brewed to order. Our own kitchen, serving in the open pavilion.",
+    "escopoT": "What is included depends on how you stay",
+    "escopo1T": "Lodge stay: full board",
+    "escopo1D": "Breakfast, lunch and dinner, every day of your stay — crowned by the Piracaia.",
+    "escopo2T": "Packages: half board",
+    "escopo2D": "Breakfast and dinner. Lunch on one of the days happens in the community, as part of the itinerary.",
+    "piraT": "The Piracaia",
+    "piraD": "A fire on the sand, fish grilled at the water's edge, a sky full of stars. It is the meal that closes the stay, and the only one that does not happen at the table.",
+    "ctaVerPacotes": "See what's included in each package",
+    "figRefeitorio": "The dining hall · woven mats",
+    "figLouca": "The tableware · ceramic and palm",
+    "figPeixeAssado": "Grilled fish · clay platter",
+    "figMesaAreia": "The table on the sand · banana leaf",
+    "figDepoisJantar": "After dinner · fire and candles",
+    "figSeteDaManha": "Seven in the morning · tapioca, garden fruit, freshly brewed coffee"
+  },
+  "exp": {
+    "h1": "What there is to do here",
+    "intro": "Trails, canoe, beach and meeting the river communities. On lodge stays, excursions are arranged separately; in the packages, they come with the itinerary.",
+    "agua": "On the water",
+    "mata": "In the forest",
+    "gente": "With the communities",
+    "nota": "Some excursions are paid directly to the families who host the group. Each item says which applies.",
+    "estacoesT": "The river has two seasons",
+    "estacoesI": "There is no bad time to come — there are two different landscapes, and they change what you can do. The water is warm and clear in both.",
+    "cheiaT": "High water",
+    "cheiaQuando": "January to July",
+    "cheiaD": "The river rises and moves into the forest. The igapós appear — flooded woodland — and the canoe goes right through them, between the treetops, where the rest of the year you would be walking.",
+    "secaT": "Low water",
+    "secaQuando": "August to December",
+    "secaD": "The water draws back and the beaches appear: banks of white sand that did not exist six months earlier, and that will vanish again when the river rises.",
+    "estacoesNota": "The Arapiuns is warm all year round. What changes between the seasons is the landscape, not the climate.",
+    "figIgapoAlt": "A blue-and-white wooden canoe resting on pale sand, facing shrubs and palm trees with their trunks submerged in the igapó water",
+    "figAguaTransparente": "Clear water · the riverbed in view",
+    "figAguaTransparenteAlt": "A golden sandbank reaching into the river, the shallow water so clear that the sunlit, rippled riverbed shows through",
+    "figTucuxi": "Tucuxi dolphin",
+    "figTucuxiAlt": "Two tucuxi dolphins surfacing together on a river, throwing up spray, the water reflecting the green of the forest",
+    "figIgapoTroncosAlt": "A flooded area of blue water cutting through carpets of orange-toned vegetation, with pale dry trunks lying on the surface",
+    "figBancoAreiaAlt": "A golden sandbank with a trail of footprints, cutting through blue water on both sides, under an open sky",
+    "figSamauma": "Samaúma · the trunk the group can't close around",
+    "figSamaumaAlt": "A group of people holding hands around the enormous trunk of a samaúma tree, unable to close the circle",
+    "figMassagem": "Massage · a mat on the sand",
+    "figMassagemAlt": "A massage on a mat laid out on the sand, under a thatched roof open to the river",
+    "figTrilha": "Trail · with the house guide",
+    "figTrilhaAlt": "A group of hikers with backpacks climbing a pale sand trail, between walls of tall vegetation",
+    "figFarinhada": "Farinhada · cassava becoming flour",
+    "figFarinhadaAlt": "Community residents and guests around a trough, sieving the cassava mash in the flour house",
+    "figTecelagem": "Weaving · a workshop with the artisans",
+    "figTecelagemAlt": "A community artisan smiling as she shows the woven palm work to two guests sitting beside her",
+    "figPorSol": "Sunset · the hour when everyone stops",
+    "figPorSolAlt": "A row of people sitting at the edge of the beach, backs to the camera, watching the sun sink over the river and open a golden trail on the water",
+    "linkPacotes": "See the two set-itinerary packages",
+    "aguaLista": [
+      {
+        "titulo": "Lago Azul",
+        "detalhe": "A short trail to a hidden lagoon, canoe and a swim in still water.",
+        "medida": "In the package",
+        "marcado": true
+      },
+      {
+        "titulo": "Ponta Grande",
+        "detalhe": "Sunset on the white sand beach, with a swim in the river. You can go by kayak, or by boat too.",
+        "medida": "In the package",
+        "marcado": true
+      },
+      {
+        "titulo": "Canal do Jari",
+        "detalhe": "A crossing through the channel, between the flooded forest.",
+        "medida": "In the package",
+        "marcado": true
+      },
+      {
+        "titulo": "Ponta do Toronó",
+        "detalhe": "Another river beach, further along.",
+        "medida": "In the package",
+        "marcado": true
+      },
+      {
+        "titulo": "The tucuxi dolphins",
+        "detalhe": "The dolphins of the Arapiuns are the tucuxi — smaller than the pink ones, and known for coming close to the canoe."
+      }
+    ],
+    "mataLista": [
+      {
+        "titulo": "Trilha da Samaúma",
+        "detalhe": "A walk to one of the largest trees in the Amazon, in the community of Atodi, with a local lunch.",
+        "medida": "Optional"
+      },
+      {
+        "titulo": "Massage and herbal bath",
+        "detalhe": "Forest herbs, for after the trail.",
+        "medida": "Optional"
+      }
+    ],
+    "genteLista": [
+      {
+        "titulo": "Farinhada and weaving",
+        "detalhe": "A workshop with the community's artisans: cassava becoming flour, the loom becoming a blanket.",
+        "medida": "Paid to the community"
+      },
+      {
+        "titulo": "Comunidade Coroca",
+        "detalhe": "The turtle-breeding project and the community's craftwork.",
+        "medida": "Paid to the community"
+      },
+      {
+        "titulo": "Piracaia",
+        "detalhe": "A fire on the sand, fish grilled at the water's edge, stories under the stars.",
+        "medida": "In the 2-night package",
+        "marcado": true
+      }
+    ],
+    "contato": [
+      {
+        "id": "caiaques",
+        "legenda": "The kayaks · thatched shelter",
+        "alt": "Yellow and orange kayaks stored on racks under a thatch-roofed shelter, in the shade of the forest"
+      },
+      {
+        "id": "piracaiaViolao",
+        "legenda": "Piracaia · a fire on the sand",
+        "alt": "A circle of guests sitting on the sand at night around a fire, one of them with a guitar"
+      },
+      {
+        "id": "igarape",
+        "legenda": "Igarapé · dark water in the forest",
+        "alt": "A dark-water igarapé stream running through the dense forest vegetation"
+      },
+      {
+        "id": "luauPraia",
+        "legenda": "Night on the beach · candles and a fire",
+        "alt": "The beach at night with a fire lit, a row of candles on the sand and guests gathered under the palms"
+      }
+    ]
+  },
+  "pacote": {
+    "h1": "Two packages, departing from Alter do Chão",
+    "intro": "Boat, accommodation, half board and a set itinerary. You get to Alter do Chão and the rest is ours.",
+    "p1T": "Classic Arapiuns",
+    "p1Sub": "1 night · 2 days · 7 experiences",
+    "p1D": "The forest in a single breath: sunset and a night at the Villa.",
+    "p2T": "Full Immersion",
+    "p2Sub": "2 nights · 3 days · 10 experiences",
+    "p2D": "Everything in the Classic, plus the Samaúma, the Coroca and the Piracaia under the stars.",
+    "incT": "Included in both",
+    "incD": "Transport · accommodation · half board (breakfast and dinner) · itinerary activities",
+    "opcNota": "Items marked optional depend on the group's interest.",
+    "opcionalLabel": "optional",
+    "roteiroFotoT": "The itinerary, in photographs",
+    "roteiroFotoI": "Not every item on the itinerary has a photo in our collection — the ones that do are here, unretouched and unstaged.",
+    "lanchaT": "The boat is included",
+    "lanchaD": "In both packages, the boat from {place} to the Villa and back is already included in the price. It's {min} minutes on the river, and the last leg of the journey.",
+    "itemLagoAzul": "Lago Azul",
+    "itemMassagem": "Massage and herbal bath",
+    "itemFarinhadaRedario": "Farinhada, weaving and hammock area",
+    "itemPorDoSolPontaGrande": "Sunset at Ponta Grande",
+    "itemFogueiraJantar": "Bonfire and dinner at the lodge",
+    "itemPontaToronoo": "Ponta do Toronó",
+    "itemCanalJari": "Canal do Jari",
+    "itemTudoClassico": "Everything in the Classic Arapiuns",
+    "itemTrilhaAtodi": "Atodi trail / Samaúma tree",
+    "itemComunidadeCoroca": "Coroca community: turtles and craftwork",
+    "itemPiracaiaNoite": "Piracaia — a night of flavours under the stars",
+    "fotoMataAlagada": "The flooded forest",
+    "fotoPorDoSolPraia": "Sunset on the beach",
+    "fotoFarinhada": "Farinhada",
+    "fotoTecelagem": "Weaving",
+    "fotoMassagem": "Massage and herbal bath",
+    "fotoSamauma": "Trilha da Samaúma",
+    "fotoFogueiraJantar": "Bonfire and dinner",
+    "fotoPiracaia": "Piracaia",
+    "figFimDeTardeRio": "Late afternoon on the river · seen from the walkway",
+    "figChegada": "The arrival · landing on the sand"
+  },
+  "chegar": {
+    "h1": "Getting here",
+    "intro": "Three stages, and the last one is ours. The journey is part of it — and that is why the Villa is never crowded.",
+    "duvT": "What people usually worry about",
+    "q1": "What if my flight is delayed?",
+    "a1": "Let us know on WhatsApp as soon as you do. The boat leaves when the group arrives; we rearrange the time with you.",
+    "q2": "Do I need to book the boat separately?",
+    "a2": "In the packages the boat is already included. On lodge stays the transfer is arranged separately — ask for it along with the rate.",
+    "q3": "How long does it take from Santarém to the Villa?",
+    "a3": "The Alter do Chão–Villa leg is 90 minutes by boat. The time from Santarém to Alter do Chão depends on the transfer, and we arrange that with you.",
+    "q4": "Is there mobile signal?",
+    "a4": "The signal comes and goes. Settle whatever needs settling beforehand, and tell anyone who is expecting to hear from you.",
+    "q5": "Can I bring children?",
+    "a5": "You can. Tell us their ages when you get in touch, so we can think about the accommodation and the pace of the day together with you.",
+    "figFimEtapa3": "The end of stage 03 · landing on the Villa’s sand",
+    "duvFinal": "If a question is still unanswered here, just ask — it's faster than searching.",
+    "ctaVerPacotes": "See packages with boat included"
+  },
+  "mapa": {
+    "alt": "Map of the region: Villa Arapiuns sits on the bank of the Arapiuns River, to the west. To the east, where the Tapajós meets the Amazon, are Alter do Chão and, further on, Santarém.",
+    "ampliar": "Enlarge the map",
+    "fechar": "Close",
+    "dialogo": "Map of the Arapiuns region, enlarged",
+    "aeroporto": "Airport in Santarém, PA",
+    "ondeT": "Where the Villa is",
+    "ondeI": "The Villa is on the Arapiuns River, west of Alter do Chão. The last leg is by boat because there is no road — which is what keeps the river empty."
+  },
+  "privativa": {
+    "h1": "The whole Villa, for your group alone",
+    "intro": "From 15 people, the Villa operates exclusively: the thirteen bungalows, the pavilion, the hammocks and the beach with nobody else around.",
+    "b1T": "Thirteen bungalows",
+    "b1D": "Up to 26 guests accommodated.",
+    "b2T": "Exclusivity from 15",
+    "b2D": "Above that number, nobody else comes in on your date.",
+    "b3T": "An itinerary designed together",
+    "b3D": "Wedding, retreat, training, birthday — the day is organised around your group.",
+    "nota": "Groups of more than 26 guests: please ask about availability.",
+    "figGrupoAgua": "A group in the water · the whole Villa reserved",
+    "espacosT": "Where the group gathers",
+    "espacosI": "Four shared spaces, and with exclusive use they belong only to your group: no one from outside comes in on your dates.",
+    "figFimDeTarde": "Late afternoon · the hour the group pauses together",
+    "espacoShala": "The shala · thatch-covered deck",
+    "espacoRefeitorio": "The dining hall · long tables",
+    "espacoRodaFogo": "The fire circle · tree-trunk benches",
+    "espacoPraiaNoite": "The beach at night · candles and fire",
+    "campoExclusividade": "exclusive use from {n} guests"
+  },
+  "galeria": {
+    "h1": "The Villa, in photographs",
+    "intro": "Photographs of the house, the river and the communities. All taken at Villa Arapiuns.",
+    "titulo_casa": "The house",
+    "titulo_agua": "The water",
+    "titulo_mesa": "The table",
+    "titulo_gente": "The people",
+    "capitulos": [
+      {
+        "id": "casa",
+        "fotos": [
+          {
+            "id": "bangaloOctogonal",
+            "leg": "Octagonal bungalow",
+            "alt": "An octagonal timber bungalow with a thatched roof, raised among the tall tree trunks of the forest"
+          },
+          {
+            "id": "hero6",
+            "leg": "Duplex bungalow",
+            "alt": "A two-storey timber bungalow on stilts, with a thatched roof"
+          },
+          {
+            "id": "bangaloExterno",
+            "leg": "Lodge room",
+            "alt": "A single-storey timber bungalow on stilts, on the sand"
+          },
+          {
+            "id": "chale11",
+            "leg": "Chalet 11",
+            "alt": "The façade of chalet number 11 with a hammock strung on the veranda, half hidden by the surrounding vegetation"
+          },
+          {
+            "id": "gal6",
+            "leg": "The inlay",
+            "alt": "A double bed with a chocolate-and-oat check blanket, between an interior door with an octagonal medallion and a mahogany door whose wedges of opposing grain radiate from a centre"
+          },
+          {
+            "id": "quartoCasal",
+            "leg": "Double room",
+            "alt": "A dark-timber room with a double bed, a folded check blanket at the foot and a chair by the window"
+          },
+          {
+            "id": "varandaRedeDuplex",
+            "leg": "The duplex veranda",
+            "alt": "An upper-floor veranda with a black hammock strung up, a wicker chair and a woven basket on the wall"
+          },
+          {
+            "id": "varandaNoite",
+            "leg": "The veranda, at day's end",
+            "alt": "The veranda at night with a hammock, a lit woven-fibre lamp and rocking chairs"
+          },
+          {
+            "id": "banheiroPia",
+            "leg": "The bathroom",
+            "alt": "A bathroom basin with a white bowl on a timber counter, mirror and regional basketry, under a thatched ceiling"
+          },
+          {
+            "id": "pavilhaoPalha",
+            "leg": "The pavilion",
+            "alt": "A long, thatched-roof pavilion on a wooden deck, among the trees"
+          },
+          {
+            "id": "deckYoga",
+            "leg": "The shala",
+            "alt": "A wooden deck under a thatched roof open to the forest, with a lounger and ferns"
+          },
+          {
+            "id": "passarelaRefeitorio",
+            "leg": "The walkway",
+            "alt": "A wooden boardwalk winding between the forest's tree trunks to the thatched dining hall"
+          },
+          {
+            "id": "arenaBancos",
+            "leg": "The fire circle",
+            "alt": "Solid tree-trunk benches forming a circle on the sand of the clearing, surrounded by forest"
+          }
+        ]
+      },
+      {
+        "id": "agua",
+        "fotos": [
+          {
+            "id": "bancoAreia",
+            "leg": "Sandbank",
+            "alt": "A golden sandbank with a trail of footprints, cutting through blue water on both sides"
+          },
+          {
+            "id": "aguaTransparente",
+            "leg": "Clear water",
+            "alt": "A sandbank within the river, the shallow water so clear that the sunlit, rippled riverbed shows through"
+          },
+          {
+            "id": "porDoSolPortao",
+            "leg": "Sunset on the river",
+            "alt": "The low orange sun over the wide river, seen from the walkway, with vegetation in silhouette"
+          },
+          {
+            "id": "praiaEspreguicadeira",
+            "leg": "The Villa's beach",
+            "alt": "A strip of pale sand with wooden sun loungers lined up in the shade of the trees, in golden light"
+          },
+          {
+            "id": "igapoCanoa",
+            "leg": "The igapó",
+            "alt": "A blue wooden canoe resting on the sand, facing shrubs and palm trees with their trunks standing in the water"
+          },
+          {
+            "id": "igapoTroncos",
+            "leg": "Flooded forest",
+            "alt": "A flooded area of blue water cutting through carpets of orange-toned vegetation, with dry trunks lying on the surface"
+          },
+          {
+            "id": "igarape",
+            "leg": "Igarapé",
+            "alt": "A dark-water igarapé stream running through the dense forest vegetation"
+          },
+          {
+            "id": "hero4",
+            "leg": "Giant water lilies",
+            "alt": "A wooden canoe stopped in a field of giant water lilies, with a man sitting at the bow, paddle in hand"
+          },
+          {
+            "id": "supRio",
+            "leg": "Stand-up paddling",
+            "alt": "A person standing on a stand-up paddleboard, paddling across calm water facing a bank of low forest"
+          },
+          {
+            "id": "caiaques",
+            "leg": "The kayaks",
+            "alt": "Yellow and orange kayaks stored on racks under a thatch-roofed shelter"
+          },
+          {
+            "id": "tucuxi",
+            "leg": "Tucuxi dolphin · Wikimedia Commons",
+            "alt": "Two tucuxi dolphins surfacing together on a river, throwing up spray"
+          }
+        ]
+      },
+      {
+        "id": "mesa",
+        "fotos": [
+          {
+            "id": "cafeRefeitorio",
+            "leg": "Breakfast",
+            "alt": "A breakfast table set in the open pavilion: cake, tapioca, sliced fruit and a jug of red juice"
+          },
+          {
+            "id": "jantarPeixe",
+            "leg": "Grilled fish",
+            "alt": "Whole grilled fish on clay platters by candlelight, with farofa and lime alongside"
+          },
+          {
+            "id": "hero2",
+            "leg": "Piracaia",
+            "alt": "A candlelit dinner table on the beach, with fish and cassava flour on a banana leaf"
+          },
+          {
+            "id": "mesaCaneca",
+            "leg": "The tableware",
+            "alt": "A blue ceramic mug resting on a woven-palm placemat, on the timber table"
+          }
+        ]
+      },
+      {
+        "id": "gente",
+        "fotos": [
+          {
+            "id": "porDoSolGrupo",
+            "leg": "Sunset hour",
+            "alt": "A row of people sitting at the water’s edge, backs to the camera, watching the sun sink over the river"
+          },
+          {
+            "id": "farinhada",
+            "leg": "Farinhada",
+            "alt": "Community residents and guests around a trough, sieving the cassava mash"
+          },
+          {
+            "id": "tecelagem",
+            "leg": "Weaving",
+            "alt": "A community artisan smiling as she shows the woven palm work to two guests"
+          },
+          {
+            "id": "samauma",
+            "leg": "The samaúma tree",
+            "alt": "A group of people holding hands around the enormous trunk of a samaúma tree, unable to close the circle"
+          },
+          {
+            "id": "trilhaGrupo",
+            "leg": "On the trail",
+            "alt": "A group of hikers with backpacks climbing a pale sand trail, between tall vegetation"
+          },
+          {
+            "id": "luauPraia",
+            "leg": "Night on the beach",
+            "alt": "The beach at night with a fire lit, a row of candles on the sand and guests gathered under the palms"
+          },
+          {
+            "id": "artesanato",
+            "leg": "The craftwork",
+            "alt": "A shelf with baskets, pots and bags of woven palm from the region's craftwork"
+          }
+        ]
+      }
+    ]
+  },
+  "aval": {
+    "h1": "Reviews",
+    "intro": "We have not published reviews on this page yet.",
+    "corpo": "We would rather not show a score or a testimonial without being able to show the source. When this page exists, it will carry verifiable reviews, with origin and date. Until then, the most direct route is to talk to the people who welcome you: ask on WhatsApp and we will tell you how it works, with no sales script.",
+    "ctaVerPousada": "See the lodge",
+    "figPraia": "The Villa's beach · late afternoon",
+    "reviewsCount": "reviews"
+  },
+  "reservar": {
+    "h1": "Talk to the house",
+    "intro": "There is no form and no booking engine. The person who answers is the person who welcomes you.",
+    "comoT": "What helps to say straight away",
+    "c1": "How many people, and the ages of any children",
+    "c2": "What dates you have in mind, or how many nights",
+    "c3": "Whether you want a lodge stay or a package from Alter do Chão",
+    "c4": "Where you are travelling from, so we can think about the transfer",
+    "respT": "Reply",
+    "respD": "On WhatsApp, in whatever language you write in. If the river signal is poor it can take a few hours — it is not indifference.",
+    "duasManeirasT": "Two ways to stay",
+    "figVaranda": "The waiting veranda · hammock and thatch"
+  },
+  "a11y": {
+    "skipToContent": "Skip to content"
+  },
+  "seo": {
+    "ogImageAlt": "Bungalow at Villa Arapiuns: bed, woven blanket and inlaid mahogany door"
+  },
+  "carousel": {
+    "heroLabel": "Villa Arapiuns in thirty photos",
+    "acomodacoesLabel": "The Villa's accommodations in ten photos",
+    "photoPosition": "Photo {n} of {total}",
+    "photoPrev": "Previous photo",
+    "photoNext": "Next photo",
+    "drag": "drag"
+  },
+  "acomodacoes": {
+    "itens": [
+      {
+        "id": "bangalo-palafita",
+        "assunto": "The bungalow",
+        "legenda": "Two storeys, on stilts",
+        "alt": "A two-storey timber bungalow on stilts, with a thatched roof, an outdoor staircase and a veranda with a hammock, among the forest's tree trunks"
+      },
+      {
+        "id": "bangalo-octogonal",
+        "assunto": "The octagonal one",
+        "legenda": "Thatched roof, among the trees",
+        "alt": "An octagonal timber bungalow raised on pillars, with a conical thatched roof and an open sitting area below, surrounded by forest"
+      },
+      {
+        "id": "chale-11",
+        "assunto": "The chalet",
+        "legenda": "One storey, hammock on the veranda",
+        "alt": "The façade of chalet number 11, a single-storey dark-timber unit on posts, with a striped hammock strung on the covered veranda"
+      },
+      {
+        "id": "varanda-rede",
+        "assunto": "The veranda",
+        "legenda": "Hammock strung up, wicker chair",
+        "alt": "An upper-floor veranda with a black hammock strung from end to end, a wicker chair, a round table and a woven plate on the timber wall"
+      },
+      {
+        "id": "varanda-noite",
+        "assunto": "The veranda at night",
+        "legenda": "Woven-fibre lamp",
+        "alt": "The same veranda after nightfall, with the hammock strung and a tall woven-fibre lamp lit under the thatched roof"
+      },
+      {
+        "id": "quarto-casal-mogno",
+        "assunto": "The double room",
+        "legenda": "Mahogany door, octagonal medallion",
+        "alt": "A double bed with white linen and a folded chocolate-and-oat check blanket at the foot, between an interior door with an octagonal medallion and a mahogany door with radial inlay"
+      },
+      {
+        "id": "quarto-casal",
+        "assunto": "The bed",
+        "legenda": "Check blanket, loom-woven",
+        "alt": "A dark-timber-walled room with a double bed, a folded chocolate-and-oat check blanket at the foot, rolled towels and a wooden chair by the open window"
+      },
+      {
+        "id": "marchetaria",
+        "assunto": "The inlay",
+        "legenda": "Radial wedges of opposing grain",
+        "alt": "A single bed with a striped bedspread seen from the side, beside a mahogany door whose wedges of opposing grain radiate from an octagonal centre, with the thatched roof to the right"
+      },
+      {
+        "id": "quarto-twin",
+        "assunto": "The twin room",
+        "legenda": "Two beds, door to the veranda",
+        "alt": "A room with two timber single beds, a double door open to the veranda where a hammock is strung, with the forest just behind"
+      },
+      {
+        "id": "banheiro-pia",
+        "assunto": "The bathroom",
+        "legenda": "Ceramic basin and regional basketry",
+        "alt": "A white ceramic basin on a solid-timber counter, with a tall tap, a wood-framed mirror, woven baskets and the thatched roof visible above the wall"
+      }
+    ]
   }
 }

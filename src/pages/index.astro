@@ -38,7 +38,7 @@ import { SITE } from '@/data/site';
   </head>
   <body>
     <h1>{SITE.name}</h1>
-    <nav aria-label="Escolha de idioma">
+    <nav aria-label="Choose a language">
       <ul>
         {LOCALES.map((l) => <li><a href={`/${l}/`} hreflang={HTML_LANG[l]}>{LOCALE_NAMES[l]}</a></li>)}
       </ul>

@@ -1,5 +1,272 @@
 {
+  "site": {
+    "name": "Villa Arapiuns",
+    "tagline": "Posada en la Amazonía · Río Arapiuns, Pará"
+  },
+  "nav": {
+    "lodge": "La Posada",
+    "dining": "La Mesa",
+    "experiences": "Experiencias",
+    "packages": "Paquetes",
+    "privateVilla": "Villa Privada",
+    "gettingHere": "Cómo Llegar",
+    "gallery": "Galería",
+    "reviews": "Opiniones",
+    "book": "Reservar",
+    "menu": "Menú",
+    "close": "Cerrar",
+    "language": "Idioma"
+  },
+  "cta": {
+    "book": "Reservar",
+    "checkAvailability": "Consultar fechas",
+    "whatsapp": "Hablar por WhatsApp",
+    "seePackages": "Ver paquetes",
+    "learnMore": "Saber más"
+  },
+  "trust": {
+    "fullBoard": "Pensión completa en la posada",
+    "boat": "Barco desde Alter do Chão en los paquetes",
+    "team": "Equipo propio en la logística",
+    "host": "Anfitrión local en la Villa"
+  },
+  "dia": {
+    "incluso": "Incluido en el paquete",
+    "comunidade": "Pagado a la comunidad"
+  },
+  "footer": {
+    "sobre": "Posada de turismo de base comunitaria a orillas del río Arapiuns. Trece bungalós, pensión completa en la posada y un equipo que se ocupa de la cocina, del barco y del camino — para que usted solo tenga que llegar.",
+    "visita": "La Villa",
+    "reserva": "Planifique su estadía",
+    "local": "Dónde estamos",
+    "partida": "Salida de los grupos",
+    "tipo": "Turismo de base comunitaria",
+    "brasil": "Brasil"
+  },
+  "whatsapp": {
+    "geral": "¡Hola! Me gustaría saber más sobre Villa Arapiuns.",
+    "preco": "¡Hola! Quería saber el valor de la noche en Villa Arapiuns."
+  },
+  "desc": {
+    "home": "Trece bungalós en el río Arapiuns, a 1h30 en lancha desde Alter do Chão. Quédese varios días con pensión completa, o venga en un paquete con barco e itinerario ya cerrados.",
+    "lodge": "Los 13 bungalós de Villa Arapiuns: arquitectura tapajónica de dos plantas, caoba, marquetería y tejido artesanal.",
+    "dining": "La mesa de Villa Arapiuns: pescado del río, harina de yuca de la comunidad, café recién hecho — y la Piracaia a la orilla del río.",
+    "experiences": "Senderos, canoa, playa y talleres con las comunidades ribereñas del Arapiuns.",
+    "packages": "Paquetes desde Alter do Chão con barco, itinerario y media pensión: una noche con siete experiencias, o dos noches con diez.",
+    "privateVilla": "Villa Arapiuns en uso exclusivo: los 13 bungalós para un solo grupo, con derecho de exclusividad a partir de 15 personas.",
+    "gettingHere": "Cómo llegar a Villa Arapiuns: vuelo hasta Santarém, traslado a Alter do Chão y 1h30 de barco río arriba.",
+    "gallery": "Fotos de Villa Arapiuns: los bungalós, el río, la selva y las comunidades del Arapiuns.",
+    "reviews": "Lo que cuentan los huéspedes después de alojarse en Villa Arapiuns.",
+    "book": "Reserve su estadía en Villa Arapiuns por WhatsApp y hable directo con la casa."
+  },
+  "home": {
+    "hookA": "Una posada en la Amazonía.",
+    "hookB": "No una excursión de un día.",
+    "intro": "La playa es de agua dulce y transparente, y casi no hay mosquitos. Así es el Arapiuns. Los bungalós son de madera, arquitectura tapajónica, con los pies en la arena. Puede venir unos días, o incluso vivir aquí, ¿ya lo pensó?",
+    "travessiaT": "La travesía",
+    "travessiaI": "Llegar es parte del viaje. Son tres etapas, y la última es nuestra.",
+    "etapa1T": "Vuelo hasta Santarém",
+    "etapa1D": "Aeropuerto de Santarém, en Pará. Es donde el viaje empieza a valer la pena.",
+    "etapa2T": "De Santarém a Alter do Chão",
+    "etapa2D": "Traslado por tierra hasta el pueblo. Acordamos el horario con usted.",
+    "etapa3T": "De Alter do Chão a la Villa",
+    "etapa3D": "Lancha de la casa, río arriba. Incluida en los paquetes; contratada aparte en la posada.",
+    "casaT": "La casa",
+    "casaP1": "Las puertas son de caoba, con marquetería: cuñas de veta opuesta que irradian desde un centro octogonal, cortadas y encajadas a mano. El mismo octógono vuelve como medallón en las puertas interiores.",
+    "casaP2": "Las mantas están tejidas en telar, a cuadros color chocolate y avena. La lámpara de la terraza es de fibra trenzada. Los bungalós son de arquitectura tapajónica, de dos plantas. Nada de esto salió de un catálogo — y por eso la Villa no se parece a ninguna otra posada del río.",
+    "diaT": "Un día en la Villa",
+    "diaI": "Del café en la terraza a la fogata en la playa. Cada momento dice si está incluido o si se paga directo a la comunidad.",
+    "precoT": "Precio",
+    "precoSob": "A consultar",
+    "precoD": "La tarifa baja a medida que el grupo crece y la estadía se alarga. Díganos cuántas personas y cuántas noches, y le respondemos con el valor cerrado por WhatsApp — sin formularios.",
+    "fechaQ": "Usted llega, deja las maletas y sale enseguida. Vuelve cansado de la mejor manera posible — por la selva, por el sol, por las historias. Come bien y duerme profundo.",
+    "fechaT": "Hable con la casa",
+    "fechaD": "Quien responde es quien recibe. Díganos cuántas personas y qué fechas tiene en mente.",
+    "fechaA": "Gabriela",
+    "fechaH": "huésped · julio de 2026",
+    "tiraMedidaBarco": "{min} min en barco",
+    "tiraMedidaBangalos": "{n} bungalós",
+    "tiraMedidaHospedes": "hasta {n} huéspedes",
+    "tiraItens": [
+      {
+        "id": "travessia",
+        "assunto": "La travesía",
+        "alt": "Grupo de huéspedes con mochilas subiendo a un barco de madera atracado en la orilla del río, bajo un cielo de nubes altas"
+      },
+      {
+        "id": "banco",
+        "assunto": "El banco de arena",
+        "alt": "Banco de arena dorada con huellas, cortando agua azul turquesa de los dos lados, bajo un cielo abierto con nubes en abanico"
+      },
+      {
+        "id": "agua",
+        "assunto": "El agua transparente",
+        "alt": "Banco de arena dentro del río, con el agua poco profunda tan clara que se ve el fondo ondulado por la luz"
+      },
+      {
+        "id": "praia",
+        "assunto": "La playa de la Villa",
+        "medida": "con los pies en la arena",
+        "alt": "Franja de arena clara al sol con tumbonas de madera alineadas a la sombra de los árboles, el agua del río al frente"
+      },
+      {
+        "id": "banho",
+        "assunto": "El baño en el río",
+        "alt": "Fila de mujeres una junto a otra dentro del agua poco profunda del río, sonriendo de frente a la cámara"
+      },
+      {
+        "id": "canoa",
+        "assunto": "La canoa",
+        "medida": "victorias regias",
+        "alt": "Canoa con cinco personas atravesando un campo de victorias regias, remada por un guía de pie en la proa"
+      },
+      {
+        "id": "igapo",
+        "assunto": "El igapó",
+        "alt": "Canoa de madera azul apoyada en la arena, frente a arbustos y palmeras con el tronco dentro del agua"
+      },
+      {
+        "id": "alagada",
+        "assunto": "El bosque inundado",
+        "medida": "enero a julio",
+        "alt": "Área inundada de agua azul recortando alfombras de vegetación anaranjada, con troncos secos y claros tendidos en la superficie"
+      },
+      {
+        "id": "sup",
+        "assunto": "Stand-up paddle en el río",
+        "medida": "excursión aparte",
+        "alt": "Persona de pie sobre una tabla de stand-up paddle, remando en agua tranquila frente a una orilla de vegetación baja"
+      },
+      {
+        "id": "caiaque",
+        "assunto": "Los kayaks",
+        "medida": "excursión aparte",
+        "alt": "Kayaks amarillo y naranja guardados en caballetes bajo un rancho de techo de paja, a la sombra del bosque"
+      },
+      {
+        "id": "trilha",
+        "assunto": "El sendero",
+        "medida": "con el guía de la casa",
+        "alt": "Tres personas con mochila subiendo un sendero de tierra clara, entre paredes de vegetación densa e iluminada"
+      },
+      {
+        "id": "samauma",
+        "assunto": "La samaúma",
+        "alt": "Grupo de personas con los brazos abiertos abrazando el tronco enorme de una samaúma en el bosque"
+      },
+      {
+        "id": "massagem",
+        "assunto": "El masaje",
+        "medida": "opcional",
+        "alt": "Masaje sobre una esterilla extendida en la arena, bajo un techo de paja abierto al río"
+      },
+      {
+        "id": "farinhada",
+        "assunto": "La farinhada",
+        "medida": "se paga directo a la comunidad",
+        "alt": "Mujeres de la comunidad y huéspedes alrededor de un tacho de harina de mandioca, bajo un rancho de paja"
+      },
+      {
+        "id": "tecelagem",
+        "assunto": "El tejido",
+        "medida": "se paga directo a la comunidad",
+        "alt": "Artesana de la comunidad sonriendo mientras muestra el trenzado de paja a dos huéspedes sentadas a su lado"
+      },
+      {
+        "id": "octogonal",
+        "assunto": "El bungaló octogonal",
+        "alt": "Bungaló octogonal de madera con techo de paja, suspendido entre los troncos altos del bosque"
+      },
+      {
+        "id": "bangalo",
+        "assunto": "El bungaló",
+        "alt": "Bungaló de madera sobre palafitos, con escalera exterior y terraza, entre árboles altos al sol"
+      },
+      {
+        "id": "duplex",
+        "assunto": "El dúplex",
+        "medida": "2 plantas",
+        "alt": "Bungaló de dos plantas en madera sobre palafitos, con techo de paja, entre los árboles"
+      },
+      {
+        "id": "chale",
+        "assunto": "El chalé",
+        "alt": "Fachada del chalé número 11 con hamaca colgada en la terraza, medio escondido por la vegetación alrededor"
+      },
+      {
+        "id": "passarela",
+        "assunto": "La pasarela",
+        "alt": "Pasarela de madera serpenteando entre los troncos del bosque hasta la maloca de paja del comedor"
+      },
+      {
+        "id": "pavilhao",
+        "assunto": "El pabellón",
+        "alt": "Pabellón alargado de techo de paja sobre plataforma de madera, entre los árboles"
+      },
+      {
+        "id": "shala",
+        "assunto": "La shala",
+        "alt": "Amplia plataforma de madera bajo techo de paja abierto al bosque, con tumbonas y helechos en el borde"
+      },
+      {
+        "id": "quarto",
+        "assunto": "La habitación",
+        "alt": "Cama de matrimonio con ropa blanca y una manta a cuadros de chocolate y avena doblada a los pies, junto a una puerta de caoba con medallón octogonal"
+      },
+      {
+        "id": "casal",
+        "assunto": "La habitación doble",
+        "alt": "Habitación de madera oscura con cama de matrimonio, manta a cuadros doblada a los pies y silla de madera junto a la ventana"
+      },
+      {
+        "id": "varanda",
+        "assunto": "La terraza",
+        "alt": "Terraza del piso superior con hamaca negra colgada, silla de mimbre y cesto trenzado colgado en la pared de madera"
+      },
+      {
+        "id": "banheiro",
+        "assunto": "El baño",
+        "alt": "Ducha de techo en latón dejando caer agua en un baño de paredes de madera, con ventana abierta al verde"
+      },
+      {
+        "id": "cafe",
+        "assunto": "El desayuno",
+        "medida": "07:00",
+        "alt": "Mesa de desayuno servida en el pabellón abierto: bizcocho, tapioca, fruta cortada y jarra de jugo rojo, con el bosque detrás"
+      },
+      {
+        "id": "porsol",
+        "assunto": "El atardecer",
+        "medida": "17:30",
+        "alt": "Fila de personas sentadas en la arena de espaldas, viendo el sol bajar sobre el agua ancha del río"
+      },
+      {
+        "id": "fimdetarde",
+        "assunto": "El fin de la tarde",
+        "alt": "Sol bajo anaranjado sobre el agua ancha del río, visto desde una pasarela de madera, con el portón y la vegetación en silueta"
+      },
+      {
+        "id": "piracaia",
+        "assunto": "La piracaia",
+        "medida": "cena en la arena",
+        "alt": "Mesa larga en la playa a la luz de las velas: pescado asado, harina de mandioca y frutas servidos sobre hoja de plátano y estera trenzada"
+      }
+    ],
+    "campoLancha": "1h30 en lancha desde {place}"
+  },
   "modo": {
+    "titulo": "Dos maneras de quedarse",
+    "intro": "La Villa recibe de dos formas, y no son el mismo producto. Elija según lo que quiera de su tiempo.",
+    "pousadaT": "Posada",
+    "pousadaD": "Usted pasa los días en la Villa, con pensión completa, y elige qué hacer — o no hacer. El barco y los paseos se contratan aparte, según el interés del grupo.",
+    "pousadaInc": "Alojamiento en bungaló · pensión completa · Piracaia",
+    "pousadaFora": "Traslado en barco y paseos",
+    "pacoteT": "Paquete completo",
+    "pacoteD": "Sale de Alter do Chão con barco, itinerario y actividades ya cerrados. Una noche con siete experiencias, o dos noches con diez.",
+    "pacoteInc": "Transporte · alojamiento · media pensión · actividades",
+    "pacoteFora": "Nada aparte: el itinerario está cerrado",
+    "inclusoRot": "Incluido",
+    "foraRot": "Aparte",
     "aPartirDe": "Desde",
     "porPax": "por persona / noche",
     "porPacote": "por persona / 1 noche",
@@ -7,5 +274,579 @@
     "condPousada": "4 noches · habitación doble",
     "condPacote": "1 noche · saliendo de Alter do Chão",
     "condPacote2": "2 noches · saliendo de Alter do Chão"
+  },
+  "pousada": {
+    "h1": "Trece bungalós de madera",
+    "intro": "Arquitectura tapajónica sobre palafitos, entre los árboles y la playa de agua dulce. Hasta 26 huéspedes en toda la Villa — y nunca más que eso.",
+    "matT": "La madera, de cerca",
+    "matP1": "Las puertas son de caoba con marquetería: cuñas de veta opuesta que irradian desde un centro octogonal, cortadas y encajadas a mano. El mismo octógono vuelve como medallón en las puertas interiores.",
+    "matP2": "Las mantas están tejidas en telar, a cuadros color chocolate y avena. La lámpara de la terraza es de fibra trenzada, y la estera del suelo también. Nada salió de un catálogo.",
+    "tiposT": "Tres tipos de unidad",
+    "tipo1T": "Habitación casa",
+    "tipo1D": "Bungaló sobre palafitos, con terraza propia frente a la selva.",
+    "tipo2T": "Habitación dúplex",
+    "tipo2D": "Unidad de dos plantas, con escalera interna.",
+    "tipo3T": "Dos habitaciones dúplex",
+    "tipo3D": "Dos suites en la misma unidad dúplex — para familia o grupo que quiere quedarse junto.",
+    "tiposNota": "La distribución por tipo depende de la ocupación de la fecha. Díganos el tamaño del grupo y lo acomodamos.",
+    "comunsT": "Las áreas comunes",
+    "c1T": "Hamacas entre los árboles",
+    "c1D": "Hamacas a la sombra, con sonido de pájaros. El intervalo entre una aventura y otra.",
+    "c2T": "Pabellón de comidas",
+    "c2D": "Techo de paja, mesa larga de madera, abierto a la selva.",
+    "c3T": "Playa de agua dulce",
+    "c3D": "Pies en la arena, agua transparente. Es el frente de la posada.",
+    "c4T": "Shala de Yoga",
+    "c4D": "Espacio cubierto para la práctica, o para no hacer nada.",
+    "viverT": "Cómo es vivir aquí",
+    "viverI": "Tres cosas que nadie pregunta antes de llegar, y que todo el mundo comenta después.",
+    "mosquitoT": "Prácticamente sin mosquitos",
+    "mosquitoD": "Las aguas claras y las playas de arena del Arapiuns tienen muchos menos mosquitos que la Amazonía de várzea. Cenar en la arena sin repelente es la sorpresa que más aparece en los relatos de quien llega esperando lo contrario.",
+    "aguaT": "El agua es sin calentador",
+    "aguaD": "No hay calentador en la Villa: la ducha es la propia agua del río, a la temperatura en que llega — y esa cambia con la época del año. Para beber hay filtro: agua potable todo el tiempo.",
+    "telaT": "No hay televisión",
+    "telaD": "Hay internet Starlink, para comunicarse. Televisión, no. Por la noche lo que hay es conversación, el sonido del río y las ganas de dormir temprano.",
+    "figCopaExterna": "Cocina exterior · madera maciza y ventana de listones",
+    "figShala": "Shala · plataforma cubierta de paja",
+    "figPavilhao": "Pabellón del comedor · plataforma de madera",
+    "ctaFalarComCasa": "Hablar con la casa",
+    "figPassarela": "La pasarela · conecta todo",
+    "figRodaFogo": "La ronda del fuego · bancos de tronco",
+    "figBanheiro": "El baño · cuba y cestería",
+    "figChale11": "Chalé 11 · hamaca en la terraza",
+    "figAguaClara": "Agua clara · el fondo a la vista",
+    "figBanhoSemAquecedor": "La ducha · sin calentador",
+    "figNoiteRedeLuminaria": "La noche · hamaca y lámpara de fibra",
+    "medida1Pavimento": "1 planta",
+    "medida2Pavimentos": "2 plantas",
+    "medida2Suites": "2 suites",
+    "campoArquitetura": "arquitectura {arch}"
+  },
+  "mesa": {
+    "h1": "La mesa de la Villa",
+    "intro": "Pescado del río, harina de yuca de la comunidad, fruta de la huerta y café recién hecho. Cocina propia, sirviendo en el pabellón abierto.",
+    "escopoT": "Lo que está incluido depende de la modalidad",
+    "escopo1T": "En la posada: pensión completa",
+    "escopo1D": "Desayuno, almuerzo y cena, todos los días de la estadía — coronados por la Piracaia.",
+    "escopo2T": "En los paquetes: media pensión",
+    "escopo2D": "Desayuno y cena. El almuerzo de uno de los días ocurre en la comunidad, dentro del itinerario.",
+    "piraT": "La Piracaia",
+    "piraD": "Fogata en la arena, pescado asado a la orilla del río, cielo estrellado. Es la comida que cierra la estadía, y la única que no ocurre en la mesa.",
+    "ctaVerPacotes": "Ver qué incluye cada paquete",
+    "figRefeitorio": "El comedor · esteras trenzadas",
+    "figLouca": "La vajilla · cerámica y paja",
+    "figPeixeAssado": "Pescado asado · fuente de barro",
+    "figMesaAreia": "La mesa en la arena · hoja de plátano",
+    "figDepoisJantar": "Después de la cena · fogata y velas",
+    "figSeteDaManha": "Las siete de la mañana · tapioca, fruta del huerto, café recién hecho"
+  },
+  "exp": {
+    "h1": "Qué se hace por aquí",
+    "intro": "Sendero, canoa, playa y el encuentro con las comunidades del río. En la posada, los paseos se contratan aparte; en los paquetes, ya vienen en el itinerario.",
+    "agua": "En el agua",
+    "mata": "En la selva",
+    "gente": "Con las comunidades",
+    "nota": "Algunos paseos se pagan directamente a las familias que reciben al grupo. Cada ítem dice dónde entra.",
+    "estacoesT": "El río tiene dos estaciones",
+    "estacoesI": "No existe mala época para venir — existen dos paisajes distintos, y cambian lo que se puede hacer. El agua es cálida y transparente en las dos.",
+    "cheiaT": "La creciente",
+    "cheiaQuando": "de enero a julio",
+    "cheiaD": "El río sube y entra en la selva. Nacen los igapós, el bosque inundado, y la canoa pasa por dentro de ellos — navegando entre las copas de los árboles, por donde el resto del año se caminaría.",
+    "secaT": "La bajante",
+    "secaQuando": "de agosto a diciembre",
+    "secaD": "El agua se retira y aparecen las playas: bancos de arena blanca que no existían el semestre anterior, y que van a desaparecer otra vez cuando el río suba.",
+    "estacoesNota": "El agua del Arapiuns es cálida todo el año. La diferencia entre las estaciones es el paisaje, no el clima.",
+    "figIgapoAlt": "Canoa de madera azul y blanca apoyada en arena clara, frente a arbustos y palmeras con el tronco sumergido en el agua del igapó",
+    "figAguaTransparente": "Agua transparente · el fondo a la vista",
+    "figAguaTransparenteAlt": "Banco de arena dorada avanzando hacia dentro del río, con el agua poco profunda tan clara que se ve el fondo ondulado por la luz",
+    "figTucuxi": "Delfín tucuxi",
+    "figTucuxiAlt": "Dos delfines tucuxi emergiendo juntos en la superficie de un río, levantando salpicaduras, el agua reflejando el verde del bosque",
+    "figIgapoTroncosAlt": "Área inundada de agua azul recortando alfombras de vegetación anaranjada, con troncos secos y claros tendidos en la superficie",
+    "figBancoAreiaAlt": "Banco de arena dorada con una huella de pisadas, cortando el agua azul de los dos lados, bajo un cielo abierto",
+    "figSamauma": "Samaúma · el tronco que el grupo no logra rodear",
+    "figSamaumaAlt": "Grupo de personas de la mano alrededor del tronco enorme de una samaúma, sin lograr cerrar el círculo",
+    "figMassagem": "Masaje · esterilla en la arena",
+    "figMassagemAlt": "Masaje sobre una esterilla extendida en la arena, bajo un techo de paja abierto al río",
+    "figTrilha": "Sendero · con el guía de la casa",
+    "figTrilhaAlt": "Grupo de caminantes con mochila subiendo un sendero de arena clara, entre paredes de vegetación alta",
+    "figFarinhada": "Farinhada · la mandioca convirtiéndose en harina",
+    "figFarinhadaAlt": "Vecinos de la comunidad y huéspedes alrededor de un cocho, cerniendo la masa de mandioca en la casa de harina",
+    "figTecelagem": "Tejido · taller con las artesanas",
+    "figTecelagemAlt": "Artesana de la comunidad sonriendo mientras muestra el trenzado de paja a dos huéspedes sentadas a su lado",
+    "figPorSol": "Atardecer · la hora en que todos se detienen",
+    "figPorSolAlt": "Fila de personas sentadas a la orilla de la playa, de espaldas, viendo el sol bajar sobre el río y abrir un rastro dorado en el agua",
+    "linkPacotes": "Ver los dos paquetes con itinerario cerrado",
+    "aguaLista": [
+      {
+        "titulo": "Lago Azul",
+        "detalhe": "Sendero corto hasta una laguna escondida, canoa y baño en agua quieta.",
+        "medida": "En el paquete",
+        "marcado": true
+      },
+      {
+        "titulo": "Ponta Grande",
+        "detalhe": "Atardecer en la playa de arena blanca, con baño en el río. Se puede ir en kayak; también en barco.",
+        "medida": "En el paquete",
+        "marcado": true
+      },
+      {
+        "titulo": "Canal do Jari",
+        "detalhe": "Travesía por el canal, entre el bosque inundado.",
+        "medida": "En el paquete",
+        "marcado": true
+      },
+      {
+        "titulo": "Ponta do Toronó",
+        "detalhe": "Otra playa del río, más adelante.",
+        "medida": "En el paquete",
+        "marcado": true
+      },
+      {
+        "titulo": "Los delfines tucuxi",
+        "detalhe": "Los delfines del Arapiuns son los tucuxi — más pequeños que los rosados, y suelen acercarse a la canoa."
+      }
+    ],
+    "mataLista": [
+      {
+        "titulo": "Trilha da Samaúma",
+        "detalhe": "Caminata hasta uno de los árboles más grandes de la Amazonía, en la comunidad de Atodi, con almuerzo local.",
+        "medida": "Opcional"
+      },
+      {
+        "titulo": "Masaje y baño de esencias",
+        "detalhe": "Hierbas del bosque, para después del sendero.",
+        "medida": "Opcional"
+      }
+    ],
+    "genteLista": [
+      {
+        "titulo": "Farinhada y tejido",
+        "detalhe": "Taller con las artesanas de la comunidad: la mandioca convirtiéndose en harina, el telar convirtiéndose en manta.",
+        "medida": "Se paga a la comunidad"
+      },
+      {
+        "titulo": "Comunidade Coroca",
+        "detalhe": "La crianza de tortugas y la artesanía de la comunidad.",
+        "medida": "Se paga a la comunidad"
+      },
+      {
+        "titulo": "Piracaia",
+        "detalhe": "Fogata en la arena, pescado asado a la orilla del río, historias bajo las estrellas.",
+        "medida": "En el paquete de 2 noches",
+        "marcado": true
+      }
+    ],
+    "contato": [
+      {
+        "id": "caiaques",
+        "legenda": "Los kayaks · refugio de paja",
+        "alt": "Kayaks amarillo y naranja guardados en caballetes bajo un rancho de techo de paja, a la sombra del bosque"
+      },
+      {
+        "id": "piracaiaViolao",
+        "legenda": "Piracaia · fogata en la arena",
+        "alt": "Ronda de huéspedes sentados en la arena de noche alrededor de una fogata, uno de ellos con guitarra"
+      },
+      {
+        "id": "igarape",
+        "legenda": "Igarapé · agua oscura en el bosque",
+        "alt": "Igarapé de agua oscura corriendo entre la vegetación cerrada del bosque"
+      },
+      {
+        "id": "luauPraia",
+        "legenda": "La noche en la playa · velas y fogata",
+        "alt": "Playa de noche con fogata encendida, fila de velas en la arena y huéspedes reunidos bajo las palmeras"
+      }
+    ]
+  },
+  "pacote": {
+    "h1": "Dos paquetes, saliendo de Alter do Chão",
+    "intro": "Barco, alojamiento, media pensión e itinerario cerrado. Usted llega a Alter do Chão y el resto es nuestro.",
+    "p1T": "Clásico Arapiuns",
+    "p1Sub": "1 noche · 2 días · 7 experiencias",
+    "p1D": "La selva en un solo respiro: el atardecer y la noche en la Villa.",
+    "p2T": "Inmersión Completa",
+    "p2Sub": "2 noches · 3 días · 10 experiencias",
+    "p2D": "Todo lo del Clásico, más la Samaúma, la Coroca y la Piracaia bajo las estrellas.",
+    "incT": "Incluido en los dos",
+    "incD": "Transporte · alojamiento · media pensión (desayuno y cena) · actividades del itinerario",
+    "opcNota": "Los ítems marcados como opcionales dependen del interés del grupo.",
+    "opcionalLabel": "opcional",
+    "roteiroFotoT": "El itinerario, en fotografía",
+    "roteiroFotoI": "No todos los elementos del itinerario tienen foto en el archivo — los que la tienen están aquí, sin retoque y sin escenografía.",
+    "lanchaT": "La lancha está incluida",
+    "lanchaD": "En los dos paquetes, la lancha de {place} hasta la Villa y de vuelta ya está incluida en el precio. Son {min} minutos de río, y es la última etapa del camino.",
+    "itemLagoAzul": "Lago Azul",
+    "itemMassagem": "Masaje y baño de esencias",
+    "itemFarinhadaRedario": "Farinhada, tejido y área de hamacas",
+    "itemPorDoSolPontaGrande": "Atardecer en Ponta Grande",
+    "itemFogueiraJantar": "Fogata y cena en la posada",
+    "itemPontaToronoo": "Ponta do Toronó",
+    "itemCanalJari": "Canal do Jari",
+    "itemTudoClassico": "Todo del Clásico Arapiuns",
+    "itemTrilhaAtodi": "Sendero de Atodi / Árbol Samaúma",
+    "itemComunidadeCoroca": "Comunidad Coroca: tortugas y artesanía",
+    "itemPiracaiaNoite": "Piracaia — una noche de sabores bajo las estrellas",
+    "fotoMataAlagada": "El bosque inundado",
+    "fotoPorDoSolPraia": "Atardecer en la playa",
+    "fotoFarinhada": "Farinhada",
+    "fotoTecelagem": "Tejido",
+    "fotoMassagem": "Masaje y baño de esencias",
+    "fotoSamauma": "Trilha da Samaúma",
+    "fotoFogueiraJantar": "Fogata y cena",
+    "fotoPiracaia": "Piracaia",
+    "figFimDeTardeRio": "Fin de la tarde en el río · visto desde la pasarela",
+    "figChegada": "La llegada · desembarco en la arena"
+  },
+  "chegar": {
+    "h1": "Cómo llegar",
+    "intro": "Son tres etapas, y la última es nuestra. El viaje es parte — y por eso la Villa no se llena.",
+    "duvT": "Lo que suele preocupar",
+    "q1": "¿Y si mi vuelo se atrasa?",
+    "a1": "Avise por WhatsApp en cuanto lo sepa. La lancha sale cuando llega el grupo; reorganizamos el horario con usted.",
+    "q2": "¿Necesito reservar el barco aparte?",
+    "a2": "En los paquetes, la lancha ya está incluida. En la posada, el traslado se contrata aparte — pídalo junto con la tarifa.",
+    "q3": "¿Cuánto tardo de Santarém a la Villa?",
+    "a3": "El tramo Alter do Chão–Villa es de 1h30 en lancha. El tiempo de Santarém a Alter do Chão depende del traslado, y lo acordamos con usted.",
+    "q4": "¿Hay señal de celular?",
+    "a4": "La señal es intermitente. Acuerde antes lo que necesite acordar, y avise a quien espera noticias.",
+    "q5": "¿Se puede llevar niños?",
+    "a5": "Sí. Díganos la edad cuando hable con nosotros, para pensar el alojamiento y el ritmo del día junto con usted.",
+    "figFimEtapa3": "El fin de la etapa 03 · desembarco en la arena de la Villa",
+    "duvFinal": "Si queda alguna duda que no está aquí, pregunte — es más rápido que buscar.",
+    "ctaVerPacotes": "Ver paquetes con lancha incluida"
+  },
+  "mapa": {
+    "alt": "Mapa de la región: Villa Arapiuns está en la margen del río Arapiuns, al oeste. Al este, donde el río Tapajós se encuentra con el río Amazonas, están Alter do Chão y, más adelante, Santarém.",
+    "ampliar": "Ampliar el mapa",
+    "fechar": "Cerrar",
+    "dialogo": "Mapa de la región del Arapiuns, ampliado",
+    "aeroporto": "Aeropuerto en Santarém, PA",
+    "ondeT": "Dónde está la Villa",
+    "ondeI": "La Villa está en el río Arapiuns, al oeste de Alter do Chão. El último tramo es en barco porque allí no hay carretera — es lo que mantiene el río vacío."
+  },
+  "privativa": {
+    "h1": "La Villa entera, solo para su grupo",
+    "intro": "A partir de 15 personas, la Villa opera en exclusividad: los trece bungalós, el pabellón, las hamacas y la playa sin nadie de fuera.",
+    "b1T": "Trece bungalós",
+    "b1D": "Hasta 26 huéspedes alojados.",
+    "b2T": "Exclusividad a partir de 15",
+    "b2D": "Por encima de ese número, nadie más entra en la fecha.",
+    "b3T": "Itinerario diseñado juntos",
+    "b3D": "Boda, retiro, formación, cumpleaños — el día se organiza en torno a su grupo.",
+    "nota": "Grupos de más de 26 huéspedes: consulte disponibilidad.",
+    "figGrupoAgua": "Un grupo en el agua · la Villa entera reservada",
+    "espacosT": "Donde el grupo se reúne",
+    "espacosI": "Cuatro espacios comunes, y en la exclusividad son solo de su grupo: nadie de afuera entra en esa fecha.",
+    "figFimDeTarde": "Fin de la tarde · la hora en que el grupo se detiene junto",
+    "espacoShala": "La shala · plataforma cubierta de paja",
+    "espacoRefeitorio": "El comedor · mesas largas",
+    "espacoRodaFogo": "La ronda del fuego · bancos de tronco",
+    "espacoPraiaNoite": "La playa de noche · velas y fogata",
+    "campoExclusividade": "exclusividad a partir de {n}"
+  },
+  "galeria": {
+    "h1": "La Villa, en fotografía",
+    "intro": "Fotos de la casa, del río y de las comunidades. Todas hechas en Villa Arapiuns.",
+    "titulo_casa": "La casa",
+    "titulo_agua": "El agua",
+    "titulo_mesa": "La mesa",
+    "titulo_gente": "La gente",
+    "capitulos": [
+      {
+        "id": "casa",
+        "fotos": [
+          {
+            "id": "bangaloOctogonal",
+            "leg": "Bungaló octogonal",
+            "alt": "Bungaló octogonal de madera con techo de paja, suspendido entre los troncos altos del bosque"
+          },
+          {
+            "id": "hero6",
+            "leg": "Bungaló dúplex",
+            "alt": "Bungaló de dos plantas en madera sobre palafitos, con techo de paja"
+          },
+          {
+            "id": "bangaloExterno",
+            "leg": "Habitación de la casa",
+            "alt": "Bungaló de una planta en madera sobre palafitos, en la arena"
+          },
+          {
+            "id": "chale11",
+            "leg": "Chalé 11",
+            "alt": "Fachada del chalé número 11 con hamaca colgada en la terraza, medio escondido por la vegetación"
+          },
+          {
+            "id": "gal6",
+            "leg": "La marquetería",
+            "alt": "Cama de matrimonio con manta a cuadros de chocolate y avena, entre una puerta interior con medallón octogonal y una puerta de caoba cuyas cuñas de veta opuesta irradian desde un centro"
+          },
+          {
+            "id": "quartoCasal",
+            "leg": "Habitación doble",
+            "alt": "Habitación de madera oscura con cama de matrimonio, manta a cuadros doblada a los pies y silla junto a la ventana"
+          },
+          {
+            "id": "varandaRedeDuplex",
+            "leg": "La terraza del dúplex",
+            "alt": "Terraza del piso superior con hamaca negra colgada, silla de mimbre y cesto trenzado en la pared"
+          },
+          {
+            "id": "varandaNoite",
+            "leg": "La terraza, al final del día",
+            "alt": "La terraza de noche con hamaca, lámpara de fibra trenzada encendida y sillas mecedoras"
+          },
+          {
+            "id": "banheiroPia",
+            "leg": "El baño",
+            "alt": "Pila de baño con cuba blanca sobre encimera de madera, espejo y cestería regional, bajo techo de paja"
+          },
+          {
+            "id": "pavilhaoPalha",
+            "leg": "El pabellón",
+            "alt": "Pabellón alargado de techo de paja sobre plataforma de madera, entre los árboles"
+          },
+          {
+            "id": "deckYoga",
+            "leg": "La shala",
+            "alt": "Plataforma de madera bajo techo de paja abierto al bosque, con tumbona y helechos"
+          },
+          {
+            "id": "passarelaRefeitorio",
+            "leg": "La pasarela",
+            "alt": "Pasarela de madera serpenteando entre los troncos del bosque hasta la maloca de paja del comedor"
+          },
+          {
+            "id": "arenaBancos",
+            "leg": "La ronda del fuego",
+            "alt": "Bancos de tronco macizo formando una ronda en la arena del claro, rodeados por el bosque"
+          }
+        ]
+      },
+      {
+        "id": "agua",
+        "fotos": [
+          {
+            "id": "bancoAreia",
+            "leg": "Banco de arena",
+            "alt": "Banco de arena dorada con una huella de pisadas, cortando el agua azul de los dos lados"
+          },
+          {
+            "id": "aguaTransparente",
+            "leg": "Agua transparente",
+            "alt": "Banco de arena dentro del río, con el agua poco profunda tan clara que el fondo aparece ondulado por la luz"
+          },
+          {
+            "id": "porDoSolPortao",
+            "leg": "Atardecer en el río",
+            "alt": "Sol bajo anaranjado sobre el agua ancha del río, visto desde la pasarela, con la vegetación en silueta"
+          },
+          {
+            "id": "praiaEspreguicadeira",
+            "leg": "La playa de la Villa",
+            "alt": "Franja de arena clara con tumbonas de madera alineadas a la sombra de los árboles, en luz dorada"
+          },
+          {
+            "id": "igapoCanoa",
+            "leg": "El igapó",
+            "alt": "Canoa de madera azul apoyada en la arena, frente a arbustos y palmeras con el tronco dentro del agua"
+          },
+          {
+            "id": "igapoTroncos",
+            "leg": "Bosque inundado",
+            "alt": "Área inundada de agua azul recortando alfombras de vegetación anaranjada, con troncos secos tendidos en la superficie"
+          },
+          {
+            "id": "igarape",
+            "leg": "Igarapé",
+            "alt": "Igarapé de agua oscura corriendo entre la vegetación cerrada del bosque"
+          },
+          {
+            "id": "hero4",
+            "leg": "Victorias regias",
+            "alt": "Canoa de madera detenida en un campo de victorias regias, con un hombre sentado en la proa, remo en mano"
+          },
+          {
+            "id": "supRio",
+            "leg": "Stand-up paddle",
+            "alt": "Persona de pie sobre una tabla de stand-up paddle, remando en agua tranquila frente a una orilla de vegetación baja"
+          },
+          {
+            "id": "caiaques",
+            "leg": "Los kayaks",
+            "alt": "Kayaks amarillo y naranja guardados en caballetes bajo un rancho de techo de paja"
+          },
+          {
+            "id": "tucuxi",
+            "leg": "Delfín tucuxi · Wikimedia Commons",
+            "alt": "Dos delfines tucuxi emergiendo juntos en la superficie de un río, levantando salpicaduras"
+          }
+        ]
+      },
+      {
+        "id": "mesa",
+        "fotos": [
+          {
+            "id": "cafeRefeitorio",
+            "leg": "El desayuno",
+            "alt": "Mesa de desayuno servida en el pabellón abierto: bizcocho, tapioca, fruta cortada y jarra de jugo rojo"
+          },
+          {
+            "id": "jantarPeixe",
+            "leg": "Pescado asado",
+            "alt": "Pescados asados enteros en fuentes de barro a la luz de las velas, con farofa y limón al lado"
+          },
+          {
+            "id": "hero2",
+            "leg": "Piracaia",
+            "alt": "Mesa de cena a la luz de las velas en la playa, con pescado y harina de mandioca en hoja de plátano"
+          },
+          {
+            "id": "mesaCaneca",
+            "leg": "La vajilla",
+            "alt": "Taza de cerámica azul apoyada en un mantel individual de palma trenzada, sobre la madera de la mesa"
+          }
+        ]
+      },
+      {
+        "id": "gente",
+        "fotos": [
+          {
+            "id": "porDoSolGrupo",
+            "leg": "La hora del atardecer",
+            "alt": "Fila de personas sentadas a la orilla del agua, de espaldas, viendo el sol bajar sobre el río"
+          },
+          {
+            "id": "farinhada",
+            "leg": "Farinhada",
+            "alt": "Vecinos de la comunidad y huéspedes alrededor de un cocho, cerniendo la masa de mandioca"
+          },
+          {
+            "id": "tecelagem",
+            "leg": "Tejido",
+            "alt": "Artesana de la comunidad sonriendo mientras muestra el trenzado de paja a dos huéspedes"
+          },
+          {
+            "id": "samauma",
+            "leg": "La samaúma",
+            "alt": "Grupo de personas de la mano alrededor del tronco enorme de una samaúma, sin lograr cerrar el círculo"
+          },
+          {
+            "id": "trilhaGrupo",
+            "leg": "En el sendero",
+            "alt": "Grupo de caminantes con mochila subiendo un sendero de arena clara, entre vegetación alta"
+          },
+          {
+            "id": "luauPraia",
+            "leg": "La noche en la playa",
+            "alt": "Playa de noche con fogata encendida, fila de velas en la arena y huéspedes reunidos bajo las palmeras"
+          },
+          {
+            "id": "artesanato",
+            "leg": "La artesanía",
+            "alt": "Estante con cestos, tinajas y bolsos de palma trenzada de la artesanía de la región"
+          }
+        ]
+      }
+    ]
+  },
+  "aval": {
+    "h1": "Opiniones",
+    "intro": "Todavía no publicamos opiniones en esta página.",
+    "corpo": "Preferimos no exhibir nota ni testimonio sin poder mostrar la fuente. Cuando la página exista, traerá evaluaciones verificables, con origen y fecha. Hasta entonces, el camino más directo es hablar con quien recibe: pregunte por WhatsApp y le contamos cómo funciona, sin guion de venta.",
+    "ctaVerPousada": "Ver la posada",
+    "figPraia": "La playa de la Villa · fin de la tarde",
+    "reviewsCount": "opiniones"
+  },
+  "reservar": {
+    "h1": "Hablar con la casa",
+    "intro": "No hay formulario ni motor de reservas. Quien responde es quien recibe.",
+    "comoT": "Lo que ayuda decir de una vez",
+    "c1": "Cuántas personas, y la edad de los niños si los hay",
+    "c2": "Qué fechas tiene en mente, o cuántas noches",
+    "c3": "Si quiere la posada o un paquete saliendo de Alter do Chão",
+    "c4": "De dónde viene, para que pensemos el traslado",
+    "respT": "Respuesta",
+    "respD": "Por WhatsApp, en el idioma en que usted escriba. Si la señal del río está mala, puede tardar algunas horas — no es descuido.",
+    "duasManeirasT": "Dos maneras de quedarse",
+    "figVaranda": "La terraza que espera · hamaca y paja"
+  },
+  "a11y": {
+    "skipToContent": "Ir al contenido"
+  },
+  "seo": {
+    "ogImageAlt": "Bungaló de Villa Arapiuns: cama, manta tejida y puerta de caoba con marquetería"
+  },
+  "carousel": {
+    "heroLabel": "Villa Arapiuns en treinta fotos",
+    "acomodacoesLabel": "Los alojamientos de la Villa en diez fotos",
+    "photoPosition": "Foto {n} de {total}",
+    "photoPrev": "Foto anterior",
+    "photoNext": "Foto siguiente",
+    "drag": "arrastra"
+  },
+  "acomodacoes": {
+    "itens": [
+      {
+        "id": "bangalo-palafita",
+        "assunto": "El bungaló",
+        "legenda": "Dos plantas, sobre palafitos",
+        "alt": "Bungaló de madera de dos plantas sobre palafitos, con techo de paja, escalera exterior y terraza con hamaca, entre los troncos del bosque"
+      },
+      {
+        "id": "bangalo-octogonal",
+        "assunto": "El octogonal",
+        "legenda": "Techo de paja, entre los árboles",
+        "alt": "Bungaló octogonal de madera suspendido sobre pilares, con techo cónico de paja y una zona abierta debajo, rodeado de bosque"
+      },
+      {
+        "id": "chale-11",
+        "assunto": "El chalé",
+        "legenda": "Una planta, hamaca en la terraza",
+        "alt": "Fachada del chalé número 11, de una planta en madera oscura sobre pilotes, con hamaca a rayas colgada en la terraza cubierta"
+      },
+      {
+        "id": "varanda-rede",
+        "assunto": "La terraza",
+        "legenda": "Hamaca colgada y silla de mimbre",
+        "alt": "Terraza del piso superior con hamaca negra colgada de punta a punta, silla de mimbre, mesa redonda y un plato trenzado en la pared de madera"
+      },
+      {
+        "id": "varanda-noite",
+        "assunto": "La terraza de noche",
+        "legenda": "Lámpara de fibra trenzada",
+        "alt": "La misma terraza después del anochecer, con la hamaca colgada y una lámpara alta de fibra trenzada encendida bajo el techo de paja"
+      },
+      {
+        "id": "quarto-casal-mogno",
+        "assunto": "La habitación doble",
+        "legenda": "Puerta de caoba, medallón octogonal",
+        "alt": "Cama de matrimonio con ropa blanca y manta a cuadros de chocolate y avena doblada a los pies, entre una puerta interior con medallón octogonal y una puerta de caoba con marquetería radial"
+      },
+      {
+        "id": "quarto-casal",
+        "assunto": "La cama",
+        "legenda": "Manta a cuadros tejida en telar",
+        "alt": "Habitación de paredes de madera oscura con cama de matrimonio, manta a cuadros de chocolate y avena doblada a los pies, toallas enrolladas y una silla de madera junto a la ventana abierta"
+      },
+      {
+        "id": "marchetaria",
+        "assunto": "La marquetería",
+        "legenda": "Cuñas radiales de veta opuesta",
+        "alt": "Cama individual con colcha a rayas vista de lado, junto a una puerta de caoba cuyas cuñas de veta opuesta irradian desde un centro octogonal, con el techo de paja a la derecha"
+      },
+      {
+        "id": "quarto-twin",
+        "assunto": "La habitación twin",
+        "legenda": "Dos camas, puerta a la terraza",
+        "alt": "Habitación con dos camas individuales de madera, puerta doble abierta a la terraza donde hay una hamaca colgada, con el bosque justo detrás"
+      },
+      {
+        "id": "banheiro-pia",
+        "assunto": "El baño",
+        "legenda": "Cuba de loza y cestería regional",
+        "alt": "Cuba blanca de loza sobre encimera de madera maciza, con grifo alto, espejo de marco de madera, cestos trenzados y el techo de paja visible por encima de la pared"
+      }
+    ]
   }
 }

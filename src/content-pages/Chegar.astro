@@ -74,7 +74,7 @@ const duvidas = [
         decoding="async"
         class="aspect-[21/9] w-full object-cover"
       />
-      <figcaption class="meta numero mt-3">O fim da etapa 03 · desembarque na areia da Villa</figcaption>
+      <figcaption class="meta numero mt-3">{t('chegar.figFimEtapa3')}</figcaption>
     </figure>
 
     <h2 class="font-display text-titulo mt-16">{t('chegar.duvT')}</h2>
@@ -82,11 +82,11 @@ const duvidas = [
 
     <div class="emenda mt-14 border-t pt-8">
       <p class="container-texto sm:mx-0">
-        Se ficou dúvida que não está aqui, pergunte — é mais rápido que procurar.
+        {t('chegar.duvFinal')}
       </p>
       <p class="mt-6 flex flex-wrap gap-3">
         <a href={whatsappUrl(t('whatsapp.geral'))} class="btn btn-primario">{t('cta.whatsapp')}</a>
-        <a href={href(locale, 'packages')} class="btn btn-secundario">Ver pacotes com barco</a>
+        <a href={href(locale, 'packages')} class="btn btn-secundario">{t('chegar.ctaVerPacotes')}</a>
       </p>
     </div>
   </div>
