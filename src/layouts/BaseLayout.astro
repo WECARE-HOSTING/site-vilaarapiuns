@@ -91,7 +91,7 @@ if (SITE.contact.instagram) {
     <meta name="theme-color" content="#1d2418" />
 
     {alternates.map((a) => <link rel="alternate" hreflang={a.lang} href={a.url} />)}
-    <link rel="alternate" hreflang="x-default" href={new URL(href('en', pageKey), SITE.domain).toString()} />
+    {indexavel && <link rel="alternate" hreflang="x-default" href={new URL(href('en', pageKey), SITE.domain).toString()} />}
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={SITE.name} />
