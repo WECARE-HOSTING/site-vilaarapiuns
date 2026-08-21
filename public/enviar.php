@@ -37,6 +37,20 @@ $cfgPath = __DIR__ . '/../va-config.php';
 if (!is_file($cfgPath)) { http_response_code(500); exit('config ausente'); }
 $cfg = require $cfgPath;
 
+// Config existir não é config servir. Um va-config.php escrito à mão sem
+// `varDir` faz o PHP 8 emitir "Undefined array key" ANTES de qualquer
+// cabeçalho — mesmo estrago do campo em array: o Location morre em "headers
+// already sent" e o caminho do servidor aparece na tela. Pior: $varDir vira
+// '', o contador de limite tenta gravar na raiz do filesystem, falha em
+// silêncio e o limite por IP nunca mais engata — o formulário fica aberto
+// sem que nada apareça quebrado. Falha FECHADA, com a mesma mensagem pelada
+// da config ausente: quem pediu não descobre o que faltou.
+if (!is_array($cfg)) { http_response_code(500); exit('config ausente'); }
+foreach (['varDir', 'to', 'bcc'] as $chaveObrigatoria) {
+  $v = $cfg[$chaveObrigatoria] ?? null;
+  if (!is_string($v) || trim($v) === '') { http_response_code(500); exit('config ausente'); }
+}
+
 // ── Resposta ─────────────────────────────────────────────────────────────
 $querJson = str_contains($_SERVER['HTTP_ACCEPT'] ?? '', 'application/json');
 
@@ -44,7 +58,11 @@ function responde(bool $ok, array $erros, string $idioma, bool $json): never {
   if ($json) {
     header('Content-Type: application/json; charset=utf-8');
     http_response_code($ok ? 200 : 422);
-    echo json_encode(['ok' => $ok, 'erros' => $erros], JSON_UNESCAPED_UNICODE);
+    // (object): array PHP vazio serializa como `[]` e array com chaves como
+    // `{...}`, então `erros` mudava de TIPO entre sucesso e falha. O JS do
+    // formulário lê `erros[campo]` — forçar objeto sempre poupa quem consome
+    // de tratar duas formas para o mesmo campo.
+    echo json_encode(['ok' => $ok, 'erros' => (object)$erros], JSON_UNESCAPED_UNICODE);
     exit;
   }
   $idioma = isset(ENVIADO[$idioma]) ? $idioma : 'en';
@@ -80,6 +98,62 @@ function semSintaxeDeCabecalho(string $s): string {
   ));
 }
 
+/**
+ * Endereço que pode entrar num cabeçalho — mais estrito que a RFC de propósito.
+ *
+ * FILTER_VALIDATE_EMAIL aceita local part entre aspas, e está certo: pela RFC
+ * `"a>,invasor@evil.com,b<c"@example.com` é um endereço válido. Só que esse
+ * endereço vai para dentro de `Reply-To: Nome <...>`, e cliente de e-mail que
+ * não honra aspas dentro de angle-addr — leitura leniente é a regra, não a
+ * exceção — enxerga ali um SEGUNDO endereço entregável: invasor@evil.com.
+ *
+ * Não é relay de spam (CR/LF já não passam por umaLinha). É pior de outro
+ * jeito: qualquer visitante anônimo planta um endereço no Reply-To da
+ * pousada, e a primeira resposta da equipe manda os dados do hóspede para o
+ * invasor. Local part entre aspas é raríssimo fora de RFC — nenhum hóspede de
+ * verdade esbarra nisto; o Reply-To plantado é buraco de verdade.
+ */
+function emailDeCabecalho(string $s): bool {
+  return filter_var($s, FILTER_VALIDATE_EMAIL) !== false
+      && !preg_match('/["\s<>,;:\\\\()\[\]]/', $s);
+}
+
+/**
+ * Chave do contador de limite. IPv4: o endereço. IPv6: o /64.
+ *
+ * Provedor de IPv6 entrega /64 até para VPS de dez dólares — 2^64 endereços
+ * para o mesmo dono. Contar por endereço exato daria a esse dono 2^64 cotas
+ * de 5/hora (o limite deixa de existir) e criaria um arquivo por endereço,
+ * sem teto: cota de inodes estourada no cPanel derruba muito mais que o
+ * formulário.
+ */
+function chaveDeLimite(string $ip): string {
+  $bin = @inet_pton($ip);
+  if ($bin !== false && strlen($bin) === 16) { return bin2hex(substr($bin, 0, 8)) . '::/64'; }
+  return $ip;
+}
+
+/**
+ * Deixa rastro dos descartes silenciosos (honeypot e tempo mínimo).
+ *
+ * Esses dois caminhos devolvem sucesso FALSO de propósito: dizer "você caiu
+ * na armadilha" é ensinar o bot. O preço é que um pedido de gente de verdade
+ * descartado por engano — autofill de navegador às vezes preenche honeypot,
+ * relógio de aparelho às vezes mente — some sem deixar nada, e o negócio
+ * perde a reserva sem ter como desconfiar. Esta linha é a única forma de
+ * saber. A RESPOSTA não muda: o bot continua sem aprender nada.
+ */
+function registraDescarte(string $varDir, string $motivo): void {
+  if ($varDir === '') { return; }
+  // @ e sem checar retorno: log é diagnóstico, não pode derrubar o pedido nem
+  // imprimir caminho de servidor na tela de quem está sem JS.
+  @file_put_contents(
+    $varDir . '/descartes.log',
+    gmdate('c') . "\t" . $motivo . "\n",
+    FILE_APPEND | LOCK_EX
+  );
+}
+
 function campo(string $nome): string {
   $valor = $_POST[$nome] ?? '';
   // `nome[]=x` chega como array. O cast direto emitiria "Array to string
@@ -104,30 +178,62 @@ $idioma = in_array($_POST['idioma'] ?? '', array_keys(ENVIADO), true) ? $_POST['
 $origem = $_SERVER['HTTP_ORIGIN'] ?? $_SERVER['HTTP_REFERER'] ?? '';
 $host = strtolower((string)(parse_url($origem, PHP_URL_HOST) ?: ''));
 $nosso = $host === $DOMINIO || str_ends_with($host, '.' . $DOMINIO);
-$local = in_array($host, ['localhost', '127.0.0.1'], true);
+// A tolerância a localhost existe para o servidor embutido do PHP e para a
+// suíte. Em produção ela não pode valer: um Referer forjado apontando para
+// localhost é trivial, e sem esta trava seria um bypass da origem escrito no
+// código de propósito. Só abre com dryRun ligado ou com a requisição vindo da
+// própria máquina.
+$daMaquina = in_array((string)($_SERVER['REMOTE_ADDR'] ?? ''), ['127.0.0.1', '::1'], true);
+$local = (!empty($cfg['dryRun']) || $daMaquina)
+      && in_array($host, ['localhost', '127.0.0.1', '[::1]'], true);
 if (!$nosso && !$local) {
   http_response_code(403); exit('origem');
 }
 
+// varDir sobe para cá porque o log de descartes (defesas 3 e 4) precisa dele
+// antes do limite por IP.
+$varDir = rtrim((string)$cfg['varDir'], '/');
+if (!is_dir($varDir)) { @mkdir($varDir, 0700, true); }
+
 // ── 3. Honeypot ──────────────────────────────────────────────────────────
 // Responde SUCESSO. Dizer "você caiu na armadilha" é ensinar o bot.
-if (campo('_hp') !== '') { responde(true, [], $idioma, $querJson); }
+if (campo('_hp') !== '') {
+  registraDescarte($varDir, 'honeypot');
+  responde(true, [], $idioma, $querJson);
+}
 
 // ── 4. Tempo mínimo ──────────────────────────────────────────────────────
 // _t é preenchido por JS no CARREGAMENTO. Página estática: um timestamp
 // vindo do build seria o horário do build. Vazio = sem JS, e sem JS não se
 // rejeita ninguém — as outras quatro defesas seguem valendo.
 $t = (int)campo('_t');
-if ($t > 0 && (time() - $t) < TEMPO_MINIMO) { responde(true, [], $idioma, $querJson); }
+$decorrido = time() - $t;
+// $decorrido >= 0: _t vem do RELÓGIO DO APARELHO do visitante, não do nosso.
+// Um celular cinco minutos adiantado produz decorrido negativo, e negativo é
+// "menor que o mínimo" — sem esta guarda, TODO pedido daquele visitante seria
+// descartado em silêncio enquanto ele vê a página de confirmação. Relógio
+// adiantado é timestamp sem serventia, e sem timestamp não se rejeita
+// ninguém: mesma regra do _t ausente.
+if ($t > 0 && $decorrido >= 0 && $decorrido < TEMPO_MINIMO) {
+  registraDescarte($varDir, 'tempo-minimo');
+  responde(true, [], $idioma, $querJson);
+}
 
 // ── 5. Limite por IP ─────────────────────────────────────────────────────
-$varDir = rtrim((string)$cfg['varDir'], '/');
-if (!is_dir($varDir)) { @mkdir($varDir, 0700, true); }
 $ip = (string)($_SERVER['REMOTE_ADDR'] ?? '0');
-$arq = $varDir . '/rate-' . hash('sha256', $ip) . '.json';
+$arq = $varDir . '/rate-' . hash('sha256', chaveDeLimite($ip)) . '.json';
 $agora = time();
-$hist = is_file($arq) ? (json_decode((string)file_get_contents($arq), true) ?: []) : [];
+// @ e retorno checado: um varDir ilegível não pode virar aviso do PHP na
+// tela (o Location morreria em "headers already sent") nem alimentar
+// json_decode com um `false` castado para string.
+$bruto = is_file($arq) ? @file_get_contents($arq) : false;
+$hist = is_string($bruto) ? (json_decode($bruto, true) ?: []) : [];
+if (!is_array($hist)) { $hist = []; }
 $hist = array_values(array_filter($hist, fn($ts) => $agora - $ts < 86400));
+// Histórico vazio é arquivo que ninguém mais lê. Sem apagar, cada endereço
+// que passou uma vez pelo site deixa um arquivo para sempre — e "para
+// sempre" num plano de hospedagem compartilhada é a cota de inodes.
+if (!$hist && is_file($arq)) { @unlink($arq); }
 $naHora = count(array_filter($hist, fn($ts) => $agora - $ts < 3600));
 if ($naHora >= LIMITE_HORA || count($hist) >= LIMITE_DIA) {
   http_response_code(429); exit('limite');
@@ -143,7 +249,7 @@ elseif (mb_strlen($nome) > 80)   { $erros['nome'] = 'longo'; }
 
 $email = campo('email');
 if ($email === '')                                          { $erros['email'] = 'obrigatorio'; }
-elseif (!filter_var($email, FILTER_VALIDATE_EMAIL))         { $erros['email'] = 'invalido'; }
+elseif (!emailDeCabecalho($email))                          { $erros['email'] = 'invalido'; }
 elseif (mb_strlen($email) > 120)                            { $erros['email'] = 'longo'; }
 
 $whatsapp = campo('whatsapp');
@@ -157,9 +263,14 @@ elseif (!in_array($mes, MESES, true))         { $erros['mes'] = 'opcao'; }
 
 // Ano só importa se o mês for concreto. Sem JS os dois selects aparecem,
 // então o valor vem e é ignorado — não é erro do visitante.
+//
+// Ausente e malformado são erros DIFERENTES. Antes, `1999` e `abcd` caíam em
+// 'obrigatorio' e o formulário dizia "campo obrigatório" em cima de um campo
+// visivelmente preenchido — quem lê isso não tem ideia do que corrigir.
 $ano = campo('ano');
-if ($mes !== 'flexivel' && $mes !== '' && !preg_match('/^20\d{2}$/', $ano)) {
-  $erros['ano'] = 'obrigatorio';
+if ($mes !== 'flexivel' && $mes !== '') {
+  if ($ano === '')                          { $erros['ano'] = 'obrigatorio'; }
+  elseif (!preg_match('/^20\d{2}$/', $ano)) { $erros['ano'] = 'invalido'; }
 }
 
 $pessoas = campo('pessoas');
