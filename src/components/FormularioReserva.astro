@@ -156,6 +156,12 @@ const pessoas = ['1', '2', '3-6', '7-14', '15-26'] as const;
       <button type="submit" class="btn btn-primario">{t('form.enviar')}</button>
     </p>
 
+    {/* Aviso de privacidade, aprovado pelo cliente: uma linha só, texto de
+        página normal (nada de aria-hidden nem sr-only — é para todo mundo
+        ler), reaproveitando `meta` (a utilidade de texto de apoio) em vez de
+        criar cor ou @utility nova. */}
+    <p class="meta mt-3 max-w-prose">{t('form.privacidade')}</p>
+
     <div id="form-resultado" role="status" aria-live="polite" tabindex="-1" hidden></div>
   </form>
 </div>
