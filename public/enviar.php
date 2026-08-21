@@ -228,10 +228,17 @@ $nosso = $host === $DOMINIO || str_ends_with($host, '.' . $DOMINIO);
 // A tolerância a localhost existe para o servidor embutido do PHP e para a
 // suíte. Em produção ela não pode valer: um Referer forjado apontando para
 // localhost é trivial, e sem esta trava seria um bypass da origem escrito no
-// código de propósito. Só abre com dryRun ligado ou com a requisição vindo da
-// própria máquina.
+// código de propósito.
+//
+// As duas condições são E, não OU. Com OU, `dryRun` sozinho abria o portão —
+// e o runbook MANDA o operador rodar o servidor de produção com
+// `dryRun => true` no primeiro deploy (docs/deploy-formulario.md §6). Durante
+// essa janela o site está no ar, e qualquer um mandando
+// `Referer: http://localhost/` passava reto pela checagem de origem. Com E, a
+// tolerância só existe quando a requisição também vem da própria máquina —
+// que é o único cenário para o qual ela foi escrita.
 $daMaquina = in_array((string)($_SERVER['REMOTE_ADDR'] ?? ''), ['127.0.0.1', '::1'], true);
-$local = (!empty($cfg['dryRun']) || $daMaquina)
+$local = (!empty($cfg['dryRun']) && $daMaquina)
       && in_array($host, ['localhost', '127.0.0.1', '[::1]'], true);
 if (!$nosso && !$local) {
   http_response_code(403); exit('origem');
@@ -241,6 +248,20 @@ if (!$nosso && !$local) {
 // antes do limite por IP.
 $varDir = rtrim((string)$cfg['varDir'], '/');
 if (!is_dir($varDir)) { @mkdir($varDir, 0700, true); }
+// Cinto E suspensório. `varDir` DEVE ficar fora do webroot (o modelo de config
+// e o runbook dizem isso), mas nada aqui pode conferir onde ele foi parar: um
+// config escrito à mão, uma troca de plano ou uma restauração de backup podem
+// deixá-lo dentro do public_html sem que nada apareça quebrado. E o que mora
+// ali é `enviados/*.txt` — nome, e-mail e telefone de hóspede em texto puro.
+// Um .htaccess negando tudo transforma esse erro de configuração em algo
+// sobrevivível, em vez de divulgação pública para quem adivinhar o caminho.
+// Fora do webroot o arquivo é inerte e não custa nada; vale para as subpastas
+// também (Apache aplica .htaccess recursivamente). Escrito uma vez só: com
+// is_file() antes, não reescreve a cada submissão nem atropela um arquivo que
+// o operador tenha endurecido à mão.
+if (is_dir($varDir) && !is_file($varDir . '/.htaccess')) {
+  @file_put_contents($varDir . '/.htaccess', "Require all denied\n");
+}
 
 // ── 3. Honeypot ──────────────────────────────────────────────────────────
 // Responde SUCESSO. Dizer "você caiu na armadilha" é ensinar o bot.

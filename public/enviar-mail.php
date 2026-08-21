@@ -152,9 +152,40 @@ if (!isset($cfg['smtpPort']) || !is_int($cfg['smtpPort']) || $cfg['smtpPort'] <=
   http_response_code(500); exit('config ausente');
 }
 
-require_once $cfg['varDir'] . '/../phpmailer/src/PHPMailer.php';
-require_once $cfg['varDir'] . '/../phpmailer/src/SMTP.php';
-require_once $cfg['varDir'] . '/../phpmailer/src/Exception.php';
+// PHPMailer era a ÚNICA dependência deste arquivo que falhava ABERTA, e no
+// único caminho que a produção percorre. Toda outra ausência daqui para cima
+// sai como 500 pelado ('config ausente') sem vazar nada; um `require_once` de
+// arquivo que não existe é erro FATAL do PHP: com `display_errors` ligado o
+// caminho ABSOLUTO do servidor aparece na tela do visitante, com ele desligado
+// a tela fica branca e nada no log deste formulário diz o motivo. Nos dois
+// casos o pedido de reserva morre — e a cota do limite por IP já foi gasta lá
+// atrás, antes desta linha.
+//
+// É o caso provável, não o exótico: a instalação é trabalho à mão descrito em
+// prosa (docs/deploy-formulario.md §2), e o zip de release do GitHub extrai
+// para `PHPMailer-6.x.y/`, não para `phpmailer/` — quem extrai sem renomear
+// cai exatamente aqui. O caminho ainda pende de `varDir` (varDir/../phpmailer/),
+// um acoplamento que ninguém adivinha lendo a config.
+//
+// Falha FECHADA, igual à config ausente: mesma mensagem pelada para quem
+// pediu (não descobre nada do servidor) e uma linha em erros.log dizendo QUAL
+// arquivo faltou — a única coisa que dá ao operador como achar o problema.
+// Os três são conferidos ANTES de qualquer require: meio PHPMailer carregado
+// não é estado melhor que nenhum.
+$dirPhpmailer = $cfg['varDir'] . '/../phpmailer/src';
+foreach (['PHPMailer.php', 'SMTP.php', 'Exception.php'] as $arqPhpmailer) {
+  $caminhoPhpmailer = $dirPhpmailer . '/' . $arqPhpmailer;
+  if (!is_file($caminhoPhpmailer) || !is_readable($caminhoPhpmailer)) {
+    apendaComTeto($cfg['varDir'] . '/erros.log', date('c')
+      . " PHPMailer ausente: {$caminhoPhpmailer} não existe ou não é legível"
+      . " — ver docs/deploy-formulario.md §2\n");
+    http_response_code(500);
+    exit('config ausente');
+  }
+}
+require_once $dirPhpmailer . '/PHPMailer.php';
+require_once $dirPhpmailer . '/SMTP.php';
+require_once $dirPhpmailer . '/Exception.php';
 
 function enviaSmtp(array $cfg, string $para, string $assunto, string $corpo, ?array $replyTo, ?string $bcc): bool {
   $m = new PHPMailer\PHPMailer\PHPMailer(true);
