@@ -803,7 +803,7 @@
     "erroGeral": "Wir konnten das nicht senden. Versuchen Sie es erneut, oder schreiben Sie uns über WhatsApp.",
     "erroCampos": "Bitte prüfen Sie die markierten Felder.",
     "naoEnviouT": "Ihre Nachricht wurde nicht gesendet",
-    "naoEnviouD": "Ein Feld wurde nicht akzeptiert. Bitte prüfen Sie das Formular unten und senden Sie es erneut — oder schreiben Sie uns über WhatsApp, das geht schneller.",
+    "naoEnviouD": "Bitte prüfen Sie Ihre Angaben im Formular unten und senden Sie es erneut — oder schreiben Sie uns über WhatsApp, das geht schneller.",
     "meses": ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"],
     "interesses": {
       "pousada": "Lodge — nur der Aufenthalt",
