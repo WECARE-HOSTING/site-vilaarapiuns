@@ -10,6 +10,7 @@
     "check": "astro check",
     "i18n:check": "node tools/i18n-parity.mjs",
     "contato:check": "node tools/contato-unico.mjs",
+    "prazo:check": "node tools/prazo-unico.mjs",
     "form:check": "npm run build && node tools/testa-endpoint.mjs"
   },
   "dependencies": {
