@@ -23,6 +23,66 @@ import { createServer } from 'node:net';
 import { randomBytes } from 'node:crypto';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+/**
+ * A tabela de rotas NÃO é reescrita aqui. Vem de src/i18n/routes.ts — a mesma
+ * fonte única que GERA as páginas (Node executa TypeScript direto desde a
+ * v22). Enquanto esta suíte repetia os cinco destinos como literais, a tabela
+ * existia em TRÊS cópias sem ligação nenhuma: routes.ts, o `ENVIADO` do
+ * enviar.php, e estas linhas. Renomear um slug em routes.ts publicava a página
+ * na URL nova, deixava o PHP redirecionando para a velha (404 depois de enviar
+ * com sucesso, em silêncio) e mantinha `form:check` VERDE, porque a
+ * expectativa do teste era literal também. Um teste que não pode falhar não é
+ * teste.
+ */
+import { SLUGS } from '../src/i18n/routes.ts';
+
+const IDIOMAS = ['pt', 'en', 'es', 'de', 'ja'];
+/** Destino do 303 de sucesso, derivado — não redigitado. */
+const DESTINO_ENVIADO = Object.fromEntries(IDIOMAS.map((l) => [l, `/${l}/${SLUGS.bookSent[l]}/`]));
+/** Destino do 303 de falha sem JS (achado I3): a própria página do formulário. */
+const DESTINO_RESERVAR = Object.fromEntries(IDIOMAS.map((l) => [l, `/${l}/${SLUGS.book[l]}/`]));
+
+/**
+ * Um `Location` só está certo se a página existir de verdade em dist/.
+ * Derivar a tabela de routes.ts prova que PHP e rotas concordam; isto prova
+ * que a rota concordada foi de fato CONSTRUÍDA — as duas metades do 404
+ * silencioso.
+ */
+function paginaConstruida(caminho) {
+  return existsSync(join('dist', caminho.replace(/^\/|\/$/g, ''), 'index.html'));
+}
+
+const { parseDocument } = await import('htmlparser2');
+
+/**
+ * Todos os `value` de cada `<select name=...>` de uma página CONSTRUÍDA.
+ *
+ * As listas brancas do endpoint (`MESES`, `PESSOAS`, `INTERESSE`) são a
+ * quarta cópia do mesmo problema da tabela de rotas: os arrays
+ * `interesses`/`pessoas` do FormularioReserva.astro e os doze itens de
+ * `form.meses` no dicionário decidem o que o formulário OFERECE, e o PHP
+ * decide, em outro arquivo e em outra linguagem, o que ele ACEITA. Divergir
+ * dá um formulário que recusa a própria opção que mostrou.
+ */
+function opcoesDaPagina(arquivo) {
+  const doc = parseDocument(readFileSync(arquivo, 'utf8'));
+  const achados = {};
+  (function anda(nos) {
+    for (const no of nos) {
+      if (no.type === 'tag' && no.name === 'select' && no.attribs?.name) {
+        achados[no.attribs.name] = [];
+        (function opcoes(filhos) {
+          for (const f of filhos) {
+            if (f.type === 'tag' && f.name === 'option') achados[no.attribs.name].push(f.attribs?.value ?? '');
+            if (f.children) opcoes(f.children);
+          }
+        })(no.children ?? []);
+      }
+      if (no.children) anda(no.children);
+    }
+  })(doc.children);
+  return achados;
+}
 
 // Porta livre pedida ao SO, não um número fixo. Com porta fixa, um `php -S`
 // esquecido de outra sessão (ou outra rodada desta suíte) fica com a porta,
@@ -321,20 +381,76 @@ try {
      corpoRecebido === corpoEsperado,
      JSON.stringify({ esperado: corpoEsperado, recebido: corpoRecebido }));
 
-  // 2. Sem JS: 303 para a página de enviado — a TABELA inteira, não uma linha.
-  //    A tabela de rotas é justamente o que esta suíte existe para vigiar.
-  for (const [idioma, destino] of [
-    ['pt', '/pt/reservar/enviado/'],
-    ['en', '/en/book/sent/'],
-    ['es', '/es/reservar/enviado/'],
-    ['de', '/de/buchen/gesendet/'],
-    ['ja', '/ja/book/sent/'],
-  ]) {
+  // 2. Sem JS: 303 para a página de enviado — a TABELA inteira, não uma linha,
+  //    e DERIVADA de src/i18n/routes.ts (ver o import lá em cima).
+  for (const [idioma, destino] of Object.entries(DESTINO_ENVIADO)) {
     limpa();
     r = await post({ ...VALIDO, idioma });
     ok(`sem JS redireciona 303 (${idioma})`, r.status === 303, String(r.status));
-    ok(`303 aponta para ${destino}`,
+    ok(`303 aponta para ${destino} (derivado de routes.ts)`,
        r.headers.get('location') === destino, String(r.headers.get('location')));
+    ok(`${destino} existe em dist/`, paginaConstruida(destino),
+       `dist${destino}index.html não foi construído`);
+  }
+
+  // 2b. Sem JS, validação recusada: volta para a PÁGINA DO FORMULÁRIO do
+  //     idioma, no fragmento que revela o aviso, com os pares campo:código na
+  //     query (achado I3). Antes caía em `/{idioma}/?erro=1` — a home, onde
+  //     nada lê `erro`: nada dito, nada do que a pessoa escreveu.
+  //
+  //     `ana@gmail` não é caso exótico: o navegador aceita num type="email" e
+  //     o FILTER_VALIDATE_EMAIL do endpoint recusa. É o erro de digitação mais
+  //     comum que existe, e era ele que mandava quem está sem JS para a home.
+  for (const [idioma, destino] of Object.entries(DESTINO_RESERVAR)) {
+    limpa();
+    r = await post({ ...VALIDO, idioma, email: 'ana@gmail' });
+    const loc = String(r.headers.get('location'));
+    ok(`falha sem JS devolve 303 (${idioma})`, r.status === 303, String(r.status));
+    ok(`falha sem JS volta para ${destino} (derivado de routes.ts)`,
+       loc.startsWith(`${destino}?erro=`), loc);
+    ok(`falha sem JS aponta para o aviso (#form-erro) (${idioma})`,
+       loc.endsWith('#form-erro'), loc);
+    ok(`falha sem JS leva o par campo:código (${idioma})`,
+       loc.includes('email:invalido'), loc);
+    ok(`${destino} existe em dist/`, paginaConstruida(destino),
+       `dist${destino}index.html não foi construído`);
+    ok(`a página de ${idioma} tem o aviso #form-erro`,
+       readFileSync(join('dist', destino.replace(/^\/|\/$/g, ''), 'index.html'), 'utf8')
+         .includes('id="form-erro"'),
+       `dist${destino}index.html sem id="form-erro"`);
+    ok('falha não grava e-mail nenhum', enviados().length === 0, enviados().join());
+  }
+
+  // 2c. Toda opção que o formulário CONSTRUÍDO oferece é aceita pelo endpoint.
+  //     Fecha de uma vez as listas brancas duplicadas: `interesses`/`pessoas`
+  //     do FormularioReserva.astro contra `INTERESSE`/`PESSOAS` do PHP, e os
+  //     doze itens de `form.meses` contra `MESES`.
+  const opcoesPorIdioma = Object.fromEntries(IDIOMAS.map((l) => [
+    l, opcoesDaPagina(join('dist', l, SLUGS.book[l], 'index.html')),
+  ]));
+  const referencia = opcoesPorIdioma.pt;
+  for (const l of IDIOMAS.slice(1)) {
+    ok(`os VALUES das opções são idênticos em pt e ${l}`,
+       JSON.stringify(opcoesPorIdioma[l]) === JSON.stringify(referencia),
+       JSON.stringify({ pt: referencia, [l]: opcoesPorIdioma[l] }));
+  }
+  ok('a página construída oferece os quatro selects',
+     ['mes', 'ano', 'pessoas', 'interesse'].every((n) => Array.isArray(referencia[n])),
+     JSON.stringify(Object.keys(referencia)));
+  for (const campo of ['mes', 'ano', 'pessoas', 'interesse']) {
+    for (const valor of referencia[campo] ?? []) {
+      // O `value=""` do "escolha uma opção" só é submetido por quem não
+      // escolheu nada — isso é 'obrigatorio', não 'opcao', e os casos de
+      // validação do bloco 6 já cobrem. Aqui a pergunta é outra: o que o
+      // formulário OFERECE, o endpoint aceita?
+      if (valor === '' && campo !== 'interesse') continue;
+      limpa();
+      const rr = await post({ ...VALIDO, [campo]: valor }, { Accept: 'application/json' });
+      const jj = await rr.json();
+      ok(`opção oferecida é aceita: ${campo}=${valor === '' ? '(vazio)' : valor}`,
+         rr.status === 200 && jj.ok === true && !jj.erros?.[campo],
+         `${rr.status} ${JSON.stringify(jj)}`);
+    }
   }
 
   // 3. Honeypot: responde sucesso, não grava, mas DEIXA RASTRO
