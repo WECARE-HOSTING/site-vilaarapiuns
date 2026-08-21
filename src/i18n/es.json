@@ -780,6 +780,10 @@
     "duasManeirasT": "Dos maneras de quedarse",
     "figVaranda": "La terraza que espera · hamaca y paja"
   },
+  "autoresp": {
+    "assunto": "Recibimos su mensaje — Villa Arapiuns",
+    "corpo": "¡Hola, {nome}!\n\nSu mensaje llegó. Respondemos en un plazo de 24 horas, en el idioma en que escribió.\n\nSi tiene prisa, WhatsApp es más rápido: {whatsapp}\n\nHasta pronto,\nEquipo Villa Arapiuns\nRío Arapiuns, Santarém — Pará, Brasil"
+  },
   "a11y": {
     "skipToContent": "Ir al contenido"
   },

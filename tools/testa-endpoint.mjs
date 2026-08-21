@@ -16,7 +16,7 @@
  */
 import { spawn, execFileSync } from 'node:child_process';
 import {
-  mkdtempSync, mkdirSync, writeFileSync, copyFileSync,
+  mkdtempSync, mkdirSync, writeFileSync, copyFileSync, cpSync,
   readdirSync, readFileSync, rmSync, existsSync,
 } from 'node:fs';
 import { createServer } from 'node:net';
@@ -58,6 +58,16 @@ for (const arquivo of ['enviar.php', 'enviar-mail.php']) {
   }
   copyFileSync(origem, join(raiz, arquivo));
 }
+// dist/_i18n/: enviar-mail.php lê a copy da auto-resposta em __DIR__/_i18n/,
+// e __DIR__ é o docroot de teste, não o repositório. Sem esta cópia,
+// textoAuto() nunca encontra os dicionários e a auto-resposta sai vazia,
+// mesmo com o PHP construído correto.
+if (!existsSync(join('dist', '_i18n'))) {
+  console.error('Falta dist/_i18n/. Rode `npm run build` antes.');
+  rmSync(tmp, { recursive: true, force: true });
+  process.exit(1);
+}
+cpSync(join('dist', '_i18n'), join(raiz, '_i18n'), { recursive: true });
 
 // Template explícito, não JSON massageado com regex: config de teste que
 // gera PHP inválido faz a suíte inteira falhar por um motivo que não é o
@@ -99,8 +109,12 @@ const VALIDO = { nome: 'Ana Silva', email: 'ana@example.com', whatsapp: '+49 170
 function enviados() {
   try { return readdirSync(join(varDir, 'enviados')); } catch { return []; }
 }
+// Desde a Tarefa 6 cada envio grava DOIS arquivos (venda + auto-resposta).
+// enviados()[0] não tem ordem garantida entre os dois — leEnviado() sempre
+// quer o de VENDA, então localiza pelo sufixo, não pela posição.
 function leEnviado() {
-  return readFileSync(join(varDir, 'enviados', enviados()[0]), 'utf8');
+  const arqVenda = enviados().find((f) => f.endsWith('-gabriela.txt'));
+  return readFileSync(join(varDir, 'enviados', arqVenda), 'utf8');
 }
 function descartes() {
   try { return readFileSync(join(varDir, 'descartes.log'), 'utf8'); } catch { return ''; }
@@ -236,8 +250,10 @@ try {
   // O JS do formulário lê erros[campo]; um array vazio ali é armadilha.
   ok('erros é objeto também no sucesso', j.erros && !Array.isArray(j.erros), JSON.stringify(j.erros));
   const arqs = enviados();
-  ok('gravou exatamente um e-mail', arqs.length === 1, `gravou ${arqs.length}`);
-  const email = leEnviado();
+  ok('gravou os dois e-mails', arqs.length === 2, `gravou ${arqs.length}: ${arqs.join()}`);
+  const arqVenda = arqs.find((f) => f.endsWith('-gabriela.txt'));
+  ok('gravou o e-mail de venda', Boolean(arqVenda), arqs.join());
+  const email = readFileSync(join(varDir, 'enviados', arqVenda), 'utf8');
   ok('assunto traz nome, pessoas e quando',
      email.includes('[Villa Arapiuns] Ana Silva — 2 pessoas — março/2027'), email.split('\n')[3]);
   ok('avisa o idioma do visitante', email.includes('escreveu em Deutsch'));
@@ -248,6 +264,18 @@ try {
     'Reply-To: Ana Silva <ana@example.com>',
     'Subject: [Villa Arapiuns] Ana Silva — 2 pessoas — março/2027',
   ]);
+
+  // 1b. Auto-resposta
+  const auto = enviados().find((f) => f.endsWith('-autoresposta.txt'));
+  ok('gravou a auto-resposta', Boolean(auto), enviados().join());
+  const ar = readFileSync(join(varDir, 'enviados', auto), 'utf8');
+  ok('auto-resposta vai para o visitante', ar.includes('To: ana@example.com'));
+  ok('auto-resposta no idioma do visitante', ar.includes('Ihre Nachricht ist angekommen'));
+  ok('auto-resposta trata pelo nome', ar.includes('Hallo, Ana Silva!'));
+  ok('auto-resposta promete 24 horas', ar.includes('24 Stunden'));
+  ok('auto-resposta NÃO ecoa o texto do visitante',
+     !ar.includes('Wir möchten im März kommen.'), 'eco = relay de spam');
+  ok('auto-resposta não vaza o destino comercial', !ar.includes('reservas@'));
 
   // 2. Sem JS: 303 para a página de enviado — a TABELA inteira, não uma linha.
   //    A tabela de rotas é justamente o que esta suíte existe para vigiar.
@@ -284,7 +312,8 @@ try {
   // 5. Sem _t (sem JS) NÃO é rejeitado
   limpa();
   await post(VALIDO, { Accept: 'application/json' });
-  ok('ausência de _t não bloqueia quem está sem JS', enviados().length === 1);
+  // Desde a Tarefa 6, envio aceito grava DOIS arquivos (venda + auto-resposta).
+  ok('ausência de _t não bloqueia quem está sem JS', enviados().length === 2, `gravou ${enviados().length}`);
 
   // 5b. _t no FUTURO é relógio de aparelho adiantado, não bot. Descartar
   //     nesse caso perderia todo pedido de quem está com o relógio errado,
@@ -293,7 +322,7 @@ try {
   r = await post({ ...VALIDO, _t: String(Math.floor(Date.now() / 1000) + 600) },
                  { Accept: 'application/json' });
   ok('_t no futuro é aceito', r.status === 200 && (await r.json()).ok === true, String(r.status));
-  ok('_t no futuro grava o e-mail', enviados().length === 1, `gravou ${enviados().length}`);
+  ok('_t no futuro grava os dois e-mails', enviados().length === 2, `gravou ${enviados().length}`);
 
   // 6. Validação
   limpa();

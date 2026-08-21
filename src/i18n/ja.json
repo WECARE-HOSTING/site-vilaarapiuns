@@ -780,6 +780,10 @@
     "duasManeirasT": "二つの滞在方法",
     "figVaranda": "待つベランダ・ハンモックと藁"
   },
+  "autoresp": {
+    "assunto": "メッセージを受け取りました — Villa Arapiuns",
+    "corpo": "{nome} 様\n\nメッセージが届きました。24時間以内に、お書きになった言語でお返事します。\n\nお急ぎの場合はWhatsAppのほうが早いです：{whatsapp}\n\nそれでは、またご連絡します。\nVilla Arapiuns スタッフ\nブラジル パラー州 サンタレン アラピウンス川"
+  },
   "a11y": {
     "skipToContent": "コンテンツへスキップ"
   },

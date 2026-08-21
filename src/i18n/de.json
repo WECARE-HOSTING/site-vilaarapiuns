@@ -780,6 +780,10 @@
     "duasManeirasT": "Zwei Arten des Aufenthalts",
     "figVaranda": "Die wartende Veranda · Hängematte und Stroh"
   },
+  "autoresp": {
+    "assunto": "Wir haben Ihre Nachricht erhalten — Villa Arapiuns",
+    "corpo": "Hallo, {nome}!\n\nIhre Nachricht ist angekommen. Wir antworten innerhalb von 24 Stunden, in der Sprache, in der Sie geschrieben haben.\n\nWenn es eilt, ist WhatsApp schneller: {whatsapp}\n\nBis bald,\nIhr Villa-Arapiuns-Team\nRio Arapiuns, Santarém — Pará, Brasilien"
+  },
   "a11y": {
     "skipToContent": "Zum Inhalt springen"
   },

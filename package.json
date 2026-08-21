@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && node tools/copia-dicionarios.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "i18n:check": "node tools/i18n-parity.mjs",

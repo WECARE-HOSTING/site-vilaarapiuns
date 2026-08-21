@@ -780,6 +780,10 @@
     "duasManeirasT": "Two ways to stay",
     "figVaranda": "The waiting veranda · hammock and thatch"
   },
+  "autoresp": {
+    "assunto": "We received your message — Villa Arapiuns",
+    "corpo": "Hello, {nome}!\n\nYour message arrived. We reply within 24 hours, in the language you wrote in.\n\nIf you're in a hurry, WhatsApp is faster: {whatsapp}\n\nSee you soon,\nThe Villa Arapiuns team\nArapiuns River, Santarém — Pará, Brazil"
+  },
   "a11y": {
     "skipToContent": "Skip to content"
   },
