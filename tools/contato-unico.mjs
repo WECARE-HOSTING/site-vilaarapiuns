@@ -24,6 +24,11 @@ if (paginas.length === 0) {
 
 let falhou = false;
 
+// Seleciona páginas que têm rodapé. A raiz (index.html) é um stub de detecção
+// de idioma sem rodapé nem cabeçalho — ela é construída sem a chrome comum,
+// portanto isenta do requisito de contato.
+const paginasComRodape = paginas.filter((f) => readFileSync(f, 'utf8').includes('<footer'));
+
 for (const f of paginas) {
   const html = readFileSync(f, 'utf8');
   for (const proibido of PROIBIDO) {
@@ -34,12 +39,13 @@ for (const f of paginas) {
   }
 }
 
-// O rodapé está em toda página, então o contato novo tem de estar em todas.
+// O rodapé está em todas as páginas de conteúdo, então o contato novo tem
+// de estar em todas elas. Páginas sem rodapé não têm onde viver o contato.
 for (const obrigatorio of OBRIGATORIO) {
-  const sem = paginas.filter((f) => !readFileSync(f, 'utf8').includes(obrigatorio));
+  const sem = paginasComRodape.filter((f) => !readFileSync(f, 'utf8').includes(obrigatorio));
   if (sem.length) {
     falhou = true;
-    console.error(`"${obrigatorio}" ausente em ${sem.length} de ${paginas.length} páginas, ex.: ${sem[0]}`);
+    console.error(`"${obrigatorio}" ausente em ${sem.length} de ${paginasComRodape.length} páginas com rodapé, ex.: ${sem[0]}`);
   }
 }
 
@@ -56,4 +62,4 @@ for (const f of globSync('dist/**/*.php')) {
 }
 
 if (falhou) { console.error('\nFALHOU.'); process.exit(1); }
-console.log(`OK — ${paginas.length} páginas: contato único, sem resíduo, sem segredo.`);
+console.log(`OK — ${paginas.length} páginas verificadas, ${paginasComRodape.length} com rodapé: contato único, sem resíduo, sem segredo.`);
