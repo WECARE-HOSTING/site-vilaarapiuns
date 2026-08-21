@@ -275,6 +275,59 @@ function testaChaveDeLimite() {
   return JSON.parse(execFileSync('php', ['-r', script], { encoding: 'utf8' }));
 }
 
+/**
+ * O piso de versão do PHP, exercitado — não conferido por grep.
+ *
+ * Rodar o endpoint numa versão anterior aqui é impossível: a suíte usa o
+ * `php` desta máquina, um só. Então o piso vive numa função pura,
+ * versaoSuficiente(), extraída do PHP CONSTRUÍDO e chamada com IDs de versão
+ * inventados — mesmo princípio de testaChaveDeLimite().
+ *
+ * O piso é 8.0, e não 8.1, porque foi MEDIDO em contêiner antes de ser
+ * escrito: o `: never` da responde() (sintaxe de 8.1) compila e roda em 7.4 e
+ * em 8.0, onde `never` vira nome de classe e nunca é cobrado — responde()
+ * sempre sai por exit, então o retorno não acontece. O que quebra de verdade
+ * abaixo de 8.0 são str_contains, str_starts_with e str_ends_with: erro fatal
+ * EM EXECUÇÃO, no meio da requisição, que `php -l` não enxerga em versão
+ * nenhuma.
+ */
+function testaPisoDeVersao() {
+  const fonte = readFileSync(join(raiz, 'enviar.php'), 'utf8');
+  const fn = extraiFuncao(fonte, 'versaoSuficiente');
+  const casos = [70430, 79999, 80000, 80104, 80300];
+  const script = `${fn}\n$c = ${JSON.stringify(casos)};\n`
+    + `echo json_encode(array_combine($c, array_map('versaoSuficiente', $c)));`;
+  return JSON.parse(execFileSync('php', ['-r', script], { encoding: 'utf8' }));
+}
+
+/**
+ * Onde está a CHAMADA da guarda e onde está a primeira função de 8.0+.
+ *
+ * Ter a função certa não basta: se a guarda ficar depois da primeira
+ * str_contains, ela nunca roda em 7.4 — o fatal acontece antes dela, e quem
+ * submeteu recebe exatamente o estrago que a guarda existe para evitar. Por
+ * isso a ordem é comparada por posição no arquivo, não pela presença das duas.
+ *
+ * Linhas de comentário são puladas de propósito: o bloco da própria guarda
+ * cita essas funções pelo nome ao explicar por que ela existe, e uma busca
+ * ingênua acharia a citação antes da chamada de verdade.
+ */
+function posicoesDoPiso() {
+  const fonte = readFileSync(join(raiz, 'enviar.php'), 'utf8');
+  const CHAMADA_80 = /\b(?:str_contains|str_starts_with|str_ends_with)\s*\(/;
+  let deslocamento = 0, guarda = -1, primeira = -1;
+  for (const linha of fonte.split('\n')) {
+    const codigo = linha.trimStart();
+    const ehComentario = codigo.startsWith('//') || codigo.startsWith('*') || codigo.startsWith('/*');
+    if (!ehComentario) {
+      if (guarda === -1 && /versaoSuficiente\s*\(\s*PHP_VERSION_ID\s*\)/.test(linha)) guarda = deslocamento;
+      if (primeira === -1 && CHAMADA_80.test(linha)) primeira = deslocamento;
+    }
+    deslocamento += linha.length + 1;
+  }
+  return { guarda, primeira };
+}
+
 try {
   // 0. chaveDeLimite(): a regressão original mapeava TODO endereço
   //    IPv4-mapped (::ffff:a.b.c.d) — a forma que um Apache dual-stack
@@ -294,6 +347,22 @@ try {
      baldes['2001:db8::1234']);
   ok('loopback não cai no mesmo balde de um IPv4-mapped',
      baldes['::1'] !== baldes['::ffff:203.0.113.7'], JSON.stringify(baldes));
+
+  // 0.1 Piso de versão do PHP. Sem a guarda, uma conta de hospedagem servindo
+  //     este endpoint em 7.4 (o MultiPHP do cPanel deixa escolher, e 7.4 ainda
+  //     aparece na lista) morre de "Call to undefined function str_contains()"
+  //     no meio da requisição: 500 pelado onde display_errors está desligado,
+  //     e o caminho absoluto do servidor na tela de quem submeteu onde não
+  //     está. Nenhum dos dois é dito em lugar nenhum — o pedido some.
+  const piso = testaPisoDeVersao();
+  ok('7.4 é recusado pelo piso de versão', piso['70430'] === false, JSON.stringify(piso));
+  ok('a fronteira do piso é 8.0.0 exata',
+     piso['79999'] === false && piso['80000'] === true, JSON.stringify(piso));
+  ok('8.1 e 8.3 passam pelo piso',
+     piso['80104'] === true && piso['80300'] === true, JSON.stringify(piso));
+  const pos = posicoesDoPiso();
+  ok('a guarda de versão roda ANTES da primeira chamada de 8.0+',
+     pos.guarda !== -1 && pos.primeira !== -1 && pos.guarda < pos.primeira, JSON.stringify(pos));
 
   if (!(await esperaServidor())) {
     console.error(`Servidor PHP da suíte não atendeu em ${BASE} (porta ocupada?).`);

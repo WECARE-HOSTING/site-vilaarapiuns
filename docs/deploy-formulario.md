@@ -6,6 +6,68 @@ dependem de três coisas que **não** estão no repositório — que é público
 e que por isso precisam ser criadas à mão no cPanel a cada deploy novo de
 servidor: a config, o PHPMailer, e a caixa `site@`.
 
+## 0. O que o servidor respondeu em 21/08/2026, e a versão do PHP
+
+Tudo nesta seção foi **medido** contra `https://vilaarapiuns.com.br` nesta
+data. Não é suposição, e o resto do documento assume que você leu isto antes.
+
+| Pedido | Resposta | Leitura |
+|---|---|---|
+| `http://.../pt/reservar/` | `301` → `https://…` | o redirecionamento da seção 6 está no ar |
+| `/pt/reservar/` | `200` | o site publicado é de 21/08, 15:40 UTC |
+| `/enviar.php` | **`404`** | **o endpoint não está no servidor** |
+| `/enviar-mail.php` | **`404`** | idem |
+| `/_i18n/pt.json` | **`404`** | os dicionários da seção 3 também não subiram |
+| `/og.jpg` | `200` | o resto de `public/` subiu normalmente |
+| `/.htaccess` | `200`, conteúdo em texto | quem serve o docroot é nginx — ver seção 6 |
+
+Ou seja: **o formulário publicado hoje dá POST contra um 404.** Quem preencher
+não recebe a página de "enviado" nem nada que se pareça com ela, e o pedido
+não vai a lugar nenhum. Nada das seções 1, 2, 4 e 5 muda isso — elas só
+começam a valer depois que o deploy subir os dois `.php` e o diretório
+`_i18n/`, que o mesmo upload que subiu `og.jpg` deixou de fora.
+
+O hospedeiro é HostGator/EIG (reverso `unifiedlayer.com`, SPF
+`include:websitewelcome.com`), com nginx na frente do docroot.
+
+### A versão do PHP
+
+O piso é **8.0**, e desde a guarda no topo do `enviar.php` ele é cobrado pelo
+próprio código. As três faixas abaixo foram medidas em contêiner
+(`php:7.2` … `php:8.1`), não deduzidas da documentação do PHP:
+
+| Versão | O que acontece |
+|---|---|
+| ≤ 7.3 | **erro de parse** (`1_000_000`, separador numérico que só existe a partir de 7.4) — 500 para todo mundo, nada degrada e nada é logado |
+| 7.4 | parseia limpo e **morre em execução**, na primeira `str_contains()` |
+| ≥ 8.0 | roda |
+
+Repare no que a 7.4 tem de pior: `php -l` passa limpo, o deploy não reclama de
+nada, e o estrago só aparece quando alguém submete — 500 pelado onde
+`display_errors` está desligado, e o caminho absoluto do servidor na tela de
+quem submeteu onde está ligado:
+
+```
+Fatal error: Uncaught Error: Call to undefined function str_contains()
+in /home/USUARIO/public_html/enviar.php
+```
+
+Com a guarda, essa faixa passou a devolver o mesmo `500 config ausente` pelado
+das outras falhas de servidor, e a escrever uma linha em `erros.log` (seção 9):
+
+```
+2026-08-21T22:57:05+00:00	PHP 7.4.33 é anterior a 8.0: o endpoint não roda nesta versão — ver docs/deploy-formulario.md
+```
+
+A guarda **não** protege da faixa `≤ 7.3`: lá o arquivo nem chega a ser
+executado. E, mesmo com ela, escolha **8.1 ou mais nova** se o painel
+oferecer: é a versão para a qual este código foi escrito, e é a partir dela
+que o `: never` da `responde()` tem semântica de verdade (em 7.4 e 8.0 ele
+compila como nome de classe e nunca é cobrado).
+
+Onde conferir e trocar no cPanel: **Software → MultiPHP Manager**, na linha do
+domínio.
+
 ## 1. `va-config.php`
 
 Fica **um nível acima** do `public_html`, fora do alcance de qualquer
@@ -103,6 +165,10 @@ ls /home/USUARIO/public_html/_i18n/
 # esperado: de.json  en.json  es.json  ja.json  pt.json
 ```
 
+> **Em 21/08/2026 esta pasta não está no servidor** (`/_i18n/pt.json`
+> responde 404 — seção 0). O risco descrito acima não é hipótese: ele já
+> aconteceu neste deploy, junto com os dois `.php`.
+
 Se a pasta faltar, ou faltar um dos cinco arquivos, o pedido de venda
 continua chegando normalmente e o visitante sem JS ainda vê a página de
 "enviado" — nada no fluxo principal aparece quebrado. Só a auto-resposta do
@@ -172,6 +238,39 @@ curl -sI http://vilaarapiuns.com.br/pt/reservar/ | head -3
 
 Um `200` sem `Location:` significa que o redirecionamento não está no ar —
 pare aqui e resolva antes de deixar o formulário receber gente.
+
+### Neste servidor quem redireciona é o nginx — o `.htaccess` é decorativo
+
+Medido em 21/08/2026: o redirecionamento **está no ar** — o `curl` acima
+devolve `301` com o `Location:` certo. Só que não é este arquivo que o faz.
+
+`https://vilaarapiuns.com.br/.htaccess` responde **`200`, com as três linhas
+em texto puro**. Sob Apache com a configuração padrão do cPanel esse pedido
+devolve `403`: é a proteção `<Files ~ "^\.ht">` que faz isso. Um `200`
+legível significa que quem entrega o docroot é o **nginx** (o `Server:` da
+resposta diz `nginx/1.18.0 (Ubuntu)`), e nginx não lê `.htaccess`.
+
+Isso não prova que não exista um Apache atrás para o PHP — nginx na frente
+servindo estático e Apache rodando `.php` é arranjo comum. Prova outra coisa:
+o `.htaccess` **não governa o que o nginx entrega**, e o que o nginx entrega
+inclui todas as páginas do site.
+
+Duas consequências que valem mais do que a curiosidade:
+
+- **Não conte com `.htaccess` para proteger nada aqui.** O `Require all
+  denied` que o endpoint escreve dentro do `varDir` (seção 9) é exatamente
+  essa classe de regra: se um dia o `varDir` cair dentro do `public_html`,
+  nginx serve `enviados/*.txt` — PII de hóspede em texto puro — sem olhar o
+  arquivo. O que protege de verdade é o `varDir` morar **fora** do
+  `public_html`, e isso não é opcional.
+- O arquivo é **legível pela web** como está. Hoje ele não diz nada que já não
+  esteja no repositório público; qualquer regra futura ali (bloqueio por IP,
+  caminho interno, nome de arquivo) já nasce pública — e possivelmente
+  ignorada.
+
+Se um dia aquele `curl` voltar `200` sem `Location:`, o lugar de resolver é a
+configuração do servidor, pelo painel ou pelo suporte da hospedagem — não
+este arquivo.
 
 **Não mova este arquivo para `public/` para "resolver" isso.** O `.htaccess` do
 `public_html` costuma acumular regras que o próprio cPanel escreve (PHP

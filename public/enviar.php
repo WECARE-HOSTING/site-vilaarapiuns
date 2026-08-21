@@ -77,6 +77,42 @@ if (!array_key_exists('dryRun', $cfg) || !is_bool($cfg['dryRun'])) {
   http_response_code(500); exit('config ausente');
 }
 
+// ── Piso de versão do PHP ────────────────────────────────────────────────
+/**
+ * O endpoint roda nesta versão de PHP?
+ *
+ * Função pura porque a suíte não tem como rodar o endpoint inteiro em duas
+ * versões de PHP — a máquina tem um `php` só. Assim a fronteira é exercitada
+ * com IDs de versão inventados (testaPisoDeVersao(), na suíte).
+ */
+function versaoSuficiente(int $id): bool { return $id >= 80000; }
+
+// O piso é 8.0, e não a 8.1 que este arquivo aparenta exigir: `: never` na
+// responde() é sintaxe de 8.1, mas em 7.4 e em 8.0 ela COMPILA — `never` cai
+// como nome de classe — e nunca é cobrada, porque responde() sempre sai por
+// exit. Medido em contêiner, não deduzido. O que de fato não existe antes de
+// 8.0 são as três funções de string usadas daqui para baixo; a primeira delas
+// está na linha logo depois deste bloco.
+//
+// A falha delas é FATAL e em EXECUÇÃO, não de parse: `php -l` passa limpo em
+// 7.4, o deploy não reclama de nada, e o estrago só aparece quando alguém
+// submete — 500 pelado onde display_errors está desligado, caminho absoluto
+// do servidor na tela de quem submeteu onde está ligado. Em nenhum dos dois
+// casos o pedido chega a alguém, e ninguém fica sabendo.
+//
+// Falha FECHADA, com a mesma mensagem pelada da config ausente: quem submeteu
+// não descobre nada do servidor. O detalhe vai para erros.log, que é onde quem
+// tem acesso ao servidor procura (ver docs/deploy-formulario.md).
+if (!versaoSuficiente(PHP_VERSION_ID)) {
+  $varDirDoPiso = rtrim($cfg['varDir'], '/');
+  if (!is_dir($varDirDoPiso)) { @mkdir($varDirDoPiso, 0700, true); }
+  apendaComTeto($varDirDoPiso . '/erros.log', gmdate('c') . "\tPHP " . PHP_VERSION
+    . " é anterior a 8.0: o endpoint não roda nesta versão"
+    . " — ver docs/deploy-formulario.md\n");
+  http_response_code(500);
+  exit('config ausente');
+}
+
 // ── Resposta ─────────────────────────────────────────────────────────────
 $querJson = str_contains($_SERVER['HTTP_ACCEPT'] ?? '', 'application/json');
 
