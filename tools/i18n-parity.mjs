@@ -11,18 +11,22 @@
  * tradução é exatamente o tipo de falha silenciosa que esta ferramenta
  * existe para pegar. achata() desce dentro de cada elemento e cada campo
  * vira um caminho comparável (galeria.capitulos.0.fotos.2.leg). O
- * comprimento da lista continua checado à parte: useList() devolve a
- * lista inteira, então lista curta é conteúdo faltando — e quando o
- * comprimento já diverge, os caminhos por índice sob aquele array
- * divergem em cascata só por causa do desalinhamento (item 0 do pt não é
- * o item 0 do idioma), sem dizer nada de novo. Esses caminhos são
- * omitidos para não afogar o sinal real embaixo de ruído.
+ * comprimento da lista continua checado à parte: lista curta é conteúdo
+ * faltando — e quando o comprimento já diverge, só os índices que ficam
+ * a partir do menor dos dois comprimentos deixam de ter par do outro
+ * lado (esses sim divergem em cascata só por desalinhamento, sem dizer
+ * nada de novo). Índices dentro do alcance comum — de 0 até o menor
+ * comprimento — existem nos dois arquivos e continuam comparados e
+ * reportados normalmente: um item nessa faixa pode estar genuinamente
+ * vazio, e isso é um bug de conteúdo diferente do bug de tamanho.
  *
- * String vazia ("" ou só espaço) conta como faltando, não como presente:
- * é o mesmo critério de useTranslations() (src/i18n/utils.ts), que trata
- * "" como ausente e cai para DEFAULT_LOCALE. Sem essa regra, um idioma
- * com "whatsapp": "" passava aqui como OK e ainda renderizava português
- * na tela.
+ * String vazia ("" ou só espaço) conta como faltando, não como presente.
+ * Isso é mais estrito que useTranslations() (src/i18n/utils.ts), que
+ * checa só value.length > 0: lá, um valor "   " (só espaço) passa como
+ * presente e é renderizado como está — em branco na tela — em vez de
+ * cair para DEFAULT_LOCALE. Esta ferramenta prefere pegar mais casos,
+ * não menos, então trata esse valor como ausente mesmo que o app em
+ * produção não o rejeite.
  *
  *   npm run i18n:check
  */
@@ -48,7 +52,7 @@ function carrega(l) {
   }
 }
 
-/** "" e string só-espaço contam como ausentes — mesmo critério de useTranslations(). */
+/** "" e string só-espaço contam como ausentes — mais estrito que useTranslations() (ver comentário no topo do arquivo). */
 const vazia = (v) => typeof v === 'string' && v.trim() === '';
 
 /**
@@ -87,30 +91,56 @@ let falhou = false;
 for (const l of OUTROS) {
   const { folhas: dele, tamanhos: deleTam } = achata(carrega(l));
 
-  // Tamanho de array errado é resolvido antes de tudo: uma vez que um
-  // array diverge, qualquer array aninhado dentro dele também vai "dar
-  // diferente" só por reflexo do desalinhamento de índice — não é um
-  // problema novo, é o mesmo problema visto de outro caminho. Mantém só
-  // a divergência mais externa de cada ramo.
+  // Tamanho de array errado é resolvido antes de tudo. Um array que
+  // diverge empurra um índice pra fora do alcance comum (0 até o menor
+  // dos dois comprimentos); um array aninhado DENTRO desse índice fora
+  // de alcance vai "dar diferente" só por reflexo do desalinhamento —
+  // não é um problema novo, é o mesmo problema visto de outro caminho, e
+  // por isso é descartado aqui. Mas um array aninhado dentro de um
+  // índice que ainda está no alcance comum (o item existe dos dois
+  // lados) é um problema independente — pode ser, por exemplo, uma
+  // galeria com uma foto a mais ou a menos num capítulo que por si só
+  // está alinhado — e por isso ganha sua própria linha e seu próprio
+  // alcance, em vez de ser engolido pelo ancestral.
   const candidatos = [...baseTam.entries()]
     .filter(([k, n]) => deleTam.get(k) !== n)
     .sort((a, b) => a[0].split('.').length - b[0].split('.').length);
   const listaCurta = [];
-  for (const par of candidatos) {
-    const [k] = par;
-    if (!listaCurta.some(([p]) => k.startsWith(`${p}.`))) listaCurta.push(par);
+  for (const [k, n] of candidatos) {
+    const emCascata = listaCurta.some(([p, , alcance]) => {
+      if (!k.startsWith(`${p}.`)) return false;
+      const indice = Number(k.slice(p.length + 1).split('.')[0]);
+      return indice >= alcance;
+    });
+    if (emCascata) continue;
+    const m = deleTam.has(k) ? deleTam.get(k) : 0;
+    listaCurta.push([k, n, Math.min(n, m)]);
   }
-  const raizesCurtas = listaCurta.map(([k]) => k);
-  const sobArrayCurto = (k) => raizesCurtas.some((p) => k === p || k.startsWith(`${p}.`));
 
-  // Caminhos por índice sob um array já reportado em listaCurta são
-  // ruído (ver comentário acima) — omitidos daqui, não do próprio erro
-  // de tamanho.
+  // Só o índice fora do alcance comum é ruído (ver comentário acima). Um
+  // array com pt=3 e idioma=2 tem os índices 0 e 1 presentes dos dois
+  // lados — item ali pode estar genuinamente vazio, e isso é um bug de
+  // conteúdo, não um reflexo do tamanho errado. Só o índice 2 (que só
+  // existe no pt) não tem par para comparar; suprimir SÓ esse é o que
+  // evita o ruído sem esconder o resto. Idioma sem a chave do array vira
+  // comprimento 0 — mesmo efeito de antes: tudo embaixo fica sem par e é
+  // todo omitido. A mesma regra vale para "sobrando" (usada mais abaixo):
+  // sem ela, um array encurtado faz cada índice que sobra do lado maior
+  // reaparecer como chave "órfã" só por ter mudado de posição — nenhuma
+  // delas é uma chave nova de verdade, e isso enterra qualquer órfã real
+  // no meio da onda.
+  const sobArrayCurto = (k) => {
+    for (const [p, , alcance] of listaCurta) {
+      if (k === p) return true;
+      if (k.startsWith(`${p}.`) && Number(k.slice(p.length + 1).split('.')[0]) >= alcance) return true;
+    }
+    return false;
+  };
   const faltando = [...base.keys()].filter((k) => {
     if (sobArrayCurto(k)) return false;
     return !dele.has(k) || vazia(dele.get(k));
   });
-  const sobrando = [...dele.keys()].filter((k) => !base.has(k));
+  const sobrando = [...dele.keys()].filter((k) => !base.has(k) && !sobArrayCurto(k));
 
   if (faltando.length) {
     falhou = true;
