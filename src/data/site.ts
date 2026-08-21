@@ -47,10 +47,23 @@ export const SITE = {
   },
 
   contact: {
-    /** Canal público, o do panfleto: +55 11 96976-0096 */
-    whatsapp: '5511969760096',
-    /** PENDENTE: e-mail de destino do formulário de reserva. */
-    email: null as string | null,
+    /**
+     * CANAL COMERCIAL ÚNICO, definido pelo Carlos em 21/08/2026: toda venda
+     * vai para uma pessoa só. Aqui vivia o número do panfleto,
+     * +55 11 96976-0096, que saiu do site inteiro na mesma mudança.
+     *
+     * O nome de quem atende NÃO entra aqui nem em copy nenhuma, por decisão
+     * do cliente: contato comercial troca de mão, e com copy impessoal o dia
+     * em que trocar é uma linha neste arquivo — não um deploy para consertar
+     * oito lugares. `tools/contato-unico.mjs` guarda essa fronteira.
+     */
+    whatsapp: '5547992067078',
+    /**
+     * Destino do formulário de reserva e do link no rodapé. Era `null` e
+     * marcado PENDENTE desde a Fase 2; o bloco de e-mail do Footer já estava
+     * escrito esperando por isto e acende sozinho agora.
+     */
+    email: 'gabriela@wecarehosting.com.br',
     instagram: '@villaarapiuns',
   },
 
@@ -146,6 +159,24 @@ export function preco(valor: number, locale: Locale): string {
 /** Monta um link de WhatsApp com mensagem já preenchida. */
 export function whatsappUrl(message: string): string {
   return `https://wa.me/${SITE.contact.whatsapp}?text=${encodeURIComponent(message)}`;
+}
+
+/**
+ * Escreve o WhatsApp para leitura humana: 5547992067078 → +55 47 99206-7078.
+ *
+ * Deriva dos mesmos dígitos de propósito. Guardar o número formatado num
+ * segundo campo é convidar os dois a divergirem, e número de contato errado
+ * num site de pousada remota não é erro de formatação, é venda perdida.
+ */
+export function telefoneLegivel(): string {
+  const d = SITE.contact.whatsapp;
+  // 55 + DDD(2) + assinante(8 ou 9)
+  const pais = d.slice(0, 2);
+  const ddd = d.slice(2, 4);
+  const resto = d.slice(4);
+  const meio = resto.length === 9 ? resto.slice(0, 5) : resto.slice(0, 4);
+  const fim = resto.slice(meio.length);
+  return `+${pais} ${ddd} ${meio}-${fim}`;
 }
 
 /**

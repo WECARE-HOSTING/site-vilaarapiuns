@@ -3,7 +3,7 @@ import Logo from '@/components/Logo.astro';
 import { LOCALES, LOCALE_NAMES, HTML_LANG, type Locale } from '@/i18n/config';
 import { href } from '@/i18n/routes';
 import { useTranslations } from '@/i18n/utils';
-import { SITE, whatsappUrl } from '@/data/site';
+import { SITE, whatsappUrl, telefoneLegivel } from '@/data/site';
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -32,6 +32,9 @@ const colunaReserva = ['packages', 'privateVilla', 'gettingHere', 'reviews', 'bo
               {SITE.contact.email}
             </a>
           )}
+          <a href={`tel:+${SITE.contact.whatsapp}`} class="link-texto w-fit text-salvia decoration-salvia/60">
+            {telefoneLegivel()}
+          </a>
         </div>
       </div>
 
