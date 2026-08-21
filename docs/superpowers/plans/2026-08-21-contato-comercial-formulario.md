@@ -1908,7 +1908,7 @@ envio duplicado gasta o tempo de quem vende."
 rm -rf dist && npm run i18n:check && npm run check && npm run build \
   && npm run contato:check && npm run form:check \
   && node tools/classes-fantasma.mjs $(find dist -name 'index.html') \
-  && node tools/contraste-dom.mjs
+  && node tools/contraste-dom.mjs $(find dist -name 'index.html')
 ```
 Expected: tudo verde.
 
