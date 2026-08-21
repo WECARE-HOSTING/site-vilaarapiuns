@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "check": "astro check",
     "i18n:check": "node tools/i18n-parity.mjs",
-    "contato:check": "node tools/contato-unico.mjs"
+    "contato:check": "node tools/contato-unico.mjs",
+    "form:check": "node tools/testa-endpoint.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^6.0.4",
