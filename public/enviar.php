@@ -50,6 +50,17 @@ foreach (['varDir', 'to', 'bcc'] as $chaveObrigatoria) {
   $v = $cfg[$chaveObrigatoria] ?? null;
   if (!is_string($v) || trim($v) === '') { http_response_code(500); exit('config ausente'); }
 }
+// `dryRun` é bool, e `false` é valor LEGÍTIMO — por isso não cabe no laço
+// acima: is_string()/trim() rejeitaria `false` como se a chave estivesse
+// ausente. Sem esta checagem em separado, um va-config.php escrito à mão sem
+// `dryRun` faz o PHP 8 avisar "Undefined array key" bem no `if` de
+// enviar-mail.php (mesmo estrago de cabeçalho do comentário acima) — e pior:
+// chave ausente lida com `??`/`if` direto é FALSA por padrão, então o
+// formulário entraria no ramo de SMTP DE VERDADE num config que o operador
+// acredita estar em dryRun. Falha fechada, mesma mensagem pelada.
+if (!array_key_exists('dryRun', $cfg) || !is_bool($cfg['dryRun'])) {
+  http_response_code(500); exit('config ausente');
+}
 
 // ── Resposta ─────────────────────────────────────────────────────────────
 $querJson = str_contains($_SERVER['HTTP_ACCEPT'] ?? '', 'application/json');
@@ -171,14 +182,23 @@ function chaveDeLimite(string $ip): string {
  * que a que existia antes deste log. O teto abaixo faz o pedido nº um-milhão
  * custar um filesize() (sem lock) em vez de outra escrita travada.
  */
-function registraDescarte(string $varDir, string $motivo): void {
-  if ($varDir === '') { return; }
-  $arq = $varDir . '/descartes.log';
+/**
+ * Apenda uma linha a um arquivo de log, com teto de 1 MB — a MESMA regra
+ * para todo log deste formulário (hoje descartes.log aqui e erros.log em
+ * enviar-mail.php). Escrita uma vez só: um teto que existisse em duas cópias
+ * é um teto que um dia diverge (uma cópia ganha o ajuste, a outra não).
+ */
+function apendaComTeto(string $arq, string $linha): void {
   // @filesize: arquivo ainda não existir não pode virar aviso do PHP.
   if (is_file($arq) && (@filesize($arq) ?: 0) >= 1_000_000) { return; }
   // @ e sem checar retorno: log é diagnóstico, não pode derrubar o pedido nem
   // imprimir caminho de servidor na tela de quem está sem JS.
-  @file_put_contents($arq, gmdate('c') . "\t" . $motivo . "\n", FILE_APPEND | LOCK_EX);
+  @file_put_contents($arq, $linha, FILE_APPEND | LOCK_EX);
+}
+
+function registraDescarte(string $varDir, string $motivo): void {
+  if ($varDir === '') { return; }
+  apendaComTeto($varDir . '/descartes.log', gmdate('c') . "\t" . $motivo . "\n");
 }
 
 function campo(string $nome): string {

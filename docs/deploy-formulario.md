@@ -19,8 +19,8 @@ requisição web:
 O modelo é `public/va-config.example.php` (sobe com o site, sem segredo
 nenhum). Copie o conteúdo dele para `/home/USUARIO/va-config.php` e preencha:
 
-- `smtpPass` — a senha da caixa `site@vilaarapiuns.com.br` (seção 3).
-- `dryRun` — **`true` no primeiro deploy** (seção 5), `false` só depois de
+- `smtpPass` — a senha da caixa `site@vilaarapiuns.com.br` (seção 4).
+- `dryRun` — **`true` no primeiro deploy** (seção 6), `false` só depois de
   confirmar que o e-mail chega de verdade.
 - `varDir` — já vem como `/home/USUARIO/va-var`; crie esse diretório com
   permissão `0700` se o `enviar.php` não conseguir criar sozinho (ele tenta
@@ -57,7 +57,36 @@ Esse caminho só é alcançado quando `dryRun` é `false`. Em `dryRun`, nenhum
 `require` de PHPMailer acontece — é por isso que a suíte local
 (`npm run form:check`) nunca precisa dele.
 
-## 3. Criar `site@vilaarapiuns.com.br`
+## 3. `dist/_i18n/` — os dicionários da auto-resposta
+
+`enviar-mail.php` lê `__DIR__/_i18n/{idioma}.json` para montar a
+auto-resposta (assunto e corpo, um arquivo por idioma — cinco no total).
+`npm run build` já gera essa pasta dentro de `dist/`, via
+`tools/copia-dicionarios.mjs`; não há nada para criar à mão aqui, diferente
+do resto deste documento. O que existe é um risco de **subir incompleto**:
+
+`dist/_i18n/` é um diretório **novo**, que só passou a existir a partir da
+Tarefa 6. Um sync por FTP que sobe só "o que mudou" compara contra o que já
+está no servidor — e como esse diretório nunca esteve lá, alguns clientes de
+FTP/deploy simplesmente não o notam e não o sobem, sem aviso nenhum de que
+algo ficou de fora.
+
+Confira, depois de cada deploy (por FTP/File Manager ou SSH):
+
+```
+ls /home/USUARIO/public_html/_i18n/
+# esperado: de.json  en.json  es.json  ja.json  pt.json
+```
+
+Se a pasta faltar, ou faltar um dos cinco arquivos, o pedido de venda
+continua chegando normalmente e o visitante sem JS ainda vê a página de
+"enviado" — nada no fluxo principal aparece quebrado. Só a auto-resposta do
+idioma sem dicionário deixa de ser enviada, em silêncio para quem submeteu.
+A única pista fica em `erros.log` (seção 7): uma linha `auto-resposta vazia
+— idioma=X` por submissão feita naquele idioma, a partir do ajuste do review
+da Tarefa 6.
+
+## 4. Criar `site@vilaarapiuns.com.br`
 
 No cPanel: **E-mail → Contas de E-mail → Criar**. Domínio
 `vilaarapiuns.com.br`, usuário `site`, senha forte (vai para `smtpPass` em
@@ -68,7 +97,7 @@ formulário manda — venda e auto-resposta.
 porta `465` (SSL). Confirme em **E-mail → Contas de E-mail → Configurar
 Cliente de E-mail** que esses valores continuam corretos para a conta nova.
 
-## 4. Conferir SPF e DKIM
+## 5. Conferir SPF e DKIM
 
 Sem os dois, provedor grande (Gmail, Outlook) marca como spam ou rejeita
 direto — e ninguém do outro lado vê nem a mensagem de venda nem a
@@ -83,7 +112,7 @@ copie os valores mostrados e crie os registros TXT manualmente onde o DNS
 de fato mora. Depois de criar, a propagação pode levar até algumas horas;
 a mesma tela revalida quando reaberta.
 
-## 5. Primeiro envio de teste, com `dryRun` ligado
+## 6. Primeiro envio de teste, com `dryRun` ligado
 
 Antes de deixar qualquer visitante real acionar SMTP de verdade:
 
@@ -108,14 +137,14 @@ Antes de deixar qualquer visitante real acionar SMTP de verdade:
 Repita este teste sempre que `smtpHost`/`smtpPort`/`smtpUser`/`smtpPass`
 mudarem, ou depois de qualquer atualização do PHPMailer no servidor.
 
-## 6. Onde ficam os logs e o contador de limite
+## 7. Onde ficam os logs e o contador de limite
 
 Tudo dentro de `varDir` (`/home/USUARIO/va-var`), fora do webroot:
 
 | Arquivo/pasta | O que é | Quando aparece |
 |---|---|---|
-| `enviados/*.txt` | Só em `dryRun`: o e-mail de venda (`-gabriela.txt`) e a auto-resposta (`-autoresposta.txt`) que teriam sido enviados | Todo envio aceito, em `dryRun` |
-| `erros.log` | Uma linha por falha de SMTP: data, destinatário, mensagem da exceção do PHPMailer | Só quando `dryRun: false` e o envio falha |
+| `enviados/*.txt` | Só em `dryRun`: o e-mail de venda (`-gabriela.txt`) e a auto-resposta (`-autoresposta.txt`, só quando o corpo não sai vazio) que teriam sido enviados | Todo envio aceito, em `dryRun` |
+| `erros.log` | Uma linha por falha de SMTP (data, destinatário, mensagem da exceção do PHPMailer) OU por auto-resposta que saiu vazia (data, idioma) — ver seção 3 | Falha de SMTP só com `dryRun: false`; auto-resposta vazia em qualquer modo, inclusive `dryRun`; para de crescer sozinho ao passar de 1&nbsp;MB, mesmo teto de `descartes.log` |
 | `descartes.log` | Uma linha por honeypot ou envio "rápido demais" descartado em silêncio — a única forma de saber que a defesa comeu um pedido | Sempre, mesmo em `dryRun`; para de crescer sozinho ao passar de 1&nbsp;MB |
 | `rate-<hash>.json` | Contador de envios aceitos por IP (ou por bloco /64, em IPv6), para o limite de 5/hora e 20/dia | Um arquivo por IP/bloco que já enviou; se apaga sozinho quando o histórico esvazia |
 

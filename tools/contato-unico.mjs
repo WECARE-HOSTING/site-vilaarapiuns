@@ -7,7 +7,10 @@
  * escrever um número solto em copy em vez de ler do dado.
  *
  * Também confere o que NÃO pode subir: o repo é público e a credencial de
- * SMTP mora fora do webroot.
+ * SMTP mora fora do webroot. E confere o PHP construído contra o mesmo
+ * número: `enviar-mail.php` tem um link wa.me hardcoded para a
+ * auto-resposta, fora do alcance da varredura de HTML (achado I5 do review
+ * da Tarefa 6).
  *
  *   node tools/contato-unico.mjs
  */
@@ -53,12 +56,41 @@ for (const rota of ROTAS_SEM_CHROME) {
   }
 }
 
-for (const f of paginas) {
+// PHP construído entra na MESMA varredura de número retirado. `enviar-mail.php`
+// hardcoda um link wa.me (não lido do dicionário — ver comentário no próprio
+// arquivo), então é tão capaz de reviver o número velho quanto qualquer HTML.
+const paginasPhp = globSync('dist/**/*.php');
+
+for (const f of [...paginas, ...paginasPhp]) {
   const html = readFileSync(f, 'utf8');
   for (const proibido of PROIBIDO) {
     if (html.includes(proibido)) {
       falhou = true;
       console.error(`${f}: número retirado ainda presente — "${proibido}"`);
+    }
+  }
+}
+
+/**
+ * Fecha o ponto cego descrito no achado I5 do review da Tarefa 6:
+ * `enviar-mail.php:35` hardcoda `https://wa.me/5547992067078` para a
+ * auto-resposta, fora do alcance da checagem de HTML acima (PHP não é
+ * página) e fora do dicionário (mover para lá criaria cinco cópias em vez
+ * de uma). O número canônico é `SITE.contact.whatsapp` em
+ * `src/data/site.ts`; sem esta checagem, o PHP podia ficar com o número
+ * velho enquanto o resto do site já mostra o novo, e ninguém notaria até
+ * uma reserva ir para o WhatsApp errado. Aqui é a mesma pergunta feita ao
+ * HTML, feita ao PHP: todo link wa.me/ presente tem de ser exatamente o
+ * número obrigatório.
+ */
+const WA_CANONICO = `https://wa.me/${OBRIGATORIO[0]}`;
+for (const f of paginasPhp) {
+  const php = readFileSync(f, 'utf8');
+  const links = php.match(/https:\/\/wa\.me\/\d+/g) ?? [];
+  for (const link of links) {
+    if (link !== WA_CANONICO) {
+      falhou = true;
+      console.error(`${f}: link wa.me diverge do número canônico — "${link}" (esperado "${WA_CANONICO}")`);
     }
   }
 }
@@ -78,7 +110,7 @@ if (existsSync('dist/va-config.php')) {
   falhou = true;
   console.error('dist/va-config.php EXISTE. Credencial no webroot e a caminho de um repo público.');
 }
-for (const f of globSync('dist/**/*.php')) {
+for (const f of paginasPhp) {
   if (/smtpPass\s*=>\s*['"][^'"]+['"]/.test(readFileSync(f, 'utf8'))) {
     falhou = true;
     console.error(`${f}: senha de SMTP embutida no código.`);
@@ -86,4 +118,4 @@ for (const f of globSync('dist/**/*.php')) {
 }
 
 if (falhou) { console.error('\nFALHOU.'); process.exit(1); }
-console.log(`OK — ${paginas.length} páginas verificadas, ${paginasComContatoObrigatorio.length} exigem contato: contato único, sem resíduo, sem segredo.`);
+console.log(`OK — ${paginas.length} páginas e ${paginasPhp.length} arquivo(s) PHP verificados, ${paginasComContatoObrigatorio.length} páginas exigem contato: contato único, sem resíduo, sem segredo.`);

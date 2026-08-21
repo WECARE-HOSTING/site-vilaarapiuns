@@ -270,12 +270,37 @@ try {
   ok('gravou a auto-resposta', Boolean(auto), enviados().join());
   const ar = readFileSync(join(varDir, 'enviados', auto), 'utf8');
   ok('auto-resposta vai para o visitante', ar.includes('To: ana@example.com'));
-  ok('auto-resposta no idioma do visitante', ar.includes('Ihre Nachricht ist angekommen'));
-  ok('auto-resposta trata pelo nome', ar.includes('Hallo, Ana Silva!'));
-  ok('auto-resposta promete 24 horas', ar.includes('24 Stunden'));
-  ok('auto-resposta NÃO ecoa o texto do visitante',
-     !ar.includes('Wir möchten im März kommen.'), 'eco = relay de spam');
-  ok('auto-resposta não vaza o destino comercial', !ar.includes('reservas@'));
+
+  /**
+   * Prova a PROPRIEDADE (nenhum dado do visitante ecoado), não uma
+   * instância dela. A versão anterior só perguntava se `mensagem` estava
+   * fora do corpo — um mutante que passasse a ecoar `whatsapp`,
+   * `interesse` ou `mes`/`ano` (todos presentes em VALIDO, nenhum deles
+   * conferido aqui) passava pelas 77 asserções desta suíte inteira, porque
+   * nenhuma delas perguntava pela FORMA do corpo, só por uma substring.
+   * Não ecoar dado do visitante é o ponto inteiro do desenho da
+   * auto-resposta: um formulário que manda conteúdo controlado pelo
+   * visitante para um endereço controlado pelo visitante é máquina de
+   * spam com o domínio deste negócio na assinatura.
+   *
+   * Lê o dicionário de ORIGEM (o mesmo `src/i18n/de.json` que
+   * tools/copia-dicionarios.mjs copia para dist/_i18n/, e que
+   * enviar-mail.php lê em produção), aplica as MESMAS duas trocas que o
+   * PHP aplica ({nome} e {whatsapp}) e exige IGUALDADE com o corpo
+   * recebido — não uma substring. Igualdade prova a ausência de TUDO de
+   * uma vez (mensagem, whatsapp, interesse, mes, ano, ou qualquer campo
+   * futuro) e ainda fixa o dicionário como fonte única deste texto: se
+   * dicionário e PHP divergirem por qualquer motivo, é este teste que
+   * acusa primeiro.
+   */
+  const dicDe = JSON.parse(readFileSync('src/i18n/de.json', 'utf8'));
+  const corpoEsperado = dicDe.autoresp.corpo
+    .replaceAll('{nome}', VALIDO.nome)
+    .replaceAll('{whatsapp}', 'https://wa.me/5547992067078');
+  const corpoRecebido = ar.slice(ar.indexOf('\n\n') + 2);
+  ok('auto-resposta é EXATAMENTE o corpo do dicionário com as trocas — prova ausência de qualquer eco',
+     corpoRecebido === corpoEsperado,
+     JSON.stringify({ esperado: corpoEsperado, recebido: corpoRecebido }));
 
   // 2. Sem JS: 303 para a página de enviado — a TABELA inteira, não uma linha.
   //    A tabela de rotas é justamente o que esta suíte existe para vigiar.
