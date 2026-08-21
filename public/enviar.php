@@ -126,10 +126,27 @@ function emailDeCabecalho(string $s): bool {
  * de 5/hora (o limite deixa de existir) e criaria um arquivo por endereço,
  * sem teto: cota de inodes estourada no cPanel derruba muito mais que o
  * formulário.
+ *
+ * `strlen($bin) === 16` testa a FAMÍLIA DA STRING, não a família real do
+ * cliente. Um Apache dual-stack apresenta todo visitante IPv4 como
+ * IPv4-mapped (`::ffff:a.b.c.d`) — 16 bytes, então cai no ramo do /64 — e os
+ * 96 bits que precedem o IPv4 embutido são IDÊNTICOS em todo endereço
+ * mapeado (80 zeros + 16 uns). Sem desembrulhar primeiro, TODA visita IPv4
+ * do planeta cai no mesmo balde "0000000000000000::/64", o limite de 5/hora
+ * passa a valer para a humanidade inteira, e a sexta pergunta de QUALQUER UM
+ * na mesma hora devolve 429 para todo mundo — o canal de contato da pousada
+ * fecha sozinho, com a cara de que ninguém está escrevendo.
  */
 function chaveDeLimite(string $ip): string {
   $bin = @inet_pton($ip);
-  if ($bin !== false && strlen($bin) === 16) { return bin2hex(substr($bin, 0, 8)) . '::/64'; }
+  if ($bin === false) { return $ip; }
+  // IPv4-mapped (::ffff:0:0/96): desembrulha para o IPv4 real ANTES de
+  // decidir o balde, para que ele caia no MESMO balde que esse IPv4
+  // chegando puro (sem o involucro IPv6) cairia.
+  if (strlen($bin) === 16 && str_starts_with($bin, "\0\0\0\0\0\0\0\0\0\0\xff\xff")) {
+    return (string)inet_ntop(substr($bin, 12, 4));
+  }
+  if (strlen($bin) === 16) { return bin2hex(substr($bin, 0, 8)) . '::/64'; }
   return $ip;
 }
 
@@ -142,16 +159,26 @@ function chaveDeLimite(string $ip): string {
  * relógio de aparelho às vezes mente — some sem deixar nada, e o negócio
  * perde a reserva sem ter como desconfiar. Esta linha é a única forma de
  * saber. A RESPOSTA não muda: o bot continua sem aprender nada.
+ *
+ * Os dois pontos de chamada ficam ANTES do limite por IP (a defesa 5 só vê
+ * pedido aceito por completo — o contador só cresce lá na frente, depois da
+ * validação). Isso quer dizer que nada aqui limita quantas vezes um mesmo
+ * anônimo aciona este log: `curl -d '_hp=x'` em loop, sem credencial nenhuma,
+ * apenda para sempre. Sem teto, cota de disco/inode de plano compartilhado
+ * cheia derruba e-mail e site juntos — não só o formulário — e o LOCK_EX
+ * ainda serializa cada escrita, então a mesma inundação passa a prender os
+ * processos PHP em flock: negação de serviço mais barata para o atacante do
+ * que a que existia antes deste log. O teto abaixo faz o pedido nº um-milhão
+ * custar um filesize() (sem lock) em vez de outra escrita travada.
  */
 function registraDescarte(string $varDir, string $motivo): void {
   if ($varDir === '') { return; }
+  $arq = $varDir . '/descartes.log';
+  // @filesize: arquivo ainda não existir não pode virar aviso do PHP.
+  if (is_file($arq) && (@filesize($arq) ?: 0) >= 1_000_000) { return; }
   // @ e sem checar retorno: log é diagnóstico, não pode derrubar o pedido nem
   // imprimir caminho de servidor na tela de quem está sem JS.
-  @file_put_contents(
-    $varDir . '/descartes.log',
-    gmdate('c') . "\t" . $motivo . "\n",
-    FILE_APPEND | LOCK_EX
-  );
+  @file_put_contents($arq, gmdate('c') . "\t" . $motivo . "\n", FILE_APPEND | LOCK_EX);
 }
 
 function campo(string $nome): string {

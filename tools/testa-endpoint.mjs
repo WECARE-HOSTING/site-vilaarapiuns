@@ -14,7 +14,7 @@
  * disputariam. Aqui tudo (docroot, config e varDir) vive numa árvore
  * temporária que é removida inteira no fim.
  */
-import { spawn } from 'node:child_process';
+import { spawn, execFileSync } from 'node:child_process';
 import {
   mkdtempSync, mkdirSync, writeFileSync, copyFileSync,
   readdirSync, readFileSync, rmSync, existsSync,
@@ -165,7 +165,62 @@ function verificaCabecalho(rotulo, texto, esperadas) {
 const semRuidoPhp = (t) =>
   !/(Warning|Notice|Fatal error|Deprecated|Array to string|headers already sent)/i.test(t);
 
+/**
+ * Extrai o corpo de uma função de um texto PHP contando chaves, não com
+ * regex de uma linha — chaveDeLimite() tem `if` aninhado, e "até a primeira
+ * `}`" cortaria a função na metade.
+ */
+function extraiFuncao(fonte, nome) {
+  const marca = `function ${nome}(`;
+  const inicio = fonte.indexOf(marca);
+  if (inicio === -1) throw new Error(`função ${nome}() não encontrada no PHP construído`);
+  const abre = fonte.indexOf('{', inicio);
+  let profundidade = 0;
+  let fim = abre;
+  for (; fim < fonte.length; fim++) {
+    if (fonte[fim] === '{') profundidade++;
+    else if (fonte[fim] === '}') { profundidade--; if (profundidade === 0) { fim++; break; } }
+  }
+  return fonte.slice(inicio, fim);
+}
+
+/**
+ * chaveDeLimite() chamada fora do HTTP, direto num `php -r` isolado.
+ *
+ * O servidor embutido do PHP não deixa a suíte escolher REMOTE_ADDR — ele
+ * vem da conexão TCP, sempre 127.0.0.1 local — então testar IPs diferentes
+ * por requisição HTTP é impossível. Extrai a função pura do PHP CONSTRUÍDO
+ * (mesmo princípio do resto da suíte: testar o que sobe por FTP) e roda.
+ */
+function testaChaveDeLimite() {
+  const fonte = readFileSync(join(raiz, 'enviar.php'), 'utf8');
+  const fn = extraiFuncao(fonte, 'chaveDeLimite');
+  const casos = ['::ffff:203.0.113.7', '::ffff:198.51.100.9', '203.0.113.7', '2001:db8::1234', '::1'];
+  const script = `${fn}\n$c = ${JSON.stringify(casos)};\n`
+    + `echo json_encode(array_combine($c, array_map('chaveDeLimite', $c)));`;
+  return JSON.parse(execFileSync('php', ['-r', script], { encoding: 'utf8' }));
+}
+
 try {
+  // 0. chaveDeLimite(): a regressão original mapeava TODO endereço
+  //    IPv4-mapped (::ffff:a.b.c.d) — a forma que um Apache dual-stack
+  //    apresenta cliente IPv4 — e também ::1 (loopback) para o MESMO balde
+  //    "0000000000000000::/64", porque `strlen(inet_pton($ip)) === 16` mede
+  //    a família da STRING, não a família real do cliente. Nesse cenário
+  //    todo visitante IPv4 do planeta compartilha uma cota de 5/hora.
+  const baldes = testaChaveDeLimite();
+  ok('IPv4-mapped: dois endereços diferentes caem em baldes diferentes',
+     baldes['::ffff:203.0.113.7'] !== baldes['::ffff:198.51.100.9'], JSON.stringify(baldes));
+  ok('IPv4-mapped desembrulha para o mesmo balde do IPv4 puro equivalente',
+     baldes['::ffff:203.0.113.7'] === baldes['203.0.113.7'], JSON.stringify(baldes));
+  ok('IPv4 puro: o balde é o próprio endereço',
+     baldes['203.0.113.7'] === '203.0.113.7', baldes['203.0.113.7']);
+  ok('IPv6 de verdade: o balde é o /64, não o endereço inteiro',
+     baldes['2001:db8::1234'] !== '2001:db8::1234' && baldes['2001:db8::1234'].endsWith('::/64'),
+     baldes['2001:db8::1234']);
+  ok('loopback não cai no mesmo balde de um IPv4-mapped',
+     baldes['::1'] !== baldes['::ffff:203.0.113.7'], JSON.stringify(baldes));
+
   if (!(await esperaServidor())) {
     console.error(`Servidor PHP da suíte não atendeu em ${BASE} (porta ocupada?).`);
     falhas++;
@@ -357,6 +412,14 @@ try {
   ok('mensagem em array não vira aviso do PHP', semRuidoPhp(texto), texto.slice(0, 200));
   ok('mensagem em array responde limpo',
      r.status === 200 && JSON.parse(texto).ok === true, `${r.status} ${texto.slice(0, 200)}`);
+  // (string)['x'] vira o literal "Array" — 5 caracteres, passa reto pelo
+  // único limite de tamanho de `mensagem` sem disparar erro nenhum. Sem
+  // conferir o CORPO gravado, esta regressão passa despercebida onde
+  // display_errors=0 (padrão de produção fora desta máquina): a resposta
+  // sai limpa e "Array" foi para dentro do e-mail no lugar do texto do
+  // visitante, e a suíte nunca saberia.
+  ok('mensagem em array não grava "Array" no corpo, cai em vazio',
+     leEnviado().includes('(não escreveu nada)'), leEnviado().slice(0, 400));
 
   // 10. Limite por IP
   limpa();
