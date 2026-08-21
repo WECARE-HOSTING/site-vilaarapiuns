@@ -137,3 +137,127 @@ const pessoas = ['1', '2', '3-6', '7-14', '15-26'] as const;
     <div id="form-resultado" role="status" aria-live="polite" tabindex="-1" hidden></div>
   </form>
 </div>
+
+{/* `define:vars` já implica script inline no Astro; sem `is:inline` explícito,
+    `astro check` emite um HINT recomendando declará-lo (ele não muda
+    comportamento nenhum, só descreve o que já é verdade). Declarado aqui
+    para manter `astro check` em 0/0/0 — testado que os dois juntos NÃO dão
+    erro nesta versão do Astro. */}
+<script is:inline define:vars={{
+  textos: {
+    enviando: t('form.enviando'),
+    enviar: t('form.enviar'),
+    sucessoT: t('form.sucessoT'),
+    sucessoD: t('form.sucessoD'),
+    erroGeral: t('form.erroGeral'),
+    erroCampos: t('form.erroCampos'),
+    erro: {
+      obrigatorio: t('form.erro.obrigatorio'),
+      invalido: t('form.erro.invalido'),
+      longo: t('form.erro.longo'),
+      opcao: t('form.erro.opcao'),
+    },
+  },
+}}>
+  (function () {
+    var form = document.getElementById('form-reserva');
+    if (!form) return;
+    var resultado = document.getElementById('form-resultado');
+    var botao = form.querySelector('button[type=submit]');
+
+    // _t é o horário do CARREGAMENTO. A página é estática: um valor vindo do
+    // build seria o horário do build, e a checagem de tempo mínimo do
+    // servidor nunca dispararia. Sem JS ele fica vazio, e o servidor então
+    // pula essa checagem em vez de barrar quem não tem script.
+    document.getElementById('form-t').value = String(Math.floor(Date.now() / 1000));
+
+    // A lista de anos vem do build. Reescrever no cliente é o que impede que
+    // ela envelheça num site estático que pode ficar meses sem rebuild.
+    var ano = document.getElementById('f-ano');
+    var atual = new Date().getFullYear();
+    if (ano && Number(ano.options[0].value) !== atual) {
+      ano.innerHTML = '';
+      for (var i = 0; i < 3; i++) {
+        var o = document.createElement('option');
+        o.value = o.textContent = String(atual + i);
+        ano.appendChild(o);
+      }
+    }
+
+    // Mês flexível não tem ano para escolher.
+    var mes = document.getElementById('f-mes');
+    var anoWrap = document.getElementById('form-ano-wrap');
+    function sincronizaAno() {
+      anoWrap.hidden = mes.value === 'flexivel' || mes.value === '';
+    }
+    mes.addEventListener('change', sincronizaAno);
+    sincronizaAno();
+
+    function limpaErros() {
+      form.querySelectorAll('[data-erro]').forEach(function (s) {
+        s.hidden = true;
+        s.textContent = '';
+        var campo = form.elements[s.getAttribute('data-erro')];
+        if (campo) campo.removeAttribute('aria-invalid');
+      });
+    }
+
+    function mostraErros(erros) {
+      var primeiro = null;
+      Object.keys(erros).forEach(function (nome) {
+        var span = form.querySelector('[data-erro="' + nome + '"]');
+        var campo = form.elements[nome];
+        if (!span) return;
+        span.textContent = textos.erro[erros[nome]] || textos.erro.invalido;
+        span.hidden = false;
+        if (campo) { campo.setAttribute('aria-invalid', 'true'); primeiro = primeiro || campo; }
+      });
+      resultado.hidden = false;
+      resultado.className = 'meta texto-erro';
+      resultado.textContent = textos.erroCampos;
+      if (primeiro) primeiro.focus();
+    }
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      limpaErros();
+      botao.disabled = true;
+      botao.textContent = textos.enviando;
+
+      try {
+        var r = await fetch(form.action, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(form),
+        });
+        // r.json() estoura se o corpo não for JSON — é o caso do 429 (limite
+        // de taxa) e do 500 (falha do servidor), que respondem texto puro.
+        // O catch abaixo cobre esse estouro do mesmo jeito que cobre queda
+        // de rede: mensagem genérica, nunca uma exceção não tratada.
+        var j = await r.json();
+        if (j && j.ok) {
+          // Trocar o formulário pela confirmação: deixá-lo na tela convida
+          // a mandar de novo, e envio duplicado gasta o tempo de quem vende.
+          form.innerHTML = '';
+          resultado.hidden = false;
+          resultado.className = 'emenda border-t pt-6';
+          resultado.innerHTML =
+            '<p class="etiqueta">' + textos.sucessoT + '</p>' +
+            '<p class="mt-2">' + textos.sucessoD + '</p>';
+          form.appendChild(resultado);
+          resultado.focus();
+          return;
+        }
+        if (j && j.erros && Object.keys(j.erros).length) { mostraErros(j.erros); }
+        else { throw new Error('sem detalhe'); }
+      } catch (erro) {
+        resultado.hidden = false;
+        resultado.className = 'meta texto-erro';
+        resultado.textContent = textos.erroGeral;
+        resultado.focus();
+      } finally {
+        if (botao.isConnected) { botao.disabled = false; botao.textContent = textos.enviar; }
+      }
+    });
+  })();
+</script>
