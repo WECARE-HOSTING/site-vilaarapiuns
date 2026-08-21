@@ -32,3 +32,11 @@ dist/
 
 # cache/estado local de ferramenta de review de UI (não é conteúdo do site)
 .impeccable/
+
+# scratch de ferramenta (config, cache de hook, críticas, perguntas).
+# Mesmo motivo do .firecrawl/ acima: é estado de trabalho, não entrega.
+.impeccable/
+
+# pasta de trabalho de edição em lote de fotos (original + _edit.jpg + log por foto).
+# Não é conteúdo do site — os _edit.jpg já foram copiados para src/assets/imgs/*.jpg.
+src/assets/imgs/Job_0027/
