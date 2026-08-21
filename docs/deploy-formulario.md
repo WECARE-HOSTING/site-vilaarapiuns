@@ -97,6 +97,11 @@ formulário manda — venda e auto-resposta.
 porta `465` (SSL). Confirme em **E-mail → Contas de E-mail → Configurar
 Cliente de E-mail** que esses valores continuam corretos para a conta nova.
 
+`site@` é caixa de **envio**, não de leitura: a auto-resposta sai com
+`Reply-To` apontando para `reservas@vilaarapiuns.com.br` (o mesmo alias
+de `$cfg['to']`), então quem aperta "responder" cai lá, não em `site@`.
+Não é preciso monitorar `site@` por causa disso.
+
 ## 5. Conferir SPF e DKIM
 
 Sem os dois, provedor grande (Gmail, Outlook) marca como spam ou rejeita

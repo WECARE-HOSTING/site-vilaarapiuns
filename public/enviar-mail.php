@@ -86,8 +86,15 @@ $autoAssunto = textoAuto($idioma, 'assunto', []);
 // falha (entrega que não saiu como devia) e tem de deixar rastro igual —
 // antes de decidir dryRun ou envio real, para valer nos dois.
 if ($origemCorpo === '') {
+  // Quando o idioma pedido já É 'en', as duas tentativas ([$idioma, 'en'])
+  // leem o MESMO arquivo — nomear "_i18n/en.json (e o de reserva, en.json)"
+  // citaria o mesmo arquivo duas vezes como se fossem dois. Só descreve o
+  // idioma de reserva quando ele é de fato outro arquivo.
+  $arquivosTentados = $idioma === 'en'
+    ? "_i18n/en.json"
+    : "_i18n/{$idioma}.json (e o de reserva, _i18n/en.json)";
   apendaComTeto($cfg['varDir'] . '/erros.log',
-    date('c') . " auto-resposta vazia — idioma={$idioma}: dicionário _i18n/{$idioma}.json (e o de reserva, en.json) ausente, ilegível, malformado ou sem a chave 'autoresp.corpo'\n");
+    date('c') . " auto-resposta vazia — idioma={$idioma}: dicionário {$arquivosTentados} ausente, ilegível, malformado ou sem a chave 'autoresp.corpo'\n");
 } elseif ($origemCorpo !== $idioma) {
   apendaComTeto($cfg['varDir'] . '/erros.log',
     date('c') . " auto-resposta em idioma de reserva ({$origemCorpo}) — idioma={$idioma}: dicionário _i18n/{$idioma}.json ausente, ilegível, malformado ou sem a chave 'autoresp.corpo'\n");
@@ -120,8 +127,14 @@ if ($cfg['dryRun']) {
   // um arquivo sem conteúdo nenhum, e uma falha de permissão em produção
   // ficava indistinguível de um dicionário simplesmente faltando.
   if ($autoCorpo !== '') {
+    // Reply-To vai para o alias de destino ($cfg['to']), o MESMO endereço
+    // que já recebe o e-mail de venda — não para site@, que é só remetente
+    // (criado como caixa de ENVIO, não de leitura; ver deploy-formulario.md
+    // §4). Sem isto, quem aperta "responder" na auto-resposta cai numa
+    // caixa que ninguém olha, e a promessa de resposta em 24h feita no
+    // corpo não tem como se cumprir por aquele caminho.
     @file_put_contents("{$destino}/{$stamp}-autoresposta.txt",
-      "To: {$email}\nSubject: {$autoAssunto}\n\n{$autoCorpo}");
+      "To: {$email}\nReply-To: {$cfg['to']}\nSubject: {$autoAssunto}\n\n{$autoCorpo}");
   }
   return;
 }
@@ -184,5 +197,7 @@ if (!enviaSmtp($cfg, $cfg['to'], $assunto, $corpo, [$email, $nome], $cfg['bcc'] 
 // Auto-resposta é cortesia. Falhar aqui NÃO derruba a submissão — o pedido
 // já está na caixa de quem vende, e é ela que fecha a venda.
 if ($autoCorpo !== '') {
-  enviaSmtp($cfg, $email, $autoAssunto, $autoCorpo, null, null);
+  // Mesmo alias de destino do Reply-To do dry-run acima — não um nome
+  // exibido, só o endereço mesmo, igual ao que já vale para $cfg['to'].
+  enviaSmtp($cfg, $email, $autoAssunto, $autoCorpo, [$cfg['to'], ''], null);
 }

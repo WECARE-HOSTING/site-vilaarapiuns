@@ -269,7 +269,27 @@ try {
   const auto = enviados().find((f) => f.endsWith('-autoresposta.txt'));
   ok('gravou a auto-resposta', Boolean(auto), enviados().join());
   const ar = readFileSync(join(varDir, 'enviados', auto), 'utf8');
-  ok('auto-resposta vai para o visitante', ar.includes('To: ana@example.com'));
+
+  // Dicionário de ORIGEM: mesma fonte que a asserção de igualdade do corpo,
+  // abaixo, já usa para provar ausência de eco. O Subject não leva trocas
+  // (enviar-mail.php chama textoAuto($idioma, 'assunto', []), com trocas
+  // vazio), então o esperado é o literal do dicionário, sem substituição.
+  const dicDe = JSON.parse(readFileSync('src/i18n/de.json', 'utf8'));
+
+  // verificaCabecalho() aqui é o próprio ponto do achado F1: antes desta
+  // asserção, o bloco de cabeçalho da auto-resposta só tinha uma checagem
+  // por substring (`ar.includes('To: ana@example.com')`) e o Subject não
+  // era conferido em lugar nenhum — a mesma lacuna de forma que a versão
+  // anterior desta suíte tinha para o e-mail de venda (ver comentário de
+  // verificaCabecalho() acima). Um `Bcc: {$cfg['bcc']}` colado aqui por
+  // engano — copiado do write de venda, catorze linhas acima em
+  // enviar-mail.php — vazaria o BCC privado do negócio para TODO visitante
+  // que preenche o formulário, e passaria batido pela suíte antiga.
+  verificaCabecalho('auto-resposta', ar, [
+    `To: ${VALIDO.email}`,
+    'Reply-To: reservas@vilaarapiuns.com.br',
+    `Subject: ${dicDe.autoresp.assunto}`,
+  ]);
 
   /**
    * Prova a PROPRIEDADE (nenhum dado do visitante ecoado), não uma
@@ -293,7 +313,6 @@ try {
    * dicionário e PHP divergirem por qualquer motivo, é este teste que
    * acusa primeiro.
    */
-  const dicDe = JSON.parse(readFileSync('src/i18n/de.json', 'utf8'));
   const corpoEsperado = dicDe.autoresp.corpo
     .replaceAll('{nome}', VALIDO.nome)
     .replaceAll('{whatsapp}', 'https://wa.me/5547992067078');
