@@ -12,6 +12,7 @@ export const PAGE_KEYS = [
   'gallery',
   'reviews',
   'book',
+  'bookSent',
 ] as const;
 
 export type PageKey = (typeof PAGE_KEYS)[number];
@@ -31,6 +32,7 @@ export const SLUGS: Record<PageKey, Record<Locale, string>> = {
   gallery:      { en: 'gallery',       pt: 'galeria',          es: 'galeria',        de: 'galerie',        ja: 'gallery' },
   reviews:      { en: 'reviews',       pt: 'avaliacoes',       es: 'opiniones',      de: 'bewertungen',    ja: 'reviews' },
   book:         { en: 'book',          pt: 'reservar',         es: 'reservar',       de: 'buchen',         ja: 'book' },
+  bookSent:     { en: 'book/sent',     pt: 'reservar/enviado', es: 'reservar/enviado', de: 'buchen/gesendet', ja: 'book/sent' },
 };
 
 /** Páginas que aparecem no menu principal. As demais são alcançadas por CTA. */
@@ -42,6 +44,22 @@ export const NAV_KEYS: PageKey[] = [
   'gettingHere',
   'gallery',
 ];
+
+/**
+ * Páginas que existem para o visitante mas não para o índice de busca.
+ *
+ * Fonte única: o `<meta robots>` do BaseLayout e o filtro do sitemap em
+ * astro.config.mjs leem daqui. Antes desta constante o filtro era a string
+ * '/styleguide' escrita à mão na config — o que funciona até a segunda
+ * página noindex, que em cinco idiomas são cinco strings soltas para
+ * alguém esquecer.
+ */
+export const NOINDEX_KEYS: readonly PageKey[] = ['bookSent'];
+
+/** Os caminhos noindex em todos os idiomas, para o filtro do sitemap. */
+export function caminhosNoindex(): string[] {
+  return NOINDEX_KEYS.flatMap((k) => Object.values(SLUGS[k]));
+}
 
 /** Monta a URL final de uma página num idioma: /pt/pacotes/ */
 export function href(locale: Locale, key: PageKey): string {

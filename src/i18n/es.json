@@ -1,4 +1,11 @@
 {
+  "enviado": {
+    "h1": "Su mensaje llegó",
+    "intro": "Alguien va a leerlo enseguida. No queda nada pendiente de su parte.",
+    "prazoT": "Respuesta",
+    "prazoD": "En un plazo de 24 horas, en el idioma en que escribió. Si tiene prisa, WhatsApp es más rápido.",
+    "voltar": "Volver al inicio"
+  },
   "site": {
     "name": "Villa Arapiuns",
     "tagline": "Posada en la Amazonía · Río Arapiuns, Pará"
@@ -13,6 +20,7 @@
     "gallery": "Galería",
     "reviews": "Opiniones",
     "book": "Reservar",
+    "bookSent": "Mensaje enviado",
     "menu": "Menú",
     "close": "Cerrar",
     "language": "Idioma"
@@ -57,7 +65,8 @@
     "gettingHere": "Cómo llegar a Villa Arapiuns: vuelo hasta Santarém, traslado a Alter do Chão y 1h30 de barco río arriba.",
     "gallery": "Fotos de Villa Arapiuns: los bungalós, el río, la selva y las comunidades del Arapiuns.",
     "reviews": "Lo que cuentan los huéspedes después de alojarse en Villa Arapiuns.",
-    "book": "Reserve su estadía en Villa Arapiuns por WhatsApp y hable directo con la casa."
+    "book": "Reserve su estadía en Villa Arapiuns por WhatsApp y hable directo con la casa.",
+    "bookSent": "Su mensaje llegó. Respondemos en un plazo de 24 horas."
   },
   "home": {
     "hookA": "Un Caribe de agua dulce y cálida, dentro de la selva.",

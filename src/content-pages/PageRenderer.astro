@@ -22,11 +22,12 @@ import Chegar from '@/content-pages/Chegar.astro';
 import Galeria from '@/content-pages/Galeria.astro';
 import Avaliacoes from '@/content-pages/Avaliacoes.astro';
 import Reservar from '@/content-pages/Reservar.astro';
+import Enviado from '@/content-pages/Enviado.astro';
 
 import { useTranslations } from '@/i18n/utils';
 import { SITE } from '@/data/site';
 import type { Locale } from '@/i18n/config';
-import type { PageKey } from '@/i18n/routes';
+import { NOINDEX_KEYS, type PageKey } from '@/i18n/routes';
 
 interface Props {
   locale: Locale;
@@ -54,12 +55,19 @@ const PAGINAS = {
   gallery: Galeria,
   reviews: Avaliacoes,
   book: Reservar,
+  bookSent: Enviado,
 } as const;
 
 const Interna = PAGINAS[pageKey as keyof typeof PAGINAS];
 ---
 
-<BaseLayout locale={locale} pageKey={pageKey} title={title} description={description}>
+<BaseLayout
+  locale={locale}
+  pageKey={pageKey}
+  title={title}
+  description={description}
+  indexavel={!NOINDEX_KEYS.includes(pageKey)}
+>
   <Header slot="header" locale={locale} pageKey={pageKey} />
 
   {pageKey === 'home' ? (

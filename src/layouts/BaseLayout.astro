@@ -12,18 +12,22 @@ interface Props {
   description: string;
   /** Caminho absoluto de uma imagem própria da página; cai no og.jpg do site. */
   image?: string;
+  /**
+   * Falso põe a página fora do índice E tira os hreflang: alternates de
+   * idioma numa página que não deve ser indexada não servem para nada.
+   */
+  indexavel?: boolean;
 }
 
-const { locale, pageKey, title, description, image } = Astro.props;
+const { locale, pageKey, title, description, image, indexavel = true } = Astro.props;
 const t = useTranslations(locale);
 
 const canonical = new URL(href(locale, pageKey), SITE.domain).toString();
 
 // hreflang recíproco: cada idioma aponta para o MESMO conteúdo no slug dele.
-const alternates = LOCALES.map((l) => ({
-  lang: HTML_LANG[l],
-  url: new URL(href(l, pageKey), SITE.domain).toString(),
-}));
+const alternates = indexavel
+  ? LOCALES.map((l) => ({ lang: HTML_LANG[l], url: new URL(href(l, pageKey), SITE.domain).toString() }))
+  : [];
 
 /**
  * O preview de link é o momento de aquisição real deste negócio: o WhatsApp é
@@ -81,6 +85,7 @@ if (SITE.contact.instagram) {
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {!indexavel && <meta name="robots" content="noindex, follow" />}
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="theme-color" content="#1d2418" />

@@ -1,4 +1,11 @@
 {
+  "enviado": {
+    "h1": "Your message arrived",
+    "intro": "Someone is about to read it. Nothing is left for you to do.",
+    "prazoT": "Reply",
+    "prazoD": "Within 24 hours, in the language you wrote in. If you're in a hurry, WhatsApp is faster.",
+    "voltar": "Back to the start"
+  },
   "site": {
     "name": "Villa Arapiuns",
     "tagline": "Amazon Lodge · Arapiuns River, Pará"
@@ -13,6 +20,7 @@
     "gallery": "Gallery",
     "reviews": "Reviews",
     "book": "Book",
+    "bookSent": "Message sent",
     "menu": "Menu",
     "close": "Close",
     "language": "Language"
@@ -57,7 +65,8 @@
     "gettingHere": "How to reach Villa Arapiuns: fly to Santarém, transfer to Alter do Chão and 90 minutes by boat upriver.",
     "gallery": "Photographs of Villa Arapiuns: the bungalows, the river, the forest and the Arapiuns communities.",
     "reviews": "What guests say after staying at Villa Arapiuns.",
-    "book": "Book your stay at Villa Arapiuns on WhatsApp and talk straight to the house."
+    "book": "Book your stay at Villa Arapiuns on WhatsApp and talk straight to the house.",
+    "bookSent": "Your message arrived. We reply within 24 hours."
   },
   "home": {
     "hookA": "A freshwater Caribbean, warm all year, inside the forest.",

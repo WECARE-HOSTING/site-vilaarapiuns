@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
+import { caminhosNoindex } from './src/i18n/routes.ts';
 
 export default defineConfig({
   site: 'https://vilaarapiuns.com.br',
@@ -26,8 +27,11 @@ export default defineConfig({
     // mais da árvore hidrata — ver src/components/CarrosselHero.tsx.
     react(),
     sitemap({
-      // A página de aprovação do design é interna: fora do sitemap.
-      filter: (page) => !page.includes('/styleguide'),
+      // '/styleguide' é a página interna de aprovação de design; os caminhos
+      // noindex vêm de NOINDEX_KEYS, uma fonte só para os cinco idiomas.
+      filter: (page) =>
+        !page.includes('/styleguide') &&
+        !caminhosNoindex().some((c) => page.includes(`/${c}/`)),
       i18n: { defaultLocale: 'en', locales: { en: 'en', pt: 'pt-BR', es: 'es', de: 'de', ja: 'ja' } },
     }),
   ],

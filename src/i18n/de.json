@@ -1,4 +1,11 @@
 {
+  "enviado": {
+    "h1": "Ihre Nachricht ist angekommen",
+    "intro": "Jemand wird sie gleich lesen. Für Sie bleibt nichts zu tun.",
+    "prazoT": "Antwort",
+    "prazoD": "Innerhalb von 24 Stunden, in der Sprache, in der Sie geschrieben haben. Wenn es eilt, ist WhatsApp schneller.",
+    "voltar": "Zurück zum Anfang"
+  },
   "site": {
     "name": "Villa Arapiuns",
     "tagline": "Lodge im Amazonasgebiet · Rio Arapiuns, Pará"
@@ -13,6 +20,7 @@
     "gallery": "Galerie",
     "reviews": "Bewertungen",
     "book": "Buchen",
+    "bookSent": "Nachricht gesendet",
     "menu": "Menü",
     "close": "Schließen",
     "language": "Sprache"
@@ -57,7 +65,8 @@
     "gettingHere": "So erreichen Sie die Villa Arapiuns: Flug nach Santarém, Transfer nach Alter do Chão und 1,5 Stunden mit dem Boot flussaufwärts.",
     "gallery": "Fotos der Villa Arapiuns: die Bungalows, der Fluss, der Wald und die Gemeinden des Arapiuns.",
     "reviews": "Was Gäste nach ihrem Aufenthalt in der Villa Arapiuns erzählen.",
-    "book": "Buchen Sie Ihren Aufenthalt in der Villa Arapiuns über WhatsApp und sprechen Sie direkt mit dem Haus."
+    "book": "Buchen Sie Ihren Aufenthalt in der Villa Arapiuns über WhatsApp und sprechen Sie direkt mit dem Haus.",
+    "bookSent": "Ihre Nachricht ist angekommen. Wir antworten innerhalb von 24 Stunden."
   },
   "home": {
     "hookA": "Eine Karibik aus Süßwasser, das ganze Jahr warm, mitten im Wald.",

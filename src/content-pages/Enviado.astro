@@ -1,0 +1,37 @@
+---
+/**
+ * ENVIADO — o pouso do caminho SEM JavaScript.
+ *
+ * Com JS, o formulário confirma na própria página e ninguém chega aqui. Ela
+ * existe porque `<form method="post">` nativo precisa de um lugar para ir, e
+ * porque um visitante com script bloqueado tem o mesmo direito de saber que
+ * a mensagem chegou.
+ *
+ * Fora do índice e fora do sitemap: é página de estado, não de conteúdo.
+ */
+import AberturaPagina from '@/components/AberturaPagina.astro';
+import { href } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/utils';
+import { whatsappUrl } from '@/data/site';
+import type { Locale } from '@/i18n/config';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<AberturaPagina titulo={t('enviado.h1')} intro={t('enviado.intro')} />
+
+<section class="pb-24">
+  <div class="container-editorial">
+    <div class="max-w-2xl">
+      <p class="etiqueta">{t('enviado.prazoT')}</p>
+      <p class="mt-2">{t('enviado.prazoD')}</p>
+
+      <p class="mt-10 flex flex-wrap gap-3">
+        <a href={whatsappUrl(t('whatsapp.geral'))} class="btn btn-primario">{t('cta.whatsapp')}</a>
+        <a href={href(locale, 'home')} class="btn btn-secundario">{t('enviado.voltar')}</a>
+      </p>
+    </div>
+  </div>
+</section>
