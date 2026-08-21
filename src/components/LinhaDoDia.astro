@@ -29,7 +29,7 @@ const { momentos, rotulos, tone = 'claro' } = Astro.props;
 const escuro = tone === 'escuro';
 ---
 
-<ol class:list={['relative', escuro ? 'text-salvia' : 'text-mata-funda']}>
+<ol class:list={['relative', escuro ? '' : '']}>
   {/* o rio: traçado à mão, com meandro — não um filete de 1px */}
   <svg
     viewBox="0 0 10 400"
@@ -37,7 +37,7 @@ const escuro = tone === 'escuro';
     aria-hidden="true"
     class:list={[
       'pointer-events-none absolute left-[3.9rem] top-4 bottom-4 w-2.5 sm:left-[5.15rem]',
-      escuro ? '' : 'text-ouro/70',
+      escuro ? 'text-sol/60' : 'text-ceu/55',
     ]}
     fill="none"
   >
@@ -59,11 +59,11 @@ const escuro = tone === 'escuro';
       <span class="relative flex justify-center pt-2" aria-hidden="true">
         {/* refeição = círculo cheio · comunidade = anel âmbar · demais = ponto pequeno */}
         {m.refeicao ? (
-          <span class:list={['block h-2.5 w-2.5 rounded-full', escuro ? 'bg-mata' : 'bg-ouro']}></span>
+          <span class:list={['block h-2.5 w-2.5 rounded-full', escuro ? 'bg-sol' : 'bg-ceu']}></span>
         ) : m.tipo === 'comunidade' ? (
-          <span class="block h-2.5 w-2.5 rounded-full border-2 border-terra-luz bg-transparent"></span>
+          <span class="block h-2.5 w-2.5 rounded-full border-2 border-coral-luz bg-transparent"></span>
         ) : (
-          <span class:list={['block h-1.5 w-1.5 rounded-full', escuro ? 'bg-mata/50' : 'bg-ouro/50']}></span>
+          <span class:list={['block h-1.5 w-1.5 rounded-full', escuro ? 'bg-sol/50' : 'bg-ceu/50']}></span>
         )}
       </span>
 
@@ -71,7 +71,7 @@ const escuro = tone === 'escuro';
         <p class="leading-snug">
           <span class:list={[m.refeicao ? 'font-medium' : '']}>{m.titulo}</span>
           {m.tipo === 'comunidade' && (
-            <span class="etiqueta ml-2 whitespace-nowrap align-middle text-terra-luz">{rotulos.comunidade}</span>
+            <span class="etiqueta ml-2 whitespace-nowrap align-middle text-coral-luz">{rotulos.comunidade}</span>
           )}
         </p>
         {m.detalhe && (
@@ -83,13 +83,13 @@ const escuro = tone === 'escuro';
 </ol>
 
 <p class:list={['mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 border-t pt-4 text-sm',
-  escuro ? 'border-salvia/15' : 'emenda']}>
+  escuro ? 'border-espuma/15' : 'emenda']}>
   <span class="flex items-center gap-2">
-    <span class:list={['h-2.5 w-2.5 rounded-full', escuro ? 'bg-mata' : 'bg-ouro']}></span>
+    <span class:list={['h-2.5 w-2.5 rounded-full', escuro ? 'bg-sol' : 'bg-ceu']}></span>
     {rotulos.incluso}
   </span>
   <span class="flex items-center gap-2">
-    <span class="h-2.5 w-2.5 rounded-full border-2 border-terra-luz"></span>
+    <span class="h-2.5 w-2.5 rounded-full border-2 border-coral-luz"></span>
     {rotulos.comunidade}
   </span>
 </p>

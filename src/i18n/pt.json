@@ -15,7 +15,7 @@
     "dining": "A Mesa",
     "experiences": "Experiências",
     "packages": "Pacotes",
-    "privateVilla": "Villa Privativa",
+    "privateVilla": "Grupos",
     "gettingHere": "Como Chegar",
     "gallery": "Galeria",
     "reviews": "Avaliações",
@@ -53,7 +53,8 @@
   },
   "whatsapp": {
     "geral": "Olá! Gostaria de saber mais sobre a Villa Arapiuns.",
-    "preco": "Olá! Queria saber o valor da diária na Villa Arapiuns."
+    "preco": "Olá! Queria saber o valor da diária na Villa Arapiuns.",
+    "grupo": "Olá! Gostaria de levar um grupo para a Villa Arapiuns."
   },
   "desc": {
     "home": "Treze bangalôs no Rio Arapiuns, a 1h30 de lancha de Alter do Chão. Fique dias com alimentação completa, ou venha num pacote com barco e roteiro fechados.",
@@ -61,7 +62,7 @@
     "dining": "A mesa da Villa Arapiuns: peixe do rio, farinha da comunidade, café passado na hora — e a Piracaia à beira-rio.",
     "experiences": "Trilhas, canoa, praia e oficinas com as comunidades ribeirinhas do Arapiuns.",
     "packages": "Pacotes saindo de Alter do Chão com barco, roteiro e meia pensão: uma noite com sete experiências, ou duas noites com dez.",
-    "privateVilla": "A Villa Arapiuns em uso exclusivo: os 13 bangalôs para um grupo só, com direito de exclusividade a partir de 15 pessoas.",
+    "privateVilla": "A Villa Arapiuns inteira para um grupo só: retiros, equipes de empresa, observação de aves e a pesca de mergulho noturna com os ribeirinhos. Exclusividade a partir de 15 pessoas.",
     "gettingHere": "Como chegar à Villa Arapiuns: voo até Santarém, traslado a Alter do Chão e 1h30 de barco rio acima.",
     "gallery": "Fotos da Villa Arapiuns: os bangalôs, o rio, a mata e as comunidades do Arapiuns.",
     "reviews": "O que os hóspedes contam depois de ficar na Villa Arapiuns.",
@@ -536,7 +537,7 @@
   },
   "privativa": {
     "h1": "A Villa inteira, só para o seu grupo",
-    "intro": "A partir de 15 pessoas, a Villa opera em exclusividade: os treze bangalôs, o pavilhão, o redário e a praia sem ninguém de fora.",
+    "intro": "A partir de 15 pessoas a Villa opera em exclusividade: os treze bangalôs, o pavilhão, o redário e a praia sem ninguém de fora. Vêm para cá retiros, equipes de empresa, quem observa aves e quem quer aprender a pesca de mergulho com os ribeirinhos.",
     "b1T": "Treze bangalôs",
     "b1D": "Até 26 hóspedes acomodados.",
     "b2T": "Exclusividade a partir de 15",
@@ -547,12 +548,61 @@
     "figGrupoAgua": "Um grupo na água · a Villa inteira reservada",
     "espacosT": "Onde o grupo se reúne",
     "espacosI": "Quatro espaços comuns, e na exclusividade eles são só do seu grupo: ninguém de fora entra na data.",
-    "figFimDeTarde": "Fim de tarde · a hora em que o grupo para junto",
     "espacoShala": "A shala · deck coberto de palha",
     "espacoRefeitorio": "O refeitório · mesas compridas",
     "espacoRodaFogo": "A roda de fogo · bancos de tronco",
     "espacoPraiaNoite": "A praia à noite · velas e fogueira",
-    "campoExclusividade": "exclusividade a partir de {n}"
+    "campoExclusividade": "exclusividade a partir de {n}",
+    "b4T": "A tarifa é por grupo",
+    "b4D": "Cai conforme o número de pessoas e de noites, e a Villa fechada tem condição própria. Traga as suas datas que a gente fecha o número.",
+    "b4M": "consulte",
+    "publicosT": "Quem vem em grupo",
+    "publicosI": "Quatro modos de ocupar a mesma casa. O que muda é o desenho do dia — a estrutura é sempre esta.",
+    "retiroT": "Retiros",
+    "retiroD": "O pavilhão de palha comporta o grupo inteiro sentado em roda, e a prática começa antes do café. Depois do dia ficam o redário entre as árvores, a praia e o rio, e nenhum horário de terceiro para respeitar. Retiros de yoga, de meditação e de formação já aconteceram aqui com a casa fechada.",
+    "figRetiro": "A roda no pavilhão · a casa fechada para um grupo",
+    "figRetiroAlt": "Roda de cerca de vinte pessoas sentadas em tapetes no piso de madeira do pavilhão de palha, voltadas para um facilitador em pé, com a mata visível pelos vãos abertos",
+    "corpT": "Empresas",
+    "corpD": "Espaço coberto para o time reunido, mesa comprida para trabalhar e o dia inteiro de atividade fora dela: trilha, canoa, farinhada com as comunidades. A equipe chega junta e não divide a casa com outro grupo.",
+    "corpConexao": "Sobre sinal, o combinado é claro. Há Starlink no local para o que não pode esperar, e ele não sustenta o time inteiro em reunião on-line ao mesmo tempo. O que esta viagem entrega não é escritório com vista: é o time no mesmo lugar, sem tela no meio — que costuma ser exatamente o motivo de trazer gente para cá.",
+    "figCorp": "O pavilhão de palha · onde o grupo se senta inteiro",
+    "figCorpAlt": "Pavilhão aberto de telhado de palha sobre piso de madeira, com espreguiçadeira, cercado pela mata",
+    "avesT": "Observação de aves",
+    "avesD": "A saída boa é a primeira: antes do sol, de canoa pelo igapó e a pé pela mata, com o guia da casa e com os moradores de Atodi, que caminham ali desde sempre. Não há torre nem mirante — há a hora certa, o silêncio e quem sabe onde olhar.",
+    "figAves": "Canoa no igapó · a saída da manhã",
+    "figAvesAlt": "Quatro pessoas dentro de uma canoa de madeira no igapó, entre troncos submersos e cipós, sobre água escura e parada",
+    "pescaT": "Pesca de mergulho noturna",
+    "pescaD": "Sai depois do jantar, na canoa dos moradores. A técnica é deles: lanterna na água, mergulho de apneia, zagaia. Quem ensina é quem pesca ali todo dia, e o que vem do rio naquela noite vai para a mesa.",
+    "pescaNota": "Atividade paga diretamente à comunidade e conduzida por quem tem o direito de pescar dentro da Reserva Extrativista Tapajós-Arapiuns. Não é pesca esportiva.",
+    "figPesca": "A mesa da noite · peixe assado à luz de vela",
+    "figPescaAlt": "Mesa de madeira à luz de velas com peixe assado em travessas, cuias de barro, farinha e pratos empilhados",
+    "respT": "Amazônia com responsabilidade",
+    "respI": "É o que um grupo precisa poder contar depois, e aqui não depende de boa vontade: são quatro fatos verificáveis.",
+    "respLista": [
+      {
+        "titulo": "O dinheiro entra na comunidade",
+        "detalhe": "Farinhada, tecelagem, massagem e a visita às comunidades são pagas diretamente às famílias que recebem o grupo. Não passam pela pousada.",
+        "medida": "pago à comunidade",
+        "marcado": true
+      },
+      {
+        "titulo": "O guia e a equipe são de lá",
+        "detalhe": "A cozinha, o barco e o caminho estão com quem mora no rio. É trabalho local, não roteiro trazido de fora.",
+        "medida": "equipe local"
+      },
+      {
+        "titulo": "Dentro de uma reserva extrativista",
+        "detalhe": "O Arapiuns corre dentro da RESEX Tapajós-Arapiuns, e o que se pesca ali segue o acordo de pesca da reserva.",
+        "medida": "RESEX Tapajós-Arapiuns"
+      },
+      {
+        "titulo": "O tamanho do grupo é o tamanho da casa",
+        "detalhe": "Treze bangalôs, no máximo 26 hóspedes. O limite não é posição de marketing: é quanto a Villa tem.",
+        "medida": "13 bangalôs · 26 hóspedes"
+      }
+    ],
+    "figGrupoInteiro": "O grupo inteiro · o fim do dia na praia",
+    "figGrupoInteiroAlt": "Cerca de vinte e cinco pessoas posadas juntas na areia da praia ao pôr do sol, em pé e agachadas na frente, com o rio e uma canoa ao fundo"
   },
   "galeria": {
     "h1": "A Villa, em fotografia",
@@ -805,7 +855,20 @@
     "erroCampos": "Confira os campos marcados.",
     "naoEnviouT": "Sua mensagem não foi enviada",
     "naoEnviouD": "Algum campo não foi aceito. Confira o formulário abaixo e envie de novo — ou fale no WhatsApp, que é mais rápido.",
-    "meses": ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"],
+    "meses": [
+      "janeiro",
+      "fevereiro",
+      "março",
+      "abril",
+      "maio",
+      "junho",
+      "julho",
+      "agosto",
+      "setembro",
+      "outubro",
+      "novembro",
+      "dezembro"
+    ],
     "interesses": {
       "pousada": "Pousada — só a estadia",
       "pacote": "Pacote saindo de Alter do Chão",

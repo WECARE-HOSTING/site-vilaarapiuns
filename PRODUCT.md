@@ -80,6 +80,27 @@ R$ 716. Acima de 26 hóspedes, consultar. **Direito de exclusividade a partir de
 - Atividades com as comunidades ribeirinhas existem e são pagas diretamente aos
   moradores — o que historicamente exigia que o hóspede levasse dinheiro em espécie.
 - Oferta adicional: a Villa privativa (uso exclusivo), a partir de 15 pessoas.
+  **Ampliado em 21/08/2026 por pedido do cliente**, e a página passou a chamar-se
+  "Grupos" no menu (entrou em `NAV_KEYS`; era alcançável só pelo rodapé). Quatro
+  públicos nomeados: **retiros** · **empresas** · **observação de aves** ·
+  **pesca de mergulho noturna**.
+  · *Aves*: atividade guiada, na primeira hora, de canoa e a pé, com o guia da casa
+    e com os moradores de Atodi. **Não existe torre nem mirante** — o cliente
+    confirmou que não há estrutura. **Nenhuma espécie pode ser nomeada**: a lista
+    não foi fornecida e a busca não achou lista pública para o Arapiuns. O acervo
+    tem UMA foto de ave, de espécie não identificada.
+  · *Pesca*: o nome local é **pesca de mergulho** / **pesca de zagaia**, à noite com
+    lanterna, apneia e zagaia, ensinada pelos moradores. **Não é pesca esportiva, e
+    não deve ser vendida como tal**: "pesca submarina" é vocabulário de arbalete e
+    licença IBAMA. O Arapiuns corre dentro da **RESEX Tapajós-Arapiuns, que tem
+    Acordo de Pesca formal** — isso é argumento a favor (quem conduz tem o direito
+    de pescar ali) e fecha a porta para promessa de pesca esportiva.
+  · *Empresas*: existe **espaço coberto** para o grupo inteiro sentado (o pavilhão
+    de palha) e **Starlink no local, para emergências**. Palavras do cliente em
+    21/08/2026: *não é desconexão total, mas não vai suportar um grupo inteiro
+    fazendo reunião on-line*. Ele pediu explicitamente que isso fosse escrito **de
+    forma equilibrada, sem denegrir a Villa**, exaltando a aproximação entre as
+    pessoas. Nunca prometer internet de trabalho nem sala equipada.
 - Bangalôs de **arquitetura tapajônica**, pé na areia, sobre palafitas. O termo
   do cliente é **bangalô**, não "cabana" — o site foi unificado nisso.
   **As unidades variam** (verificado nas fotos em 20/08/2026): `hero6.jpg` mostra
@@ -109,6 +130,12 @@ R$ 716. Acima de 26 hóspedes, consultar. **Direito de exclusividade a partir de
   repositório. Não referenciar contato de agência aqui nem em `site.ts`.
 
 **Em uso no site** desde 20/08/2026: os dois preços-piso da seção Modalidades.
+
+**Decidido em 21/08/2026 — grupo não leva número.** A página de Grupos diz que a
+tarifa cai conforme o número de pessoas e de noites e que a Villa fechada tem
+condição própria, **sem publicar valor nenhum**, e manda para o WhatsApp. O cliente
+escolheu essa via em vez de repetir o piso público ou autorizar cifra nova. A tabela
+de tarifas continua sendo documento confidencial de agência.
 
 **Confirmado em 20/08/2026:** crianças são permitidas (`childrenAllowed: true`).
 A informação aparece nas dúvidas de Como Chegar e no que pedir em Reservar,
@@ -182,7 +209,41 @@ Decisões explicitamente **abertas** — não inventar, não exibir até decidir
 - A coroa de contas é a única forma desta marca que nenhuma outra pousada tem, e é
   ela — não a espiral lisa, que é o glifo padrão de eco-lodge — que virou a marca de
   lista do site (`src/components/Voluta.astro`).
-- **Paleta da marca**, extraída dos pixels de `Assets/Docs/` em 20/08/2026 e
+- **PALETA EM USO desde 21/08/2026 — AREIA E MAR.** Trocada por decisão do
+  cliente, a partir de uma foto de referência dele: banco de areia dourada
+  avançando dentro do rio, água azul dos dois lados, céu azul-forte, linha de
+  mata no horizonte. O pedido foi literal — "uma coisa mais areia, sol, azul,
+  mar, água transparente".
+  Superfícies: areia **#fdf8ee** (chão) e **#f4e7cf** (faixa de seção).
+  Tipo: **#0d3244** (corpo) e **#17506a** (título). Cor alta: céu **#1b6aad**
+  (CTA e link, e só). Quente: **#ad7519** (régua) e **#8a5a1e** (etiqueta).
+  Sobre escuro: espuma **#cfe3ec** e sol **#e9bd68**.
+  **Não há terracota** — a foto de referência não tem nenhuma, e o quente dela
+  é a areia em três valores. Todos os pares passam AA; os números estão nos
+  comentários de `src/styles/global.css`.
+
+  **A INVERSÃO ESTRUTURAL que isto trouxe.** O site era escuro-dominante: chão
+  #1d2418 e faixas de seção mais CLARAS que o chão. Agora é claro-dominante, e
+  a escada de texto inverteu de direção — no escuro a voz que fala era a mais
+  clara, no claro é a mais escura. Consequência: nasceu o contexto
+  `.sobre-escuro`, que o CSS prometia num comentário desde a fase anterior e
+  que nunca existia. É ele que faz o rodapé, o fecho de cada página, o painel
+  do celular e o diálogo do mapa funcionarem sem que o componente saiba em que
+  fundo está.
+
+  **DUAS DÍVIDAS QUE A TROCA ABRIU, e continuam abertas:**
+  · **O logotipo é verde** (#617d54, medido três vezes no ativo de 2000px) e
+    hoje renderiza em azul, porque `Logo.astro` herda a cor do contexto. Na
+    tela isso faz o wordmark ler como parte do site, não como a marca. Decidir
+    é sobre a MARCA, não sobre o CSS: ou o logotipo passa a ter cor própria
+    fixa, ou aceita-se que ele acompanhe o site.
+  · **O impresso do cliente é verde** (plano tarifário e panfleto). Site e
+    impresso deixaram de casar, e a justificativa original da paleta anterior
+    era exatamente casar os dois. O cliente foi avisado disso antes de decidir.
+  · O **mapa** (`mapa-arapiuns.png`) é raster e continua verde.
+
+- Paleta ANTERIOR, substituída, mantida aqui porque as medições valem e porque
+  explica o que o site foi: extraída dos pixels de `Assets/Docs/` em 20/08/2026 e
   adotada no site por decisão do cliente (aproximar o site do impresso):
   verde **#2e3a27** (matiz 98°, idêntico nas páginas 1, 3 e 5 do plano
   tarifário) · creme **#f6f1e6** (páginas claras) · terracota **#b3683e**
@@ -217,8 +278,33 @@ Reais e no repositório:
   (o que era prometido, o que era listado) e anti-referência visual.
 - Dados estruturados do negócio em `src/data/site.ts` (localização, WhatsApp, atividades).
 
-**Biblioteca de mídia** em `Assets/Media/Fotos - Villa Arapiuns/` — 169 arquivos,
-401MB, avaliada em 20/08/2026. Nem tudo é utilizável:
+**Biblioteca de mídia, reorganizada e ampliada pelo cliente em 21/08/2026:
+2.201 imagens (~1,5 GB) e 37 vídeos**, numa estrutura numerada nova (`1 Site 2026`,
+`2 Anúncios`, `3 Acervo`, `4 Grupos e Retiros`, `5 Vídeos`, `6 Marca`).
+**O inventário completo está em `docs/acervo.md`** — o que existe, o que é refugo, o
+destino de cada bloco por página, e os furos que continuam. Não repetir aqui o que
+está lá; o essencial para decisão de produto é:
+
+- **Direito de imagem: liberado.** O cliente confirmou em 21/08/2026 que as pessoas
+  fotografadas autorizaram o uso e que **os direitos são da Villa, sem crédito
+  obrigatório**. Isso é o que permite mover foto de `Assets/` (gitignorado) para
+  `src/assets/imgs/` (versionado, **e o repositório é público**). Mesmo assim, quais
+  fotos de hóspede em traje de banho vão ao site é escolha editorial do cliente.
+- **Não nomear quem conduziu os retiros.** Três retiros estão documentados no acervo
+  e o nome de cada facilitador está no nome das pastas. Decisão do cliente em
+  21/08/2026: **esses nomes não vão ao site nem a documento versionado.**
+- **O acervo destrava o que o site não tem**: vista aérea de drone, a foto do grupo
+  inteiro, os retratos da equipe, o embarque em Alter do Chão, a piracaia com as
+  velas na areia, vitória-régia, e a marchetaria em close.
+- **Fatos que o acervo revela e o site ainda não afirma** — meliponário, macaco
+  guariba, banho de argila, canoagem no igapó, stand-up paddle, puxada de mãe,
+  tingimento de palha com urucum. **O acervo prova que a cena aconteceu, não que a
+  atividade esteja em oferta**; nada disso entra em texto sem confirmação.
+- **~1.100 fotos são retrato** e o site não tem nenhuma grelha vertical. Virou
+  frente própria por decisão do cliente, cobrindo Galeria, Equipe e Experiências.
+
+O acervo anterior — 169 arquivos, 401MB, avaliado em 20/08/2026 — descrevia assim o
+que ainda vale como leitura de qualidade:
 
 - **`Site 2026/`** — o material bom. Originais em resolução cheia organizados por
   seção: `hero1.jpg` (6240×4160), `hero3.jpg` e `sobre.jpg` (3072×2048), e quatro

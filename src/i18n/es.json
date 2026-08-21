@@ -15,7 +15,7 @@
     "dining": "La Mesa",
     "experiences": "Experiencias",
     "packages": "Paquetes",
-    "privateVilla": "Villa Privada",
+    "privateVilla": "Grupos",
     "gettingHere": "Cómo Llegar",
     "gallery": "Galería",
     "reviews": "Opiniones",
@@ -53,7 +53,8 @@
   },
   "whatsapp": {
     "geral": "¡Hola! Me gustaría saber más sobre Villa Arapiuns.",
-    "preco": "¡Hola! Quería saber el valor de la noche en Villa Arapiuns."
+    "preco": "¡Hola! Quería saber el valor de la noche en Villa Arapiuns.",
+    "grupo": "¡Hola! Me gustaría llevar un grupo a Villa Arapiuns."
   },
   "desc": {
     "home": "Trece bungalós en el río Arapiuns, a 1h30 en lancha desde Alter do Chão. Quédese varios días con pensión completa, o venga en un paquete con barco e itinerario ya cerrados.",
@@ -61,7 +62,7 @@
     "dining": "La mesa de Villa Arapiuns: pescado del río, harina de yuca de la comunidad, café recién hecho — y la Piracaia a la orilla del río.",
     "experiences": "Senderos, canoa, playa y talleres con las comunidades ribereñas del Arapiuns.",
     "packages": "Paquetes desde Alter do Chão con barco, itinerario y media pensión: una noche con siete experiencias, o dos noches con diez.",
-    "privateVilla": "Villa Arapiuns en uso exclusivo: los 13 bungalós para un solo grupo, con derecho de exclusividad a partir de 15 personas.",
+    "privateVilla": "La Villa Arapiuns entera para un solo grupo: retiros, equipos de empresa, observación de aves y la pesca a pulmón nocturna con los ribereños. Exclusividad a partir de 15 personas.",
     "gettingHere": "Cómo llegar a Villa Arapiuns: vuelo hasta Santarém, traslado a Alter do Chão y 1h30 de barco río arriba.",
     "gallery": "Fotos de Villa Arapiuns: los bungalós, el río, la selva y las comunidades del Arapiuns.",
     "reviews": "Lo que cuentan los huéspedes después de alojarse en Villa Arapiuns.",
@@ -536,7 +537,7 @@
   },
   "privativa": {
     "h1": "La Villa entera, solo para su grupo",
-    "intro": "A partir de 15 personas, la Villa opera en exclusividad: los trece bungalós, el pabellón, las hamacas y la playa sin nadie de fuera.",
+    "intro": "A partir de 15 personas la Villa opera en exclusividad: los trece bungalós, el pabellón, el hamaquero y la playa sin nadie de fuera. Vienen aquí retiros, equipos de empresa, quien observa aves y quien quiere aprender la pesca a pulmón con las familias que viven del río.",
     "b1T": "Trece bungalós",
     "b1D": "Hasta 26 huéspedes alojados.",
     "b2T": "Exclusividad a partir de 15",
@@ -547,12 +548,61 @@
     "figGrupoAgua": "Un grupo en el agua · la Villa entera reservada",
     "espacosT": "Donde el grupo se reúne",
     "espacosI": "Cuatro espacios comunes, y en la exclusividad son solo de su grupo: nadie de afuera entra en esa fecha.",
-    "figFimDeTarde": "Fin de la tarde · la hora en que el grupo se detiene junto",
     "espacoShala": "La shala · plataforma cubierta de paja",
     "espacoRefeitorio": "El comedor · mesas largas",
     "espacoRodaFogo": "La ronda del fuego · bancos de tronco",
     "espacoPraiaNoite": "La playa de noche · velas y fogata",
-    "campoExclusividade": "exclusividad a partir de {n}"
+    "campoExclusividade": "exclusividad a partir de {n}",
+    "b4T": "La tarifa es por grupo",
+    "b4D": "Baja según el número de personas y de noches, y la Villa cerrada tiene su propia condición. Tráiganos sus fechas y cerramos la cifra.",
+    "b4M": "consulte",
+    "publicosT": "Quién viene en grupo",
+    "publicosI": "Cuatro maneras de ocupar la misma casa. Lo que cambia es el diseño del día: la estructura es siempre esta.",
+    "retiroT": "Retiros",
+    "retiroD": "El pabellón de paja acoge al grupo entero sentado en círculo, y la práctica empieza antes del desayuno. Después del día quedan el hamaquero entre los árboles, la playa y el río, y ningún horario ajeno que respetar. Aquí ya se han hecho retiros de yoga, de meditación y de formación con la casa cerrada.",
+    "figRetiro": "El círculo en el pabellón · la casa cerrada para un grupo",
+    "figRetiroAlt": "Círculo de unas veinte personas sentadas en esterillas sobre el piso de madera del pabellón de paja, de cara a un facilitador de pie, con la selva visible por los vanos abiertos",
+    "corpT": "Empresas",
+    "corpD": "Espacio cubierto para el equipo reunido, mesa larga para trabajar y el día entero de actividad fuera de ella: sendero, canoa, farinhada con las comunidades. El equipo llega junto y no comparte la casa con otro grupo.",
+    "corpConexao": "Sobre la señal, el acuerdo es claro. Hay Starlink en el lugar para lo que no puede esperar, y no sostiene al equipo entero en una reunión en línea a la vez. Lo que entrega este viaje no es una oficina con vistas: es el equipo en el mismo sitio, sin pantalla en medio, que suele ser exactamente el motivo de traer gente hasta aquí.",
+    "figCorp": "El pabellón de paja · donde el grupo se sienta entero",
+    "figCorpAlt": "Pabellón abierto de techo de paja sobre piso de madera, con tumbona, rodeado de selva",
+    "avesT": "Observación de aves",
+    "avesD": "La buena salida es la primera: antes del sol, en canoa por el igapó y a pie por la selva, con el guía de la casa y con los habitantes de Atodi, que caminan allí desde siempre. No hay torre ni observatorio: hay la hora justa, el silencio y quien sabe dónde mirar.",
+    "figAves": "Canoa en el igapó · la salida de la mañana",
+    "figAvesAlt": "Cuatro personas dentro de una canoa de madera en el igapó, entre troncos sumergidos y lianas, sobre agua oscura y quieta",
+    "pescaT": "Pesca a pulmón nocturna",
+    "pescaD": "Sale después de la cena, en la canoa de los habitantes. La técnica es suya: linterna en el agua, buceo a pulmón, arpón de mano. Quien enseña es quien pesca allí todos los días, y lo que da el río esa noche va a la mesa.",
+    "pescaNota": "Actividad pagada directamente a la comunidad y conducida por quienes tienen derecho a pescar dentro de la Reserva Extractivista Tapajós-Arapiuns. No es pesca deportiva.",
+    "figPesca": "La mesa de la noche · pescado asado a la luz de las velas",
+    "figPescaAlt": "Mesa de madera a la luz de las velas con pescado asado en bandejas, cuencos de barro, harina de mandioca y platos apilados",
+    "respT": "Amazonía con responsabilidad",
+    "respI": "Es lo que un grupo necesita poder contar después, y aquí no depende de la buena voluntad: son cuatro hechos verificables.",
+    "respLista": [
+      {
+        "titulo": "El dinero entra en la comunidad",
+        "detalhe": "La farinhada, la tejeduría, el masaje y las visitas a las comunidades se pagan directamente a las familias que reciben al grupo. No pasan por la posada.",
+        "medida": "pagado a la comunidad",
+        "marcado": true
+      },
+      {
+        "titulo": "El guía y el equipo son de allí",
+        "detalhe": "La cocina, el barco y el camino están en manos de quienes viven del río. Es trabajo local, no un itinerario traído de fuera.",
+        "medida": "equipo local"
+      },
+      {
+        "titulo": "Dentro de una reserva extractivista",
+        "detalhe": "El Arapiuns corre dentro de la Reserva Extractivista Tapajós-Arapiuns, y lo que se pesca allí sigue el acuerdo de pesca de la reserva.",
+        "medida": "Reserva Tapajós-Arapiuns"
+      },
+      {
+        "titulo": "El grupo es del tamaño de la casa",
+        "detalhe": "Trece bungalós, veintiséis huéspedes como máximo. El límite no es una posición de marketing: es lo que la Villa tiene.",
+        "medida": "13 bungalós · 26 huéspedes"
+      }
+    ],
+    "figGrupoInteiro": "El grupo entero · el final del día en la playa",
+    "figGrupoInteiroAlt": "Unas veinticinco personas posando juntas en la arena de la playa al atardecer, de pie y en cuclillas delante, con el río y una canoa al fondo"
   },
   "galeria": {
     "h1": "La Villa, en fotografía",
@@ -805,7 +855,20 @@
     "erroCampos": "Revise los campos marcados.",
     "naoEnviouT": "Su mensaje no fue enviado",
     "naoEnviouD": "Algún campo no fue aceptado. Revise el formulario a continuación y envíelo de nuevo — o escríbanos por WhatsApp, que es más rápido.",
-    "meses": ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"],
+    "meses": [
+      "enero",
+      "febrero",
+      "marzo",
+      "abril",
+      "mayo",
+      "junio",
+      "julio",
+      "agosto",
+      "septiembre",
+      "octubre",
+      "noviembre",
+      "diciembre"
+    ],
     "interesses": {
       "pousada": "Posada — solo la estadía",
       "pacote": "Paquete saliendo de Alter do Chão",

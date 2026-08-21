@@ -24,7 +24,7 @@ let naoVerificavel = 0, checados = 0;
 
 for (const file of process.argv.slice(2)) {
   const doc = parseDocument(readFileSync(file, 'utf8'));
-  const walk = (node, bg, fg, tituloCor, dentroGradiente) => {
+  const walk = (node, bg, fg, tituloCor, etiquetaCor, dentroGradiente) => {
     if (node.type === 'text') {
       const t = node.data.trim();
       if (t && !dentroGradiente) {
@@ -34,7 +34,7 @@ for (const file of process.argv.slice(2)) {
       } else if (t && dentroGradiente) naoVerificavel++;
       return;
     }
-    if (node.type !== 'tag') { (node.children || []).forEach(c => walk(c, bg, fg, tituloCor, dentroGradiente)); return; }
+    if (node.type !== 'tag') { (node.children || []).forEach(c => walk(c, bg, fg, tituloCor, etiquetaCor, dentroGradiente)); return; }
 
     const cls = (node.attribs?.class || '').split(/\s+/);
     if (node.attribs?.['aria-hidden'] === 'true' || cls.includes('sr-only')) return;
@@ -42,19 +42,34 @@ for (const file of process.argv.slice(2)) {
 
     let g = dentroGradiente || cls.some(c => /^(bg-gradient|bg-linear)/.test(c));
 
-    if (cls.includes('sobre-claro')) { bg = TOK['creme']; fg = TOK['madeira-funda']; tituloCor = TOK['mata']; }
+    // O cabeçalho em modo "sobre foto" declara `bg-transparent sobre-escuro`:
+    // o que está ATRÁS dele é a fotografia do herói, e a legibilidade ali é
+    // garantida pelo véu em gradiente que é IRMÃO deste nó, não ancestral —
+    // então a herança de fundo não alcança. Medir contra o fundo da página
+    // daria falha onde não há falha. Mesma classe de caso que o gradiente.
+    if (cls.includes('bg-transparent') && cls.includes('sobre-escuro')) g = true;
+
+    // `sobre-escuro` NÃO define fundo — só o texto e o título. O fundo vem da
+    // classe bg-* irmã, então mexer em `bg` aqui daria falso negativo.
+    if (cls.includes('sobre-escuro')) { fg = TOK['espuma']; tituloCor = TOK['areia']; etiquetaCor = TOK['sol']; }
     for (const c of cls) {
       let m = /^bg-([a-z][a-z0-9-]*?)(?:\/(\d+))?$/.exec(c);
       if (m && TOK[m[1]]) { const v = resolve(m[1], m[2], bg); if (v) bg = v; }
       m = /^text-([a-z][a-z0-9-]*?)(?:\/(\d+))?$/.exec(c);
       if (m && TOK[m[1]]) { const v = resolve(m[1], m[2], bg); if (v) fg = v; }
       if (c === 'cor-titulo') fg = tituloCor;
+      // `etiqueta` pinta com var(--cor-etiqueta), que vira por contexto. Sem
+      // isto o verificador media a etiqueta com a cor do corpo — e a etiqueta
+      // é justamente o valor mais fraco da escada, o primeiro a reprovar.
+      if (c === 'etiqueta') fg = etiquetaCor;
     }
     if (['h1', 'h2', 'h3'].includes(node.name) && !cls.some(c => /^text-[a-z]/.test(c) && TOK[c.replace(/^text-/, '').split('/')[0]])) fg = tituloCor;
 
-    (node.children || []).forEach(c => walk(c, bg, fg, tituloCor, g));
+    (node.children || []).forEach(c => walk(c, bg, fg, tituloCor, etiquetaCor, g));
   };
-  walk(doc, TOK['mata-funda'], TOK['salvia'], TOK['creme'], false);
+  // Padrão do documento: chão de areia, corpo em tinta de mar, título em mar,
+  // etiqueta em areia molhada. Era o inverso até 21/08/2026.
+  walk(doc, TOK['areia-clara'], TOK['mar-fundo'], TOK['mar'], TOK['areia-funda'], false);
 }
 
 console.log(`  nós de texto checados: ${checados}  ·  sobre gradiente (não verificável estaticamente): ${naoVerificavel}`);

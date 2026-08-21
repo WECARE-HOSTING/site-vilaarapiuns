@@ -32,46 +32,52 @@
         e informação empacotada densa em vez de arejada em nada.
    ═══════════════════════════════════════════════════════════════════════════ */
 @theme {
-  /* ── VERDE DA MARCA ──
-        Valor EXATO da capa do plano tarifário: #2e3a27, matiz 98°, presente e
-        idêntico nas páginas 1, 3 e 5. Mais um degrau escuro para o chão.
-        Nota que importa: o verde do impresso está em 98° e o do panfleto em
-        102°; os tons sálvia das duas peças, em 60–65°. A folhagem das fotos
-        quantiza em 60–76°. Impresso e fotografia CONCORDAM — o verde-azulado
-        de 138° da fase anterior era o ponto fora da curva. ── */
-  --color-mata-funda: #1d2418;  /* chão da página */
-  --color-mata:       #2e3a27;  /* superfície de seção — valor da marca */
+  /* ═══ A PALETA DE AREIA E MAR ═══
+        Trocada em 21/08/2026 por decisão do cliente, a partir de uma foto de
+        referência dele: banco de areia dourada avançando dentro do rio, água
+        azul dos dois lados, céu azul-forte com nuvens finas, linha de mata no
+        horizonte. O que veio antes — verde-mata #2e3a27 com creme e terracota,
+        tirado dos pixels do plano tarifário — está registrado no PRODUCT.md.
 
-  /* ── CREME DA MARCA ──
-        Valor EXATO das páginas claras: #f6f1e6. Aqui o creme volta por
-        fidelidade de marca, não por default: é a superfície que o cliente
-        já imprime e distribui. É nela que mora a informação densa. ── */
-  --color-creme: #f6f1e6;
+        DUAS COISAS QUE ESTA TROCA CUSTA, e ficam ditas para não se perderem:
+          · o logotipo é VERDE (#617d54, medido três vezes no ativo de 2000px).
+            Ele continua verde sobre um site azul. Se isso incomodar, a decisão
+            seguinte é sobre a marca, não sobre o CSS.
+          · o impresso do cliente é verde. Site e impresso deixam de casar.
 
-  /* ── SÁLVIA: os meios-tons, ~47–65°, comuns ao impresso e às fotos ── */
-  --color-salvia:       #b4b69f;  /* corpo sobre escuro: 5,8 / 7,7:1 */
+        A INVERSÃO ESTRUTURAL. O site era escuro-dominante: chão #1d2418 e
+        faixas de seção mais CLARAS que o chão. Agora é claro-dominante — chão
+        de areia, faixa de areia mais clara, e o escuro virou raro: rodapé e o
+        fecho de cada página. Foi por isso que o `sobre-escuro` abaixo passou a
+        existir de verdade; ele era só uma promessa num comentário. ── */
 
-  /* ── OURO: o rótulo em caixa alta sobre a capa verde, ~39° ── */
-  --color-ouro: #c2ab80;  /* links, etiquetas e anel de foco no escuro */
+  /* ── AREIA: as superfícies. As duas se distinguem por 1,15× de luminância —
+        faixa visível como junta, não como degrau. ── */
+  --color-areia-clara: #fdf8ee;  /* chão da página — a areia seca ao sol */
+  --color-areia:       #f4e7cf;  /* superfície de seção — a areia da foto */
 
-  /* ── MADEIRA: o mogno dos interiores e o marrom-ouro do impresso ── */
-  --color-madeira:       #65552e;  /* uso restante: cor da barra de rolagem */
-  /* Nota de projeto: houve aqui um `madeira-luz` (#b29f7e, 6,19:1). Saiu
-     porque no valor legível deste chão ele é perceptualmente o mesmo que o
-     `ouro` (7,16:1) — dois tans quentes cumprindo papéis distintos achatam a
-     hierarquia. O marrom claro da marca sobrevive como `ouro`, no registro de
-     etiqueta. Hierarquia em fundo escuro é LUMINÂNCIA primeiro, tamanho e peso
-     depois, matiz por último; a versão anterior invertia essa ordem. */
+  /* ── AREIA MOLHADA: o quente, e é ele que substitui a terracota. A foto de
+        referência não tem terracota nenhuma; tem areia em três valores. ── */
+  --color-areia-sol:   #ad7519;  /* régua, borda, número: 3,72:1 e 3,22:1 */
+  --color-areia-funda: #8a5a1e;  /* etiqueta sobre areia: 5,57:1 e 4,82:1 */
 
-  /* ── TERRACOTA: o acento da marca, #b3683e, matiz 21,5° — exatamente o
-        matiz da luminária de fibra em gal3.jpg. Impresso e foto concordam.
-        Quatro valores porque UM não passa AA em lado nenhum: o de marca
-        (#b3683e) fica em 3,8:1 tanto sobre creme quanto sobre verde, o que
-        serve régua, borda e número grande, mas não rótulo de botão. ── */
-  --color-terra:       #b3683e;  /* o valor da marca: régua, borda, número */
-  --color-terra-funda: #9a5430;  /* preenchimento do CTA, rótulo creme: 5,1:1 */
-  --color-terra-hover: #84461f;  /* hover ESCURECE: sobe para 6,5:1 */
-  --color-terra-luz:   #d39268;  /* terracota como TEXTO sobre verde: 4,6:1 */
+  /* ── MAR: o tipo. O corpo do site é a água escura, não preto. ── */
+  --color-mar-fundo:   #0d3244;  /* corpo de texto: 12,7:1 · e o rodapé */
+  --color-mar:         #17506a;  /* título: 8,3:1 · e a faixa de fecho */
+
+  /* ── CÉU: a cor alta. É o azul do topo da foto, e é o único valor da paleta
+        que grita — por isso vive no CTA e no link, em nada mais. ── */
+  --color-ceu:         #1b6aad;  /* preenchimento do CTA e link: 5,3:1 */
+  --color-ceu-hover:   #12466f;  /* hover ESCURECE: sobe para 9,3:1 */
+
+  /* ── Sobre o escuro (rodapé e fecho), a escada se inverte ── */
+  --color-espuma:      #cfe3ec;  /* corpo sobre mar-fundo: 10,2:1 */
+  --color-sol:         #e9bd68;  /* etiqueta e anel de foco: 7,7:1 */
+  --color-coral-luz:   #efb391;  /* acento COM FUNÇÃO sobre escuro: 4,8:1 */
+
+  /* ── Erro: dois valores, porque o formulário existe nos dois contextos ── */
+  --color-erro:        #a3311a;  /* sobre areia: 6,6:1 */
+  --color-erro-luz:    #efb391;  /* sobre mar: 4,8:1 */
 
   /* ── Tipografia ──
      Display: a própria letra do logotipo. O wordmark ARAPIUNS não é de peso
@@ -125,17 +131,20 @@
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
     /* As partes que o navegador desenha também são o design. */
-    accent-color: var(--color-terra);
-    caret-color: var(--color-ouro);
-    scrollbar-color: var(--color-madeira) var(--color-mata-funda);
-    color-scheme: dark;
+    accent-color: var(--color-ceu);
+    caret-color: var(--color-mar);
+    scrollbar-color: var(--color-areia-sol) var(--color-areia-clara);
+    color-scheme: light;
   }
 
   body {
-    background-color: var(--color-mata-funda);
-    color: var(--color-salvia);
+    background-color: var(--color-areia-clara);
+    color: var(--color-mar-fundo);
     font-family: var(--font-sans);
-    font-weight: 400;  /* 400, não 350: claro sobre escuro aparenta mais fino */
+    /* 400 continua: o chão virou claro, e escuro sobre claro aparenta mais
+       GORDO, não mais fino. Descer para 350 seria a correção teórica; na
+       Archivo em 16px o 350 fica frouxo no celular, que é o caso normal. */
+    font-weight: 400;
     font-size: 1rem;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
@@ -152,26 +161,36 @@
 
   p { text-wrap: pretty; }
 
-  ::selection { background-color: var(--color-ouro); color: var(--color-mata-funda); }
+  ::selection { background-color: var(--color-sol); color: var(--color-mar-fundo); }
 
-  /* Anel de foco por contexto. O chão agora é escuro, então o padrão é palha
-     (8,5:1 sobre breu) e a cunha clara declara `sobre-claro` para virar mogno
-     (5,8:1). Um anel único não existe: 3:1 da SC 1.4.11 tem de valer nos dois. */
+  /* Anel de foco, título, etiqueta e emenda são POR CONTEXTO, e o padrão
+     mudou de lado: o chão agora é areia, então o padrão é tinta de mar e é a
+     faixa escura que declara `sobre-escuro`. Um anel único não existe — 3:1
+     da SC 1.4.11 tem de valer nos dois lados. */
   :root {
-    --anel-foco: var(--color-creme);
-    /* Sobre madeira escura o filete de embutido é a linha CLARA — é assim na
-       marchetaria real, e é o que o marrom sobre breu (2,25:1) não conseguia. */
-    --cor-emenda: color-mix(in srgb, var(--color-salvia) 65%, transparent);
-    /* O preenchimento terracota fica em 2,8:1 contra o verde: sozinho ele não
-       delimita o botão (SC 1.4.11 pede 3:1). A aresta vem do contexto. */
-    --aresta-cta: var(--color-ouro);
-    /* Título por CONTEXTO. Sem isto, um `text-mata` escrito quando a
-       superfície era clara vira verde-sobre-verde quando a seção fica
-       escura — foi exatamente o que aconteceu na lista de experiências. */
-    --cor-titulo: var(--color-creme);
-    /* A etiqueta é um REGISTRO, não um brilho: mesma luminância do corpo, matiz
-       diferente. Era digitada solta em 20+ lugares — origem da inconsistência. */
-    --cor-etiqueta: var(--color-ouro);
+    --anel-foco: var(--color-mar-fundo);          /* 12,7:1 sobre areia */
+    /* A emenda vai em 100% de areia-sol, sem alfa: a 85% cai para 2,96:1 e
+       reprova a SC 1.4.11. A régua do layout não pode ser decorativa. */
+    --cor-emenda: var(--color-areia-sol);         /* 3,72:1 */
+    /* O preenchimento do CTA agora é o céu, que sozinho já delimita o botão
+       (4,63:1 contra a faixa de areia). A aresta reforça no hover. */
+    --aresta-cta: var(--color-ceu-hover);
+    --cor-titulo: var(--color-mar);               /* 8,3:1 */
+    --cor-etiqueta: var(--color-areia-funda);     /* 5,6:1 */
+  }
+
+  /* ═══ SOBRE ESCURO ═══
+     O contexto que o comentário desta seção prometia desde a fase anterior e
+     que não existia: havia `--cor-titulo` por contexto, mas nenhum lugar que
+     o virasse. Agora existe, e é ele que faz o rodapé e o fecho de página
+     funcionarem sem que nenhum componente saiba em que fundo está. */
+  .sobre-escuro {
+    color: var(--color-espuma);
+    --anel-foco: var(--color-sol);
+    --cor-emenda: color-mix(in srgb, var(--color-espuma) 45%, transparent);
+    --aresta-cta: var(--color-sol);
+    --cor-titulo: var(--color-areia);
+    --cor-etiqueta: var(--color-sol);
   }
 
   :focus-visible {
@@ -229,19 +248,20 @@
   font-weight: 600;
 }
 
-/* ── A ESCADA DE TEXTO no chão escuro ──
-   TRÊS cores, não cinco. Cinco produziam quatro passos de 1,00× a 1,15× —
-   perceptualmente uma cor só, que foi exatamente a crítica recebida.
+/* ── A ESCADA DE TEXTO no chão de areia ──
+   TRÊS cores, e a escada INVERTEU de direção quando o chão clareou: no escuro
+   a voz que fala era a mais clara; aqui é a mais escura.
 
-   creme    14,2:1  A VOZ QUE FALA      título (display 600) e lead (20px 400)
-   salvia    7,7:1  A VOZ QUE INFORMA   corpo (16px) e meta (14px)
-   ouro      7,2:1  O REGISTRO          etiqueta, número, medida
+   mar-fundo  12,7:1  A VOZ QUE INFORMA   corpo (16px) e meta (14px)
+   mar         8,3:1  A VOZ QUE FALA      título (display 600) e lead (20px)
+   areia-funda 5,6:1  O REGISTRO          etiqueta, número, medida
 
-   O ouro ter o MESMO valor do corpo é correto para etiqueta: ela muda de
-   matiz, caixa, tracking, peso e fonte. O erro anterior foi ter três valores
-   quase iguais fingindo serem três degraus. Um passo decisivo (1,84×) entre
-   a voz que fala e a que informa vale mais que quatro passos indistinguíveis.
-   terra-luz entra só como acento com função.                               */
+   Note que agora o CORPO é o valor mais forte e o título é mais fraco — o
+   contrário do que era. Isso é correto e não é descuido: no claro a massa de
+   texto pequeno precisa da tinta cheia, e o display de 600 em 125% de largura
+   já carrega peso por tamanho e por forma. Repetir a hierarquia do escuro
+   aqui daria título preto e corpo cinza, que é o modo de falhar do tema claro.
+   coral-luz entra só como acento com função, e só sobre escuro.            */
 
 /* Abertura de seção. Um degrau de 1,8× de luminância acima do corpo: é o que
    separa "isto abre a seção" de "isto é o texto". */
@@ -249,7 +269,7 @@
   font-size: var(--text-intro);
   line-height: var(--text-intro--line-height);
   font-weight: 400;
-  color: var(--color-creme);
+  color: var(--cor-titulo);
   text-wrap: pretty;
 }
 
@@ -258,10 +278,11 @@
   font-size: 0.875rem;
   line-height: 1.55;
   /* MESMA cor do corpo, de propósito. Havia aqui um `salvia-funda` a 6,23:1,
-     que contra o corpo a 7,69:1 é um degrau de 1,15× — imperceptível, e nas
-     seções verdes ele encostava no piso do AA (4,69:1). Hierarquia falsa é
-     pior que nenhuma: aqui o degrau é o TAMANHO, que se lê. */
-  color: var(--color-salvia);
+     que contra o corpo a 7,69:1 era um degrau de 1,15× — imperceptível, e nas
+     seções escuras encostava no piso do AA. Hierarquia falsa é pior que
+     nenhuma: aqui o degrau é o TAMANHO, que se lê. Herda a cor do contexto,
+     então funciona igual na areia e no fecho escuro. */
+  color: inherit;
 }
 
 /* Números e horários: mesma condensada, algarismos alinhados em coluna. */
@@ -344,17 +365,17 @@
 }
 
 @utility btn-primario {
-  background-color: var(--color-terra-funda);
-  color: var(--color-creme);
+  background-color: var(--color-ceu);
+  color: var(--color-areia-clara);
   border-color: var(--aresta-cta);
-  &:hover { background-color: var(--color-terra-hover); }
+  &:hover { background-color: var(--color-ceu-hover); }
 }
 
 @utility btn-secundario {
   background-color: transparent;
-  color: var(--color-ouro);
-  border-color: color-mix(in srgb, var(--color-ouro) 55%, transparent);
-  &:hover { background-color: var(--color-ouro); color: var(--color-mata-funda); }
+  color: var(--cor-titulo);
+  border-color: color-mix(in srgb, var(--cor-titulo) 55%, transparent);
+  &:hover { background-color: var(--cor-titulo); color: var(--color-areia-clara); }
 }
 
 /* Comando do carrossel: o .btn-secundario reduzido ao alvo de toque mínimo da
@@ -371,7 +392,7 @@
    comando passa nos DOIS chãos escuros do sistema.
 
    Isto não é preciosismo de número: o carrossel é reutilizável, e os dois usos
-   de hoje estão sobre `mata-funda`. O terceiro, dentro de uma `secao bg-mata`
+   de hoje estão sobre `mata-funda`. O terceiro, dentro de uma `secao bg-mar`
    — que é o padrão mais comum destas páginas —, falharia em silêncio. */
 @utility seta-carrossel {
   display: inline-flex;
@@ -379,36 +400,39 @@
   justify-content: center;
   width: 2.75rem;
   height: 2.75rem;
-  color: var(--color-ouro);
-  border: 1px solid color-mix(in srgb, var(--color-ouro) 70%, transparent);
+  color: var(--cor-titulo);
+  border: 1px solid color-mix(in srgb, var(--cor-titulo) 70%, transparent);
   border-radius: 0;
   cursor: pointer;
   transition: background-color 0.25s, color 0.25s, border-color 0.25s;
   /* No hover o preenchimento é ouro cheio e o glifo vira mata-funda: 7,16:1,
      e o próprio preenchimento marca o limite a 7,16:1 contra o chão. */
   &:hover {
-    background-color: var(--color-ouro);
-    color: var(--color-mata-funda);
+    background-color: var(--cor-titulo);
+    color: var(--color-areia-clara);
   }
 }
 
 @utility link-texto {
-  color: var(--color-ouro);
+  color: var(--color-ceu);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.3em;
-  text-decoration-color: color-mix(in srgb, var(--color-ouro) 50%, transparent);
+  text-decoration-color: color-mix(in srgb, currentColor 50%, transparent);
   transition: text-decoration-color 0.2s;
   &:hover { text-decoration-color: currentColor; }
 }
 
-/* Sobre cunha clara. */
+/* Este utilitário apontava para `--color-madeira-funda`, um token que nunca
+   existiu no @theme — então não pintava nada e herdava a cor. Defeito
+   pré-existente, encontrado na troca de paleta. Agora serve o caso inverso do
+   `link-texto`: o link dentro de uma faixa escura. */
 @utility link-escuro {
-  color: var(--color-madeira-funda);
+  color: var(--color-sol);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.3em;
-  text-decoration-color: color-mix(in srgb, var(--color-madeira) 50%, transparent);
+  text-decoration-color: color-mix(in srgb, var(--color-sol) 50%, transparent);
   transition: text-decoration-color 0.2s;
   &:hover { text-decoration-color: currentColor; }
 }
@@ -423,19 +447,19 @@
 @utility campo-form {
   width: 100%;
   min-height: 3rem;
-  background-color: color-mix(in srgb, var(--color-creme) 6%, transparent);
-  color: var(--color-creme);
+  background-color: color-mix(in srgb, var(--color-mar-fundo) 5%, transparent);
+  color: var(--color-mar-fundo);
   border: 1px solid var(--cor-emenda);
   border-radius: 0;   /* marchetaria não tem raio */
   padding: 0.75rem 0.875rem;
   font-family: var(--font-sans);
   font-size: 1rem;
-  &::placeholder { color: color-mix(in srgb, var(--color-salvia) 70%, transparent); }
+  &::placeholder { color: color-mix(in srgb, var(--color-mar-fundo) 60%, transparent); }
 }
 
 /* Erro nunca é comunicado só por cor: vem com texto e com aria-invalid. */
 @utility texto-erro {
-  color: var(--color-terra-luz);
+  color: var(--color-erro);
 }
 
 /* ─── Aviso de falha do formulário sem JavaScript ────────────────────────

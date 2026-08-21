@@ -15,7 +15,7 @@
     "dining": "The Table",
     "experiences": "Experiences",
     "packages": "Packages",
-    "privateVilla": "Private Villa",
+    "privateVilla": "Groups",
     "gettingHere": "Getting Here",
     "gallery": "Gallery",
     "reviews": "Reviews",
@@ -53,7 +53,8 @@
   },
   "whatsapp": {
     "geral": "Hello! I'd like to know more about Villa Arapiuns.",
-    "preco": "Hello! I'd like to know the nightly rate at Villa Arapiuns."
+    "preco": "Hello! I'd like to know the nightly rate at Villa Arapiuns.",
+    "grupo": "Hello! I'd like to bring a group to Villa Arapiuns."
   },
   "desc": {
     "home": "Thirteen bungalows on the Arapiuns River, 90 minutes by boat from Alter do Chão. Stay for days with full board, or come on a package with the boat and itinerary already arranged.",
@@ -61,7 +62,7 @@
     "dining": "The table at Villa Arapiuns: river fish, cassava flour from the community, coffee brewed to order — and the Piracaia at the water's edge.",
     "experiences": "Trails, canoe, beach and workshops with the riverside communities of the Arapiuns.",
     "packages": "Packages departing from Alter do Chão with boat, itinerary and half board: one night with seven experiences, or two nights with ten.",
-    "privateVilla": "Villa Arapiuns for exclusive use: all 13 bungalows for a single group, with exclusivity from 15 people.",
+    "privateVilla": "The whole of Villa Arapiuns for one group: retreats, company teams, birdwatching and night dive-fishing with the families who live on the river. Exclusive use from 15 people.",
     "gettingHere": "How to reach Villa Arapiuns: fly to Santarém, transfer to Alter do Chão and 90 minutes by boat upriver.",
     "gallery": "Photographs of Villa Arapiuns: the bungalows, the river, the forest and the Arapiuns communities.",
     "reviews": "What guests say after staying at Villa Arapiuns.",
@@ -536,7 +537,7 @@
   },
   "privativa": {
     "h1": "The whole Villa, for your group alone",
-    "intro": "From 15 people, the Villa operates exclusively: the thirteen bungalows, the pavilion, the hammocks and the beach with nobody else around.",
+    "intro": "From 15 people the Villa runs on exclusive use: the thirteen bungalows, the pavilion, the hammock grove and the beach, with nobody from outside. Retreats come here, and so do company teams, birdwatchers, and people who want to learn dive-fishing from the families who live on the river.",
     "b1T": "Thirteen bungalows",
     "b1D": "Up to 26 guests accommodated.",
     "b2T": "Exclusivity from 15",
@@ -547,12 +548,61 @@
     "figGrupoAgua": "A group in the water · the whole Villa reserved",
     "espacosT": "Where the group gathers",
     "espacosI": "Four shared spaces, and with exclusive use they belong only to your group: no one from outside comes in on your dates.",
-    "figFimDeTarde": "Late afternoon · the hour the group pauses together",
     "espacoShala": "The shala · thatch-covered deck",
     "espacoRefeitorio": "The dining hall · long tables",
     "espacoRodaFogo": "The fire circle · tree-trunk benches",
     "espacoPraiaNoite": "The beach at night · candles and fire",
-    "campoExclusividade": "exclusive use from {n} guests"
+    "campoExclusividade": "exclusive use from {n} guests",
+    "b4T": "The rate is per group",
+    "b4D": "It comes down with the number of people and the number of nights, and booking the whole Villa has a rate of its own. Bring us your dates and we'll settle the figure.",
+    "b4M": "ask us",
+    "publicosT": "Who comes as a group",
+    "publicosI": "Four ways of using the same house. What changes is the shape of the day — the structure is always this one.",
+    "retiroT": "Retreats",
+    "retiroD": "The thatched pavilion holds the whole group seated in a circle, and practice starts before breakfast. After the day there are the hammocks among the trees, the beach and the river, and nobody else's schedule to work around. Yoga, meditation and teacher-training retreats have already been held here with the house closed.",
+    "figRetiro": "The circle in the pavilion · the house closed for one group",
+    "figRetiroAlt": "A circle of about twenty people sitting on mats on the wooden floor of the thatched pavilion, facing a facilitator who is standing, with the forest visible through the open bays",
+    "corpT": "Companies",
+    "corpD": "Covered space for the team together, a long table to work at, and a whole day of activity outside it: trail, canoe, cassava-flour making with the communities. The team arrives together and shares the house with no one else.",
+    "corpConexao": "About signal, let's be straight. There is Starlink on site for what cannot wait, and it will not carry the whole team through an online meeting at once. What this trip delivers is not an office with a view: it is the team in one place with no screen in between — which is usually the reason for bringing people out here at all.",
+    "figCorp": "The thatched pavilion · where the group sits all together",
+    "figCorpAlt": "Open pavilion with a thatched roof over a wooden floor, with a lounger, surrounded by forest",
+    "avesT": "Birdwatching",
+    "avesD": "The good outing is the first one: before the sun, by canoe through the flooded forest and on foot through the woods, with the guide from the lodge and with the residents of Atodi, who have always walked there. There is no tower and no hide — there is the right hour, the silence, and people who know where to look.",
+    "figAves": "Canoe in the flooded forest · the morning outing",
+    "figAvesAlt": "Four people inside a wooden canoe in the flooded forest, among submerged trunks and vines, on dark still water",
+    "pescaT": "Night dive-fishing",
+    "pescaD": "It goes out after dinner, in the residents' canoe. The technique is theirs: a lamp in the water, a free dive, a hand spear. The people teaching it are the people who fish there every day, and whatever the river gives that night goes to the table.",
+    "pescaNota": "Paid directly to the community and led by people who hold the right to fish inside the Tapajós-Arapiuns Extractive Reserve. This is not sport fishing.",
+    "figPesca": "The night table · fish grilled by candlelight",
+    "figPescaAlt": "Wooden table by candlelight with grilled fish on platters, clay bowls, cassava flour and stacked plates",
+    "respT": "The Amazon, responsibly",
+    "respI": "It is what a group needs to be able to say afterwards, and here it does not rest on goodwill: there are four verifiable facts.",
+    "respLista": [
+      {
+        "titulo": "The money goes into the community",
+        "detalhe": "Cassava-flour making, weaving, massage and the community visits are paid directly to the families who host the group. They do not pass through the lodge.",
+        "medida": "paid to the community",
+        "marcado": true
+      },
+      {
+        "titulo": "The guide and the crew are from there",
+        "detalhe": "The kitchen, the boat and the route are in the hands of people who live on the river. It is local work, not an itinerary brought in from outside.",
+        "medida": "local crew"
+      },
+      {
+        "titulo": "Inside an extractive reserve",
+        "detalhe": "The Arapiuns runs inside the Tapajós-Arapiuns Extractive Reserve, and what is fished there follows the reserve's fishing agreement.",
+        "medida": "Tapajós-Arapiuns Reserve"
+      },
+      {
+        "titulo": "The group is the size of the house",
+        "detalhe": "Thirteen bungalows, twenty-six guests at most. The limit is not a marketing position: it is what the Villa has.",
+        "medida": "13 bungalows · 26 guests"
+      }
+    ],
+    "figGrupoInteiro": "The whole group · the end of the day on the beach",
+    "figGrupoInteiroAlt": "About twenty-five people posing together on the beach sand at sunset, standing and crouching at the front, with the river and a canoe behind them"
   },
   "galeria": {
     "h1": "The Villa, in photographs",
@@ -805,7 +855,20 @@
     "erroCampos": "Check the highlighted fields.",
     "naoEnviouT": "Your message was not sent",
     "naoEnviouD": "Something in the form wasn't accepted. Check it below and send again — or write on WhatsApp, which is faster.",
-    "meses": ["January","February","March","April","May","June","July","August","September","October","November","December"],
+    "meses": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
     "interesses": {
       "pousada": "Lodge — stay only",
       "pacote": "Package departing from Alter do Chão",

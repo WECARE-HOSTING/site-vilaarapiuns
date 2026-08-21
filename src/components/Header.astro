@@ -22,14 +22,14 @@ const t = useTranslations(locale);
     'fixed inset-x-0 top-0 z-50 transition-[background-color,border-color] duration-300',
     'border-b py-4',
     sobreFoto
-      ? 'bg-transparent border-transparent text-salvia'
-      : 'bg-mata emenda text-salvia',
+      ? 'bg-transparent border-transparent text-areia sobre-escuro'
+      : 'bg-areia-clara emenda',
   ]}
 >
   {/* Véu no topo: o menu precisa continuar legível sobre folhagem clara. */}
   {sobreFoto && (
     <div
-      class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-32 bg-gradient-to-b from-mata-funda/88 to-transparent"
+      class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-32 bg-gradient-to-b from-mar-fundo/88 to-transparent"
       aria-hidden="true"
     ></div>
   )}
@@ -41,7 +41,7 @@ const t = useTranslations(locale);
 
     <!-- Menu em telas grandes -->
     <nav class="hidden lg:block" aria-label={t('nav.menu')}>
-      <ul class="flex items-center gap-8">
+      <ul class="flex items-center gap-5 xl:gap-8">
         {NAV_KEYS.map((k) => (
           <li>
             <a
@@ -78,7 +78,7 @@ const t = useTranslations(locale);
             <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" />
           </svg>
         </summary>
-        <ul class="emenda absolute right-0 top-full mt-2 min-w-44 border bg-mata py-1 text-salvia shadow-lg">
+        <ul class="emenda absolute right-0 top-full mt-2 min-w-44 border bg-areia-clara py-1 shadow-lg">
           {LOCALES.map((l) => (
             <li>
               <a
@@ -87,8 +87,8 @@ const t = useTranslations(locale);
                 lang={HTML_LANG[l]}
                 aria-current={l === locale ? 'true' : undefined}
                 class:list={[
-                  'flex items-center justify-between gap-4 px-4 py-3 text-sm hover:bg-madeira/30',
-                  l === locale ? 'text-ouro font-medium' : '',
+                  'flex items-center justify-between gap-4 px-4 py-3 text-sm hover:bg-areia',
+                  l === locale ? 'text-ceu font-medium' : '',
                 ]}
               >
                 {LOCALE_NAMES[l]}
@@ -111,7 +111,7 @@ const t = useTranslations(locale);
            JS e no teclado; o script só acrescenta Esc, trava de foco e scroll. -->
       <details class="group lg:hidden" data-menu>
         <summary
-          class="etiqueta -mr-2 flex min-h-11 cursor-pointer list-none items-center gap-2 px-2 group-open:fixed group-open:top-4 group-open:right-5 group-open:z-[70] group-open:text-salvia [&::-webkit-details-marker]:hidden"
+          class="etiqueta -mr-2 flex min-h-11 cursor-pointer list-none items-center gap-2 px-2 group-open:fixed group-open:top-4 group-open:right-5 group-open:z-[70] group-open:text-espuma [&::-webkit-details-marker]:hidden"
         >
           <span class="group-open:hidden">{t('nav.menu')}</span>
           <span class="hidden group-open:inline">{t('nav.close')}</span>
@@ -123,13 +123,13 @@ const t = useTranslations(locale);
           <span class="hidden text-base leading-none group-open:inline" aria-hidden="true">&times;</span>
         </summary>
 
-        <div class="fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-mata text-salvia">
+        <div class="fixed inset-0 z-[60] flex flex-col overflow-y-auto bg-mar-fundo sobre-escuro">
           <div class="container-editorial flex items-center py-4">
             <Logo />
           </div>
 
           <nav class="container-editorial flex-1 py-6" aria-label={t('nav.menu')}>
-            <ul class="divide-y divide-salvia/15">
+            <ul class="divide-y divide-espuma/15">
               {NAV_KEYS.map((k) => (
                 <li>
                   <a
@@ -137,7 +137,7 @@ const t = useTranslations(locale);
                     aria-current={k === pageKey ? 'page' : undefined}
                     class:list={[
                       'font-display block py-4 text-3xl',
-                      k === pageKey ? 'text-salvia underline decoration-1 underline-offset-[0.4rem]' : '',
+                      k === pageKey ? 'text-espuma underline decoration-1 underline-offset-[0.4rem]' : '',
                     ]}
                   >
                     {t(`nav.${k}`)}
@@ -148,7 +148,7 @@ const t = useTranslations(locale);
 
             <a href={href(locale, 'book')} class="btn btn-primario mt-8 w-full">{t('cta.book')}</a>
 
-            <div class="mt-10 border-t border-salvia/15 pt-6">
+            <div class="mt-10 border-t border-espuma/15 pt-6">
               <p class="etiqueta mb-3">{t('nav.language')}</p>
               <ul class="flex flex-wrap gap-x-5 gap-y-1">
                 {LOCALES.map((l) => (
@@ -160,7 +160,7 @@ const t = useTranslations(locale);
                       aria-current={l === locale ? 'true' : undefined}
                       class:list={[
                         'inline-block py-1.5 text-sm',
-                        l === locale ? 'text-salvia font-medium' : '',
+                        l === locale ? 'text-espuma font-medium' : '',
                       ]}
                     >
                       {LOCALE_NAMES[l]}
@@ -183,13 +183,13 @@ const t = useTranslations(locale);
 
   // Sobre foto, o cabeçalho só ganha fundo depois que a imagem sai da tela.
   if (cabecalho.hasAttribute('data-sobre-foto')) {
-    const solido = ['bg-mata', 'emenda', 'text-salvia'];
-    const transparente = ['bg-transparent', 'border-transparent'];
+    const solido = ['bg-areia-clara', 'emenda'];
+    const transparente = ['bg-transparent', 'border-transparent', 'text-areia', 'sobre-escuro'];
     const aoRolar = () => {
       const rolou = window.scrollY > window.innerHeight * 0.75;
       // Sem backdrop-filter aqui: ele cria bloco de contenção e o painel
       // `fixed inset-0` do menu, que é descendente do header, colapsaria
-      // para o tamanho da barra. E sobre bg-mata opaco o blur não faz nada.
+      // para o tamanho da barra. E sobre bg-mar opaco o blur não faz nada.
       solido.forEach((c) => cabecalho.classList.toggle(c, rolou));
       transparente.forEach((c) => cabecalho.classList.toggle(c, !rolou));
     };

@@ -137,7 +137,7 @@ export function CarrosselAcomodacoes({
     >
       {/* ── O QUADRO ──
              3:2, que é o aspect nativo das dez fotos: `object-cover` não corta
-             nada e a caixa nunca muda de altura entre folhas. `bg-mata` sob a
+             nada e a caixa nunca muda de altura entre folhas. `bg-mar` sob a
              pilha para que, no primeiro quadro de uma fusão, o vão não pisque a
              cor da seção. Foco vive AQUI, não nos botões, porque é o quadro que
              responde às setas do teclado.                                   ── */}
@@ -170,7 +170,7 @@ export function CarrosselAcomodacoes({
           }
           ir(info.offset.x < 0 ? index + 1 : index - 1);
         }}
-        className="relative aspect-[3/2] w-full cursor-grab overflow-hidden bg-mata active:cursor-grabbing"
+        className="relative aspect-[3/2] w-full cursor-grab overflow-hidden bg-areia active:cursor-grabbing"
       >
         {folhas.map((f, i) => (
           <motion.img
@@ -201,8 +201,8 @@ export function CarrosselAcomodacoes({
 
       {/* ── LEGENDA E COMANDO, em chão sólido ── */}
       <div className="mt-4 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1">
-        <p className="etiqueta text-ouro">{ativa.assunto}</p>
-        <p className="meta numero text-salvia">{ativa.legenda}</p>
+        <p className="etiqueta">{ativa.assunto}</p>
+        <p className="meta numero">{ativa.legenda}</p>
       </div>
 
       <div className="emenda mt-4 flex items-center justify-between gap-6 border-t pt-4">
@@ -231,7 +231,7 @@ export function CarrosselAcomodacoes({
           <span
             aria-hidden
             className={cn(
-              'etiqueta text-ouro transition-opacity duration-500 motion-reduce:transition-none',
+              'etiqueta transition-opacity duration-500 motion-reduce:transition-none',
               mexeu ? 'opacity-0' : 'opacity-100',
             )}
           >
@@ -244,13 +244,13 @@ export function CarrosselAcomodacoes({
         <div className="flex min-w-0 flex-1 items-center justify-end gap-4">
           <div className="emenda relative hidden h-px w-full max-w-40 border-t sm:block">
             <motion.div
-              className="absolute -top-px h-px bg-ouro"
+              className="absolute -top-px h-px bg-sol"
               style={{ width: `${100 / total}%` }}
               animate={{ left: `${(index / total) * 100}%` }}
               transition={reduzido ? { duration: 0 } : molaArraste}
             />
           </div>
-          <p className="numero etiqueta shrink-0 text-salvia">
+          <p className="numero etiqueta shrink-0">
             {String(index + 1).padStart(2, '0')}
             <span className="px-1 opacity-60">/</span>
             {String(total).padStart(2, '0')}

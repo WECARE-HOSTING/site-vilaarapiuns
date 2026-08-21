@@ -14,7 +14,7 @@ const colunaVisita = ['lodge', 'dining', 'gallery'] as const;
 const colunaReserva = ['packages', 'privateVilla', 'gettingHere', 'reviews', 'book'] as const;
 ---
 
-<footer class="bg-mata text-salvia">
+<footer class="bg-mar-fundo sobre-escuro">
   <div class="container-editorial py-16 md:py-20">
     <div class="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr] lg:gap-16">
       <div>
@@ -24,15 +24,15 @@ const colunaReserva = ['packages', 'privateVilla', 'gettingHere', 'reviews', 'bo
         </p>
 
         <div class="mt-8 flex flex-col gap-2 text-sm">
-          <a href={whatsappUrl(t('whatsapp.geral'))} class="link-texto w-fit text-salvia decoration-salvia/60">
+          <a href={whatsappUrl(t('whatsapp.geral'))} class="link-escuro w-fit">
             {t('cta.whatsapp')}
           </a>
           {SITE.contact.email && (
-            <a href={`mailto:${SITE.contact.email}`} class="link-texto w-fit text-salvia decoration-salvia/60">
+            <a href={`mailto:${SITE.contact.email}`} class="link-escuro w-fit">
               {SITE.contact.email}
             </a>
           )}
-          <a href={`tel:+${SITE.contact.whatsapp}`} class="link-texto w-fit text-salvia decoration-salvia/60">
+          <a href={`tel:+${SITE.contact.whatsapp}`} class="link-escuro w-fit">
             {telefoneLegivel()}
           </a>
         </div>
@@ -42,7 +42,7 @@ const colunaReserva = ['packages', 'privateVilla', 'gettingHere', 'reviews', 'bo
         <p id="rodape-visita" class="etiqueta mb-5">{t('footer.visita')}</p>
         <ul class="space-y-2.5 text-sm">
           {colunaVisita.map((k) => (
-            <li><a href={href(locale, k)} class="inline-block py-1 text-salvia hover:text-creme">{t(`nav.${k}`)}</a></li>
+            <li><a href={href(locale, k)} class="inline-block py-1 hover:text-areia">{t(`nav.${k}`)}</a></li>
           ))}
         </ul>
       </nav>
@@ -51,13 +51,13 @@ const colunaReserva = ['packages', 'privateVilla', 'gettingHere', 'reviews', 'bo
         <p id="rodape-reserva" class="etiqueta mb-5">{t('footer.reserva')}</p>
         <ul class="space-y-2.5 text-sm">
           {colunaReserva.map((k) => (
-            <li><a href={href(locale, k)} class="inline-block py-1 text-salvia hover:text-creme">{t(`nav.${k}`)}</a></li>
+            <li><a href={href(locale, k)} class="inline-block py-1 hover:text-areia">{t(`nav.${k}`)}</a></li>
           ))}
         </ul>
       </nav>
     </div>
 
-    <div class="mt-14 grid gap-6 border-t border-salvia/15 pt-8 md:grid-cols-2">
+    <div class="mt-14 grid gap-6 border-t border-espuma/15 pt-8 md:grid-cols-2">
       <dl class="grid grid-cols-2 gap-6 text-sm sm:max-w-md">
         <div>
           <dt class="etiqueta mb-1.5">{t('footer.local')}</dt>
@@ -81,7 +81,7 @@ const colunaReserva = ['packages', 'privateVilla', 'gettingHere', 'reviews', 'bo
                 aria-current={l === locale ? 'true' : undefined}
                 class:list={[
                   'inline-block py-1',
-                  l === locale ? 'text-salvia font-medium' : 'text-salvia hover:text-creme',
+                  l === locale ? 'text-areia font-medium' : 'hover:text-areia',
                 ]}
               >
                 {LOCALE_NAMES[l]}

@@ -281,7 +281,7 @@ const folhasAcomodacao = await Promise.all(
    enviado ao navegador; comentário de frontmatter não. */
 ---
 
-<section class="bg-mata-funda pt-header">
+<section class="bg-areia-clara pt-header">
   <div class="container-editorial">
 
     <div class="flex flex-col">
@@ -312,7 +312,7 @@ const folhasAcomodacao = await Promise.all(
           imagem no tamanho pedido. Medir dentro da página, não na foto dela. */}
       <h1 class="font-display text-[clamp(3.25rem,4.6vw,4rem)] leading-[1.02] tracking-[0.01em]">
         {t('home.hookA')}
-        <span class="block text-salvia">{t('home.hookB')}</span>
+        <span class="block text-ceu">{t('home.hookB')}</span>
       </h1>
 
       <div class="mt-8 flex flex-wrap gap-3">
@@ -335,14 +335,14 @@ const folhasAcomodacao = await Promise.all(
     </div>
 
     <div class="grid gap-8 py-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-end lg:gap-16 lg:py-16">
-      <p class="text-intro text-salvia">{t('home.intro')}</p>
+      <p class="text-intro">{t('home.intro')}</p>
       <div>
         <hr class="emenda border-t" />
         <Campo class="mt-5">
           {t('home.tiraMedidaBangalos').replace('{n}', String(SITE.capacity.cabins))}
-          <Voluta class="text-ouro" />
+          <Voluta class="text-areia-sol" />
           {t('home.tiraMedidaHospedes').replace('{n}', String(SITE.capacity.maxGuests))}
-          <Voluta class="text-ouro" />
+          <Voluta class="text-areia-sol" />
           {t('home.campoLancha').replace('{place}', SITE.location.departsFrom)}
         </Campo>
       </div>
@@ -373,7 +373,7 @@ const folhasAcomodacao = await Promise.all(
               <p class="mt-1">{e.detalhe}</p>
             </div>
             <p class="numero etiqueta col-start-2 mt-2 flex items-center gap-2 sm:col-start-3 sm:mt-1 sm:justify-end sm:text-right">
-              {e.incluso && <Voluta class="text-ouro" />}
+              {e.incluso && <Voluta class="text-areia-sol" />}
               {e.medida}
             </p>
           </li>
@@ -394,7 +394,7 @@ const folhasAcomodacao = await Promise.all(
 </section>
 
 <!-- ══════════════════ A CASA: o diferencial, o material ══════════════════ -->
-<section class="cunha-base secao bg-mata-funda">
+<section class="cunha-base secao bg-areia">
   <div class="container-editorial">
     <div class="grid gap-12 lg:grid-cols-2 lg:gap-20">
       <div class="order-2 lg:order-1">
@@ -424,7 +424,7 @@ const folhasAcomodacao = await Promise.all(
 </section>
 
 <!-- ══════════════════════ UM DIA NA VILLA ══════════════════════ -->
-<section class="secao bg-mata">
+<section class="secao bg-mar sobre-escuro">
   <div class="container-editorial">
     <div class="grid gap-12 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:gap-20">
       <div>
@@ -467,11 +467,11 @@ const folhasAcomodacao = await Promise.all(
           <dl class="mt-6 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2">
             <dt class="etiqueta pt-1">{t('modo.inclusoRot')}</dt>
             <dd class="flex items-start gap-2">
-              <Voluta class="mt-1.5 text-ouro" />
+              <Voluta class="mt-1.5 text-areia-sol" />
               <span>{m.inc}</span>
             </dd>
             <dt class="etiqueta pt-1">{t('modo.foraRot')}</dt>
-            <dd class="text-salvia">{m.fora}</dd>
+            <dd>{m.fora}</dd>
           </dl>
 
           <p class="emenda mt-auto border-t pt-6">
@@ -508,14 +508,14 @@ const folhasAcomodacao = await Promise.all(
     decoding="async"
     class="h-[65svh] min-h-80 w-full object-cover"
   />
-  <div class="absolute inset-0 flex items-end bg-gradient-to-t from-mata-funda via-mata-funda/70 to-mata-funda/20">
+  <div class="sobre-escuro absolute inset-0 flex items-end bg-gradient-to-t from-mar-fundo via-mar-fundo/70 to-mar-fundo/20">
     <div class="container-editorial pb-12 sm:pb-16">
-      <blockquote class="font-display container-texto text-secao text-creme sm:mx-0">
+      <blockquote class="font-display container-texto text-secao text-areia sm:mx-0">
         “{t('home.fechaQ')}”
       </blockquote>
       <Campo class="mt-4">
         {t('home.fechaA')}
-        <Voluta class="text-ouro" />
+        <Voluta class="text-areia-sol" />
         {t('home.fechaH')}
       </Campo>
 

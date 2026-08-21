@@ -15,7 +15,7 @@
     "dining": "Der Tisch",
     "experiences": "Erlebnisse",
     "packages": "Pakete",
-    "privateVilla": "Private Villa",
+    "privateVilla": "Gruppen",
     "gettingHere": "Anreise",
     "gallery": "Galerie",
     "reviews": "Bewertungen",
@@ -53,7 +53,8 @@
   },
   "whatsapp": {
     "geral": "Hallo! Ich würde gern mehr über die Villa Arapiuns erfahren.",
-    "preco": "Hallo! Ich würde gern den Übernachtungspreis der Villa Arapiuns erfahren."
+    "preco": "Hallo! Ich würde gern den Übernachtungspreis der Villa Arapiuns erfahren.",
+    "grupo": "Hallo! Ich würde gern mit einer Gruppe in die Villa Arapiuns kommen."
   },
   "desc": {
     "home": "Dreizehn Bungalows am Rio Arapiuns, 1,5 Stunden per Boot von Alter do Chão. Bleiben Sie mehrere Tage mit Vollpension, oder kommen Sie mit einem Paket, in dem Boot und Programm bereits feststehen.",
@@ -61,7 +62,7 @@
     "dining": "Der Tisch der Villa Arapiuns: Fisch aus dem Fluss, Maniokmehl aus der Gemeinde, frisch aufgebrühter Kaffee — und die Piracaia am Flussufer.",
     "experiences": "Wanderwege, Kanu, Strand und Werkstätten mit den Flussgemeinden des Arapiuns.",
     "packages": "Pakete ab Alter do Chão mit Boot, Programm und Halbpension: eine Nacht mit sieben Erlebnissen oder zwei Nächte mit zehn.",
-    "privateVilla": "Die Villa Arapiuns zur alleinigen Nutzung: alle 13 Bungalows für eine einzige Gruppe, mit Exklusivrecht ab 15 Personen.",
+    "privateVilla": "Die ganze Villa Arapiuns für eine Gruppe: Retreats, Firmenteams, Vogelbeobachtung und nächtliches Tauchfischen mit den Familien am Fluss. Exklusivnutzung ab 15 Personen.",
     "gettingHere": "So erreichen Sie die Villa Arapiuns: Flug nach Santarém, Transfer nach Alter do Chão und 1,5 Stunden mit dem Boot flussaufwärts.",
     "gallery": "Fotos der Villa Arapiuns: die Bungalows, der Fluss, der Wald und die Gemeinden des Arapiuns.",
     "reviews": "Was Gäste nach ihrem Aufenthalt in der Villa Arapiuns erzählen.",
@@ -536,7 +537,7 @@
   },
   "privativa": {
     "h1": "Die ganze Villa, nur für Ihre Gruppe",
-    "intro": "Ab 15 Personen arbeitet die Villa exklusiv: die dreizehn Bungalows, der Pavillon, die Hängematten und der Strand, ohne Fremde.",
+    "intro": "Ab 15 Personen läuft die Villa exklusiv: die dreizehn Bungalows, der Pavillon, der Hängemattenhain und der Strand, ohne Fremde. Hierher kommen Retreats, Firmenteams, Vogelbeobachter und wer das Tauchfischen von den Familien lernen möchte, die vom Fluss leben.",
     "b1T": "Dreizehn Bungalows",
     "b1D": "Platz für bis zu 26 Gäste.",
     "b2T": "Exklusivität ab 15",
@@ -547,12 +548,61 @@
     "figGrupoAgua": "Eine Gruppe im Wasser · die ganze Villa reserviert",
     "espacosT": "Wo die Gruppe zusammenkommt",
     "espacosI": "Vier Gemeinschaftsräume, die bei Exklusivnutzung ausschließlich Ihrer Gruppe gehören: An Ihrem Termin kommt niemand von außerhalb herein.",
-    "figFimDeTarde": "Später Nachmittag · die Stunde, in der die Gruppe gemeinsam innehält",
     "espacoShala": "Die Shala · strohgedeckte Terrasse",
     "espacoRefeitorio": "Der Speisesaal · lange Tische",
     "espacoRodaFogo": "Der Feuerkreis · Bänke aus Baumstämmen",
     "espacoPraiaNoite": "Der Strand bei Nacht · Kerzen und Feuer",
-    "campoExclusividade": "Exklusivität ab {n} Personen"
+    "campoExclusividade": "Exklusivität ab {n} Personen",
+    "b4T": "Der Preis gilt pro Gruppe",
+    "b4D": "Er sinkt mit der Zahl der Personen und der Nächte, und für die ganze Villa gilt ein eigener Satz. Nennen Sie uns Ihre Daten, dann steht die Zahl.",
+    "b4M": "auf Anfrage",
+    "publicosT": "Wer als Gruppe kommt",
+    "publicosI": "Vier Arten, dasselbe Haus zu nutzen. Was sich ändert, ist der Zuschnitt des Tages — die Struktur ist immer diese.",
+    "retiroT": "Retreats",
+    "retiroD": "Der Palmdach-Pavillon nimmt die ganze Gruppe im Kreis auf, und die Praxis beginnt vor dem Frühstück. Nach dem Tag bleiben die Hängematten zwischen den Bäumen, der Strand und der Fluss — und kein fremder Zeitplan. Yoga-, Meditations- und Ausbildungsretreats haben hier schon bei geschlossenem Haus stattgefunden.",
+    "figRetiro": "Der Kreis im Pavillon · das Haus für eine Gruppe geschlossen",
+    "figRetiroAlt": "Kreis von etwa zwanzig Menschen, die auf Matten auf dem Holzboden des Palmdach-Pavillons sitzen, einem stehenden Leiter zugewandt, der Wald durch die offenen Seiten sichtbar",
+    "corpT": "Unternehmen",
+    "corpD": "Überdachter Raum für das ganze Team, ein langer Tisch zum Arbeiten und ein ganzer Tag Aktivität draußen: Pfad, Kanu, Maniokmehl-Herstellung mit den Gemeinden. Das Team kommt zusammen an und teilt das Haus mit niemandem.",
+    "corpConexao": "Zum Netz das Klare: Es gibt Starlink vor Ort für das, was nicht warten kann, und es trägt nicht das ganze Team gleichzeitig durch eine Online-Besprechung. Was diese Reise liefert, ist kein Büro mit Aussicht, sondern das Team an einem Ort, ohne Bildschirm dazwischen — und das ist meist überhaupt der Grund, Menschen hierher zu bringen.",
+    "figCorp": "Der Palmdach-Pavillon · wo die Gruppe vollständig sitzt",
+    "figCorpAlt": "Offener Pavillon mit Palmdach über Holzboden, mit Liegestuhl, umgeben von Wald",
+    "avesT": "Vogelbeobachtung",
+    "avesD": "Die gute Ausfahrt ist die erste: vor der Sonne, mit dem Kanu durch den überfluteten Wald und zu Fuß durch den Wald, mit dem Guide des Hauses und mit den Bewohnern von Atodi, die dort seit immer gehen. Es gibt keinen Turm und kein Versteck — es gibt die richtige Stunde, die Stille und Menschen, die wissen, wohin man schaut.",
+    "figAves": "Kanu im überfluteten Wald · die Ausfahrt am Morgen",
+    "figAvesAlt": "Vier Menschen in einem Holzkanu im überfluteten Wald, zwischen versunkenen Stämmen und Lianen, auf dunklem stillem Wasser",
+    "pescaT": "Nächtliches Tauchfischen",
+    "pescaD": "Es geht nach dem Abendessen los, im Kanu der Bewohner. Die Technik ist ihre: Lampe im Wasser, Apnoetauchen, Handharpune. Wer es zeigt, fischt dort jeden Tag — und was der Fluss in dieser Nacht gibt, kommt auf den Tisch.",
+    "pescaNota": "Direkt an die Gemeinde bezahlt und geführt von Menschen mit dem Recht, innerhalb des Extraktivreservats Tapajós-Arapiuns zu fischen. Kein Sportfischen.",
+    "figPesca": "Der Tisch der Nacht · gegrillter Fisch bei Kerzenlicht",
+    "figPescaAlt": "Holztisch bei Kerzenlicht mit gegrilltem Fisch auf Platten, Tonschalen, Maniokmehl und gestapelten Tellern",
+    "respT": "Amazonien, verantwortlich",
+    "respI": "Es ist das, was eine Gruppe hinterher erzählen können muss, und hier hängt es nicht am guten Willen: es sind vier überprüfbare Tatsachen.",
+    "respLista": [
+      {
+        "titulo": "Das Geld kommt in der Gemeinde an",
+        "detalhe": "Maniokmehl-Herstellung, Weberei, Massage und die Besuche in den Gemeinden werden direkt an die Familien bezahlt, die die Gruppe empfangen. Es läuft nicht über die Lodge.",
+        "medida": "direkt an die Gemeinde",
+        "marcado": true
+      },
+      {
+        "titulo": "Guide und Mannschaft sind von dort",
+        "detalhe": "Küche, Boot und Weg liegen in den Händen von Menschen, die am Fluss leben. Das ist lokale Arbeit, kein von außen mitgebrachtes Programm.",
+        "medida": "lokale Mannschaft"
+      },
+      {
+        "titulo": "Innerhalb eines Extraktivreservats",
+        "detalhe": "Der Arapiuns verläuft im Extraktivreservat Tapajós-Arapiuns, und was dort gefischt wird, folgt dem Fischereiabkommen des Reservats.",
+        "medida": "Reservat Tapajós-Arapiuns"
+      },
+      {
+        "titulo": "Die Gruppe ist so groß wie das Haus",
+        "detalhe": "Dreizehn Bungalows, höchstens sechsundzwanzig Gäste. Die Grenze ist keine Marketinghaltung, sondern das, was die Villa hat.",
+        "medida": "13 Bungalows · 26 Gäste"
+      }
+    ],
+    "figGrupoInteiro": "Die ganze Gruppe · das Ende des Tages am Strand",
+    "figGrupoInteiroAlt": "Etwa fünfundzwanzig Menschen posieren zusammen im Strandsand bei Sonnenuntergang, stehend und vorn hockend, dahinter der Fluss und ein Kanu"
   },
   "galeria": {
     "h1": "Die Villa, in Fotografien",
@@ -805,7 +855,20 @@
     "erroCampos": "Bitte prüfen Sie die markierten Felder.",
     "naoEnviouT": "Ihre Nachricht wurde nicht gesendet",
     "naoEnviouD": "Bitte prüfen Sie Ihre Angaben im Formular unten und senden Sie es erneut — oder schreiben Sie uns über WhatsApp, das geht schneller.",
-    "meses": ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"],
+    "meses": [
+      "Januar",
+      "Februar",
+      "März",
+      "April",
+      "Mai",
+      "Juni",
+      "Juli",
+      "August",
+      "September",
+      "Oktober",
+      "November",
+      "Dezember"
+    ],
     "interesses": {
       "pousada": "Lodge — nur der Aufenthalt",
       "pacote": "Paket ab Alter do Chão",

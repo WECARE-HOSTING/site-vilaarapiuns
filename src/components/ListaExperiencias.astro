@@ -32,7 +32,7 @@ const { itens } = Astro.props;
 
 <ul>
   {itens.map((e) => (
-    <li class="grupo relative border-t border-mata/12 first:border-t-0">
+    <li class="grupo relative border-t border-mar/12 first:border-t-0">
       <a
         href={e.href ?? '#'}
         class="relative flex flex-col gap-1 py-7 outline-offset-8 md:py-9"
@@ -44,7 +44,7 @@ const { itens } = Astro.props;
             {e.nome}
           </span>
           <span class="mt-1 flex items-start gap-2.5">
-            <Voluta class="mt-1.5 text-ouro/70" />
+            <Voluta class="mt-1.5 text-areia-sol/80" />
             <span>{e.detalhe}</span>
           </span>
         </span>
@@ -80,7 +80,7 @@ const { itens } = Astro.props;
     position: absolute;
     inset: 0;
     overflow: hidden;
-    background: var(--color-salvia);
+    background: var(--color-espuma);
     box-shadow: 0 10px 26px -12px rgb(0 0 0 / 0.6);
   }
 

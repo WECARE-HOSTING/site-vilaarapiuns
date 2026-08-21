@@ -41,6 +41,12 @@ export const NAV_KEYS: PageKey[] = [
   'dining',
   'experiences',
   'packages',
+  // Entrou no menu em 21/08/2026. Era alcançável só pelo rodapé, e é a página
+  // que responde a retiro, corporativo, observação de aves e pesca de mergulho —
+  // as palavras que um organizador de grupo procura. O rótulo é "Grupos" e não
+  // "Villa Privativa" porque a fileira do desktop vai a sete itens; o h1 e o
+  // campo de exclusividade já carregam a palavra "privativa" onde ela informa.
+  'privateVilla',
   'gettingHere',
   'gallery',
 ];

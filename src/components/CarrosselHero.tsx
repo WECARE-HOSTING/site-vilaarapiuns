@@ -534,13 +534,13 @@ export function CarrosselHero({
                   if (arrastouRef.current) return;
                   goManual(i);
                 }}
-                className="relative shrink-0 overflow-hidden rounded-none bg-mata"
+                className="relative shrink-0 overflow-hidden rounded-none bg-areia"
                 style={{ width: strip.larguras[i] }}
                 animate={{ height: i === index ? fullH : halfH }}
                 transition={spring}
               >
                 {/* Fora da janela o card fica sendo só o seu retângulo em
-                    `bg-mata`. Ele já tem a largura certa, então entrar na
+                    `bg-mar`. Ele já tem a largura certa, então entrar na
                     janela não mexe no layout — só preenche. */}
                 {!naJanela(j) ? null : it.video ? (
                   <video
@@ -577,7 +577,7 @@ export function CarrosselHero({
                     cliente era exatamente sobre não ver as imagens. */}
                 <motion.span
                   aria-hidden
-                  className="absolute inset-0 bg-mata-funda"
+                  className="absolute inset-0 bg-mar-fundo"
                   animate={{ opacity: i === index ? 0 : 0.16 }}
                   transition={spring}
                 />
@@ -592,20 +592,20 @@ export function CarrosselHero({
                Agora os dois seguem o card, não a borda do palco.          ── */}
         <div className="absolute inset-x-0" style={{ top: fullH + 14 }}>
           <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1">
-            <p className="etiqueta text-ouro">{ativo.assunto}</p>
+            <p className="etiqueta">{ativo.assunto}</p>
             {ativo.medida ? (
-              <p className="numero etiqueta text-salvia">{ativo.medida}</p>
+              <p className="numero etiqueta">{ativo.medida}</p>
             ) : null}
           </div>
 
           <div className="mt-4 w-full max-w-[20rem]">
-            <div className="numero etiqueta flex items-baseline justify-between text-salvia">
+            <div className="numero etiqueta flex items-baseline justify-between">
               <span>{String(index + 1).padStart(2, '0')}</span>
               {rotuloArraste ? (
                 <span
                   aria-hidden
                   className={cn(
-                    'text-ouro transition-opacity duration-500 motion-reduce:transition-none',
+                    'transition-opacity duration-500 motion-reduce:transition-none',
                     mexeu ? 'opacity-0' : 'opacity-100',
                   )}
                 >
@@ -617,7 +617,7 @@ export function CarrosselHero({
             {/* A emenda: o filete claro do embutido, que é a régua deste sistema. */}
             <div className="emenda relative mt-2 h-px w-full border-t">
               <motion.div
-                className="absolute -top-px h-px bg-ouro"
+                className="absolute -top-px h-px bg-sol"
                 style={{ width: `${100 / items.length}%` }}
                 animate={{ left: `${(index / items.length) * 100}%` }}
                 transition={spring}

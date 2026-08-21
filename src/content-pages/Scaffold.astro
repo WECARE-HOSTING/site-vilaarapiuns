@@ -28,7 +28,7 @@ const FASE: Record<PageKey, string> = {
   </h1>
 
   <p class="mt-2">
-    <code class="bg-mata px-2 py-1 text-sm">{href(locale, pageKey)}</code>
+    <code class="emenda border bg-areia px-2 py-1 text-sm">{href(locale, pageKey)}</code>
     <span class="ml-2">— conteúdo entra na <strong class="cor-titulo">{FASE[pageKey]}</strong></span>
   </p>
 
@@ -43,8 +43,8 @@ const FASE: Record<PageKey, string> = {
             <a
               href={href(locale, k)}
               class:list={[
-                'underline underline-offset-4 decoration-madeira/70 hover:text-ouro',
-                k === pageKey ? 'text-creme font-medium' : 'text-salvia',
+                'underline underline-offset-4 decoration-areia-funda/70 hover:text-ceu',
+                k === pageKey ? 'text-ceu font-medium' : '',
               ]}
             >
               {k === 'home' ? t('site.name') : t(`nav.${k}`)}
@@ -64,8 +64,8 @@ const FASE: Record<PageKey, string> = {
               href={href(l, pageKey)}
               hreflang={l}
               class:list={[
-                'underline underline-offset-4 decoration-madeira/70 hover:text-ouro',
-                l === locale ? 'text-creme font-medium' : 'text-salvia',
+                'underline underline-offset-4 decoration-areia-funda/70 hover:text-ceu',
+                l === locale ? 'text-ceu font-medium' : '',
               ]}
             >
               {LOCALE_NAMES[l]}

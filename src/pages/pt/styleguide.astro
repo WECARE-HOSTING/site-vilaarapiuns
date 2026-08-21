@@ -94,25 +94,18 @@ const cores = [
 
     <main>
       <!-- ══════════ HERO ══════════ -->
-      <section class="relative min-h-[88svh] w-full overflow-hidden bg-mata-funda">
-        <Image
-          src={hero3}
-          alt="Três pessoas caminhando numa trilha de areia na floresta, o guia da Villa à frente"
-          widths={[800, 1280, 1920, 2400]}
-          sizes="100vw"
-          loading="eager"
-          fetchpriority="high"
-          class="absolute inset-0 h-full w-full object-cover object-[72%_center]"
+      <section class="sobre-escuro relative min-h-[88svh] w-full overflow-hidden bg-mar-fundo">
+        <Image src={hero3} alt="Três pessoas caminhando numa trilha de areia na floresta, o guia da Villa à frente" widths={[800, 1280, 1920, 2400]} sizes="100vw" loading="eager" fetchpriority="high" class="absolute inset-0 h-full w-full object-cover object-[72%_center]"
         />
         <!-- escurecimento só onde o texto pousa, para a foto não morrer -->
         {/* No celular a tela é estreita: só o véu vertical, senão a foto some.
             A partir de md entra o lateral, que abre a faixa escura do texto. */}
-        <div class="absolute inset-0 bg-gradient-to-t from-mata-funda/95 via-mata-funda/50 to-mata-funda/20"></div>
-        <div class="absolute inset-0 hidden bg-gradient-to-r from-mata-funda via-mata-funda/75 to-transparent to-65% md:block lg:to-58%"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-mar-fundo/95 via-mar-fundo/50 to-mar-fundo/20"></div>
+        <div class="absolute inset-0 hidden bg-gradient-to-r from-mar-fundo via-mar-fundo/75 to-transparent to-65% md:block lg:to-58%"></div>
 
         <div class="container-editorial relative flex min-h-[88svh] flex-col justify-end pb-10 pt-32 md:pb-12">
           <div class="max-w-[34rem] lg:max-w-[38rem]">
-            <h1 class="font-display text-display text-salvia">
+            <h1 class="font-display text-display ">
               Uma pousada na Amazônia.
               <span class="block">Não um passeio.</span>
             </h1>
@@ -132,7 +125,7 @@ const cores = [
               porque rótulo em cima de heading é o tique que denuncia a máquina —
               e porque aqui ela responde "onde fica e como chego", que é a
               primeira dúvida de quem vê a foto. */}
-          <Campo class="mt-12 border-t border-salvia/20 pt-5">
+          <Campo class="mt-12 border-t border-espuma/20 pt-5">
             <span>02°26′S&nbsp;&nbsp;55°16′W</span>
             <Voluta />
             <span>1h30 de barco de Alter do Chão</span>
@@ -142,8 +135,8 @@ const cores = [
         </div>
 
         <!-- Nota de campo: encosta na borda da foto, como anotação a lápis -->
-        <aside class="pointer-events-none absolute bottom-0 right-0 hidden max-w-xs bg-mata px-7 py-6 lg:block">
-          <Voluta class="mb-3 text-ouro" />
+        <aside class="sobre-escuro pointer-events-none absolute bottom-0 right-0 hidden max-w-xs bg-mar px-7 py-6 lg:block">
+          <Voluta class="mb-3 text-areia-sol" />
           <p class="text-sm leading-snug">
             À frente, o guia da Villa. Ninguém sai sozinho — e ninguém carrega mochila
             atrás de reserva de barco.
@@ -179,7 +172,7 @@ const cores = [
                   'Anfitrião local morando na Villa — não uma recepção que fecha às 18h.',
                 ].map((item) => (
                   <li class="flex gap-3.5">
-                    <Voluta class="mt-1.5 text-ouro" />
+                    <Voluta class="mt-1.5 text-areia-sol" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -188,14 +181,9 @@ const cores = [
 
             <!-- foto rompe o container e sangra até a borda direita da tela -->
             <div class="relative lg:mr-[calc(50%-50vw)]">
-              <Image
-                src={hero5}
-                alt="Área comum da Villa, com telhado de palha e estrutura de madeira"
-                widths={[600, 900, 1400]}
-                sizes="(min-width: 1024px) 55vw, 100vw"
-                class="aspect-[5/4] w-full object-cover lg:aspect-[4/3]"
+              <Image src={hero5} alt="Área comum da Villa, com telhado de palha e estrutura de madeira" widths={[600, 900, 1400]} sizes="(min-width: 1024px) 55vw, 100vw" class="aspect-[5/4] w-full object-cover lg:aspect-[4/3]"
               />
-              <figcaption class="numero absolute -top-3 left-4 bg-mata px-3 py-1.5 text-[0.625rem] uppercase tracking-[0.16em] lg:left-8">
+              <figcaption class="sobre-escuro numero absolute -top-3 left-4 bg-mar px-3 py-1.5 text-[0.625rem] uppercase tracking-[0.16em] lg:left-8">
                 Área comum · madeira e palha
               </figcaption>
             </div>
@@ -204,7 +192,7 @@ const cores = [
       </section>
 
       <!-- ══════════ EXPERIÊNCIAS ══════════ -->
-      <section class="secao border-t border-mata/10">
+      <section class="secao border-t border-mar/10">
         <div class="container-editorial">
           <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1fr)] lg:gap-x-20">
             <div>
@@ -223,11 +211,11 @@ const cores = [
       </section>
 
       <!-- ══════════ UM DIA NA VILLA ══════════ -->
-      <section class="secao bg-mata text-salvia">
+      <section class="secao bg-mar sobre-escuro">
         <div class="container-editorial">
           <div class="grid gap-14 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-x-24">
             <div>
-              <h2 class="font-display text-titulo text-salvia">Um dia na Villa</h2>
+              <h2 class="font-display text-titulo ">Um dia na Villa</h2>
               <hr class="emenda border-t" />
               <p class="text-intro">
                 Um dia com horário só existe onde tem cozinha, barco e equipe.
@@ -241,7 +229,7 @@ const cores = [
             </div>
 
             <div class="lg:pt-2">
-              <Campo class="mb-6 border-b border-salvia/15 pb-4">
+              <Campo class="mb-6 border-b border-espuma/15 pb-4">
                 Pacote de 1 diária <Voluta /> 06h30 às 21h00
               </Campo>
               <LinhaDoDia momentos={momentos} rotulos={rotulos} tone="escuro" />
@@ -252,16 +240,11 @@ const cores = [
 
       <!-- ══════════ NOITE ══════════ -->
       <section class="relative">
-        <Image
-          src={gal3}
-          alt="Varanda de uma bangalô à noite, com rede e luminária de fibra acesa"
-          widths={[900, 1400, 2000]}
-          sizes="100vw"
-          class="h-[60svh] w-full object-cover"
+        <Image src={gal3} alt="Varanda de uma bangalô à noite, com rede e luminária de fibra acesa" widths={[900, 1400, 2000]} sizes="100vw" class="h-[60svh] w-full object-cover"
         />
-        <div class="absolute inset-0 flex items-end bg-gradient-to-t from-mata-funda/85 to-transparent">
+        <div class="absolute inset-0 flex items-end bg-gradient-to-t from-mar-fundo/85 to-transparent">
           <div class="container-editorial pb-12">
-            <blockquote class="font-display max-w-2xl text-secao text-salvia">
+            <blockquote class="font-display max-w-2xl text-secao ">
               “Come bem, dorme fundo. Volta cansado do melhor jeito possível.”
             </blockquote>
             <Campo class="mt-4">Bangalô 7 <Voluta /> 21h40</Campo>
@@ -282,8 +265,8 @@ const cores = [
               <div class="grid grid-cols-4 gap-3">
                 {cores.map((c) => (
                   <div>
-                    <div class="aspect-square w-full border border-mata/12" style={`background:${c.hex}`}></div>
-                    <p class="numero mt-2 text-[0.625rem] uppercase tracking-[0.14em] text-salvia">{c.nome}</p>
+                    <div class="aspect-square w-full border border-mar/12" style={`background:${c.hex}`}></div>
+                    <p class="numero mt-2 text-[0.625rem] uppercase tracking-[0.14em] ">{c.nome}</p>
                     <p class="mt-1 text-xs leading-snug">{c.uso}</p>
                   </div>
                 ))}
@@ -298,14 +281,14 @@ const cores = [
               </div>
               <div class="mt-6 flex flex-wrap items-center gap-6">
                 <Logo />
-                <div class="bg-mata px-5 py-3"><Logo /></div>
+                <div class="sobre-escuro bg-mar px-5 py-3"><Logo /></div>
               </div>
             </div>
 
             <div>
               <p class="numero mb-5 text-[0.6875rem] uppercase tracking-[0.16em]">Tipografia</p>
               <p class="font-display cor-titulo text-titulo">Durma na floresta</p>
-              <p class="numero mt-3 text-xl text-salvia">07:00 · 13 bangalôs · 1h30 de barco</p>
+              <p class="numero mt-3 text-xl ">07:00 · 13 bangalôs · 1h30 de barco</p>
               <p class="mt-3">Texto corrido em Archivo, 350 de peso.</p>
             </div>
 
@@ -313,8 +296,8 @@ const cores = [
               <p class="numero mb-5 text-[0.6875rem] uppercase tracking-[0.16em]">Traço e marca de lista</p>
               <hr class="emenda border-t" />
               <ul class="mt-5 space-y-2">
-                <li class="flex gap-3"><Voluta class="mt-1.5 text-ouro" /><span>A voluta do seu logo, no lugar do check genérico.</span></li>
-                <li class="flex gap-3"><Voluta class="mt-1.5 text-ouro" /><span>Nenhum filete de 1px no site inteiro.</span></li>
+                <li class="flex gap-3"><Voluta class="mt-1.5 text-areia-sol" /><span>A voluta do seu logo, no lugar do check genérico.</span></li>
+                <li class="flex gap-3"><Voluta class="mt-1.5 text-areia-sol" /><span>Nenhum filete de 1px no site inteiro.</span></li>
               </ul>
             </div>
           </div>

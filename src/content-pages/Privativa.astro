@@ -12,20 +12,29 @@
  * mesma imagem, e é por isso que elas vivem aqui e não nas outras páginas.
  */
 import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import AberturaPagina from '@/components/AberturaPagina.astro';
 import ListaCorte from '@/components/ListaCorte.astro';
 import Campo from '@/components/Campo.astro';
 import Voluta from '@/components/Voluta.astro';
-import { useTranslations } from '@/i18n/utils';
+import { useTranslations, useList } from '@/i18n/utils';
 import { SITE, whatsappUrl } from '@/data/site';
 import type { Locale } from '@/i18n/config';
 
 import banhoRioGrupo from '@/assets/imgs/banho-rio-grupo.jpg';
-import porDoSolGrupo from '@/assets/imgs/porsol-gente.jpg';
 import deckYoga from '@/assets/imgs/deck-yoga.jpg';
 import arenaBancos from '@/assets/imgs/arena-bancos.jpg';
 import refeitorioMesas from '@/assets/imgs/refeitorio-mesas.jpg';
 import luauPraia from '@/assets/imgs/luau-praia.jpg';
+
+/* As duas fotos que este acervo tinha e o site não: a roda no pavilhão e o grupo
+   inteiro. Importadas do acervo em 21/08/2026, com autorização de imagem
+   confirmada pelo cliente e direitos da Villa. Ver docs/acervo.md. */
+import retiroRodaPavilhao from '@/assets/imgs/retiro-roda-pavilhao.jpg';
+import grupoPraiaInteiro from '@/assets/imgs/grupo-praia-inteiro.jpg';
+import pavilhaoPalha from '@/assets/imgs/pavilhao-palha.jpg';
+import igapoCanoaGrupo from '@/assets/imgs/igapo-canoa-grupo.jpg';
+import jantarPeixe from '@/assets/imgs/jantar-peixe.jpg';
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -35,7 +44,65 @@ const blocos = [
   { titulo: t('privativa.b1T'), detalhe: t('privativa.b1D'), medida: `${SITE.capacity.cabins} unidades` },
   { titulo: t('privativa.b2T'), detalhe: t('privativa.b2D'), medida: `${SITE.capacity.minGuestsPrivate}+ pessoas`, marcado: true },
   { titulo: t('privativa.b3T'), detalhe: t('privativa.b3D') },
+  /* A "condição especial" que o cliente quer anunciar vive aqui, e sem número:
+     a tabela de tarifas é documento confidencial de agência e o único valor
+     público autorizado é o piso da pousada. Ver PRODUCT.md. */
+  { titulo: t('privativa.b4T'), detalhe: t('privativa.b4D'), medida: t('privativa.b4M') },
 ];
+
+/* OS QUATRO PÚBLICOS. Existiam como uma linha solta em `b3D` ("casamento,
+   retiro, formação, aniversário") e nenhum deles era pesquisável nem
+   ilustrado. Cada um agora diz o que é e mostra a peça correspondente.
+   Onde há condição a declarar — o sinal no corporativo, o pagamento e a
+   reserva na pesca — ela vem como `nota`, no mesmo bloco, não em letra miúda
+   no fim da página. */
+interface Programa {
+  titulo: string;
+  texto: string;
+  /** Condição a declarar no próprio bloco: o sinal no corporativo, o pagamento
+   *  e a reserva na pesca. Só dois dos quatro têm. */
+  nota?: string;
+  foto: ImageMetadata;
+  legenda: string;
+  alt: string;
+}
+
+const PROGRAMAS: Programa[] = [
+  {
+    titulo: t('privativa.retiroT'),
+    texto: t('privativa.retiroD'),
+    foto: retiroRodaPavilhao,
+    legenda: t('privativa.figRetiro'),
+    alt: t('privativa.figRetiroAlt'),
+  },
+  {
+    titulo: t('privativa.corpT'),
+    texto: t('privativa.corpD'),
+    nota: t('privativa.corpConexao'),
+    foto: pavilhaoPalha,
+    legenda: t('privativa.figCorp'),
+    alt: t('privativa.figCorpAlt'),
+  },
+  {
+    titulo: t('privativa.avesT'),
+    texto: t('privativa.avesD'),
+    foto: igapoCanoaGrupo,
+    legenda: t('privativa.figAves'),
+    alt: t('privativa.figAvesAlt'),
+  },
+  {
+    titulo: t('privativa.pescaT'),
+    texto: t('privativa.pescaD'),
+    nota: t('privativa.pescaNota'),
+    /* Não existe foto da pescaria no acervo. Esta é a mesa, e a legenda diz
+       que é a mesa — fingir que é a pescaria seria mentir na legenda. */
+    foto: jantarPeixe,
+    legenda: t('privativa.figPesca'),
+    alt: t('privativa.figPescaAlt'),
+  },
+];
+
+const RESPONSABILIDADE = useList(locale)<{ titulo: string; detalhe: string; medida?: string; marcado?: boolean }>('privativa.respLista');
 
 /* Os espaços que um grupo ocupa junto. Cada legenda diz a peça, não o clima. */
 const ESPACOS = [
@@ -70,13 +137,61 @@ const ESPACOS = [
   <figcaption class="meta numero mt-3">{t('privativa.figGrupoAgua')}</figcaption>
 </figure>
 
-<section class="cunha-topo secao bg-mata">
+<section class="cunha-topo secao bg-areia">
   <div class="container-editorial">
     <ListaCorte itens={blocos} nivel="h2" />
     <p class="numero etiqueta mt-6">{t('privativa.nota')}</p>
     <p class="mt-10">
-      <a href={whatsappUrl(t('whatsapp.geral'))} class="btn btn-primario">{t('cta.checkAvailability')}</a>
+      <a href={whatsappUrl(t('whatsapp.grupo'))} class="btn btn-primario">{t('cta.checkAvailability')}</a>
     </p>
+  </div>
+</section>
+
+<!-- ═══════════ QUEM VEM EM GRUPO ═══════════ -->
+<section class="secao">
+  <div class="container-editorial">
+    <h2 class="font-display text-titulo">{t('privativa.publicosT')}</h2>
+    <p class="lead container-texto mt-4 sm:mx-0">{t('privativa.publicosI')}</p>
+
+    <div class="mt-12 grid gap-x-10 gap-y-14 sm:grid-cols-2 lg:gap-x-16">
+      {PROGRAMAS.map((prog) => (
+        <article>
+          <figure>
+            <Image
+              src={prog.foto}
+              alt={prog.alt}
+              widths={[480, 800, 1200]}
+              sizes="(min-width: 640px) 45vw, 100vw"
+              loading="lazy"
+              decoding="async"
+              class="aspect-[3/2] w-full object-cover"
+            />
+            <figcaption class="meta numero mt-3">{prog.legenda}</figcaption>
+          </figure>
+          <h3 class="font-display text-secao mt-6">{prog.titulo}</h3>
+          <p class="mt-3">{prog.texto}</p>
+          {prog.nota && (
+            <p class="emenda mt-4 flex items-start gap-2.5 border-t pt-4">
+              <Voluta class="mt-1.5 shrink-0 text-areia-sol" />
+              <span class="meta">{prog.nota}</span>
+            </p>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ AMAZÔNIA COM RESPONSABILIDADE ═══════════
+     O argumento que o comprador corporativo tem de poder repetir internamente
+     depois da viagem. Está em `ListaCorte` e não em prosa porque cada linha
+     assenta numa medida declarada — e porque nenhuma delas é promessa: são
+     fatos que já estão no PRODUCT.md e nos documentos do cliente. -->
+<section class="cunha-topo secao bg-areia">
+  <div class="container-editorial">
+    <h2 class="font-display text-titulo">{t('privativa.respT')}</h2>
+    <p class="lead container-texto mt-4 sm:mx-0">{t('privativa.respI')}</p>
+    <ListaCorte itens={RESPONSABILIDADE} class="mt-10" />
   </div>
 </section>
 
@@ -108,18 +223,26 @@ const ESPACOS = [
 </section>
 
 <!-- ═══════════ FECHAMENTO ═══════════ -->
-<section class="cunha-topo secao bg-mata">
+<section class="cunha-topo secao bg-mar sobre-escuro">
   <div class="container-editorial">
+    {/* Fecha com o grupo de frente, não de costas: a página inteira vende
+        "o seu grupo reunido aqui", e esta é a única foto do acervo que
+        mostra isso acontecido. Substituiu o pôr do sol de costas, que
+        continua vivo em Experiências. */}
     <figure>
       <Image
-        src={porDoSolGrupo}
-        alt="Fileira de pessoas sentadas na beira da praia, de costas, vendo o sol baixar sobre o rio e abrir um rastro dourado na água"
-        widths={[600, 900, 1290]}
+        src={grupoPraiaInteiro}
+        alt={t('privativa.figGrupoInteiroAlt')}
+        widths={[600, 900, 1400, 2048]}
         sizes="(min-width: 1280px) 76rem, 100vw"
         loading="lazy" decoding="async"
-        class="aspect-[21/9] w-full object-cover"
+        class="aspect-[16/9] w-full object-cover"
       />
-      <figcaption class="meta numero mt-3">{t('privativa.figFimDeTarde')}</figcaption>
+      <figcaption class="meta numero mt-3">{t('privativa.figGrupoInteiro')}</figcaption>
     </figure>
+
+    <p class="mt-10">
+      <a href={whatsappUrl(t('whatsapp.grupo'))} class="btn btn-primario">{t('cta.checkAvailability')}</a>
+    </p>
   </div>
 </section>
