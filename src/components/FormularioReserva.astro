@@ -18,7 +18,6 @@
  * definição.
  */
 import { useTranslations, useList } from '@/i18n/utils';
-import { SITE } from '@/data/site';
 import type { Locale } from '@/i18n/config';
 
 interface Props { locale: Locale }
@@ -69,7 +68,7 @@ const pessoas = ['1', '2', '3-6', '7-14', '15-26'] as const;
 
       <p class="grid gap-1.5">
         <label for="f-whatsapp" class="etiqueta">{t('form.whatsapp')} <span class="opacity-70">({t('form.opcional')})</span></label>
-        <input type="tel" id="f-whatsapp" name="whatsapp" maxlength="20" autocomplete="tel"
+        <input type="tel" id="f-whatsapp" name="whatsapp" minlength="8" maxlength="20" autocomplete="tel"
                aria-describedby="e-whatsapp" class="campo-form" />
         <span id="e-whatsapp" data-erro="whatsapp" class="meta texto-erro" hidden></span>
       </p>
@@ -88,18 +87,27 @@ const pessoas = ['1', '2', '3-6', '7-14', '15-26'] as const;
       <legend class="etiqueta">{t('form.quando')} <span class="opacity-70">({t('form.obrigatorio')})</span></legend>
       <div class="flex flex-wrap gap-3">
         <span class="grid gap-1.5">
-          <label for="f-mes" class="sr-only">{t('form.mes')}</label>
+          {/* A legenda do fieldset fala pelo grupo; quem depende de leitor de
+              tela só sabe QUAL dos dois é obrigatório se a etiqueta de cada
+              campo disser — daí o "(obrigatório)" aqui dentro, e não só lá. */}
+          <label for="f-mes" class="sr-only">{t('form.mes')} ({t('form.obrigatorio')})</label>
           <select id="f-mes" name="mes" required aria-describedby="e-mes" class="campo-form">
             <option value="">{t('form.escolha')}</option>
             {meses.map((m, i) => <option value={String(i + 1)}>{m}</option>)}
             <option value="flexivel">{t('form.flexivel')}</option>
           </select>
+          {/* Rótulo visível equivalente para quem vê a tela mas não tem como
+              ouvir a label sr-only. aria-hidden porque a mesma informação já
+              está na label acima — sem isso o leitor de tela diria "obrigatório"
+              duas vezes por campo. */}
+          <span class="meta" aria-hidden="true">({t('form.obrigatorio')})</span>
         </span>
         <span id="form-ano-wrap" class="grid gap-1.5">
-          <label for="f-ano" class="sr-only">{t('form.ano')}</label>
-          <select id="f-ano" name="ano" class="campo-form">
+          <label for="f-ano" class="sr-only">{t('form.ano')} ({t('form.opcional')})</label>
+          <select id="f-ano" name="ano" aria-describedby="e-ano" class="campo-form">
             {anos.map((a) => <option value={String(a)}>{a}</option>)}
           </select>
+          <span class="meta" aria-hidden="true">({t('form.opcional')})</span>
         </span>
       </div>
       <span id="e-mes" data-erro="mes" class="meta texto-erro" hidden></span>
