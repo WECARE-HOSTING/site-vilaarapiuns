@@ -12,7 +12,7 @@
 
 ## Global Constraints
 
-- **Contato único:** WhatsApp `5547992067078`, e-mail `gabriela@wecarehosting.com.br`. O número `5511969760096` sai do site inteiro.
+- **Contato único:** WhatsApp `5547992067078`, e-mail `reservas@vilaarapiuns.com.br` — **alias de função** encaminhando para a Gabriela, NÃO o endereço pessoal dela. O rodapé mostra o e-mail como texto visível, e a copy do site não nomeia quem atende. O número `5511969760096` sai do site inteiro.
 - **Remetente SMTP:** `site@vilaarapiuns.com.br`. **BCC:** `carlos@wecarehosting.com.br`. **Prazo prometido:** 24 horas.
 - **O repositório é público.** Nenhuma senha, em nenhum arquivo versionado, em nenhuma circunstância. Conferir `git diff` antes de todo commit.
 - **Nada de push, nada de deploy.** Publicar é fase separada e só com ordem direta do Carlos. Todos os commits ficam locais, no branch `redesign`.
@@ -217,7 +217,7 @@ Criar `tools/contato-unico.mjs`:
 import { readFileSync, globSync, existsSync } from 'node:fs';
 
 const PROIBIDO = ['5511969760096', '11969760096', '969760096', '96976-0096'];
-const OBRIGATORIO = ['5547992067078', 'gabriela@wecarehosting.com.br'];
+const OBRIGATORIO = ['5547992067078', 'reservas@vilaarapiuns.com.br'];
 
 const paginas = globSync('dist/**/*.html');
 if (paginas.length === 0) {
@@ -293,7 +293,7 @@ Em `src/data/site.ts`, substituir o bloco `contact` inteiro:
      * marcado PENDENTE desde a Fase 2; o bloco de e-mail do Footer já estava
      * escrito esperando por isto e acende sozinho agora.
      */
-    email: 'gabriela@wecarehosting.com.br',
+    email: 'reservas@vilaarapiuns.com.br',
     instagram: '@villaarapiuns',
   },
 ```
@@ -743,7 +743,7 @@ return [
 
   'from'     => 'site@vilaarapiuns.com.br',
   'fromName' => 'Villa Arapiuns',
-  'to'       => 'gabriela@wecarehosting.com.br',
+  'to'       => 'reservas@vilaarapiuns.com.br',
   'bcc'      => 'carlos@wecarehosting.com.br',
 
   /** true = grava o e-mail em arquivo em vez de enviar. É como se testa local. */
@@ -998,7 +998,7 @@ const varDir = mkdtempSync(join(tmpdir(), 'va-'));
 writeFileSync('va-config.php', `<?php return [
   'smtpHost' => '', 'smtpPort' => 465, 'smtpUser' => '', 'smtpPass' => '',
   'from' => 'site@vilaarapiuns.com.br', 'fromName' => 'Villa Arapiuns',
-  'to' => 'gabriela@wecarehosting.com.br',
+  'to' => 'reservas@vilaarapiuns.com.br',
   'bcc' => 'carlos@wecarehosting.com.br',
   'dryRun' => true,
   'varDir' => ${JSON.stringify(varDir)},
@@ -1049,6 +1049,7 @@ try {
   ok('avisa o idioma do visitante', email.includes('escreveu em Deutsch'));
   ok('Reply-To é o visitante', email.includes('Reply-To: Ana Silva <ana@example.com>'));
   ok('BCC de segurança presente', email.includes('Bcc: carlos@wecarehosting.com.br'));
+  ok('destino é o alias de função, não pessoa', email.includes('To: reservas@vilaarapiuns.com.br'));
   ok('mensagem verbatim, sem tradução', email.includes('Wir möchten im März kommen.'));
 
   // 2. Sem JS: 303 para a página de enviado no idioma certo
@@ -1367,7 +1368,7 @@ Em `tools/testa-endpoint.mjs`, ajustar `enviados()` e acrescentar, dentro do `tr
   ok('auto-resposta promete 24 horas', ar.includes('24 Stunden'));
   ok('auto-resposta NÃO ecoa o texto do visitante',
      !ar.includes('Wir möchten im März kommen.'), 'eco = relay de spam');
-  ok('auto-resposta não vaza o destino comercial', !ar.includes('gabriela@'));
+  ok('auto-resposta não vaza o destino comercial', !ar.includes('reservas@'));
 ```
 
 E no bloco 1, substituir as três linhas que localizam o e-mail:

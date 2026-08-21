@@ -9,7 +9,8 @@ Duas coisas, decididas na mesma conversa e implementadas juntas porque a segunda
 depende do dado da primeira.
 
 **1. O contato comercial mudou.** Todo contato de venda da Villa Arapiuns passa a
-ser com a Gabriela: `+55 47 99206-7078` e `gabriela@wecarehosting.com.br`. O site
+ser com a Gabriela: `+55 47 99206-7078` e, por e-mail, o alias de função
+`reservas@vilaarapiuns.com.br`, que encaminha para ela. O site
 hoje publica `+55 11 96976-0096` — o número do panfleto — em sete CTAs, no rodapé
 e no `telephone` do JSON-LD. Esse número sai do site inteiro.
 
@@ -33,6 +34,7 @@ se prometia canal que não existia. Agora o canal vai existir.
 | Prazo de resposta | **24 horas**, confirmado pelo Carlos |
 | Endereço do BCC | `carlos@wecarehosting.com.br` |
 | Caixa remetente | `site@vilaarapiuns.com.br` |
+| Destino do formulário | `reservas@vilaarapiuns.com.br` — **alias de função**, encaminha para a Gabriela |
 
 ## Arquitetura
 
@@ -43,7 +45,7 @@ contact: {
   /** Contato comercial ÚNICO. Confirmado por Carlos em 21/08/2026. */
   whatsapp: '5547992067078',
   /** Destino do formulário e do link de e-mail no rodapé. */
-  email: 'gabriela@wecarehosting.com.br',
+  email: 'reservas@vilaarapiuns.com.br',
   instagram: '@villaarapiuns',
 }
 ```
@@ -163,7 +165,7 @@ sem os valores:
 return [
   'smtpHost' => '', 'smtpPort' => 465, 'smtpUser' => '', 'smtpPass' => '',
   'from' => 'site@vilaarapiuns.com.br',
-  'to' => 'gabriela@wecarehosting.com.br',
+  'to' => 'reservas@vilaarapiuns.com.br',
   'bcc' => 'carlos@wecarehosting.com.br',
   'dryRun' => false,      // true = grava em arquivo em vez de enviar
   'logDir' => '',         // fora do webroot
@@ -274,13 +276,27 @@ Casos a verificar antes de aprovar:
 ## O que você precisa providenciar
 
 1. Criar a caixa `site@vilaarapiuns.com.br` com senha, para o SMTP
-2. PHP habilitado no plano
-3. SPF e DKIM do domínio conferidos — `To:` e `Bcc:` vão os dois para
-   `@wecarehosting.com.br`, outro domínio, então o alinhamento importa para não
-   cair em spam
-4. PHPMailer e `va-config.php` instalados uma vez acima do `public_html`
+2. Criar o alias `reservas@vilaarapiuns.com.br` encaminhando para `gabriela@wecarehosting.com.br`
+3. PHP habilitado no plano
+4. SPF e DKIM do domínio conferidos — o `Bcc:` vai para `@wecarehosting.com.br`,
+   outro domínio, então o alinhamento importa para não cair em spam
+5. PHPMailer e `va-config.php` instalados uma vez acima do `public_html`
 
-As quatro estão do seu lado da cerca, sendo você a WeCare.
+As cinco estão do seu lado da cerca, sendo você a WeCare.
+
+## Correção de 21/08/2026 — por que o e-mail é um alias e não a pessoa
+
+A primeira versão deste spec mandava publicar `gabriela@wecarehosting.com.br`
+direto. Um review na Tarefa 2 mostrou que isso **contradiz a decisão de copy
+impessoal** tomada no mesmo dia: o rodapé renderiza o e-mail como texto visível,
+então preencher esse campo punha o nome da pessoa em 51 páginas — exatamente o
+que a decisão de não nomear quem atende existia para evitar.
+
+O alias resolve os dois lados, e resolve melhor do que só esconder o endereço: o
+motivo declarado da copy impessoal era que contato comercial troca de mão. Um
+endereço pessoal publicado **morre** quando a pessoa sai, inclusive para o
+hóspede antigo que salvou o contato. Um alias sobrevive à troca sem que nada no
+site mude.
 
 ## As 24 horas são um compromisso operacional
 
