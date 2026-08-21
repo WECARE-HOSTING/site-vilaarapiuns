@@ -760,14 +760,14 @@
   },
   "reservar": {
     "h1": "Hablar con la casa",
-    "intro": "No hay formulario ni motor de reservas. Quien responde es quien recibe.",
-    "comoT": "Lo que ayuda decir de una vez",
+    "intro": "No hay motor de reservas ni carrito. Usted escribe — por WhatsApp o con este formulario — y quien responde es quien lo recibe.",
+    "comoT": "Si prefiere WhatsApp, ayuda decirlo todo de una vez",
     "c1": "Cuántas personas, y la edad de los niños si los hay",
     "c2": "Qué fechas tiene en mente, o cuántas noches",
     "c3": "Si quiere la posada o un paquete saliendo de Alter do Chão",
     "c4": "De dónde viene, para que pensemos el traslado",
     "respT": "Respuesta",
-    "respD": "Por WhatsApp, en el idioma en que usted escriba. Si la señal del río está mala, puede tardar algunas horas — no es descuido.",
+    "respD": "En un plazo de 24 horas, en el idioma en que usted escriba, por WhatsApp o correo.",
     "duasManeirasT": "Dos maneras de quedarse",
     "figVaranda": "La terraza que espera · hamaca y paja"
   },

@@ -760,14 +760,14 @@
   },
   "reservar": {
     "h1": "Falar com a casa",
-    "intro": "Não há formulário nem motor de reserva. Quem responde é quem recebe.",
-    "comoT": "O que ajuda dizer de uma vez",
+    "intro": "Não há motor de reserva nem carrinho. Você escreve — pelo WhatsApp ou por este formulário — e quem responde é quem recebe.",
+    "comoT": "Se preferir o WhatsApp, ajuda dizer de uma vez",
     "c1": "Quantas pessoas, e a idade das crianças se houver",
     "c2": "Que datas você tem em mente, ou quantas noites",
     "c3": "Se quer a pousada ou um pacote saindo de Alter do Chão",
     "c4": "De onde você vem, para a gente pensar o traslado",
     "respT": "Resposta",
-    "respD": "Pelo WhatsApp, no idioma em que você escrever. Se o sinal do rio estiver ruim, pode demorar algumas horas — não é descaso.",
+    "respD": "Em até 24 horas, no idioma em que você escrever, pelo WhatsApp ou por e-mail.",
     "duasManeirasT": "Duas maneiras de ficar",
     "figVaranda": "A varanda que espera · rede e palha"
   },

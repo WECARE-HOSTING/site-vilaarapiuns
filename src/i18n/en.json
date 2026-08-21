@@ -760,14 +760,14 @@
   },
   "reservar": {
     "h1": "Talk to the house",
-    "intro": "There is no form and no booking engine. The person who answers is the person who welcomes you.",
-    "comoT": "What helps to say straight away",
+    "intro": "No booking engine, no cart. You write — on WhatsApp or through this form — and the person who answers is the person who receives you.",
+    "comoT": "If you'd rather use WhatsApp, it helps to say up front",
     "c1": "How many people, and the ages of any children",
     "c2": "What dates you have in mind, or how many nights",
     "c3": "Whether you want a lodge stay or a package from Alter do Chão",
     "c4": "Where you are travelling from, so we can think about the transfer",
     "respT": "Reply",
-    "respD": "On WhatsApp, in whatever language you write in. If the river signal is poor it can take a few hours — it is not indifference.",
+    "respD": "Within 24 hours, in whatever language you write in, by WhatsApp or email.",
     "duasManeirasT": "Two ways to stay",
     "figVaranda": "The waiting veranda · hammock and thatch"
   },

@@ -760,14 +760,14 @@
   },
   "reservar": {
     "h1": "Mit dem Haus sprechen",
-    "intro": "Es gibt kein Formular und keine Buchungsmaschine. Wer antwortet, ist auch die Person, die Sie empfängt.",
-    "comoT": "Was hilft, gleich zu sagen",
+    "intro": "Kein Buchungssystem, kein Warenkorb. Sie schreiben — über WhatsApp oder dieses Formular — und wer antwortet, ist wer Sie empfängt.",
+    "comoT": "Wenn Sie WhatsApp bevorzugen, hilft es, alles auf einmal zu sagen",
     "c1": "Wie viele Personen, und das Alter der Kinder, falls welche mitkommen",
     "c2": "Welche Termine Sie im Sinn haben, oder wie viele Nächte",
     "c3": "Ob Sie einen Lodge-Aufenthalt oder ein Paket ab Alter do Chão möchten",
     "c4": "Woher Sie anreisen, damit wir den Transfer mitdenken können",
     "respT": "Antwort",
-    "respD": "Über WhatsApp, in der Sprache, in der Sie schreiben. Wenn der Empfang am Fluss schlecht ist, kann es ein paar Stunden dauern — das ist keine Gleichgültigkeit.",
+    "respD": "Innerhalb von 24 Stunden, in der Sprache, in der Sie schreiben, per WhatsApp oder E-Mail.",
     "duasManeirasT": "Zwei Arten des Aufenthalts",
     "figVaranda": "Die wartende Veranda · Hängematte und Stroh"
   },
