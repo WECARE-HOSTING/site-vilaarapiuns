@@ -271,7 +271,7 @@ $nosso = $host === $DOMINIO || str_ends_with($host, '.' . $DOMINIO);
 //
 // As duas condições são E, não OU. Com OU, `dryRun` sozinho abria o portão —
 // e o runbook MANDA o operador rodar o servidor de produção com
-// `dryRun => true` no primeiro deploy (docs/deploy-formulario.md §6). Durante
+// `dryRun => true` no primeiro deploy (docs/deploy-formulario.md §7). Durante
 // essa janela o site está no ar, e qualquer um mandando
 // `Referer: http://localhost/` passava reto pela checagem de origem. Com E, a
 // tolerância só existe quando a requisição também vem da própria máquina —

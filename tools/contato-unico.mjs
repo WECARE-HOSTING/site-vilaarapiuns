@@ -105,10 +105,21 @@ for (const obrigatorio of OBRIGATORIO) {
   }
 }
 
-// Segredo não sobe. O .example sobe; o real, nunca.
-if (existsSync('dist/va-config.php')) {
-  falhou = true;
-  console.error('dist/va-config.php EXISTE. Credencial no webroot e a caminho de um repo público.');
+// Config não sobe — nem a real nem o modelo.
+//
+// A real é credencial; isso nunca esteve em dúvida. O MODELO subia de
+// propósito, e era erro: ele vivia em `public/`, então `astro build` o copiava
+// para `dist/va-config.example.php`, buscável por qualquer um em
+// `https://vilaarapiuns.com.br/va-config.example.php`. Não tem senha dentro,
+// mas nomeia o endereço do BCC, o host e o usuário de SMTP e o caminho do
+// varDir — mapa gratuito para quem for procurar. Quem precisa do modelo pega
+// em `docs/va-config.example.php`, no repositório; ninguém precisa dele pelo
+// site no ar. Achado "Minor" do review final de 21/08/2026.
+for (const proibido of ['dist/va-config.php', 'dist/va-config.example.php']) {
+  if (existsSync(proibido)) {
+    falhou = true;
+    console.error(`${proibido} EXISTE. Config no webroot — o modelo mora em docs/, a real mora acima do public_html.`);
+  }
 }
 for (const f of paginasPhp) {
   if (/smtpPass\s*=>\s*['"][^'"]+['"]/.test(readFileSync(f, 'utf8'))) {

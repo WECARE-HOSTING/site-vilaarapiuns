@@ -60,8 +60,13 @@ export const SITE = {
     whatsapp: '5547992067078',
     /**
      * Destino do formulário de reserva e do link no rodapé — que RENDERIZA
-     * este valor como texto visível em 51 das 52 páginas do site (ver
-     * `Footer.astro`). Por isso é um ALIAS de papel (`reservas@...`), não a
+     * este valor como texto visível em TODA página do site menos uma (ver
+     * `Footer.astro`). A exceção é o stub de detecção de idioma em `/`, que o
+     * Astro gera sem cabeçalho nem rodapé; `tools/contato-unico.mjs` mantém a
+     * lista dessa exceção e falha se qualquer outra página ficar sem o
+     * contato. Contado assim, o número não envelhece a cada página nova — e
+     * já envelheceu: aqui dizia "51 das 52 páginas" quando o site passou a
+     * ter 57. Por isso é um ALIAS de papel (`reservas@...`), não a
      * caixa pessoal de quem atende: o alias encaminha para ela no servidor
      * de e-mail, mas o nome dela não aparece em copy nenhuma — mesma decisão
      * do WhatsApp acima, pelo mesmo motivo.
