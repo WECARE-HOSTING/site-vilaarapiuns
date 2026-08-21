@@ -2,19 +2,23 @@
 /**
  * RESERVAR — uma conversa, não um checkout.
  *
- * `SITE.contact.email` é null e não há motor de reserva: o site não promete
- * canal que não existe. O WhatsApp já vai com mensagem preenchida, e a página
- * diz o que ajuda informar de uma vez — porque a ida e volta de perguntas é o
- * que faz a conversa morrer em rede ruim.
+ * Dois caminhos, de propósito: o WhatsApp, que é mais rápido e é onde a
+ * venda acontece hoje; e o formulário, para quem não usa WhatsApp, está num
+ * fuso em que ninguém responde, ou prefere escrever com calma em outro
+ * idioma. Motor de reserva continua não existindo, e a copy continua dizendo
+ * isso.
+ *
+ * O formulário dá POST em /enviar.php e funciona com JavaScript desligado.
  */
 import { Image } from 'astro:assets';
 import AberturaPagina from '@/components/AberturaPagina.astro';
 import Voluta from '@/components/Voluta.astro';
 import ListaCorte from '@/components/ListaCorte.astro';
+import FormularioReserva from '@/components/FormularioReserva.astro';
 import varandaRedeDuplex from '@/assets/imgs/varanda-rede-duplex.jpg';
 import { href } from '@/i18n/routes';
 import { useTranslations } from '@/i18n/utils';
-import { SITE, preco, whatsappUrl } from '@/data/site';
+import { SITE, preco, whatsappUrl, telefoneLegivel } from '@/data/site';
 import type { Locale } from '@/i18n/config';
 
 interface Props { locale: Locale }
@@ -54,6 +58,9 @@ const modos = [
               Instagram <a href={`https://instagram.com/${SITE.contact.instagram.replace('@', '')}`} class="link-texto">{SITE.contact.instagram}</a>
             </p>
           )}
+          <p class="numero etiqueta mt-4">
+            <a href={`tel:+${SITE.contact.whatsapp}`} class="link-texto">{telefoneLegivel()}</a>
+          </p>
         </div>
       </div>
 
@@ -78,6 +85,10 @@ const modos = [
           />
           <figcaption class="meta numero mt-3">{t('reservar.figVaranda')}</figcaption>
         </figure>
+
+        <div class="emenda mt-14 border-t pt-10">
+          <FormularioReserva locale={locale} />
+        </div>
       </div>
     </div>
   </div>

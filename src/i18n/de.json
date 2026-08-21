@@ -780,6 +780,42 @@
     "duasManeirasT": "Zwei Arten des Aufenthalts",
     "figVaranda": "Die wartende Veranda · Hängematte und Stroh"
   },
+  "form": {
+    "titulo": "Oder schreiben Sie uns hier",
+    "intro": "Kein WhatsApp, keine App, keine Anmeldung. Die mit «erforderlich» markierten Felder sind die einzigen, die wir brauchen.",
+    "nome": "Ihr Name",
+    "email": "Ihre E-Mail-Adresse",
+    "whatsapp": "WhatsApp oder Telefon",
+    "quando": "Wann Sie kommen möchten",
+    "mes": "Monat",
+    "ano": "Jahr",
+    "flexivel": "Weiß ich noch nicht",
+    "pessoas": "Wie viele Personen",
+    "interesse": "Was Sie interessiert",
+    "mensagem": "Etwas, das wir wissen sollten",
+    "obrigatorio": "erforderlich",
+    "opcional": "optional",
+    "escolha": "Bitte wählen",
+    "enviar": "Anfrage senden",
+    "enviando": "Wird gesendet…",
+    "sucessoT": "Ihre Nachricht ist angekommen",
+    "sucessoD": "Wir antworten innerhalb von 24 Stunden, in der Sprache, in der Sie geschrieben haben.",
+    "erroGeral": "Wir konnten das nicht senden. Versuchen Sie es erneut, oder schreiben Sie uns über WhatsApp.",
+    "erroCampos": "Bitte prüfen Sie die markierten Felder.",
+    "meses": ["Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"],
+    "interesses": {
+      "pousada": "Lodge — nur der Aufenthalt",
+      "pacote": "Paket ab Alter do Chão",
+      "privativa": "Private Villa für eine Gruppe",
+      "naosei": "Ich entscheide mich noch"
+    },
+    "erro": {
+      "obrigatorio": "Dieses Feld benötigen wir.",
+      "invalido": "Bitte prüfen Sie dieses Feld.",
+      "longo": "Das wurde zu lang.",
+      "opcao": "Wählen Sie eine der Optionen."
+    }
+  },
   "autoresp": {
     "assunto": "Wir haben Ihre Nachricht erhalten — Villa Arapiuns",
     "corpo": "Hallo, {nome}!\n\nIhre Nachricht ist angekommen. Wir antworten innerhalb von 24 Stunden, in der Sprache, in der Sie geschrieben haben.\n\nWenn es eilt, ist WhatsApp schneller: {whatsapp}\n\nBis bald,\nIhr Villa-Arapiuns-Team\nRio Arapiuns, Santarém — Pará, Brasilien"

@@ -780,6 +780,42 @@
     "duasManeirasT": "Two ways to stay",
     "figVaranda": "The waiting veranda · hammock and thatch"
   },
+  "form": {
+    "titulo": "Or write to us here",
+    "intro": "No WhatsApp, no app, no sign-up. The fields marked «required» are the only ones we need.",
+    "nome": "Your name",
+    "email": "Your email",
+    "whatsapp": "WhatsApp or phone",
+    "quando": "When you're thinking of coming",
+    "mes": "Month",
+    "ano": "Year",
+    "flexivel": "I don't know yet",
+    "pessoas": "How many people",
+    "interesse": "What interests you",
+    "mensagem": "Anything we should know",
+    "obrigatorio": "required",
+    "opcional": "optional",
+    "escolha": "Choose",
+    "enviar": "Send request",
+    "enviando": "Sending…",
+    "sucessoT": "Your message arrived",
+    "sucessoD": "We reply within 24 hours, in the language you wrote in.",
+    "erroGeral": "We couldn't send it. Try again, or write on WhatsApp.",
+    "erroCampos": "Check the highlighted fields.",
+    "meses": ["January","February","March","April","May","June","July","August","September","October","November","December"],
+    "interesses": {
+      "pousada": "Lodge — stay only",
+      "pacote": "Package departing from Alter do Chão",
+      "privativa": "Private Villa for a group",
+      "naosei": "Still deciding"
+    },
+    "erro": {
+      "obrigatorio": "We need this field.",
+      "invalido": "Check this field.",
+      "longo": "That got too long.",
+      "opcao": "Choose one of the options."
+    }
+  },
   "autoresp": {
     "assunto": "We received your message — Villa Arapiuns",
     "corpo": "Hello, {nome}!\n\nYour message arrived. We reply within 24 hours, in the language you wrote in.\n\nIf you're in a hurry, WhatsApp is faster: {whatsapp}\n\nSee you soon,\nThe Villa Arapiuns team\nArapiuns River, Santarém — Pará, Brazil"

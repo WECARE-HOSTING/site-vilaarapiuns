@@ -1,0 +1,131 @@
+---
+/**
+ * FORMULÁRIO DE RESERVA — <form> nativo, JS é só melhoria.
+ *
+ * Dá POST em /enviar.php, um arquivo PHP que Astro copia de public/ para
+ * dist/ sem tocar. Com script desligado o navegador submete, o PHP responde
+ * 303 e o visitante cai na página de enviado do idioma dele. O JS da Tarefa
+ * 8 troca isso por confirmação na própria página — mas o caminho de baixo
+ * continua inteiro, e é ele que o teste sem JS exercita.
+ *
+ * Nada de React: o projeto mantém uma island só (CarrosselHero), de
+ * propósito. Um <script> inline não custa hidratação nenhuma.
+ *
+ * `mes` aceita 1–12 ou "flexivel". Quando é "flexivel" o ano não importa —
+ * o JS esconde o select, e sem JS ele aparece e o servidor ignora o valor.
+ * A lista de anos é gerada no BUILD e corrigida no cliente; sem JS e sem
+ * rebuild ela envelhece, o que é aceitável num campo aproximado por
+ * definição.
+ */
+import { useTranslations, useList } from '@/i18n/utils';
+import { SITE } from '@/data/site';
+import type { Locale } from '@/i18n/config';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const tList = useList(locale);
+
+const meses = tList<string>('form.meses');
+const anoBase = new Date().getFullYear();
+const anos = [anoBase, anoBase + 1, anoBase + 2];
+const interesses = ['pousada', 'pacote', 'privativa', 'naosei'] as const;
+const pessoas = ['1', '2', '3-6', '7-14', '15-26'] as const;
+---
+
+<div id="formulario">
+  <h2 class="font-display text-secao">{t('form.titulo')}</h2>
+  <p class="mt-3 max-w-prose">{t('form.intro')}</p>
+
+  <form
+    id="form-reserva"
+    method="post"
+    action="/enviar.php"
+    class="mt-8 grid gap-5"
+  >
+    <input type="hidden" name="idioma" value={locale} />
+    {/* Armadilha. Fica fora do fluxo mas NÃO com display:none — leitor de
+        tela ignora por aria-hidden e tabindex, e bot preenche. */}
+    <div class="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+      <label for="form-hp">Não preencha</label>
+      <input type="text" id="form-hp" name="_hp" tabindex="-1" autocomplete="off" />
+    </div>
+    <input type="hidden" name="_t" id="form-t" value="" />
+
+    <div class="grid gap-5 sm:grid-cols-2">
+      <p class="grid gap-1.5">
+        <label for="f-nome" class="etiqueta">{t('form.nome')} <span class="opacity-70">({t('form.obrigatorio')})</span></label>
+        <input type="text" id="f-nome" name="nome" required maxlength="80" autocomplete="name"
+               aria-describedby="e-nome" class="campo-form" />
+        <span id="e-nome" data-erro="nome" class="meta texto-erro" hidden></span>
+      </p>
+
+      <p class="grid gap-1.5">
+        <label for="f-email" class="etiqueta">{t('form.email')} <span class="opacity-70">({t('form.obrigatorio')})</span></label>
+        <input type="email" id="f-email" name="email" required maxlength="120" autocomplete="email"
+               aria-describedby="e-email" class="campo-form" />
+        <span id="e-email" data-erro="email" class="meta texto-erro" hidden></span>
+      </p>
+
+      <p class="grid gap-1.5">
+        <label for="f-whatsapp" class="etiqueta">{t('form.whatsapp')} <span class="opacity-70">({t('form.opcional')})</span></label>
+        <input type="tel" id="f-whatsapp" name="whatsapp" maxlength="20" autocomplete="tel"
+               aria-describedby="e-whatsapp" class="campo-form" />
+        <span id="e-whatsapp" data-erro="whatsapp" class="meta texto-erro" hidden></span>
+      </p>
+
+      <p class="grid gap-1.5">
+        <label for="f-pessoas" class="etiqueta">{t('form.pessoas')} <span class="opacity-70">({t('form.obrigatorio')})</span></label>
+        <select id="f-pessoas" name="pessoas" required aria-describedby="e-pessoas" class="campo-form">
+          <option value="">{t('form.escolha')}</option>
+          {pessoas.map((p) => <option value={p}>{p}</option>)}
+        </select>
+        <span id="e-pessoas" data-erro="pessoas" class="meta texto-erro" hidden></span>
+      </p>
+    </div>
+
+    <fieldset class="grid gap-1.5">
+      <legend class="etiqueta">{t('form.quando')} <span class="opacity-70">({t('form.obrigatorio')})</span></legend>
+      <div class="flex flex-wrap gap-3">
+        <span class="grid gap-1.5">
+          <label for="f-mes" class="sr-only">{t('form.mes')}</label>
+          <select id="f-mes" name="mes" required aria-describedby="e-mes" class="campo-form">
+            <option value="">{t('form.escolha')}</option>
+            {meses.map((m, i) => <option value={String(i + 1)}>{m}</option>)}
+            <option value="flexivel">{t('form.flexivel')}</option>
+          </select>
+        </span>
+        <span id="form-ano-wrap" class="grid gap-1.5">
+          <label for="f-ano" class="sr-only">{t('form.ano')}</label>
+          <select id="f-ano" name="ano" class="campo-form">
+            {anos.map((a) => <option value={String(a)}>{a}</option>)}
+          </select>
+        </span>
+      </div>
+      <span id="e-mes" data-erro="mes" class="meta texto-erro" hidden></span>
+      <span id="e-ano" data-erro="ano" class="meta texto-erro" hidden></span>
+    </fieldset>
+
+    <p class="grid gap-1.5">
+      <label for="f-interesse" class="etiqueta">{t('form.interesse')} <span class="opacity-70">({t('form.opcional')})</span></label>
+      <select id="f-interesse" name="interesse" aria-describedby="e-interesse" class="campo-form">
+        <option value="">{t('form.escolha')}</option>
+        {interesses.map((k) => <option value={k}>{t(`form.interesses.${k}`)}</option>)}
+      </select>
+      <span id="e-interesse" data-erro="interesse" class="meta texto-erro" hidden></span>
+    </p>
+
+    <p class="grid gap-1.5">
+      <label for="f-mensagem" class="etiqueta">{t('form.mensagem')} <span class="opacity-70">({t('form.opcional')})</span></label>
+      <textarea id="f-mensagem" name="mensagem" rows="4" maxlength="2000"
+                aria-describedby="e-mensagem" class="campo-form"></textarea>
+      <span id="e-mensagem" data-erro="mensagem" class="meta texto-erro" hidden></span>
+    </p>
+
+    <p class="mt-2">
+      <button type="submit" class="btn btn-primario">{t('form.enviar')}</button>
+    </p>
+
+    <div id="form-resultado" role="status" aria-live="polite" tabindex="-1" hidden></div>
+  </form>
+</div>

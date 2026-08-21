@@ -780,6 +780,42 @@
     "duasManeirasT": "Dos maneras de quedarse",
     "figVaranda": "La terraza que espera · hamaca y paja"
   },
+  "form": {
+    "titulo": "O escríbanos por aquí",
+    "intro": "Sin WhatsApp, sin aplicación, sin registro. Los campos con «obligatorio» son los únicos que necesitamos.",
+    "nome": "Su nombre",
+    "email": "Su correo electrónico",
+    "whatsapp": "WhatsApp o teléfono",
+    "quando": "Cuándo piensa venir",
+    "mes": "Mes",
+    "ano": "Año",
+    "flexivel": "Aún no lo sé",
+    "pessoas": "Cuántas personas",
+    "interesse": "Qué le interesa",
+    "mensagem": "Algo que debamos saber",
+    "obrigatorio": "obligatorio",
+    "opcional": "opcional",
+    "escolha": "Elija",
+    "enviar": "Enviar solicitud",
+    "enviando": "Enviando…",
+    "sucessoT": "Su mensaje llegó",
+    "sucessoD": "Respondemos en un plazo de 24 horas, en el idioma en que escribió.",
+    "erroGeral": "No pudimos enviarlo. Intente de nuevo, o escríbanos por WhatsApp.",
+    "erroCampos": "Revise los campos marcados.",
+    "meses": ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"],
+    "interesses": {
+      "pousada": "Posada — solo la estadía",
+      "pacote": "Paquete saliendo de Alter do Chão",
+      "privativa": "Villa privada para un grupo",
+      "naosei": "Aún estoy decidiendo"
+    },
+    "erro": {
+      "obrigatorio": "Necesitamos este campo.",
+      "invalido": "Revise este campo.",
+      "longo": "Quedó demasiado largo.",
+      "opcao": "Elija una de las opciones."
+    }
+  },
   "autoresp": {
     "assunto": "Recibimos su mensaje — Villa Arapiuns",
     "corpo": "¡Hola, {nome}!\n\nSu mensaje llegó. Respondemos en un plazo de 24 horas, en el idioma en que escribió.\n\nSi tiene prisa, WhatsApp es más rápido: {whatsapp}\n\nHasta pronto,\nEquipo Villa Arapiuns\nRío Arapiuns, Santarém — Pará, Brasil"

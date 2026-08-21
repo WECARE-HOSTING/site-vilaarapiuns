@@ -412,3 +412,28 @@
   transition: text-decoration-color 0.2s;
   &:hover { text-decoration-color: currentColor; }
 }
+
+/* Campo de formulário: o btn-secundario aplicado a entrada de texto.
+   Transparente sobre o chão escuro, com o filete de embutido na borda.
+   NENHUMA cor nova entra na paleta, e isso é deliberado: cada token deste
+   tema carrega razão de contraste medida no comentário, então inventar um
+   vermelho de erro obrigaria a auditar a paleta de novo. O anel de foco
+   global (--anel-foco, palha, 8,5:1 sobre breu) já vale aqui sem override,
+   e o erro usa a terracota clara que o tema já mede em 4,6:1 como TEXTO. */
+@utility campo-form {
+  width: 100%;
+  min-height: 3rem;
+  background-color: color-mix(in srgb, var(--color-creme) 6%, transparent);
+  color: var(--color-creme);
+  border: 1px solid var(--cor-emenda);
+  border-radius: 0;   /* marchetaria não tem raio */
+  padding: 0.75rem 0.875rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  &::placeholder { color: color-mix(in srgb, var(--color-salvia) 70%, transparent); }
+}
+
+/* Erro nunca é comunicado só por cor: vem com texto e com aria-invalid. */
+@utility texto-erro {
+  color: var(--color-terra-luz);
+}

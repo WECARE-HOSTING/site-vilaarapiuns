@@ -780,6 +780,42 @@
     "duasManeirasT": "二つの滞在方法",
     "figVaranda": "待つベランダ・ハンモックと藁"
   },
+  "form": {
+    "titulo": "またはこちらからご連絡ください",
+    "intro": "WhatsAppもアプリも登録も不要です。「必須」の項目だけご記入ください。",
+    "nome": "お名前",
+    "email": "メールアドレス",
+    "whatsapp": "WhatsAppまたは電話番号",
+    "quando": "ご来訪をお考えの時期",
+    "mes": "月",
+    "ano": "年",
+    "flexivel": "まだ分かりません",
+    "pessoas": "人数",
+    "interesse": "ご興味のある内容",
+    "mensagem": "その他、伝えておきたいこと",
+    "obrigatorio": "必須",
+    "opcional": "任意",
+    "escolha": "選択してください",
+    "enviar": "送信する",
+    "enviando": "送信中…",
+    "sucessoT": "メッセージが届きました",
+    "sucessoD": "24時間以内に、お書きになった言語でお返事します。",
+    "erroGeral": "送信できませんでした。もう一度お試しいただくか、WhatsAppでご連絡ください。",
+    "erroCampos": "エラーのある項目をご確認ください。",
+    "meses": ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],
+    "interesses": {
+      "pousada": "ロッジ(宿泊のみ)",
+      "pacote": "アルテル・ド・シャン発のパッケージ",
+      "privativa": "グループ向けの貸切ヴィラ",
+      "naosei": "まだ決めていません"
+    },
+    "erro": {
+      "obrigatorio": "この項目は必須です。",
+      "invalido": "この項目をご確認ください。",
+      "longo": "長すぎます。",
+      "opcao": "選択肢から選んでください。"
+    }
+  },
   "autoresp": {
     "assunto": "メッセージを受け取りました — Villa Arapiuns",
     "corpo": "{nome} 様\n\nメッセージが届きました。24時間以内に、お書きになった言語でお返事します。\n\nお急ぎの場合はWhatsAppのほうが早いです：{whatsapp}\n\nそれでは、またご連絡します。\nVilla Arapiuns スタッフ\nブラジル パラー州 サンタレン アラピウンス川"
