@@ -14,7 +14,7 @@
 import { readFileSync, globSync, existsSync } from 'node:fs';
 
 const PROIBIDO = ['5511969760096', '11969760096', '969760096', '96976-0096'];
-const OBRIGATORIO = ['5547992067078', 'gabriela@wecarehosting.com.br'];
+const OBRIGATORIO = ['5547992067078', 'reservas@vilaarapiuns.com.br'];
 
 const paginas = globSync('dist/**/*.html');
 if (paginas.length === 0) {
@@ -24,10 +24,34 @@ if (paginas.length === 0) {
 
 let falhou = false;
 
-// Seleciona páginas que têm rodapé. A raiz (index.html) é um stub de detecção
-// de idioma sem rodapé nem cabeçalho — ela é construída sem a chrome comum,
-// portanto isenta do requisito de contato.
-const paginasComRodape = paginas.filter((f) => readFileSync(f, 'utf8').includes('<footer'));
+// Rotas sem a chrome comum (sem Footer, portanto sem onde viver o contato),
+// declaradas EXPLICITAMENTE por caminho — não por um sniff de conteúdo.
+//
+// A versão anterior decidia "esta página exige contato" varrendo o HTML por
+// um `<footer` literal. Parece razoável até o dia em que o componente
+// Footer parar de renderizar numa página de conteúdo de verdade: nesse dia a
+// página perde o bloco de contato E a tag `<footer` no mesmo acidente, o
+// sniff conclui "sem rodapé, portanto isenta", e o script fica CALADO
+// exatamente no pior caso — uma regressão real mascarada de página isenta
+// por uma heurística que nunca devia ter existido. Uma lista explícita não
+// tem esse ponto cego: uma página só sai da obrigação se alguém a colocar
+// aqui de propósito.
+//
+// Hoje só existe uma rota assim: o stub de detecção de idioma construído a
+// partir de `src/pages/index.astro`, que o Astro gera sem cabeçalho nem
+// rodapé (é um redirect de 0s, ver comentário no próprio arquivo).
+const ROTAS_SEM_CHROME = ['dist/index.html'];
+
+const paginasComContatoObrigatorio = paginas.filter((f) => !ROTAS_SEM_CHROME.includes(f));
+
+// Se uma rota isenta passar a ter rodapé, a lista ficou desatualizada — a
+// página deixou de ser um stub sem chrome e provavelmente devia estar
+// exigindo contato também. Não falha o build por si só, mas merece atenção.
+for (const rota of ROTAS_SEM_CHROME) {
+  if (existsSync(rota) && readFileSync(rota, 'utf8').includes('<footer')) {
+    console.warn(`AVISO: "${rota}" está listada como sem chrome, mas contém <footer> — ROTAS_SEM_CHROME pode estar desatualizada.`);
+  }
+}
 
 for (const f of paginas) {
   const html = readFileSync(f, 'utf8');
@@ -39,13 +63,13 @@ for (const f of paginas) {
   }
 }
 
-// O rodapé está em todas as páginas de conteúdo, então o contato novo tem
-// de estar em todas elas. Páginas sem rodapé não têm onde viver o contato.
+// Toda página fora da lista de isenção tem de conter o contato — ter ou não
+// ter `<footer` no HTML é irrelevante agora; ver ROTAS_SEM_CHROME acima.
 for (const obrigatorio of OBRIGATORIO) {
-  const sem = paginasComRodape.filter((f) => !readFileSync(f, 'utf8').includes(obrigatorio));
+  const sem = paginasComContatoObrigatorio.filter((f) => !readFileSync(f, 'utf8').includes(obrigatorio));
   if (sem.length) {
     falhou = true;
-    console.error(`"${obrigatorio}" ausente em ${sem.length} de ${paginasComRodape.length} páginas com rodapé, ex.: ${sem[0]}`);
+    console.error(`"${obrigatorio}" ausente em ${sem.length} de ${paginasComContatoObrigatorio.length} páginas obrigatórias, ex.: ${sem[0]}`);
   }
 }
 
@@ -62,4 +86,4 @@ for (const f of globSync('dist/**/*.php')) {
 }
 
 if (falhou) { console.error('\nFALHOU.'); process.exit(1); }
-console.log(`OK — ${paginas.length} páginas verificadas, ${paginasComRodape.length} com rodapé: contato único, sem resíduo, sem segredo.`);
+console.log(`OK — ${paginas.length} páginas verificadas, ${paginasComContatoObrigatorio.length} exigem contato: contato único, sem resíduo, sem segredo.`);

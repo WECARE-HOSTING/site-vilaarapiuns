@@ -59,11 +59,20 @@ export const SITE = {
      */
     whatsapp: '5547992067078',
     /**
-     * Destino do formulário de reserva e do link no rodapé. Era `null` e
-     * marcado PENDENTE desde a Fase 2; o bloco de e-mail do Footer já estava
-     * escrito esperando por isto e acende sozinho agora.
+     * Destino do formulário de reserva e do link no rodapé — que RENDERIZA
+     * este valor como texto visível em 51 das 52 páginas do site (ver
+     * `Footer.astro`). Por isso é um ALIAS de papel (`reservas@...`), não a
+     * caixa pessoal de quem atende: o alias encaminha para ela no servidor
+     * de e-mail, mas o nome dela não aparece em copy nenhuma — mesma decisão
+     * do WhatsApp acima, pelo mesmo motivo.
+     *
+     * Aqui vivia a caixa pessoal de quem atende, publicada por engano:
+     * contato comercial troca de mão, e um endereço PESSOAL publicado não
+     * fica só desatualizado quando isso acontecer — ele MORRE, inclusive
+     * para um hóspede antigo que salvou o contato. Um alias sobrevive à
+     * troca sem o site mudar uma linha.
      */
-    email: 'gabriela@wecarehosting.com.br',
+    email: 'reservas@vilaarapiuns.com.br',
     instagram: '@villaarapiuns',
   },
 
@@ -167,10 +176,25 @@ export function whatsappUrl(message: string): string {
  * Deriva dos mesmos dígitos de propósito. Guardar o número formatado num
  * segundo campo é convidar os dois a divergirem, e número de contato errado
  * num site de pousada remota não é erro de formatação, é venda perdida.
+ *
+ * Por isso ela FALHA ALTO em vez de fatiar o dígito às cegas: se o valor
+ * guardado não for só dígitos, ou não tiver um comprimento que ela sabe
+ * formatar (55 + DDD de 2 + assinante de 8 ou 9), ela lança em vez de
+ * devolver um número plausível e errado. Isto roda em build time sobre dado
+ * estático — um `throw` aqui quebra o build, e é o resultado certo: build
+ * quebrado é visível, número mal pontuado no rodapé não é.
  */
 export function telefoneLegivel(): string {
   const d = SITE.contact.whatsapp;
-  // 55 + DDD(2) + assinante(8 ou 9)
+  if (!/^\d+$/.test(d)) {
+    throw new Error(`telefoneLegivel: SITE.contact.whatsapp tem caractere não numérico — valor "${d}".`);
+  }
+  // 55 + DDD(2) + assinante(8 ou 9) = 12 ou 13 dígitos no total.
+  if (d.length !== 12 && d.length !== 13) {
+    throw new Error(
+      `telefoneLegivel: SITE.contact.whatsapp "${d}" tem ${d.length} dígito(s); só sei formatar 55 + DDD(2) + assinante(8 ou 9), ou seja, 12 ou 13.`
+    );
+  }
   const pais = d.slice(0, 2);
   const ddd = d.slice(2, 4);
   const resto = d.slice(4);
