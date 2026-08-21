@@ -1128,10 +1128,15 @@ process.exit(falhas ? 1 : 0);
 
 Em `package.json`: `"form:check": "node tools/testa-endpoint.mjs"`
 
-- [ ] **Step 5: Rodar e ver FALHAR (endpoint ainda não está no dist)**
+- [ ] **Step 5: Fase vermelha de verdade — a suíte reprova por comportamento**
 
-Run: `npm run form:check`
-Expected: falha — `dist/enviar.php` só aparece depois do build.
+```bash
+npm run build && rm dist/enviar.php && npm run form:check
+```
+
+Expected: FALHA, com `404` no POST em todos os casos.
+
+Isto é a fase vermelha honesta. Rodar a suíte antes do build também falharia, mas por arquivo fora de lugar — o que não prova nada sobre o endpoint. Removendo `dist/enviar.php` de um build completo, o único motivo de falha é ausência de comportamento.
 
 - [ ] **Step 6: Build e rodar de novo**
 
@@ -1365,7 +1370,25 @@ Em `tools/testa-endpoint.mjs`, ajustar `enviados()` e acrescentar, dentro do `tr
   ok('auto-resposta não vaza o destino comercial', !ar.includes('gabriela@'));
 ```
 
-E trocar as duas asserções de contagem do bloco 1 (`arqs.length === 1`) por: o arquivo de venda é `arqs.find(f => f.endsWith('-gabriela.txt'))`, e `enviados().length === 2`. Nos blocos 3, 4 e 6, `enviados().length === 0` continua valendo.
+E no bloco 1, substituir as três linhas que localizam o e-mail:
+
+```js
+  const arqs = enviados();
+  ok('gravou exatamente um e-mail', arqs.length === 1, `gravou ${arqs.length}`);
+  const email = readFileSync(join(varDir, 'enviados', arqs[0]), 'utf8');
+```
+
+por:
+
+```js
+  const arqs = enviados();
+  ok('gravou os dois e-mails', arqs.length === 2, `gravou ${arqs.length}: ${arqs.join()}`);
+  const arqVenda = arqs.find((f) => f.endsWith('-gabriela.txt'));
+  ok('gravou o e-mail de venda', Boolean(arqVenda), arqs.join());
+  const email = readFileSync(join(varDir, 'enviados', arqVenda), 'utf8');
+```
+
+Nos blocos 3, 4 e 6, `enviados().length === 0` continua valendo sem mudança. No bloco 7 e no 8, trocar `enviados()[0]` por `enviados().find((f) => f.endsWith('-gabriela.txt'))`.
 
 - [ ] **Step 5: Rodar**
 
@@ -1517,21 +1540,21 @@ const pessoas = ['1', '2', '3-6', '7-14', '15-26'] as const;
         <label for="f-nome" class="etiqueta">{t('form.nome')} <span class="opacity-70">({t('form.obrigatorio')})</span></label>
         <input type="text" id="f-nome" name="nome" required maxlength="80" autocomplete="name"
                aria-describedby="e-nome" class="campo-form" />
-        <span id="e-nome" data-erro="nome" class="meta text-rubro" hidden></span>
+        <span id="e-nome" data-erro="nome" class="meta texto-erro" hidden></span>
       </p>
 
       <p class="grid gap-1.5">
         <label for="f-email" class="etiqueta">{t('form.email')} <span class="opacity-70">({t('form.obrigatorio')})</span></label>
         <input type="email" id="f-email" name="email" required maxlength="120" autocomplete="email"
                aria-describedby="e-email" class="campo-form" />
-        <span id="e-email" data-erro="email" class="meta text-rubro" hidden></span>
+        <span id="e-email" data-erro="email" class="meta texto-erro" hidden></span>
       </p>
 
       <p class="grid gap-1.5">
         <label for="f-whatsapp" class="etiqueta">{t('form.whatsapp')} <span class="opacity-70">({t('form.opcional')})</span></label>
         <input type="tel" id="f-whatsapp" name="whatsapp" maxlength="20" autocomplete="tel"
                aria-describedby="e-whatsapp" class="campo-form" />
-        <span id="e-whatsapp" data-erro="whatsapp" class="meta text-rubro" hidden></span>
+        <span id="e-whatsapp" data-erro="whatsapp" class="meta texto-erro" hidden></span>
       </p>
 
       <p class="grid gap-1.5">
@@ -1540,7 +1563,7 @@ const pessoas = ['1', '2', '3-6', '7-14', '15-26'] as const;
           <option value="">{t('form.escolha')}</option>
           {pessoas.map((p) => <option value={p}>{p}</option>)}
         </select>
-        <span id="e-pessoas" data-erro="pessoas" class="meta text-rubro" hidden></span>
+        <span id="e-pessoas" data-erro="pessoas" class="meta texto-erro" hidden></span>
       </p>
     </div>
 
@@ -1562,8 +1585,8 @@ const pessoas = ['1', '2', '3-6', '7-14', '15-26'] as const;
           </select>
         </span>
       </div>
-      <span id="e-mes" data-erro="mes" class="meta text-rubro" hidden></span>
-      <span id="e-ano" data-erro="ano" class="meta text-rubro" hidden></span>
+      <span id="e-mes" data-erro="mes" class="meta texto-erro" hidden></span>
+      <span id="e-ano" data-erro="ano" class="meta texto-erro" hidden></span>
     </fieldset>
 
     <p class="grid gap-1.5">
@@ -1572,14 +1595,14 @@ const pessoas = ['1', '2', '3-6', '7-14', '15-26'] as const;
         <option value="">{t('form.escolha')}</option>
         {interesses.map((k) => <option value={k}>{t(`form.interesses.${k}`)}</option>)}
       </select>
-      <span id="e-interesse" data-erro="interesse" class="meta text-rubro" hidden></span>
+      <span id="e-interesse" data-erro="interesse" class="meta texto-erro" hidden></span>
     </p>
 
     <p class="grid gap-1.5">
       <label for="f-mensagem" class="etiqueta">{t('form.mensagem')} <span class="opacity-70">({t('form.opcional')})</span></label>
       <textarea id="f-mensagem" name="mensagem" rows="4" maxlength="2000"
                 aria-describedby="e-mensagem" class="campo-form"></textarea>
-      <span id="e-mensagem" data-erro="mensagem" class="meta text-rubro" hidden></span>
+      <span id="e-mensagem" data-erro="mensagem" class="meta texto-erro" hidden></span>
     </p>
 
     <p class="mt-2">
@@ -1591,23 +1614,36 @@ const pessoas = ['1', '2', '3-6', '7-14', '15-26'] as const;
 </div>
 ```
 
-Acrescentar em `src/styles/global.css`, junto das outras `@utility`:
+Acrescentar em `src/styles/global.css`, junto das outras `@utility`, **um bloco por utilitário** (o padrão do arquivo é um `@utility` com aninhados `&:` dentro, como `btn-primario` — dois blocos com o mesmo nome fazem o segundo sobrescrever o primeiro):
 
 ```css
+/* Campo de formulário: o btn-secundario aplicado a entrada de texto.
+   Transparente sobre o chão escuro, com o filete de embutido na borda.
+   NENHUMA cor nova entra na paleta, e isso é deliberado: cada token deste
+   tema carrega razão de contraste medida no comentário, então inventar um
+   vermelho de erro obrigaria a auditar a paleta de novo. O anel de foco
+   global (--anel-foco, palha, 8,5:1 sobre breu) já vale aqui sem override,
+   e o erro usa a terracota clara que o tema já mede em 4,6:1 como TEXTO. */
 @utility campo-form {
   width: 100%;
-  border: 1px solid --alpha(var(--color-mata) / 25%);
-  background: var(--color-creme);
-  padding: 0.6rem 0.75rem;
-  font: inherit;
-  color: var(--color-mata);
+  min-height: 3rem;
+  background-color: color-mix(in srgb, var(--color-creme) 6%, transparent);
+  color: var(--color-creme);
+  border: 1px solid var(--cor-emenda);
+  border-radius: 0;   /* marchetaria não tem raio */
+  padding: 0.75rem 0.875rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  &::placeholder { color: color-mix(in srgb, var(--color-salvia) 70%, transparent); }
 }
-@utility campo-form {
-  &:focus-visible { outline: 2px solid var(--color-mata); outline-offset: 1px; }
+
+/* Erro nunca é comunicado só por cor: vem com texto e com aria-invalid. */
+@utility texto-erro {
+  color: var(--color-terra-luz);
 }
 ```
 
-Se `text-rubro` ou `--color-rubro` não existirem no tema, use a cor de erro que já existir; se não houver nenhuma, acrescente `--color-rubro` na paleta e **rode `node tools/contraste-dom.mjs`** — o projeto tem verificador de contraste e cor nova sem conferir contraste é regressão de acessibilidade.
+**Atenção ao tema.** O site é escuro (`color-scheme: dark`, corpo em `--color-mata-funda`). Campo com fundo creme e texto verde — que seria o natural num site claro — exigiria sobrescrever `--anel-foco` localmente, porque o anel global é creme e desapareceria sobre creme. O campo transparente evita isso inteiro.
 
 - [ ] **Step 3: Pôr na página Reservar**
 
@@ -1649,7 +1685,7 @@ E no fim da coluna da direita, depois da `<figure>`:
 npm run i18n:check && npm run check && npm run build && npm run contato:check
 node tools/classes-fantasma.mjs $(find dist -name 'index.html' -path '*reservar*')
 ```
-Expected: os quatro sem erro, e nenhuma classe fantasma — `campo-form` e `text-rubro` têm de ter regra no CSS.
+Expected: os quatro sem erro, e nenhuma classe fantasma — `campo-form` e `texto-erro` têm de ter regra no CSS.
 
 - [ ] **Step 5: Provar o caminho SEM JavaScript**
 
@@ -1770,7 +1806,7 @@ No fim de `src/components/FormularioReserva.astro`, depois do `</div>` de fecham
         if (campo) { campo.setAttribute('aria-invalid', 'true'); primeiro = primeiro || campo; }
       });
       resultado.hidden = false;
-      resultado.className = 'meta text-rubro';
+      resultado.className = 'meta texto-erro';
       resultado.textContent = textos.erroCampos;
       if (primeiro) primeiro.focus();
     }
@@ -1806,7 +1842,7 @@ No fim de `src/components/FormularioReserva.astro`, depois do `</div>` de fecham
         })
         .catch(function () {
           resultado.hidden = false;
-          resultado.className = 'meta text-rubro';
+          resultado.className = 'meta texto-erro';
           resultado.textContent = textos.erroGeral;
           resultado.focus();
         })
