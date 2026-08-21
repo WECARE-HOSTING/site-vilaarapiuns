@@ -802,6 +802,8 @@
     "sucessoD": "Respondemos em até 24 horas, no idioma em que você escreveu.",
     "erroGeral": "Não conseguimos enviar. Tente de novo, ou fale no WhatsApp.",
     "erroCampos": "Confira os campos marcados.",
+    "naoEnviouT": "Sua mensagem não foi enviada",
+    "naoEnviouD": "Algum campo não foi aceito. Confira o formulário abaixo e envie de novo — ou fale no WhatsApp, que é mais rápido.",
     "meses": ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"],
     "interesses": {
       "pousada": "Pousada — só a estadia",

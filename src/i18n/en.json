@@ -802,6 +802,8 @@
     "sucessoD": "We reply within 24 hours, in the language you wrote in.",
     "erroGeral": "We couldn't send it. Try again, or write on WhatsApp.",
     "erroCampos": "Check the highlighted fields.",
+    "naoEnviouT": "Your message was not sent",
+    "naoEnviouD": "Something in the form wasn't accepted. Check it below and send again — or write on WhatsApp, which is faster.",
     "meses": ["January","February","March","April","May","June","July","August","September","October","November","December"],
     "interesses": {
       "pousada": "Lodge — stay only",

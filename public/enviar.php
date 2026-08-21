@@ -22,10 +22,25 @@ const TEMPO_MINIMO = 3;
 
 $DOMINIO = 'vilaarapiuns.com.br';
 
-/** Slug da página de enviado por idioma — espelha SLUGS.bookSent em routes.ts. */
+/**
+ * Slugs por idioma — espelham SLUGS.bookSent e SLUGS.book em
+ * src/i18n/routes.ts, que é a fonte única que GERA as páginas.
+ *
+ * Esta cópia existe porque PHP não lê TypeScript e o site é estático: não há
+ * build que injete a tabela aqui. Divergir é possível, e o estrago é grande
+ * (303 para uma URL que não existe mais = 404 depois de enviar com sucesso).
+ * `tools/testa-endpoint.mjs` deriva a tabela esperada do próprio routes.ts e
+ * confere que cada destino existe em dist/ — é lá que a divergência é pega.
+ */
 const ENVIADO = [
   'pt' => 'reservar/enviado', 'en' => 'book/sent', 'es' => 'reservar/enviado',
   'de' => 'buchen/gesendet',  'ja' => 'book/sent',
+];
+
+/** Página do formulário, para onde uma validação recusada volta (achado I3). */
+const RESERVAR = [
+  'pt' => 'reservar', 'en' => 'book', 'es' => 'reservar',
+  'de' => 'buchen',   'ja' => 'book',
 ];
 
 const MESES    = ['1','2','3','4','5','6','7','8','9','10','11','12','flexivel'];
@@ -79,9 +94,33 @@ function responde(bool $ok, array $erros, string $idioma, bool $json): never {
   $idioma = isset(ENVIADO[$idioma]) ? $idioma : 'en';
   if ($ok) {
     header('Location: /' . $idioma . '/' . ENVIADO[$idioma] . '/', true, 303);
-  } else {
-    header('Location: /' . $idioma . '/?erro=1', true, 303);
+    exit;
   }
+  // Sem JS, uma validação recusada terminava em `/{idioma}/?erro=1`: a home do
+  // idioma, onde nada lê `erro`. O visitante caía numa página que não fala do
+  // assunto, sem nada dito e sem nada do que escreveu — e isso acontece na
+  // vida real, não na teoria: o navegador aceita `ana@gmail` num
+  // `type="email"` e o FILTER_VALIDATE_EMAIL daqui recusa, então o erro de
+  // digitação mais comum do mundo mandava a pessoa para a home.
+  //
+  // Agora volta para a PÁGINA DO FORMULÁRIO do idioma submetido, no
+  // fragmento #form-erro. O fragmento é o que faz o aviso aparecer sem uma
+  // linha de JavaScript: a página é estática e não pode ler query string, mas
+  // CSS `:target` revela o bloco que o fragmento aponta (ver
+  // FormularioReserva.astro e global.css).
+  //
+  // A query string leva os pares campo:código para quem TIVER JS marcar cada
+  // campo. Ela é sempre montada a partir de $erros, cujas chaves e valores são
+  // literais deste arquivo (nunca texto do visitante), e o lado que a lê trata
+  // a query como hostil de qualquer jeito: só nomes de campo que já existem na
+  // página e só os quatro códigos conhecidos, e o TEXTO sai sempre do
+  // dicionário.
+  $pares = [];
+  foreach ($erros as $campo => $codigo) {
+    $pares[] = rawurlencode((string)$campo) . ':' . rawurlencode((string)$codigo);
+  }
+  header('Location: /' . $idioma . '/' . RESERVAR[$idioma] . '/?erro='
+       . implode(',', $pares) . '#form-erro', true, 303);
   exit;
 }
 

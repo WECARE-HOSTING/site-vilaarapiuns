@@ -36,6 +36,28 @@ const pessoas = ['1', '2', '3-6', '7-14', '15-26'] as const;
   <h2 class="font-display text-secao">{t('form.titulo')}</h2>
   <p class="mt-3 max-w-prose">{t('form.intro')}</p>
 
+  {/* Aviso de falha para quem está SEM JavaScript.
+
+      O site é estático: não existe render de servidor que leia a query
+      string e escreva isto no HTML. O que funciona sem uma linha de script
+      é o fragmento: o enviar.php devolve 303 para esta página com
+      `#form-erro`, o navegador rola até aqui, e a regra `#form-erro:target`
+      em global.css revela o bloco. Numa visita normal (sem o fragmento) ele
+      não existe na tela.
+
+      Isto é o PISO, não um adorno: quem chega por este caminho, por
+      definição, não tem JS — se tivesse, o submit teria sido interceptado e
+      a resposta viria em JSON, sem redirecionamento nenhum. O detalhe por
+      campo vem logo abaixo, no script, para os casos em que há JS.
+
+      `tabindex="-1"` para o navegador poder pousar o foco aqui ao seguir o
+      fragmento; `role="alert"` para o leitor de tela anunciar quando o
+      script o revelar. */}
+  <div id="form-erro" class="emenda mt-6 border-t pt-6 texto-erro" role="alert" tabindex="-1">
+    <p class="etiqueta">{t('form.naoEnviouT')}</p>
+    <p class="mt-2">{t('form.naoEnviouD')}</p>
+  </div>
+
   <form
     id="form-reserva"
     method="post"
@@ -165,6 +187,15 @@ const pessoas = ['1', '2', '3-6', '7-14', '15-26'] as const;
     var resultado = document.getElementById('form-resultado');
     var botao = form.querySelector('button[type=submit]');
 
+    // A partir daqui QUEM MANDA no aviso é o script, não mais o `:target`.
+    // Sem esta troca, um visitante que chegasse pelo fragmento e depois
+    // enviasse com sucesso ficaria com "sua mensagem não foi enviada" em cima
+    // de "sua mensagem chegou": `:target` não sai da tela por conta própria.
+    // A regra `#form-erro[data-js]` em global.css vem DEPOIS da regra de
+    // `:target` e tem a mesma especificidade, então ela vence.
+    var aviso = document.getElementById('form-erro');
+    if (aviso) aviso.setAttribute('data-js', '');
+
     // _t é o horário do CARREGAMENTO. A página é estática: um valor vindo do
     // build seria o horário do build, e a checagem de tempo mínimo do
     // servidor nunca dispararia. Sem JS ele fica vazio, e o servidor então
@@ -193,7 +224,52 @@ const pessoas = ['1', '2', '3-6', '7-14', '15-26'] as const;
     mes.addEventListener('change', sincronizaAno);
     sincronizaAno();
 
+    /**
+     * Erros vindos da query string do POST sem JS (ver responde() em
+     * enviar.php). Complementa o aviso `#form-erro`, que já apareceu sozinho
+     * pelo `:target` — este trecho só acrescenta a mensagem POR CAMPO.
+     *
+     * Honestidade sobre o alcance: quem submeteu SEM JS não executa isto.
+     * Vale para as bordas — script que quebrou depois do carregamento,
+     * navegação pelo histórico, o link colado em outra aba — e para deixar o
+     * contrato do endpoint escrito dos dois lados. O piso sem JS é o bloco de
+     * aviso, não este código.
+     *
+     * A query string é do atacante. Por isso: só nome de campo que já tem um
+     * [data-erro] NESTA página, só um dos quatro códigos do dicionário, e o
+     * texto sempre lido do dicionário — nada do que vem na URL chega à tela.
+     */
+    var naUrl = new URLSearchParams(location.search).get('erro');
+    if (naUrl) {
+      var conhecidos = {};
+      form.querySelectorAll('[data-erro]').forEach(function (s) {
+        conhecidos[s.getAttribute('data-erro')] = true;
+      });
+      var temChave = function (obj, k) { return Object.prototype.hasOwnProperty.call(obj, k); };
+      var daQuery = {};
+      var algum = false;
+      naUrl.split(',').forEach(function (par) {
+        var partes = par.split(':');
+        if (partes.length !== 2) return;
+        var campo = partes[0], codigo = partes[1];
+        if (!temChave(conhecidos, campo) || !temChave(textos.erro, codigo)) return;
+        daQuery[campo] = codigo;
+        algum = true;
+      });
+      if (algum) {
+        marcaCampos(daQuery);
+        if (aviso) aviso.setAttribute('data-visivel', '');
+      }
+      // Tira o `?erro=` da barra: sem isto, recarregar ou compartilhar a URL
+      // ressuscita erros de um envio que já passou. O fragmento fica, para o
+      // :target continuar valendo nesta mesma visita.
+      if (history.replaceState) {
+        history.replaceState(null, '', location.pathname + location.hash);
+      }
+    }
+
     function limpaErros() {
+      if (aviso) aviso.removeAttribute('data-visivel');
       form.querySelectorAll('[data-erro]').forEach(function (s) {
         s.hidden = true;
         s.textContent = '';
@@ -202,7 +278,10 @@ const pessoas = ['1', '2', '3-6', '7-14', '15-26'] as const;
       });
     }
 
-    function mostraErros(erros) {
+    // Marca os campos e só isso. Separado de mostraErros() porque o caminho
+    // da query string (logo abaixo) roda no CARREGAMENTO da página: mover o
+    // foco ali arrancaria a pessoa do aviso para onde ela ainda não pediu ir.
+    function marcaCampos(erros) {
       Object.keys(erros).forEach(function (nome) {
         var span = form.querySelector('[data-erro="' + nome + '"]');
         var campo = form.elements[nome];
@@ -211,6 +290,10 @@ const pessoas = ['1', '2', '3-6', '7-14', '15-26'] as const;
         span.hidden = false;
         if (campo) campo.setAttribute('aria-invalid', 'true');
       });
+    }
+
+    function mostraErros(erros) {
+      marcaCampos(erros);
 
       // O foco vai para o PRIMEIRO campo com erro na ordem do DOM, não na
       // ordem das chaves de `erros`. O servidor valida nome/email/whatsapp/

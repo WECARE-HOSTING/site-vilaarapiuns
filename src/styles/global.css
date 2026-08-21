@@ -437,3 +437,19 @@
 @utility texto-erro {
   color: var(--color-terra-luz);
 }
+
+/* ─── Aviso de falha do formulário sem JavaScript ────────────────────────
+   O site é estático: nada aqui pode ser gerado a partir da query string. O
+   que funciona sem uma linha de script é o FRAGMENTO — o enviar.php devolve
+   303 para a página de reservar com `#form-erro`, e `:target` revela o
+   bloco. Numa visita normal ele não existe na tela.
+
+   As duas últimas regras entregam o controle ao script quando há script
+   (ver FormularioReserva.astro): mesma especificidade da regra de `:target`,
+   declaradas depois, então vencem por ordem. Sem isso, um aviso revelado
+   pelo `:target` não teria como sair da tela depois de um envio bem
+   sucedido — `:target` não se desfaz sozinho. */
+#form-erro { display: none; }
+#form-erro:target { display: block; }
+#form-erro[data-js] { display: none; }
+#form-erro[data-js][data-visivel] { display: block; }
