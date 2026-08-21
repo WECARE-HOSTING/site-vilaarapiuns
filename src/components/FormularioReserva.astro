@@ -203,15 +203,27 @@ const pessoas = ['1', '2', '3-6', '7-14', '15-26'] as const;
     }
 
     function mostraErros(erros) {
-      var primeiro = null;
       Object.keys(erros).forEach(function (nome) {
         var span = form.querySelector('[data-erro="' + nome + '"]');
         var campo = form.elements[nome];
         if (!span) return;
         span.textContent = textos.erro[erros[nome]] || textos.erro.invalido;
         span.hidden = false;
-        if (campo) { campo.setAttribute('aria-invalid', 'true'); primeiro = primeiro || campo; }
+        if (campo) campo.setAttribute('aria-invalid', 'true');
       });
+
+      // O foco vai para o PRIMEIRO campo com erro na ordem do DOM, não na
+      // ordem das chaves de `erros`. O servidor valida nome/email/whatsapp/
+      // mes/ano/pessoas — uma ordem diferente da ordem visual do formulário,
+      // que tem `pessoas` antes de `mes`/`ano`. Seguir a ordem do JSON faria
+      // o foco pular por cima de um campo que ainda está mais acima na tela.
+      var primeiro = null;
+      form.querySelectorAll('[data-erro]').forEach(function (span) {
+        if (primeiro) return;
+        var nome = span.getAttribute('data-erro');
+        if (erros[nome]) primeiro = form.elements[nome];
+      });
+
       resultado.hidden = false;
       resultado.className = 'meta texto-erro';
       resultado.textContent = textos.erroCampos;
