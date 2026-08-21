@@ -173,7 +173,7 @@ function enviados() {
 // enviados()[0] não tem ordem garantida entre os dois — leEnviado() sempre
 // quer o de VENDA, então localiza pelo sufixo, não pela posição.
 function leEnviado() {
-  const arqVenda = enviados().find((f) => f.endsWith('-gabriela.txt'));
+  const arqVenda = enviados().find((f) => f.endsWith('-venda.txt'));
   return readFileSync(join(varDir, 'enviados', arqVenda), 'utf8');
 }
 function descartes() {
@@ -311,7 +311,7 @@ try {
   ok('erros é objeto também no sucesso', j.erros && !Array.isArray(j.erros), JSON.stringify(j.erros));
   const arqs = enviados();
   ok('gravou os dois e-mails', arqs.length === 2, `gravou ${arqs.length}: ${arqs.join()}`);
-  const arqVenda = arqs.find((f) => f.endsWith('-gabriela.txt'));
+  const arqVenda = arqs.find((f) => f.endsWith('-venda.txt'));
   ok('gravou o e-mail de venda', Boolean(arqVenda), arqs.join());
   const email = readFileSync(join(varDir, 'enviados', arqVenda), 'utf8');
   ok('assunto traz nome, pessoas e quando',

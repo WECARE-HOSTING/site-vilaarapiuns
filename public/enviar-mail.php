@@ -111,7 +111,7 @@ if ($cfg['dryRun']) {
   // com caminho ABSOLUTO do servidor (o responde() do enviar.php morreria
   // depois em "headers already sent"), e falha engolida aqui não pode
   // passar por sucesso. 500 pelado, igual ao envio real.
-  $entregou = @file_put_contents("{$destino}/{$stamp}-gabriela.txt",
+  $entregou = @file_put_contents("{$destino}/{$stamp}-venda.txt",
     "To: {$cfg['to']}\nBcc: {$cfg['bcc']}\nReply-To: {$nome} <{$email}>\nSubject: {$assunto}\n\n{$corpo}");
   if ($entregou === false) { http_response_code(500); exit('entrega'); }
 

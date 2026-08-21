@@ -200,7 +200,7 @@ Antes de deixar qualquer visitante real acionar SMTP de verdade:
 
    ```
    ls -la /home/USUARIO/va-var/enviados/
-   cat /home/USUARIO/va-var/enviados/*-gabriela.txt       # o que a Gabriela receberia
+   cat /home/USUARIO/va-var/enviados/*-venda.txt          # o que quem responde receberia
    cat /home/USUARIO/va-var/enviados/*-autoresposta.txt   # o que o visitante receberia
    ```
 
@@ -268,7 +268,7 @@ Tudo dentro de `varDir` (`/home/USUARIO/va-var`), fora do webroot:
 
 | Arquivo/pasta | O que é | Quando aparece |
 |---|---|---|
-| `enviados/*.txt` | Só em `dryRun`: o e-mail de venda (`-gabriela.txt`) e a auto-resposta (`-autoresposta.txt`, só quando o corpo não sai vazio) que teriam sido enviados | Todo envio aceito, em `dryRun` |
+| `enviados/*.txt` | Só em `dryRun`: o e-mail de venda (`-venda.txt`) e a auto-resposta (`-autoresposta.txt`, só quando o corpo não sai vazio) que teriam sido enviados | Todo envio aceito, em `dryRun` |
 | `erros.log` | Uma linha por falha de SMTP (data, destinatário, mensagem da exceção do PHPMailer) OU por auto-resposta que saiu vazia (data, idioma) — ver seção 3 | Falha de SMTP só com `dryRun: false`; auto-resposta vazia em qualquer modo, inclusive `dryRun`; para de crescer sozinho ao passar de 1&nbsp;MB, mesmo teto de `descartes.log` |
 | `descartes.log` | Uma linha por honeypot ou envio "rápido demais" descartado em silêncio — a única forma de saber que a defesa comeu um pedido | Sempre, mesmo em `dryRun`; para de crescer sozinho ao passar de 1&nbsp;MB |
 | `rate-<hash>.json` | Contador de envios aceitos por IP (ou por bloco /64, em IPv6), para o limite de 5/hora e 20/dia | Um arquivo por IP/bloco que já enviou; se apaga sozinho quando o histórico esvazia. **Se nunca aparecer nenhum, o limite não está engatando** — ver seção 7, passo 5 |
