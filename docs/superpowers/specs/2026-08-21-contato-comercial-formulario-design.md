@@ -276,7 +276,9 @@ Casos a verificar antes de aprovar:
 ## O que você precisa providenciar
 
 1. Criar a caixa `site@vilaarapiuns.com.br` com senha, para o SMTP
-2. Criar o alias `reservas@vilaarapiuns.com.br` encaminhando para `gabriela@wecarehosting.com.br`
+2. Criar o alias `reservas@vilaarapiuns.com.br` encaminhando para a caixa pessoal
+   de quem atende (o endereço em si não entra neste documento — ver "Nota de 21/08/2026"
+   na seção "por que o e-mail é um alias e não a pessoa")
 3. PHP habilitado no plano
 4. SPF e DKIM do domínio conferidos — o `Bcc:` vai para `@wecarehosting.com.br`,
    outro domínio, então o alinhamento importa para não cair em spam
@@ -286,7 +288,7 @@ As cinco estão do seu lado da cerca, sendo você a WeCare.
 
 ## Correção de 21/08/2026 — por que o e-mail é um alias e não a pessoa
 
-A primeira versão deste spec mandava publicar `gabriela@wecarehosting.com.br`
+A primeira versão deste spec mandava publicar a caixa pessoal de quem atende
 direto. Um review na Tarefa 2 mostrou que isso **contradiz a decisão de copy
 impessoal** tomada no mesmo dia: o rodapé renderiza o e-mail como texto visível,
 então preencher esse campo punha o nome da pessoa em 51 páginas — exatamente o
@@ -297,6 +299,12 @@ motivo declarado da copy impessoal era que contato comercial troca de mão. Um
 endereço pessoal publicado **morre** quando a pessoa sai, inclusive para o
 hóspede antigo que salvou o contato. Um alias sobrevive à troca sem que nada no
 site mude.
+
+**Nota de 21/08/2026 (review final):** as duas menções acima traziam o endereço
+pessoal escrito por extenso. Este repositório é **público** — a seção que
+argumenta que esse endereço não pode ser publicado o estava publicando. Ficaram
+descritos, não citados. O endereço real vive no encaminhamento do alias, no
+painel de e-mail do servidor, e em lugar nenhum do repositório.
 
 ## As 24 horas são um compromisso operacional
 
