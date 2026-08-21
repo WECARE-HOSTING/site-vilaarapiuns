@@ -1,7 +1,7 @@
 # Contato comercial único + formulário de reserva por e-mail
 
 **Data:** 21/08/2026
-**Status:** desenho aprovado nas decisões, pendente revisão do spec escrito
+**Status:** aprovado. Sem pendências de cliente.
 
 ## Problema
 
@@ -30,6 +30,9 @@ se prometia canal que não existia. Agora o canal vai existir.
 | Cópia de segurança | **BCC** para um segundo endereço |
 | Nomear a Gabriela no site | **Não.** Copy segue impessoal, como hoje |
 | Gabriela do depoimento da home | **Pessoa diferente.** Depoimento fica intocado |
+| Prazo de resposta | **24 horas**, confirmado pelo Carlos |
+| Endereço do BCC | `carlos@wecarehosting.com.br` |
+| Caixa remetente | `site@vilaarapiuns.com.br` |
 
 ## Arquitetura
 
@@ -161,14 +164,14 @@ return [
   'smtpHost' => '', 'smtpPort' => 465, 'smtpUser' => '', 'smtpPass' => '',
   'from' => 'site@vilaarapiuns.com.br',
   'to' => 'gabriela@wecarehosting.com.br',
-  'bcc' => '',            // segundo endereço de segurança
+  'bcc' => 'carlos@wecarehosting.com.br',
   'dryRun' => false,      // true = grava em arquivo em vez de enviar
   'logDir' => '',         // fora do webroot
 ];
 ```
 
-O `bcc` fica no config e não no código de propósito: você escolhe o endereço na
-hora do deploy, sem alterar o repo.
+Os três endereços ficam no config e não no código de propósito: trocar quem
+recebe é editar um arquivo no servidor, sem rebuild e sem commit.
 
 **PHPMailer mora no servidor**, ao lado do `va-config.php`, instalado uma vez —
 não vendorizado no repo. Motivos: repo público não precisa carregar código de
@@ -196,8 +199,7 @@ que ele não escreveu. Mais: página de origem, data e hora em Brasília, e o
 ### A auto-resposta ao visitante
 
 E-mail curto no idioma dele, texto **100% fixo**, vindo do dicionário: recebemos,
-o WhatsApp se tiver pressa, e — *se e somente se* o Carlos confirmar um número — o
-prazo de resposta. Assinado
+**respondemos em até 24 horas**, e o WhatsApp se tiver pressa. Assinado
 impessoalmente ("Equipe Villa Arapiuns") — coerente com a decisão de não nomear
 ninguém no site.
 
@@ -218,8 +220,8 @@ Chave nova `bookSent` em `src/i18n/routes.ts`:
 /de/buchen/gesendet/    /ja/book/sent/
 ```
 
-Conteúdo curto: confirma, oferece o WhatsApp como caminho mais rápido, e um link
-de volta. Prazo de resposta só se houver número confirmado (ver "Pendências"). Fora de `NAV_KEYS`, então não entra no menu.
+Conteúdo curto: confirma, promete as 24 horas, oferece o WhatsApp como caminho
+mais rápido, e um link de volta. Fora de `NAV_KEYS`, então não entra no menu.
 
 Só o caminho **sem JS** passa por ela; com JS o sucesso é inline.
 
@@ -271,23 +273,26 @@ Casos a verificar antes de aprovar:
 
 ## O que você precisa providenciar
 
-1. Caixa `site@vilaarapiuns.com.br` (ou outro nome) com senha, para o SMTP
+1. Criar a caixa `site@vilaarapiuns.com.br` com senha, para o SMTP
 2. PHP habilitado no plano
-3. SPF e DKIM do domínio conferidos — o `To:` é `@wecarehosting.com.br`, outro
-   domínio, então o alinhamento importa para não cair em spam
-4. O endereço do BCC de segurança
-5. PHPMailer e `va-config.php` instalados uma vez acima do `public_html`
+3. SPF e DKIM do domínio conferidos — `To:` e `Bcc:` vão os dois para
+   `@wecarehosting.com.br`, outro domínio, então o alinhamento importa para não
+   cair em spam
+4. PHPMailer e `va-config.php` instalados uma vez acima do `public_html`
 
-As cinco estão do seu lado da cerca, sendo você a WeCare.
+As quatro estão do seu lado da cerca, sendo você a WeCare.
 
-## Pendências do cliente
+## As 24 horas são um compromisso operacional
 
-- **Prazo de resposta.** A auto-resposta e a página de enviado ficam melhores com
-  um número ("respondemos em até 24h"), mas o projeto não publica alegação não
-  confirmada — é a mesma regra que mantém `yearFounded` e `reviews.rating` em
-  `null`. Sem número do Carlos, as duas mensagens saem sem promessa de prazo.
-- **Endereço do BCC** de segurança.
-- **Nome da caixa remetente** (sugerido: `site@vilaarapiuns.com.br`).
+O prazo aparece em **dois lugares e cinco idiomas**: a auto-resposta e a página de
+enviado. Depois de publicado, é promessa — e promessa de prazo não cumprida é pior
+que prazo nenhum, porque o visitante que espera 24h e não recebe nada não volta ao
+WhatsApp, ele vai procurar outra pousada.
+
+Duas consequências práticas: o prazo mora numa chave de dicionário e não em copy
+solta, então revisar para cima ou para baixo é uma edição em cinco arquivos; e o
+BCC para `carlos@` existe justamente para que o relógio não dependa de uma única
+caixa de entrada estar sendo lida.
 
 ## Fora de escopo
 
