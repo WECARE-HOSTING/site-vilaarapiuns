@@ -86,14 +86,14 @@ Esta é a seção que existe para não repetir a triagem. Todas são boas fotos.
 | Arquivo | O que é | Por que não |
 |---|---|---|
 | `Piracaia/IMG_3482.jpg` | A piracaia pelo outro ângulo: palmeiras em silhueta, o rio prateado de lua, o grupo sentado no anel de velas | **A melhor segunda colocada.** Perdeu por pouco: a roda de gente se lê com mais clareza na `3470`, e a `3482` entrega mais paisagem que grupo. Guardar — é o fechamento de reserva. |
-| `Ricardo Barbato/IMG_7995.jpg` | Fogueira na praia, o grupo todo de branco em volta, céu azul-profundo | Espetacular e **é pose**: fila de frente para a lente. Reprovou no teste da lente. |
+| `[retiro]/IMG_7995.jpg` | Fogueira na praia, o grupo todo de branco em volta, céu azul-profundo | Espetacular e **é pose**: fila de frente para a lente. Reprovou no teste da lente. |
 | `Piracaia/IMG_3378.jpg` | O grupo em pé atrás de um campo de lanternas de vela, sob a lua | Pose também — mas é **a melhor das posadas**, porque o anel de velas domina o quadro e a ritualidade se lê antes dos rostos. Se um dia houver de haver uma posada, é esta. |
 | `Yoga e Práticas/IMG_3144.jpg` | A fila do grupo sentada na areia, de costas, vendo o sol baixar no rio | Excelente, e **duas barreiras**: é retrato (ver a frente aberta abaixo) e repetiria o "pôr do sol de costas" que já foi trocado uma vez. Circular. |
 | `.../Captação completa/IMG_5822.jpg` | O grupo inteiro em pé dentro do lago, água na altura do peito, linha de mata atrás | Bom, mas é posado **e** é quase a mesma leitura do `banho-rio-grupo.jpg` que já abre a página. Repetir o assunto na mesma página gasta as duas. |
 | `.../Captação completa/IMG_6558.jpg` | O grupo ao pé de uma árvore gigante de raízes tabulares — a escala se lê pela gente | Forte de verdade, e é **retrato**. Fica na fila da frente de retrato. |
-| `Jessica Oliveira/IMG_0898.jpg` | A shala cheia ao crepúsculo, aula em andamento, **6240×4160** | Melhor qualidade técnica de todas. Não usei porque põe **quem conduz o retiro em destaque no centro do quadro** — e o cliente decidiu em 21/08 que os facilitadores não são nomeados no site. Foto que identifica pede o mesmo cuidado que nome. |
+| `[retiro]/IMG_0898.jpg` | A shala cheia ao crepúsculo, aula em andamento, **6240×4160** | Melhor qualidade técnica de todas. Não usei porque põe **quem conduz o retiro em destaque no centro do quadro** — e o cliente decidiu em 21/08 que os facilitadores não são nomeados no site. Foto que identifica pede o mesmo cuidado que nome. |
 | `IMG_5425` · `IMG_3521` · `IMG_1351` | A roda na shala, de três vantagens diferentes | A página já tem `retiro-roda-pavilhao.jpg` fazendo esse trabalho. Uma quarta roda de shala seria a mesma frase dita quatro vezes. |
-| `Jessica Oliveira/IMG_1295.jpg` | O monte de palha tingida de laranja e vermelho secando — natureza-morta | Linda, e **não tem gente**. Nesta rodada tudo que entrou tinha de mostrar grupo ou espaço de grupo. Guardar para A Mesa ou para a marca. |
+| `[retiro]/IMG_1295.jpg` | O monte de palha tingida de laranja e vermelho secando — natureza-morta | Linda, e **não tem gente**. Nesta rodada tudo que entrou tinha de mostrar grupo ou espaço de grupo. Guardar para A Mesa ou para a marca. |
 | `Piracaia/IMG_3359.jpg` | O arco de dezenas de velas na areia, sem ninguém, palmeiras contra o escuro | Mesmo caso: cenografia sem gente. É a melhor candidata a uma abertura de página que ainda não existe. |
 
 ---
