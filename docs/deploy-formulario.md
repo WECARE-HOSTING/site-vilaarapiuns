@@ -6,6 +6,48 @@ dependem de três coisas que **não** estão no repositório — que é público
 e que por isso precisam ser criadas à mão no cPanel a cada deploy novo de
 servidor: a config, o PHPMailer, e a caixa `site@`.
 
+## 0-bis. MEDIDO EM 22/08/2026, 00:50 UTC: os `.php` subiram, e o PHP **não executa**
+
+Leia isto antes da seção 0, que ficou desatualizada em uma manhã. O diagnóstico
+mudou de lugar, e o conserto também.
+
+| Pedido | 21/08 | **22/08** | Leitura |
+|---|---|---|---|
+| `GET /enviar.php` | `404` | **`200`, 24.834 B** | o arquivo subiu — e vem o **código-fonte**, byte a byte igual ao `dist/` |
+| `GET /enviar-mail.php` | `404` | **`200`** | idem |
+| `POST /enviar.php` | — | **`405 Not Allowed`, página do nginx** | é isto que o visitante recebe ao enviar o formulário |
+| `GET /_i18n/pt.json` | `404` | `200` | os dicionários subiram |
+| `GET /va-config.php` | — | `404` | **a credencial NÃO está exposta** — mora acima do docroot, como manda a seção 1 |
+| `GET /vendor/autoload.php` | — | `404` | PHPMailer continua não instalado (seção 2) |
+
+**O problema não é mais o upload — é que este docroot não tem PHP ligado.** Um
+`GET` devolve o fonte como arquivo estático (`content-type:
+application/octet-stream`) e um `POST` devolve o `405` do nginx, que é o que um
+servidor de arquivos responde a um método que ele não trata. Em nenhum dos dois
+há uma linha de saída gerada pelo script.
+
+O que isso implica, e é a parte que economiza trabalho:
+
+- **As seções 1 e 2 não consertam nada por enquanto.** Criar o `va-config.php` e
+  instalar o PHPMailer não muda um `405` — o interpretador não chega a abrir o
+  arquivo. A ordem certa é: **primeiro fazer o PHP executar**, depois a config,
+  depois o PHPMailer, depois a seção 7.
+- **O formulário publicado está morto, e falha de forma feia.** Quem preenche
+  não vê a página de "enviado" nem um aviso do site: vê uma página branca de
+  erro do nginx, sem marca, sem caminho de volta. O pedido não chega a ninguém.
+- **Nenhum segredo vazou.** O `enviar.php` já é público no repositório, então o
+  fonte à vista não revela nada novo; e o `va-config.php`, que é o arquivo que
+  tem credencial, responde `404` porque está fora do docroot. A disciplina da
+  seção 1 é exatamente o que segurou isto.
+- **O teste que prova o conserto** é `POST` devolvendo `303` para
+  `/pt/reservar/enviado/`, e não o `200` do `GET`. Um `GET` respondendo `200`
+  hoje é o sintoma, não a cura.
+
+Quem sabe se este docroot é servido por nginx puro (sem PHP-FPM) ou se o
+handler existe e não está casando `.php` é quem tem o painel — não este
+documento. A seção 6 já registra que **quem serve o docroot é o nginx e o
+`.htaccess` é decorativo**, o que casa com o sintoma.
+
 ## 0. O que o servidor respondeu em 21/08/2026, e a versão do PHP
 
 Tudo nesta seção foi **medido** contra `https://vilaarapiuns.com.br` nesta
