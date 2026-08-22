@@ -21,8 +21,11 @@ import AberturaPagina from '@/components/AberturaPagina.astro';
 import MapaSituacao from '@/components/MapaSituacao.astro';
 import ListaCorte from '@/components/ListaCorte.astro';
 import chegadaBarco from '@/assets/imgs/chegada-barco.jpg';
+import embarquePassarela from '@/assets/imgs/embarque-passarela.jpg';
+import embarqueGrupo from '@/assets/imgs/embarque-grupo.jpg';
+import embarqueColete from '@/assets/imgs/embarque-colete.jpg';
 import { href } from '@/i18n/routes';
-import { useTranslations } from '@/i18n/utils';
+import { useTranslations, useList } from '@/i18n/utils';
 import { SITE, whatsappUrl } from '@/data/site';
 import type { Locale } from '@/i18n/config';
 
@@ -35,6 +38,21 @@ const etapas = [
   { n: '02', titulo: t('home.etapa2T'), detalhe: t('home.etapa2D'), medida: 'Alter do Chão' },
   { n: '03', titulo: t('home.etapa3T'), detalhe: t('home.etapa3D'), medida: `${SITE.location.boatMinutes} min de lancha`, marcado: true },
 ];
+
+/* FASE 6 (22/08/2026): a travessia inteira, não só o fim da etapa 03 — o
+   plano nomeia esta página como segunda prioridade porque a maior ansiedade
+   é o trajeto, e a página só respondia com texto. Três fotos reais da
+   sequência de embarque em Alter do Chão (3 Acervo/Água/Embarque), estática
+   e em grade — sem carrossel, porque a página "quer resposta, não
+   atmosfera" (comentário original desta página) e três fotos cabem juntas
+   sem precisar de interação nenhuma. */
+const EMBARQUE_FOTOS: Record<string, ImageMetadata> = {
+  passarela: embarquePassarela,
+  grupo: embarqueGrupo,
+  colete: embarqueColete,
+};
+const embarque = useList(locale)<{ id: string; legenda: string; alt: string }>('chegar.embarqueItens')
+  .map((item) => ({ ...item, foto: EMBARQUE_FOTOS[item.id] }));
 
 const duvidas = [
   { titulo: t('chegar.q1'), detalhe: t('chegar.a1') },
@@ -60,11 +78,33 @@ const duvidas = [
     <h2 class="font-display text-titulo">{t('home.travessiaT')}</h2>
     <ListaCorte itens={etapas} nivel="h3" class="mt-8" />
 
-    {/* UMA foto, e depois da lista — não antes. A página é resposta, não
-        atmosfera: a lista dá a sequência e esta foto responde a única pergunta
-        que a sequência deixa aberta, que é como termina a etapa 03. Não há
-        segunda foto aqui de propósito. */}
-    <figure class="mt-12">
+    {/* FASE 6: a regra "uma foto só" era certa quando a única pergunta em
+        aberto era como termina a etapa 03. O plano do redesign nomeou esta
+        página como segunda prioridade justamente porque a travessia
+        completa não tinha prova nenhuma — só a chegada. As três fotos
+        abaixo respondem a etapa 02→03 (embarque em Alter do Chão); a foto
+        que já existia continua sozinha depois, respondendo o fim da 03
+        (chegada na Villa). Grade estática, sem carrossel: três fotos cabem
+        juntas sem pedir interação, e a página continua "resposta, não
+        atmosfera". */}
+    <div class="mt-12 grid gap-4 sm:grid-cols-3">
+      {embarque.map((e) => (
+        <figure>
+          <Image
+            src={e.foto}
+            alt={e.alt}
+            widths={[420, 600, 860]}
+            sizes="(min-width: 640px) 33vw, 100vw"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[4/3] w-full object-cover"
+          />
+          <figcaption class="meta numero mt-2">{e.legenda}</figcaption>
+        </figure>
+      ))}
+    </div>
+
+    <figure class="mt-8">
       <Image
         src={chegadaBarco}
         alt="Pessoas desembarcando de um barco na água rasa junto à areia, com bagagem na mão"

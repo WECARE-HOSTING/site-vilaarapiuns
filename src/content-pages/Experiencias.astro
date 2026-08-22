@@ -28,6 +28,7 @@
 import { Image } from 'astro:assets';
 import AberturaPagina from '@/components/AberturaPagina.astro';
 import ListaCorte from '@/components/ListaCorte.astro';
+import ColunaDeReels from '@/components/ColunaDeReels.astro';
 import Voluta from '@/components/Voluta.astro';
 import { href } from '@/i18n/routes';
 import { useTranslations, useList } from '@/i18n/utils';
@@ -52,6 +53,18 @@ import tecelagem from '@/assets/imgs/tecelagem.jpg';
 import piracaiaViolao from '@/assets/imgs/piracaia-violao.jpg';
 import tucuxi from '@/assets/imgs/tucuxi.jpg';
 
+/* FASE 6 (22/08/2026): "vídeo por atividade é onde o acervo é mais rico" —
+   a própria prioridade do plano para esta página. Os cinco clipes da Fase 3
+   (aprovados pelo Carlos, ColunaDeReels da Fase 4) cobrem uma atividade de
+   cada grupo — água, mata, comunidades — e por isso ganham seção própria
+   entre os três grupos e a folha de contato, em vez de entrar dentro de um
+   grupo só. */
+import reelCanoaIgapo from '@/assets/imgs/reel-canoa-igapo-poster.jpg';
+import reelUrucum from '@/assets/imgs/reel-urucum-poster.jpg';
+import reelMeliponario from '@/assets/imgs/reel-meliponario-poster.jpg';
+import reelTecelagem from '@/assets/imgs/reel-tecelagem-poster.jpg';
+import reelPiracaia from '@/assets/imgs/reel-piracaia-poster.jpg';
+
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = useTranslations(locale);
@@ -59,6 +72,16 @@ const t = useTranslations(locale);
 const agua = useList(locale)<{ titulo: string; detalhe: string; medida?: string; marcado?: boolean }>('exp.aguaLista');
 const mata = useList(locale)<{ titulo: string; detalhe: string; medida?: string }>('exp.mataLista');
 const gente = useList(locale)<{ titulo: string; detalhe: string; medida?: string; marcado?: boolean }>('exp.genteLista');
+
+const POSTERS_VIDEO: Record<string, ImageMetadata> = {
+  canoaIgapo: reelCanoaIgapo,
+  urucum: reelUrucum,
+  meliponario: reelMeliponario,
+  tecelagem: reelTecelagem,
+  piracaia: reelPiracaia,
+};
+const videoItens = useList(locale)<{ id: string; legenda: string; alt: string }>('exp.videoItens')
+  .map((item) => ({ legenda: item.legenda, alt: item.alt, video: `/video/reels/reel-${item.id === 'canoaIgapo' ? 'canoa-igapo' : item.id}.mp4`, poster: POSTERS_VIDEO[item.id] }));
 
 /* A folha de contato do fim. Quatro fotos que não couberam nos grupos e que
    fecham a página pelo que ela promete: o equipamento, a noite, a mata e a
@@ -276,6 +299,21 @@ const CONTATO = [
     </div>
 
     <p class="numero etiqueta mt-12">{t('exp.nota')}</p>
+  </div>
+</section>
+
+<!-- ═══════════ EM VÍDEO ═══════════
+     "Vídeo por atividade é onde o acervo é mais rico" — a prioridade do
+     plano para esta página. Uma atividade de cada grupo acima (água, mata,
+     comunidades), na coluna que rola (Fase 4), não dentro do grid de fotos
+     de nenhum grupo — são cinco clipes e caberiam mal espremidos a dois por
+     grupo. -->
+<section class="secao">
+  <div class="container-editorial">
+    <h2 class="font-display text-titulo">{t('exp.videoT')}</h2>
+    <div class="mt-8">
+      <ColunaDeReels rotulo={t('exp.videoT')} itens={videoItens} />
+    </div>
   </div>
 </section>
 

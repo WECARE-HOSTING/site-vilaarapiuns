@@ -33,6 +33,13 @@
  * NENHUMA foto com mosquiteiro armado entra aqui, pela mesma razão registrada
  * em Pousada.astro: mosquiteiro ao lado de "praticamente sem mosquito" é uma
  * contradição que o visitante vê antes de ler.
+ *
+ * FASE 6 (22/08/2026): 'varanda-noite' saiu da lista. Home.astro já registrava
+ * a regra herdada — nada de fotografia noturna, exceção nominal só para a
+ * piracaia — e listava esta foto entre as excluídas por isso, mas ela tinha
+ * ficado esquecida aqui (e por tabela em Pousada.astro e Galeria.astro,
+ * também corrigidas). Entra 'varanda-cadeiras', a mesma ideia de varanda
+ * parada e rede armada, de dia (Área Externa/IMG_6298.jpg, 3072×2048 nativo).
  */
 import type { ImageMetadata } from 'astro';
 
@@ -40,7 +47,7 @@ import bangaloPalafita from '@/assets/imgs/bangalo-palafita.jpg';
 import bangaloOctogonal from '@/assets/imgs/bangalo-octogonal.jpg';
 import chale11 from '@/assets/imgs/chale-11.jpg';
 import varandaRedeDuplex from '@/assets/imgs/varanda-rede-duplex.jpg';
-import varandaNoite from '@/assets/imgs/varanda-noite.jpg';
+import varandaCadeirasRede from '@/assets/imgs/varanda-cadeiras-rede.jpg';
 import gal6 from '@/assets/imgs/gal6.jpg';
 import quartoCasal from '@/assets/imgs/quarto-casal.jpg';
 import quartoDuplex from '@/assets/imgs/quarto-duplex.jpg';
@@ -62,7 +69,7 @@ export const ACOMODACOES: FotoAcomodacao[] = [
   { id: 'bangalo-octogonal', foto: bangaloOctogonal },
   { id: 'chale-11', foto: chale11 },
   { id: 'varanda-rede', foto: varandaRedeDuplex },
-  { id: 'varanda-noite', foto: varandaNoite },
+  { id: 'varanda-cadeiras', foto: varandaCadeirasRede },
   { id: 'quarto-casal-mogno', foto: gal6 },
   { id: 'quarto-casal', foto: quartoCasal },
   { id: 'marchetaria', foto: quartoDuplex },

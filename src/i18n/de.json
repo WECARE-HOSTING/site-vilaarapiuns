@@ -266,6 +266,53 @@
         "alt": "Ein langer Tisch am Strand bei Kerzenlicht: gegrillter Fisch, Maniokmehl und Früchte, serviert auf einem Bananenblatt und einer geflochtenen Matte"
       }
     ],
+    "heroReelItens": [
+      {
+        "id": "aguaTransparente",
+        "legenda": "Das klare Wasser",
+        "alt": "Eine Sandbank mitten im Fluss, das flache Wasser so klar, dass der von Licht gewellte Grund zu sehen ist"
+      },
+      {
+        "id": "canoaIgapo",
+        "legenda": "Das Kanu zwischen den Baumkronen, zur Flutzeit"
+      },
+      {
+        "id": "tucuxi",
+        "legenda": "Der Tucuxi-Delfin",
+        "alt": "Ein Tucuxi-Delfin springt an der Wasseroberfläche des Flusses, nahe der Villa"
+      },
+      {
+        "id": "urucum",
+        "legenda": "Urucum-Samen beim Färben der Palmfaser"
+      },
+      {
+        "id": "igapoCanoa",
+        "legenda": "Der Igapó",
+        "alt": "Ein blaues Holzkanu liegt am Sand, gegenüber Sträuchern und Palmen, deren Stämme im Wasser stehen"
+      },
+      {
+        "id": "meliponario",
+        "legenda": "Der Meliponar, Honig einheimischer Bienen"
+      },
+      {
+        "id": "redario",
+        "legenda": "Der Hängemattenplatz",
+        "alt": "Hängematten zwischen Bäumen, unter einem strohgedeckten Pavillon, mit dem Strand im Hintergrund"
+      },
+      {
+        "id": "tecelagemVideo",
+        "legenda": "Palmfaser beim Flechten"
+      },
+      {
+        "id": "tecelagem",
+        "legenda": "Das Weben",
+        "alt": "Eine Kunsthandwerkerin der Gemeinde lächelt, während sie zwei neben ihr sitzenden Gästen die geflochtene Palmarbeit zeigt"
+      },
+      {
+        "id": "piracaia",
+        "legenda": "Die Piracaia, im Kerzenlicht"
+      }
+    ],
     "campoLancha": "1,5 Std. mit dem Boot ab {place}"
   },
   "modo": {
@@ -330,7 +377,7 @@
     "figChale11": "Chalet 11 · Hängematte auf der Veranda",
     "figAguaClara": "Klares Wasser · der Grund sichtbar",
     "figBanhoSemAquecedor": "Die Dusche · ohne Boiler",
-    "figNoiteRedeLuminaria": "Die Nacht · Hängematte und Faserlampe",
+    "figVarandaRede": "Die Veranda · aufgehängte Hängematte, Blick auf den Wald",
     "medida1Pavimento": "1 Stockwerk",
     "medida2Pavimentos": "2 Stockwerke",
     "medida2Suites": "2 Suiten",
@@ -450,6 +497,34 @@
         "marcado": true
       }
     ],
+    "videoT": "Jede Aktivität im Video",
+    "videoItens": [
+      {
+        "id": "canoaIgapo",
+        "legenda": "Kanu im Igapó · der Bug zwischen der Spiegelung der Baumkronen",
+        "alt": "Vertikales Video eines Kanubugs, der über eine Igapó-Spiegelung gleitet, ohne Menschen"
+      },
+      {
+        "id": "urucum",
+        "legenda": "Urucum · der Farbstoff aus dem Samen",
+        "alt": "Vertikales Video einer behandschuhten Hand, die Farbstoff aus einem Urucum-Samen gewinnt"
+      },
+      {
+        "id": "meliponario",
+        "legenda": "Meliponarium · einheimische stachellose Bienen, Nahaufnahme",
+        "alt": "Vertikales Video einheimischer stachelloser Bienen am Eingang eines Meliponariums, Nahaufnahme"
+      },
+      {
+        "id": "tecelagem",
+        "legenda": "Weberei · die Hände, die den Palmstroh flechten",
+        "alt": "Vertikales Video von Händen, die Palmstroh-Fasern flechten, Nahaufnahme"
+      },
+      {
+        "id": "piracaia",
+        "legenda": "Piracaia · die brennende Laterne bei Nacht",
+        "alt": "Vertikales Video einer brennenden Papierlaterne bei Nacht"
+      }
+    ],
     "contato": [
       {
         "id": "caiaques",
@@ -528,7 +603,24 @@
     "a5": "Ja. Nennen Sie uns das Alter, wenn Sie mit uns sprechen, damit wir Unterkunft und Tagesrhythmus gemeinsam mit Ihnen planen können.",
     "figFimEtapa3": "Das Ende von Etappe 03 · Ankunft im Sand der Villa",
     "duvFinal": "Bleibt eine Frage offen, die hier nicht beantwortet wird, fragen Sie einfach — das ist schneller als suchen.",
-    "ctaVerPacotes": "Pakete mit Boot ansehen"
+    "ctaVerPacotes": "Pakete mit Boot ansehen",
+    "embarqueItens": [
+      {
+        "id": "passarela",
+        "legenda": "Der Steg in Alter do Chão",
+        "alt": "Eine Gruppe von Gästen geht über den blauen Holzsteg in Alter do Chão, auf dem Weg zum Einstieg"
+      },
+      {
+        "id": "grupo",
+        "legenda": "Die Gruppe auf dem Weg zum Boot",
+        "alt": "Eine Gruppe von Gästen mit Rucksäcken geht über den Sand zu den vor Anker liegenden Booten"
+      },
+      {
+        "id": "colete",
+        "legenda": "Die Pérola do Tapajós, mit Schwimmwesten",
+        "alt": "Gäste mit Schwimmwesten beim Einstieg in das Boot Pérola do Tapajós, das am Sand vertäut ist"
+      }
+    ]
   },
   "mapa": {
     "alt": "Karte der Region: Die Villa Arapiuns liegt am Ufer des Rio Arapiuns, im Westen. Im Osten, wo der Rio Tapajós auf den Amazonas trifft, liegen Alter do Chão und, etwas weiter, Santarém.",
@@ -666,9 +758,9 @@
             "alt": "Eine Veranda im Obergeschoss mit aufgespannter schwarzer Hängematte, einem Rattanstuhl und einem geflochtenen Korb an der Wand"
           },
           {
-            "id": "varandaNoite",
-            "leg": "Die Veranda, am Ende des Tages",
-            "alt": "Die Veranda bei Nacht mit Hängematte, einer brennenden Lampe aus geflochtener Faser und Schaukelstühlen"
+            "id": "varandaCadeiras",
+            "leg": "Veranda · Korbsessel und Hängematte",
+            "alt": "Zwei Korbsessel und ein kleiner Tisch mit einer Blume auf einer Holzveranda, im Hintergrund eine aufgehängte Hängematte und durch das Geländer sichtbarer Wald"
           },
           {
             "id": "banheiroPia",
@@ -910,10 +1002,7 @@
   "carousel": {
     "heroLabel": "Villa Arapiuns in dreißig Fotos",
     "acomodacoesLabel": "Die Unterkünfte der Villa in zehn Fotos",
-    "photoPosition": "Foto {n} von {total}",
-    "photoPrev": "Vorheriges Foto",
-    "photoNext": "Nächstes Foto",
-    "drag": "ziehen"
+    "photoPosition": "Foto {n} von {total}"
   },
   "acomodacoes": {
     "itens": [
@@ -942,10 +1031,10 @@
         "alt": "Eine Veranda im Obergeschoss mit einer von einem Ende zum anderen gespannten schwarzen Hängematte, einem Rattanstuhl, einem runden Tisch und einem geflochtenen Teller an der Holzwand"
       },
       {
-        "id": "varanda-noite",
-        "assunto": "Die Veranda bei Nacht",
-        "legenda": "Lampe aus geflochtener Faser",
-        "alt": "Dieselbe Veranda nach Einbruch der Dunkelheit, mit aufgespannter Hängematte und einer hohen, brennenden Lampe aus geflochtener Faser unter dem Strohdach"
+        "id": "varanda-cadeiras",
+        "assunto": "Die Korbsessel",
+        "legenda": "Kleiner Tisch, Hängematte im Hintergrund",
+        "alt": "Zwei Korbsessel und ein kleiner Tisch mit einer Blume auf einer Holzveranda, im Hintergrund eine aufgehängte Hängematte und durch das Geländer sichtbarer Wald"
       },
       {
         "id": "quarto-casal-mogno",

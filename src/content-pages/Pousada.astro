@@ -87,7 +87,6 @@ import banheiroChuveiro from '@/assets/imgs/banheiro-chuveiro.jpg';
 import banheiroPia from '@/assets/imgs/banheiro-pia.jpg';
 import aguaTransparente from '@/assets/imgs/agua-transparente.jpg';
 import chale11 from '@/assets/imgs/chale-11.jpg';
-import varandaNoite from '@/assets/imgs/varanda-noite.jpg';
 import bangaloExterno from '@/assets/imgs/bangalo-externo.jpg';
 import deckYoga from '@/assets/imgs/deck-yoga.jpg';
 import arenaBancos from '@/assets/imgs/arena-bancos.jpg';
@@ -210,7 +209,13 @@ const comuns = [
 /* "Como é viver aqui". Cada item é um fato do cliente com a foto que o mostra.
    O do mosquito é o caso difícil: não existe fotografia de uma ausência. A foto
    que entra é a da água clara — que é a razão de fato do comparativo, e não uma
-   ilustração de enfeite. A legenda descreve a água, não promete a ausência. */
+   ilustração de enfeite. A legenda descreve a água, não promete a ausência.
+
+   FASE 6 (22/08/2026): o item 'tela' usava varanda-noite.jpg — foto real, mas
+   fotografia noturna, e o plano do redesign proíbe isso fora da piracaia
+   (exceção nominal única). Trocada pela mesma varanda, mesma rede, de dia
+   (varanda-rede-duplex.jpg, já usada acima em tipo3) — o texto sobre "não
+   tem TV" não precisa da noite para se sustentar. */
 const viver = [
   { k: 'mosquito', foto: aguaTransparente,
     alt: 'Banco de areia dourada dentro do rio, com a água rasa tão clara que o fundo aparece ondulado pela luz',
@@ -220,9 +225,9 @@ const viver = [
     alt: 'Chuveiro aberto num banheiro de madeira, a água caindo em fio contra a luz que entra pela janela',
     legenda: t('pousada.figBanhoSemAquecedor'),
     titulo: t('pousada.aguaT'), texto: t('pousada.aguaD') },
-  { k: 'tela', foto: varandaNoite,
-    alt: 'Varanda de madeira à noite com rede armada e luminária de fibra trançada acesa sob o telhado de palha',
-    legenda: t('pousada.figNoiteRedeLuminaria'),
+  { k: 'tela', foto: varandaRedeDuplex,
+    alt: 'Varanda do pavimento superior com rede preta armada, cadeira de cipó e cesto trançado pendurado na parede de madeira',
+    legenda: t('pousada.figVarandaRede'),
     titulo: t('pousada.telaT'), texto: t('pousada.telaD') },
 ] as const;
 ---
@@ -245,9 +250,6 @@ const viver = [
     folhas={folhasAcomodacao}
     rotulo={t('carousel.acomodacoesLabel')}
     rotuloPosicao={t('carousel.photoPosition')}
-    rotuloAnterior={t('carousel.photoPrev')}
-    rotuloProxima={t('carousel.photoNext')}
-    rotuloArraste={t('carousel.drag')}
     sizes="(min-width: 1280px) 76rem, 100vw"
     prioridade
   />

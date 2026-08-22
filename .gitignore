@@ -44,3 +44,13 @@ src/assets/imgs/Job_0027/
 # Credencial do endpoint de e-mail. O real mora ACIMA do public_html, no
 # servidor. Nunca no repo — que é público.
 va-config.php
+
+# estado de sessão do playwright-cli (perfil do browser, traces, vídeos).
+# Ferramenta de verificação de UI, não conteúdo do site — mesmo motivo do .impeccable/.
+.playwright/
+.playwright-cli/
+
+# bytecode dos scripts Python que a skill caveman-compress traz.
+# Os .py são conteúdo vendorizado e versionado; o cache de execução não.
+__pycache__/
+*.py[cod]

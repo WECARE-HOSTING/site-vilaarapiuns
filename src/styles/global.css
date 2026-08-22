@@ -80,10 +80,13 @@
   --color-erro-luz:    #efb391;  /* sobre mar: 4,8:1 */
 
   /* ── Tipografia ──
-     Display: a própria letra do logotipo. O wordmark ARAPIUNS não é de peso
-       ultraleve — é CONTORNO VAZADO, a linha de um sans largo e alto. Archivo
-       tem eixo de largura, então o display é Archivo expandida renderizada em
-       contorno, fiel ao ativo da marca. Nenhuma serifa: a Fraunces saiu.
+     Display: a própria letra do logotipo. CORRIGIDO EM 20/08/2026 (PRODUCT.md):
+       o wordmark ARAPIUNS é SÓLIDO, PESADO E CONDENSADO, com espaçamento
+       apertado — não é contorno vazado. Essa leitura errada vinha da versão
+       branca sobre branco do ativo, onde só as bordas apareciam. Archivo tem
+       eixo de largura, então o display é Archivo expandida (font-stretch:
+       125%) a peso 600, sólida — nunca em contorno. Nenhuma serifa: a Fraunces
+       saiu.
      Etiqueta: Archivo Narrow, o registro da lista de corte do marceneiro.
      Corpo: Archivo. ── */
   --font-display: "Archivo", ui-sans-serif, system-ui, sans-serif;
@@ -177,6 +180,15 @@
     --aresta-cta: var(--color-ceu-hover);
     --cor-titulo: var(--color-mar);               /* 8,3:1 */
     --cor-etiqueta: var(--color-areia-funda);     /* 5,6:1 */
+    /* O texto/glifo QUANDO O PREENCHIMENTO VIRA --cor-titulo (hover de
+       .btn-secundario e .seta-carrossel). Achado na Fase 4, 22/08/2026: as
+       duas regras hardcodavam --color-areia-clara aqui, herdado de quando
+       --cor-titulo só existia no claro. Nenhum uso real hoje está dentro de
+       .sobre-escuro (confirmado por grep), então isto nunca falhou em
+       produção — mas o dia em que um desses botões entrar numa seção escura,
+       a dupla vira quase branco sobre quase branco (1,15:1). Corrigido para
+       inverter com o contexto, como toda variável desta lista. */
+    --sobre-titulo: var(--color-areia-clara);     /* 8,29:1 sobre --cor-titulo (mar) */
   }
 
   /* ═══ SOBRE ESCURO ═══
@@ -191,6 +203,7 @@
     --aresta-cta: var(--color-sol);
     --cor-titulo: var(--color-areia);
     --cor-etiqueta: var(--color-sol);
+    --sobre-titulo: var(--color-mar-fundo);       /* 11,03:1 sobre --cor-titulo (areia) */
   }
 
   :focus-visible {
@@ -359,9 +372,15 @@
   padding: 0.875rem 2rem;
   border: 1px solid transparent;
   border-radius: 0;
-  transition: background-color 0.25s, color 0.25s, border-color 0.25s;
+  scale: 1;
+  transition: background-color 0.25s, color 0.25s, border-color 0.25s,
+              scale 120ms cubic-bezier(0.23, 1, 0.32, 1);
   cursor: pointer;
   text-align: center;
+  /* Fase 5: nenhum feedback ao clique além da cor. `scale` também move os
+     filhos (o rótulo), o que é o que faz ler como pressão física, não só
+     mudança de cor. */
+  &:active { scale: 0.97; }
 }
 
 @utility btn-primario {
@@ -375,25 +394,36 @@
   background-color: transparent;
   color: var(--cor-titulo);
   border-color: color-mix(in srgb, var(--cor-titulo) 55%, transparent);
-  &:hover { background-color: var(--cor-titulo); color: var(--color-areia-clara); }
+  &:hover { background-color: var(--cor-titulo); color: var(--sobre-titulo); }
 }
 
 /* Comando do carrossel: o .btn-secundario reduzido ao alvo de toque mínimo da
    SC 2.5.8 — quadrado de 44px, aresta reta. Não herda .btn porque .btn tem
    padding de 2rem, o que daria um retângulo de 100px para uma seta de 16.
 
-   A ARESTA É 70%, e NÃO os 55% do .btn-secundario. Medido: ouro a 55% rende
-   3,15:1 sobre `mata-funda` e 2,70:1 sobre `mata` — o segundo REPROVA a SC
-   1.4.11, que pede 3:1 para o limite de um componente de interface. O
-   .btn-secundario sobrevive com 55% porque ele carrega TEXTO em caixa alta a
-   7,16:1: se a aresta some, o rótulo ainda diz onde está o botão. Aqui não há
+   A ARESTA É 70%, e NÃO os 55% do .btn-secundario. O número original media
+   ouro sobre mata-funda/mata (paleta verde-mata, saiu em 21/08/2026): a 55%
+   dava 3,15:1 e 2,70:1 — o segundo REPROVAVA a SC 1.4.11, que pede 3:1 para o
+   limite de um componente de interface. RECALCULADO em 22/08/2026 (Fase 4)
+   para a paleta areia-e-mar em uso — `--cor-titulo` (areia, #f4e7cf em
+   .sobre-escuro) sobre os dois chãos escuros do sistema hoje:
+     55% sobre mar-fundo (#0d3244): 4,42:1 · sobre mar (#17506a): 3,33:1
+     70% sobre mar-fundo:           6,20:1 · sobre mar:           4,41:1
+   Achado: com a paleta nova, mesmo 55% passaria nos dois chãos — a
+   reprovação que justificava os 70% era específica da paleta antiga. Mantido
+   em 70% por margem e por consistência com a razão abaixo, não porque 55%
+   falhe hoje; revisitar se o Carlos preferir alinhar aos 55% do
+   .btn-secundario.
+
+   O .btn-secundario sobrevive com 55% porque ele carrega TEXTO em caixa alta:
+   se a aresta some, o rótulo ainda diz onde está o botão. Aqui não há
    rótulo — o alvo é um ícone, e a aresta é a única coisa que delimita a área
-   clicável. A 70% são 4,21:1 sobre `mata-funda` e 3,46:1 sobre `mata`, então o
-   comando passa nos DOIS chãos escuros do sistema.
+   clicável.
 
    Isto não é preciosismo de número: o carrossel é reutilizável, e os dois usos
-   de hoje estão sobre `mata-funda`. O terceiro, dentro de uma `secao bg-mar`
-   — que é o padrão mais comum destas páginas —, falharia em silêncio. */
+   de hoje estão sobre `bg-mar-fundo` (rodapé, fecho de página). Um terceiro
+   uso dentro de uma `secao bg-mar` — o padrão mais comum destas páginas —
+   ainda precisa passar nos dois chãos, e é isso que a tabela acima garante. */
 @utility seta-carrossel {
   display: inline-flex;
   align-items: center;
@@ -405,11 +435,14 @@
   border-radius: 0;
   cursor: pointer;
   transition: background-color 0.25s, color 0.25s, border-color 0.25s;
-  /* No hover o preenchimento é ouro cheio e o glifo vira mata-funda: 7,16:1,
-     e o próprio preenchimento marca o limite a 7,16:1 contra o chão. */
+  /* No hover o preenchimento é --cor-titulo cheio e o glifo vira
+     --sobre-titulo — a mesma dupla de contexto do .btn-secundario, e pela
+     mesma razão (ver o achado de Fase 4 na definição de --sobre-titulo,
+     acima em :root/.sobre-escuro): sem ela, o glifo some contra o
+     preenchimento sempre que este comando entrar numa seção escura. */
   &:hover {
     background-color: var(--cor-titulo);
-    color: var(--color-areia-clara);
+    color: var(--sobre-titulo);
   }
 }
 
@@ -438,12 +471,16 @@
 }
 
 /* Campo de formulário: o btn-secundario aplicado a entrada de texto.
-   Transparente sobre o chão escuro, com o filete de embutido na borda.
-   NENHUMA cor nova entra na paleta, e isso é deliberado: cada token deste
-   tema carrega razão de contraste medida no comentário, então inventar um
+   CORRIGIDO EM 22/08/2026 (Fase 4): a paleta virou clara em 21/08 e este
+   comentário ainda descrevia "sobre o chão escuro" — hoje é o inverso, o
+   campo mora sobre a areia clara, tingido a 5% de mar-fundo. NENHUMA cor
+   nova entra na paleta, e isso continua deliberado: cada token deste tema
+   carrega razão de contraste medida no comentário, então inventar um
    vermelho de erro obrigaria a auditar a paleta de novo. O anel de foco
-   global (--anel-foco, palha, 8,5:1 sobre breu) já vale aqui sem override,
-   e o erro usa a terracota clara que o tema já mede em 4,6:1 como TEXTO. */
+   global (--anel-foco, mar-fundo, 12,7:1 sobre areia) já vale aqui sem
+   override, e o erro usa --color-erro, que o tema já mede em 6,6:1 sobre
+   areia como TEXTO (e --color-erro-luz a 4,8:1 sobre mar, para o formulário
+   dentro de uma seção escura). */
 @utility campo-form {
   width: 100%;
   min-height: 3rem;
@@ -473,7 +510,34 @@
    declaradas depois, então vencem por ordem. Sem isso, um aviso revelado
    pelo `:target` não teria como sair da tela depois de um envio bem
    sucedido — `:target` não se desfaz sozinho. */
-#form-erro { display: none; }
+#form-erro {
+  display: none;
+  opacity: 1;
+  translate: 0 0;
+  /* Fase 5: aparecia sem ponte nenhuma — o bloco simplesmente existia ou
+     não. `display` entra na transição via allow-discrete (baseline 2024);
+     onde não há suporte, o comportamento é o mesmo corte instantâneo de
+     hoje. */
+  transition: opacity 300ms cubic-bezier(0.23, 1, 0.32, 1),
+              translate 300ms cubic-bezier(0.23, 1, 0.32, 1),
+              display 300ms allow-discrete;
+}
 #form-erro:target { display: block; }
 #form-erro[data-js] { display: none; }
 #form-erro[data-js][data-visivel] { display: block; }
+
+@starting-style {
+  #form-erro:target,
+  #form-erro[data-js][data-visivel] {
+    opacity: 0;
+    translate: 0 -6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #form-erro { transition-property: opacity, display; }
+  @starting-style {
+    #form-erro:target,
+    #form-erro[data-js][data-visivel] { translate: 0 0; }
+  }
+}

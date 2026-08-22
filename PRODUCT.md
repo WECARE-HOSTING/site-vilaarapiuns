@@ -337,6 +337,55 @@ Ausências que trabalho futuro **não deve fabricar**: depoimentos, nomes de hó
 notas de avaliação, preços, ano de fundação, número de incidentes, prêmios, imprensa,
 política de cancelamento, política de crianças.
 
+### Procedência da fotografia — o que vale, decidido em 22/08/2026
+
+Esta regra **não existia** e a ausência dela custou caro: em 20/08/2026 um job de edição
+em lote (`Job_0027`) passou as 65 fotos do site por `openai/gpt-image-2/edit` e substituiu
+os arquivos versionados pelas saídas do modelo, sem que nenhuma regra escrita fosse
+violada — porque não havia regra, só uma inferência do Princípio 5. Medido e registrado em
+`docs/revisao-2026-08-22.md` §2. **Decisão do Carlos em 22/08/2026: as fotos editadas
+ficam, e a regra passa a dizer o que de fato vale.** O que segue é essa regra.
+
+**1. Toda imagem do site parte de uma fotografia real desta propriedade.** Não existe
+imagem gerada de texto, nem imagem de banco, nem imagem de outra pousada. Isto é o piso e
+não se negocia: uma foto inventada de um lugar real é alegação falsa, e cai direto no
+Princípio 5.
+
+**2. Retoque assistido por modelo é permitido**, e é o que está no ar. Vale o que um
+fotógrafo de imóvel faria: exposição, recuperação de alta luz e sombra, balanço de branco,
+remoção de reflexo em superfície opaca, remoção de objeto de morador ou de manutenção
+(produto de limpeza, papel no chão, cabo), cama feita e têxtil passado, cadeira alinhada,
+enquadramento recomposto do mesmo ponto de vista.
+
+**3. O que o retoque NÃO pode fazer**, e aqui a linha é dura:
+- inventar objeto, estrutura ou pessoa que não está no quadro original;
+- inventar o que se vê através de vidro, ou resolver detalhe onde a fonte tem só um
+  branco estourado;
+- **desenhar conteúdo em tela de aparelho.** O prompt de `Job_0027` mandava pôr tela do
+  Netflix em qualquer TV visível, numa pousada cujo argumento registrado é "sem TV". Não
+  achei TV nas 65 publicadas, então isto é risco de processo e não defeito no ar — mas a
+  cláusula fica proibida para sempre;
+- mudar tempo, estação ou hora do dia;
+- deixar de fora o registro: todo lote traz o prompt e o log por foto.
+
+**4. Ampliação por modelo: só o que já está no ar, e nada mais.** As 24 fotos ampliadas em
+20/08 (de 1,07× até 3,34×, com `hero5` saindo de 613px para 2048px) **ficam**, por esta
+decisão. Daqui para frente a regra antiga volta a valer sem exceção: **não se amplia.**
+Foto que precisa de mais pixel vem de fonte maior — o acervo bruto tem 2.201 arquivos, 53%
+deles acima de 5 MB, em resolução cheia. Ampliar não cria detalhe, cria bytes e uma
+promessa falsa, e o caso `hero5` é a prova: 3,34× é imagem majoritariamente desenhada.
+
+**5. O original nunca se perde.** Os originais das 65 estão em `src/assets/imgs/Job_0027/`
+(gitignorada) e no Drive. Um lote de edição que sobrescreve o original sem cópia é
+irreversível e está proibido.
+
+**6. A causa técnica, que é o que precisa ser consertada de verdade.** O upscale não foi
+capricho: em DPR 2 o site entrega ~0,54× dos pixels que precisa, em toda página e todo
+aparelho retina, porque as escalas de `widths` estão capadas abaixo do que os `sizes`
+pedem. Alguém encontrou foto mole e resolveu com um modelo em vez de corrigir o contrato.
+**O upscale é o sintoma; o `srcset` é a doença**, e é ele que a direção nova tem de
+resolver — ver `docs/revisao-2026-08-22.md` §3.1.
+
 ## Product Principles
 
 1. **Tranquilizar é o produto.** A decisão em jogo é viajar para um lugar remoto com

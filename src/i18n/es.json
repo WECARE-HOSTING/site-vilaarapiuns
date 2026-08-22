@@ -266,6 +266,53 @@
         "alt": "Mesa larga en la playa a la luz de las velas: pescado asado, harina de mandioca y frutas servidos sobre hoja de plátano y estera trenzada"
       }
     ],
+    "heroReelItens": [
+      {
+        "id": "aguaTransparente",
+        "legenda": "El agua transparente",
+        "alt": "Banco de arena dentro del río, con el agua poco profunda tan clara que se ve el fondo ondulado por la luz"
+      },
+      {
+        "id": "canoaIgapo",
+        "legenda": "La canoa entre las copas, en la crecida"
+      },
+      {
+        "id": "tucuxi",
+        "legenda": "El delfín tucuxi",
+        "alt": "Delfín tucuxi saltando en la superficie del río, cerca de la Villa"
+      },
+      {
+        "id": "urucum",
+        "legenda": "El urucú, tiñendo la paja"
+      },
+      {
+        "id": "igapoCanoa",
+        "legenda": "El igapó",
+        "alt": "Canoa de madera azul apoyada en la arena, frente a arbustos y palmeras con el tronco dentro del agua"
+      },
+      {
+        "id": "meliponario",
+        "legenda": "El meliponario, miel de abeja nativa"
+      },
+      {
+        "id": "redario",
+        "legenda": "El redario",
+        "alt": "Hamacas colgadas entre árboles, bajo un pabellón de paja, con la playa al fondo"
+      },
+      {
+        "id": "tecelagemVideo",
+        "legenda": "La paja, siendo trenzada"
+      },
+      {
+        "id": "tecelagem",
+        "legenda": "El tejido",
+        "alt": "Artesana de la comunidad sonriendo mientras muestra el trenzado de paja a dos huéspedes sentadas a su lado"
+      },
+      {
+        "id": "piracaia",
+        "legenda": "La piracaia, a la luz de las velas"
+      }
+    ],
     "campoLancha": "1h30 en lancha desde {place}"
   },
   "modo": {
@@ -330,7 +377,7 @@
     "figChale11": "Chalé 11 · hamaca en la terraza",
     "figAguaClara": "Agua clara · el fondo a la vista",
     "figBanhoSemAquecedor": "La ducha · sin calentador",
-    "figNoiteRedeLuminaria": "La noche · hamaca y lámpara de fibra",
+    "figVarandaRede": "La veranda · hamaca colgada, vista al bosque",
     "medida1Pavimento": "1 planta",
     "medida2Pavimentos": "2 plantas",
     "medida2Suites": "2 suites",
@@ -450,6 +497,34 @@
         "marcado": true
       }
     ],
+    "videoT": "Cada actividad, en vídeo",
+    "videoItens": [
+      {
+        "id": "canoaIgapo",
+        "legenda": "Canoa en el igapó · la proa entre el reflejo de las copas",
+        "alt": "Vídeo vertical de la proa de una canoa deslizándose por un reflejo de igapó, sin personas"
+      },
+      {
+        "id": "urucum",
+        "legenda": "Urucú · el tinte extraído de la semilla",
+        "alt": "Vídeo vertical de una mano con guante extrayendo el tinte de la semilla de urucú"
+      },
+      {
+        "id": "meliponario",
+        "legenda": "Meliponario · abejas nativas, sin aguijón",
+        "alt": "Vídeo vertical de abejas nativas sin aguijón en la entrada de un meliponario, en primer plano"
+      },
+      {
+        "id": "tecelagem",
+        "legenda": "Tejido · las manos trenzando la paja",
+        "alt": "Vídeo vertical de manos trenzando fibra de paja, en primer plano"
+      },
+      {
+        "id": "piracaia",
+        "legenda": "Piracaia · el farol encendido de noche",
+        "alt": "Vídeo vertical de un farol de papel con la llama encendida, de noche"
+      }
+    ],
     "contato": [
       {
         "id": "caiaques",
@@ -528,7 +603,24 @@
     "a5": "Sí. Díganos la edad cuando hable con nosotros, para pensar el alojamiento y el ritmo del día junto con usted.",
     "figFimEtapa3": "El fin de la etapa 03 · desembarco en la arena de la Villa",
     "duvFinal": "Si queda alguna duda que no está aquí, pregunte — es más rápido que buscar.",
-    "ctaVerPacotes": "Ver paquetes con lancha incluida"
+    "ctaVerPacotes": "Ver paquetes con lancha incluida",
+    "embarqueItens": [
+      {
+        "id": "passarela",
+        "legenda": "La pasarela, en Alter do Chão",
+        "alt": "Grupo de huéspedes caminando por la pasarela de madera azul en Alter do Chão, camino al embarque"
+      },
+      {
+        "id": "grupo",
+        "legenda": "El grupo, camino al barco",
+        "alt": "Grupo de huéspedes con mochilas caminando en la arena hacia los barcos anclados"
+      },
+      {
+        "id": "colete",
+        "legenda": "El Pérola do Tapajós, con los chalecos",
+        "alt": "Huéspedes con chaleco salvavidas subiendo al barco Pérola do Tapajós, atracado en la arena"
+      }
+    ]
   },
   "mapa": {
     "alt": "Mapa de la región: Villa Arapiuns está en la margen del río Arapiuns, al oeste. Al este, donde el río Tapajós se encuentra con el río Amazonas, están Alter do Chão y, más adelante, Santarém.",
@@ -666,9 +758,9 @@
             "alt": "Terraza del piso superior con hamaca negra colgada, silla de mimbre y cesto trenzado en la pared"
           },
           {
-            "id": "varandaNoite",
-            "leg": "La terraza, al final del día",
-            "alt": "La terraza de noche con hamaca, lámpara de fibra trenzada encendida y sillas mecedoras"
+            "id": "varandaCadeiras",
+            "leg": "Veranda · sillas de mimbre y hamaca",
+            "alt": "Dos sillas de mimbre y una mesita con una flor en una veranda de madera, con la hamaca colgada al fondo y el bosque visible a través de la baranda"
           },
           {
             "id": "banheiroPia",
@@ -910,10 +1002,7 @@
   "carousel": {
     "heroLabel": "Villa Arapiuns en treinta fotos",
     "acomodacoesLabel": "Los alojamientos de la Villa en diez fotos",
-    "photoPosition": "Foto {n} de {total}",
-    "photoPrev": "Foto anterior",
-    "photoNext": "Foto siguiente",
-    "drag": "arrastra"
+    "photoPosition": "Foto {n} de {total}"
   },
   "acomodacoes": {
     "itens": [
@@ -942,10 +1031,10 @@
         "alt": "Terraza del piso superior con hamaca negra colgada de punta a punta, silla de mimbre, mesa redonda y un plato trenzado en la pared de madera"
       },
       {
-        "id": "varanda-noite",
-        "assunto": "La terraza de noche",
-        "legenda": "Lámpara de fibra trenzada",
-        "alt": "La misma terraza después del anochecer, con la hamaca colgada y una lámpara alta de fibra trenzada encendida bajo el techo de paja"
+        "id": "varanda-cadeiras",
+        "assunto": "Las sillas de mimbre",
+        "legenda": "Mesa pequeña, hamaca al fondo",
+        "alt": "Dos sillas de mimbre y una mesita con una flor en una veranda de madera, con la hamaca colgada al fondo y el bosque visible a través de la baranda"
       },
       {
         "id": "quarto-casal-mogno",

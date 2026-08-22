@@ -266,6 +266,53 @@
         "alt": "Mesa comprida na praia à luz de velas: peixe assado, farinha e frutas servidos sobre folha de bananeira e esteira trançada"
       }
     ],
+    "heroReelItens": [
+      {
+        "id": "aguaTransparente",
+        "legenda": "A água transparente",
+        "alt": "Banco de areia dentro do rio, com a água rasa tão clara que se vê o fundo ondulado pela luz"
+      },
+      {
+        "id": "canoaIgapo",
+        "legenda": "A canoa entre as copas, na cheia"
+      },
+      {
+        "id": "tucuxi",
+        "legenda": "O boto tucuxi",
+        "alt": "Boto tucuxi saltando na superfície do rio, próximo à Villa"
+      },
+      {
+        "id": "urucum",
+        "legenda": "O urucum, tingindo a palha"
+      },
+      {
+        "id": "igapoCanoa",
+        "legenda": "O igapó",
+        "alt": "Canoa de madeira azul encostada na areia, diante de arbustos e palmeiras com o tronco dentro da água"
+      },
+      {
+        "id": "meliponario",
+        "legenda": "O meliponário, mel de abelha nativa"
+      },
+      {
+        "id": "redario",
+        "legenda": "O redário",
+        "alt": "Redes penduradas entre árvores, sob um pavilhão de palha, com a praia ao fundo"
+      },
+      {
+        "id": "tecelagemVideo",
+        "legenda": "A palha, sendo trançada"
+      },
+      {
+        "id": "tecelagem",
+        "legenda": "A tecelagem",
+        "alt": "Artesã da comunidade sorrindo enquanto mostra o trançado de palha a duas hóspedes sentadas ao lado dela"
+      },
+      {
+        "id": "piracaia",
+        "legenda": "A piracaia, à luz de velas"
+      }
+    ],
     "campoLancha": "1h30 de lancha de {place}"
   },
   "modo": {
@@ -330,7 +377,7 @@
     "figChale11": "Chalé 11 · rede na varanda",
     "figAguaClara": "Água clara · o fundo à vista",
     "figBanhoSemAquecedor": "O banho · sem aquecedor",
-    "figNoiteRedeLuminaria": "A noite · rede e luminária de fibra",
+    "figVarandaRede": "A varanda · rede armada, vista para a mata",
     "medida1Pavimento": "1 pavimento",
     "medida2Pavimentos": "2 pavimentos",
     "medida2Suites": "2 suítes",
@@ -450,6 +497,34 @@
         "marcado": true
       }
     ],
+    "videoT": "Cada atividade, em vídeo",
+    "videoItens": [
+      {
+        "id": "canoaIgapo",
+        "legenda": "Canoa no igapó · a proa entre o reflexo das copas",
+        "alt": "Vídeo em vertical da proa de uma canoa deslizando por um reflexo de igapó, sem pessoas"
+      },
+      {
+        "id": "urucum",
+        "legenda": "Urucum · o tingimento extraído da semente",
+        "alt": "Vídeo em vertical de uma mão com luva extraindo o corante da semente de urucum"
+      },
+      {
+        "id": "meliponario",
+        "legenda": "Meliponário · abelhas nativas, sem ferrão",
+        "alt": "Vídeo em vertical de abelhas nativas sem ferrão na entrada de um meliponário, em close"
+      },
+      {
+        "id": "tecelagem",
+        "legenda": "Tecelagem · as mãos trançando a palha",
+        "alt": "Vídeo em vertical de mãos trançando fibra de palha, em close"
+      },
+      {
+        "id": "piracaia",
+        "legenda": "Piracaia · a lanterna acesa à noite",
+        "alt": "Vídeo em vertical de uma lanterna de papel com a chama acesa, à noite"
+      }
+    ],
     "contato": [
       {
         "id": "caiaques",
@@ -528,7 +603,24 @@
     "a5": "Pode. Diga a idade quando falar com a gente, para pensarmos a acomodação e o ritmo do dia junto com você.",
     "figFimEtapa3": "O fim da etapa 03 · desembarque na areia da Villa",
     "duvFinal": "Se ficou dúvida que não está aqui, pergunte — é mais rápido que procurar.",
-    "ctaVerPacotes": "Ver pacotes com barco"
+    "ctaVerPacotes": "Ver pacotes com barco",
+    "embarqueItens": [
+      {
+        "id": "passarela",
+        "legenda": "A passarela, em Alter do Chão",
+        "alt": "Grupo de hóspedes caminhando pela passarela de madeira azul em Alter do Chão, a caminho do embarque"
+      },
+      {
+        "id": "grupo",
+        "legenda": "O grupo, a caminho do barco",
+        "alt": "Grupo de hóspedes com mochilas caminhando na areia em direção aos barcos ancorados"
+      },
+      {
+        "id": "colete",
+        "legenda": "O Pérola do Tapajós, com os coletes",
+        "alt": "Hóspedes de colete salva-vidas embarcando no barco Pérola do Tapajós, encostado na areia"
+      }
+    ]
   },
   "mapa": {
     "alt": "Mapa da região: a Villa Arapiuns fica na margem do rio Arapiuns, a oeste. A leste, onde o rio Tapajós encontra o rio Amazonas, ficam Alter do Chão e, mais adiante, Santarém.",
@@ -666,9 +758,9 @@
             "alt": "Varanda do pavimento superior com rede preta armada, cadeira de cipó e cesto trançado na parede"
           },
           {
-            "id": "varandaNoite",
-            "leg": "Varanda, ao fim do dia",
-            "alt": "Varanda à noite com rede, luminária de fibra trançada acesa e cadeiras de balanço"
+            "id": "varandaCadeiras",
+            "leg": "Varanda · cadeiras de cipó e rede",
+            "alt": "Duas cadeiras de cipó e uma mesinha com flor numa varanda de madeira, com a rede armada ao fundo e a mata visível pela grade"
           },
           {
             "id": "banheiroPia",
@@ -910,10 +1002,7 @@
   "carousel": {
     "heroLabel": "A Villa Arapiuns em trinta fotos",
     "acomodacoesLabel": "As acomodações da Villa em dez fotos",
-    "photoPosition": "Foto {n} de {total}",
-    "photoPrev": "Foto anterior",
-    "photoNext": "Próxima foto",
-    "drag": "arraste"
+    "photoPosition": "Foto {n} de {total}"
   },
   "acomodacoes": {
     "itens": [
@@ -942,10 +1031,10 @@
         "alt": "Varanda do pavimento superior com rede preta armada de ponta a ponta, cadeira de cipó, mesa redonda e um prato trançado na parede de madeira"
       },
       {
-        "id": "varanda-noite",
-        "assunto": "A varanda à noite",
-        "legenda": "Luminária de fibra trançada",
-        "alt": "A mesma varanda depois do anoitecer, com rede armada e uma luminária alta de fibra trançada acesa sob o telhado de palha"
+        "id": "varanda-cadeiras",
+        "assunto": "As cadeiras de cipó",
+        "legenda": "Mesa pequena, rede ao fundo",
+        "alt": "Duas cadeiras de cipó e uma mesinha com flor numa varanda de madeira, com a rede armada ao fundo e a mata visível pela grade"
       },
       {
         "id": "quarto-casal-mogno",

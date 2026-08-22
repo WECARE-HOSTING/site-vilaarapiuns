@@ -266,6 +266,53 @@
         "alt": "A long table on the beach by candlelight: grilled fish, cassava flour and fruit served on a banana leaf and a woven mat"
       }
     ],
+    "heroReelItens": [
+      {
+        "id": "aguaTransparente",
+        "legenda": "The clear water",
+        "alt": "A sandbank within the river, the shallow water so clear that the sunlit, rippled riverbed shows through"
+      },
+      {
+        "id": "canoaIgapo",
+        "legenda": "The canoe between the treetops, in the flood season"
+      },
+      {
+        "id": "tucuxi",
+        "legenda": "The tucuxi dolphin",
+        "alt": "A tucuxi dolphin leaping at the surface of the river, close to the Villa"
+      },
+      {
+        "id": "urucum",
+        "legenda": "Urucum seed, dyeing the palm fiber"
+      },
+      {
+        "id": "igapoCanoa",
+        "legenda": "The igapó",
+        "alt": "A blue wooden canoe resting on the sand, facing shrubs and palm trees with their trunks standing in the water"
+      },
+      {
+        "id": "meliponario",
+        "legenda": "The meliponary, native bee honey"
+      },
+      {
+        "id": "redario",
+        "legenda": "The hammock grove",
+        "alt": "Hammocks strung between trees, under a thatched pavilion, with the beach beyond"
+      },
+      {
+        "id": "tecelagemVideo",
+        "legenda": "Palm fiber, being woven"
+      },
+      {
+        "id": "tecelagem",
+        "legenda": "The weaving",
+        "alt": "A community artisan smiling as she shows the woven palm work to two guests sitting beside her"
+      },
+      {
+        "id": "piracaia",
+        "legenda": "The piracaia, by candlelight"
+      }
+    ],
     "campoLancha": "1h30 by boat from {place}"
   },
   "modo": {
@@ -330,7 +377,7 @@
     "figChale11": "Chalet 11 · hammock on the veranda",
     "figAguaClara": "Clear water · the riverbed in view",
     "figBanhoSemAquecedor": "The shower · no heater",
-    "figNoiteRedeLuminaria": "Night · hammock and fibre lamp",
+    "figVarandaRede": "The veranda · hammock strung, view of the forest",
     "medida1Pavimento": "1 floor",
     "medida2Pavimentos": "2 floors",
     "medida2Suites": "2 suites",
@@ -450,6 +497,34 @@
         "marcado": true
       }
     ],
+    "videoT": "Each activity, on video",
+    "videoItens": [
+      {
+        "id": "canoaIgapo",
+        "legenda": "Canoe in the igapó · the bow between the flooded-forest reflection",
+        "alt": "Vertical video of a canoe’s bow gliding across an igapó reflection, no people"
+      },
+      {
+        "id": "urucum",
+        "legenda": "Urucum · the dye drawn from the seed",
+        "alt": "Vertical video of a gloved hand extracting dye from an urucum seed"
+      },
+      {
+        "id": "meliponario",
+        "legenda": "Meliponary · native stingless bees, close up",
+        "alt": "Vertical video of native stingless bees at the entrance of a meliponary, close up"
+      },
+      {
+        "id": "tecelagem",
+        "legenda": "Weaving · hands braiding the straw",
+        "alt": "Vertical video of hands braiding palm-straw fiber, close up"
+      },
+      {
+        "id": "piracaia",
+        "legenda": "Piracaia · the lantern lit at night",
+        "alt": "Vertical video of a lit paper lantern at night"
+      }
+    ],
     "contato": [
       {
         "id": "caiaques",
@@ -528,7 +603,24 @@
     "a5": "You can. Tell us their ages when you get in touch, so we can think about the accommodation and the pace of the day together with you.",
     "figFimEtapa3": "The end of stage 03 · landing on the Villa’s sand",
     "duvFinal": "If a question is still unanswered here, just ask — it's faster than searching.",
-    "ctaVerPacotes": "See packages with boat included"
+    "ctaVerPacotes": "See packages with boat included",
+    "embarqueItens": [
+      {
+        "id": "passarela",
+        "legenda": "The walkway, in Alter do Chão",
+        "alt": "A group of guests walking along the blue wooden walkway in Alter do Chão, on their way to board"
+      },
+      {
+        "id": "grupo",
+        "legenda": "The group, on the way to the boat",
+        "alt": "A group of guests with backpacks walking across the sand toward the anchored boats"
+      },
+      {
+        "id": "colete",
+        "legenda": "The Pérola do Tapajós, life vests on",
+        "alt": "Guests in life vests boarding the boat Pérola do Tapajós, moored by the sand"
+      }
+    ]
   },
   "mapa": {
     "alt": "Map of the region: Villa Arapiuns sits on the bank of the Arapiuns River, to the west. To the east, where the Tapajós meets the Amazon, are Alter do Chão and, further on, Santarém.",
@@ -666,9 +758,9 @@
             "alt": "An upper-floor veranda with a black hammock strung up, a wicker chair and a woven basket on the wall"
           },
           {
-            "id": "varandaNoite",
-            "leg": "The veranda, at day's end",
-            "alt": "The veranda at night with a hammock, a lit woven-fibre lamp and rocking chairs"
+            "id": "varandaCadeiras",
+            "leg": "Veranda · wicker chairs and hammock",
+            "alt": "Two wicker chairs and a small table with a flower on a wooden veranda, a hammock strung beyond and the forest visible through the railing"
           },
           {
             "id": "banheiroPia",
@@ -910,10 +1002,7 @@
   "carousel": {
     "heroLabel": "Villa Arapiuns in thirty photos",
     "acomodacoesLabel": "The Villa's accommodations in ten photos",
-    "photoPosition": "Photo {n} of {total}",
-    "photoPrev": "Previous photo",
-    "photoNext": "Next photo",
-    "drag": "drag"
+    "photoPosition": "Photo {n} of {total}"
   },
   "acomodacoes": {
     "itens": [
@@ -942,10 +1031,10 @@
         "alt": "An upper-floor veranda with a black hammock strung from end to end, a wicker chair, a round table and a woven plate on the timber wall"
       },
       {
-        "id": "varanda-noite",
-        "assunto": "The veranda at night",
-        "legenda": "Woven-fibre lamp",
-        "alt": "The same veranda after nightfall, with the hammock strung and a tall woven-fibre lamp lit under the thatched roof"
+        "id": "varanda-cadeiras",
+        "assunto": "The wicker chairs",
+        "legenda": "Small table, hammock beyond",
+        "alt": "Two wicker chairs and a small table with a flower on a wooden veranda, a hammock strung beyond and the forest visible through the railing"
       },
       {
         "id": "quarto-casal-mogno",

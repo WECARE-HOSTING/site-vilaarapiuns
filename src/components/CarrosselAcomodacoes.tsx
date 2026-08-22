@@ -35,6 +35,13 @@
  * O ARRASTE existe e é elástico: `drag="x"` com restrição zero dos dois lados e
  * `dragElastic`, então a pilha cede sob o dedo e volta sozinha; a folha troca na
  * soltura, por deslocamento ou por velocidade. Sem medir nada.
+ *
+ * SEM SETAS NEM DICA DE ARRASTE (22/08/2026, pedido direto do Carlos: "não
+ * gosto do arraste com as setas"). O gesto continua existindo — arrastar ainda
+ * troca a folha, e a seta do teclado também —, só a UI que os anunciava saiu:
+ * nada de botão de seta, nada de "← arraste →" a desaparecer na primeira
+ * interação. O que resta como pista é o cursor `grab`/`grabbing` no quadro e a
+ * régua de progresso abaixo dele.
  */
 import * as React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
@@ -62,16 +69,6 @@ export interface CarrosselAcomodacoesProps {
   rotulo: string;
   /** Texto do leitor de tela para "foto X de Y", com {n} e {total}. */
   rotuloPosicao: string;
-  /** Rótulo do botão de voltar. */
-  rotuloAnterior: string;
-  /** Rótulo do botão de avançar. */
-  rotuloProxima: string;
-  /**
-   * Dica de arraste, ao lado do contador. O gesto sempre existe, mas nada na
-   * tela o anuncia — e no celular não há cursor `grab` para insinuá-lo. Sai da
-   * frente na primeira interação: dita a regra, some.
-   */
-  rotuloArraste?: string;
   /**
    * `sizes` do <img>. Muda com o lugar: na home o quadro é uma coluna de grade,
    * na página da pousada ele é o container inteiro.
@@ -93,25 +90,20 @@ export function CarrosselAcomodacoes({
   folhas,
   rotulo,
   rotuloPosicao,
-  rotuloAnterior,
-  rotuloProxima,
-  rotuloArraste,
   sizes = '100vw',
   prioridade = false,
   className,
 }: CarrosselAcomodacoesProps) {
   const [index, setIndex] = React.useState(0);
-  const [mexeu, setMexeu] = React.useState(false);
   const reduzido = useReducedMotion();
 
   const total = folhas.length;
   const ultima = total - 1;
 
-  /* Circular de propósito: com dez folhas e um contador à vista, quem chega na
-     décima e clica em avançar quer ver a primeira, não um botão morto. */
+  /* Circular de propósito: com dez folhas, quem chega na décima e arrasta
+     para a frente quer ver a primeira, não travar no fim. */
   const ir = React.useCallback(
     (proxima: number) => {
-      setMexeu(true);
       setIndex(((proxima % total) + total) % total);
     },
     [total],
@@ -164,10 +156,7 @@ export function CarrosselAcomodacoes({
           const passou =
             Math.abs(info.offset.x) > LIMIAR_PX ||
             Math.abs(info.velocity.x) > LIMIAR_VELOCIDADE;
-          if (!passou) {
-            setMexeu(true);
-            return;
-          }
+          if (!passou) return;
           ir(info.offset.x < 0 ? index + 1 : index - 1);
         }}
         className="relative aspect-[3/2] w-full cursor-grab overflow-hidden bg-areia active:cursor-grabbing"
@@ -206,41 +195,11 @@ export function CarrosselAcomodacoes({
       </div>
 
       <div className="emenda mt-4 flex items-center justify-between gap-6 border-t pt-4">
-        {/* Duas setas de aresta reta, do mesmo desenho do .btn-secundario mas na
-            medida de um comando de 44px — alvo de toque mínimo da 2.5.8. */}
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => ir(index - 1)}
-            aria-label={rotuloAnterior}
-            className="seta-carrossel"
-          >
-            <SetaEsquerda />
-          </button>
-          <button
-            type="button"
-            onClick={() => ir(index + 1)}
-            aria-label={rotuloProxima}
-            className="seta-carrossel"
-          >
-            <SetaEsquerda className="rotate-180" />
-          </button>
-        </div>
-
-        {rotuloArraste ? (
-          <span
-            aria-hidden
-            className={cn(
-              'etiqueta transition-opacity duration-500 motion-reduce:transition-none',
-              mexeu ? 'opacity-0' : 'opacity-100',
-            )}
-          >
-            &larr; {rotuloArraste} &rarr;
-          </span>
-        ) : null}
-
         {/* O contador e a régua. Mesma emenda do embutido que governa a página:
-            um filete claro com o trecho da folha atual em ouro. */}
+            um filete claro com o trecho da folha atual em ouro. Sem setas e
+            sem dica de arraste — o gesto continua existindo (arrastar e as
+            setas do teclado ainda trocam a folha), só a UI que os anunciava
+            saiu, a pedido do Carlos em 22/08/2026. */}
         <div className="flex min-w-0 flex-1 items-center justify-end gap-4">
           <div className="emenda relative hidden h-px w-full max-w-40 border-t sm:block">
             <motion.div
@@ -267,21 +226,5 @@ export function CarrosselAcomodacoes({
         {ativa.assunto}: {ativa.alt}
       </p>
     </div>
-  );
-}
-
-/** Aresta reta, sem ponta desenhada: a mesma voluta magra do resto do sistema. */
-function SetaEsquerda({ className }: { className?: string }) {
-  return (
-    <svg
-      aria-hidden
-      viewBox="0 0 16 16"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.25"
-      className={cn('h-4 w-4', className)}
-    >
-      <path d="M13.5 8H2.5M6.5 3.5 2 8l4.5 4.5" />
-    </svg>
   );
 }

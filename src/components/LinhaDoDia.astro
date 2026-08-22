@@ -29,7 +29,7 @@ const { momentos, rotulos, tone = 'claro' } = Astro.props;
 const escuro = tone === 'escuro';
 ---
 
-<ol class:list={['relative', escuro ? '' : '']}>
+<ol data-linha-do-dia class:list={['relative', escuro ? '' : '']}>
   {/* o rio: traçado à mão, com meandro — não um filete de 1px */}
   <svg
     viewBox="0 0 10 400"
@@ -51,7 +51,7 @@ const escuro = tone === 'escuro';
   </svg>
 
   {momentos.map((m) => (
-    <li class="relative grid grid-cols-[3.5rem_1.5rem_1fr] items-start gap-x-3 py-3.5 sm:grid-cols-[4.5rem_2rem_1fr] sm:gap-x-4">
+    <li class="momento-reel relative grid grid-cols-[3.5rem_1.5rem_1fr] items-start gap-x-3 py-3.5 sm:grid-cols-[4.5rem_2rem_1fr] sm:gap-x-4">
       <time class:list={['numero pt-0.5 text-right text-sm', escuro ? '' : '']}>
         {m.hora}
       </time>
@@ -93,3 +93,55 @@ const escuro = tone === 'escuro';
     {rotulos.comunidade}
   </span>
 </p>
+
+<style>
+  /* Fase 5 — a única peça do site batizada de movimento ("o rio que desce a
+     página") e a única sem nenhum. Padrão: visível por padrão (seguro sem
+     JS); o script liga [data-reveal-pronto] e É NELE que os momentos ficam
+     transparentes — sem essa classe, nada muda. A curva é a mesma das
+     polaroides de ListaExperiencias (cubic-bezier(0.16,1,0.3,1)), reusada
+     de propósito: é a curva de revelação que o site já tem, não uma nova. */
+  [data-reveal-pronto] .momento-reel {
+    opacity: 0;
+    translate: 0 12px;
+    transition: opacity 550ms cubic-bezier(0.16, 1, 0.3, 1),
+                translate 550ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  [data-reveal-pronto][data-reveal-visivel] .momento-reel {
+    opacity: 1;
+    translate: 0 0;
+  }
+  /* nth-of-type, não nth-child: o <svg> do meandro é o primeiro irmão do
+     <ol>, e nth-child contaria a partir dele. */
+  .momento-reel:nth-of-type(1) { transition-delay: 0ms; }
+  .momento-reel:nth-of-type(2) { transition-delay: 60ms; }
+  .momento-reel:nth-of-type(3) { transition-delay: 120ms; }
+  .momento-reel:nth-of-type(4) { transition-delay: 180ms; }
+  .momento-reel:nth-of-type(5) { transition-delay: 240ms; }
+  .momento-reel:nth-of-type(6) { transition-delay: 300ms; }
+  .momento-reel:nth-of-type(7) { transition-delay: 360ms; }
+  .momento-reel:nth-of-type(8) { transition-delay: 420ms; }
+  .momento-reel:nth-of-type(n+9) { transition-delay: 480ms; }
+</style>
+
+<script>
+  /* prefers-reduced-motion: nunca liga [data-reveal-pronto] — os momentos
+     ficam no estado padrão (visível), que é o mesmo que "mais suave", não
+     "zerado": a informação nunca se move, só deixa de ter entrada. */
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const linhas = document.querySelectorAll<HTMLOListElement>('[data-linha-do-dia]');
+    linhas.forEach((linha) => {
+      linha.dataset.revealPronto = '';
+      const observador = new IntersectionObserver(
+        ([entrada]) => {
+          if (entrada.isIntersecting) {
+            linha.dataset.revealVisivel = '';
+            observador.disconnect();
+          }
+        },
+        { threshold: 0.15 }
+      );
+      observador.observe(linha);
+    });
+  }
+</script>

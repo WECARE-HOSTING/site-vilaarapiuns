@@ -26,14 +26,18 @@ import { SITE } from '@/data/site';
     </script>
     <style>
       /* Esta página não importa o global.css (é um redirect de 0s), então os
-         valores vêm cravados — mas são os tokens reais do @theme, não os
-         hexes do site antigo que estavam aqui. */
-      body { font-family: system-ui, sans-serif; background: #1d2418; color: #b4b69f;
+         valores vêm cravados. CORRIGIDO EM 22/08/2026 (Fase 4): os hexes
+         antigos aqui (#1d2418/#b4b69f/#c2ab80) eram da paleta verde-mata que
+         saiu em 21/08 — o comentário anterior dizia que já eram "os tokens
+         reais do @theme", o que era falso. Os valores abaixo são a paleta
+         areia-e-mar em uso: areia-clara (chão), mar-fundo (texto), céu (link) —
+         ver src/styles/global.css para as razões de contraste medidas. */
+      body { font-family: system-ui, sans-serif; background: #fdf8ee; color: #0d3244;
              display: grid; place-items: center; min-height: 100dvh; margin: 0;
              padding: 2rem; text-align: center; }
       h1 { font-weight: 400; font-size: 1.25rem; margin: 0 0 1.5rem; }
       ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
-      a { color: #c2ab80; padding: 0.25rem 0; display: inline-block; }
+      a { color: #1b6aad; padding: 0.25rem 0; display: inline-block; }
     </style>
   </head>
   <body>

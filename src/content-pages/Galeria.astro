@@ -23,6 +23,12 @@
  * ~430 CSS px e pede ~860px de origem em tela de densidade dupla. Isso cabe
  * até na menor foto desta página (1200px), então a grade é segura para o
  * acervo inteiro — o que não seria verdade num layout de largura cheia.
+ *
+ * FASE 6 (22/08/2026): o capítulo "a casa" trazia varanda-noite.jpg — a regra
+ * (nada de fotografia noturna, exceção nominal só para a piracaia, já
+ * registrada em Home.astro) valia para esta página também e tinha ficado
+ * esquecida aqui. Trocada por varanda-cadeiras-rede.jpg, a mesma ideia de
+ * varanda parada, de dia.
  */
 import { Image } from 'astro:assets';
 import AberturaPagina from '@/components/AberturaPagina.astro';
@@ -37,7 +43,7 @@ import chale11 from '@/assets/imgs/chale-11.jpg';
 import gal6 from '@/assets/imgs/gal6.jpg';
 import quartoCasal from '@/assets/imgs/quarto-casal.jpg';
 import varandaRedeDuplex from '@/assets/imgs/varanda-rede-duplex.jpg';
-import varandaNoite from '@/assets/imgs/varanda-noite.jpg';
+import varandaCadeirasRede from '@/assets/imgs/varanda-cadeiras-rede.jpg';
 import banheiroPia from '@/assets/imgs/banheiro-pia.jpg';
 import pavilhaoPalha from '@/assets/imgs/pavilhao-palha.jpg';
 import deckYoga from '@/assets/imgs/deck-yoga.jpg';
@@ -105,7 +111,7 @@ const FOTOS_GALERIA: Record<string, Record<string, { src: ImageMetadata; alta?: 
     gal6: { src: gal6 },
     quartoCasal: { src: quartoCasal, alta: true },
     varandaRedeDuplex: { src: varandaRedeDuplex },
-    varandaNoite: { src: varandaNoite },
+    varandaCadeiras: { src: varandaCadeirasRede },
     banheiroPia: { src: banheiroPia, alta: true },
     pavilhaoPalha: { src: pavilhaoPalha },
     deckYoga: { src: deckYoga },

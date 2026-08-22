@@ -176,6 +176,40 @@ const t = useTranslations(locale);
   </div>
 </header>
 
+<style>
+  /* Fase 5: os dois painéis <details> nasciam cravados no lugar — a seta já
+     girava, o conteúdo não. `::details-content` é o pseudo-elemento que
+     anima abrir/fechar de um <details> nativo sem JavaScript algum; onde o
+     navegador não suporta, o comportamento é o mesmo instantâneo de hoje —
+     nenhuma regressão possível. */
+  details[data-idiomas]::details-content {
+    transform-origin: top right;
+    opacity: 1;
+    scale: 1;
+    transition: opacity 180ms cubic-bezier(0.23, 1, 0.32, 1),
+                scale 180ms cubic-bezier(0.23, 1, 0.32, 1),
+                content-visibility 180ms allow-discrete;
+  }
+  details[data-idiomas]:not([open])::details-content {
+    opacity: 0;
+    scale: 0.95;
+  }
+
+  details[data-menu]::details-content {
+    opacity: 1;
+    transition: opacity 250ms cubic-bezier(0.23, 1, 0.32, 1),
+                content-visibility 250ms allow-discrete;
+  }
+  details[data-menu]:not([open])::details-content {
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    details[data-idiomas]::details-content { transition-property: opacity, content-visibility; }
+    details[data-idiomas]:not([open])::details-content { scale: 1; }
+  }
+</style>
+
 <script>
   const cabecalho = document.getElementById('cabecalho')!;
   const menu = document.querySelector<HTMLDetailsElement>('[data-menu]');

@@ -28,6 +28,7 @@ import { statSync } from 'node:fs';
 import { join } from 'node:path';
 import { Image, getImage } from 'astro:assets';
 import { CarrosselHero } from '@/components/CarrosselHero';
+import ColunaDeReels from '@/components/ColunaDeReels.astro';
 import { CarrosselAcomodacoes } from '@/components/CarrosselAcomodacoes';
 import Campo from '@/components/Campo.astro';
 import FaixaGarantias from '@/components/FaixaGarantias.astro';
@@ -94,6 +95,13 @@ import quartoCasal from '@/assets/imgs/quarto-casal.jpg';
 import varandaRedeDuplex from '@/assets/imgs/varanda-rede-duplex.jpg';
 import cafeRefeitorio from '@/assets/imgs/cafe-refeitorio.jpg';
 import porDoSolPortao from '@/assets/imgs/por-do-sol-portao.jpg';
+import tucuxi from '@/assets/imgs/tucuxi.jpg';
+import redario from '@/assets/imgs/redario.jpg';
+import reelCanoaIgapoPoster from '@/assets/imgs/reel-canoa-igapo-poster.jpg';
+import reelUrucumPoster from '@/assets/imgs/reel-urucum-poster.jpg';
+import reelMeliponarioPoster from '@/assets/imgs/reel-meliponario-poster.jpg';
+import reelTecelagemPoster from '@/assets/imgs/reel-tecelagem-poster.jpg';
+import reelPiracaiaPoster from '@/assets/imgs/reel-piracaia-poster.jpg';
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -211,6 +219,40 @@ const tira = await Promise.all(
     };
   }),
 );
+
+/* ══════════════════ A COLUNA DE REELS DO HERO ══════════════════
+   FASE 6. Substitui o CarrosselHero como visual do hero — decisão do
+   Carlos na Fase 2 (variante C, "o vertical manda"), escolhida ao vivo, não
+   pela captura. Três das dez peças já eram fotos aprovadas do carrossel
+   antigo (água transparente, igapó, tecelagem — mesmo arquivo, mesma
+   legenda traduzida, `home.tiraItens`); as outras sete são novas
+   (`home.heroReelItens`), incluindo os cinco vídeos aprovados na Fase 3
+   (`docs/video.md` §6). O `CarrosselHero` e a tira acima ficam no código,
+   sem uso nesta página — apagar os dois é decisão do Carlos, não default
+   desta rodada (639 linhas de física de arrasto e 30 itens traduzidos em
+   5 idiomas não se descartam de passagem). */
+const HERO_REELS_MEDIA: Record<string, { imagem: ImageMetadata } | { video: string; poster: ImageMetadata }> = {
+  aguaTransparente: { imagem: aguaTransparente },
+  canoaIgapo: { video: '/video/reels/reel-canoa-igapo.mp4', poster: reelCanoaIgapoPoster },
+  tucuxi: { imagem: tucuxi },
+  urucum: { video: '/video/reels/reel-urucum.mp4', poster: reelUrucumPoster },
+  igapoCanoa: { imagem: igapoCanoa },
+  meliponario: { video: '/video/reels/reel-meliponario.mp4', poster: reelMeliponarioPoster },
+  redario: { imagem: redario },
+  tecelagemVideo: { video: '/video/reels/reel-tecelagem.mp4', poster: reelTecelagemPoster },
+  tecelagem: { imagem: tecelagem },
+  piracaia: { video: '/video/reels/reel-piracaia.mp4', poster: reelPiracaiaPoster },
+};
+
+const heroReels = useList(locale)<{ id: string; legenda: string; alt?: string }>('home.heroReelItens')
+  .map((item) => {
+    const media = HERO_REELS_MEDIA[item.id];
+    return {
+      legenda: item.legenda,
+      alt: item.alt,
+      ...('video' in media ? { video: media.video, poster: media.poster } : { imagem: media.imagem }),
+    };
+  });
 
 /* ══════════════════ AS FOTOS DE "A CASA" ══════════════════
    TERCEIRA RODADA (20/08/2026). A seção "A casa" tinha UMA foto, `gal5.jpg`,
@@ -379,15 +421,8 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
       </div>
     </div>
 
-    <div class="relative order-1 mt-8 h-[clamp(23rem,56svh,34rem)] lg:order-2 lg:mt-14">
-      <CarrosselHero
-        client:visible
-        items={tira}
-        rotulo={t('carousel.heroLabel')}
-        rotuloArraste={t('carousel.drag')}
-        rotuloPosicao={t('carousel.photoPosition')}
-        className="absolute inset-0"
-      />
+    <div class="relative order-1 mt-8 lg:order-2 lg:mt-14">
+      <ColunaDeReels rotulo={t('carousel.heroLabel')} itens={heroReels} />
     </div>
 
     </div>
@@ -538,9 +573,6 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
           folhas={folhasAcomodacao}
           rotulo={t('carousel.acomodacoesLabel')}
           rotuloPosicao={t('carousel.photoPosition')}
-          rotuloAnterior={t('carousel.photoPrev')}
-          rotuloProxima={t('carousel.photoNext')}
-          rotuloArraste={t('carousel.drag')}
           sizes="(min-width: 1024px) 46vw, 100vw"
         />
       </div>

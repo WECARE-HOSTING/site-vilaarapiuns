@@ -1,0 +1,104 @@
+---
+/**
+ * A coluna de reels — o componente da Fase 4, escolhido pelo Carlos na Fase 2
+ * (variante C, "o vertical manda"): retrato e vídeo 9:16 resolvidos na mesma
+ * decisão, numa tira que rola, não num carrossel com setas.
+ *
+ * Mecanismo: `scroll-snap` nativo. Nenhuma linha de JavaScript liga a
+ * rolagem — arrastar, tocar e rolar por teclado (o <ul> leva tabindex) vêm
+ * todos do navegador. O único script existe para o Padrão 2 de vídeo
+ * (docs/video.md §2): tocar só os cartões perto da área visível, para não
+ * decodificar dez vídeos ao mesmo tempo num celular em 3G.
+ *
+ * Sem JavaScript: os vídeos têm `src` real desde o HTML (preload="none", não
+ * pré-carregam), mas nenhum tem `autoplay` — sem o script que liga isso, o
+ * navegador mostra o cartaz (`poster`) e para. É a mesma degradação honesta
+ * do Padrão 1 (Home.astro), aplicada ao cartão: sem script, é uma foto boa,
+ * não um vídeo quebrado.
+ *
+ * prefers-reduced-motion: reduce → o script nem liga o observer. Não é
+ * "pausar o loop", é decidir que o vídeo não existe (docs/video.md §2).
+ */
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+export interface ItemReel {
+  legenda: string;
+  video?: string;
+  poster?: ImageMetadata;
+  imagem?: ImageMetadata;
+  alt?: string;
+}
+
+interface Props {
+  itens: ItemReel[];
+  rotulo: string;
+}
+
+const { itens, rotulo } = Astro.props;
+const LARGURAS_CARD = [360, 480, 640, 860];
+---
+
+<ul class="reels-tira flex gap-4 overflow-x-auto pb-4 [scrollbar-color:var(--color-areia-sol)_var(--color-areia-clara)]"
+    tabindex="0" aria-label={rotulo}>
+  {itens.map((item) => (
+    <li class="reels-cartao relative aspect-[9/16] w-[min(72vw,19rem)] shrink-0 snap-start list-none overflow-hidden bg-mar-fundo">
+      {item.video ? (
+        <video
+          src={item.video}
+          poster={item.poster?.src}
+          muted
+          loop
+          playsinline
+          preload="none"
+          aria-hidden="true"
+          class="absolute inset-0 h-full w-full object-cover"
+        ></video>
+      ) : item.imagem ? (
+        <Image
+          src={item.imagem}
+          alt={item.alt ?? ''}
+          widths={LARGURAS_CARD}
+          sizes="19rem"
+          loading="lazy"
+          class="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : null}
+      <span class="etiqueta absolute inset-x-3 bottom-3 text-areia-clara [text-shadow:0_1px_6px_rgb(0_0_0/0.55)]">
+        {item.legenda}
+      </span>
+    </li>
+  ))}
+</ul>
+
+<style>
+  /* scroll-snap-type não tem utilitário Tailwind v4 nativo por eixo+modo
+     combinados de forma que aceite o valor "x mandatory" junto de overflow-x
+     em arbitrary value legível — fica mais claro aqui do que num
+     `[scroll-snap-type:x_mandatory]` denso no template. */
+  .reels-tira { scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+  .reels-cartao { scroll-snap-align: start; }
+</style>
+
+<script>
+  /* Padrão 2 do playbook (docs/video.md §2): só os vídeos perto da área
+     visível tocam. Sem isto, uma tira de muitos cartões autoplayando ao
+     mesmo tempo decodifica um vídeo por cartão simultaneamente — o mesmo
+     achado do CarrosselHero para foto (Fase 0), aqui com custo maior. */
+  const reduzMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!reduzMovimento) {
+    const videos = document.querySelectorAll<HTMLVideoElement>('.reels-cartao video');
+    const observador = new IntersectionObserver(
+      (entradas) => {
+        for (const entrada of entradas) {
+          const video = entrada.target as HTMLVideoElement;
+          if (entrada.isIntersecting) video.play().catch(() => {});
+          else video.pause();
+        }
+      },
+      { rootMargin: '0px 200px 0px 200px', threshold: 0.2 }
+    );
+    videos.forEach((v) => observador.observe(v));
+  }
+</script>

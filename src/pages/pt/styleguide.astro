@@ -14,6 +14,7 @@ import Campo from '@/components/Campo.astro';
 import Voluta from '@/components/Voluta.astro';
 import Logo from '@/components/Logo.astro';
 import ListaExperiencias from '@/components/ListaExperiencias.astro';
+import ColunaDeReels from '@/components/ColunaDeReels.astro';
 import { href } from '@/i18n/routes';
 import { useTranslations } from '@/i18n/utils';
 import { Image } from 'astro:assets';
@@ -22,6 +23,12 @@ import hero5 from '@/assets/imgs/hero5.jpg';
 import gal3 from '@/assets/imgs/gal3.jpg';
 import hero1 from '@/assets/imgs/hero1.jpg';
 import sobre from '@/assets/imgs/sobre.jpg';
+import tucuxi from '@/assets/imgs/tucuxi.jpg';
+import reelCanoaPoster from '@/assets/imgs/reel-canoa-igapo-poster.jpg';
+import reelTecelagemPoster from '@/assets/imgs/reel-tecelagem-poster.jpg';
+import reelUrucumPoster from '@/assets/imgs/reel-urucum-poster.jpg';
+import reelMeliponarioPoster from '@/assets/imgs/reel-meliponario-poster.jpg';
+import reelPiracaiaPoster from '@/assets/imgs/reel-piracaia-poster.jpg';
 
 const locale = 'pt' as const;
 const t = useTranslations(locale);
@@ -65,15 +72,33 @@ const experiencias = [
   },
 ];
 
+// Fase 3, cinco clipes aprovados pelo Carlos (docs/video.md §6). Um sexto
+// (reel-oficina) foi retirado — a câmera foi segurada de lado na filmagem.
+const reels = [
+  { legenda: 'O boto tucuxi, pertinho da Villa', imagem: tucuxi, alt: 'Boto tucuxi na superfície do rio, perto da Villa' },
+  { legenda: 'A canoa entre as copas, na cheia', video: '/video/reels/reel-canoa-igapo.mp4', poster: reelCanoaPoster },
+  { legenda: 'A tecelagem, de perto', video: '/video/reels/reel-tecelagem.mp4', poster: reelTecelagemPoster },
+  { legenda: 'O urucum, tingindo a palha', video: '/video/reels/reel-urucum.mp4', poster: reelUrucumPoster },
+  { legenda: 'O meliponário, mel de abelha nativa', video: '/video/reels/reel-meliponario.mp4', poster: reelMeliponarioPoster },
+  { legenda: 'A piracaia, à luz de velas', video: '/video/reels/reel-piracaia.mp4', poster: reelPiracaiaPoster },
+];
+
+/* CORRIGIDO EM 22/08/2026 (Fase 4): este array listava os 8 tokens da
+   paleta verde-mata, que saiu em 21/08. É a paleta areia-e-mar em uso hoje —
+   ver src/styles/global.css para as razões de contraste medidas de cada. */
 const cores = [
-  { nome: 'mata-funda',    hex: '#1d2418', uso: 'Chão da página. Degrau escuro do verde da marca.' },
-  { nome: 'mata',          hex: '#2e3a27', uso: 'O verde da marca. Valor exato do impresso.' },
-  { nome: 'creme',         hex: '#f6f1e6', uso: 'A cunha clara. Valor exato do impresso.' },
-  { nome: 'salvia',        hex: '#b4b69f', uso: 'Texto corrido sobre o verde.' },
-  { nome: 'ouro',          hex: '#c2ab80', uso: 'Links, etiquetas e anel de foco no escuro.' },
-  { nome: 'madeira',       hex: '#65552e', uso: 'Etiqueta e número sobre creme.' },
-  { nome: 'madeira-funda', hex: '#2e1d08', uso: 'Texto corrido sobre creme.' },
-  { nome: 'terra',         hex: '#b3683e', uso: 'Acento da marca. Régua, borda, número grande.' },
+  { nome: 'areia-clara', hex: '#fdf8ee', uso: 'Chão da página — a areia seca ao sol.' },
+  { nome: 'areia',       hex: '#f4e7cf', uso: 'Superfície de seção — a areia da foto.' },
+  { nome: 'areia-sol',   hex: '#ad7519', uso: 'A régua do layout. A emenda vai sempre a 100%.' },
+  { nome: 'areia-funda', hex: '#8a5a1e', uso: 'Etiqueta e medida sobre areia.' },
+  { nome: 'mar-fundo',   hex: '#0d3244', uso: 'O corpo do texto. 12,7:1 sobre areia — e o rodapé.' },
+  { nome: 'mar',         hex: '#17506a', uso: 'O título. 8,3:1 sobre areia — e a faixa de fecho.' },
+  { nome: 'ceu',         hex: '#1b6aad', uso: 'A única cor que grita: CTA e link, em nada mais.' },
+  { nome: 'ceu-hover',   hex: '#12466f', uso: 'Hover do CTA — escurece, não clareia.' },
+  { nome: 'espuma',      hex: '#cfe3ec', uso: 'O corpo do texto sobre mar-fundo.' },
+  { nome: 'sol',         hex: '#e9bd68', uso: 'Etiqueta e anel de foco sobre escuro.' },
+  { nome: 'coral-luz',   hex: '#efb391', uso: 'Acento com função sobre escuro. Só ali.' },
+  { nome: 'erro',        hex: '#a3311a', uso: 'Erro de formulário sobre areia. 6,6:1.' },
 ];
 ---
 
@@ -249,6 +274,31 @@ const cores = [
             </blockquote>
             <Campo class="mt-4">Bangalô 7 <Voluta /> 21h40</Campo>
           </div>
+        </div>
+      </section>
+
+      <!-- ══════════ A COLUNA DE REELS — Fase 4, componente novo ══════════
+           Variante C escolhida pelo Carlos na Fase 2 ("o vertical manda"),
+           olhando o protótipo rodar, não pela captura. Cinco clipes reais,
+           aprovados por ele na Fase 3 — ver docs/video.md §6. Mecanismo:
+           scroll-snap nativo, zero JavaScript de rolagem; o único script
+           liga o Padrão 2 do playbook (tocar só o que está perto da tela). -->
+      <section class="secao border-t border-mar/10">
+        <div class="container-editorial">
+          <div class="flex flex-wrap items-baseline justify-between gap-4">
+            <h2 class="font-display text-titulo">O vertical manda</h2>
+            <Campo>Retrato e vídeo 9:16, a mesma coluna</Campo>
+          </div>
+          <hr class="emenda mt-6 border-t" />
+          <div class="mt-8">
+            <ColunaDeReels rotulo="Cenas da Villa, role para o lado" itens={reels} />
+          </div>
+          <p class="meta mt-4 max-w-[62ch] text-areia-funda">
+            Cinco clipes recortados do acervo sem legenda queimada (docs/video.md §3) — os
+            Reels institucionais têm o título em PT/EN gravado no pixel e ficam de fora por
+            ora. 0,88&nbsp;MB no total pelos cinco; a janela de reprodução impede que a
+            tira inteira decodifique de uma vez.
+          </p>
         </div>
       </section>
 

@@ -107,7 +107,7 @@ const tempoBarco = minutos ? `${horas}h${String(minutos).padStart(2, '0')}` : `$
        elemento, e é a margem auto que centra um <dialog> nativo. Sem isto ele
        encosta no topo e a página aparece atenuada embaixo. -->
   <dialog
-    class="sobre-escuro m-auto max-h-[100dvh] max-w-[100vw] bg-mar-fundo p-0 backdrop:bg-mar-fundo/90"
+    class="mapa-dialogo sobre-escuro m-auto max-h-[100dvh] max-w-[100vw] bg-mar-fundo p-0 backdrop:bg-mar-fundo/90"
     aria-label={t('mapa.dialogo')}
   >
     <div class="relative">
@@ -134,6 +134,38 @@ const tempoBarco = minutos ? `${horas}h${String(minutos).padStart(2, '0')}` : `$
     </div>
   </dialog>
 </figure>
+
+<style>
+  /* Fase 5: showModal()/close() trocavam de estado sem transição — a lupa
+     cobria a tela inteira sem aviso. Modal fica centrado, sem
+     transform-origin de gatilho (é a exceção que a disciplina de popover
+     reserva para modais). */
+  .mapa-dialogo {
+    opacity: 1;
+    scale: 1;
+    transition: opacity 250ms cubic-bezier(0.23, 1, 0.32, 1),
+                scale 250ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .mapa-dialogo::backdrop {
+    transition: background-color 250ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  @starting-style {
+    .mapa-dialogo[open] {
+      opacity: 0;
+      scale: 0.96;
+    }
+    .mapa-dialogo[open]::backdrop {
+      background-color: transparent;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    /* Mais suave, não zerado: mantém o fade, tira o scale. */
+    .mapa-dialogo { transition-property: opacity; }
+    @starting-style {
+      .mapa-dialogo[open] { scale: 1; }
+    }
+  }
+</style>
 
 <script>
   // Uma passagem por instância: a Home e o Como chegar montam o mesmo
