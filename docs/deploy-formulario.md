@@ -1,6 +1,6 @@
 # Formulário de reserva — o que só existe no servidor
 
-O site é estático (Astro → `dist/` → FTP). Os dois únicos arquivos com lógica
+O site é estático (Astro → `dist/` → servidor). Os dois únicos arquivos com lógica
 de servidor são `public/enviar.php` e `public/enviar-mail.php`, e eles
 dependem de três coisas que **não** estão no repositório — que é público —
 e que por isso precisam ser criadas à mão no cPanel a cada deploy novo de
@@ -20,6 +20,35 @@ data. Não é suposição, e o resto do documento assume que você leu isto ante
 | `/_i18n/pt.json` | **`404`** | os dicionários da seção 3 também não subiram |
 | `/og.jpg` | `200` | o resto de `public/` subiu normalmente |
 | `/.htaccess` | `200`, conteúdo em texto | quem serve o docroot é nginx — ver seção 6 |
+
+### Publicar parece ser automático no push para `main` — medido, não configurado aqui
+
+**Medido em 22/08/2026, 00:40 UTC.** Um `git push origin redesign:main` às
+~00:38 UTC e, cerca de dois minutos depois, `vilaarapiuns.com.br` servia a
+build nova — páginas, derivados e o `video/villa-de-cima.mp4` — sem ninguém
+tocar em FTP. Os `last-modified` de tudo vieram `00:40:12 GMT`, e os hashes dos
+derivados em produção batem exatamente com os do build local.
+
+**Não existe arquivo de deploy neste repositório**: nem `.cpanel.yml`, nem
+workflow do GitHub Actions, nada. E `dist/` é gitignorado — então quem publica
+**roda o build**, não copia artefato do git. Logo o mecanismo está configurado
+do lado do servidor (Git Version Control do cPanel, ou webhook), fora daqui e
+fora do alcance de quem lê só o repo.
+
+Consequências práticas, e é por isso que isto está escrito:
+
+- **Push para `main` é publicar.** Vale junto com a regra de que commitar neste
+  repo é publicar: aqui o efeito é o site inteiro, não só o código.
+- Um upload manual por FTP continua possível e é o plano B, mas **não é o
+  caminho normal** — e este documento dizia que era.
+- A seção 0 registra um deploy de 21/08 que deixou atrás os dois `.php` e o
+  `_i18n/`. Se o mecanismo de hoje roda o build inteiro, aquele buraco pode ter
+  sido de um upload manual anterior, e não do processo atual. **Conferir os dois
+  caminhos antes de concluir qualquer coisa** — o `curl` de cada seção continua
+  sendo a única prova aceitável.
+
+**A confirmar com o Carlos:** foi ele que ligou isso, e quando. Nada aqui
+identifica o mecanismo; só mede o efeito.
 
 ### `dist/video/` — o diretório novo que um upload parcial vai deixar de fora
 
