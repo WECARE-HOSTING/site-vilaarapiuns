@@ -523,6 +523,26 @@
         "id": "piracaia",
         "legenda": "Piracaia · die brennende Laterne bei Nacht",
         "alt": "Vertikales Video einer brennenden Papierlaterne bei Nacht"
+      },
+      {
+        "id": "oficina",
+        "legenda": "Handwerksworkshop · gefärbtes Stroh mit der Gästin flechten",
+        "alt": "Vertikales Video einer Kunsthandwerkerin, die einer Gästin das Flechten von gefärbtem Palmstroh zeigt, im Freien"
+      },
+      {
+        "id": "lagoAzul",
+        "legenda": "Lago Azul · die Gruppe überquert den See im Kanu",
+        "alt": "Vertikales Video einer Gruppe im Kanu, die den Lago Azul überquert, ruhiges Wasser und Wald im Hintergrund"
+      },
+      {
+        "id": "apresentacao",
+        "legenda": "Villa Arapiuns · institutionelles Video, Erlebnisse, Räume, Küche und spirituelle Praktiken",
+        "alt": "Vertikales institutionelles Video der Villa Arapiuns mit eingebrannten Kapiteltiteln auf PT/EN: Amazonas-Erlebnisse, großzügige Räume, lokale Küche, spirituelle Praktiken"
+      },
+      {
+        "id": "vivencias",
+        "legenda": "Villa Arapiuns · institutionelles Video, Fluss, Yoga, Gemeinschaften und Maniokmehl-Herstellung",
+        "alt": "Vertikales institutionelles Video der Villa Arapiuns mit eingebrannten Kapiteltiteln auf PT/EN: Arapiuns-Fluss, Yoga, traditionelle Gemeinschaften, Kräuterbad, Waldpfad, Maniokmehl-Herstellung"
       }
     ],
     "contato": [

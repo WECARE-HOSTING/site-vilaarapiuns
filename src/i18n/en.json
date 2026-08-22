@@ -523,6 +523,26 @@
         "id": "piracaia",
         "legenda": "Piracaia · the lantern lit at night",
         "alt": "Vertical video of a lit paper lantern at night"
+      },
+      {
+        "id": "oficina",
+        "legenda": "Craft workshop · braiding dyed straw with a guest",
+        "alt": "Vertical video of an artisan teaching a guest to braid dyed palm-straw fiber, outdoors"
+      },
+      {
+        "id": "lagoAzul",
+        "legenda": "Lago Azul · the group crossing by canoe",
+        "alt": "Vertical video of a group in a canoe crossing Lago Azul, calm water and forest in the background"
+      },
+      {
+        "id": "apresentacao",
+        "legenda": "Villa Arapiuns · institutional video, experiences, spaces, cuisine and spiritual practices",
+        "alt": "Vertical institutional video of Villa Arapiuns with chapter titles burned in PT/EN: Amazon experiences, large spaces, local cuisine, spiritual practices"
+      },
+      {
+        "id": "vivencias",
+        "legenda": "Villa Arapiuns · institutional video, river, yoga, communities and flour-making",
+        "alt": "Vertical institutional video of Villa Arapiuns with chapter titles burned in PT/EN: Arapiuns river, yoga, traditional communities, herbal bath, forest trail, flour production"
       }
     ],
     "contato": [

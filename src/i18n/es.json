@@ -523,6 +523,26 @@
         "id": "piracaia",
         "legenda": "Piracaia · el farol encendido de noche",
         "alt": "Vídeo vertical de un farol de papel con la llama encendida, de noche"
+      },
+      {
+        "id": "oficina",
+        "legenda": "Taller de artesanía · trenzando paja teñida con la huésped",
+        "alt": "Vídeo vertical de una artesana enseñando a una huésped a trenzar fibra de paja teñida, al aire libre"
+      },
+      {
+        "id": "lagoAzul",
+        "legenda": "Lago Azul · el grupo cruzando en canoa",
+        "alt": "Vídeo vertical de un grupo en canoa cruzando el Lago Azul, agua tranquila y selva de fondo"
+      },
+      {
+        "id": "apresentacao",
+        "legenda": "Villa Arapiuns · vídeo institucional, vivencias, espacios, gastronomía y prácticas espirituales",
+        "alt": "Vídeo institucional vertical de Villa Arapiuns con títulos de capítulo grabados en PT/EN: vivencias amazónicas, espacios amplios, gastronomía local, prácticas espirituales"
+      },
+      {
+        "id": "vivencias",
+        "legenda": "Villa Arapiuns · vídeo institucional, río, yoga, comunidades y producción de harina",
+        "alt": "Vídeo institucional vertical de Villa Arapiuns con títulos de capítulo grabados en PT/EN: río Arapiuns, yoga, comunidades tradicionales, baño de hierbas, sendero, producción de harina"
       }
     ],
     "contato": [

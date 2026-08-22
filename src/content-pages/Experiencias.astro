@@ -65,6 +65,18 @@ import reelMeliponario from '@/assets/imgs/reel-meliponario-poster.jpg';
 import reelTecelagem from '@/assets/imgs/reel-tecelagem-poster.jpg';
 import reelPiracaia from '@/assets/imgs/reel-piracaia-poster.jpg';
 
+/* FASE 6b (22/08/2026): quatro clipes aprovados pelo Carlos além dos cinco da
+   curadoria original — dois do acervo horizontal (oficina, corrigida de um
+   giro de câmera de 90°; Lago Azul, cortada antes do trecho de selfie) e os
+   dois Reels institucionais com legenda de capítulo queimada em PT/EN, que
+   docs/video.md §3 deixava como exceção explícita a decidir com ele. Decisão
+   dele: entram nas 5 páginas de idioma como bônus institucional, mesmo sem
+   tradução do texto queimado. */
+import reelOficina from '@/assets/imgs/reel-oficina-poster.jpg';
+import reelLagoAzul from '@/assets/imgs/reel-lago-azul-poster.jpg';
+import reelApresentacao from '@/assets/imgs/reel-apresentacao-poster.jpg';
+import reelVivencias from '@/assets/imgs/reel-vivencias-poster.jpg';
+
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = useTranslations(locale);
@@ -79,9 +91,16 @@ const POSTERS_VIDEO: Record<string, ImageMetadata> = {
   meliponario: reelMeliponario,
   tecelagem: reelTecelagem,
   piracaia: reelPiracaia,
+  oficina: reelOficina,
+  lagoAzul: reelLagoAzul,
+  apresentacao: reelApresentacao,
+  vivencias: reelVivencias,
 };
+/* camelCase → kebab-case: nomes de arquivo em public/video/reels/ seguem o
+   padrão reel-<kebab-do-id>.mp4 (ex.: lagoAzul → reel-lago-azul.mp4). */
+const paraCasoDeArquivo = (id: string) => id.replace(/([A-Z])/g, '-$1').toLowerCase();
 const videoItens = useList(locale)<{ id: string; legenda: string; alt: string }>('exp.videoItens')
-  .map((item) => ({ legenda: item.legenda, alt: item.alt, video: `/video/reels/reel-${item.id === 'canoaIgapo' ? 'canoa-igapo' : item.id}.mp4`, poster: POSTERS_VIDEO[item.id] }));
+  .map((item) => ({ legenda: item.legenda, alt: item.alt, video: `/video/reels/reel-${paraCasoDeArquivo(item.id)}.mp4`, poster: POSTERS_VIDEO[item.id] }));
 
 /* A folha de contato do fim. Quatro fotos que não couberam nos grupos e que
    fecham a página pelo que ela promete: o equipamento, a noite, a mata e a
