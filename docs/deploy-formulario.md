@@ -21,6 +21,21 @@ data. Não é suposição, e o resto do documento assume que você leu isto ante
 | `/og.jpg` | `200` | o resto de `public/` subiu normalmente |
 | `/.htaccess` | `200`, conteúdo em texto | quem serve o docroot é nginx — ver seção 6 |
 
+### `dist/video/` — o diretório novo que um upload parcial vai deixar de fora
+
+Desde 21/08/2026 o `dist/` tem um diretório de primeiro nível novo: **`video/`**,
+com `villa-de-cima.mp4` (3,1 MB), o drone da home. Ele está aqui pela mesma razão
+que `_i18n/` está na seção 3 — **é exatamente o tipo de coisa que o upload
+esquece.** Quem sobe só o que "parece o site" pega `pt/`, `en/` e `_astro/` e
+deixa atrás os diretórios que não são página.
+
+    curl -sI https://vilaarapiuns.com.br/video/villa-de-cima.mp4 | head -1
+    # esperado: HTTP/1.1 200 · e Content-Type: video/mp4
+
+Se der 404, a home mostra o cartaz e o play não faz nada — e como o comando é um
+`<a href>` para o arquivo, o visitante cai numa página de erro. Confirmar depois
+de cada deploy, junto com `_i18n/`.
+
 Ou seja: **o formulário publicado hoje dá POST contra um 404.** Quem preencher
 não recebe a página de "enviado" nem nada que se pareça com ela, e o pedido
 não vai a lugar nenhum. Nada das seções 1, 2, 4 e 5 muda isso — elas só
