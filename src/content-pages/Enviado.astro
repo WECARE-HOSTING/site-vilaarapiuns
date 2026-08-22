@@ -29,7 +29,7 @@ const t = useTranslations(locale);
       <p class="mt-2">{t('enviado.prazoD')}</p>
 
       <p class="mt-10 flex flex-wrap gap-3">
-        <a href={whatsappUrl(t('whatsapp.geral'))} class="btn btn-primario">{t('cta.whatsapp')}</a>
+        <a href={whatsappUrl(t('whatsapp.geral'))} class="btn btn-primario" target="_blank" rel="noopener noreferrer">{t('cta.whatsapp')}</a>
         <a href={href(locale, 'home')} class="btn btn-secundario">{t('enviado.voltar')}</a>
       </p>
     </div>

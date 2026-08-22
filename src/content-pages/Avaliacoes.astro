@@ -81,7 +81,7 @@ const temNota = Boolean(SITE.reviews.rating && SITE.reviews.count);
       <hr class="emenda max-w-40 border-t" />
       <p class="container-texto mt-8 sm:mx-0">{t('aval.corpo')}</p>
       <p class="mt-10 flex flex-wrap gap-3">
-        <a href={whatsappUrl(t('whatsapp.geral'))} class="btn btn-primario">{t('cta.whatsapp')}</a>
+        <a href={whatsappUrl(t('whatsapp.geral'))} class="btn btn-primario" target="_blank" rel="noopener noreferrer">{t('cta.whatsapp')}</a>
         <a href={href(locale, 'lodge')} class="btn btn-secundario">{t('aval.ctaVerPousada')}</a>
       </p>
 
