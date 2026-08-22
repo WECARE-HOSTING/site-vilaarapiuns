@@ -1002,7 +1002,9 @@
   "carousel": {
     "heroLabel": "Villa Arapiuns in dreißig Fotos",
     "acomodacoesLabel": "Die Unterkünfte der Villa in zehn Fotos",
-    "photoPosition": "Foto {n} von {total}"
+    "photoPosition": "Foto {n} von {total}",
+    "previous": "Vorheriges Foto",
+    "next": "Nächstes Foto"
   },
   "acomodacoes": {
     "itens": [

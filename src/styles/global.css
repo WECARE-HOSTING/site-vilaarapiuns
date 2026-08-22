@@ -446,6 +446,50 @@
   }
 }
 
+/* Variante do .seta-carrossel para quando o comando fica POR CIMA da
+   fotografia, e não sobre chão sólido (22/08/2026, pedido direto do Carlos:
+   quer a seta em cima da própria foto, para deixar óbvio que é carrossel —
+   revertendo, no mesmo dia, a remoção das setas e abrindo exceção deliberada
+   à Disciplina 3, que proíbe UI sobre fotografia).
+
+   O .seta-carrossel confia em --cor-titulo para o contraste, o que funciona
+   porque ele sempre viveu sobre um chão de cor fixa e conhecida (mar-fundo,
+   mar). Aqui o chão é uma fotografia qualquer do acervo — cor imprevisível,
+   às vezes clara, às vezes escura. Uma aresta de 1px sozinha sumiria contra
+   um céu claro ou uma areia estourada.
+
+   A solução não é medir a foto: é o comando levar o próprio chão. Uma mancha
+   de mar-fundo com blur cobre a foto atrás do ícone antes de qualquer coisa
+   ser desenhada, então a aresta e o glifo sempre veem o mesmo fundo escuro
+   conhecido — nunca a foto crua. Aplicar `.sobre-escuro` junto no elemento
+   resolve cor do glifo (espuma) e anel de foco (sol) pelo mesmo mecanismo de
+   contexto que o resto do sistema já usa.
+
+   A MANCHA É 65%, E NÃO UM NÚMERO REDONDO. Medido contra o pior caso real do
+   acervo — um pedaço de foto branco-estourado (céu, areia clara) — porque a
+   mancha é translúcida e o pior fundo possível é branco puro:
+     55% sobre branco: espuma-no-glifo cai a 2,57:1 · REPROVA a SC 1.4.11 (3:1)
+     65% sobre branco: 3,42:1 · passa com folga
+   Sobre qualquer chão mais escuro que branco puro o número só sobe — 65% é o
+   piso que segura o caso mais hostil do acervo, não uma média. */
+@utility seta-flutuante {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  background-color: color-mix(in srgb, var(--color-mar-fundo) 65%, transparent);
+  backdrop-filter: blur(2px);
+  border: 1px solid color-mix(in srgb, var(--color-espuma) 55%, transparent);
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color 0.25s, border-color 0.25s;
+  &:hover {
+    background-color: var(--color-mar-fundo);
+    border-color: var(--color-sol);
+  }
+}
+
 @utility link-texto {
   color: var(--color-ceu);
   text-decoration: underline;

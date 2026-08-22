@@ -1002,7 +1002,9 @@
   "carousel": {
     "heroLabel": "ヴィラ・アラピウンス、三十枚の写真で",
     "acomodacoesLabel": "ヴィラの宿泊棟、十枚の写真で",
-    "photoPosition": "写真 {n} / {total}"
+    "photoPosition": "写真 {n} / {total}",
+    "previous": "前の写真",
+    "next": "次の写真"
   },
   "acomodacoes": {
     "itens": [

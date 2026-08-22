@@ -36,12 +36,19 @@
  * `dragElastic`, então a pilha cede sob o dedo e volta sozinha; a folha troca na
  * soltura, por deslocamento ou por velocidade. Sem medir nada.
  *
- * SEM SETAS NEM DICA DE ARRASTE (22/08/2026, pedido direto do Carlos: "não
- * gosto do arraste com as setas"). O gesto continua existindo — arrastar ainda
- * troca a folha, e a seta do teclado também —, só a UI que os anunciava saiu:
- * nada de botão de seta, nada de "← arraste →" a desaparecer na primeira
- * interação. O que resta como pista é o cursor `grab`/`grabbing` no quadro e a
- * régua de progresso abaixo dele.
+ * SETAS DE VOLTA, E AGORA SOBRE A FOTO (22/08/2026, mesmo dia, pedido direto
+ * do Carlos). A rodada anterior deste mesmo dia tinha tirado as setas porque
+ * ele não gostava de arraste E setas competindo pela mesma ação — o comando
+ * ficou só em chão sólido, abaixo do quadro. Agora o pedido é o oposto: seta
+ * em cima da própria foto, para deixar óbvio à primeira vista que aquilo é um
+ * carrossel. Os dois pedidos são reais; este é o que vale por último.
+ *
+ * Isto é uma exceção DELIBERADA à Disciplina 3 (nunca UI sobre fotografia).
+ * A saída para o contraste não é confiar na foto: é o próprio comando levar
+ * um chão conhecido (ver `.seta-flutuante` em global.css) em vez do
+ * `.seta-carrossel` original, calibrado para cor fixa de fundo. As setas
+ * ficam FORA do nó que arrasta — irmãs do `motion.div`, não filhas — então
+ * clicar nelas nunca compete com o gesto de arraste do quadro.
  */
 import * as React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
@@ -69,6 +76,10 @@ export interface CarrosselAcomodacoesProps {
   rotulo: string;
   /** Texto do leitor de tela para "foto X de Y", com {n} e {total}. */
   rotuloPosicao: string;
+  /** Rótulo do botão de voltar. */
+  rotuloAnterior: string;
+  /** Rótulo do botão de avançar. */
+  rotuloProxima: string;
   /**
    * `sizes` do <img>. Muda com o lugar: na home o quadro é uma coluna de grade,
    * na página da pousada ele é o container inteiro.
@@ -90,6 +101,8 @@ export function CarrosselAcomodacoes({
   folhas,
   rotulo,
   rotuloPosicao,
+  rotuloAnterior,
+  rotuloProxima,
   sizes = '100vw',
   prioridade = false,
   className,
@@ -132,61 +145,86 @@ export function CarrosselAcomodacoes({
              nada e a caixa nunca muda de altura entre folhas. `bg-mar` sob a
              pilha para que, no primeiro quadro de uma fusão, o vão não pisque a
              cor da seção. Foco vive AQUI, não nos botões, porque é o quadro que
-             responde às setas do teclado.                                   ── */}
-      <motion.div
-        tabIndex={0}
-        aria-live="off"
-        onKeyDown={(e) => {
-          const mapa: Record<string, number> = {
-            ArrowLeft: index - 1,
-            ArrowRight: index + 1,
-            Home: 0,
-            End: ultima,
-          };
-          if (!(e.key in mapa)) return;
-          e.preventDefault();
-          ir(mapa[e.key]!);
-        }}
-        drag="x"
-        dragMomentum={false}
-        dragElastic={0.14}
-        dragConstraints={{ left: 0, right: 0 }}
-        dragTransition={molaArraste}
-        onDragEnd={(_, info) => {
-          const passou =
-            Math.abs(info.offset.x) > LIMIAR_PX ||
-            Math.abs(info.velocity.x) > LIMIAR_VELOCIDADE;
-          if (!passou) return;
-          ir(info.offset.x < 0 ? index + 1 : index - 1);
-        }}
-        className="relative aspect-[3/2] w-full cursor-grab overflow-hidden bg-areia active:cursor-grabbing"
-      >
-        {folhas.map((f, i) => (
-          <motion.img
-            key={f.id}
-            src={f.src}
-            srcSet={f.srcset}
-            sizes={sizes}
-            /* A folha à vista é a única que se anuncia; as outras são pilha. O
-               texto para leitor de tela vive no aria-live abaixo. */
-            alt=""
-            aria-hidden
-            draggable={false}
-            loading={i === 0 && prioridade ? 'eager' : 'lazy'}
-            // @ts-expect-error — `fetchpriority` é atributo de HTML, e a
-            // definição de tipos do React não o declara em minúsculas.
-            fetchpriority={i === 0 && prioridade ? 'high' : undefined}
-            decoding={i === 0 && prioridade ? 'sync' : 'async'}
-            className="absolute inset-0 h-full w-full object-cover"
-            /* `initial` casa com o HTML de build: a folha 0 sai visível e as
-               outras transparentes, então não há pisca na hidratação. */
-            initial={false}
-            style={{ opacity: i === 0 ? 1 : 0 }}
-            animate={{ opacity: i === index ? 1 : 0 }}
-            transition={fusao}
-          />
-        ))}
-      </motion.div>
+             responde às setas do teclado.
+
+             As setas ficam FORA do `motion.div` que arrasta — irmãs, não
+             filhas —, ancoradas neste wrapper `relative` que herda a altura do
+             quadro. É o que garante que clicar numa seta nunca é lido como o
+             início de um arraste: o gesto e o clique vivem em nós diferentes,
+             sem precisar de um limiar para distinguir um do outro.         ── */}
+      <div className="relative">
+        <motion.div
+          tabIndex={0}
+          aria-live="off"
+          onKeyDown={(e) => {
+            const mapa: Record<string, number> = {
+              ArrowLeft: index - 1,
+              ArrowRight: index + 1,
+              Home: 0,
+              End: ultima,
+            };
+            if (!(e.key in mapa)) return;
+            e.preventDefault();
+            ir(mapa[e.key]!);
+          }}
+          drag="x"
+          dragMomentum={false}
+          dragElastic={0.14}
+          dragConstraints={{ left: 0, right: 0 }}
+          dragTransition={molaArraste}
+          onDragEnd={(_, info) => {
+            const passou =
+              Math.abs(info.offset.x) > LIMIAR_PX ||
+              Math.abs(info.velocity.x) > LIMIAR_VELOCIDADE;
+            if (!passou) return;
+            ir(info.offset.x < 0 ? index + 1 : index - 1);
+          }}
+          className="relative aspect-[3/2] w-full cursor-grab overflow-hidden bg-areia active:cursor-grabbing"
+        >
+          {folhas.map((f, i) => (
+            <motion.img
+              key={f.id}
+              src={f.src}
+              srcSet={f.srcset}
+              sizes={sizes}
+              /* A folha à vista é a única que se anuncia; as outras são pilha. O
+                 texto para leitor de tela vive no aria-live abaixo. */
+              alt=""
+              aria-hidden
+              draggable={false}
+              loading={i === 0 && prioridade ? 'eager' : 'lazy'}
+              // @ts-expect-error — `fetchpriority` é atributo de HTML, e a
+              // definição de tipos do React não o declara em minúsculas.
+              fetchpriority={i === 0 && prioridade ? 'high' : undefined}
+              decoding={i === 0 && prioridade ? 'sync' : 'async'}
+              className="absolute inset-0 h-full w-full object-cover"
+              /* `initial` casa com o HTML de build: a folha 0 sai visível e as
+                 outras transparentes, então não há pisca na hidratação. */
+              initial={false}
+              style={{ opacity: i === 0 ? 1 : 0 }}
+              animate={{ opacity: i === index ? 1 : 0 }}
+              transition={fusao}
+            />
+          ))}
+        </motion.div>
+
+        <button
+          type="button"
+          onClick={() => ir(index - 1)}
+          aria-label={rotuloAnterior}
+          className="seta-flutuante sobre-escuro absolute left-3 top-1/2 z-10 -translate-y-1/2"
+        >
+          <SetaEsquerda />
+        </button>
+        <button
+          type="button"
+          onClick={() => ir(index + 1)}
+          aria-label={rotuloProxima}
+          className="seta-flutuante sobre-escuro absolute right-3 top-1/2 z-10 -translate-y-1/2"
+        >
+          <SetaEsquerda className="rotate-180" />
+        </button>
+      </div>
 
       {/* ── LEGENDA E COMANDO, em chão sólido ── */}
       <div className="mt-4 flex flex-wrap items-baseline justify-between gap-x-8 gap-y-1">
@@ -226,5 +264,21 @@ export function CarrosselAcomodacoes({
         {ativa.assunto}: {ativa.alt}
       </p>
     </div>
+  );
+}
+
+/** Aresta reta, sem ponta desenhada: a mesma voluta magra do resto do sistema. */
+function SetaEsquerda({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.25"
+      className={cn('h-4 w-4', className)}
+    >
+      <path d="M13.5 8H2.5M6.5 3.5 2 8l4.5 4.5" />
+    </svg>
   );
 }

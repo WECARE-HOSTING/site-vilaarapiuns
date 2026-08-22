@@ -1002,7 +1002,9 @@
   "carousel": {
     "heroLabel": "Villa Arapiuns en treinta fotos",
     "acomodacoesLabel": "Los alojamientos de la Villa en diez fotos",
-    "photoPosition": "Foto {n} de {total}"
+    "photoPosition": "Foto {n} de {total}",
+    "previous": "Foto anterior",
+    "next": "Foto siguiente"
   },
   "acomodacoes": {
     "itens": [
