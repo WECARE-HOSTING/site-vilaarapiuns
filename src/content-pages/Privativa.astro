@@ -10,6 +10,13 @@
  * inteira está comprando o seu grupo reunido, e era exatamente isso que não
  * aparecia. As fotos desta página são as únicas do acervo com muita gente na
  * mesma imagem, e é por isso que elas vivem aqui e não nas outras páginas.
+ *
+ * SEGUNDA RODADA (21/08/2026). O cliente recusou o fechamento e pediu mais
+ * foto. Onze imagens agora, contra sete: entram a piracaia em roda (que fecha),
+ * o peixe na folha de bananeira, o pavilhão cheio, o redário e as artesãs. A
+ * regra que saiu desta rodada está escrita na nota do fechamento e vale para o
+ * site inteiro: RETRATO DE GRUPO POSADO NÃO VENDE VIAGEM. Ele prova que o grupo
+ * esteve aqui; não convida ninguém a vir. Cena convida.
  */
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
@@ -22,19 +29,33 @@ import { SITE, whatsappUrl } from '@/data/site';
 import type { Locale } from '@/i18n/config';
 
 import banhoRioGrupo from '@/assets/imgs/banho-rio-grupo.jpg';
-import deckYoga from '@/assets/imgs/deck-yoga.jpg';
 import arenaBancos from '@/assets/imgs/arena-bancos.jpg';
 import refeitorioMesas from '@/assets/imgs/refeitorio-mesas.jpg';
-import luauPraia from '@/assets/imgs/luau-praia.jpg';
 
-/* As duas fotos que este acervo tinha e o site não: a roda no pavilhão e o grupo
-   inteiro. Importadas do acervo em 21/08/2026, com autorização de imagem
-   confirmada pelo cliente e direitos da Villa. Ver docs/acervo.md. */
+/* Importadas do acervo em 21/08/2026, com autorização de imagem confirmada pelo
+   cliente e direitos da Villa. Ver docs/acervo.md. */
 import retiroRodaPavilhao from '@/assets/imgs/retiro-roda-pavilhao.jpg';
-import grupoPraiaInteiro from '@/assets/imgs/grupo-praia-inteiro.jpg';
 import pavilhaoPalha from '@/assets/imgs/pavilhao-palha.jpg';
 import igapoCanoaGrupo from '@/assets/imgs/igapo-canoa-grupo.jpg';
-import jantarPeixe from '@/assets/imgs/jantar-peixe.jpg';
+
+/* SEGUNDA RODADA DE ACERVO (21/08/2026, à noite). O cliente recusou o
+   fechamento — o grupo posado na areia ao pôr do sol — e pediu mais fotos. As
+   cinco que entram aqui vêm da mesma captação de retiro e da pasta da piracaia,
+   e cada uma fecha um furo que a rodada anterior deixou:
+
+     piracaia-roda   o fechamento novo: o grupo em roda, e não posando
+     piracaia-peixe  a pesca deixa de ser ilustrada por uma travessa qualquer
+     shala-cheia     o pavilhão CHEIO, no lugar do deck vazio
+     redario         o redário é nomeado na abertura e não tinha foto
+     artesas-palha   a responsabilidade não tinha imagem nenhuma
+
+   `grupo-praia-inteiro.jpg` foi apagado do repositório: entrou ontem só para
+   este fechamento e não sobreviveu a ele. Ver docs/acervo.md. */
+import piracaiaRoda from '@/assets/imgs/piracaia-roda.jpg';
+import piracaiaPeixe from '@/assets/imgs/piracaia-peixe.jpg';
+import shalaCheia from '@/assets/imgs/shala-cheia.jpg';
+import redario from '@/assets/imgs/redario.jpg';
+import artesasPalha from '@/assets/imgs/artesas-palha.jpg';
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -94,9 +115,13 @@ const PROGRAMAS: Programa[] = [
     titulo: t('privativa.pescaT'),
     texto: t('privativa.pescaD'),
     nota: t('privativa.pescaNota'),
-    /* Não existe foto da pescaria no acervo. Esta é a mesa, e a legenda diz
-       que é a mesa — fingir que é a pescaria seria mentir na legenda. */
-    foto: jantarPeixe,
+    /* Não existe foto da pescaria no acervo, e continua não existindo. Esta é
+       a mesa, e a legenda diz que é a mesa — fingir que é a pescaria seria
+       mentir na legenda. O que mudou é a mesa: era uma travessa posta numa
+       sala, e agora é o peixe da noite assado na folha de bananeira, na
+       areia, à luz de vela. A legenda não precisou mudar porque ela já dizia
+       exatamente isto; foi a foto que finalmente a cumpriu. */
+    foto: piracaiaPeixe,
     legenda: t('privativa.figPesca'),
     alt: t('privativa.figPescaAlt'),
   },
@@ -104,12 +129,32 @@ const PROGRAMAS: Programa[] = [
 
 const RESPONSABILIDADE = useList(locale)<{ titulo: string; detalhe: string; medida?: string; marcado?: boolean }>('privativa.respLista');
 
-/* Os espaços que um grupo ocupa junto. Cada legenda diz a peça, não o clima. */
+/* Os espaços que um grupo ocupa junto. Cada legenda diz a peça, não o clima.
+
+   O `alt` passou a sair do dicionário. As quatro descrições eram português
+   cravado no arquivo, e num site de cinco idiomas isso é texto sem tradução
+   para exatamente quem depende dele — quem navega por leitor de tela. Agora
+   são chaves como as outras.
+
+   DUAS TROCAS. O deck vazio saiu e entrou o pavilhão com o grupo inteiro em pé
+   nele: a seção pergunta onde o grupo se reúne, e a resposta com gente dentro
+   é prova — sem gente é planta. E a praia à noite saiu porque virou o
+   FECHAMENTO da página em largura cheia; o mesmo assunto duas vezes gasta a
+   foto boa. No lugar entrou o redário, que a abertura nomeia ("os treze
+   bangalôs, o pavilhão, o redário e a praia") e que era a única daquelas
+   quatro peças sem imagem em lugar nenhum do site.
+
+   A LARGURA É DESIGUAL, e alterna: 7/5 na primeira fila, 5/7 na segunda. É a
+   folha de veio oposto da marchetaria, a mesma gramática de "duas maneiras de
+   ficar" na home, e não enfeite: em cada fila a peça maior é a que carrega a
+   afirmação mais forte — o pavilhão cheio na primeira, a roda de fogo na
+   segunda. Quatro miniaturas de 22vw, que era o que havia aqui, mostram que
+   os espaços existem; não mostram que caibo neles. */
 const ESPACOS = [
-  { foto: deckYoga,        legenda: t('privativa.espacoShala'),      alt: 'Deck de madeira sob telhado de palha aberto para a mata, com espreguiçadeira e samambaias na borda' },
-  { foto: refeitorioMesas, legenda: t('privativa.espacoRefeitorio'), alt: 'Mesas compridas do refeitório postas com jogos americanos de palha trançada e canecas escuras' },
-  { foto: arenaBancos,     legenda: t('privativa.espacoRodaFogo'),   alt: 'Bancos de tronco maciço formando uma roda na areia da clareira, cercados pela mata' },
-  { foto: luauPraia,       legenda: t('privativa.espacoPraiaNoite'), alt: 'Praia à noite com fogueira acesa, fileira de velas na areia e hóspedes reunidos sob as palmeiras' },
+  { foto: shalaCheia,      legenda: t('privativa.espacoShala'),      alt: t('privativa.espacoShalaAlt'),      largo: true },
+  { foto: redario,         legenda: t('privativa.espacoRedario'),    alt: t('privativa.espacoRedarioAlt'),    largo: false },
+  { foto: refeitorioMesas, legenda: t('privativa.espacoRefeitorio'), alt: t('privativa.espacoRefeitorioAlt'), largo: false },
+  { foto: arenaBancos,     legenda: t('privativa.espacoRodaFogo'),   alt: t('privativa.espacoRodaFogoAlt'),   largo: true },
 ] as const;
 ---
 
@@ -192,6 +237,30 @@ const ESPACOS = [
     <h2 class="font-display text-titulo">{t('privativa.respT')}</h2>
     <p class="lead container-texto mt-4 sm:mx-0">{t('privativa.respI')}</p>
     <ListaCorte itens={RESPONSABILIDADE} class="mt-10" />
+
+    {/* Era a única seção da página sem imagem — e é a que o comprador
+        corporativo precisa poder repetir dentro da empresa depois da viagem.
+        A foto não ilustra as quatro linhas: ela mostra as duas primeiras
+        acontecendo, o dinheiro entrando na comunidade e o trabalho sendo de
+        lá. Vem DEPOIS da lista, não antes: a lista é o argumento, a foto é o
+        recibo.
+
+        A legenda repete um fato que a lista já declara ("paga direto às
+        famílias") em vez de nomear a matéria-prima que aparece no quadro. A
+        palha e o corante têm nome, e o acervo os registra, mas nenhum dos dois
+        está confirmado pelo cliente — e legenda não é lugar de estrear
+        afirmação. Ver as perguntas abertas em docs/acervo.md. */}
+    <figure class="mt-14">
+      <Image
+        src={artesasPalha}
+        alt={t('privativa.respFigAlt')}
+        widths={[600, 900, 1400, 2048]}
+        sizes="(min-width: 1280px) 76rem, 100vw"
+        loading="lazy" decoding="async"
+        class="aspect-[16/9] w-full object-cover"
+      />
+      <figcaption class="meta numero mt-3">{t('privativa.respFig')}</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -203,17 +272,30 @@ const ESPACOS = [
       {t('privativa.espacosI')}
     </p>
 
-    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="mt-12 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-x-8">
       {ESPACOS.map((e) => (
-        <figure>
+        <figure class:list={['flex flex-col', e.largo ? 'lg:col-span-7' : 'lg:col-span-5']}>
+          {/* AS DUAS LEGENDAS DE CADA FILA ASSENTAM NA MESMA RÉGUA, e é por isso
+              que a peça estreita não tem proporção fixa a partir de `lg`. Com
+              3/2 nas duas, larguras de 7 e de 5 colunas dão alturas diferentes
+              e as legendas ficam desencontradas por uns 70px — numa página em
+              que a emenda É a régua do layout, isso se lê como descuido, não
+              como composição. Aqui a peça larga fixa a altura da fila e a
+              estreita estica para ela (`flex-1`), então o corte da estreita
+              vira quase quadrado e as legendas encostam na mesma linha em
+              qualquer largura de tela, sem número mágico. Abaixo de `lg` as
+              duas colunas têm a mesma largura e 3/2 já basta. */}
           <Image
             src={e.foto}
             alt={e.alt}
-            widths={[400, 600, 900]}
-            sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 100vw"
+            widths={[440, 660, 1000, 1440]}
+            sizes="(min-width: 1024px) 42vw, (min-width: 640px) 45vw, 100vw"
             loading="lazy"
             decoding="async"
-            class="aspect-[4/3] w-full object-cover"
+            class:list={[
+              'w-full object-cover',
+              e.largo ? 'aspect-[3/2]' : 'aspect-[3/2] lg:aspect-auto lg:min-h-0 lg:flex-1',
+            ]}
           />
           <figcaption class="meta numero mt-3">{e.legenda}</figcaption>
         </figure>
@@ -225,20 +307,31 @@ const ESPACOS = [
 <!-- ═══════════ FECHAMENTO ═══════════ -->
 <section class="cunha-topo secao bg-mar sobre-escuro">
   <div class="container-editorial">
-    {/* Fecha com o grupo de frente, não de costas: a página inteira vende
-        "o seu grupo reunido aqui", e esta é a única foto do acervo que
-        mostra isso acontecido. Substituiu o pôr do sol de costas, que
-        continua vivo em Experiências. */}
+    {/* O FECHAMENTO, terceira tentativa. Primeiro era o pôr do sol de costas;
+        depois o grupo posado na areia; o cliente recusou os dois. O erro comum
+        às duas primeiras é o mesmo: retrato de grupo posado é a foto que se
+        manda no grupo da viagem DEPOIS, não a que faz alguém querer marcar a
+        viagem ANTES. Ninguém se reconhece numa fila de vinte e cinco
+        desconhecidos olhando para a lente.
+
+        Esta é a piracaia: o grupo sentado em roda na areia, cercado de
+        lanternas de vela, o rio com a lua atrás. Ninguém olha para a câmera e
+        ninguém está posando — é uma cena, e o leitor entra nela. Cai num fundo
+        `bg-mar`, que é o escuro do sistema: uma foto noturna sobre chão escuro
+        assenta, e a mesma foto sobre areia clara brigaria com o chão.
+
+        A praia à noite saiu da grade dos espaços por causa desta escolha, e não
+        por acaso — ver a nota de ESPACOS. */}
     <figure>
       <Image
-        src={grupoPraiaInteiro}
-        alt={t('privativa.figGrupoInteiroAlt')}
+        src={piracaiaRoda}
+        alt={t('privativa.figPiracaiaRodaAlt')}
         widths={[600, 900, 1400, 2048]}
         sizes="(min-width: 1280px) 76rem, 100vw"
         loading="lazy" decoding="async"
         class="aspect-[16/9] w-full object-cover"
       />
-      <figcaption class="meta numero mt-3">{t('privativa.figGrupoInteiro')}</figcaption>
+      <figcaption class="meta numero mt-3">{t('privativa.figPiracaiaRoda')}</figcaption>
     </figure>
 
     <p class="mt-10">

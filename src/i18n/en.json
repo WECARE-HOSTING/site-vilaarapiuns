@@ -81,6 +81,10 @@
     "etapa2D": "Overland transfer to the village. We agree the time with you.",
     "etapa3T": "Alter do Chão to the Villa",
     "etapa3D": "The house boat, upriver. Included in the packages; arranged separately on lodge stays.",
+    "vistaLegenda": "The Villa from above · the roofs inside closed forest",
+    "vistaControle": "Play the video",
+    "vistaMedida": "{s} s · {mb} MB · no sound",
+    "vistaDesc": "Aerial video, filmed straight down: the thatched roofs and the solar panels of the Villa surrounded by unbroken forest.",
     "casaT": "The house",
     "casaP1": "The doors are mahogany, inlaid: wedges of opposing grain radiating from an octagonal centre, cut and fitted by hand. The same octagon returns as a medallion on the interior doors.",
     "casaP2": "The blankets are woven on a loom, checked in chocolate and oat. The veranda lamp is woven fibre. The bungalows are two-storey Tapajônica architecture. None of it came out of a catalogue — and that is why the Villa looks like no other lodge on the river.",
@@ -548,10 +552,14 @@
     "figGrupoAgua": "A group in the water · the whole Villa reserved",
     "espacosT": "Where the group gathers",
     "espacosI": "Four shared spaces, and with exclusive use they belong only to your group: no one from outside comes in on your dates.",
-    "espacoShala": "The shala · thatch-covered deck",
+    "espacoShala": "The shala · the whole group under thatch",
+    "espacoShalaAlt": "Long thatched pavilion with solar panels on the roof, fifteen people standing on the wooden deck in late afternoon light",
     "espacoRefeitorio": "The dining hall · long tables",
+    "espacoRefeitorioAlt": "Long dining hall tables set with woven straw placemats and dark mugs",
     "espacoRodaFogo": "The fire circle · tree-trunk benches",
-    "espacoPraiaNoite": "The beach at night · candles and fire",
+    "espacoRodaFogoAlt": "Solid tree-trunk benches in a circle on the sand of the clearing, surrounded by forest",
+    "espacoRedario": "The hammock shelter · hammocks in the shade, facing the river",
+    "espacoRedarioAlt": "Two striped hammocks slung under a thatched roof set on the sand, with the forest and the river behind",
     "campoExclusividade": "exclusive use from {n} guests",
     "b4T": "The rate is per group",
     "b4D": "It comes down with the number of people and the number of nights, and booking the whole Villa has a rate of its own. Bring us your dates and we'll settle the figure.",
@@ -575,9 +583,9 @@
     "pescaD": "It goes out after dinner, in the residents' canoe. The technique is theirs: a lamp in the water, a free dive, a hand spear. The people teaching it are the people who fish there every day, and whatever the river gives that night goes to the table.",
     "pescaNota": "Paid directly to the community and led by people who hold the right to fish inside the Tapajós-Arapiuns Extractive Reserve. This is not sport fishing.",
     "figPesca": "The night table · fish grilled by candlelight",
-    "figPescaAlt": "Wooden table by candlelight with grilled fish on platters, clay bowls, cassava flour and stacked plates",
+    "figPescaAlt": "Large fish split and grilled over coals on banana leaves, with lime wedges, laid on a mat on the sand by candlelight",
     "respT": "The Amazon, responsibly",
-    "respI": "It is what a group needs to be able to say afterwards, and here it does not rest on goodwill: there are four verifiable facts.",
+    "respI": "It is what a group needs to be able to say afterwards, and here it does not rest on goodwill: there are five verifiable facts.",
     "respLista": [
       {
         "titulo": "The money goes into the community",
@@ -596,13 +604,20 @@
         "medida": "Tapajós-Arapiuns Reserve"
       },
       {
+        "titulo": "The power is solar",
+        "detalhe": "The panels sit on the pavilion roof, in plain sight of anyone walking past, and they are where the house gets its power.",
+        "medida": "solar power"
+      },
+      {
         "titulo": "The group is the size of the house",
         "detalhe": "Thirteen bungalows, twenty-six guests at most. The limit is not a marketing position: it is what the Villa has.",
         "medida": "13 bungalows · 26 guests"
       }
     ],
-    "figGrupoInteiro": "The whole group · the end of the day on the beach",
-    "figGrupoInteiroAlt": "About twenty-five people posing together on the beach sand at sunset, standing and crouching at the front, with the river and a canoe behind them"
+    "respFig": "The weaving workshop · paid straight to the families who host the group",
+    "respFigAlt": "Five women from the community sitting on the ground among the trees, braiding bundles of straw dyed orange and red",
+    "figPiracaiaRoda": "The piracaia · the whole group in a circle on the sand, by candlelight",
+    "figPiracaiaRodaAlt": "Beach at night: the group seated in a circle on the sand around a palm, ringed by dozens of lit candle lanterns, with the moonlit river behind"
   },
   "galeria": {
     "h1": "The Villa, in photographs",

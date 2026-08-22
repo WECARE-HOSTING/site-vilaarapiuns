@@ -108,12 +108,25 @@ abaixo de 700px e nome de lugar turístico.**
 
 Isto é a lista de ganhos, em ordem de peso:
 
-1. **Vista aérea.** `5 Vídeos/.../Seleção/villa arapiuns (drone).MP4` (47 s) mostra
-   os telhados da Villa dentro da mata fechada, e `localização_lago azul.MP4`
-   mostra o lago de cima. O site não tem uma única imagem que prove a escala e o
-   isolamento — que é o argumento central.
-2. **A foto do grupo inteiro.** `3 Acervo/Yoga e Práticas/IMG_3110.jpg`: ~25
-   pessoas posadas na praia ao pôr do sol. É *a* imagem da página de grupos.
+1. ~~**Vista aérea.**~~ **FEITO em 21/08/2026.**
+   `5 Vídeos/.../Seleção/villa arapiuns (drone).MP4` (47 s) mostra os telhados da
+   Villa dentro da mata fechada. Foi cortado, transcodificado e está na home,
+   encostado no mapa de situação — ver a receita em "Vídeo" mais abaixo.
+   `localização_lago azul.MP4` (o lago de cima) continua parado, e é o candidato
+   óbvio para a página de Experiências.
+2. ~~**A foto do grupo inteiro.**~~ **TENTADO E RECUSADO em 21/08/2026.**
+   `3 Acervo/Yoga e Práticas/IMG_3110.jpg`, ~25 pessoas posadas na praia ao pôr
+   do sol, entrou como fechamento da página de grupos e o cliente recusou no
+   mesmo dia. O arquivo saiu do repositório.
+
+   **A regra que este erro deixa, e ela vale para o site inteiro: retrato de
+   grupo posado não vende viagem.** Prova que o grupo esteve aqui — é a foto que
+   se manda no grupo da viagem DEPOIS — e não convida ninguém a vir. Ninguém se
+   reconhece numa fila de vinte e cinco desconhecidos olhando para a lente. O
+   que convida é CENA: gente fazendo alguma coisa, sem olhar para a câmera. O
+   fechamento hoje é `3 Acervo/Gente/Piracaia/IMG_3470.jpg` — o grupo em roda na
+   areia entre as velas, o rio com a lua atrás — e o mesmo critério trocou mais
+   quatro fotos da página na mesma rodada.
 3. **Rosto e nome da equipe.** `3 Acervo/Equipe/IMG_3263.jpg` (o cozinheiro de
    touca), `IMG_3282.jpg` e `IMG_3291.jpg` (as senhoras da cozinha),
    `IMG_3164.jpg` (três barqueiros na proa), e
@@ -246,12 +259,52 @@ Por isso isto não é ajuste de recorte, é decisão de sistema visual, e vale p
 próprio cobrindo **Galeria, Equipe e Experiências** de uma vez, em vez de abrir um
 precedente solto numa página. O cliente decidiu assim em 21/08/2026.
 
-### 2. Vídeo (bloqueada)
+### 2. Vídeo — desbloqueada, com um clipe no ar (21/08/2026)
 
-37 clipes a ~7 MB/s, inutilizáveis crus na web — o `PRODUCT.md` põe celular em
-3G/4G instável como caso normal. Transcodificação, `poster`, `preload="none"`,
-nada de autoplay com som. Os Reels verticais já vêm legendados em PT/EN, o que os
-torna a peça mais pronta do acervo e ao mesmo tempo a mais pesada.
+Havia 37 clipes a ~7 MB/s, inutilizáveis crus na web. **Um já está na home** e
+deixou a receita medida; os outros 36 continuam parados, mas agora o caminho
+existe e é reprodutível.
+
+**O que está no ar:** `public/video/villa-de-cima.mp4` — o drone descendo sobre
+os telhados. 14 s, 1280×720, 24 fps, **3,1 MB**, sem áudio (o original também
+não tem).
+
+    ffmpeg -ss 10 -i "…/Seleção/villa arapiuns (drone).MP4" -t 14 -an \
+      -vf fps=24 -c:v libx264 -preset veryslow -crf 31 -tune film \
+      -profile:v high -level 4.0 -pix_fmt yuv420p -g 48 \
+      -movflags +faststart public/video/villa-de-cima.mp4
+
+**O que o teste de compressão mostrou, e é o achado reutilizável:** copa de mata
+fechada filmada em movimento é dos assuntos mais caros que existem. Medido no
+mesmo clipe:
+
+| | |
+|---|---|
+| 28 s a 720p, crf 24 / 26 / 28 | 17,1 / 12,7 / 9,3 MB |
+| 18 s a 720p25, crf 29 | 4,5 MB |
+| 18 s a 720p25, **AV1** (SVT, crf 40) | 4,2 MB — só 8% abaixo do h264 |
+| 20 s a **1024×576**, crf 27 | 5,4 MB — **maior** que os mesmos 20 s a 720p crf 31 |
+
+Duas conclusões: **baixar resolução não economiza** (o crf persegue qualidade, e
+qualidade num quadro menor custa mais bits por pixel) e **AV1 não paga** o dobro
+de peso no repositório nem o risco de decodificação em telefone antigo. O que
+economiza de verdade é **cortar duração** e subir o crf. Aqui, 14 s bem
+escolhidos a crf 31 valem mais que 47 s a crf 26.
+
+**A decisão de produto que acompanha:** `preload="none"`, cartaz no lugar do
+quadro, nenhum autoplay, e **o peso escrito na legenda** — "14 s · 3,1 MB · sem
+som". Quem está no telefone com dado contado decide antes de gastar. O número
+sai de `statSync` no arquivo a cada build, então não pode divergir do servidor
+nem envelhecer se o clipe for trocado. Ver a nota no frontmatter de
+`src/content-pages/Home.astro`.
+
+E `controls` **não** vai no HTML: com o atributo, Chrome e Safari desenham a
+barra em cima do cartaz desde o primeiro paint. Ele entra por script no primeiro
+play. O comando visível é um `<a>` para o arquivo na régua da legenda, então sem
+JavaScript o clique ainda toca o vídeo — na aba, em vez de na página.
+
+**Continua parado:** os Reels verticais legendados em PT/EN (a peça mais pronta
+e a mais pesada), o lago de cima, e o tingimento de palha.
 
 ### 3. Grupos e retiros na página Villa Privativa
 
@@ -268,3 +321,58 @@ glob e por nome de arquivo, que localizam sem identificar. Continua valendo um
 cuidado editorial: o banho de ervas e a puxada de mãe têm fotos de hóspedes em
 traje de banho e de rosto visível. A cessão de imagem existe, mas quais dessas vão
 ao site é escolha do cliente, não consequência automática da autorização.
+
+## Rodada de 21/08/2026 (noite): o que entrou e o que saiu
+
+O cliente recusou o fechamento da página de grupos, pediu mais fotografia e
+pediu vídeo na home. Nesta rodada:
+
+**Entraram em `src/assets/imgs/`** — cinco, todas de 2048px de largura, as duas
+últimas reduzidas de 6240px:
+
+| Arquivo | Origem no acervo | Onde vive |
+|---|---|---|
+| `piracaia-roda.jpg` | `3 Acervo/Gente/Piracaia/IMG_3470.jpg` | fechamento de Grupos |
+| `piracaia-peixe.jpg` | `3 Acervo/Gente/Piracaia/IMG_3399.jpg` | bloco da pesca de mergulho |
+| `shala-cheia.jpg` | `3 Acervo/Yoga e Práticas/IMG_1553.jpg` | grade dos espaços |
+| `redario.jpg` | `4 Grupos e Retiros/*/Captação completa/IMG_6871.jpg` | grade dos espaços |
+| `artesas-palha.jpg` | `4 Grupos e Retiros/*/IMG_1433.jpg` | seção de responsabilidade |
+| `villa-de-cima-poster.jpg` | primeiro quadro do mp4 acima | cartaz do vídeo na home |
+
+**Saiu:** `grupo-praia-inteiro.jpg`, apagado. Ver o item 2 da lista de ganhos.
+
+**Saíram da página de grupos, mas continuam no repositório porque outras páginas
+as usam:** `deck-yoga.jpg` (o deck vazio, trocado pelo pavilhão cheio),
+`luau-praia.jpg` (a praia à noite, que virou o fechamento em largura cheia) e
+`jantar-peixe.jpg` (a travessa posta, trocada pelo peixe na folha de bananeira).
+
+### Duas pendências que este acervo abriu, e como o cliente fechou as duas
+
+Ambas em 21/08/2026, no mesmo dia da rodada.
+
+1. **As placas solares — CONFIRMADAS, e no ar.** Elas aparecem nítidas em
+   `IMG_1553.jpg` e de cima no vídeo do drone, e o site não dizia uma palavra
+   sobre energia. O cliente confirmou: **a energia da casa é solar.** Virou a
+   quinta linha de "Amazônia com responsabilidade" na página de Grupos, e é a
+   única das cinco que já tinha prova em imagem antes de ter texto.
+
+   **O limite do que foi confirmado está no `PRODUCT.md` e vale repetir:** o
+   fato é "a energia é solar". Cobertura, gerador de apoio, capacidade instalada
+   e existência de rede elétrica no local **não** foram confirmados — então
+   "off-grid", "autossuficiente" e "sem gerador" continuam fora.
+
+2. **A ave — NÃO NOMEAR, decisão do cliente.** `4 Grupos e Retiros/*/IMG_6056.jpg`
+   é a única foto de ave do acervo e continua fora do site. São duas razões
+   independentes, e qualquer uma bastaria:
+
+   · **A espécie não se nomeia.** O cliente decidiu assim, e o `PRODUCT.md` já
+     dizia o mesmo desde antes ("nenhuma espécie pode ser nomeada" — a lista não
+     foi fornecida e não há lista pública para o Arapiuns). A pergunta que este
+     inventário deixou aberta está fechada: não se pergunta mais, não se
+     pesquisa mais, não se escreve palpite em lugar nenhum.
+   · **É retrato**, e o sistema visual não aceita retrato até a frente 1 acima
+     ser decidida. Recortar para 3/2 abriria justamente o precedente que o
+     cliente fechou.
+
+   A seção de observação de aves segue ilustrada pela canoa no igapó, que é a
+   saída que está sendo vendida — e é o que a legenda diz.

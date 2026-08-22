@@ -81,6 +81,10 @@
     "etapa2D": "Transfer auf dem Landweg bis in den Ort. Die Uhrzeit stimmen wir mit Ihnen ab.",
     "etapa3T": "Alter do Chão zur Villa",
     "etapa3D": "Das Boot des Hauses, flussaufwärts. In den Paketen enthalten; bei Lodge-Aufenthalten separat buchbar.",
+    "vistaLegenda": "Die Villa von oben · die Dächer im geschlossenen Wald",
+    "vistaControle": "Video ansehen",
+    "vistaMedida": "{s} s · {mb} MB · ohne Ton",
+    "vistaDesc": "Luftaufnahme senkrecht von oben: die Strohdächer und die Solarmodule der Villa, umgeben von lückenlosem Wald.",
     "casaT": "Das Haus",
     "casaP1": "Die Türen sind aus Mahagoni, mit Intarsien: Keile mit gegenläufiger Maserung, die von einem achteckigen Zentrum ausstrahlen, von Hand geschnitten und eingepasst. Dasselbe Achteck kehrt als Medaillon auf den Innentüren wieder.",
     "casaP2": "Die Decken sind auf dem Webstuhl gewebt, kariert in Schokolade und Hafer. Die Lampe auf der Veranda besteht aus geflochtener Faser. Die Bungalows sind zweigeschossige tapajónische Architektur. Nichts davon stammt aus einem Katalog — und deshalb gleicht die Villa keiner anderen Lodge am Fluss.",
@@ -548,10 +552,14 @@
     "figGrupoAgua": "Eine Gruppe im Wasser · die ganze Villa reserviert",
     "espacosT": "Wo die Gruppe zusammenkommt",
     "espacosI": "Vier Gemeinschaftsräume, die bei Exklusivnutzung ausschließlich Ihrer Gruppe gehören: An Ihrem Termin kommt niemand von außerhalb herein.",
-    "espacoShala": "Die Shala · strohgedeckte Terrasse",
+    "espacoShala": "Die Shala · die ganze Gruppe unter dem Strohdach",
+    "espacoShalaAlt": "Langer strohgedeckter Pavillon mit Solarmodulen auf dem Dach, fünfzehn Menschen stehen im Spätlicht auf der Holzterrasse",
     "espacoRefeitorio": "Der Speisesaal · lange Tische",
+    "espacoRefeitorioAlt": "Lange Tische des Speisesaals, gedeckt mit geflochtenen Strohsets und dunklen Bechern",
     "espacoRodaFogo": "Der Feuerkreis · Bänke aus Baumstämmen",
-    "espacoPraiaNoite": "Der Strand bei Nacht · Kerzen und Feuer",
+    "espacoRodaFogoAlt": "Massive Baumstammbänke im Kreis im Sand der Lichtung, umgeben vom Wald",
+    "espacoRedario": "Das Hängemattenhaus · Hängematten im Schatten, zum Fluss hin",
+    "espacoRedarioAlt": "Zwei gestreifte Hängematten unter einem Strohdach im Sand, dahinter der Wald und der Fluss",
     "campoExclusividade": "Exklusivität ab {n} Personen",
     "b4T": "Der Preis gilt pro Gruppe",
     "b4D": "Er sinkt mit der Zahl der Personen und der Nächte, und für die ganze Villa gilt ein eigener Satz. Nennen Sie uns Ihre Daten, dann steht die Zahl.",
@@ -575,9 +583,9 @@
     "pescaD": "Es geht nach dem Abendessen los, im Kanu der Bewohner. Die Technik ist ihre: Lampe im Wasser, Apnoetauchen, Handharpune. Wer es zeigt, fischt dort jeden Tag — und was der Fluss in dieser Nacht gibt, kommt auf den Tisch.",
     "pescaNota": "Direkt an die Gemeinde bezahlt und geführt von Menschen mit dem Recht, innerhalb des Extraktivreservats Tapajós-Arapiuns zu fischen. Kein Sportfischen.",
     "figPesca": "Der Tisch der Nacht · gegrillter Fisch bei Kerzenlicht",
-    "figPescaAlt": "Holztisch bei Kerzenlicht mit gegrilltem Fisch auf Platten, Tonschalen, Maniokmehl und gestapelten Tellern",
+    "figPescaAlt": "Große, aufgeschnittene Fische, über Glut auf Bananenblättern gegrillt, mit Limettenscheiben, auf einer Matte im Sand bei Kerzenlicht",
     "respT": "Amazonien, verantwortlich",
-    "respI": "Es ist das, was eine Gruppe hinterher erzählen können muss, und hier hängt es nicht am guten Willen: es sind vier überprüfbare Tatsachen.",
+    "respI": "Es ist das, was eine Gruppe hinterher erzählen können muss, und hier hängt es nicht am guten Willen: es sind fünf überprüfbare Tatsachen.",
     "respLista": [
       {
         "titulo": "Das Geld kommt in der Gemeinde an",
@@ -596,13 +604,20 @@
         "medida": "Reservat Tapajós-Arapiuns"
       },
       {
+        "titulo": "Der Strom ist Solarstrom",
+        "detalhe": "Die Module liegen auf dem Dach des Pavillons, sichtbar für jeden, der vorbeigeht, und von ihnen kommt der Strom des Hauses.",
+        "medida": "Solarstrom"
+      },
+      {
         "titulo": "Die Gruppe ist so groß wie das Haus",
         "detalhe": "Dreizehn Bungalows, höchstens sechsundzwanzig Gäste. Die Grenze ist keine Marketinghaltung, sondern das, was die Villa hat.",
         "medida": "13 Bungalows · 26 Gäste"
       }
     ],
-    "figGrupoInteiro": "Die ganze Gruppe · das Ende des Tages am Strand",
-    "figGrupoInteiroAlt": "Etwa fünfundzwanzig Menschen posieren zusammen im Strandsand bei Sonnenuntergang, stehend und vorn hockend, dahinter der Fluss und ein Kanu"
+    "respFig": "Die Flechtwerkstatt · direkt an die Familien bezahlt, die die Gruppe empfangen",
+    "respFigAlt": "Fünf Frauen aus der Gemeinde sitzen zwischen den Bäumen auf dem Boden und flechten orange und rot gefärbte Strohbündel",
+    "figPiracaiaRoda": "Die Piracaia · die ganze Gruppe im Kreis im Sand, bei Kerzenlicht",
+    "figPiracaiaRodaAlt": "Strand bei Nacht: die Gruppe sitzt im Kreis im Sand um eine Palme, umgeben von Dutzenden brennender Kerzenlaternen, dahinter der mondbeleuchtete Fluss"
   },
   "galeria": {
     "h1": "Die Villa, in Fotografien",

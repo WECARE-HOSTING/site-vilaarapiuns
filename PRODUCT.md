@@ -112,6 +112,13 @@ R$ 716. Acima de 26 hóspedes, consultar. **Direito de exclusividade a partir de
   dois quartos duplex.
 - Estruturas nomeadas nos documentos: redário entre as árvores, Shala de Yoga,
   praia de água doce sem mosquito.
+- **A energia da casa é solar.** Confirmado pelo cliente em 21/08/2026. As placas
+  estão no telhado do pavilhão e aparecem em `shala-cheia.jpg` e, de cima, no
+  vídeo do drone da home. É a quinta linha de "Amazônia com responsabilidade" na
+  página de Grupos. **O que NÃO está confirmado, e por isso não se afirma:**
+  cobertura (100% ou não), existência de gerador de apoio, capacidade instalada,
+  e se há rede elétrica alcançando o local. Dizer "a energia é solar" está
+  coberto; dizer "off-grid", "autossuficiente" ou "sem gerador" não está.
 - Experiências nomeadas: Lago Azul, Trilha da Samaúma (comunidade de Atodi),
   comunidade Coroca (tartarugas e artesanato), Ponta Grande, Ponta do Toronó,
   Canal do Jari, farinhada, tecelagem, Piracaia.

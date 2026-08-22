@@ -81,6 +81,10 @@
     "etapa2D": "Traslado por terra até a vila. Combinamos com você o horário.",
     "etapa3T": "Alter do Chão à Villa",
     "etapa3D": "Lancha da casa, rio acima. Incluída nos pacotes; contratada à parte na pousada.",
+    "vistaLegenda": "A Villa de cima · os telhados dentro da mata fechada",
+    "vistaControle": "Ver o vídeo",
+    "vistaMedida": "{s} s · {mb} MB · sem som",
+    "vistaDesc": "Vídeo aéreo, filmado de cima para baixo: os telhados de palha e as placas solares da Villa cercados pela mata sem clareira.",
     "casaT": "A casa",
     "casaP1": "As portas são de mogno, com marchetaria: cunhas de veio oposto irradiando de um centro octogonal, cortadas e encaixadas à mão. O mesmo octógono volta como medalhão nas portas internas.",
     "casaP2": "As mantas são tecidas em tear, xadrez de chocolate e aveia. A luminária da varanda é de fibra trançada. Os bangalôs são de arquitetura tapajônica, de dois andares. Nada disso veio de catálogo — e é por isso que a Villa não se parece com nenhuma outra pousada do rio.",
@@ -548,10 +552,14 @@
     "figGrupoAgua": "Um grupo na água · a Villa inteira reservada",
     "espacosT": "Onde o grupo se reúne",
     "espacosI": "Quatro espaços comuns, e na exclusividade eles são só do seu grupo: ninguém de fora entra na data.",
-    "espacoShala": "A shala · deck coberto de palha",
+    "espacoShala": "A shala · o grupo inteiro sob a palha",
+    "espacoShalaAlt": "Pavilhão comprido de telhado de palha com placas solares no alto, quinze pessoas em pé sobre o deck de madeira no fim da tarde",
     "espacoRefeitorio": "O refeitório · mesas compridas",
+    "espacoRefeitorioAlt": "Mesas compridas do refeitório postas com jogos americanos de palha trançada e canecas escuras",
     "espacoRodaFogo": "A roda de fogo · bancos de tronco",
-    "espacoPraiaNoite": "A praia à noite · velas e fogueira",
+    "espacoRodaFogoAlt": "Bancos de tronco maciço formando uma roda na areia da clareira, cercados pela mata",
+    "espacoRedario": "O redário · redes à sombra, de frente para o rio",
+    "espacoRedarioAlt": "Duas redes listradas penduradas sob um telhado de palha assentado na areia, com a mata e o rio ao fundo",
     "campoExclusividade": "exclusividade a partir de {n}",
     "b4T": "A tarifa é por grupo",
     "b4D": "Cai conforme o número de pessoas e de noites, e a Villa fechada tem condição própria. Traga as suas datas que a gente fecha o número.",
@@ -575,9 +583,9 @@
     "pescaD": "Sai depois do jantar, na canoa dos moradores. A técnica é deles: lanterna na água, mergulho de apneia, zagaia. Quem ensina é quem pesca ali todo dia, e o que vem do rio naquela noite vai para a mesa.",
     "pescaNota": "Atividade paga diretamente à comunidade e conduzida por quem tem o direito de pescar dentro da Reserva Extrativista Tapajós-Arapiuns. Não é pesca esportiva.",
     "figPesca": "A mesa da noite · peixe assado à luz de vela",
-    "figPescaAlt": "Mesa de madeira à luz de velas com peixe assado em travessas, cuias de barro, farinha e pratos empilhados",
+    "figPescaAlt": "Peixes grandes abertos e assados na brasa sobre folhas de bananeira, com rodelas de limão, postos numa esteira na areia à luz de velas",
     "respT": "Amazônia com responsabilidade",
-    "respI": "É o que um grupo precisa poder contar depois, e aqui não depende de boa vontade: são quatro fatos verificáveis.",
+    "respI": "É o que um grupo precisa poder contar depois, e aqui não depende de boa vontade: são cinco fatos verificáveis.",
     "respLista": [
       {
         "titulo": "O dinheiro entra na comunidade",
@@ -596,13 +604,20 @@
         "medida": "RESEX Tapajós-Arapiuns"
       },
       {
+        "titulo": "A energia é solar",
+        "detalhe": "As placas ficam no telhado do pavilhão, à vista de quem passa por ele, e é delas que vem a energia da casa.",
+        "medida": "energia solar"
+      },
+      {
         "titulo": "O tamanho do grupo é o tamanho da casa",
         "detalhe": "Treze bangalôs, no máximo 26 hóspedes. O limite não é posição de marketing: é quanto a Villa tem.",
         "medida": "13 bangalôs · 26 hóspedes"
       }
     ],
-    "figGrupoInteiro": "O grupo inteiro · o fim do dia na praia",
-    "figGrupoInteiroAlt": "Cerca de vinte e cinco pessoas posadas juntas na areia da praia ao pôr do sol, em pé e agachadas na frente, com o rio e uma canoa ao fundo"
+    "respFig": "A oficina de tecelagem · paga direto às famílias que recebem o grupo",
+    "respFigAlt": "Cinco mulheres da comunidade sentadas no chão de terra entre as árvores, trançando feixes de palha tingidos de laranja e vermelho",
+    "figPiracaiaRoda": "A piracaia · o grupo inteiro em roda na areia, à luz de velas",
+    "figPiracaiaRodaAlt": "Praia à noite: o grupo sentado em roda na areia em volta de uma palmeira, cercado por dezenas de lanternas de vela acesas, com o rio iluminado pela lua ao fundo"
   },
   "galeria": {
     "h1": "A Villa, em fotografia",
