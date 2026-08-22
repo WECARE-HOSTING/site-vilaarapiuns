@@ -7,6 +7,13 @@ os derivados versionados vivem em `src/assets/imgs/`.
 Este documento existe porque o conhecimento do acervo, se ficar numa conversa,
 morre com ela — e a próxima rodada de foto recomeça do zero.
 
+**Divisão de trabalho com o documento vizinho:** aqui está o INVENTÁRIO — o que
+existe, quanto pesa, o que é refugo e como varrer 2.201 arquivos barato. O
+JULGAMENTO está em `direcao-de-imagem.md`: o que foi aberto uma a uma, o que
+ganhou, **o que quase ganhou e por que não**, os seis vídeos medidos lado a lado
+e a fila do que está pronto para cada página. Quem vai escolher foto começa por
+lá; quem vai procurar arquivo começa por aqui.
+
 ## Como foi lido, e por quanto
 
 Ler 2.201 imagens uma a uma custaria a ordem de um milhão de tokens de visão.
