@@ -379,6 +379,24 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
 
    Esta nota vive no frontmatter de propósito. Comentário <!-- --> em .astro é
    enviado ao navegador; comentário de frontmatter não. */
+
+/* ══════════════════ ORDEM DA PÁGINA, QUINTA RODADA (22/08/2026) ══════════════════
+   Carlos pediu três ajustes na sequência, depois de ver a home no ar:
+     1. Vídeo primeiro — mantido: a coluna de reels do hero não muda de lugar.
+     2. "A travessia" (a lista de corte + o mapa + o vídeo da Villa de Cima)
+        desce para o FECHO da página, no lugar onde antes ficava logo após a
+        faixa de garantias.
+     3. A frase da Gabriela (o fechamento antigo) sobe para o MEIO da página —
+        ele foi explícito: é um depoimento importante demais para ficar
+        soterrado no fim, onde a rolagem mais perde gente.
+
+   A nova ordem: Hero → Garantias → A casa → depoimento da Gabriela → Um dia
+   na Villa → Duas maneiras de ficar → A travessia (com mapa e vídeo).
+
+   Nenhuma classe de corte (`cunha-topo`/`cunha-base`) mudou: cada uma recorta
+   o PRÓPRIO quadro da seção e revela o chão da página (`bg-areia-clara`) por
+   trás — não depende de qual seção vem antes ou depois — então a marchetaria
+   continua de pé com os blocos em outra ordem. */
 ---
 
 <section class="bg-areia-clara pt-header">
@@ -445,10 +463,154 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
 
 <FaixaGarantias locale={locale} />
 
+<!-- ══════════════════ A CASA: o diferencial, o material ══════════════════ -->
+<section class="cunha-base secao bg-areia">
+  <div class="container-editorial">
+    <div class="grid gap-12 lg:grid-cols-2 lg:gap-20">
+      <div class="order-2 lg:order-1">
+        <h2 class="font-display text-titulo">{t('home.casaT')}</h2>
+        <hr class="emenda mt-6 max-w-40 border-t" />
+        <p class="mt-6">{t('home.casaP1')}</p>
+        <p class="mt-5">{t('home.casaP2')}</p>
+        <a href={href(locale, 'lodge')} class="link-texto etiqueta mt-8 inline-block">{t('cta.learnMore')}</a>
+      </div>
+
+      <!-- campo reservado: a marchetaria fala por si. Ver a nota do carrossel
+           de acomodações no frontmatter. -->
+      <div class="order-1 lg:order-2">
+        <CarrosselAcomodacoes
+          client:visible
+          folhas={folhasAcomodacao}
+          rotulo={t('carousel.acomodacoesLabel')}
+          rotuloPosicao={t('carousel.photoPosition')}
+          rotuloAnterior={t('carousel.previous')}
+          rotuloProxima={t('carousel.next')}
+          sizes="(min-width: 1024px) 46vw, 100vw"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FECHO EMOCIONAL: o depoimento ══════════════════
+     Era o fechamento da página até 22/08/2026; Carlos pediu para subir para o
+     meio — é o único depoimento de hóspede real do site, e ele não queria que
+     ficasse soterrado no fim da rolagem. A seção manteve a composição
+     original (o "pico emocional seguido da ação"): a citação primeiro, o
+     convite para falar com a casa logo abaixo, na mesma régua. -->
+{/* A citação leva assinatura de hóspede real: nome e mês de estadia, em
+    `home.fechaA` e `home.fechaH` (confirmados pelo cliente em 20/08/2026).
+    Assinatura só fica enquanto houver nome e data verificáveis — sem isso a
+    frase volta a ser da casa e a assinatura sai. */}
+<section class="relative">
+  <Image
+    src={gal3}
+    alt="Varanda de uma bangalô à noite, com rede e luminária de fibra acesa"
+    widths={[900, 1400, 1920]}
+    sizes="100vw"
+    loading="lazy"
+    decoding="async"
+    class="h-[65svh] min-h-80 w-full object-cover"
+  />
+  <div class="sobre-escuro absolute inset-0 flex items-end bg-gradient-to-t from-mar-fundo via-mar-fundo/70 to-mar-fundo/20">
+    <div class="container-editorial pb-12 sm:pb-16">
+      <blockquote class="font-display container-texto text-secao text-areia sm:mx-0">
+        “{t('home.fechaQ')}”
+      </blockquote>
+      <Campo class="mt-4">
+        {t('home.fechaA')}
+        <Voluta class="text-areia-sol" />
+        {t('home.fechaH')}
+      </Campo>
+
+      <hr class="emenda mt-10 border-t" />
+      <div class="mt-8 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <h2 class="font-display text-titulo">{t('home.fechaT')}</h2>
+          <p class="container-texto mt-3">{t('home.fechaD')}</p>
+        </div>
+        <a href={whatsappUrl(t('whatsapp.geral'))} class="btn btn-primario shrink-0" target="_blank" rel="noopener noreferrer">{t('cta.whatsapp')}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ UM DIA NA VILLA ══════════════════════ -->
+<section class="secao bg-mar sobre-escuro">
+  <div class="container-editorial">
+    <div class="grid gap-12 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:gap-20">
+      <div>
+        <h2 class="font-display text-titulo">{t('home.diaT')}</h2>
+        <p class="lead mt-4">{t('home.diaI')}</p>
+      </div>
+      <LinhaDoDia
+        momentos={momentos}
+        rotulos={{ incluso: t('dia.incluso'), comunidade: t('dia.comunidade') }}
+        tone="escuro"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ DUAS MANEIRAS DE FICAR ═════════════
+     A estrutura central do produto, que o site não expressava. Duas folhas de
+     veio oposto encontrando-se numa emenda — não dois cards: sem raio, sem
+     sombra, a junta é que divide. O preço mora DENTRO da modalidade, porque
+     preço sem modalidade não informa: na pousada o barco não está incluso.
+
+     Os pisos vêm de src/data/site.ts e cada um carrega a sua condição. "A
+     partir de" sem a condição ao lado seria meia-verdade. -->
+<section class="cunha-topo secao">
+  <div class="container-editorial">
+    <h2 class="font-display text-titulo">{t('modo.titulo')}</h2>
+    <p class="lead container-texto mt-4 sm:mx-0">{t('modo.intro')}</p>
+
+    <div class="emenda mt-12 grid gap-10 border-t pt-10 md:grid-cols-2 md:gap-0">
+      {[
+        { t: t('modo.pousadaT'), d: t('modo.pousadaD'), inc: t('modo.pousadaInc'), fora: t('modo.pousadaFora'),
+          v: SITE.prices.pousadaMin, cond: t('modo.condPousada'), un: t('modo.porPax'), cta: 'lodge' as const },
+        { t: t('modo.pacoteT'), d: t('modo.pacoteD'), inc: t('modo.pacoteInc'), fora: t('modo.pacoteFora'),
+          v: SITE.prices.pacoteMin, cond: t('modo.condPacote'), un: t('modo.porPacote'), cta: 'packages' as const },
+      ].map((m, i) => (
+        <div class:list={['flex flex-col', i === 1 ? 'emenda md:border-l md:pl-10 lg:pl-16' : 'md:pr-10 lg:pr-16']}>
+          <h3 class="font-display text-secao">{m.t}</h3>
+          <p class="mt-3">{m.d}</p>
+
+          <dl class="mt-6 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2">
+            <dt class="etiqueta pt-1">{t('modo.inclusoRot')}</dt>
+            <dd class="flex items-start gap-2">
+              <Voluta class="mt-1.5 text-areia-sol" />
+              <span>{m.inc}</span>
+            </dd>
+            <dt class="etiqueta pt-1">{t('modo.foraRot')}</dt>
+            <dd>{m.fora}</dd>
+          </dl>
+
+          <p class="emenda mt-auto border-t pt-6">
+            <span class="etiqueta block">{t('modo.aPartirDe')}</span>
+            <span class="numero cor-titulo mt-1 block text-titulo">
+              {preco(m.v, locale)}
+            </span>
+            <span class="numero etiqueta mt-1 block">{m.un} · {m.cond}</span>
+          </p>
+
+          <a href={href(locale, m.cta)} class="btn btn-secundario mt-6 self-start">{t('cta.learnMore')}</a>
+        </div>
+      ))}
+    </div>
+
+    <p class="numero etiqueta mt-10">{t('home.precoD')}</p>
+  </div>
+</section>
+
 <!-- ══════════════════ A TRAVESSIA: lista de corte ══════════════════
      A informação mais densa da página, e a que resolve a maior ansiedade do
      produto. Foi desenhada como cunha creme; o cliente aprovou o verde e o
-     fundo ficou. O texto usa `madeira-luz`, o marrom claro do impresso. -->
+     fundo ficou. O texto usa `madeira-luz`, o marrom claro do impresso.
+
+     Movida para o FECHO da página em 22/08/2026, a pedido do Carlos — antes
+     vinha logo após a faixa de garantias. A ordem e o conteúdo internos
+     (etapas, mapa, vídeo da Villa de Cima) não mudaram, só a posição. -->
 <section class="cunha-topo secao">
   <div class="container-editorial">
     <div class="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
@@ -550,143 +712,6 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
     <a href={href(locale, 'gettingHere')} class="link-texto etiqueta mt-8 inline-block">
       {t('nav.gettingHere')}
     </a>
-  </div>
-</section>
-
-<!-- ══════════════════ A CASA: o diferencial, o material ══════════════════ -->
-<section class="cunha-base secao bg-areia">
-  <div class="container-editorial">
-    <div class="grid gap-12 lg:grid-cols-2 lg:gap-20">
-      <div class="order-2 lg:order-1">
-        <h2 class="font-display text-titulo">{t('home.casaT')}</h2>
-        <hr class="emenda mt-6 max-w-40 border-t" />
-        <p class="mt-6">{t('home.casaP1')}</p>
-        <p class="mt-5">{t('home.casaP2')}</p>
-        <a href={href(locale, 'lodge')} class="link-texto etiqueta mt-8 inline-block">{t('cta.learnMore')}</a>
-      </div>
-
-      <!-- campo reservado: a marchetaria fala por si. Ver a nota do carrossel
-           de acomodações no frontmatter. -->
-      <div class="order-1 lg:order-2">
-        <CarrosselAcomodacoes
-          client:visible
-          folhas={folhasAcomodacao}
-          rotulo={t('carousel.acomodacoesLabel')}
-          rotuloPosicao={t('carousel.photoPosition')}
-          rotuloAnterior={t('carousel.previous')}
-          rotuloProxima={t('carousel.next')}
-          sizes="(min-width: 1024px) 46vw, 100vw"
-        />
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════ UM DIA NA VILLA ══════════════════════ -->
-<section class="secao bg-mar sobre-escuro">
-  <div class="container-editorial">
-    <div class="grid gap-12 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:gap-20">
-      <div>
-        <h2 class="font-display text-titulo">{t('home.diaT')}</h2>
-        <p class="lead mt-4">{t('home.diaI')}</p>
-      </div>
-      <LinhaDoDia
-        momentos={momentos}
-        rotulos={{ incluso: t('dia.incluso'), comunidade: t('dia.comunidade') }}
-        tone="escuro"
-      />
-    </div>
-  </div>
-</section>
-
-<!-- ═════════════ DUAS MANEIRAS DE FICAR ═════════════
-     A estrutura central do produto, que o site não expressava. Duas folhas de
-     veio oposto encontrando-se numa emenda — não dois cards: sem raio, sem
-     sombra, a junta é que divide. O preço mora DENTRO da modalidade, porque
-     preço sem modalidade não informa: na pousada o barco não está incluso.
-
-     Os pisos vêm de src/data/site.ts e cada um carrega a sua condição. "A
-     partir de" sem a condição ao lado seria meia-verdade. -->
-<section class="cunha-topo secao">
-  <div class="container-editorial">
-    <h2 class="font-display text-titulo">{t('modo.titulo')}</h2>
-    <p class="lead container-texto mt-4 sm:mx-0">{t('modo.intro')}</p>
-
-    <div class="emenda mt-12 grid gap-10 border-t pt-10 md:grid-cols-2 md:gap-0">
-      {[
-        { t: t('modo.pousadaT'), d: t('modo.pousadaD'), inc: t('modo.pousadaInc'), fora: t('modo.pousadaFora'),
-          v: SITE.prices.pousadaMin, cond: t('modo.condPousada'), un: t('modo.porPax'), cta: 'lodge' as const },
-        { t: t('modo.pacoteT'), d: t('modo.pacoteD'), inc: t('modo.pacoteInc'), fora: t('modo.pacoteFora'),
-          v: SITE.prices.pacoteMin, cond: t('modo.condPacote'), un: t('modo.porPacote'), cta: 'packages' as const },
-      ].map((m, i) => (
-        <div class:list={['flex flex-col', i === 1 ? 'emenda md:border-l md:pl-10 lg:pl-16' : 'md:pr-10 lg:pr-16']}>
-          <h3 class="font-display text-secao">{m.t}</h3>
-          <p class="mt-3">{m.d}</p>
-
-          <dl class="mt-6 grid grid-cols-[auto_1fr] gap-x-4 gap-y-2">
-            <dt class="etiqueta pt-1">{t('modo.inclusoRot')}</dt>
-            <dd class="flex items-start gap-2">
-              <Voluta class="mt-1.5 text-areia-sol" />
-              <span>{m.inc}</span>
-            </dd>
-            <dt class="etiqueta pt-1">{t('modo.foraRot')}</dt>
-            <dd>{m.fora}</dd>
-          </dl>
-
-          <p class="emenda mt-auto border-t pt-6">
-            <span class="etiqueta block">{t('modo.aPartirDe')}</span>
-            <span class="numero cor-titulo mt-1 block text-titulo">
-              {preco(m.v, locale)}
-            </span>
-            <span class="numero etiqueta mt-1 block">{m.un} · {m.cond}</span>
-          </p>
-
-          <a href={href(locale, m.cta)} class="btn btn-secundario mt-6 self-start">{t('cta.learnMore')}</a>
-        </div>
-      ))}
-    </div>
-
-    <p class="numero etiqueta mt-10">{t('home.precoD')}</p>
-  </div>
-</section>
-
-<!-- ══════════════════ FECHAMENTO ══════════════════
-     A crítica achou que a última decisão oferecida ao visitante era um seletor
-     de idioma. Agora o fim da página é o pico emocional seguido da ação. -->
-{/* A citação leva assinatura de hóspede real: nome e mês de estadia, em
-    `home.fechaA` e `home.fechaH` (confirmados pelo cliente em 20/08/2026).
-    Assinatura só fica enquanto houver nome e data verificáveis — sem isso a
-    frase volta a ser da casa e a assinatura sai. */}
-<section class="relative">
-  <Image
-    src={gal3}
-    alt="Varanda de uma bangalô à noite, com rede e luminária de fibra acesa"
-    widths={[900, 1400, 1920]}
-    sizes="100vw"
-    loading="lazy"
-    decoding="async"
-    class="h-[65svh] min-h-80 w-full object-cover"
-  />
-  <div class="sobre-escuro absolute inset-0 flex items-end bg-gradient-to-t from-mar-fundo via-mar-fundo/70 to-mar-fundo/20">
-    <div class="container-editorial pb-12 sm:pb-16">
-      <blockquote class="font-display container-texto text-secao text-areia sm:mx-0">
-        “{t('home.fechaQ')}”
-      </blockquote>
-      <Campo class="mt-4">
-        {t('home.fechaA')}
-        <Voluta class="text-areia-sol" />
-        {t('home.fechaH')}
-      </Campo>
-
-      <hr class="emenda mt-10 border-t" />
-      <div class="mt-8 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <h2 class="font-display text-titulo">{t('home.fechaT')}</h2>
-          <p class="container-texto mt-3">{t('home.fechaD')}</p>
-        </div>
-        <a href={whatsappUrl(t('whatsapp.geral'))} class="btn btn-primario shrink-0" target="_blank" rel="noopener noreferrer">{t('cta.whatsapp')}</a>
-      </div>
-    </div>
   </div>
 </section>
 
