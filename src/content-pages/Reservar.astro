@@ -2,11 +2,10 @@
 /**
  * RESERVAR — uma conversa, não um checkout.
  *
- * Dois caminhos, de propósito: o WhatsApp, que é mais rápido e é onde a
- * venda acontece hoje; e o formulário, para quem não usa WhatsApp, está num
- * fuso em que ninguém responde, ou prefere escrever com calma em outro
- * idioma. Motor de reserva continua não existindo, e a copy continua dizendo
- * isso.
+ * O formulário vem primeiro: é a ação, e quem abre esta página veio para
+ * preencher algo, não para ler por que não existe carrinho. O WhatsApp —
+ * mais rápido, onde a venda acontece hoje — vem depois, para quem prefere
+ * esse caminho ou está fora do fuso em que o formulário responde.
  *
  * O formulário dá POST em /enviar.php e funciona com JavaScript desligado.
  */
@@ -38,30 +37,7 @@ const modos = [
   <div class="container-editorial">
     <div class="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)] lg:gap-20">
       <div>
-        <h2 class="font-display text-secao">{t('reservar.comoT')}</h2>
-        <ul class="mt-6 space-y-3">
-          {[t('reservar.c1'), t('reservar.c2'), t('reservar.c3'), t('reservar.c4')].map((c) => (
-            <li class="flex items-start gap-2.5"><Voluta class="mt-1.5" /><span>{c}</span></li>
-          ))}
-        </ul>
-
-        <p class="mt-10 flex flex-wrap gap-3">
-          <a href={whatsappUrl(t('whatsapp.geral'))} class="btn btn-primario">{t('cta.whatsapp')}</a>
-          <a href={href(locale, 'gettingHere')} class="btn btn-secundario">{t('nav.gettingHere')}</a>
-        </p>
-
-        <div class="emenda mt-12 border-t pt-6">
-          <p class="etiqueta">{t('reservar.respT')}</p>
-          <p class="mt-2">{t('reservar.respD')}</p>
-          {SITE.contact.instagram && (
-            <p class="numero etiqueta mt-4">
-              Instagram <a href={`https://instagram.com/${SITE.contact.instagram.replace('@', '')}`} class="link-texto">{SITE.contact.instagram}</a>
-            </p>
-          )}
-          <p class="numero etiqueta mt-4">
-            <a href={`tel:+${SITE.contact.whatsapp}`} class="link-texto">{telefoneLegivel()}</a>
-          </p>
-        </div>
+        <FormularioReserva locale={locale} />
       </div>
 
       <div>
@@ -85,9 +61,36 @@ const modos = [
           />
           <figcaption class="meta numero mt-3">{t('reservar.figVaranda')}</figcaption>
         </figure>
+      </div>
+    </div>
 
-        <div class="emenda mt-14 border-t pt-10">
-          <FormularioReserva locale={locale} />
+    <div class="emenda mt-16 border-t pt-12 lg:mt-20 lg:pt-16">
+      <h2 class="font-display text-secao">{t('reservar.comoT')}</h2>
+      <div class="mt-8 grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)] lg:gap-20">
+        <ul class="space-y-3">
+          {[t('reservar.c1'), t('reservar.c2'), t('reservar.c3'), t('reservar.c4')].map((c) => (
+            <li class="flex items-start gap-2.5"><Voluta class="mt-1.5" /><span>{c}</span></li>
+          ))}
+        </ul>
+
+        <div>
+          <p class="flex flex-wrap gap-3">
+            <a href={whatsappUrl(t('whatsapp.geral'))} class="btn btn-primario">{t('cta.whatsapp')}</a>
+            <a href={href(locale, 'gettingHere')} class="btn btn-secundario">{t('nav.gettingHere')}</a>
+          </p>
+
+          <div class="emenda mt-8 border-t pt-6">
+            <p class="etiqueta">{t('reservar.respT')}</p>
+            <p class="mt-2">{t('reservar.respD')}</p>
+            {SITE.contact.instagram && (
+              <p class="numero etiqueta mt-4">
+                Instagram <a href={`https://instagram.com/${SITE.contact.instagram.replace('@', '')}`} class="link-texto">{SITE.contact.instagram}</a>
+              </p>
+            )}
+            <p class="numero etiqueta mt-4">
+              <a href={`tel:+${SITE.contact.whatsapp}`} class="link-texto">{telefoneLegivel()}</a>
+            </p>
+          </div>
         </div>
       </div>
     </div>

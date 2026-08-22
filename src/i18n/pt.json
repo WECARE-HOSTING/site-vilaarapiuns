@@ -66,7 +66,7 @@
     "gettingHere": "Como chegar à Villa Arapiuns: voo até Santarém, traslado a Alter do Chão e 1h30 de barco rio acima.",
     "gallery": "Fotos da Villa Arapiuns: os bangalôs, o rio, a mata e as comunidades do Arapiuns.",
     "reviews": "O que os hóspedes contam depois de ficar na Villa Arapiuns.",
-    "book": "Reserve sua estadia na Villa Arapiuns pelo WhatsApp e fale direto com a casa.",
+    "book": "Reserve sua estadia na Villa Arapiuns pelo WhatsApp e fale direto com a Villa.",
     "bookSent": "Sua mensagem chegou. Respondemos em até 24 horas."
   },
   "home": {
@@ -80,12 +80,12 @@
     "etapa2T": "Santarém a Alter do Chão",
     "etapa2D": "Traslado por terra até a vila. Combinamos com você o horário.",
     "etapa3T": "Alter do Chão à Villa",
-    "etapa3D": "Lancha da casa, rio acima. Incluída nos pacotes; contratada à parte na pousada.",
+    "etapa3D": "Lancha da Villa, rio acima. Incluída nos pacotes; contratada à parte na pousada.",
     "vistaLegenda": "A Villa de cima · os telhados dentro da mata fechada",
     "vistaControle": "Ver o vídeo",
     "vistaMedida": "{s} s · {mb} MB · sem som",
     "vistaDesc": "Vídeo aéreo, filmado de cima para baixo: os telhados de palha e as placas solares da Villa cercados pela mata sem clareira.",
-    "casaT": "A casa",
+    "casaT": "Bangalôs e chalés",
     "casaP1": "As portas são de mogno, com marchetaria: cunhas de veio oposto irradiando de um centro octogonal, cortadas e encaixadas à mão. O mesmo octógono volta como medalhão nas portas internas.",
     "casaP2": "As mantas são tecidas em tear, xadrez de chocolate e aveia. A luminária da varanda é de fibra trançada. Os bangalôs são de arquitetura tapajônica, de dois andares. Nada disso veio de catálogo — e é por isso que a Villa não se parece com nenhuma outra pousada do rio.",
     "diaT": "Um dia na Villa",
@@ -94,7 +94,7 @@
     "precoSob": "Sob consulta",
     "precoD": "A diária cai conforme o grupo cresce e a estadia se alonga. Diga quantas pessoas e quantas noites, e a gente responde com o valor fechado pelo WhatsApp — sem formulário.",
     "fechaQ": "Você chega, deposita as malas e parte direto. Volta cansado do melhor jeito possível — pela floresta, pelo sol, pelas histórias. Come bem, dorme fundo.",
-    "fechaT": "Fale com a casa",
+    "fechaT": "Fale com a gente",
     "fechaD": "Quem responde é quem recebe. Diga quantas pessoas e que período você tem em mente.",
     "fechaA": "Gabriela",
     "fechaH": "hóspede · julho de 2026",
@@ -160,7 +160,7 @@
       {
         "id": "trilha",
         "assunto": "A trilha",
-        "medida": "com o guia da casa",
+        "medida": "com o guia da Villa",
         "alt": "Três pessoas de mochila subindo uma trilha de terra clara, entre paredes de vegetação densa e iluminada"
       },
       {
@@ -343,7 +343,7 @@
     "matP1": "As portas são de mogno com marchetaria: cunhas de veio oposto irradiando de um centro octogonal, cortadas e encaixadas à mão. O mesmo octógono volta como medalhão nas portas internas.",
     "matP2": "As mantas são tecidas em tear, xadrez de chocolate e aveia. A luminária da varanda é de fibra trançada, e a esteira do chão também. Nada veio de catálogo.",
     "tiposT": "Três tipos de unidade",
-    "tipo1T": "Quarto casa",
+    "tipo1T": "Chalé",
     "tipo1D": "Bangalô sobre palafitas, varanda própria de frente para a mata.",
     "tipo2T": "Quarto duplex",
     "tipo2D": "Unidade de dois pavimentos, com escada interna.",
@@ -370,7 +370,7 @@
     "figCopaExterna": "Copa externa · madeira maciça e janela ripada",
     "figShala": "Shala · deck coberto de palha",
     "figPavilhao": "Pavilhão de refeições · deck de madeira",
-    "ctaFalarComCasa": "Falar com a casa",
+    "ctaFalarComCasa": "Falar no WhatsApp",
     "figPassarela": "A passarela · liga tudo",
     "figRodaFogo": "A roda de fogo · bancos de tronco",
     "figBanheiro": "O banheiro · cuba e cestaria",
@@ -428,7 +428,7 @@
     "figSamaumaAlt": "Grupo de pessoas de mãos dadas em volta do tronco enorme de uma samaúma, sem conseguir fechar o círculo",
     "figMassagem": "Massagem · esteira na areia",
     "figMassagemAlt": "Massagem em esteira estendida na areia, sob um telhado de palha aberto para o rio",
-    "figTrilha": "Trilha · com o guia da casa",
+    "figTrilha": "Trilha · com o guia da Villa",
     "figTrilhaAlt": "Grupo de caminhantes com mochila subindo uma trilha de areia clara, entre paredes de vegetação alta",
     "figFarinhada": "Farinhada · a mandioca virando farinha",
     "figFarinhadaAlt": "Moradores da comunidade e hóspedes em volta de um cocho, peneirando a massa de mandioca na casa de farinha",
@@ -657,18 +657,18 @@
     "b4D": "Cai conforme o número de pessoas e de noites, e a Villa fechada tem condição própria. Traga as suas datas que a gente fecha o número.",
     "b4M": "consulte",
     "publicosT": "Quem vem em grupo",
-    "publicosI": "Quatro modos de ocupar a mesma casa. O que muda é o desenho do dia — a estrutura é sempre esta.",
+    "publicosI": "Quatro modos de ocupar a mesma Villa. O que muda é o desenho do dia — a estrutura é sempre esta.",
     "retiroT": "Retiros",
-    "retiroD": "O pavilhão de palha comporta o grupo inteiro sentado em roda, e a prática começa antes do café. Depois do dia ficam o redário entre as árvores, a praia e o rio, e nenhum horário de terceiro para respeitar. Retiros de yoga, de meditação e de formação já aconteceram aqui com a casa fechada.",
-    "figRetiro": "A roda no pavilhão · a casa fechada para um grupo",
+    "retiroD": "O pavilhão de palha comporta o grupo inteiro sentado em roda, e a prática começa antes do café. Depois do dia ficam o redário entre as árvores, a praia e o rio, e nenhum horário de terceiro para respeitar. Retiros de yoga, de meditação e de formação já aconteceram aqui com a Villa fechada.",
+    "figRetiro": "A roda no pavilhão · a Villa fechada para um grupo",
     "figRetiroAlt": "Roda de cerca de vinte pessoas sentadas em tapetes no piso de madeira do pavilhão de palha, voltadas para um facilitador em pé, com a mata visível pelos vãos abertos",
     "corpT": "Empresas",
-    "corpD": "Espaço coberto para o time reunido, mesa comprida para trabalhar e o dia inteiro de atividade fora dela: trilha, canoa, farinhada com as comunidades. A equipe chega junta e não divide a casa com outro grupo.",
+    "corpD": "Espaço coberto para o time reunido, mesa comprida para trabalhar e o dia inteiro de atividade fora dela: trilha, canoa, farinhada com as comunidades. A equipe chega junta e não divide a Villa com outro grupo.",
     "corpConexao": "Sobre sinal, o combinado é claro. Há Starlink no local para o que não pode esperar, e ele não sustenta o time inteiro em reunião on-line ao mesmo tempo. O que esta viagem entrega não é escritório com vista: é o time no mesmo lugar, sem tela no meio — que costuma ser exatamente o motivo de trazer gente para cá.",
     "figCorp": "O pavilhão de palha · onde o grupo se senta inteiro",
     "figCorpAlt": "Pavilhão aberto de telhado de palha sobre piso de madeira, com espreguiçadeira, cercado pela mata",
     "avesT": "Observação de aves",
-    "avesD": "A saída boa é a primeira: antes do sol, de canoa pelo igapó e a pé pela mata, com o guia da casa e com os moradores de Atodi, que caminham ali desde sempre. Não há torre nem mirante — há a hora certa, o silêncio e quem sabe onde olhar.",
+    "avesD": "A saída boa é a primeira: antes do sol, de canoa pelo igapó e a pé pela mata, com o guia da Villa e com os moradores de Atodi, que caminham ali desde sempre. Não há torre nem mirante — há a hora certa, o silêncio e quem sabe onde olhar.",
     "figAves": "Canoa no igapó · a saída da manhã",
     "figAvesAlt": "Quatro pessoas dentro de uma canoa de madeira no igapó, entre troncos submersos e cipós, sobre água escura e parada",
     "pescaT": "Pesca de mergulho noturna",
@@ -697,11 +697,11 @@
       },
       {
         "titulo": "A energia é solar",
-        "detalhe": "As placas ficam no telhado do pavilhão, à vista de quem passa por ele, e é delas que vem a energia da casa.",
+        "detalhe": "As placas ficam no telhado do pavilhão, à vista de quem passa por ele, e é delas que vem a energia da Villa.",
         "medida": "energia solar"
       },
       {
-        "titulo": "O tamanho do grupo é o tamanho da casa",
+        "titulo": "O tamanho do grupo é o tamanho da Villa",
         "detalhe": "Treze bangalôs, no máximo 26 hóspedes. O limite não é posição de marketing: é quanto a Villa tem.",
         "medida": "13 bangalôs · 26 hóspedes"
       }
@@ -713,8 +713,8 @@
   },
   "galeria": {
     "h1": "A Villa, em fotografia",
-    "intro": "Fotos da casa, do rio e das comunidades. Todas feitas na Villa Arapiuns.",
-    "titulo_casa": "A casa",
+    "intro": "Fotos dos bangalôs e chalés, do rio e das comunidades. Todas feitas na Villa Arapiuns.",
+    "titulo_casa": "Bangalôs e chalés",
     "titulo_agua": "A água",
     "titulo_mesa": "A mesa",
     "titulo_gente": "A gente",
@@ -734,7 +734,7 @@
           },
           {
             "id": "bangaloExterno",
-            "leg": "Quarto casa",
+            "leg": "Chalé",
             "alt": "Bangalô de um pavimento em madeira sobre palafitas, na areia"
           },
           {
@@ -925,8 +925,8 @@
     "reviewsCount": "avaliações"
   },
   "reservar": {
-    "h1": "Falar com a casa",
-    "intro": "Não há motor de reserva nem carrinho. Você escreve — pelo WhatsApp ou por este formulário — e quem responde é quem recebe.",
+    "h1": "Fale com a gente",
+    "intro": "Pelo WhatsApp ou por este formulário — quem responde é quem recebe.",
     "comoT": "Se preferir o WhatsApp, ajuda dizer de uma vez",
     "c1": "Quantas pessoas, e a idade das crianças se houver",
     "c2": "Que datas você tem em mente, ou quantas noites",
@@ -938,7 +938,7 @@
     "figVaranda": "A varanda que espera · rede e palha"
   },
   "form": {
-    "titulo": "Ou escreva por aqui",
+    "titulo": "Escreva pra gente",
     "intro": "Sem WhatsApp, sem app, sem cadastro. Os campos com «obrigatório» são os únicos de que precisamos.",
     "nome": "Seu nome",
     "email": "Seu e-mail",
@@ -1002,7 +1002,9 @@
   "carousel": {
     "heroLabel": "A Villa Arapiuns em trinta fotos",
     "acomodacoesLabel": "As acomodações da Villa em dez fotos",
-    "photoPosition": "Foto {n} de {total}"
+    "photoPosition": "Foto {n} de {total}",
+    "previous": "Foto anterior",
+    "next": "Próxima foto"
   },
   "acomodacoes": {
     "itens": [
