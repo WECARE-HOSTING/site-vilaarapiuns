@@ -191,6 +191,8 @@ export function CarrosselHero({
    * clique que se quer cancelar.
    */
   const arrastouRef = React.useRef(false);
+  /** O `<video>` do cartão ativo (focado, cópia do meio) — o único que autoplaya por vez. */
+  const activeVideoRef = React.useRef<HTMLVideoElement | null>(null);
   const reduced = useReducedMotion();
 
   const last = items.length - 1;
@@ -390,6 +392,18 @@ export function CarrosselHero({
     return () => window.clearTimeout(id);
   }, [autoplay, autoplayDelay, dragging, go, index, items.length, medido, paused, reduced]);
 
+  /**
+   * Retoma o autoplay mudo do cartão focado quando o VideoLightbox fecha.
+   * Só o script do lightbox pausou (`activeVideoRef.current?.pause()` no
+   * onClick abaixo); como nenhum estado do React muda ao pausar, ele não
+   * voltaria a tocar sozinho.
+   */
+  React.useEffect(() => {
+    const retomar = () => { void activeVideoRef.current?.play().catch(() => {}); };
+    window.addEventListener('video-lightbox:fechar', retomar);
+    return () => window.removeEventListener('video-lightbox:fechar', retomar);
+  }, []);
+
   const ativo = items[index];
   if (!ativo) return null;
 
@@ -533,6 +547,12 @@ export function CarrosselHero({
                 onClick={() => {
                   if (arrastouRef.current) return;
                   goManual(i);
+                  if (it.video) {
+                    activeVideoRef.current?.pause();
+                    window.dispatchEvent(new CustomEvent('video-lightbox:abrir', {
+                      detail: { src: it.video, poster: it.src, legenda: it.alt },
+                    }));
+                  }
                 }}
                 className="relative shrink-0 overflow-hidden rounded-none bg-areia"
                 style={{ width: strip.larguras[i] }}
@@ -544,6 +564,7 @@ export function CarrosselHero({
                     janela não mexe no layout — só preenche. */}
                 {!naJanela(j) ? null : it.video ? (
                   <video
+                    ref={cyc === 1 && i === index ? activeVideoRef : undefined}
                     src={it.video}
                     poster={it.src}
                     muted
