@@ -28,11 +28,11 @@ const colunaReserva = ['packages', 'privateVilla', 'gettingHere', 'reviews', 'bo
             {t('cta.whatsapp')}
           </a>
           {SITE.contact.email && (
-            <a href={`mailto:${SITE.contact.email}`} class="link-escuro w-fit">
+            <a href={`mailto:${SITE.contact.email}`} class="link-escuro w-fit" target="_blank" rel="noopener noreferrer">
               {SITE.contact.email}
             </a>
           )}
-          <a href={`tel:+${SITE.contact.whatsapp}`} class="link-escuro w-fit">
+          <a href={`tel:+${SITE.contact.whatsapp}`} class="link-escuro w-fit" target="_blank" rel="noopener noreferrer">
             {telefoneLegivel()}
           </a>
         </div>

@@ -84,11 +84,11 @@ const modos = [
             <p class="mt-2">{t('reservar.respD')}</p>
             {SITE.contact.instagram && (
               <p class="numero etiqueta mt-4">
-                Instagram <a href={`https://instagram.com/${SITE.contact.instagram.replace('@', '')}`} class="link-texto">{SITE.contact.instagram}</a>
+                Instagram <a href={`https://instagram.com/${SITE.contact.instagram.replace('@', '')}`} class="link-texto" target="_blank" rel="noopener noreferrer">{SITE.contact.instagram}</a>
               </p>
             )}
             <p class="numero etiqueta mt-4">
-              <a href={`tel:+${SITE.contact.whatsapp}`} class="link-texto">{telefoneLegivel()}</a>
+              <a href={`tel:+${SITE.contact.whatsapp}`} class="link-texto" target="_blank" rel="noopener noreferrer">{telefoneLegivel()}</a>
             </p>
           </div>
         </div>
