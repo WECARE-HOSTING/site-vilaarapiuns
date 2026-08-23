@@ -663,7 +663,7 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
          mundos, sem estado escondido e sem <noscript>. O alvo grande sobre o
          cartaz é irmão da imagem, `aria-hidden` e fora da ordem de tabulação,
          para não duplicar o nome acessível do comando de verdade. -->
-    <figure class="sobre-escuro mt-16 bg-mar-fundo p-3 sm:p-4" data-vista>
+    <figure class="sobre-escuro mt-16 bg-mar-fundo p-3 sm:p-4" data-video-contexto>
       <div class="relative">
         <video
           src={VISTA_VIDEO}
@@ -677,7 +677,10 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
 
         <button
           type="button"
-          data-tocar
+          data-video-abrir
+          data-video-src={VISTA_VIDEO}
+          data-video-poster={vistaCartaz.src}
+          data-video-legenda={t('home.vistaDesc')}
           tabindex="-1"
           aria-hidden="true"
           class="absolute inset-0 cursor-pointer"
@@ -693,7 +696,10 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
 
         <a
           href={VISTA_VIDEO}
-          data-tocar
+          data-video-abrir
+          data-video-src={VISTA_VIDEO}
+          data-video-poster={vistaCartaz.src}
+          data-video-legenda={t('home.vistaDesc')}
           class="etiqueta emenda flex items-center gap-2 border px-3 py-2 transition-colors hover:bg-sol hover:text-mar-fundo"
         >
           <!-- O octógono da marchetaria com o glifo de play dentro: a forma
@@ -714,22 +720,3 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
     </a>
   </div>
 </section>
-
-<script>
-  /* O play, e o momento em que a barra do navegador passa a ser bem-vinda.
-     Sem JavaScript o link da régua leva ao arquivo e o navegador toca lá —
-     nada aqui é obrigatório para o vídeo existir. */
-  document.querySelectorAll<HTMLElement>('[data-vista]').forEach((raiz) => {
-    const video = raiz.querySelector('video');
-    if (!video) return;
-    raiz.querySelectorAll('[data-tocar]').forEach((gatilho) =>
-      gatilho.addEventListener('click', (evento) => {
-        evento.preventDefault();
-        // A barra só existe a partir daqui: já não há cartaz para proteger, e
-        // sem ela ninguém pausa, volta nem sai de tela cheia.
-        video.controls = true;
-        void video.play();
-      }),
-    );
-  });
-</script>
