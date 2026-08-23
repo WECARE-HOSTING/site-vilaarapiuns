@@ -42,31 +42,44 @@ const LARGURAS_CARD = [360, 480, 640, 860];
 <ul class="reels-tira flex gap-4 overflow-x-auto pb-4 [scrollbar-color:var(--color-areia-sol)_var(--color-areia-clara)]"
     tabindex="0" aria-label={rotulo}>
   {itens.map((item) => (
-    <li class="reels-cartao relative aspect-[9/16] w-[min(72vw,19rem)] shrink-0 snap-start list-none overflow-hidden bg-mar-fundo">
+    <li class="reels-cartao relative aspect-[9/16] w-[min(72vw,19rem)] shrink-0 snap-start list-none overflow-hidden bg-mar-fundo" data-video-contexto>
       {item.video ? (
-        <video
-          src={item.video}
-          poster={item.poster?.src}
-          muted
-          loop
-          playsinline
-          preload="none"
-          aria-hidden="true"
-          class="absolute inset-0 h-full w-full object-cover"
-        ></video>
+        <a
+          href={item.video}
+          data-video-abrir
+          data-video-src={item.video}
+          data-video-poster={item.poster?.src}
+          data-video-legenda={item.legenda}
+          class="absolute inset-0"
+        >
+          <video
+            src={item.video}
+            poster={item.poster?.src}
+            muted
+            loop
+            playsinline
+            preload="none"
+            class="absolute inset-0 h-full w-full object-cover"
+          ></video>
+          <span class="etiqueta absolute inset-x-3 bottom-3 text-areia-clara [text-shadow:0_1px_6px_rgb(0_0_0/0.55)]">
+            {item.legenda}
+          </span>
+        </a>
       ) : item.imagem ? (
-        <Image
-          src={item.imagem}
-          alt={item.alt ?? ''}
-          widths={LARGURAS_CARD}
-          sizes="19rem"
-          loading="lazy"
-          class="absolute inset-0 h-full w-full object-cover"
-        />
+        <>
+          <Image
+            src={item.imagem}
+            alt={item.alt ?? ''}
+            widths={LARGURAS_CARD}
+            sizes="19rem"
+            loading="lazy"
+            class="absolute inset-0 h-full w-full object-cover"
+          />
+          <span class="etiqueta absolute inset-x-3 bottom-3 text-areia-clara [text-shadow:0_1px_6px_rgb(0_0_0/0.55)]">
+            {item.legenda}
+          </span>
+        </>
       ) : null}
-      <span class="etiqueta absolute inset-x-3 bottom-3 text-areia-clara [text-shadow:0_1px_6px_rgb(0_0_0/0.55)]">
-        {item.legenda}
-      </span>
     </li>
   ))}
 </ul>
