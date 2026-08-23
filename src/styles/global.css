@@ -206,38 +206,6 @@
     --sobre-titulo: var(--color-mar-fundo);       /* 11,03:1 sobre --cor-titulo (areia) */
   }
 
-  /* ═══ DIÁLOGO EM DESTAQUE (lightbox) ═══
-        Era só do mapa (`.mapa-dialogo`). O vídeo em destaque
-        (`VideoLightbox.astro`, Fase 3) precisa exatamente da mesma
-        transição — showModal()/close() trocam de estado sem transição
-        nenhuma por padrão, e o diálogo cobriria a tela inteira sem aviso.
-        Migrado para cá em vez de duplicado. */
-  .lightbox-dialogo {
-    opacity: 1;
-    scale: 1;
-    transition: opacity 250ms cubic-bezier(0.23, 1, 0.32, 1),
-                scale 250ms cubic-bezier(0.23, 1, 0.32, 1);
-  }
-  .lightbox-dialogo::backdrop {
-    transition: background-color 250ms cubic-bezier(0.23, 1, 0.32, 1);
-  }
-  @starting-style {
-    .lightbox-dialogo[open] {
-      opacity: 0;
-      scale: 0.96;
-    }
-    .lightbox-dialogo[open]::backdrop {
-      background-color: transparent;
-    }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    /* Mais suave, não zerado: mantém o fade, tira o scale. */
-    .lightbox-dialogo { transition-property: opacity; }
-    @starting-style {
-      .lightbox-dialogo[open] { scale: 1; }
-    }
-  }
-
   :focus-visible {
     outline: 2px solid var(--anel-foco);
     outline-offset: 3px;
@@ -270,6 +238,50 @@
 }
 
 /* ═══ Contexto ═══ */
+
+/* ═══ DIÁLOGO EM DESTAQUE (lightbox) ═══
+      Era só do mapa (`.mapa-dialogo`). O vídeo em destaque
+      (`VideoLightbox.astro`, Fase 3) precisa exatamente da mesma
+      transição — showModal()/close() trocam de estado sem transição
+      nenhuma por padrão, e o diálogo cobriria a tela inteira sem aviso.
+      Migrado para cá em vez de duplicado.
+
+   FORA de @layer base de propósito. Os dois diálogos (`.mapa-dialogo` e
+   `.video-lightbox`) também carregam `backdrop:bg-mar-fundo/90` do Tailwind,
+   que cai em `@layer utilities` — e a ordem de camada é
+   `properties, theme, base, components, utilities`, então `utilities` sempre
+   vence `base`. Com este bloco dentro de `base`, a cor do utilitário batia a
+   transparência inicial do `@starting-style` e o fundo escuro aparecia de
+   golpe, sem fade — regressão descoberta no review final da branch. Sem
+   camada, este bloco vence qualquer utilitário, como o comentário no topo de
+   `@layer base` já explica para outros seletores. */
+.lightbox-dialogo {
+  opacity: 1;
+  scale: 1;
+  transition: opacity 250ms cubic-bezier(0.23, 1, 0.32, 1),
+              scale 250ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.lightbox-dialogo::backdrop {
+  transition: background-color 250ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+@starting-style {
+  .lightbox-dialogo[open] {
+    opacity: 0;
+    scale: 0.96;
+  }
+  .lightbox-dialogo[open]::backdrop {
+    background-color: transparent;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  /* Nota: o reset global de `transition-duration` sob reduced-motion (mais
+     abaixo neste arquivo) já zera esta transição inteira, fade incluído —
+     este bloco fica por clareza da intenção, não por efeito prático hoje. */
+  .lightbox-dialogo { transition-property: opacity; }
+  @starting-style {
+    .lightbox-dialogo[open] { scale: 1; }
+  }
+}
 
 /* Para o que funciona como título sem ser h1/h2/h3 — o logotipo, o nome de um
    avaliador, o nome de uma experiência dentro de um <a>.

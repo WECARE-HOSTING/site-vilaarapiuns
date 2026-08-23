@@ -64,14 +64,17 @@ const t = useTranslations(locale);
     const legendaPadrao = dialogo.getAttribute('aria-label') ?? '';
 
     const abrir = (src: string, poster: string, legenda: string, fundo: HTMLVideoElement | null) => {
-      fundo?.pause();
-      fundoAtual = fundo;
+      // Só relembra o fundo se ele estava REALMENTE tocando. Retomar um vídeo
+      // parado (o cartaz da Home, um cartão sob reduced-motion) ligaria um
+      // vídeo que ninguém pediu.
+      fundoAtual = fundo && !fundo.paused ? fundo : null;
+      fundoAtual?.pause();
       video.src = src;
-      video.poster = poster;
+      if (poster) video.poster = poster; else video.removeAttribute('poster');
       video.muted = false;
       dialogo.setAttribute('aria-label', legenda || legendaPadrao);
-      dialogo.showModal();
-      void video.play();
+      if (!dialogo.open) dialogo.showModal();
+      void video.play().catch(() => {});
     };
 
     // Gatilhos em Astro/DOM: qualquer clique em [data-video-abrir], em
@@ -81,6 +84,10 @@ const t = useTranslations(locale);
       const alvo = evento.target as HTMLElement;
       const gatilho = alvo.closest<HTMLElement>('[data-video-abrir]');
       if (!gatilho) return;
+      // Cmd/Ctrl/Shift+click num <a href={video}> deve continuar abrindo o
+      // arquivo bruto em outra aba — o mesmo cuidado que este site já tem com
+      // os links de WhatsApp.
+      if (evento.metaKey || evento.ctrlKey || evento.shiftKey) return;
       evento.preventDefault(); // cobre o gatilho ser <a href={video}>
       const fundo = gatilho.closest<HTMLElement>('[data-video-contexto]')?.querySelector('video') ?? null;
       abrir(
@@ -93,8 +100,9 @@ const t = useTranslations(locale);
 
     // Gatilho da ilha React (CarrosselHero): mesmo contrato, via evento.
     window.addEventListener('video-lightbox:abrir', (evento) => {
-      const { src, poster, legenda } = (evento as CustomEvent<{ src: string; poster: string; legenda: string }>).detail;
-      abrir(src, poster, legenda, null);
+      const { src, poster, legenda } =
+        (evento as CustomEvent<{ src?: string; poster?: string; legenda?: string }>).detail ?? {};
+      abrir(src ?? '', poster ?? '', legenda ?? '', null);
     });
 
     dialogo.addEventListener('close', () => {

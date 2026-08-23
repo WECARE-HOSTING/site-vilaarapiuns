@@ -191,6 +191,10 @@ export function CarrosselHero({
    * clique que se quer cancelar.
    */
   const arrastouRef = React.useRef(false);
+  // NOTA: este componente é importado em Home.astro mas não é renderizado em
+  // nenhuma página hoje (Fase 6 o substituiu por ColunaDeReels no hero — ver
+  // Home.astro). A ponte de eventos `video-lightbox:*` abaixo está correta e
+  // revisada, mas nunca rodou numa página real.
   /** O `<video>` do cartão ativo (focado, cópia do meio) — o único que autoplaya por vez. */
   const activeVideoRef = React.useRef<HTMLVideoElement | null>(null);
   const reduced = useReducedMotion();

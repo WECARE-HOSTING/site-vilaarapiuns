@@ -15,6 +15,7 @@ import Voluta from '@/components/Voluta.astro';
 import Logo from '@/components/Logo.astro';
 import ListaExperiencias from '@/components/ListaExperiencias.astro';
 import ColunaDeReels from '@/components/ColunaDeReels.astro';
+import VideoLightbox from '@/components/VideoLightbox.astro';
 import { href } from '@/i18n/routes';
 import { useTranslations } from '@/i18n/utils';
 import { Image } from 'astro:assets';
@@ -356,5 +357,6 @@ const cores = [
     </main>
 
     <Footer locale={locale} />
+    <VideoLightbox locale={locale} />
   </body>
 </html>
