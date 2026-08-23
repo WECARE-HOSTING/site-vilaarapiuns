@@ -651,6 +651,10 @@
     "ondeT": "Onde a Villa fica",
     "ondeI": "A Villa está no rio Arapiuns, a oeste de Alter do Chão. O último trecho é de barco porque ali não há estrada — é o que mantém o rio vazio."
   },
+  "video": {
+    "fechar": "Fechar",
+    "dialogo": "Vídeo ampliado"
+  },
   "privativa": {
     "h1": "A Villa inteira, só para o seu grupo",
     "intro": "A partir de 15 pessoas a Villa opera em exclusividade: os treze bangalôs, o pavilhão, o redário e a praia sem ninguém de fora. Vêm para cá retiros, equipes de empresa, quem observa aves e quem quer aprender a pesca de mergulho com os ribeirinhos.",

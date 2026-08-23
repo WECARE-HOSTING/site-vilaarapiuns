@@ -651,6 +651,10 @@
     "ondeT": "Wo die Villa liegt",
     "ondeI": "Die Villa liegt am Rio Arapiuns, westlich von Alter do Chão. Die letzte Etappe führt über das Wasser, weil es dort keine Straße gibt — und genau das hält den Fluss leer."
   },
+  "video": {
+    "fechar": "Schließen",
+    "dialogo": "Video vergrößert"
+  },
   "privativa": {
     "h1": "Die ganze Villa, nur für Ihre Gruppe",
     "intro": "Ab 15 Personen läuft die Villa exklusiv: die dreizehn Bungalows, der Pavillon, der Hängemattenhain und der Strand, ohne Fremde. Hierher kommen Retreats, Firmenteams, Vogelbeobachter und wer das Tauchfischen von den Familien lernen möchte, die vom Fluss leben.",

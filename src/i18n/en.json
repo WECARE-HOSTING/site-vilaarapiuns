@@ -651,6 +651,10 @@
     "ondeT": "Where the Villa is",
     "ondeI": "The Villa is on the Arapiuns River, west of Alter do Chão. The last leg is by boat because there is no road — which is what keeps the river empty."
   },
+  "video": {
+    "fechar": "Close",
+    "dialogo": "Video enlarged"
+  },
   "privativa": {
     "h1": "The whole Villa, for your group alone",
     "intro": "From 15 people the Villa runs on exclusive use: the thirteen bungalows, the pavilion, the hammock grove and the beach, with nobody from outside. Retreats come here, and so do company teams, birdwatchers, and people who want to learn dive-fishing from the families who live on the river.",
