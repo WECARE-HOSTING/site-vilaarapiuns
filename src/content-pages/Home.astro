@@ -27,7 +27,6 @@
 import { statSync } from 'node:fs';
 import { join } from 'node:path';
 import { Image, getImage } from 'astro:assets';
-import { CarrosselHero } from '@/components/CarrosselHero';
 import ColunaDeReels from '@/components/ColunaDeReels.astro';
 import { CarrosselAcomodacoes } from '@/components/CarrosselAcomodacoes';
 import Campo from '@/components/Campo.astro';
@@ -44,57 +43,13 @@ import { HTML_LANG, type Locale } from '@/i18n/config';
 import gal3 from '@/assets/imgs/gal3.jpg';
 import villaDeCimaPoster from '@/assets/imgs/villa-de-cima-poster.jpg';
 
-// A tira do hero. Doze fotos.
-//
-// As de nome `C##` na nota abaixo vieram das pastas "Site - acomodações" e
-// "Site - experiências", que uma rodada anterior desta sessão descartou inteiras
-// por causa do prefixo "Captura de tela" e dos ~1290px. Foi erro meu: eu julguei
-// 64 arquivos pelo nome, sem abrir nenhum. Não são capturas com chrome de
-// página — são recortes limpos de fotografia, e é ONDE ESTÁ A GENTE do acervo.
-// A tira anterior era de paisagem vazia porque eu não tinha olhado.
-import bancoAreia from '@/assets/imgs/banco-areia.jpg';
-import travessiaBarco from '@/assets/imgs/travessia-barco.jpg';
-import supRio from '@/assets/imgs/sup-rio.jpg';
-import canoaVitorias from '@/assets/imgs/canoa-vitorias.jpg';
-import porsolGente from '@/assets/imgs/porsol-gente.jpg';
-import praiaEspreguicadeira from '@/assets/imgs/praia-espreguicadeira.jpg';
-import samaumaGrupo from '@/assets/imgs/samauma-grupo.jpg';
-import trilhaGuia from '@/assets/imgs/trilha-guia.jpg';
-import farinhada from '@/assets/imgs/farinhada.jpg';
-import bangaloPalafita from '@/assets/imgs/bangalo-palafita.jpg';
-import gal6 from '@/assets/imgs/gal6.jpg';
-import banheiroChuveiro from '@/assets/imgs/banheiro-chuveiro.jpg';
-import hero1 from '@/assets/imgs/hero1.jpg';
-
-// TERCEIRA RODADA (20/08/2026): o cliente pediu "umas 30 no total", arraste com
-// o mouse e loop infinito. Dezessete fotos novas entram aqui.
-//
-// REGRA HERDADA, e mantida: nada de fotografia noturna nesta tira, por pedido
-// do cliente numa rodada anterior. A única exceção é a piracaia (hero1), que ele
-// aprovou nominalmente. Ficaram de fora por isso, apesar de boas: varanda-noite,
-// luau-praia, piracaia-violao, sobre e jantar-peixe.
-//
-// Também de fora: tucuxi.jpg. É a única imagem do acervo que NÃO foi feita na
-// Villa (Wikimedia Commons, CC0) e o hero é onde a casa se apresenta — foto de
-// terceiro no hero seria a casa se apresentando com o que não é dela. Ela vive
-// nas Experiências e na Galeria, onde a legenda pode declarar a procedência.
+// Imagens da coluna de reels do hero (ColunaDeReels, abaixo) — a "tira" de
+// fotos que alimentava o CarrosselHero foi apagada com ele em 23/08/2026
+// (código morto desde a Fase 6); estas cinco continuam em uso porque
+// HERO_REELS_MEDIA, mais abaixo, também as consome.
 import aguaTransparente from '@/assets/imgs/agua-transparente.jpg';
-import banhoRioGrupo from '@/assets/imgs/banho-rio-grupo.jpg';
 import igapoCanoa from '@/assets/imgs/igapo-canoa.jpg';
-import igapoTroncos from '@/assets/imgs/igapo-troncos.jpg';
-import caiaques from '@/assets/imgs/caiaques.jpg';
-import massagem from '@/assets/imgs/massagem.jpg';
 import tecelagem from '@/assets/imgs/tecelagem.jpg';
-import bangaloOctogonal from '@/assets/imgs/bangalo-octogonal.jpg';
-import hero6 from '@/assets/imgs/hero6.jpg';
-import chale11 from '@/assets/imgs/chale-11.jpg';
-import passarelaRefeitorio from '@/assets/imgs/passarela-refeitorio.jpg';
-import pavilhaoPalha from '@/assets/imgs/pavilhao-palha.jpg';
-import deckYoga from '@/assets/imgs/deck-yoga.jpg';
-import quartoCasal from '@/assets/imgs/quarto-casal.jpg';
-import varandaRedeDuplex from '@/assets/imgs/varanda-rede-duplex.jpg';
-import cafeRefeitorio from '@/assets/imgs/cafe-refeitorio.jpg';
-import porDoSolPortao from '@/assets/imgs/por-do-sol-portao.jpg';
 import tucuxi from '@/assets/imgs/tucuxi.jpg';
 import redario from '@/assets/imgs/redario.jpg';
 import reelCanoaIgapoPoster from '@/assets/imgs/reel-canoa-igapo-poster.jpg';
@@ -123,103 +78,6 @@ const travessia = [
   { n: '02', titulo: t('home.etapa2T'), detalhe: t('home.etapa2D'), medida: 'Alter do Chão' },
   { n: '03', titulo: t('home.etapa3T'), detalhe: t('home.etapa3D'), medida: `${SITE.location.boatMinutes} min de barco`, incluso: true },
 ];
-/* ══════════════════ A TIRA DO HERO ══════════════════
-   QUARTA RODADA. O cliente pediu menos casa e mais passeio, mais sol, o pôr do
-   sol no rio, o banheiro ("gringo gosta de ver isso"), e fora as escuras menos
-   a mesa de velas. Tudo isso está atendido aqui.
-
-   A MUDANÇA DESTA RODADA é outra, e nasceu de um erro meu: eu havia descartado
-   64 arquivos do acervo por causa do nome ("Captura de tela") e da resolução
-   (~1290px), sem abrir um único. Outra sessão abriu, e estava certa: são
-   recortes limpos de fotografia, e guardam quase toda a presença humana do
-   acervo. A tira que eu tinha montado era de paisagem vazia por causa disso.
-
-   Doze fotos, e agora SETE TÊM GENTE — o grupo embarcando, o pôr do sol com a
-   roda sentada na areia, a canoa nas vitórias-régias, o abraço na samaúma, a
-   trilha, as artesãs na farinhada, o stand-up. Uma pousada é o que se faz nela;
-   paisagem sem ninguém vende cartão-postal, não estadia.
-
-   A ordem é a de uma travessia: o rio, a chegada, o que se faz, a casa, a ceia.
-
-   Cada `alt` descreve o que está na foto — foram todas olhadas em folha de
-   contato, uma a uma. Cada `medida` é Disciplina 2 e só aceita fato confirmado
-   por `SITE`, pelo PRODUCT.md ou pela lista `momentos` acima; onde não há fato,
-   o campo fica VAZIO em vez de ganhar enfeite.
-
-   NOTA DE QUALIDADE, que é uma dívida real e não um detalhe: sete destas doze
-   têm entre 1286 e 1462px de largura de origem (as seis vindas das pastas de
-   recorte, mais banco-areia, que veio recompressa do Airbnb). O card do hero
-   chega a ~1120 CSS px, então em tela de densidade dupla elas ficam moles.
-   NENHUMA foi ampliada — ampliar não cria detalhe, só bytes e uma promessa
-   falsa. Trocar por original em alta depende do acervo que segue pendente com
-   o cliente; é a mesma pendência de "fotos em alta/drone" de sempre. O que se
-   escolheu aqui foi impacto humano a 1290px em vez de paisagem vazia a 3072px. */
-interface Slide {
-  id: string;
-  foto: ImageMetadata;
-  assunto: string;
-  /** Opcional de propósito: onde não há fato confirmado, o campo fica vazio. */
-  medida?: string;
-  alt: string;
-}
-
-/* As fotos ficam aqui (não se traduzem); assunto, medida e alt vêm de
-   `home.tiraItens` em cada `src/i18n/*.json`, casados por `id`. As três
-   medidas que dependem de um número de `SITE` (o barco, os bangalôs, os
-   hóspedes) usam um gabarito traduzido (`home.tiraMedida*`) preenchido aqui
-   com o número real — ver a nota de Disciplina 2 mais abaixo. */
-const FOTOS_TIRA: Record<string, ImageMetadata> = {
-  travessia: travessiaBarco, banco: bancoAreia, agua: aguaTransparente,
-  praia: praiaEspreguicadeira, banho: banhoRioGrupo, canoa: canoaVitorias,
-  igapo: igapoCanoa, alagada: igapoTroncos, sup: supRio, caiaque: caiaques,
-  trilha: trilhaGuia, samauma: samaumaGrupo, massagem, farinhada, tecelagem,
-  octogonal: bangaloOctogonal, bangalo: bangaloPalafita, duplex: hero6,
-  chale: chale11, passarela: passarelaRefeitorio, pavilhao: pavilhaoPalha,
-  shala: deckYoga, quarto: gal6, casal: quartoCasal, varanda: varandaRedeDuplex,
-  banheiro: banheiroChuveiro, cafe: cafeRefeitorio, porsol: porsolGente,
-  fimdetarde: porDoSolPortao, piracaia: hero1,
-};
-
-const MEDIDA_DINAMICA: Record<string, string> = {
-  travessia: t('home.tiraMedidaBarco').replace('{min}', String(SITE.location.boatMinutes)),
-  bangalo: t('home.tiraMedidaBangalos').replace('{n}', String(SITE.capacity.cabins)),
-  quarto: t('home.tiraMedidaHospedes').replace('{n}', String(SITE.capacity.maxGuests)),
-};
-
-const TIRA: Slide[] = useList(locale)<{ id: string; assunto: string; medida?: string; alt: string }>('home.tiraItens')
-  .map((item) => ({
-    ...item,
-    foto: FOTOS_TIRA[item.id],
-    medida: MEDIDA_DINAMICA[item.id] ?? item.medida,
-  }));
-
-/* O astro:assets gera os derivados no build — os originais de 1 a 2 MB não vão
-   para o bundle.
-
-   Uma escala só, e larga. Na primeira rodada havia duas (uma para o campo de
-   fundo, outra para os cards pequenos); o campo de fundo foi removido e o card
-   passou a ocupar 80% da altura do palco, então a única escala que importa é a
-   dele: até ~1120 CSS px de largura, o que em tela de densidade dupla pede
-   ~1920 de origem. */
-const tira = await Promise.all(
-  TIRA.map(async (s) => {
-    const img = await getImage({
-      src: s.foto,
-      widths: [480, 720, 1080, 1440, 1920],
-      format: 'webp',
-    });
-    return {
-      id: s.id,
-      assunto: s.assunto,
-      medida: s.medida,
-      alt: s.alt,
-      src: img.src,
-      srcset: img.srcSet.attribute,
-      ar: s.foto.width / s.foto.height,
-    };
-  }),
-);
-
 /* ══════════════════ A COLUNA DE REELS DO HERO ══════════════════
    FASE 6. Substitui o CarrosselHero como visual do hero — decisão do
    Carlos na Fase 2 (variante C, "o vertical manda"), escolhida ao vivo, não
@@ -227,10 +85,10 @@ const tira = await Promise.all(
    antigo (água transparente, igapó, tecelagem — mesmo arquivo, mesma
    legenda traduzida, `home.tiraItens`); as outras sete são novas
    (`home.heroReelItens`), incluindo os cinco vídeos aprovados na Fase 3
-   (`docs/video.md` §6). O `CarrosselHero` e a tira acima ficam no código,
-   sem uso nesta página — apagar os dois é decisão do Carlos, não default
-   desta rodada (639 linhas de física de arrasto e 30 itens traduzidos em
-   5 idiomas não se descartam de passagem). */
+   (`docs/video.md` §6). O `CarrosselHero` ficou sem uso desde então —
+   apagado em 23/08/2026 por decisão do Carlos, junto com a ponte de
+   eventos que o recurso de vídeo em destaque tinha construído para ele
+   (`video-lightbox:abrir`/`:fechar` em `VideoLightbox.astro`). */
 const HERO_REELS_MEDIA: Record<string, { imagem: ImageMetadata } | { video: string; poster: ImageMetadata }> = {
   aguaTransparente: { imagem: aguaTransparente },
   canoaIgapo: { video: '/video/reels/reel-canoa-igapo.mp4', poster: reelCanoaIgapoPoster },

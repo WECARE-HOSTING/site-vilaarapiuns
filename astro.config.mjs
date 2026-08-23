@@ -23,8 +23,10 @@ export default defineConfig({
   },
 
   integrations: [
-    // Só o carrossel do hero é React. Uma island, `client:visible`, e nada
-    // mais da árvore hidrata — ver src/components/CarrosselHero.tsx.
+    // React é só para o carrossel de fotos das acomodações
+    // (`CarrosselAcomodacoes.tsx`), montado em duas páginas — Home
+    // (`client:visible`) e Pousada (`client:load`). Nada mais da árvore
+    // hidrata.
     react(),
     sitemap({
       // '/styleguide' é a página interna de aprovação de design; os caminhos

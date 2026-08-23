@@ -12,14 +12,14 @@
  *   - `data-video-src` / `data-video-poster` / `data-video-legenda`.
  *   - `data-video-contexto` no ancestral que tem o `<video>` de fundo a
  *     pausar ao abrir e retomar ao fechar (loop mudo de cartão, p.ex.).
- * A ilha React do carrossel do hero não tem como usar atributos DOM antes
- * de despachar o clique, então fala por evento:
- *   - `window.dispatchEvent(new CustomEvent('video-lightbox:abrir', {
- *       detail: { src, poster, legenda } }))`.
- * Ao fechar (Esc, clique fora, botão), este componente sempre despacha
- * `video-lightbox:fechar` (sem detail) — é assim que o CarrosselHero sabe
- * retomar o autoplay do cartão focado, que nenhum estado de React muda
- * sozinho ao pausar.
+ *
+ * Havia também uma ponte por `CustomEvent` (`video-lightbox:abrir`/
+ * `:fechar`) para o `CarrosselHero`, a única ilha React que não podia usar
+ * atributos DOM antes de despachar o clique. Removida em 23/08/2026 junto
+ * com o próprio `CarrosselHero.tsx` (código morto desde a Fase 6, apagado
+ * por decisão do Carlos) — sem consumidor, a ponte também era código
+ * morto. Se um futuro componente React precisar abrir este diálogo, a
+ * ponte por evento é o padrão a recriar aqui, não reinventar.
  */
 import { useTranslations } from '@/i18n/utils';
 import type { Locale } from '@/i18n/config';
@@ -98,20 +98,12 @@ const t = useTranslations(locale);
       );
     });
 
-    // Gatilho da ilha React (CarrosselHero): mesmo contrato, via evento.
-    window.addEventListener('video-lightbox:abrir', (evento) => {
-      const { src, poster, legenda } =
-        (evento as CustomEvent<{ src?: string; poster?: string; legenda?: string }>).detail ?? {};
-      abrir(src ?? '', poster ?? '', legenda ?? '', null);
-    });
-
     dialogo.addEventListener('close', () => {
       video.pause();
       video.removeAttribute('src');
       video.load(); // solta o decodificador — sem isto o buffer do clipe fechado fica na memória
       void fundoAtual?.play().catch(() => {}); // muted+loop: play() sem áudio é sempre permitido
       fundoAtual = null;
-      window.dispatchEvent(new CustomEvent('video-lightbox:fechar'));
     });
 
     // Clique fora do vídeo (na margem do <dialog>) fecha — mesmo padrão do mapa.
