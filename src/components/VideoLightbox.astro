@@ -1,0 +1,116 @@
+---
+/**
+ * O DIÁLOGO EM DESTAQUE — um só, montado no BaseLayout, para qualquer vídeo
+ * da página. Mesmo padrão de `MapaSituacao.astro` (dialog nativo,
+ * showModal/close, `.lightbox-dialogo` para a transição).
+ *
+ * Contrato de gatilho, para qualquer componente da base apontar aqui sem
+ * conhecer este arquivo:
+ *   - `data-video-abrir` no elemento clicável (um <a href={video}> continua
+ *     navegando para o arquivo sem JavaScript — o listener só entra com
+ *     `preventDefault()`).
+ *   - `data-video-src` / `data-video-poster` / `data-video-legenda`.
+ *   - `data-video-contexto` no ancestral que tem o `<video>` de fundo a
+ *     pausar ao abrir e retomar ao fechar (loop mudo de cartão, p.ex.).
+ * A ilha React do carrossel do hero não tem como usar atributos DOM antes
+ * de despachar o clique, então fala por evento:
+ *   - `window.dispatchEvent(new CustomEvent('video-lightbox:abrir', {
+ *       detail: { src, poster, legenda } }))`.
+ * Ao fechar (Esc, clique fora, botão), este componente sempre despacha
+ * `video-lightbox:fechar` (sem detail) — é assim que o CarrosselHero sabe
+ * retomar o autoplay do cartão focado, que nenhum estado de React muda
+ * sozinho ao pausar.
+ */
+import { useTranslations } from '@/i18n/utils';
+import type { Locale } from '@/i18n/config';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<dialog
+  class="video-lightbox lightbox-dialogo sobre-escuro m-auto max-h-[100dvh] max-w-[100vw] bg-mar-fundo p-0 backdrop:bg-mar-fundo/90"
+  aria-label={t('video.dialogo')}
+>
+  <div class="relative">
+    <video controls playsinline class="block max-h-[100dvh] max-w-[100vw]"></video>
+
+    <button
+      type="button"
+      data-fechar
+      class="etiqueta absolute right-3 top-3 border border-sol/60 bg-mar-fundo/90 px-3 py-2 text-sol transition-colors hover:bg-sol hover:text-mar-fundo"
+    >
+      {t('video.fechar')}
+    </button>
+  </div>
+</dialog>
+
+<script>
+  const dialogo = document.querySelector<HTMLDialogElement>('.video-lightbox');
+  const video = dialogo?.querySelector('video');
+
+  if (dialogo && video) {
+    // O vídeo de fundo (cartão de reel, cartão do hero) que este clique
+    // pausou — para saber qual retomar quando o diálogo fechar.
+    let fundoAtual: HTMLVideoElement | null = null;
+
+    // `aria-label` genérico do markup (`t('video.dialogo')`) — capturado uma
+    // vez, para restaurar quando um gatilho não tiver legenda própria. Sem
+    // isto, um gatilho sem legenda herdaria a legenda do vídeo aberto antes
+    // dele, em vez de cair no rótulo genérico.
+    const legendaPadrao = dialogo.getAttribute('aria-label') ?? '';
+
+    const abrir = (src: string, poster: string, legenda: string, fundo: HTMLVideoElement | null) => {
+      fundo?.pause();
+      fundoAtual = fundo;
+      video.src = src;
+      video.poster = poster;
+      video.muted = false;
+      dialogo.setAttribute('aria-label', legenda || legendaPadrao);
+      dialogo.showModal();
+      void video.play();
+    };
+
+    // Gatilhos em Astro/DOM: qualquer clique em [data-video-abrir], em
+    // qualquer componente da página — delegado, então cobre inclusive
+    // cartões montados depois deste script rodar.
+    document.addEventListener('click', (evento) => {
+      const alvo = evento.target as HTMLElement;
+      const gatilho = alvo.closest<HTMLElement>('[data-video-abrir]');
+      if (!gatilho) return;
+      evento.preventDefault(); // cobre o gatilho ser <a href={video}>
+      const fundo = gatilho.closest<HTMLElement>('[data-video-contexto]')?.querySelector('video') ?? null;
+      abrir(
+        gatilho.dataset.videoSrc ?? '',
+        gatilho.dataset.videoPoster ?? '',
+        gatilho.dataset.videoLegenda ?? '',
+        fundo,
+      );
+    });
+
+    // Gatilho da ilha React (CarrosselHero): mesmo contrato, via evento.
+    window.addEventListener('video-lightbox:abrir', (evento) => {
+      const { src, poster, legenda } = (evento as CustomEvent<{ src: string; poster: string; legenda: string }>).detail;
+      abrir(src, poster, legenda, null);
+    });
+
+    dialogo.addEventListener('close', () => {
+      video.pause();
+      video.removeAttribute('src');
+      video.load(); // solta o decodificador — sem isto o buffer do clipe fechado fica na memória
+      void fundoAtual?.play().catch(() => {}); // muted+loop: play() sem áudio é sempre permitido
+      fundoAtual = null;
+      window.dispatchEvent(new CustomEvent('video-lightbox:fechar'));
+    });
+
+    // Clique fora do vídeo (na margem do <dialog>) fecha — mesmo padrão do mapa.
+    dialogo.addEventListener('click', (evento) => {
+      if (evento.target === dialogo) dialogo.close();
+    });
+
+    dialogo.querySelector('[data-fechar]')?.addEventListener('click', () => dialogo.close());
+  }
+</script>

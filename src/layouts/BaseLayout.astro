@@ -4,6 +4,7 @@ import { HTML_LANG, LOCALES, type Locale } from '@/i18n/config';
 import { href, type PageKey } from '@/i18n/routes';
 import { useTranslations } from '@/i18n/utils';
 import { SITE } from '@/data/site';
+import VideoLightbox from '@/components/VideoLightbox.astro';
 
 interface Props {
   locale: Locale;
@@ -132,5 +133,7 @@ if (SITE.contact.instagram) {
     </main>
 
     <slot name="footer" />
+
+    <VideoLightbox locale={locale} />
   </body>
 </html>
