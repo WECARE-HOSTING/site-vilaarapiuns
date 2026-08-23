@@ -246,8 +246,9 @@
       nenhuma por padrão, e o diálogo cobriria a tela inteira sem aviso.
       Migrado para cá em vez de duplicado.
 
-   FORA de @layer base de propósito. Os dois diálogos (`.mapa-dialogo` e
-   `.video-lightbox`) também carregam `backdrop:bg-mar-fundo/90` do Tailwind,
+   FORA de @layer base de propósito. Os dois diálogos (`MapaSituacao.astro` e
+   `VideoLightbox.astro`, ambos com esta classe) também carregam
+   `backdrop:bg-mar-fundo/90` do Tailwind,
    que cai em `@layer utilities` — e a ordem de camada é
    `properties, theme, base, components, utilities`, então `utilities` sempre
    vence `base`. Com este bloco dentro de `base`, a cor do utilitário batia a
@@ -275,8 +276,9 @@
 }
 @media (prefers-reduced-motion: reduce) {
   /* Nota: o reset global de `transition-duration` sob reduced-motion (mais
-     abaixo neste arquivo) já zera esta transição inteira, fade incluído —
-     este bloco fica por clareza da intenção, não por efeito prático hoje. */
+     acima neste arquivo, dentro de @layer base) já zera esta transição
+     inteira, fade incluído — este bloco fica por clareza da intenção, não
+     por efeito prático hoje. */
   .lightbox-dialogo { transition-property: opacity; }
   @starting-style {
     .lightbox-dialogo[open] { scale: 1; }
