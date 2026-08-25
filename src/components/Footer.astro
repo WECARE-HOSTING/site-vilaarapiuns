@@ -4,6 +4,7 @@ import { LOCALES, LOCALE_NAMES, HTML_LANG, type Locale } from '@/i18n/config';
 import { href } from '@/i18n/routes';
 import { useTranslations } from '@/i18n/utils';
 import { SITE, whatsappUrl, telefoneLegivel } from '@/data/site';
+import { idiomasComDiario, caminhoDoIndice } from '@/lib/diario';
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -11,6 +12,14 @@ const t = useTranslations(locale);
 
 const ano = new Date().getFullYear();
 const colunaVisita = ['lodge', 'dining', 'gallery'] as const;
+
+/**
+ * O diário só entra no rodapé no idioma em que EXISTE. Link para um índice
+ * que não foi gerado é 404, e num rodapé ele aparece em todas as páginas do
+ * site de uma vez. A lista sai do conteúdo, então o dia em que nascer o
+ * primeiro post em alemão o link aparece sozinho.
+ */
+const temDiario = (await idiomasComDiario()).includes(locale);
 const colunaReserva = ['packages', 'privateVilla', 'reveillon', 'gettingHere', 'reviews', 'book'] as const;
 ---
 
@@ -44,6 +53,9 @@ const colunaReserva = ['packages', 'privateVilla', 'reveillon', 'gettingHere', '
           {colunaVisita.map((k) => (
             <li><a href={href(locale, k)} class="inline-block py-1 hover:text-areia">{t(`nav.${k}`)}</a></li>
           ))}
+          {temDiario && (
+            <li><a href={caminhoDoIndice(locale)} class="inline-block py-1 hover:text-areia">{t('diario.titulo')}</a></li>
+          )}
         </ul>
       </nav>
 

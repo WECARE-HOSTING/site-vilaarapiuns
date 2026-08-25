@@ -793,6 +793,17 @@
     "notaFinal": "La ventana de Año Nuevo tiene una sola fecha — y trece bungalós.",
     "cta": "Consultar el Fin de Año por WhatsApp"
   },
+  "diario": {
+    "titulo": "Diario",
+    "h1": "Diario del Arapiuns",
+    "intro": "Lo que aprendimos viviendo en este río: el calendario de las playas, cómo llegar, qué es el turismo de base comunitaria y las preguntas que todos hacen antes de venir.",
+    "descricao": "Guías y respuestas sobre el Río Arapiuns, Alter do Chão y la Amazonía de agua clara, escritas por quienes operan aquí.",
+    "duvidas": "Preguntas frecuentes",
+    "revisado": "revisado el",
+    "seguintes": "Otras lecturas",
+    "ctaT": "¿Quiere verlo de cerca?",
+    "ctaD": "La conversación empieza en WhatsApp: díganos las fechas y el tamaño del grupo, y armamos el resto."
+  },
   "galeria": {
     "h1": "La Villa, en fotografía",
     "intro": "Fotos de la casa, del río y de las comunidades. Todas hechas en Villa Arapiuns.",

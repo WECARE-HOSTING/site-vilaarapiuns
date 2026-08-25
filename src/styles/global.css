@@ -631,3 +631,117 @@
     #form-erro[data-js][data-visivel] { translate: 0 0; }
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PROSA — o corpo de texto dos posts do diário.
+
+   Esta é a ÚNICA parte do site cujo HTML não é escrito por nós: sai do
+   markdown, sem classe em nenhuma tag. Então o espaçamento e a hierarquia têm
+   de vir do elemento, e é por isso que existe este bloco em vez de utilitários
+   soltos — não há onde pendurá-los.
+
+   `> * + *` em vez de margem em cada elemento: o espaço nasce da RELAÇÃO entre
+   irmãos, e não do elemento, o que impede a margem dupla e a margem colapsada
+   que aparecem quando dois blocos com margem própria se encontram. Foi a
+   escolha da lista de corte e vale igual aqui.
+
+   As medidas seguem a escala do site: `--text-secao` no h2, `--text-intro` no
+   destaque. Nada de tamanho novo — um post não é outro produto.
+   ═══════════════════════════════════════════════════════════════════════════ */
+@utility prosa {
+  > * + * { margin-block-start: 1.15em; }
+
+  & h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-secao);
+    line-height: var(--text-secao--line-height);
+    font-weight: 600;
+    color: var(--cor-titulo);
+    text-wrap: balance;
+    /* O ar antes de um h2 é maior que o ar depois: é ele que agrupa o título
+       com o texto que ele governa, em vez de deixar os dois flutuando no meio.
+       Sem isto, um h2 lê como pertencente ao parágrafo ANTERIOR. */
+    margin-block-start: 2.5em;
+    margin-block-end: 0.6em;
+    & + * { margin-block-start: 0; }
+  }
+
+  & h3 {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    line-height: 1.35;
+    font-weight: 600;
+    color: var(--cor-titulo);
+    margin-block-start: 1.9em;
+    margin-block-end: 0.4em;
+    & + * { margin-block-start: 0; }
+  }
+
+  & strong { color: var(--cor-titulo); font-weight: 600; }
+
+  & a {
+    color: var(--color-ceu);
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    &:hover { text-decoration-thickness: 2px; }
+  }
+
+  & ul, & ol { padding-inline-start: 1.35em; }
+  & ul { list-style-type: none; }
+  /* A conta da marchetaria, não um bullet redondo: o mesmo filete de 1px da
+     emenda, na cor da régua. Coerente com a Voluta das listas do site. */
+  & ul > li { position: relative; }
+  & ul > li::before {
+    content: '';
+    position: absolute;
+    inset-inline-start: -1.05em;
+    inset-block-start: 0.72em;
+    width: 0.5em;
+    height: 1px;
+    background-color: var(--color-areia-sol);
+  }
+  & ol { list-style-type: decimal; }
+  & ol > li::marker { font-family: var(--font-label); color: var(--color-areia-funda); }
+  & li + li { margin-block-start: 0.5em; }
+
+  & blockquote {
+    border-inline-start: 2px solid var(--color-areia-sol);
+    padding-inline-start: 1.25rem;
+    font-size: var(--text-intro);
+    line-height: var(--text-intro--line-height);
+    color: var(--cor-titulo);
+  }
+
+  & hr {
+    border: 0;
+    border-block-start: 1px solid var(--cor-emenda);
+    margin-block: 2.5em;
+  }
+
+  /* Tabela dentro de post: rola sozinha, para o corpo da página nunca rolar
+     de lado no celular. */
+  & table {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+  }
+  & th {
+    font-family: var(--font-label);
+    font-size: 0.75rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--cor-etiqueta);
+    text-align: start;
+    padding: 0.6rem 0.9rem 0.6rem 0;
+    border-block-end: 1px solid var(--color-areia-sol);
+    white-space: nowrap;
+  }
+  & td {
+    padding: 0.6rem 0.9rem 0.6rem 0;
+    border-block-end: 1px solid var(--cor-emenda);
+    vertical-align: top;
+  }
+}

@@ -13,7 +13,13 @@ interface Props { locale: Locale; pageKey: PageKey }
 const { locale, pageKey } = Astro.props;
 const t = useTranslations(locale);
 
-const FASE: Record<PageKey, string> = {
+/**
+ * `Partial` porque o mapa é de FASE DE CONSTRUÇÃO, e chave nova nasce depois
+ * das fases: a de Réveillon entrou em 25/08/2026, fora delas. Exigir entrada
+ * aqui para toda chave futura fazia o `astro check` quebrar num placeholder
+ * que nenhuma página usa — o rótulo cai no travessão e a vida segue.
+ */
+const FASE: Partial<Record<PageKey, string>> = {
   home: 'Fase 2', lodge: 'Fase 3', dining: 'Fase 3',
   experiences: 'Fase 4', packages: 'Fase 4', gettingHere: 'Fase 4',
   gallery: 'Fase 5', reviews: 'Fase 5', privateVilla: 'Fase 5', book: 'Fase 5', bookSent: 'Fase 5',
@@ -29,7 +35,7 @@ const FASE: Record<PageKey, string> = {
 
   <p class="mt-2">
     <code class="emenda border bg-areia px-2 py-1 text-sm">{href(locale, pageKey)}</code>
-    <span class="ml-2">— conteúdo entra na <strong class="cor-titulo">{FASE[pageKey]}</strong></span>
+    <span class="ml-2">— conteúdo entra na <strong class="cor-titulo">{FASE[pageKey] ?? '—'}</strong></span>
   </p>
 
   <hr class="my-10 emenda" />

@@ -793,6 +793,17 @@
     "notaFinal": "The New Year window has one date — and thirteen bungalows.",
     "cta": "Ask about New Year's Eve on WhatsApp"
   },
+  "diario": {
+    "titulo": "Journal",
+    "h1": "The Arapiuns journal",
+    "intro": "What we have learned living on this river: the beach calendar, how to get here, what community-led tourism actually means, and the questions everyone asks before they come.",
+    "descricao": "Guides and straight answers about the Rio Arapiuns, Alter do Chão and the clearwater Amazon, written by the people who run a lodge here.",
+    "duvidas": "Frequently asked",
+    "revisado": "reviewed",
+    "seguintes": "More reading",
+    "ctaT": "Want to see it for yourself?",
+    "ctaD": "The conversation starts on WhatsApp: tell us your dates and group size, and we will build the rest around them."
+  },
   "galeria": {
     "h1": "The Villa, in photographs",
     "intro": "Photographs of the house, the river and the communities. All taken at Villa Arapiuns.",

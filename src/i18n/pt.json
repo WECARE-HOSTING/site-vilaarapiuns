@@ -793,6 +793,17 @@
     "notaFinal": "A janela da virada tem uma data só — e treze bangalôs.",
     "cta": "Consultar a virada no WhatsApp"
   },
+  "diario": {
+    "titulo": "Diário",
+    "h1": "Diário do Arapiuns",
+    "intro": "O que aprendemos morando neste rio: o calendário das praias, como se chega, o que é turismo de base comunitária e as perguntas que todo mundo faz antes de vir.",
+    "descricao": "Guias e respostas sobre o Rio Arapiuns, Alter do Chão e a Amazônia de água clara, escritos por quem opera aqui.",
+    "duvidas": "Perguntas frequentes",
+    "revisado": "revisto em",
+    "seguintes": "Outras leituras",
+    "ctaT": "Quer ver isso de perto?",
+    "ctaD": "A conversa começa no WhatsApp: diga as datas e o tamanho do grupo, e a gente monta o resto."
+  },
   "galeria": {
     "h1": "A Villa, em fotografia",
     "intro": "Fotos dos bangalôs e chalés, do rio e das comunidades. Todas feitas na Villa Arapiuns.",

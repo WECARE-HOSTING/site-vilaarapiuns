@@ -18,17 +18,48 @@ interface Props {
    * idioma numa página que não deve ser indexada não servem para nada.
    */
   indexavel?: boolean;
+  /**
+   * O DIÁRIO NÃO TEM PageKey, e é por isso que estas duas props existem.
+   *
+   * As 11 páginas do site vivem no mapa de `routes.ts`, e daí saem canônica e
+   * hreflang de graça. Um post não: o caminho dele vem do arquivo de conteúdo,
+   * e ele existe só nos idiomas em que foi escrito — hoje pt e en. Forçá-lo no
+   * molde de PageKey significaria inventar slug em espanhol, alemão e japonês
+   * para conteúdo que não existe nesses idiomas, e anunciar por hreflang
+   * páginas que devolvem 404. Então quem chama passa o caminho e a lista de
+   * alternativas REAIS, e o `pageKey` continua servindo só para title e
+   * description caírem no lugar certo.
+   */
+  caminho?: string;
+  /** Alternativas de idioma reais, quando não são as cinco do mapa. */
+  alternativas?: { locale: Locale; caminho: string }[];
+  /**
+   * Tira o LodgingBusiness desta página. Um post do diário não é a pousada —
+   * é um texto SOBRE ela. Marcar os dois com o mesmo tipo confunde a entidade
+   * em vez de reforçá-la: o post emite o seu próprio Article pelo slot de head.
+   */
+  semSchemaNegocio?: boolean;
 }
 
-const { locale, pageKey, title, description, image, indexavel = true } = Astro.props;
+const { locale, pageKey, title, description, image, indexavel = true, caminho, alternativas, semSchemaNegocio = false } = Astro.props;
 const t = useTranslations(locale);
 
-const canonical = new URL(href(locale, pageKey), SITE.domain).toString();
+const canonical = new URL(caminho ?? href(locale, pageKey), SITE.domain).toString();
 
 // hreflang recíproco: cada idioma aponta para o MESMO conteúdo no slug dele.
-const alternates = indexavel
-  ? LOCALES.map((l) => ({ lang: HTML_LANG[l], url: new URL(href(l, pageKey), SITE.domain).toString() }))
-  : [];
+const alternates = !indexavel
+  ? []
+  : alternativas
+    ? alternativas.map((a) => ({ lang: HTML_LANG[a.locale], url: new URL(a.caminho, SITE.domain).toString() }))
+    : LOCALES.map((l) => ({ lang: HTML_LANG[l], url: new URL(href(l, pageKey), SITE.domain).toString() }));
+
+/**
+ * O x-default aponta para o inglês quando ele existe, e para o que existe
+ * quando não. Apontar para uma URL que não foi gerada é pior que não apontar.
+ */
+const xDefault = alternativas
+  ? (alternativas.find((a) => a.locale === 'en') ?? alternativas[0])?.caminho
+  : href('en', pageKey);
 
 /**
  * O preview de link é o momento de aquisição real deste negócio: o WhatsApp é
@@ -92,7 +123,7 @@ if (SITE.contact.instagram) {
     <meta name="theme-color" content="#fdf8ee" />
 
     {alternates.map((a) => <link rel="alternate" hreflang={a.lang} href={a.url} />)}
-    {indexavel && <link rel="alternate" hreflang="x-default" href={new URL(href('en', pageKey), SITE.domain).toString()} />}
+    {indexavel && xDefault && <link rel="alternate" hreflang="x-default" href={new URL(xDefault, SITE.domain).toString()} />}
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={SITE.name} />
@@ -113,7 +144,7 @@ if (SITE.contact.instagram) {
       href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..700&family=Archivo+Narrow:wght@400..700&display=swap"
     />
 
-    <script type="application/ld+json" set:html={JSON.stringify(dados)} is:inline />
+    {!semSchemaNegocio && <script type="application/ld+json" set:html={JSON.stringify(dados)} is:inline />}
 
     <slot name="head" />
   </head>
