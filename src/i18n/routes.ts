@@ -8,6 +8,7 @@ export const PAGE_KEYS = [
   'experiences',
   'packages',
   'privateVilla',
+  'reveillon',
   'gettingHere',
   'gallery',
   'reviews',
@@ -28,6 +29,11 @@ export const SLUGS: Record<PageKey, Record<Locale, string>> = {
   experiences:  { en: 'experiences',   pt: 'experiencias',     es: 'experiencias',   de: 'erlebnisse',     ja: 'experiences' },
   packages:     { en: 'packages',      pt: 'pacotes',          es: 'paquetes',       de: 'pakete',         ja: 'packages' },
   privateVilla: { en: 'private-villa', pt: 'villa-privativa',  es: 'villa-privada',  de: 'private-villa',  ja: 'private-villa' },
+  /* Página sazonal da virada. O slug EN mira a busca literal ("new years eve
+     amazon"); o DE usa a palavra que o alemão de fato digita (Silvester).
+     Fora do menu principal — a fileira do desktop já vai a sete itens:
+     entra pela coluna Reservar do rodapé e por CTA. */
+  reveillon:    { en: 'new-years-eve', pt: 'reveillon',        es: 'ano-nuevo',      de: 'silvester',      ja: 'new-year' },
   gettingHere:  { en: 'getting-here',  pt: 'como-chegar',      es: 'como-llegar',    de: 'anreise',        ja: 'access' },
   gallery:      { en: 'gallery',       pt: 'galeria',          es: 'galeria',        de: 'galerie',        ja: 'gallery' },
   reviews:      { en: 'reviews',       pt: 'avaliacoes',       es: 'opiniones',      de: 'bewertungen',    ja: 'reviews' },
