@@ -74,7 +74,7 @@
   },
   "home": {
     "hookA": "A freshwater Caribbean, warm all year, inside the forest.",
-    "hookB": "And you sleep there. It's unforgettable.",
+    "hookB": "And you sleep there.",
     "intro": "The beach is fresh water, clear to the bottom, and there are hardly any mosquitoes. That is the Arapiuns. The bungalows are timber, Tapajônica architecture, feet in the sand. Come for a few days — or come and live here. Why not?",
     "travessiaT": "The crossing",
     "travessiaI": "Getting here is part of it. Three stages, and the last one is ours.",
@@ -791,7 +791,8 @@
     "q6": "Can we book the whole Villa?",
     "a6": "Yes. From 15 guests your group has exclusive use: thirteen bungalows for up to 26 guests, the pavilion, the hammock grove and the beach, with no one else on the property.",
     "notaFinal": "The New Year window has one date — and thirteen bungalows.",
-    "cta": "Ask about New Year's Eve on WhatsApp"
+    "cta": "Ask about New Year's Eve on WhatsApp",
+    "ctaPagina": "See New Year's Eve"
   },
   "diario": {
     "titulo": "Journal",

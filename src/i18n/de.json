@@ -74,7 +74,7 @@
   },
   "home": {
     "hookA": "Eine Karibik aus Süßwasser, das ganze Jahr warm, mitten im Wald.",
-    "hookB": "Und Sie schlafen dort. Unvergesslich.",
+    "hookB": "Und Sie schlafen dort.",
     "intro": "Der Strand ist Süßwasser, klar bis auf den Grund, und es gibt so gut wie keine Mücken. So ist der Arapiuns. Die Bungalows sind aus Holz, tapajónische Architektur, die Füße im Sand. Sie können für ein paar Tage kommen — oder hierbleiben. Schon mal daran gedacht?",
     "travessiaT": "Die Überfahrt",
     "travessiaI": "Das Ankommen gehört dazu. Drei Etappen, und die letzte ist unsere.",
@@ -791,7 +791,8 @@
     "q6": "Können wir die ganze Villa buchen?",
     "a6": "Ja. Ab 15 Gästen hat Ihre Gruppe Exklusivrecht: dreizehn Bungalows für bis zu 26 Gäste, der Pavillon, der Hängemattenhain und der Strand, ohne Fremde am Termin.",
     "notaFinal": "Das Silvesterfenster hat nur einen Termin — und dreizehn Bungalows.",
-    "cta": "Silvester auf WhatsApp anfragen"
+    "cta": "Silvester auf WhatsApp anfragen",
+    "ctaPagina": "Silvester ansehen"
   },
   "diario": {
     "titulo": "Journal",
