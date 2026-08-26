@@ -37,6 +37,17 @@ export const SITE = {
   /** Confirmado pelo cliente em 20/08/2026. */
   childrenAllowed: true,
 
+  /**
+   * CONFIRMADO pelo Carlos em 26/08/2026: a Villa NÃO aceita animal.
+   *
+   * Vivia como literal `petsAllowed: false` dentro do BaseLayout, afirmado em
+   * todas as 66 páginas sem constar de documento nenhum — era a única linha do
+   * bloco de schema sem fonte, e saiu por isso. Voltou como dado, aqui, porque
+   * agora é fato: quem for mudar a política muda uma linha neste arquivo, não
+   * um literal escondido num layout.
+   */
+  petsAllowed: false,
+
   location: {
     river: 'Rio Arapiuns',
     city: 'Santarém',

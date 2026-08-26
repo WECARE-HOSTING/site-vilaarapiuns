@@ -78,10 +78,10 @@ const ogImage = new URL(image ?? '/og.jpg', SITE.domain).toString();
  *    não foi confirmada, e publicar coordenada errada de um lugar remoto é pior
  *    que não publicar nenhuma. Entram quando o cliente confirmar a coordenada;
  *    até lá, ausência é a resposta certa e não uma pendência técnica.
- *  · petsAllowed SAIU em 2026-08-26: estava afirmado `false` em todas as páginas
- *    e não consta do PRODUCT.md nem de `site.ts`. Era a única linha deste bloco
- *    sem fonte. Volta como `SITE.petsAllowed` quando o cliente responder — não
- *    como literal aqui.
+ *  · petsAllowed saiu como literal e VOLTOU como dado no mesmo dia
+ *    (2026-08-26): estava afirmado `false` em todas as páginas sem constar de
+ *    documento nenhum, e o Carlos confirmou no mesmo dia que a Villa não aceita
+ *    animal. Agora vem de `SITE.petsAllowed`, que é onde política de casa mora.
  *
  * A ENTIDADE É UMA, E É ISSO QUE O `@id` RESOLVE (2026-08-26). Antes, cada uma
  * das 66 páginas emitia um LodgingBusiness sem `@id` e com `url` apontando para
@@ -130,6 +130,7 @@ const dados: Record<string, unknown> = {
     addressCountry: SITE.location.country,
   },
   numberOfRooms: SITE.capacity.cabins,
+  petsAllowed: SITE.petsAllowed,
   telephone: `+${SITE.contact.whatsapp}`,
   makesOffer: ofertas.map((o) => ({
     '@type': 'Offer',
