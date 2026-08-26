@@ -1,0 +1,181 @@
+---
+/**
+ * RÉVEILLON — a página sazonal da virada (28 dez – 02 jan).
+ *
+ * POR QUE ELA EXISTE. É a SERP transacional mais fraca do nicho e a receita
+ * mais rápida do calendário: "réveillon alter do chão" tem concorrência baixa
+ * em PT e "new year's eve amazon" está deserta em EN. O slug EN mira a busca
+ * literal; o DE usa "silvester". Publicada em agosto de propósito — o lead
+ * time de quem monta a virada em grupo é de 3+ meses.
+ *
+ * SEM PREÇO, por decisão do cliente (25/08/2026), seguindo o precedente da
+ * página de Grupos: a tarifa depende de pessoas e noites, e a conversa começa
+ * no WhatsApp. Nenhuma cifra nova entra aqui sem autorização — as únicas
+ * públicas continuam sendo os pisos de Pousada e Pacote.
+ *
+ * O QUE A PÁGINA PODE AFIRMAR (e nada além): a janela 28/12–02/01 com pacotes
+ * de 4–5 noites; alimentação completa (modalidade pousada); piracaia e luau,
+ * que são ritos documentados da casa; exclusividade a partir de 15 (plano
+ * tarifário); crianças bem-vindas (confirmado 20/08); 1h30 de lancha desde
+ * Alter do Chão. NÃO prometer: fogos, palco, show, programação de festa que
+ * não existe — o texto diz isso com todas as letras, porque a ausência É o
+ * produto para quem foge da Virada Alter (dezenas de milhares de pessoas,
+ * dado da Prefeitura de Santarém sobre a virada 2025→26).
+ *
+ * FAQPage em JSON-LD no corpo: são as seis perguntas reais de quem monta a
+ * virada, e é o formato que busca-com-IA extrai e cita. O schema usa as
+ * mesmas chaves do texto visível — pergunta no schema ≠ pergunta na tela é
+ * mentira de marcação.
+ */
+import { Image } from 'astro:assets';
+import AberturaPagina from '@/components/AberturaPagina.astro';
+import ListaCorte from '@/components/ListaCorte.astro';
+import Campo from '@/components/Campo.astro';
+import Voluta from '@/components/Voluta.astro';
+import { useTranslations } from '@/i18n/utils';
+import { SITE, whatsappUrl } from '@/data/site';
+import type { Locale } from '@/i18n/config';
+
+import piracaiaRoda from '@/assets/imgs/piracaia-roda.jpg';
+import luauPraia from '@/assets/imgs/luau-praia.jpg';
+import porDoSol from '@/assets/imgs/por-do-sol.jpg';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const blocos = [
+  { titulo: t('reveillon.b1T'), detalhe: t('reveillon.b1D'), medida: t('reveillon.b1M') },
+  { titulo: t('reveillon.b2T'), detalhe: t('reveillon.b2D'), medida: t('reveillon.b2M'), marcado: true },
+  { titulo: t('reveillon.b3T'), detalhe: t('reveillon.b3D'), medida: t('reveillon.b3M') },
+  { titulo: t('reveillon.b4T'), detalhe: t('reveillon.b4D'), medida: t('reveillon.b4M') },
+];
+
+const virada = [
+  { titulo: t('reveillon.v1T'), texto: t('reveillon.v1D') },
+  { titulo: t('reveillon.v2T'), texto: t('reveillon.v2D') },
+  { titulo: t('reveillon.v3T'), texto: t('reveillon.v3D') },
+];
+
+const como = [
+  { n: '01', titulo: t('reveillon.c1T'), detalhe: t('reveillon.c1D') },
+  { n: '02', titulo: t('reveillon.c2T'), detalhe: t('reveillon.c2D') },
+  { n: '03', titulo: t('reveillon.c3T'), detalhe: t('reveillon.c3D') },
+  { n: '04', titulo: t('reveillon.c4T'), detalhe: t('reveillon.c4D') },
+];
+
+const duvidas = [1, 2, 3, 4, 5, 6].map((i) => ({
+  titulo: t(`reveillon.q${i}`),
+  detalhe: t(`reveillon.a${i}`),
+}));
+
+/* O schema repete exatamente o texto visível das dúvidas — mesma fonte. */
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: duvidas.map((d) => ({
+    '@type': 'Question',
+    name: d.titulo,
+    acceptedAnswer: { '@type': 'Answer', text: d.detalhe },
+  })),
+};
+---
+
+<AberturaPagina titulo={t('reveillon.h1')} intro={t('reveillon.intro')}>
+  <Campo class="mt-8">
+    {t('reveillon.campoJanela')}
+    <Voluta />
+    {t('home.tiraMedidaBangalos').replace('{n}', String(SITE.capacity.cabins))}
+    <Voluta />
+    {t('privativa.campoExclusividade').replace('{n}', String(SITE.capacity.minGuestsPrivate))}
+  </Campo>
+</AberturaPagina>
+
+<!-- a roda ao anoitecer: a imagem que é a promessa da página -->
+<figure class="container-editorial">
+  <Image
+    src={piracaiaRoda}
+    alt={t('reveillon.figHeroAlt')}
+    widths={[600, 900, 1288]}
+    sizes="(min-width: 1280px) 76rem, 100vw"
+    loading="eager"
+    fetchpriority="high"
+    class="aspect-[16/9] w-full object-cover"
+  />
+  <figcaption class="meta numero mt-3">{t('reveillon.figHero')}</figcaption>
+</figure>
+
+<section class="cunha-topo secao bg-areia">
+  <div class="container-editorial">
+    <ListaCorte itens={blocos} nivel="h2" />
+    <p class="numero etiqueta mt-6">{t('reveillon.notaFinal')}</p>
+    <p class="mt-10">
+      <a href={whatsappUrl(t('whatsapp.reveillon'))} class="btn btn-primario" target="_blank" rel="noopener noreferrer">{t('reveillon.cta')}</a>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════ COMO O ANO VIRA AQUI ═══════════ -->
+<section class="secao">
+  <div class="container-editorial">
+    <h2 class="font-display text-titulo">{t('reveillon.viradaT')}</h2>
+    <p class="lead container-texto mt-4 sm:mx-0">{t('reveillon.viradaI')}</p>
+
+    <div class="mt-12 grid gap-x-10 gap-y-10 sm:grid-cols-3">
+      {virada.map((v) => (
+        <article>
+          <h3 class="font-display text-secao">{v.titulo}</h3>
+          <p class="mt-3">{v.texto}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="mt-14 grid gap-6 sm:grid-cols-2">
+      <figure>
+        <Image
+          src={luauPraia}
+          alt={t('reveillon.figLuauAlt')}
+          widths={[480, 800, 1200]}
+          sizes="(min-width: 640px) 48vw, 100vw"
+          loading="lazy"
+          decoding="async"
+          class="aspect-[3/2] w-full object-cover"
+        />
+        <figcaption class="meta numero mt-3">{t('reveillon.figLuau')}</figcaption>
+      </figure>
+      <figure>
+        <Image
+          src={porDoSol}
+          alt={t('reveillon.figSolAlt')}
+          widths={[480, 800, 1200]}
+          sizes="(min-width: 640px) 48vw, 100vw"
+          loading="lazy"
+          decoding="async"
+          class="aspect-[3/2] w-full object-cover"
+        />
+        <figcaption class="meta numero mt-3">{t('reveillon.figSol')}</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ COMO FUNCIONA ═══════════ -->
+<section class="secao bg-areia">
+  <div class="container-editorial">
+    <h2 class="font-display text-titulo">{t('reveillon.comoT')}</h2>
+    <ListaCorte itens={como} class="mt-10" />
+  </div>
+</section>
+
+<!-- ═══════════ DÚVIDAS ═══════════ -->
+<section class="secao">
+  <div class="container-editorial">
+    <h2 class="font-display text-titulo">{t('reveillon.faqT')}</h2>
+    <ListaCorte itens={duvidas} class="mt-10" />
+    <p class="mt-12">
+      <a href={whatsappUrl(t('whatsapp.reveillon'))} class="btn btn-primario" target="_blank" rel="noopener noreferrer">{t('reveillon.cta')}</a>
+    </p>
+  </div>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} is:inline />

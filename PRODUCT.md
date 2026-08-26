@@ -65,6 +65,23 @@ afirmando "barco de Alter do Chão incluso" em todas as páginas.
    · *Imersão Completa*: 2 noites / 3 dias, 10 experiências.
    Preço-piso: **R$ 1.600** por pessoa para 1 noite.
 
+**Janela sazonal do Réveillon.** Não é uma terceira modalidade: é a modalidade
+pousada dentro de uma janela fechada de calendário, **28/12 a 02/01**, com
+pacotes de **4 a 5 noites** — alimentação completa, com a Piracaia na noite de
+31. Decisão do cliente em **25/08/2026**, junto com a criação da página
+`/pt/reveillon/`.
+
+**Sem preço publicado**, e isto é a decisão, não uma pendência: seguindo o
+precedente da página de Grupos, a tarifa depende do número de pessoas e de
+noites, e a conversa começa no WhatsApp. Nenhuma cifra nova entra na página.
+
+O que a janela do Réveillon **não** promete, e o texto diz com todas as letras
+porque a ausência é o produto para quem foge da virada de Alter do Chão: fogos,
+palco, show, programação de festa. O que ela afirma está todo coberto pelo resto
+desta seção — alimentação completa, exclusividade a partir de 15 pessoas,
+crianças bem-vindas (confirmado em 20/08/2026), 1h30 de lancha desde Alter do
+Chão.
+
 Tabela de tarifas (por pessoa/noite, ocupação mínima em quarto duplo): a tarifa
 cai conforme sobem as noites e o tamanho do grupo. 2 noites/10 pax vai de
 R$ 1.950 (individual) a R$ 1.350 (triplo); 4 noites/20 pax vai de R$ 1.034 a

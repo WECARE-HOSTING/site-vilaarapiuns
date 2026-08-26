@@ -1,0 +1,48 @@
+# Villa Arapiuns — vilaarapiuns.com.br
+#
+# O site inteiro é público e indexável, com uma exceção: /pt/styleguide/, que é a
+# página interna de aprovação de design. Ela NÃO é bloqueada aqui de propósito —
+# um Disallow impediria o rastreador de ler o <meta name="robots" content="noindex">
+# que já a mantém fora do índice, e o filtro do sitemap em astro.config.mjs já a
+# exclui da lista submetida.
+#
+# Os agentes de IA aparecem nomeados um a um porque cada nome faz uma coisa
+# diferente, e liberar só um deles não libera os outros: GPTBot é treino,
+# OAI-SearchBot é o índice de busca do ChatGPT, ChatGPT-User é a busca sob
+# demanda quando alguém pergunta. O Diário foi escrito para ser lido e citado por
+# esses três, e pelo Claude e pelo Perplexity — então a permissão é explícita.
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://vilaarapiuns.com.br/sitemap-index.xml
