@@ -36,12 +36,27 @@ const t = useTranslations(locale);
 
   <div class="container-editorial flex items-center justify-between gap-6">
     <a href={href(locale, 'home')} class="shrink-0" aria-label={t('site.name')}>
-      <Logo />
+      <Logo compacto />
     </a>
 
-    <!-- Menu em telas grandes -->
-    <nav class="hidden lg:block" aria-label={t('nav.menu')}>
-      <ul class="flex items-center gap-5 xl:gap-8">
+    <!-- Menu em telas grandes.
+         A FILEIRA COMEÇA EM 1280, NÃO EM 1024, e isso é conserto de um bug
+         medido em 26/08/2026: a 1024px o grupo da direita terminava em 1064px
+         num viewport de 1024 — o botão "Reservar" ficava 80px FORA da tela,
+         cortado, em português. Não dava rolagem lateral porque o cabeçalho é
+         `fixed`, e conteúdo que estoura um elemento fixo é silenciosamente
+         aparado: o defeito era invisível para quem não medisse.
+
+         A conta, em 1024px: 944px de conteúdo menos 252 de logo, 48 de vãos e
+         182 do grupo da direita deixam 462 para o menu. O menu em português
+         pede 619 com oito itens, e pedia 529 com sete. Nunca coube.
+
+         Entre 1024 e 1279 o painel de tela cheia assume — ele leva os oito
+         itens e o "Reservar" com folga, e nenhum caminho se perde. O vão só
+         abre para `gap-8` em 2xl porque em 1280 exato os 12px extras por item
+         voltariam a estourar. -->
+    <nav class="hidden xl:block" aria-label={t('nav.menu')}>
+      <ul class="flex items-center gap-5 2xl:gap-8">
         {NAV_KEYS.map((k) => (
           <li>
             <a
@@ -109,7 +124,7 @@ const t = useTranslations(locale);
            atributo `hidden`, removido só por script — então abaixo de 1024px
            com JS desligado o site não tinha navegação NENHUMA. Agora abre sem
            JS e no teclado; o script só acrescenta Esc, trava de foco e scroll. -->
-      <details class="group lg:hidden" data-menu>
+      <details class="group xl:hidden" data-menu>
         <summary
           class="etiqueta -mr-2 flex min-h-11 cursor-pointer list-none items-center gap-2 px-2 group-open:fixed group-open:top-4 group-open:right-5 group-open:z-[70] group-open:text-espuma [&::-webkit-details-marker]:hidden"
         >

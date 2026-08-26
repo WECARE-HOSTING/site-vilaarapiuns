@@ -30,8 +30,26 @@
  * virou de fundo escuro, o logotipo ficou verde sobre verde: 1:1, invisível
  * em todas as 50 páginas. Prop que exige o autor saber a superfície é armadilha.
  */
-interface Props { class?: string }
-const { class: className = '' } = Astro.props;
+/*
+ * `compacto` existe por uma medida, não por gosto: a 390px o cabeçalho punha
+ * o logo em 252px de largura, e sobravam 118 para o seletor de idioma e o
+ * botão de menu, que pedem 132. O resultado, medido em produção em
+ * 26/08/2026, era o "Menu" terminando em 435px numa tela de 390 — 45px fora,
+ * com as três barras do ícone invisíveis. Não aparecia como rolagem lateral
+ * porque o cabeçalho é `fixed`, e o que estoura um elemento fixo é aparado
+ * em silêncio.
+ *
+ * O que ocupa a largura é a segunda linha, "Villa · Rio Arapiuns, Pará":
+ * 12px com 0,14em de tracking dão ~185px sozinhos. No modo compacto ela só
+ * aparece de 640px para cima. Abaixo disso a marca fica na cabeça de
+ * samambaia e em ARAPIUNS, que é o que o logotipo original tem — e o nome do
+ * produto continua visível no rodapé e no painel do menu.
+ *
+ * É o cabeçalho que pede compacto. O rodapé e o painel de menu têm a largura
+ * inteira e continuam com a linha completa.
+ */
+interface Props { class?: string; compacto?: boolean }
+const { class: className = '', compacto = false } = Astro.props;
 const cor = 'cor-titulo';
 
 // As três cabeças com coroa: centro, esquerda, direita.
@@ -90,6 +108,6 @@ const espiral = (cx: number, cy: number, r = 4.6) =>
       A assinatura do logo diz "AMAZONAS"; aqui vale Pará, a verdade do produto.
     -->
     <span class="font-label text-[1.25rem] font-bold leading-none tracking-[0.01em]">ARAPIUNS</span>
-    <span class="etiqueta mt-1.5 opacity-80">Villa · Rio Arapiuns, Pará</span>
+    <span class:list={['etiqueta mt-1.5 opacity-80', compacto && 'hidden sm:inline']}>Villa · Rio Arapiuns, Pará</span>
   </span>
 </span>
