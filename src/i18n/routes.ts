@@ -31,8 +31,9 @@ export const SLUGS: Record<PageKey, Record<Locale, string>> = {
   privateVilla: { en: 'private-villa', pt: 'villa-privativa',  es: 'villa-privada',  de: 'private-villa',  ja: 'private-villa' },
   /* Página sazonal da virada. O slug EN mira a busca literal ("new years eve
      amazon"); o DE usa a palavra que o alemão de fato digita (Silvester).
-     Fora do menu principal — a fileira do desktop já vai a sete itens:
-     entra pela coluna Reservar do rodapé e por CTA. */
+     Nasceu fora do menu e entrou nele em 26/08/2026 — ver NAV_KEYS. Tem três
+     entradas hoje: a fileira do menu, o destaque na página de Pacotes e a
+     coluna Reservar do rodapé. */
   reveillon:    { en: 'new-years-eve', pt: 'reveillon',        es: 'ano-nuevo',      de: 'silvester',      ja: 'new-year' },
   gettingHere:  { en: 'getting-here',  pt: 'como-chegar',      es: 'como-llegar',    de: 'anreise',        ja: 'access' },
   gallery:      { en: 'gallery',       pt: 'galeria',          es: 'galeria',        de: 'galerie',        ja: 'gallery' },
@@ -53,6 +54,14 @@ export const NAV_KEYS: PageKey[] = [
   // "Villa Privativa" porque a fileira do desktop vai a sete itens; o h1 e o
   // campo de exclusividade já carregam a palavra "privativa" onde ela informa.
   'privateVilla',
+  // Entrou no menu em 26/08/2026, a pedido do cliente. É a única chave sazonal
+  // da fileira, e fica DEPOIS das duas ofertas perenes (Pacotes e Grupos):
+  // as que valem o ano todo vêm primeiro, e a de data fechada fecha o grupo.
+  // O rótulo é curto nos cinco idiomas ("Réveillon",
+  // "Silvester", "年越し") justamente porque a fileira agora vai a OITO itens —
+  // o oitavo é o que aperta entre 1024 e 1280px, e é onde conferir primeiro
+  // quando alguém acrescentar o nono.
+  'reveillon',
   'gettingHere',
   'gallery',
 ];

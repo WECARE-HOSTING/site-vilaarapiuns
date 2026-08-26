@@ -25,10 +25,14 @@ import Avaliacoes from '@/content-pages/Avaliacoes.astro';
 import Reservar from '@/content-pages/Reservar.astro';
 import Enviado from '@/content-pages/Enviado.astro';
 
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import { useTranslations } from '@/i18n/utils';
 import { SITE } from '@/data/site';
 import type { Locale } from '@/i18n/config';
 import { NOINDEX_KEYS, type PageKey } from '@/i18n/routes';
+
+import piracaiaRoda from '@/assets/imgs/piracaia-roda.jpg';
 
 interface Props {
   locale: Locale;
@@ -61,6 +65,31 @@ const PAGINAS = {
 } as const;
 
 const Interna = PAGINAS[pageKey as keyof typeof PAGINAS];
+
+/**
+ * O CARTÃO DE LINK, POR PÁGINA.
+ *
+ * O preview do WhatsApp é o momento de aquisição real deste negócio: o link é
+ * colado num grupo, e a foto é a página inteira reduzida a um retângulo. Até
+ * aqui todas as páginas herdavam o mesmo `og.jpg` — o quarto —, que é o
+ * posicionamento certo para a home e errado para uma página sazonal: um link
+ * de réveillon que chega com foto de cama não fala do produto.
+ *
+ * Só a chave que tem foto própria entra no mapa; as demais continuam no
+ * `og.jpg`, e é por isso que o tipo é `Partial`. Nada de foto genérica só para
+ * preencher a linha.
+ */
+const OG_PROPRIO: Partial<Record<PageKey, ImageMetadata>> = {
+  reveillon: piracaiaRoda,
+};
+
+/* 1200×630 é a medida do cartão. A original tem 2048px e 712 kB, e alguns
+   clientes desistem do preview em arquivo grande — então a imagem do cartão é
+   derivada, não a original. `format: 'jpeg'` porque webp no preview de link
+   ainda falha em parte dos clientes de mensagem. */
+const ogDaPagina = OG_PROPRIO[pageKey]
+  ? (await getImage({ src: OG_PROPRIO[pageKey]!, width: 1200, height: 630, fit: 'cover', format: 'jpeg', quality: 78 })).src
+  : undefined;
 ---
 
 <BaseLayout
@@ -68,6 +97,7 @@ const Interna = PAGINAS[pageKey as keyof typeof PAGINAS];
   pageKey={pageKey}
   title={title}
   description={description}
+  image={ogDaPagina}
   indexavel={!NOINDEX_KEYS.includes(pageKey)}
 >
   <Header slot="header" locale={locale} pageKey={pageKey} />

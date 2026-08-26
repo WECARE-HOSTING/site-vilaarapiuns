@@ -35,6 +35,7 @@ import farinhada from '@/assets/imgs/farinhada.jpg';
 import tecelagem from '@/assets/imgs/tecelagem.jpg';
 import porDoSolGrupo from '@/assets/imgs/porsol-gente.jpg';
 import luauPraia from '@/assets/imgs/luau-praia.jpg';
+import piracaiaRoda from '@/assets/imgs/piracaia-roda.jpg';
 import samauma from '@/assets/imgs/samauma-grupo.jpg';
 import jantarPeixe from '@/assets/imgs/jantar-peixe.jpg';
 import chegadaBarco from '@/assets/imgs/chegada-barco.jpg';
@@ -136,6 +137,90 @@ const ROTEIRO_FOTOS = [
         <a href={href(locale, 'gettingHere')} class="btn btn-secundario">{t('nav.gettingHere')}</a>
       </p>
     </div>
+  </div>
+</section>
+
+<!-- ═══════════ A JANELA DA VIRADA ═══════════
+     O réveillon é a terceira oferta desta página e a única com data fechada.
+     Estava só no rodapé: quem lia os dois roteiros nunca sabia que existe.
+
+     POR QUE ESCURO. A profundidade deste sistema é feita por junta e por valor,
+     não por sombra — então o destaque não é um card, é um degrau de valor.
+     `mar-fundo` é o valor mais fundo do site e não aparece em nenhum outro
+     ponto desta página; é ele que faz o bloco saltar sem inventar componente.
+     E como `.sobre-escuro` vira `--cor-etiqueta` para `sol`, este é o único
+     lugar da página onde há ouro — o acento nasce do contexto, não de uma cor
+     escolhida à mão.
+
+     SEM CUNHA PRÓPRIA. A seção de cima já tem `cunha-topo`, que corta a
+     diagonal na base dela e deixa este fundo aparecer por baixo. A junta já
+     existe; acrescentar outra cunha aqui seria desenhar duas vezes o mesmo
+     encontro.
+
+     A DATA GRANDE é a única liberdade que este bloco toma. No resto do site
+     todo dado vive em 12px, no registro da etiqueta; aqui ele sobe a
+     `text-secao` porque o argumento do produto É a data: existe uma só por
+     ano. Fica um degrau ABAIXO do h2 de propósito — no mesmo tamanho os dois
+     competiriam e nenhum lideraria.
+
+     UM COMANDO SÓ. O botão leva à página, e a nota de escassez vem logo
+     abaixo dele — um segundo link para o mesmo lugar só dividiria o clique. -->
+<section class="secao bg-mar-fundo sobre-escuro">
+  <div class="container-editorial">
+    <div class="emenda grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-0">
+      {/* A MESMA RÉGUA DOS DOIS PACOTES ACIMA, e é aí que está o argumento:
+          onde eles declaram um preço, esta declara uma data. E `mt-auto`
+          encosta a régua na base, alinhada com o botão da coluna ao lado,
+          como as duas colunas de preço já fazem. Sem isso a junta vertical
+          corria por um vazio de 200px.
+
+          SEM O RÓTULO que as réguas de preço têm. Lá ele é necessário —
+          "R$ 1.600" sozinho não diz "a partir de". Aqui a data se explica, e
+          no celular o bloco empilha: um rótulo em caixa alta ali viraria olho
+          de seção logo acima do h2, que é o padrão que este sistema proíbe. */}
+      <div class="flex flex-col lg:pr-10 xl:pr-16">
+        <p class="emenda mt-auto border-t pt-6">
+          <span class="numero cor-titulo block text-secao uppercase">{t('reveillon.campoJanela')}</span>
+          <span class="numero etiqueta mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 opacity-80">
+            {t('reveillon.b1M')}
+            <Voluta />
+            {t('reveillon.b4M')}
+          </span>
+        </p>
+      </div>
+
+      <div class="emenda lg:border-l lg:pl-10 xl:pl-16">
+        <h2 class="font-display text-titulo">{t('reveillon.h1')}</h2>
+        <p class="lead mt-4 max-w-[52ch]">{t('reveillon.viradaI')}</p>
+        <p class="mt-8">
+          <a href={href(locale, 'reveillon')} class="btn btn-primario">{t('reveillon.ctaPagina')}</a>
+        </p>
+        {/* A nota de escassez vem DEPOIS do comando, e em `meta`, não em
+            `etiqueta`: a etiqueta é caixa alta com 0,14em de tracking, que
+            serve rótulo, botão e dado — uma frase inteira nela vira grito e
+            perde a leitura. Aqui ela é o que é: uma nota. */}
+        <p class="meta mt-5 opacity-90">{t('reveillon.notaFinal')}</p>
+      </div>
+    </div>
+
+    <figure class="mt-14">
+      {/* 21/9 do tablet para cima: em 16/9 esta foto dava 664px de altura num
+          container de 1180 e a seção ia a 1356px — o destaque virava capítulo.
+          A faixa larga também é o formato da cena, que é horizontal: a roda de
+          velas ocupa a base do quadro e as palmeiras as pontas. No celular
+          volta para 16/9, porque 21/9 em 350px de largura é uma tira de 150px
+          onde não se vê ninguém. */}
+      <Image
+        src={piracaiaRoda}
+        alt={t('reveillon.figHeroAlt')}
+        widths={[600, 900, 1288]}
+        sizes="(min-width: 1280px) 76rem, 100vw"
+        loading="lazy"
+        decoding="async"
+        class="aspect-[16/9] w-full object-cover md:aspect-[21/9]"
+      />
+      <figcaption class="meta numero mt-3">{t('reveillon.figHero')}</figcaption>
+    </figure>
   </div>
 </section>
 
