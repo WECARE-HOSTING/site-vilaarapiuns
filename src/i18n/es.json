@@ -74,7 +74,7 @@
   },
   "home": {
     "hookA": "Un Caribe de agua dulce y cálida, dentro de la selva.",
-    "hookB": "Y usted duerme ahí. Es inolvidable.",
+    "hookB": "Y usted duerme ahí.",
     "intro": "La playa es de agua dulce y transparente, y casi no hay mosquitos. Así es el Arapiuns. Los bungalós son de madera, arquitectura tapajónica, con los pies en la arena. Puede venir unos días, o incluso vivir aquí, ¿ya lo pensó?",
     "travessiaT": "La travesía",
     "travessiaI": "Llegar es parte del viaje. Son tres etapas, y la última es nuestra.",
@@ -791,7 +791,8 @@
     "q6": "¿Podemos reservar la Villa entera?",
     "a6": "Sí. A partir de 15 personas el grupo tiene derecho de exclusividad: trece bungalós para hasta 26 huéspedes, el pabellón, el hamacario y la playa, sin nadie más en la fecha.",
     "notaFinal": "La ventana de Año Nuevo tiene una sola fecha — y trece bungalós.",
-    "cta": "Consultar el Fin de Año por WhatsApp"
+    "cta": "Consultar el Fin de Año por WhatsApp",
+    "ctaPagina": "Ver el Fin de Año"
   },
   "diario": {
     "titulo": "Diario",

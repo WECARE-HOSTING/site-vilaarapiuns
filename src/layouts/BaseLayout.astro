@@ -74,25 +74,76 @@ const ogImage = new URL(image ?? '/og.jpg', SITE.domain).toString();
  * JSON-LD emitido só com fato confirmado. Campos ausentes ficam ausentes:
  *  · aggregateRating fora enquanto reviews.rating for null;
  *  · priceRange fora enquanto prices for null;
- *  · geo fora de propósito — a coordenada que circula no repositório não foi
- *    confirmada, e publicar coordenada errada de um lugar remoto é pior que
- *    não publicar nenhuma.
+ *  · geo e hasMap fora de propósito — a coordenada que circula no repositório
+ *    não foi confirmada, e publicar coordenada errada de um lugar remoto é pior
+ *    que não publicar nenhuma. Entram quando o cliente confirmar a coordenada;
+ *    até lá, ausência é a resposta certa e não uma pendência técnica.
+ *  · petsAllowed saiu como literal e VOLTOU como dado no mesmo dia
+ *    (2026-08-26): estava afirmado `false` em todas as páginas sem constar de
+ *    documento nenhum, e o Carlos confirmou no mesmo dia que a Villa não aceita
+ *    animal. Agora vem de `SITE.petsAllowed`, que é onde política de casa mora.
+ *
+ * A ENTIDADE É UMA, E É ISSO QUE O `@id` RESOLVE (2026-08-26). Antes, cada uma
+ * das 66 páginas emitia um LodgingBusiness sem `@id` e com `url` apontando para
+ * si mesma — 66 declarações que um consumidor não tem como reconhecer como a
+ * MESMA pousada. Agora o `@id` é fixo e global (não muda por página nem por
+ * idioma) e é ele que carrega a identidade; o `url` aponta para a home do
+ * idioma, que é a página do negócio naquele idioma; e o endereço da página
+ * corrente continua sendo dito pelo canonical, que é o lugar dele.
  */
+const idEntidade = `${SITE.domain}/#pousada`;
+
+/**
+ * As duas modalidades são produtos diferentes com inclusões diferentes, e
+ * confundi-las produz alegação falsa — foi o defeito que o site já cometeu.
+ * O schema tinha um `priceRange` único, que não distingue nada: um modelo lendo
+ * a página não tinha como saber que o barco não está incluso na Pousada.
+ *
+ * Nome, descrição e condição saem do dicionário, então isto existe nos cinco
+ * idiomas sem chave nova. O preço nunca é convertido — a cobrança é em BRL em
+ * qualquer idioma, como registra `preco()` em `site.ts`.
+ */
+const ofertas = [
+  { nome: t('modo.pousadaT'), desc: t('modo.pousadaD'), valor: SITE.prices.pousadaMin, unidade: t('modo.porPax'),     cond: t('modo.condPousada') },
+  /**
+   * Os dois pacotes são NOMEADOS, e é assim que o cliente os chama: Clássico
+   * Arapiuns e Imersão Completa. Usar `modo.pacoteT` nos dois emitiria duas
+   * Offers idênticas separadas só pelo preço, o que não diz nada a quem lê.
+   */
+  { nome: t('pacote.p1T'),    desc: t('pacote.p1D'),    valor: SITE.prices.pacoteMin,  unidade: t('modo.porPacote'),  cond: t('modo.condPacote') },
+  { nome: t('pacote.p2T'),    desc: t('pacote.p2D'),    valor: SITE.prices.pacote2Min, unidade: t('modo.porPacote2'), cond: t('modo.condPacote2') },
+].filter((o) => o.valor);
+
 const dados: Record<string, unknown> = {
   '@context': 'https://schema.org',
   '@type': 'LodgingBusiness',
+  '@id': idEntidade,
   name: SITE.name,
-  url: canonical,
+  url: new URL(href(locale, 'home'), SITE.domain).toString(),
   description,
   image: ogImage,
+  inLanguage: HTML_LANG[locale],
   address: {
     '@type': 'PostalAddress',
+    addressLocality: SITE.location.city,
     addressRegion: SITE.location.state,
     addressCountry: SITE.location.country,
   },
   numberOfRooms: SITE.capacity.cabins,
-  petsAllowed: false,
+  petsAllowed: SITE.petsAllowed,
   telephone: `+${SITE.contact.whatsapp}`,
+  makesOffer: ofertas.map((o) => ({
+    '@type': 'Offer',
+    name: o.nome,
+    description: o.desc,
+    priceSpecification: {
+      '@type': 'UnitPriceSpecification',
+      price: o.valor,
+      priceCurrency: SITE.prices.currency,
+      unitText: o.unidade,
+      description: o.cond,
+    },
+  })),
 };
 if (SITE.reviews.rating && SITE.reviews.count) {
   dados.aggregateRating = {

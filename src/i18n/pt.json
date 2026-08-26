@@ -74,7 +74,7 @@
   },
   "home": {
     "hookA": "Um Caribe de água doce e quente, dentro da floresta.",
-    "hookB": "E você dorme lá. É inesquecível.",
+    "hookB": "E você dorme lá.",
     "intro": "A praia é de água doce e transparente, e quase não tem mosquito. É assim o Arapiuns. Os bangalôs são de madeira, arquitetura tapajônica, pé na areia. Você pode vir por alguns dias, ou até morar aqui, já pensou?",
     "travessiaT": "A travessia",
     "travessiaI": "Chegar faz parte. São três etapas, e a última é nossa.",
@@ -791,7 +791,8 @@
     "q6": "Posso fechar a Villa inteira?",
     "a6": "Sim. A partir de 15 pessoas o grupo tem direito de exclusividade: treze bangalôs para até 26 hóspedes, o pavilhão, o redário e a praia, sem ninguém de fora na data.",
     "notaFinal": "A janela da virada tem uma data só — e treze bangalôs.",
-    "cta": "Consultar a virada no WhatsApp"
+    "cta": "Consultar a virada no WhatsApp",
+    "ctaPagina": "Ver o réveillon"
   },
   "diario": {
     "titulo": "Diário",
