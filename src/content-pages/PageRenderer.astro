@@ -33,6 +33,15 @@ import type { Locale } from '@/i18n/config';
 import { NOINDEX_KEYS, type PageKey } from '@/i18n/routes';
 
 import piracaiaRoda from '@/assets/imgs/piracaia-roda.jpg';
+import bangaloPalafita from '@/assets/imgs/bangalo-palafita.jpg';
+import jantarPeixe from '@/assets/imgs/jantar-peixe.jpg';
+import igapoCanoaGrupo from '@/assets/imgs/igapo-canoa-grupo.jpg';
+import samaumaGrupo from '@/assets/imgs/samauma-grupo.jpg';
+import villaDeCima from '@/assets/imgs/villa-de-cima-poster.jpg';
+import chegadaBarco from '@/assets/imgs/chegada-barco.jpg';
+import gal1 from '@/assets/imgs/gal1.jpg';
+import porsolGente from '@/assets/imgs/porsol-gente.jpg';
+import embarqueGrupo from '@/assets/imgs/embarque-grupo.jpg';
 
 interface Props {
   locale: Locale;
@@ -77,10 +86,21 @@ const Interna = PAGINAS[pageKey as keyof typeof PAGINAS];
  *
  * Só a chave que tem foto própria entra no mapa; as demais continuam no
  * `og.jpg`, e é por isso que o tipo é `Partial`. Nada de foto genérica só para
- * preencher a linha.
+ * preencher a linha. `home` fica de fora de propósito: o `og.jpg` padrão já É
+ * a foto da home (o quarto), então dar a ela uma entrada aqui duplicaria a
+ * mesma imagem por dois caminhos.
  */
 const OG_PROPRIO: Partial<Record<PageKey, ImageMetadata>> = {
   reveillon: piracaiaRoda,
+  lodge: bangaloPalafita,
+  dining: jantarPeixe,
+  experiences: igapoCanoaGrupo,
+  packages: samaumaGrupo,
+  privateVilla: villaDeCima,
+  gettingHere: chegadaBarco,
+  gallery: gal1,
+  reviews: porsolGente,
+  book: embarqueGrupo,
 };
 
 /* 1200×630 é a medida do cartão. A original tem 2048px e 712 kB, e alguns
