@@ -132,6 +132,17 @@ const dados: Record<string, unknown> = {
   numberOfRooms: SITE.capacity.cabins,
   petsAllowed: SITE.petsAllowed,
   telephone: `+${SITE.contact.whatsapp}`,
+  /**
+   * As quatro estruturas nomeadas de `pousada.c1T`–`c4T` — já aprovadas e no
+   * ar nos cinco idiomas na própria página da pousada. Sem chave nova: é a
+   * mesma copy, só que também declarada em schema.
+   */
+  amenityFeature: [
+    { '@type': 'LocationFeatureSpecification', name: t('pousada.c1T') },
+    { '@type': 'LocationFeatureSpecification', name: t('pousada.c2T') },
+    { '@type': 'LocationFeatureSpecification', name: t('pousada.c3T') },
+    { '@type': 'LocationFeatureSpecification', name: t('pousada.c4T') },
+  ],
   makesOffer: ofertas.map((o) => ({
     '@type': 'Offer',
     name: o.nome,
