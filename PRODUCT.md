@@ -145,11 +145,15 @@ R$ 716. Acima de 26 hóspedes, consultar. **Direito de exclusividade a partir de
 ## Capabilities and Constraints
 
 - Site estático, cinco idiomas (pt, en, es, de, ja), português como idioma-base.
-- Canal de contato e reserva: WhatsApp. **Não existe e-mail publicável** (`contact.email`
-  é `null` em `src/data/site.ts`) — o site não deve prometer um segundo canal.
+- Canal de contato e reserva: WhatsApp. E-mail de papel `reservas@vilaarapiuns.com.br`
+  (`contact.email` em `src/data/site.ts`) — destino do formulário, não um segundo canal
+  prometido: o site continua tratando o WhatsApp como o canal.
 - Sem motor de reservas: o site conduz a uma conversa, não a um checkout.
 
-- Canal público: WhatsApp **+55 11 96976-0096**. Instagram **@villaarapiuns**.
+- Canal público: WhatsApp **+55 47 99206-7078**. Instagram **@villaarapiuns**.
+  (O número do panfleto antigo, +55 11 96976-0096, saiu do site inteiro em
+  21/08/2026 — canal comercial único, decisão do Carlos. `src/data/site.ts` é a
+  fonte de verdade operacional; este documento é o racional.)
 - Existe canal comercial separado para agências e operadoras, fora deste
   repositório. Não referenciar contato de agência aqui nem em `site.ts`.
 
