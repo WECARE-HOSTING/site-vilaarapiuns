@@ -108,7 +108,11 @@ if (d.duvidas.length) {
         <h1 class="font-display text-titulo mt-4 max-w-[46rem]">{d.titulo}</h1>
 
         <!-- A resposta direta. Antes da foto, de propósito. -->
-        <div class="mt-8 border-l-2 border-areia-regua pl-5 md:pl-6">
+        {/* `emenda` e não `border-areia-regua`: esse token nunca existiu — as
+            areias do tema são clara, areia, sol e funda —, então a classe não
+            gerava regra nenhuma e o filete saía na cor do texto. `emenda` lê
+            `--cor-emenda` do contexto, que é o que a casa manda usar. */}
+        <div class="emenda mt-8 border-l-2 pl-5 md:pl-6">
           <p class="lead max-w-[62ch]">{d.resposta}</p>
         </div>
 
