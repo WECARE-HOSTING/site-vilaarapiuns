@@ -198,6 +198,50 @@ if (SITE.contact.instagram) {
     {!semSchemaNegocio && <script type="application/ld+json" set:html={JSON.stringify(dados)} is:inline />}
 
     <slot name="head" />
+
+    {SITE.analytics.measurementId && (
+      <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${SITE.analytics.measurementId}`}></script>
+      <script is:inline define:vars={{ GA_ID: SITE.analytics.measurementId }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', GA_ID);
+
+        /**
+         * CONVERSA INICIADA — o KPI primário deste negócio.
+         *
+         * Delegado no document, e não um handler por botão: todo CTA de
+         * WhatsApp do site é um <a href="https://wa.me/...">, montado por
+         * whatsappUrl() em site.ts. Um listener aqui cobre as 66 páginas e
+         * qualquer CTA que nasça depois, sem tocar em nenhum content-page — e
+         * sem criar a dívida de "alguém esqueceu de instrumentar a página nova".
+         *
+         * `pagina` e `idioma` viajam com o evento porque a pergunta que
+         * interessa não é quantas conversas, é DE ONDE: a home e a página de
+         * grupos convertem por motivos diferentes, e o alemão não é o
+         * brasileiro.
+         *
+         * LIMITE CONHECIDO, e não é defeito a consertar: isto exige
+         * JavaScript. O site tem de funcionar sem ele (rede móvel instável é
+         * o caso normal), e o formulário de reserva obedece isso dando POST
+         * em /enviar.php. Então o envio de formulário é medido pelo pageview
+         * de /{idioma}/reservar/enviado/, que conta sem JS, e o clique de
+         * WhatsApp não. Consequência a saber ao ler o relatório: o WhatsApp
+         * será SUBCONTADO em relação ao formulário, e parte da diferença
+         * entre os dois é instrumentação, não preferência do visitante.
+         */
+        document.addEventListener('click', function (e) {
+          var alvo = e.target;
+          var a = alvo && alvo.closest ? alvo.closest('a[href*="wa.me"]') : null;
+          if (!a) return;
+          gtag('event', 'generate_lead', {
+            metodo: 'whatsapp',
+            pagina: location.pathname,
+            idioma: document.documentElement.lang,
+          });
+        }, { capture: true });
+      </script>
+    )}
   </head>
 
   <body>

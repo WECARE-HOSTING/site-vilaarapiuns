@@ -57,6 +57,28 @@ export const SITE = {
     boatMinutes: 90,
   },
 
+  /**
+   * MEDIÇÃO. Criado em 26/08/2026 por API (propriedade 551708230, conta
+   * WeCare Hosting), depois de o site ficar no ar semanas sem medir nada:
+   * o HTML não tinha gtag, GTM nem qualquer analytics, e não existia
+   * propriedade GA4 para este domínio.
+   *
+   * POR QUE ISTO É DADO E NÃO VARIÁVEL DE AMBIENTE. O Measurement ID é
+   * público por construção — ele sai no HTML de toda página, qualquer
+   * visitante o lê. Não há segredo a proteger. E, mais decisivo: quem publica
+   * este site roda o build DO LADO DO SERVIDOR (deploy automático no push
+   * para `main`), num ambiente onde não existe o `.env` de ninguém. Um
+   * `import.meta.env.PUBLIC_GA_ID` sairia vazio em produção e a tag
+   * simplesmente não existiria — falha silenciosa, do tipo que só se
+   * descobre semanas depois olhando um relatório vazio.
+   *
+   * `null` desliga a medição inteira. É assim que se roda um fork ou um
+   * ambiente de teste sem sujar a propriedade com dado de localhost.
+   */
+  analytics: {
+    measurementId: 'G-YC3JBLLH1P' as string | null,
+  },
+
   contact: {
     /**
      * CANAL COMERCIAL ÚNICO, definido pelo Carlos em 21/08/2026: toda venda
