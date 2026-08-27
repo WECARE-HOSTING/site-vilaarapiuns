@@ -6,7 +6,7 @@ import react from '@astrojs/react';
 import { caminhosNoindex } from './src/i18n/routes.ts';
 
 export default defineConfig({
-  site: 'https://vilaarapiuns.com.br',
+  site: 'https://villaarapiuns.com.br',
   trailingSlash: 'always',
 
   i18n: {
