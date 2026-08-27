@@ -20,7 +20,7 @@ const LIMITE_HORA = 5;
 const LIMITE_DIA  = 20;
 const TEMPO_MINIMO = 3;
 
-$DOMINIO = 'vilaarapiuns.com.br';
+$DOMINIO = 'villaarapiuns.com.br';
 
 /**
  * Slugs por idioma — espelham SLUGS.bookSent e SLUGS.book em
@@ -295,7 +295,7 @@ $idioma = in_array($_POST['idioma'] ?? '', array_keys(ENVIADO), true) ? $_POST['
 
 // ── 2. Mesma origem ──────────────────────────────────────────────────────
 // Compara o HOST, não a string inteira: `str_contains` daria passe livre a
-// https://vilaarapiuns.com.br.dominio-do-invasor.com, que contém o nosso
+// https://villaarapiuns.com.br.dominio-do-invasor.com, que contém o nosso
 // domínio e não é nosso.
 $origem = $_SERVER['HTTP_ORIGIN'] ?? $_SERVER['HTTP_REFERER'] ?? '';
 $host = strtolower((string)(parse_url($origem, PHP_URL_HOST) ?: ''));
