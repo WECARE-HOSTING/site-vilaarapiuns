@@ -57,7 +57,7 @@ function lastmodDoDiario() {
 const LASTMOD = lastmodDoDiario();
 
 export default defineConfig({
-  site: 'https://vilaarapiuns.com.br',
+  site: 'https://villaarapiuns.com.br',
   trailingSlash: 'always',
 
   i18n: {

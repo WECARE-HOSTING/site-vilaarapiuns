@@ -1,3 +1,12 @@
 RewriteEngine On
+
+# --- Host canônico + HTTPS, em salto único ---------------------------------
+# Uma regra só cobre as quatro combinações: domínio antigo (um L), variantes
+# com www, e qualquer acesso em http. O [OR] é proposital — host errado OU
+# protocolo errado disparam o mesmo 301 para o destino certo, sem cadeia.
+#
+# 301 e não 302: o redirecionamento de host é permanente. Um 302 diz ao Google
+# para manter o domínio antigo no índice e não transfere sinal nenhum.
+RewriteCond %{HTTP_HOST} !^villaarapiuns\.com\.br$ [NC,OR]
 RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteRule ^(.*)$ https://villaarapiuns.com.br/$1 [L,R=301]
