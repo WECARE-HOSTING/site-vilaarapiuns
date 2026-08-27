@@ -66,10 +66,16 @@ $cfg = require $cfgPath;
 // sem que nada apareça quebrado. Falha FECHADA, com a mesma mensagem pelada
 // da config ausente: quem pediu não descobre o que faltou.
 if (!is_array($cfg)) { http_response_code(500); exit('config ausente'); }
-foreach (['varDir', 'to', 'bcc'] as $chaveObrigatoria) {
+foreach (['varDir', 'to'] as $chaveObrigatoria) {
   $v = $cfg[$chaveObrigatoria] ?? null;
   if (!is_string($v) || trim($v) === '') { http_response_code(500); exit('config ausente'); }
 }
+// `bcc` é o único opcional dos três: string vazia é "sem cópia" (ver `?:
+// null` em enviar-mail.php). Ainda assim a CHAVE precisa existir como string
+// — o mesmo risco de "Undefined array key" antes de qualquer cabeçalho que
+// justifica o laço acima, só que aqui '' passa e '' é o config de quem não
+// quer BCC nenhum.
+if (!is_string($cfg['bcc'] ?? null)) { http_response_code(500); exit('config ausente'); }
 // `dryRun` é bool, e `false` é valor LEGÍTIMO — por isso não cabe no laço
 // acima: is_string()/trim() rejeitaria `false` como se a chave estivesse
 // ausente. Sem esta checagem em separado, um va-config.php escrito à mão sem

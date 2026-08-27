@@ -15,6 +15,7 @@ return [
   'from'     => 'site@vilaarapiuns.com.br',
   'fromName' => 'Villa Arapiuns',
   'to'       => 'reservas@vilaarapiuns.com.br',
+  /** '' = sem cópia. É o único dos quatro de cima que pode ficar vazio. */
   'bcc'      => 'carlos@wecarehosting.com.br',
 
   /** true = grava o e-mail em arquivo em vez de enviar. É como se testa local. */
