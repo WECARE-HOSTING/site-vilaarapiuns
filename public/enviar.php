@@ -20,7 +20,12 @@ const LIMITE_HORA = 5;
 const LIMITE_DIA  = 20;
 const TEMPO_MINIMO = 3;
 
-$DOMINIO = 'vilaarapiuns.com.br';
+// O oficial é o de duas 'L' (villaarapiuns.com.br, desde 27/08/2026). O de
+// uma 'L' (vilaarapiuns.com.br) fica na lista só de transição: o domínio já
+// redireciona 301 pro novo, então a única origem que ainda chega com ele é
+// uma aba que já estava aberta antes da troca. Remover essa segunda entrada
+// quando essa janela deixar de importar.
+$DOMINIOS = ['villaarapiuns.com.br', 'vilaarapiuns.com.br'];
 
 /**
  * Slugs por idioma — espelham SLUGS.bookSent e SLUGS.book em
@@ -299,7 +304,10 @@ $idioma = in_array($_POST['idioma'] ?? '', array_keys(ENVIADO), true) ? $_POST['
 // domínio e não é nosso.
 $origem = $_SERVER['HTTP_ORIGIN'] ?? $_SERVER['HTTP_REFERER'] ?? '';
 $host = strtolower((string)(parse_url($origem, PHP_URL_HOST) ?: ''));
-$nosso = $host === $DOMINIO || str_ends_with($host, '.' . $DOMINIO);
+$nosso = false;
+foreach ($DOMINIOS as $dominio) {
+  if ($host === $dominio || str_ends_with($host, '.' . $dominio)) { $nosso = true; break; }
+}
 // A tolerância a localhost existe para o servidor embutido do PHP e para a
 // suíte. Em produção ela não pode valer: um Referer forjado apontando para
 // localhost é trivial, e sem esta trava seria um bypass da origem escrito no
