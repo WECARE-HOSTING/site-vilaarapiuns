@@ -77,7 +77,7 @@ export const SITE = {
      * para um hóspede antigo que salvou o contato. Um alias sobrevive à
      * troca sem o site mudar uma linha.
      */
-    email: 'reservas@vilaarapiuns.com.br',
+    email: 'reservas@villaarapiuns.com.br',
     instagram: '@villaarapiuns',
   },
 
