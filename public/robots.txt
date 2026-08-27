@@ -1,4 +1,4 @@
-# Villa Arapiuns — vilaarapiuns.com.br
+# Villa Arapiuns — villaarapiuns.com.br
 #
 # O site inteiro é público e indexável, com uma exceção: /pt/styleguide/, que é a
 # página interna de aprovação de design. Ela NÃO é bloqueada aqui de propósito —
@@ -45,4 +45,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://vilaarapiuns.com.br/sitemap-index.xml
+Sitemap: https://villaarapiuns.com.br/sitemap-index.xml

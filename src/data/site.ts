@@ -9,7 +9,7 @@ import { HTML_LANG, type Locale } from '@/i18n/config';
 
 export const SITE = {
   name: 'Villa Arapiuns',
-  domain: 'https://vilaarapiuns.com.br',
+  domain: 'https://villaarapiuns.com.br',
 
   /**
    * DECISÃO ABERTA — ver PRODUCT.md. Não preencher sem confirmação.

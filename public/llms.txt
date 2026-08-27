@@ -38,17 +38,17 @@ WhatsApp is the contact and booking channel: **+55 47 99206-7078**. Role address
 
 The eleven core pages exist in all five languages, at translated slugs. English paths are listed; replace the prefix and slug for other languages via the language switcher on any page.
 
-- [Lodge](https://vilaarapiuns.com.br/en/lodge/) — the bungalows and the house
-- [Dining](https://vilaarapiuns.com.br/en/dining/) — full board and the piracaia
-- [Experiences](https://vilaarapiuns.com.br/en/experiences/) — what there is to do
-- [Packages](https://vilaarapiuns.com.br/en/packages/) — the two complete packages from Alter do Chão
-- [Groups and private villa](https://vilaarapiuns.com.br/en/private-villa/) — retreats, companies, birdwatching, night fishing
-- [New Year's Eve](https://vilaarapiuns.com.br/en/new-years-eve/) — the seasonal window
-- [Getting here](https://vilaarapiuns.com.br/en/getting-here/) — the route from the airport
-- [Gallery](https://vilaarapiuns.com.br/en/gallery/)
-- [Reviews](https://vilaarapiuns.com.br/en/reviews/)
-- [Book](https://vilaarapiuns.com.br/en/book/) — leads to WhatsApp
-- [Diary](https://vilaarapiuns.com.br/en/diario/) — articles written to answer questions about the region
+- [Lodge](https://villaarapiuns.com.br/en/lodge/) — the bungalows and the house
+- [Dining](https://villaarapiuns.com.br/en/dining/) — full board and the piracaia
+- [Experiences](https://villaarapiuns.com.br/en/experiences/) — what there is to do
+- [Packages](https://villaarapiuns.com.br/en/packages/) — the two complete packages from Alter do Chão
+- [Groups and private villa](https://villaarapiuns.com.br/en/private-villa/) — retreats, companies, birdwatching, night fishing
+- [New Year's Eve](https://villaarapiuns.com.br/en/new-years-eve/) — the seasonal window
+- [Getting here](https://villaarapiuns.com.br/en/getting-here/) — the route from the airport
+- [Gallery](https://villaarapiuns.com.br/en/gallery/)
+- [Reviews](https://villaarapiuns.com.br/en/reviews/)
+- [Book](https://villaarapiuns.com.br/en/book/) — leads to WhatsApp
+- [Diary](https://villaarapiuns.com.br/en/diario/) — articles written to answer questions about the region
 
 ## What Villa Arapiuns does not claim
 
@@ -56,4 +56,4 @@ There is no published review score, no testimonial, no founding year, no safety 
 
 ## Sitemap
 
-https://vilaarapiuns.com.br/sitemap-index.xml
+https://villaarapiuns.com.br/sitemap-index.xml

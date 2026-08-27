@@ -188,7 +188,7 @@ function limpa() {
 // Origin: null remove o cabeçalho (para o caso "sem Origin e sem Referer").
 function cabecalhos(extra = {}) {
   const h = { 'Content-Type': 'application/x-www-form-urlencoded',
-              Origin: 'https://vilaarapiuns.com.br', ...extra };
+              Origin: 'https://villaarapiuns.com.br', ...extra };
   for (const k of Object.keys(h)) if (h[k] === null) delete h[k];
   return h;
 }
@@ -631,8 +631,8 @@ try {
   //    deixava a regressão passar inteira.
   for (const [rotulo, origem] of [
     ['origem de fora recusada',            'https://evil.example'],
-    ['sufixo do nosso domínio recusado',   'https://vilaarapiuns.com.br.evil.example'],
-    ['prefixo colado no nome recusado',    'https://evil-vilaarapiuns.com.br'],
+    ['sufixo do nosso domínio recusado',   'https://villaarapiuns.com.br.evil.example'],
+    ['prefixo colado no nome recusado',    'https://evil-villaarapiuns.com.br'],
   ]) {
     limpa();
     r = await post(VALIDO, { Origin: origem, Accept: 'application/json' });
@@ -644,7 +644,7 @@ try {
   ok('sem Origin e sem Referer recusado', r.status === 403, String(r.status));
   // O subdomínio legítimo continua entrando.
   limpa();
-  r = await post(VALIDO, { Origin: 'https://www.vilaarapiuns.com.br', Accept: 'application/json' });
+  r = await post(VALIDO, { Origin: 'https://www.villaarapiuns.com.br', Accept: 'application/json' });
   ok('subdomínio nosso aceito', r.status === 200, String(r.status));
 
   // 9b. Campo em array (`nome[]=x`). O cast direto emitiria "Array to string
