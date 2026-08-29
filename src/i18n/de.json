@@ -691,7 +691,7 @@
     "figRetiroAlt": "Kreis von etwa zwanzig Menschen, die auf Matten auf dem Holzboden des Palmdach-Pavillons sitzen, einem stehenden Leiter zugewandt, der Wald durch die offenen Seiten sichtbar",
     "corpT": "Unternehmen",
     "corpD": "Überdachter Raum für das ganze Team, ein langer Tisch zum Arbeiten und ein ganzer Tag Aktivität draußen: Pfad, Kanu, Maniokmehl-Herstellung mit den Gemeinden. Das Team kommt zusammen an und teilt das Haus mit niemandem.",
-    "corpConexao": "Zum Netz das Klare: Es gibt Starlink vor Ort für das, was nicht warten kann, und es trägt nicht das ganze Team gleichzeitig durch eine Online-Besprechung. Was diese Reise liefert, ist kein Büro mit Aussicht, sondern das Team an einem Ort, ohne Bildschirm dazwischen — und das ist meist überhaupt der Grund, Menschen hierher zu bringen.",
+    "corpConexao": "Zum Netz das Klare: Es gibt Starlink vor Ort mit stabiler Solarversorgung, und es trägt das ganze Team gleichzeitig durch eine Online-Besprechung. Was diese Reise liefert, ist kein Büro mit Aussicht, sondern das Team an einem Ort, ohne Bildschirm dazwischen — und das ist meist überhaupt der Grund, Menschen hierher zu bringen.",
     "figCorp": "Der Palmdach-Pavillon · wo die Gruppe vollständig sitzt",
     "figCorpAlt": "Offener Pavillon mit Palmdach über Holzboden, mit Liegestuhl, umgeben von Wald",
     "avesT": "Vogelbeobachtung",
@@ -880,6 +880,11 @@
             "id": "arenaBancos",
             "leg": "Der Feuerkreis",
             "alt": "Bänke aus massiven Baumstämmen bilden einen Kreis im Sand der Lichtung, umgeben von Wald"
+          },
+          {
+            "id": "pavilhaoFrente",
+            "leg": "Der Pavillon von vorn",
+            "alt": "Langgestreckter Pavillon mit Palmdach, von der Sandfläche aus gesehen, mit Holzterrasse, Stühlen und breiten Stufen hinunter auf den hellen Boden"
           }
         ]
       },
@@ -965,6 +970,11 @@
             "id": "mesaCaneca",
             "leg": "Das Geschirr",
             "alt": "Ein blauer Keramikbecher auf einem geflochtenen Palmen-Set, auf dem Holztisch"
+          },
+          {
+            "id": "jantarPraia",
+            "leg": "Tafel im Sand",
+            "alt": "Lange niedrige Tafeln im Sand in der Abenddämmerung, in Blau und Weiß eingedeckt, mit geblümten Baumwollkissen und einer Lichterkette darüber"
           }
         ]
       },

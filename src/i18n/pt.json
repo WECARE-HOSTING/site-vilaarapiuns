@@ -691,7 +691,7 @@
     "figRetiroAlt": "Roda de cerca de vinte pessoas sentadas em tapetes no piso de madeira do pavilhão de palha, voltadas para um facilitador em pé, com a mata visível pelos vãos abertos",
     "corpT": "Empresas",
     "corpD": "Espaço coberto para o time reunido, mesa comprida para trabalhar e o dia inteiro de atividade fora dela: trilha, canoa, farinhada com as comunidades. A equipe chega junta e não divide a Villa com outro grupo.",
-    "corpConexao": "Sobre sinal, o combinado é claro. Há Starlink no local para o que não pode esperar, e ele não sustenta o time inteiro em reunião on-line ao mesmo tempo. O que esta viagem entrega não é escritório com vista: é o time no mesmo lugar, sem tela no meio — que costuma ser exatamente o motivo de trazer gente para cá.",
+    "corpConexao": "Sobre sinal, o combinado é claro. Há Starlink no local com energia solar estável, e ele sustenta o time inteiro em reunião on-line ao mesmo tempo. O que esta viagem entrega não é escritório com vista: é o time no mesmo lugar, sem tela no meio — que costuma ser exatamente o motivo de trazer gente para cá.",
     "figCorp": "O pavilhão de palha · onde o grupo se senta inteiro",
     "figCorpAlt": "Pavilhão aberto de telhado de palha sobre piso de madeira, com espreguiçadeira, cercado pela mata",
     "avesT": "Observação de aves",
@@ -880,6 +880,11 @@
             "id": "arenaBancos",
             "leg": "A roda de fogo",
             "alt": "Bancos de tronco maciço formando uma roda na areia da clareira, cercados pela mata"
+          },
+          {
+            "id": "pavilhaoFrente",
+            "leg": "Pavilhão, de frente",
+            "alt": "Pavilhão comprido de telhado de palha visto da areia, com deck de madeira, cadeiras e degraus largos descendo para o chão claro"
           }
         ]
       },
@@ -965,6 +970,11 @@
             "id": "mesaCaneca",
             "leg": "A louça",
             "alt": "Caneca de cerâmica azul apoiada num jogo americano de palha trançada, sobre a madeira da mesa"
+          },
+          {
+            "id": "jantarPraia",
+            "leg": "Mesa na areia",
+            "alt": "Mesas baixas e compridas montadas sobre a areia ao entardecer, forradas de azul e branco, com almofadas de chita floral e um varal de lâmpadas aceso por cima"
           }
         ]
       },
