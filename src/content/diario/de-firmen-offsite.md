@@ -13,11 +13,11 @@ legenda: "Der Pavillon · der Plenumsraum, an allen vier Seiten offen"
 destino: privateVilla
 duvidas:
   - q: "Kann das Team von dort online arbeiten?"
-    a: "PREENCHER — was Starlink tatsächlich trägt: wie viele Personen gleichzeitig, ob ein Videocall garantiert werden kann und ob es dafür einen reservierten Platz gibt. Das ist die erste Frage jedes Firmenkunden, und die ehrliche Antwort ist mehr wert als die schöne."
+    a: "Ja. Vor Ort gibt es Starlink mit stabiler Solarversorgung, und es trägt das ganze Team gleichzeitig durch eine Online-Besprechung. Wenn Ihr Programm mitten in der Woche einen Call mit der Zentrale braucht, findet er statt — ohne dass jemand für Empfang auf eine Böschung steigt."
   - q: "Welche Präsentationstechnik gibt es?"
-    a: "PREENCHER — Beamer, Leinwand, Ton, Steckdosen im Pavillon, Flipchart. Falls nichts vorhanden ist, angeben, was das Team mitbringen muss."
+    a: "Vor Ort gibt es keine Ton- oder Videotechnik. Wenn Ihr Programm Projektion, Ton oder Aufzeichnung braucht, wird die Produktion separat beauftragt, und das sollte von Anfang an im Budget stehen. Der Pavillon bietet Dach, Schatten und die ganze Gruppe an einem Ort — alles Weitere bringen Sie mit."
   - q: "Stellen Sie Rechnungen aus und arbeiten Sie mit Vertrag?"
-    a: "PREENCHER — Firmenregistrierung, Rechnungsstellung, Standard-Gruppenvertrag, Zahlungsbedingungen und -fristen sowie Stornobedingungen mit unternehmensüblicher Vorlaufzeit."
+    a: "Ja. Wir stellen Rechnungen aus und arbeiten mit einem Gruppenvertrag. 30 % Anzahlung sichern den Termin, der Restbetrag ist spätestens sieben Tage vor Anreise vollständig fällig, per Karte oder PIX. PREENCHER — Storno- und Umbuchungsbedingungen."
   - q: "Wie viele Personen passen hinein?"
     a: "Dreizehn Bangalôs, bis zu sechsundzwanzig Personen bei Exklusivnutzung der Anlage — an diesen Terminen ist niemand außerhalb Ihres Teams vor Ort. Wir kalkulieren Gruppen unterschiedlicher Größe; sagen Sie uns, wie viele Sie sind, und Sie bekommen eine Zahl."
   - q: "Wie viele Nächte sind sinnvoll?"
@@ -46,13 +46,13 @@ Bei Exklusivnutzung ist an diesen Terminen niemand außerhalb Ihres Teams vor Or
 
 **Der Strand und der Hängemattenhain** sind die Orte, an denen Menschen es schaffen, nicht in einer Session zu sein. Ein Offsite ohne diese beiden wird zu einer langen Sitzung an einem teuren Ort.
 
-## Die Abgeschiedenheit ist das Produkt — und zugleich das Risiko
+## Die Verbindung funktioniert — Abgeschiedenheit ist Ihre Entscheidung
 
 Hier lohnt Deutlichkeit, denn genau daran scheitern die meisten Firmenentscheidungen.
 
-Die Konnektivität ist bewusst schwach. Es gibt Starlink, reserviert für Notfälle. **Sie trägt kein ganzes Team, das online arbeitet.** Wenn Ihr Programm verlangt, dass die Teilnehmenden weiter ihr Tagesgeschäft bedienen, ist dies nicht der richtige Ort — und wir verlieren lieber die Buchung, als ein frustriertes Team zu empfangen.
+**Es gibt Starlink mit stabiler Solarversorgung, und es trägt das ganze Team gleichzeitig durch eine Online-Besprechung.** Niemand muss für Empfang auf eine Böschung steigen, und der Call mit der Zentrale mitten in der Woche findet statt. Falls das Ihre Frage war: sie ist beantwortet.
 
-Wenn das Ziel das Gegenteil ist — ein Team für einige Tage so aus dem Betrieb zu nehmen, dass niemand ausweichen kann —, erledigt die Geografie das von allein. Es braucht keine Handy-in-die-Kiste-Regel. Es ist der Fluss.
+Was sich ändert, ist die Frage, wer entscheidet. Abgeschiedenheit kommt hier nicht aus der Geografie, sondern von Ihnen. Wenn das Ziel ist, das Team für einige Tage aus dem Betrieb zu nehmen, wird das zu einer Regel, die die Führung setzt und ankündigt — nicht zu einer Einschränkung, die der Ort auferlegt. Unsere Empfehlung: klären Sie das vor der Anreise, denn ein Team ohne Absprache nutzt das Netz genauso wie im Büro.
 
 ## Der Inhalt, den der Ort bereits mitbringt
 
@@ -84,6 +84,6 @@ Schicken Sie uns die Termine, die Personenzahl, die Anzahl der Nächte und das, 
 
 ## Vertragliches
 
-PREENCHER — Firmenregistrierung und Rechnungsstellung, Standard-Gruppenvertrag, Zahlungsbedingungen und -fristen, Stornobedingungen mit unternehmensüblicher Vorlaufzeit, und wozu sich das Unternehmen verpflichtet, um einen Termin zu halten.
+Wir stellen Rechnungen aus und arbeiten mit einem Gruppenvertrag. **30 % Anzahlung** sichern den Termin, der **Restbetrag ist sieben Tage vor Anreise vollständig fällig**. Wir akzeptieren **Karte und PIX**.
 
-Dieser Abschnitt entscheidet, ob Ihre Rechts- und Finanzabteilung zustimmt. Er sollte präzise geschrieben sein.
+PREENCHER — Storno- und Umbuchungsbedingungen. Es ist die letzte Frage der Finanzabteilung des Kunden und die, die am häufigsten gegen ein Landhotel entscheidet.

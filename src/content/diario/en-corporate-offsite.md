@@ -13,11 +13,11 @@ legenda: "The pavilion · the plenary space, open on all four sides"
 destino: privateVilla
 duvidas:
   - q: "Can the team work online from there?"
-    a: "PREENCHER — what Starlink actually sustains: how many people at once, whether one video call can be guaranteed, and whether there is a spot reserved for it. This is every corporate buyer's first question, and the honest answer is worth more than the good one."
+    a: "Yes. There is Starlink on site, on stable solar power, and it carries the whole team through an online meeting at once. If your programme needs a call with head office mid-week, it happens — without anyone climbing a bank hunting for signal."
   - q: "What presentation setup is there?"
-    a: "PREENCHER — projector, screen, sound, power outlets in the pavilion, flip chart. If there is none, say what the team needs to bring."
+    a: "There is no sound or video setup on site. If your programme needs projection, sound or recording, production is contracted separately, and it is worth budgeting for that from the start. The pavilion gives you shelter, shade and the whole group together — the rest comes with you."
   - q: "Do you invoice, and do you work with a contract?"
-    a: "PREENCHER — company registration, invoicing, standard group contract, payment terms, and a cancellation policy on corporate notice."
+    a: "Yes. We invoice and we work with a group contract. A 30% deposit holds the date, and the balance is due in full seven days before check-in, by card or PIX. PREENCHER — cancellation and rescheduling policy."
   - q: "How many people fit?"
     a: "Thirteen bungalows, up to twenty-six people on exclusive use of the property — nobody outside your team is on site on those dates. We quote groups of different sizes; tell us how many you are and you get a number back."
   - q: "How many nights make sense?"
@@ -46,13 +46,13 @@ On exclusive use, nobody outside your team is on site on those dates. That is th
 
 **The beach and the hammock grove** are where people manage not to be in a session. An offsite without those two becomes a long meeting in an expensive place.
 
-## Disconnection is the product, and also the risk
+## The connection works, and disconnection is your call
 
 Worth being blunt here, because this is where most corporate decisions stall.
 
-Connectivity is deliberately weak. There is Starlink, kept for emergencies. **It does not sustain a whole team working online.** If your programme requires people to keep answering their day job, this is not the place — and we would rather lose the booking than host a frustrated team.
+**There is Starlink on stable solar power, and it carries the whole team through an online meeting at once.** Nobody will be climbing a bank hunting for signal, and the mid-week call with head office happens. If that was your question, it is answered.
 
-If the point is the opposite — pulling a team out of the flow for a few days in a way nobody can circumvent — the geography does that work by itself. It is not a phones-in-a-box policy. It is the river.
+What changes is whose decision it is. Disconnection here does not come from the geography: it comes from you. If the point is to pull the team out of the flow for a few days, that becomes a rule leadership sets and announces — not a limitation the place imposes. Our advice is to settle it before travelling, because a team that arrives without an agreement will use the signal exactly as it would at the office.
 
 ## The content the place already has
 
@@ -84,6 +84,6 @@ Send the dates, how many people, how many nights, and what your programme actual
 
 ## Contracting
 
-PREENCHER — company registration and invoicing, standard group contract, payment terms and schedule, cancellation policy on corporate notice, and what the company commits to in order to hold a date.
+We invoice and we work with a group contract. A **30% deposit** holds the date, and the **balance is due in full seven days before check-in**. We accept **card and PIX**.
 
-This section is what decides whether your legal and finance teams approve. Worth writing precisely.
+PREENCHER — cancellation and rescheduling policy. It is the last question a client's finance team asks, and the one that most often decides against a country hotel.

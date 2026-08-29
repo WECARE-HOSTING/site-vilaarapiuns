@@ -19,7 +19,7 @@ duvidas:
   - q: "Gibt es einen Raum für die Praxis und für den Sitzkreis?"
     a: "Ja: eine Shala de Yoga und ein überdachter Palmpavillon, groß genug, um die gesamte Gruppe gemeinsam sitzen zu lassen. Der Strand selbst ist der dritte Raum — und der, den die meisten Gruppen am Ende in der Abenddämmerung nutzen."
   - q: "Wie ist es mit dem Internet?"
-    a: "Vor Ort gibt es Starlink, das für Notfälle vorgehalten wird. Es trägt keine ganze Gruppe, die Videoanrufe führt, und das sagen wir Ihnen lieber jetzt, als dass Sie es selbst entdecken. Für ein Retreat ist das meist genau der Punkt."
+    a: "Vor Ort gibt es Starlink mit stabiler Solarversorgung, und es funktioniert gut — auch für Videocalls mit der ganzen Gruppe. Wir sagen das, weil Abgeschiedenheit hier etwas ist, das Sie gestalten und ankündigen, keine Einschränkung, die der Ort auferlegt. Die meisten Gruppen wissen, dass es geht, und entscheiden sich dagegen."
   - q: "Veranstalten Sie Ayahuasca- oder Pflanzenmedizin-Retreats?"
     a: "Nein. Wir bieten das nicht an, wir organisieren es nicht, und dafür steht dieser Ort nicht. Wir sind Gastgeber für Wellness-, Bewegungs-, Meditations-, Leadership- und Kreativgruppen. Wenn Pflanzenmedizin im Zentrum Ihres Programms steht, sind wir der falsche Ort — und sagen das lieber, bevor Sie anreisen."
   - q: "Wann ist das beste Zeitfenster für eine Buchung?"
@@ -66,7 +66,7 @@ Wir verlieren lieber eine Buchung, als dass ein Facilitator dies erst bei der An
 
 **Die Anreise dauert einen vollen Tag.** Flug nach Santarém (STM) — Direktflüge ab Manaus, Belém und Brasília, mit Umsteigeverbindung ab São Paulo —, dann ein 40-minütiger Landtransfer, dann 90 Minuten mit dem Boot. Von Europa oder Nordamerika aus rechnen Sie mit zwei Tagen, einschließlich einer Übernachtung in Brasilien. Für ein fünfnächtiges Retreat ist das kein Problem. Für ein Wochenende ist es absurd, und das sagen wir Ihnen auch.
 
-**Die Konnektivität ist bewusst schwach.** Es gibt Starlink, vorgehalten für Notfälle. Es trägt keine Gruppe, die online arbeitet. Für die meisten Retreats ist genau das das Merkmal; wenn Ihr Programm verlangt, dass Teilnehmende sich bei ihrem Job melden können, wählen Sie einen anderen Ort.
+**Die Konnektivität funktioniert.** Es gibt Starlink mit stabiler Solarversorgung, und es trägt eine Gruppe, die online arbeitet. Das ändert die Gestaltung Ihres Retreats: Abgeschiedenheit ist hier eine Regel, die Sie setzen, nicht eine, die die Geografie erzwingt. Entscheiden Sie das vorab und sagen Sie es bei der Anmeldung — eine Gruppe, die ohne Empfang rechnet und dann doch welchen vorfindet, löst ihren eigenen Rahmen auf.
 
 **Von Februar bis Juni keine Strände.** Der Fluss steigt, und der Sand verschwindet darunter. An seine Stelle treten der überflutete Wald und eine fast vollständige Stille. Es ist eine schöne Jahreszeit, aber eine andere — verkaufen Sie Ihren Teilnehmenden im April nur keinen Strand.
 

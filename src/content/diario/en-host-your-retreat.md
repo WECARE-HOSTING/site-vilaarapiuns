@@ -19,7 +19,7 @@ duvidas:
   - q: "Is there a space for practice and for sitting in circle?"
     a: "Yes: a yoga shala, and a covered palm pavilion large enough for the entire group seated together. The beach itself is the third room, and the one most groups end up using at dusk."
   - q: "What is the internet like?"
-    a: "There is Starlink on site, kept for emergencies. It will not carry a whole group running video calls, and we would rather tell you that now than have you discover it. For a retreat this is usually the point."
+    a: "There is Starlink on site, on stable solar power, and it works well — including video calls for the whole group. We say so because disconnection here is something you design and announce, not a limitation the place imposes. Most groups know it works and choose not to use it."
   - q: "Do you host ayahuasca or plant-medicine retreats?"
     a: "No. We do not offer it, do not arrange it, and it is not what this place is. We host wellness, movement, meditation, leadership and creative groups. If plant medicine is central to your programme, we are the wrong venue and would rather say so before you travel."
   - q: "When is the best window to book?"
@@ -66,7 +66,7 @@ We would rather lose a booking than have a facilitator discover these on arrival
 
 **Getting here is a full day.** Fly to Santarém (STM) — direct from Manaus, Belém and Brasília, connecting from São Paulo — then a 40-minute road transfer, then 90 minutes by boat. From Europe or North America, count two days including an overnight in Brazil. For a five-night retreat this is fine. For a weekend it is absurd, and we will say so.
 
-**Connectivity is deliberately thin.** There is Starlink, held for emergencies. It cannot support a group working online. For most retreats that is the feature; if your programme needs participants to check in with their jobs, choose somewhere else.
+**Connectivity works.** There is Starlink on stable solar power, and it supports a group working online. That changes how you design the retreat: disconnection here is a rule you set, not one the geography enforces. Decide it in advance and say so at sign-up — a group that arrives expecting to be off-grid and finds signal will unravel its own container.
 
 **No beaches from February to June.** The river rises and the sand goes under. What replaces it is the flooded forest and near-total quiet. It is a beautiful season and a different one — just do not sell your participants a beach in April.
 

@@ -13,11 +13,11 @@ legenda: "El pabellón · el espacio de plenaria, abierto por los cuatro lados"
 destino: privateVilla
 duvidas:
   - q: "¿Se puede trabajar en línea desde allí?"
-    a: "PREENCHER — qué sostiene realmente la Starlink: cuántas personas a la vez, si se puede garantizar una videollamada, y si hay un punto reservado para eso. Es la primera pregunta de todo comprador corporativo, y la respuesta honesta vale más que la buena."
+    a: "Sí. Hay Starlink en el lugar, con energía solar estable, y sostiene al equipo entero en una reunión en línea a la vez. Si su programa necesita una llamada con la casa matriz a mitad de semana, ocurre, sin que nadie tenga que subir a un barranco a buscar señal."
   - q: "¿Qué estructura hay para presentaciones?"
-    a: "PREENCHER — proyector, pantalla, sonido, enchufes en el pabellón, rotafolio. Si no hay, decir qué debe traer el equipo."
+    a: "No hay estructura de sonido ni de vídeo en el lugar. Si su programa necesita proyección, sonido o grabación, la producción se contrata aparte, y conviene preverlo en el presupuesto desde el principio. El pabellón ofrece techo, sombra y todo el grupo junto; el resto viene con usted."
   - q: "¿Emiten factura y trabajan con contrato?"
-    a: "PREENCHER — registro de la empresa, facturación, contrato estándar de grupo, condiciones y plazos de pago, y política de cancelación con antelación corporativa."
+    a: "Sí. Emitimos factura y trabajamos con contrato de grupo. Un 30% de señal retiene la fecha, y el saldo se paga íntegro hasta siete días antes del check-in, con tarjeta o PIX. PREENCHER — política de cancelación y de cambio de fecha."
   - q: "¿Cuántas personas caben?"
     a: "Trece bangalôs, hasta veintiséis personas en uso exclusivo de la propiedad: nadie fuera de su equipo está en el lugar en esas fechas. Cotizamos grupos de distintos tamaños; díganos cuántos son y recibe un número."
   - q: "¿Cuántas noches tienen sentido?"
@@ -46,13 +46,13 @@ En uso exclusivo, nadie fuera de su equipo está en el lugar en esas fechas. Esa
 
 **La playa y el redário** son los espacios donde la gente logra no estar en sesión. Un offsite sin esos dos se convierte en una reunión larga en un lugar caro.
 
-## La desconexión es el producto, y también el riesgo
+## La conexión funciona, y la desconexión es decisión suya
 
 Vale ser directo aquí, porque es donde se traba la mayoría de las decisiones corporativas.
 
-La conectividad es débil a propósito. Hay Starlink, reservada para emergencias. **No sostiene a un equipo entero trabajando en línea.** Si su programa exige que las personas sigan respondiendo el día a día, este no es el lugar, y preferimos perder la reserva antes que recibir a un equipo frustrado.
+**Hay Starlink con energía solar estable, y sostiene al equipo entero en una reunión en línea a la vez.** Nadie tendrá que subir a un barranco a buscar señal, y la llamada con la casa matriz a mitad de semana ocurre. Si esa era su duda, queda respondida.
 
-Si el objetivo es el contrario — sacar al equipo del flujo por unos días de un modo que nadie pueda saltarse —, la geografía hace ese trabajo sola. No es una política de teléfonos en una caja. Es el río.
+Lo que cambia es de quién es la decisión. Aquí la desconexión no viene de la geografía: viene de ustedes. Si el objetivo es sacar al equipo del flujo por unos días, eso se convierte en una regla que la dirección establece y comunica, no en una limitación que impone el lugar. Recomendamos definirlo antes de viajar, porque un equipo que llega sin acuerdo usará la señal igual que en la oficina.
 
 ## El contenido que el lugar ya tiene
 
@@ -84,6 +84,6 @@ Envíe las fechas, cuántas personas, cuántas noches y qué necesita realmente 
 
 ## Contratación
 
-PREENCHER — registro de la empresa y facturación, contrato estándar de grupo, condiciones y plazos de pago, política de cancelación con antelación corporativa, y a qué se compromete la empresa para retener una fecha.
+Emitimos factura y trabajamos con contrato de grupo. Un **30% de señal** retiene la fecha, y el **saldo vence íntegro siete días antes del check-in**. Aceptamos **tarjeta y PIX**.
 
-Esta sección es la que decide si su área legal y financiera aprueban. Vale escribirla con precisión.
+PREENCHER — política de cancelación y de cambio de fecha. Es la última pregunta del área financiera del cliente, y la que más decide en contra de un hotel de campo.
