@@ -691,7 +691,7 @@
     "figRetiroAlt": "Círculo de unas veinte personas sentadas en esterillas sobre el piso de madera del pabellón de paja, de cara a un facilitador de pie, con la selva visible por los vanos abiertos",
     "corpT": "Empresas",
     "corpD": "Espacio cubierto para el equipo reunido, mesa larga para trabajar y el día entero de actividad fuera de ella: sendero, canoa, farinhada con las comunidades. El equipo llega junto y no comparte la casa con otro grupo.",
-    "corpConexao": "Sobre la señal, el acuerdo es claro. Hay Starlink en el lugar para lo que no puede esperar, y no sostiene al equipo entero en una reunión en línea a la vez. Lo que entrega este viaje no es una oficina con vistas: es el equipo en el mismo sitio, sin pantalla en medio, que suele ser exactamente el motivo de traer gente hasta aquí.",
+    "corpConexao": "Sobre la señal, el acuerdo es claro. Hay Starlink en el lugar con energía solar estable, y sostiene al equipo entero en una reunión en línea a la vez. Lo que entrega este viaje no es una oficina con vistas: es el equipo en el mismo sitio, sin pantalla en medio, que suele ser exactamente el motivo de traer gente hasta aquí.",
     "figCorp": "El pabellón de paja · donde el grupo se sienta entero",
     "figCorpAlt": "Pabellón abierto de techo de paja sobre piso de madera, con tumbona, rodeado de selva",
     "avesT": "Observación de aves",
@@ -880,6 +880,11 @@
             "id": "arenaBancos",
             "leg": "La ronda del fuego",
             "alt": "Bancos de tronco macizo formando una ronda en la arena del claro, rodeados por el bosque"
+          },
+          {
+            "id": "pavilhaoFrente",
+            "leg": "El pabellón, de frente",
+            "alt": "Pabellón alargado con techo de paja de palma visto desde la arena, con plataforma de madera, sillas y escalones anchos que bajan al suelo claro"
           }
         ]
       },
@@ -965,6 +970,11 @@
             "id": "mesaCaneca",
             "leg": "La vajilla",
             "alt": "Taza de cerámica azul apoyada en un mantel individual de palma trenzada, sobre la madera de la mesa"
+          },
+          {
+            "id": "jantarPraia",
+            "leg": "Mesa en la arena",
+            "alt": "Mesas bajas y alargadas montadas sobre la arena al atardecer, vestidas de azul y blanco, con cojines de estampado floral y una guirnalda de bombillas encendidas"
           }
         ]
       },

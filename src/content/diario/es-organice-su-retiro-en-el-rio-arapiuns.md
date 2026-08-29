@@ -19,7 +19,7 @@ duvidas:
   - q: "¿Hay un espacio para la práctica y para sentarse en círculo?"
     a: "Sí: una Shala de Yoga, y un pabellón cubierto de palma lo bastante grande para que todo el grupo se siente junto. La playa misma es la tercera sala, y la que la mayoría de los grupos termina usando al atardecer."
   - q: "¿Cómo es el internet?"
-    a: "Hay Starlink en el lugar, reservado para emergencias. No soporta a todo un grupo haciendo videollamadas, y preferimos decírselo ahora antes de que usted lo descubra allí. Para un retiro, esto suele ser justamente el punto."
+    a: "Hay Starlink en el lugar, con energía solar estable, y funciona bien, incluso para videollamadas con el grupo entero. Lo decimos porque la desconexión aquí es algo que usted diseña y anuncia, no una limitación que el lugar impone. La mayoría de los grupos sabe que funciona y elige no usarlo."
   - q: "¿Organizan retiros de ayahuasca o de medicina vegetal?"
     a: "No. No lo ofrecemos, no lo organizamos, y no es lo que este lugar es. Recibimos grupos de bienestar, movimiento, meditación, liderazgo y creatividad. Si la medicina vegetal es central en su programa, no somos el lugar indicado, y preferimos decírselo antes de que usted viaje."
   - q: "¿Cuál es la mejor ventana para reservar?"
@@ -66,7 +66,7 @@ Preferimos perder una reserva antes que un facilitador descubra esto al llegar.
 
 **Llegar hasta aquí toma un día completo.** Vuele a Santarém (STM) — directo desde Manaos, Belém y Brasilia, con conexión desde São Paulo — luego un traslado de 40 minutos por carretera, y después 90 minutos en barco. Desde Europa o Norteamérica, cuente dos días, incluida una noche en Brasil. Para un retiro de cinco noches, esto está bien. Para un fin de semana es absurdo, y se lo diremos así.
 
-**La conectividad es deliberadamente limitada.** Hay Starlink, reservado para emergencias. No puede sostener a un grupo trabajando en línea. Para la mayoría de los retiros, esto es precisamente la ventaja; si su programa necesita que los participantes se conecten con su trabajo, elija otro lugar.
+**La conectividad funciona.** Hay Starlink con energía solar estable, y sostiene a un grupo trabajando en línea. Eso cambia el diseño de su retiro: la desconexión aquí es una regla que usted establece, no una que imponga la geografía. Conviene decidirlo antes y decirlo en la inscripción: un grupo que llega esperando estar sin señal y descubre que la hay, se desarma solo.
 
 **Sin playas de febrero a junio.** El río sube y la arena queda bajo el agua. Lo que la reemplaza es el bosque inundado y un silencio casi total. Es una temporada hermosa y distinta — solo no le venda a sus participantes una playa en abril.
 

@@ -691,7 +691,7 @@
     "figRetiroAlt": "A circle of about twenty people sitting on mats on the wooden floor of the thatched pavilion, facing a facilitator who is standing, with the forest visible through the open bays",
     "corpT": "Companies",
     "corpD": "Covered space for the team together, a long table to work at, and a whole day of activity outside it: trail, canoe, cassava-flour making with the communities. The team arrives together and shares the house with no one else.",
-    "corpConexao": "About signal, let's be straight. There is Starlink on site for what cannot wait, and it will not carry the whole team through an online meeting at once. What this trip delivers is not an office with a view: it is the team in one place with no screen in between — which is usually the reason for bringing people out here at all.",
+    "corpConexao": "About signal, let's be straight. There is Starlink on site on stable solar power, and it carries the whole team through an online meeting at once. What this trip delivers is not an office with a view: it is the team in one place with no screen in between — which is usually the reason for bringing people out here at all.",
     "figCorp": "The thatched pavilion · where the group sits all together",
     "figCorpAlt": "Open pavilion with a thatched roof over a wooden floor, with a lounger, surrounded by forest",
     "avesT": "Birdwatching",
@@ -880,6 +880,11 @@
             "id": "arenaBancos",
             "leg": "The fire circle",
             "alt": "Solid tree-trunk benches forming a circle on the sand of the clearing, surrounded by forest"
+          },
+          {
+            "id": "pavilhaoFrente",
+            "leg": "The pavilion, front on",
+            "alt": "Long palm-thatched pavilion seen from the sand, with a timber deck, chairs and broad steps down to the pale ground"
           }
         ]
       },
@@ -965,6 +970,11 @@
             "id": "mesaCaneca",
             "leg": "The tableware",
             "alt": "A blue ceramic mug resting on a woven-palm placemat, on the timber table"
+          },
+          {
+            "id": "jantarPraia",
+            "leg": "Table on the sand",
+            "alt": "Long low tables set on the sand at dusk, dressed in blue and white, with floral cotton cushions and a strung line of lit bulbs overhead"
           }
         ]
       },
