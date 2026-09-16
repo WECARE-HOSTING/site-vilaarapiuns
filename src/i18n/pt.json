@@ -316,6 +316,32 @@
         "legenda": "A piracaia, à luz de velas"
       }
     ],
+    "heroPaisagem": [
+      {
+        "id": "praiaBranca",
+        "alt": "Banco de areia branca no Rio Arapiuns, com a água parada espelhando um céu de nuvens altas e uma cobertura de palha na ponta"
+      },
+      {
+        "id": "bancoDourado",
+        "alt": "Curva de areia dourada na luz do fim de tarde, com a mata baixa na outra margem e uma nuvem carregada subindo ao fundo"
+      },
+      {
+        "id": "igapoTroncos",
+        "alt": "Floresta alagada na cheia, com troncos brancos secos saindo da água rasa e a praia ao fundo"
+      },
+      {
+        "id": "bancoGente",
+        "alt": "Banco de areia largo na maré baixa, com duas pessoas caminhando pequenas contra a extensão de areia e o rio ao fundo"
+      },
+      {
+        "id": "porDoSol",
+        "alt": "Pôr do sol sobre o rio visto de sob a folhagem, com o céu laranja e a água escura em ondas curtas"
+      },
+      {
+        "id": "alterArvores",
+        "alt": "Praia de areia clara vista de sob as árvores, com barcos ancorados na água e a mata do outro lado"
+      }
+    ],
     "campoLancha": "1h30 de lancha de {place}"
   },
   "modo": {

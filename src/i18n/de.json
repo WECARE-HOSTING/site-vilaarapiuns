@@ -316,6 +316,32 @@
         "legenda": "Die Piracaia, im Kerzenlicht"
       }
     ],
+    "heroPaisagem": [
+      {
+        "id": "praiaBranca",
+        "alt": "Eine weiße Sandbank am Rio Arapiuns, das stille Wasser spiegelt einen Himmel aus hohen Wolken, an der Spitze ein Palmdach als Schatten"
+      },
+      {
+        "id": "bancoDourado",
+        "alt": "Eine Kurve goldenen Sandes im Licht des späten Nachmittags, niedriger Wald am gegenüberliegenden Ufer und dahinter eine aufziehende Wolke"
+      },
+      {
+        "id": "igapoTroncos",
+        "alt": "Überfluteter Wald zur Hochwasserzeit, gebleichte tote Stämme im flachen Wasser, dahinter der Strand"
+      },
+      {
+        "id": "bancoGente",
+        "alt": "Eine weite Sandbank bei Niedrigwasser, zwei kleine Gestalten gehen über die Sandfläche, dahinter der Fluss"
+      },
+      {
+        "id": "porDoSol",
+        "alt": "Sonnenuntergang über dem Fluss, vom Laub aus gesehen, orangefarbener Himmel über dunklem Wasser in kurzen Wellen"
+      },
+      {
+        "id": "alterArvores",
+        "alt": "Ein heller Sandstrand, von unter den Bäumen aus gesehen, mit ankernden Booten auf dem Wasser und Wald am anderen Ufer"
+      }
+    ],
     "campoLancha": "1,5 Std. mit dem Boot ab {place}"
   },
   "modo": {

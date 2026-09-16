@@ -316,6 +316,32 @@
         "legenda": "La piracaia, a la luz de las velas"
       }
     ],
+    "heroPaisagem": [
+      {
+        "id": "praiaBranca",
+        "alt": "Un banco de arena blanca en el Río Arapiuns, con el agua quieta reflejando un cielo de nubes altas y una sombra de paja en la punta"
+      },
+      {
+        "id": "bancoDourado",
+        "alt": "Una curva de arena dorada con la luz del atardecer, la mata baja en la otra orilla y una nube alta creciendo al fondo"
+      },
+      {
+        "id": "igapoTroncos",
+        "alt": "Bosque inundado en la crecida, con troncos blancos secos saliendo del agua baja y la playa al fondo"
+      },
+      {
+        "id": "bancoGente",
+        "alt": "Un banco de arena ancho con el agua baja, dos personas pequeñas caminando contra la extensión de arena y el río al fondo"
+      },
+      {
+        "id": "porDoSol",
+        "alt": "Puesta de sol sobre el río vista desde debajo del follaje, con el cielo naranja y el agua oscura en olas cortas"
+      },
+      {
+        "id": "alterArvores",
+        "alt": "Una playa de arena clara vista desde debajo de los árboles, con barcos fondeados en el agua y la selva al otro lado"
+      }
+    ],
     "campoLancha": "1h30 en lancha desde {place}"
   },
   "modo": {
