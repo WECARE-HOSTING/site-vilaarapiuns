@@ -322,24 +322,21 @@
         "alt": "Eine weiße Sandbank am Rio Arapiuns, das stille Wasser spiegelt einen Himmel aus hohen Wolken, an der Spitze ein Palmdach als Schatten"
       },
       {
-        "id": "bancoDourado",
-        "alt": "Eine Kurve goldenen Sandes im Licht des späten Nachmittags, niedriger Wald am gegenüberliegenden Ufer und dahinter eine aufziehende Wolke"
+        "alt": "Eine goldene Sandbank, die unter einem tiefblauen Himmel mit hohen Wolken in den Fluss hineinreicht, mit einer Fußspur im Sand"
       },
       {
         "id": "igapoTroncos",
         "alt": "Überfluteter Wald zur Hochwasserzeit, gebleichte tote Stämme im flachen Wasser, dahinter der Strand"
       },
       {
-        "id": "bancoGente",
-        "alt": "Eine weite Sandbank bei Niedrigwasser, zwei kleine Gestalten gehen über die Sandfläche, dahinter der Fluss"
+        "alt": "Eine flache Sandbank mitten im Fluss, die Sonne hoch am Himmel und das seichte Wasser so klar, dass der Grund durchscheint"
+      },
+      {
+        "alt": "Ein Paddler steht auf einem Stand-up-Board und gleitet in einen dunklen, stillen Seitenarm zwischen hohen Buriti-Palmen, sein Spiegelbild auf dem Wasser"
       },
       {
         "id": "porDoSol",
         "alt": "Sonnenuntergang über dem Fluss, vom Laub aus gesehen, orangefarbener Himmel über dunklem Wasser in kurzen Wellen"
-      },
-      {
-        "id": "alterArvores",
-        "alt": "Ein heller Sandstrand, von unter den Bäumen aus gesehen, mit ankernden Booten auf dem Wasser und Wald am anderen Ufer"
       }
     ],
     "campoLancha": "1,5 Std. mit dem Boot ab {place}"
@@ -932,9 +929,9 @@
             "alt": "Eine Sandbank mitten im Fluss, das flache Wasser so klar, dass der von Licht gewellte Grund zu sehen ist"
           },
           {
-            "id": "porDoSolPortao",
+            "id": "porDoSolRio",
             "leg": "Sonnenuntergang am Fluss",
-            "alt": "Die tiefstehende orangefarbene Sonne über dem breiten Fluss, gesehen vom Holzsteg aus, mit Vegetation im Schattenriss"
+            "alt": "Ein orangefarbener Sonnenuntergang über dem breiten Fluss, die Sonne berührt den Horizont, und die dunkle Krone eines Baums rahmt den oberen Bildrand"
           },
           {
             "id": "praiaEspreguicadeira",
