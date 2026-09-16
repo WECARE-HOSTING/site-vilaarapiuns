@@ -322,24 +322,21 @@
         "alt": "Un banco de arena blanca en el Río Arapiuns, con el agua quieta reflejando un cielo de nubes altas y una sombra de paja en la punta"
       },
       {
-        "id": "bancoDourado",
-        "alt": "Una curva de arena dorada con la luz del atardecer, la mata baja en la otra orilla y una nube alta creciendo al fondo"
+        "alt": "Banco de arena dorada que avanza en el río bajo un cielo azul profundo con nubes altas, con un rastro de huellas en la arena"
       },
       {
         "id": "igapoTroncos",
         "alt": "Bosque inundado en la crecida, con troncos blancos secos saliendo del agua baja y la playa al fondo"
       },
       {
-        "id": "bancoGente",
-        "alt": "Un banco de arena ancho con el agua baja, dos personas pequeñas caminando contra la extensión de arena y el río al fondo"
+        "alt": "Banco de arena bajo en medio del río, con el sol alto en el cielo y el agua poco profunda tan clara que se ve el fondo"
+      },
+      {
+        "alt": "Remero de pie sobre una tabla de stand-up paddle entrando en un igarapé de agua oscura y quieta, entre altas palmeras de buriti, con su reflejo en el agua"
       },
       {
         "id": "porDoSol",
         "alt": "Puesta de sol sobre el río vista desde debajo del follaje, con el cielo naranja y el agua oscura en olas cortas"
-      },
-      {
-        "id": "alterArvores",
-        "alt": "Una playa de arena clara vista desde debajo de los árboles, con barcos fondeados en el agua y la selva al otro lado"
       }
     ],
     "campoLancha": "1h30 en lancha desde {place}"
@@ -932,9 +929,9 @@
             "alt": "Banco de arena dentro del río, con el agua poco profunda tan clara que el fondo aparece ondulado por la luz"
           },
           {
-            "id": "porDoSolPortao",
+            "id": "porDoSolRio",
             "leg": "Atardecer en el río",
-            "alt": "Sol bajo anaranjado sobre el agua ancha del río, visto desde la pasarela, con la vegetación en silueta"
+            "alt": "Atardecer anaranjado sobre el río ancho, con el sol tocando el horizonte y la copa oscura de un árbol enmarcando la parte alta de la imagen"
           },
           {
             "id": "praiaEspreguicadeira",

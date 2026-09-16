@@ -322,24 +322,21 @@
         "alt": "A white sandbank on the Rio Arapiuns, the still water mirroring a sky of high cloud, with a palm-thatched shade at the tip"
       },
       {
-        "id": "bancoDourado",
-        "alt": "A curve of golden sand in late afternoon light, low forest on the far bank and a tall cloud building behind it"
+        "alt": "A golden sandbar reaching into the river under a deep blue sky with high clouds, a trail of footprints in the sand"
       },
       {
         "id": "igapoTroncos",
         "alt": "Flooded forest in the high-water season, bleached dead trunks standing in the shallows with the beach beyond"
       },
       {
-        "id": "bancoGente",
-        "alt": "A wide sandbank at low water, two small figures walking against the expanse of sand with the river beyond"
+        "alt": "A low sandbar in the middle of the river, the sun high in the sky and the shallow water so clear the bottom shows through"
+      },
+      {
+        "alt": "A paddler standing on a stand-up board, heading into a dark still-water creek between tall buriti palms, his reflection on the water"
       },
       {
         "id": "porDoSol",
         "alt": "Sunset over the river seen from under the foliage, orange sky above dark water in short waves"
-      },
-      {
-        "id": "alterArvores",
-        "alt": "A pale sand beach seen from under the trees, boats at anchor on the water and forest on the far side"
       }
     ],
     "campoLancha": "1h30 by boat from {place}"
@@ -932,9 +929,9 @@
             "alt": "A sandbank within the river, the shallow water so clear that the sunlit, rippled riverbed shows through"
           },
           {
-            "id": "porDoSolPortao",
+            "id": "porDoSolRio",
             "leg": "Sunset on the river",
-            "alt": "The low orange sun over the wide river, seen from the walkway, with vegetation in silhouette"
+            "alt": "An orange sunset over the wide river, the sun touching the horizon and the dark canopy of a tree framing the top of the frame"
           },
           {
             "id": "praiaEspreguicadeira",
