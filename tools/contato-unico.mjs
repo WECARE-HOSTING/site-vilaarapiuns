@@ -110,7 +110,7 @@ for (const obrigatorio of OBRIGATORIO) {
 // A real é credencial; isso nunca esteve em dúvida. O MODELO subia de
 // propósito, e era erro: ele vivia em `public/`, então `astro build` o copiava
 // para `dist/va-config.example.php`, buscável por qualquer um em
-// `https://vilaarapiuns.com.br/va-config.example.php`. Não tem senha dentro,
+// `https://villaarapiuns.com.br/va-config.example.php`. Não tem senha dentro,
 // mas nomeia o endereço do BCC, o host e o usuário de SMTP e o caminho do
 // varDir — mapa gratuito para quem for procurar. Quem precisa do modelo pega
 // em `docs/va-config.example.php`, no repositório; ninguém precisa dele pelo
