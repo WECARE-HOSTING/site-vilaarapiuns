@@ -120,7 +120,10 @@ const ogDaPagina = OG_PROPRIO[pageKey]
   image={ogDaPagina}
   indexavel={!NOINDEX_KEYS.includes(pageKey)}
 >
-  <Header slot="header" locale={locale} pageKey={pageKey} />
+  {/* Na home o cabeçalho nasce sobre a foto do hero: fundo transparente,
+      véu próprio no topo, e ele só ganha o chão creme quando o palco de
+      fotografia sai da tela (ver o script do Header). */}
+  <Header slot="header" locale={locale} pageKey={pageKey} sobreFoto={pageKey === 'home'} />
 
   {pageKey === 'home' ? (
     <Home locale={locale} />
