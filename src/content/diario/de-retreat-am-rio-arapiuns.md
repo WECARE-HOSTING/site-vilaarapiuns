@@ -24,6 +24,8 @@ duvidas:
     a: "Nein. Wir bieten das nicht an, wir organisieren es nicht, und dafür steht dieser Ort nicht. Wir sind Gastgeber für Wellness-, Bewegungs-, Meditations-, Leadership- und Kreativgruppen. Wenn Pflanzenmedizin im Zentrum Ihres Programms steht, sind wir der falsche Ort — und sagen das lieber, bevor Sie anreisen."
   - q: "Wann ist das beste Zeitfenster für eine Buchung?"
     a: "Februar bis Juni ist die Hochwasserzeit: keine Strände, dafür Stille, überfluteter Wald zum Durchpaddeln und die größte Verfügbarkeit — die meisten unserer Buchungen für die gesamte Anlage liegen in diesem Zeitraum. Wochentage von September bis November bieten das beste Wetter des Jahres, bei weiterhin geöffneter Anlage."
+  - q: "Wie funktionieren Zahlung und Stornierung?"
+    a: "30 % Anzahlung sichern den Termin, der Restbetrag ist spätestens sieben Tage vor Anreise vollständig fällig, per Karte oder PIX, mit Rechnung und Gruppenvertrag. Der Vertrag sieht ein 48-stündiges Widerrufsfenster mit voller Rückerstattung vor; danach werden bei Stornierung mehr als sechzig Tage vor Anreise 30 % des Gesamtbetrags einbehalten, und ab sechzig Tagen oder weniger erfolgt keine Rückerstattung."
 ---
 
 Wenn Sie Retreats veranstalten, wissen Sie bereits: Der schwierige Teil ist nicht das Programm. Es ist, einen Ort zu finden, der eine Gruppe von zwanzig Personen eine Woche lang aufnehmen kann, ohne selbst zum Problem zu werden — weit genug entfernt, um sich wie ein echter Aufbruch anzufühlen, strukturiert genug, um tatsächlich zu funktionieren, und als Ganzes verfügbar, damit Ihre Gruppe nicht mit Fremden das Frühstück teilt.
@@ -81,6 +83,12 @@ Der Preis richtet sich nach **Gruppengröße und Anzahl der Nächte** und sinkt 
 Zur Orientierung, wie sich das einordnet: Europäische Premium-Retreat-Orte liegen üblicherweise bei 280–380 € pro Person und Tag. Wir liegen darunter — an einem Ort, der deutlich schwerer zu erreichen ist und für den sich deutlich schwerer ein Äquivalent finden lässt.
 
 Nennen Sie uns Ihre Termine, Ihre Gruppengröße, die Anzahl der Nächte und was Ihr Programm tatsächlich von einem Raum braucht. Sie erhalten eine echte Zahl statt einer Broschüre.
+
+## Buchung und Stornierung
+
+Wir stellen Rechnungen aus und arbeiten mit einem Gruppenvertrag. **30 % Anzahlung** sichern den Termin, der **Restbetrag ist spätestens sieben Tage vor Anreise vollständig fällig**. Wir akzeptieren **Karte und PIX**.
+
+Der Vertrag sieht ein **48-stündiges Widerrufsfenster** vor: Wer darin storniert, nach Unterschrift und Anzahlung, erhält den vollen Betrag zurück. Danach werden **bei Stornierung mehr als sechzig Tage vor Anreise 30 % des Gesamtbetrags einbehalten**, und **ab sechzig Tagen oder weniger gibt es keine Rückerstattung**. Eine große Gruppe belegt das gesamte Grundstück — deshalb ist die Frist hier länger als bei den kleineren Paketen: Fällt ein Retreat-Termin aus, kommt er nicht auf den Markt zurück.
 
 ## Das Zeitfenster, das Sie kennen sollten
 

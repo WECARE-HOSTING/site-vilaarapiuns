@@ -17,7 +17,7 @@ duvidas:
   - q: "Welche Präsentationstechnik gibt es?"
     a: "Vor Ort gibt es keine Ton- oder Videotechnik. Wenn Ihr Programm Projektion, Ton oder Aufzeichnung braucht, wird die Produktion separat beauftragt, und das sollte von Anfang an im Budget stehen. Der Pavillon bietet Dach, Schatten und die ganze Gruppe an einem Ort — alles Weitere bringen Sie mit."
   - q: "Stellen Sie Rechnungen aus und arbeiten Sie mit Vertrag?"
-    a: "Ja. Wir stellen Rechnungen aus und arbeiten mit einem Gruppenvertrag. 30 % Anzahlung sichern den Termin, der Restbetrag ist spätestens sieben Tage vor Anreise vollständig fällig, per Karte oder PIX. PREENCHER — Storno- und Umbuchungsbedingungen."
+    a: "Ja. Wir stellen Rechnungen aus und arbeiten mit einem Gruppenvertrag. 30 % Anzahlung sichern den Termin, der Restbetrag ist spätestens sieben Tage vor Anreise vollständig fällig, per Karte oder PIX. Der Vertrag sieht ein 48-stündiges Widerrufsfenster mit voller Rückerstattung vor; danach werden bei Stornierung mehr als sechzig Tage vor Anreise 30 % des Gesamtbetrags einbehalten, und ab sechzig Tagen oder weniger erfolgt keine Rückerstattung."
   - q: "Wie viele Personen passen hinein?"
     a: "Dreizehn Bangalôs, bis zu sechsundzwanzig Personen bei Exklusivnutzung der Anlage — an diesen Terminen ist niemand außerhalb Ihres Teams vor Ort. Wir kalkulieren Gruppen unterschiedlicher Größe; sagen Sie uns, wie viele Sie sind, und Sie bekommen eine Zahl."
   - q: "Wie viele Nächte sind sinnvoll?"
@@ -86,4 +86,4 @@ Schicken Sie uns die Termine, die Personenzahl, die Anzahl der Nächte und das, 
 
 Wir stellen Rechnungen aus und arbeiten mit einem Gruppenvertrag. **30 % Anzahlung** sichern den Termin, der **Restbetrag ist sieben Tage vor Anreise vollständig fällig**. Wir akzeptieren **Karte und PIX**.
 
-PREENCHER — Storno- und Umbuchungsbedingungen. Es ist die letzte Frage der Finanzabteilung des Kunden und die, die am häufigsten gegen ein Landhotel entscheidet.
+**Achtundvierzig Stunden Widerrufsfrist**: Wer in diesem Zeitraum storniert, nach Unterschrift und Anzahlung, erhält den vollen Betrag zurück. Danach werden **bei Stornierung mehr als sechzig Tage vor Anreise 30 % des Gesamtbetrags einbehalten**, und **ab sechzig Tagen oder weniger gibt es keine Rückerstattung**. Es ist die letzte Frage der Finanzabteilung des Kunden und die, die am häufigsten gegen ein Landhotel entscheidet — deshalb steht sie hier und nicht nur im Vertrag.

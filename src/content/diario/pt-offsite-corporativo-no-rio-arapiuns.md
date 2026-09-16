@@ -17,7 +17,7 @@ duvidas:
   - q: "Que estrutura existe para apresentação?"
     a: "Não há estrutura de som e vídeo no local. Se o seu programa precisa de projeção, som ou gravação, a produção é contratada à parte, e vale contar com isso no orçamento desde o começo. O pavilhão entrega abrigo, sombra e o grupo inteiro junto — o resto vem com você."
   - q: "Vocês emitem nota fiscal e trabalham com contrato?"
-    a: "Sim. Emitimos nota fiscal e trabalhamos com contrato de grupo. São 30% de sinal para segurar a data e o saldo integral até sete dias antes do check-in, em cartão ou PIX. PREENCHER — política de cancelamento e remarcação."
+    a: "Sim. Emitimos nota fiscal e trabalhamos com contrato de grupo. São 30% de sinal para segurar a data e o saldo integral até sete dias antes do check-in, em cartão ou PIX. O contrato tem 48 horas de arrependimento com reembolso integral; depois disso, cancelamento com mais de sessenta dias do check-in retém 30% do valor total, e a sessenta dias ou menos não há devolução."
   - q: "Quantas pessoas cabem?"
     a: "Treze bangalôs, até vinte e seis pessoas em uso exclusivo da propriedade — ninguém fora do seu time fica no local nessas datas. A gente cota grupos de tamanhos diferentes; conte quantas pessoas são e a gente responde com um número."
   - q: "Quantas noites fazem sentido?"
@@ -86,4 +86,4 @@ Mande as datas, quantas pessoas, quantas noites e o que o seu programa precisa d
 
 Emitimos nota fiscal e trabalhamos com contrato de grupo. **30% de sinal** seguram a data, e o **saldo integral vence sete dias antes do check-in**. Aceitamos **cartão e PIX**.
 
-PREENCHER — política de cancelamento e remarcação. É a última pergunta do financeiro do cliente, e a que mais decide contra um hotel-fazenda.
+**Quarenta e oito horas de arrependimento**: cancelado nesse prazo, depois da assinatura e do sinal, o reembolso é integral. Passado isso, **cancelamento com mais de sessenta dias do check-in retém 30% do valor total**, e **a sessenta dias ou menos não há devolução**. É a última pergunta do financeiro do cliente, e a que mais decide contra um hotel-fazenda — por isso ela está aqui, e não só no contrato.

@@ -24,6 +24,8 @@ duvidas:
     a: "No. We do not offer it, do not arrange it, and it is not what this place is. We host wellness, movement, meditation, leadership and creative groups. If plant medicine is central to your programme, we are the wrong venue and would rather say so before you travel."
   - q: "When is the best window to book?"
     a: "February to June is the flood season: no beaches, but silence, flooded forest to paddle through, and the widest availability — most of our whole-property bookings sit there. Weekdays from September to November give you the best weather of the year with the property still open."
+  - q: "How do payment and cancellation work?"
+    a: "A 30% deposit holds the date, and the balance is due in full seven days before check-in, by card or PIX, with an invoice and a group contract. The contract carries a 48-hour cooling-off window with a full refund; after that, cancelling more than sixty days before check-in retains 30% of the total, and at sixty days or less there is no refund."
 ---
 
 If you run retreats, you already know the hard part is not the programme. It is finding somewhere that can hold a group of twenty for a week without the venue becoming the problem — somewhere far enough to feel like a real departure, structured enough to actually function, and available as a whole so your group is not sharing breakfast with strangers.
@@ -81,6 +83,12 @@ The rate depends on **group size and number of nights**, and it drops as the gro
 For orientation on how this compares: European premium retreat venues commonly run €280–380 per person per day. We sit below that, in a location that is considerably harder to reach and considerably harder to find an equivalent for.
 
 Tell us your dates, group size, how many nights, and what your programme actually needs from a space. You will get a real number rather than a brochure.
+
+## Booking and cancellation
+
+We invoice and we work with a group contract. A **30% deposit** holds the date, and the **balance is due in full seven days before check-in**. We take **card and PIX**.
+
+The contract carries a **48-hour cooling-off window**: cancel inside it, after signing and paying the deposit, and the refund is full. After that, **cancelling more than sixty days before check-in retains 30% of the total**, and **at sixty days or less there is no refund**. A large group books the whole property, which is why the notice here runs longer than on the smaller packages: once a retreat date falls through, it does not go back on the market.
 
 ## The window worth knowing about
 

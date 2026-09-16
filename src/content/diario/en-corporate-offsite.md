@@ -17,7 +17,7 @@ duvidas:
   - q: "What presentation setup is there?"
     a: "There is no sound or video setup on site. If your programme needs projection, sound or recording, production is contracted separately, and it is worth budgeting for that from the start. The pavilion gives you shelter, shade and the whole group together — the rest comes with you."
   - q: "Do you invoice, and do you work with a contract?"
-    a: "Yes. We invoice and we work with a group contract. A 30% deposit holds the date, and the balance is due in full seven days before check-in, by card or PIX. PREENCHER — cancellation and rescheduling policy."
+    a: "Yes. We invoice and we work with a group contract. A 30% deposit holds the date, and the balance is due in full seven days before check-in, by card or PIX. The contract carries a 48-hour cooling-off window with a full refund; after that, cancelling more than sixty days before check-in retains 30% of the total, and at sixty days or less there is no refund."
   - q: "How many people fit?"
     a: "Thirteen bungalows, up to twenty-six people on exclusive use of the property — nobody outside your team is on site on those dates. We quote groups of different sizes; tell us how many you are and you get a number back."
   - q: "How many nights make sense?"
@@ -86,4 +86,4 @@ Send the dates, how many people, how many nights, and what your programme actual
 
 We invoice and we work with a group contract. A **30% deposit** holds the date, and the **balance is due in full seven days before check-in**. We accept **card and PIX**.
 
-PREENCHER — cancellation and rescheduling policy. It is the last question a client's finance team asks, and the one that most often decides against a country hotel.
+**Forty-eight hours to change your mind**: cancel within that window, after signing and paying the deposit, and the refund is full. After that, **cancelling more than sixty days before check-in retains 30% of the total**, and **at sixty days or less there is no refund**. It is the last question a client's finance team asks, and the one that most often decides against a country hotel — which is why it sits here and not only in the contract.

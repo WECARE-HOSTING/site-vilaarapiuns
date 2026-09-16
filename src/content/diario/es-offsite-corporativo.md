@@ -17,7 +17,7 @@ duvidas:
   - q: "¿Qué estructura hay para presentaciones?"
     a: "No hay estructura de sonido ni de vídeo en el lugar. Si su programa necesita proyección, sonido o grabación, la producción se contrata aparte, y conviene preverlo en el presupuesto desde el principio. El pabellón ofrece techo, sombra y todo el grupo junto; el resto viene con usted."
   - q: "¿Emiten factura y trabajan con contrato?"
-    a: "Sí. Emitimos factura y trabajamos con contrato de grupo. Un 30% de señal retiene la fecha, y el saldo se paga íntegro hasta siete días antes del check-in, con tarjeta o PIX. PREENCHER — política de cancelación y de cambio de fecha."
+    a: "Sí. Emitimos factura y trabajamos con contrato de grupo. Un 30% de señal retiene la fecha, y el saldo se paga íntegro hasta siete días antes del check-in, con tarjeta o PIX. El contrato tiene 48 horas de desistimiento con reembolso íntegro; pasado ese plazo, la cancelación con más de sesenta días de antelación retiene el 30% del valor total, y a sesenta días o menos no hay devolución."
   - q: "¿Cuántas personas caben?"
     a: "Trece bangalôs, hasta veintiséis personas en uso exclusivo de la propiedad: nadie fuera de su equipo está en el lugar en esas fechas. Cotizamos grupos de distintos tamaños; díganos cuántos son y recibe un número."
   - q: "¿Cuántas noches tienen sentido?"
@@ -86,4 +86,4 @@ Envíe las fechas, cuántas personas, cuántas noches y qué necesita realmente 
 
 Emitimos factura y trabajamos con contrato de grupo. Un **30% de señal** retiene la fecha, y el **saldo vence íntegro siete días antes del check-in**. Aceptamos **tarjeta y PIX**.
 
-PREENCHER — política de cancelación y de cambio de fecha. Es la última pregunta del área financiera del cliente, y la que más decide en contra de un hotel de campo.
+**Cuarenta y ocho horas de desistimiento**: si se cancela dentro de ese plazo, tras la firma y la señal, el reembolso es íntegro. Pasado ese plazo, **la cancelación con más de sesenta días de antelación retiene el 30% del valor total**, y **a sesenta días o menos no hay devolución**. Es la última pregunta del área financiera del cliente, y la que más decide en contra de un hotel de campo — por eso está aquí y no solo en el contrato.

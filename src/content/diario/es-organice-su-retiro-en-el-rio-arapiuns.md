@@ -24,6 +24,8 @@ duvidas:
     a: "No. No lo ofrecemos, no lo organizamos, y no es lo que este lugar es. Recibimos grupos de bienestar, movimiento, meditación, liderazgo y creatividad. Si la medicina vegetal es central en su programa, no somos el lugar indicado, y preferimos decírselo antes de que usted viaje."
   - q: "¿Cuál es la mejor ventana para reservar?"
     a: "De febrero a junio es la temporada de crecida: sin playas, pero con silencio, bosque inundado para recorrer en canoa y la mayor disponibilidad — allí se concentran la mayoría de nuestras reservas de propiedad exclusiva. Los días de semana de septiembre a noviembre le dan el mejor clima del año, con la propiedad aún abierta."
+  - q: "¿Cómo funcionan el pago y la cancelación?"
+    a: "Un 30% de señal retiene la fecha, y el saldo se paga íntegro hasta siete días antes del check-in, con tarjeta o PIX, con factura y contrato de grupo. El contrato tiene 48 horas de desistimiento con reembolso íntegro; pasado ese plazo, la cancelación con más de sesenta días de antelación retiene el 30% del valor total, y a sesenta días o menos no hay devolución."
 ---
 
 Si usted organiza retiros, ya sabe que lo difícil no es el programa. Es encontrar un lugar capaz de recibir a un grupo de veinte personas durante una semana sin que el espacio se convierta en el problema — un lugar suficientemente lejano para sentirse como una salida real, suficientemente estructurado para funcionar de verdad, y disponible por completo, para que su grupo no comparta el desayuno con desconocidos.
@@ -81,6 +83,12 @@ La tarifa depende del **tamaño del grupo y del número de noches**, y baja a me
 Como referencia de comparación: los espacios de retiro premium en Europa suelen costar entre 280 y 380 euros por persona al día. Nosotros estamos por debajo de eso, en una ubicación considerablemente más difícil de alcanzar y considerablemente más difícil de encontrar un equivalente.
 
 Cuéntenos sus fechas, el tamaño del grupo, cuántas noches, y lo que su programa realmente necesita de un espacio. Recibirá una cifra real, no un folleto.
+
+## Reserva y cancelación
+
+Emitimos factura y trabajamos con contrato de grupo. Un **30% de señal** retiene la fecha, y el **saldo se paga íntegro hasta siete días antes del check-in**. Aceptamos **tarjeta y PIX**.
+
+El contrato tiene **48 horas de desistimiento**: si se cancela dentro de ese plazo, tras la firma y la señal, el reembolso es íntegro. Pasado ese plazo, **la cancelación con más de sesenta días de antelación retiene el 30% del valor total**, y **a sesenta días o menos no hay devolución**. Un grupo grande bloquea la propiedad entera, y por eso el plazo aquí es más largo que el de los paquetes menores: cuando una fecha de retiro se cae, no vuelve al mercado.
 
 ## La ventana que vale la pena conocer
 
