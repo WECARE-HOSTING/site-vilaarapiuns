@@ -27,7 +27,6 @@
 import { statSync } from 'node:fs';
 import { join } from 'node:path';
 import { Image, getImage } from 'astro:assets';
-import ColunaDeReels from '@/components/ColunaDeReels.astro';
 import { CarrosselAcomodacoes } from '@/components/CarrosselAcomodacoes';
 import Campo from '@/components/Campo.astro';
 import FaixaGarantias from '@/components/FaixaGarantias.astro';
@@ -54,21 +53,6 @@ import paisagemPorDoSol from '@/assets/imgs/paisagem-por-do-sol.jpg';
 import paisagemAlterArvores from '@/assets/imgs/paisagem-alter-arvores.jpg';
 import villaDeCimaPoster from '@/assets/imgs/villa-de-cima-poster.jpg';
 
-// Imagens da coluna de reels do hero (ColunaDeReels, abaixo) — a "tira" de
-// fotos que alimentava o CarrosselHero foi apagada com ele em 23/08/2026
-// (código morto desde a Fase 6); estas cinco continuam em uso porque
-// HERO_REELS_MEDIA, mais abaixo, também as consome.
-import aguaTransparente from '@/assets/imgs/agua-transparente.jpg';
-import igapoCanoa from '@/assets/imgs/igapo-canoa.jpg';
-import tecelagem from '@/assets/imgs/tecelagem.jpg';
-import tucuxi from '@/assets/imgs/tucuxi.jpg';
-import redario from '@/assets/imgs/redario.jpg';
-import reelCanoaIgapoPoster from '@/assets/imgs/reel-canoa-igapo-poster.jpg';
-import reelUrucumPoster from '@/assets/imgs/reel-urucum-poster.jpg';
-import reelMeliponarioPoster from '@/assets/imgs/reel-meliponario-poster.jpg';
-import reelTecelagemPoster from '@/assets/imgs/reel-tecelagem-poster.jpg';
-import reelPiracaiaPoster from '@/assets/imgs/reel-piracaia-poster.jpg';
-
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = useTranslations(locale);
@@ -89,30 +73,6 @@ const travessia = [
   { n: '02', titulo: t('home.etapa2T'), detalhe: t('home.etapa2D'), medida: 'Alter do Chão' },
   { n: '03', titulo: t('home.etapa3T'), detalhe: t('home.etapa3D'), medida: `${SITE.location.boatMinutes} min de barco`, incluso: true },
 ];
-/* ══════════════════ A COLUNA DE REELS DO HERO ══════════════════
-   FASE 6. Substitui o CarrosselHero como visual do hero — decisão do
-   Carlos na Fase 2 (variante C, "o vertical manda"), escolhida ao vivo, não
-   pela captura. Três das dez peças já eram fotos aprovadas do carrossel
-   antigo (água transparente, igapó, tecelagem — mesmo arquivo, mesma
-   legenda traduzida, `home.tiraItens`); as outras sete são novas
-   (`home.heroReelItens`), incluindo os cinco vídeos aprovados na Fase 3
-   (`docs/video.md` §6). O `CarrosselHero` ficou sem uso desde então —
-   apagado em 23/08/2026 por decisão do Carlos, junto com a ponte de
-   eventos que o recurso de vídeo em destaque tinha construído para ele
-   (`video-lightbox:abrir`/`:fechar` em `VideoLightbox.astro`). */
-const HERO_REELS_MEDIA: Record<string, { imagem: ImageMetadata } | { video: string; poster: ImageMetadata }> = {
-  aguaTransparente: { imagem: aguaTransparente },
-  canoaIgapo: { video: '/video/reels/reel-canoa-igapo.mp4', poster: reelCanoaIgapoPoster },
-  tucuxi: { imagem: tucuxi },
-  urucum: { video: '/video/reels/reel-urucum.mp4', poster: reelUrucumPoster },
-  igapoCanoa: { imagem: igapoCanoa },
-  meliponario: { video: '/video/reels/reel-meliponario.mp4', poster: reelMeliponarioPoster },
-  redario: { imagem: redario },
-  tecelagemVideo: { video: '/video/reels/reel-tecelagem.mp4', poster: reelTecelagemPoster },
-  tecelagem: { imagem: tecelagem },
-  piracaia: { video: '/video/reels/reel-piracaia.mp4', poster: reelPiracaiaPoster },
-};
-
 /* A ordem é deliberada, e o critério é quanto cada foto aguenta tipo branco
    por cima — não qual é a mais bonita solta.
 
@@ -148,16 +108,6 @@ const PAISAGENS = [
 const heroPaisagem = useList(locale)<{ alt: string }>('home.heroPaisagem')
   .map((item, i) => ({ src: PAISAGENS[i], alt: item.alt }))
   .filter((foto) => foto.src);
-
-const heroReels = useList(locale)<{ id: string; legenda: string; alt?: string }>('home.heroReelItens')
-  .map((item) => {
-    const media = HERO_REELS_MEDIA[item.id];
-    return {
-      legenda: item.legenda,
-      alt: item.alt,
-      ...('video' in media ? { video: media.video, poster: media.poster } : { imagem: media.imagem }),
-    };
-  });
 
 /* ══════════════════ AS FOTOS DE "A CASA" ══════════════════
    TERCEIRA RODADA (20/08/2026). A seção "A casa" tinha UMA foto, `gal5.jpg`,
@@ -304,73 +254,87 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
    continua de pé com os blocos em outra ordem. */
 ---
 
-<section class="relative isolate overflow-hidden pt-header">
+<!-- ══════════════════ O HERO: o palco de fotografia ══════════════════
+     16/09/2026, SEGUNDA rodada. A primeira pôs a paisagem como fundo mas
+     manteve a coluna de reels por cima dela, e o resultado no ar foi o
+     contrário do pretendido: dez cartões 9:16 opacos tapavam justamente o rio
+     que a rodada existia para mostrar, e logo abaixo o parágrafo de intro caía
+     em `text-ceu` sobre areia branca — ilegível. O cliente viu em produção e
+     pediu para tirar ("ficou ruim esses quadrados no meio").
+
+     Os dez reels não se perderam: os cinco vídeos continuam em Experiências,
+     na seção "Em vídeo" (`exp.videoItens`), que é onde eles informam — ali
+     cada clipe está ao lado da atividade que mostra, e não competindo com o
+     gancho. As chaves `home.heroReelItens` e `carousel.heroLabel` ficam
+     dormentes nos cinco dicionários, sem consumidor; se um dia a tira voltar,
+     volta com endereço próprio, não em cima da foto.
+
+     O que sobrou é o que a Disciplina 3 sempre pediu e o hero nunca teve: uma
+     região de fotografia com o mínimo de tipo em cima. Gancho e dois comandos,
+     pousados no terço de baixo, onde o véu é mais denso. Nada mais entra no
+     quadro — nem a barra do navegador, que aqui nasce transparente
+     (`sobreFoto` no Header) e só ganha fundo quando a foto acaba.
+
+     O `data-palco-foto` é o que diz ao Header onde a foto termina. Sem ele o
+     cabeçalho voltaria a solidificar a 75% da tela, com uma nesga de
+     fotografia ainda visível embaixo da barra creme. -->
+<section
+  data-palco-foto
+  class="relative isolate flex min-h-[88svh] items-end overflow-hidden lg:min-h-[92svh]"
+>
   <FundoPaisagem fotos={heroPaisagem} />
-  <div class="container-editorial relative z-10">
 
-    <div class="flex flex-col">
+  <div class="container-editorial relative z-10 w-full pb-14 pt-32 lg:pb-20 lg:pt-40">
+    {/* Teto do corpo MENOR que o --text-display global (6rem): a 96px o gancho
+        quebra em quatro linhas a 1440px e come o quadro inteiro. A 4rem cada
+        frase cabe numa linha só.
 
-    {/* No CELULAR a foto vem PRIMEIRO, o gancho depois.
+        O mínimo desceu de 3,25rem para 2,75rem nesta rodada, e a razão mudou
+        de lugar: antes o gancho dividia a primeira dobra com a tira de reels e
+        encolher era perder densidade à toa; agora ele divide a dobra com a
+        FOTOGRAFIA, e sete linhas de tipo a 52px cobriam o rio de ponta a
+        ponta num 390px. A `max-w-[19ch]` faz o mesmo trabalho no desktop:
+        segura a medida de leitura e deixa a paisagem respirar à direita. */}
+    <h1 class="font-display max-w-[23ch] text-[clamp(2.5rem,4.6vw,4rem)] leading-[1.03] tracking-[0.01em] text-white [text-shadow:0_2px_26px_rgb(13_50_68_/_0.45)]">
+      {t('home.hookA')}
+      <span class="block text-espuma">{t('home.hookB')}</span>
+    </h1>
 
-        Medido num container real de 390px: a 52px (o mínimo do token) este
-        gancho ocupa SETE linhas e 371px de altura, e empurrava o carrossel
-        quase todo para fora da primeira dobra. O visitante de celular — que é
-        o público #1 do PRODUCT.md — abria a home e via uma nesga de céu. O
-        cliente já reclamou duas vezes de não conseguir ver as imagens.
-
-        Inverter a ordem resolve isso sem encolher o tipo: a Disciplina 4 fica
-        de pé e a fotografia lidera onde ela precisa liderar. No desktop a
-        palavra volta a vir primeiro, porque lá as duas caem na dobra juntas. */}
-    <div class="order-2 mt-12 lg:order-1 lg:mt-0 lg:pt-12">
-      {/* Teto do corpo MENOR que o --text-display global (6rem). A 96px este
-          gancho quebra em quatro linhas a 1440px e empurra a fotografia para
-          fora da primeira dobra — o visitante vê parede de texto e uma nesga de
-          foto, que é a queixa que esta rodada existe para resolver. A 4rem cada
-          frase cabe numa linha só.
-
-          O MÍNIMO fica em 3,25rem, igual ao token: medido num container de
-          390px com a fonte real, o gancho NÃO estoura (scrollWidth idêntico ao
-          clientWidth em todos os corpos testados). Uma versão anterior baixou
-          para 2,75rem por causa de um estouro que não existia — era artefato de
-          screenshot em headless, que impõe janela mínima de 500px e recorta a
-          imagem no tamanho pedido. Medir dentro da página, não na foto dela. */}
-      {/* Branco sobre o véu, não mar-fundo sobre areia: desde 16/09 o hero
-          abre em fotografia. O `text-espuma` da segunda linha guarda a mesma
-          hierarquia de duas vozes que o `text-ceu` fazia sobre o creme. */}
-      <h1 class="font-display text-[clamp(3.25rem,4.6vw,4rem)] leading-[1.02] tracking-[0.01em] text-white [text-shadow:0_2px_26px_rgb(13_50_68_/_0.45)]">
-        {t('home.hookA')}
-        <span class="block text-espuma">{t('home.hookB')}</span>
-      </h1>
-
-      <div class="mt-8 flex flex-wrap gap-3">
-        <a href={href(locale, 'book')} class="btn btn-primario">{t('cta.book')}</a>
-        <a href={href(locale, 'packages')} class="btn btn-secundario border-white/85 text-white">{t('cta.seePackages')}</a>
-      </div>
-    </div>
-
-    <div class="relative order-1 mt-8 lg:order-2 lg:mt-14">
-      <ColunaDeReels rotulo={t('carousel.heroLabel')} itens={heroReels} />
-    </div>
-
-    </div>
-
-    <div class="grid gap-8 py-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-end lg:gap-16 lg:py-16">
-      <p class="text-intro">{t('home.intro')}</p>
-      <div>
-        <hr class="emenda border-t" />
-        <Campo class="mt-5">
-          {t('home.tiraMedidaBangalos').replace('{n}', String(SITE.capacity.cabins))}
-          <Voluta class="text-areia-sol" />
-          {t('home.tiraMedidaHospedes').replace('{n}', String(SITE.capacity.maxGuests))}
-          <Voluta class="text-areia-sol" />
-          {t('home.campoLancha').replace('{place}', SITE.location.departsFrom)}
-        </Campo>
-      </div>
+    <div class="mt-9 flex flex-wrap gap-3">
+      <a href={href(locale, 'book')} class="btn btn-primario">{t('cta.book')}</a>
+      <a href={href(locale, 'packages')} class="btn btn-secundario border-white/85 text-white">{t('cta.seePackages')}</a>
     </div>
   </div>
 </section>
 
 <FaixaGarantias locale={locale} />
+
+<!-- ══════════════════ A ABERTURA: a primeira palavra em chão de papel ═══════
+     Este parágrafo e estas medidas vinham DENTRO do hero, sobre a foto, em
+     azul sobre areia branca. Desceram para o chão creme em 16/09/2026 pelo
+     motivo mais simples que existe: ali dava para ler. É também a Disciplina 3
+     voltando ao lugar — o hero guarda o gancho, que é a única frase que
+     aguenta ficar sobre imagem; o corpo do texto mora no papel.
+
+     A régua é a mesma de antes (leitura à esquerda, medidas à direita, a
+     emenda separando), e as medidas continuam com a sua unidade colada: bangalôs,
+     hóspedes e o tempo de lancha saem de `src/data/site.ts`, nunca digitados
+     aqui. -->
+<section>
+  <div class="container-editorial grid gap-8 py-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-end lg:gap-16 lg:py-16">
+    <p class="text-intro">{t('home.intro')}</p>
+    <div>
+      <hr class="emenda border-t" />
+      <Campo class="mt-5">
+        {t('home.tiraMedidaBangalos').replace('{n}', String(SITE.capacity.cabins))}
+        <Voluta class="text-areia-sol" />
+        {t('home.tiraMedidaHospedes').replace('{n}', String(SITE.capacity.maxGuests))}
+        <Voluta class="text-areia-sol" />
+        {t('home.campoLancha').replace('{place}', SITE.location.departsFrom)}
+      </Campo>
+    </div>
+  </div>
+</section>
 
 <!-- ══════════════════ A CASA: o diferencial, o material ══════════════════ -->
 <section class="cunha-base secao bg-areia">

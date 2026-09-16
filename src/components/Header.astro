@@ -26,10 +26,19 @@ const t = useTranslations(locale);
       : 'bg-areia-clara emenda',
   ]}
 >
-  {/* Véu no topo: o menu precisa continuar legível sobre folhagem clara. */}
+  {/* Véu no topo: o menu precisa continuar legível sobre folhagem clara.
+
+      O `-z-10` NÃO o põe atrás do fundo do próprio cabeçalho: dentro de um
+      contexto de empilhamento (aqui, `fixed` + `z-50`) o fundo do elemento
+      pinta PRIMEIRO e os filhos de z negativo pintam por cima dele. Sem
+      apagar o véu, o cabeçalho sólido aparecia com uma faixa escura em cima
+      do creme — que foi exatamente o que a home mostrou quando o modo
+      `sobreFoto` saiu do styleguide e entrou em produção, em 16/09/2026.
+      Então quem apaga é o script, junto com a troca de fundo. */}
   {sobreFoto && (
     <div
-      class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-32 bg-gradient-to-b from-mar-fundo/88 to-transparent"
+      data-veu-topo
+      class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-32 bg-gradient-to-b from-mar-fundo/88 to-transparent transition-opacity duration-300"
       aria-hidden="true"
     ></div>
   )}
@@ -232,15 +241,28 @@ const t = useTranslations(locale);
 
   // Sobre foto, o cabeçalho só ganha fundo depois que a imagem sai da tela.
   if (cabecalho.hasAttribute('data-sobre-foto')) {
+    const veu = cabecalho.querySelector<HTMLElement>('[data-veu-topo]');
     const solido = ['bg-areia-clara', 'emenda'];
     const transparente = ['bg-transparent', 'border-transparent', 'text-areia', 'sobre-escuro'];
+    /* O limiar sai da ALTURA REAL do palco de fotografia, quando existe um:
+       o cabeçalho solidifica no instante em que a barra creme deixaria de
+       estar sobre a foto. O 0,75 da tela era um palpite — com um hero de 92svh
+       ele acendia cedo e desenhava uma faixa creme sobre a última nesga de
+       paisagem. Sem palco na página (styleguide), o palpite continua valendo. */
+    const palco = document.querySelector<HTMLElement>('[data-palco-foto]');
+    const limiar = () =>
+      palco
+        ? palco.offsetHeight - cabecalho.offsetHeight
+        : window.innerHeight * 0.75;
+
     const aoRolar = () => {
-      const rolou = window.scrollY > window.innerHeight * 0.75;
+      const rolou = window.scrollY > limiar();
       // Sem backdrop-filter aqui: ele cria bloco de contenção e o painel
       // `fixed inset-0` do menu, que é descendente do header, colapsaria
       // para o tamanho da barra. E sobre bg-mar opaco o blur não faz nada.
       solido.forEach((c) => cabecalho.classList.toggle(c, rolou));
       transparente.forEach((c) => cabecalho.classList.toggle(c, !rolou));
+      veu?.classList.toggle('opacity-0', rolou);
     };
     aoRolar();
     window.addEventListener('scroll', aoRolar, { passive: true });
