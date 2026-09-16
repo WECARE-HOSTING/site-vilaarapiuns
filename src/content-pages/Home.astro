@@ -42,15 +42,15 @@ import { HTML_LANG, type Locale } from '@/i18n/config';
 import FundoPaisagem from '@/components/FundoPaisagem.astro';
 import gal3 from '@/assets/imgs/gal3.jpg';
 
-// Paisagem do hero (16/09/2026). Três fotos da região, recortadas a mão para
-// 16:9 — duas vieram em retrato. Entram como fundo porque o acervo era quase
-// todo maloca e interior, e o rio ficava de fora da primeira dobra.
+// Paisagem do hero (16/09/2026, revista no mesmo dia). Seis fotos da região,
+// todas recortadas a mão para 16:9. Entram como fundo porque o acervo era
+// quase todo maloca e interior, e o rio ficava de fora da primeira dobra.
 import paisagemPraiaBranca from '@/assets/imgs/paisagem-praia-branca.jpg';
-import paisagemBancoDourado from '@/assets/imgs/paisagem-banco-dourado.jpg';
+import paisagemBancoPegadas from '@/assets/imgs/paisagem-banco-pegadas.jpg';
 import paisagemIgapoTroncos from '@/assets/imgs/paisagem-igapo-troncos.jpg';
-import paisagemBancoGente from '@/assets/imgs/paisagem-banco-gente.jpg';
+import paisagemBancoSol from '@/assets/imgs/paisagem-banco-sol.jpg';
+import paisagemSupBuritis from '@/assets/imgs/paisagem-sup-buritis.jpg';
 import paisagemPorDoSol from '@/assets/imgs/paisagem-por-do-sol.jpg';
-import paisagemAlterArvores from '@/assets/imgs/paisagem-alter-arvores.jpg';
 import villaDeCimaPoster from '@/assets/imgs/villa-de-cima-poster.jpg';
 
 interface Props { locale: Locale }
@@ -77,33 +77,44 @@ const travessia = [
    por cima — não qual é a mais bonita solta.
 
    1. praia-branca abre: é a que tem mais céu, e céu é onde o gancho pousa.
-   2. banco-dourado, a luz mais forte do conjunto.
-   3. igapo-troncos é a única da CHEIA, e a menos genérica das cinco — praia de
+   2. banco-pegadas, o azul mais fundo do conjunto: um céu quase inteiro, e a
+      trilha de pegadas puxa o olho para a água. Veio da galeria (banco-areia)
+      a pedido do cliente, em 16/09.
+   3. igapo-troncos é a única da CHEIA, e a menos genérica das seis — praia de
       areia clara qualquer destino tem; floresta alagada com troncos brancos,
       não. Ela é o que diferencia este hero do de um resort.
-   4. por-do-sol fecha quente, e a folhagem escura do canto esquerdo cai
+   4. banco-sol, a outra que veio da galeria (agua-transparente): o sol alto e
+      a água rasa mostrando o fundo. É a foto que prova o "água transparente"
+      do texto sem precisar dizer.
+   5. sup-buritis é a única com gente FAZENDO algo: um remador de pé na
+      prancha, entrando no igarapé dos buritis, com o reflexo dele na água
+      parada. Veio do Drive (PP-00052, 3120×4160, do Carlos), recortada de
+      retrato para 16:9 — perde o topo das palmeiras, ganha o reflexo. O
+      cliente queria a versão de drone da mesma cena, que só existe em
+      1440px no Google Maps; entra quando o original DJI aparecer. A água
+      escura do canto inferior esquerdo cai justamente onde o gancho pousa.
+   6. por-do-sol fecha quente, e a folhagem escura do canto esquerdo cai
       justamente onde o véu já escurece: o gancho ganha contraste de graça.
-   4. banco-gente traz a escala humana: duas pessoas minúsculas num banco de
-      areia enorme. É a foto que diz o tamanho do lugar sem legenda nenhuma.
-   6. alter-arvores por último — é a mais fraca, e num ciclo longo é a que
-      menos visitante chega a ver.
 
-   SEIS fotos a 5s dão trinta segundos de ciclo. Poucos visitantes veem todas,
-   e isso é esperado num hero: as duas primeiras carregam o peso. Se um dia o
-   ciclo parecer longo demais, corte pelo fim da lista, não pelo intervalo —
-   abaixo de 5s a troca começa a chamar mais atenção que a foto.
+   SAÍRAM em 16/09, a pedido do cliente: alter-arvores (só árvore e céu, não
+   dizia rio), banco-dourado e banco-gente. Seis fotos a 5s dão trinta
+   segundos de ciclo. Poucos visitantes veem todas, e isso é esperado num
+   hero: as duas primeiras carregam o peso. Se um dia o ciclo parecer longo
+   demais, corte pelo fim da lista, não pelo intervalo — abaixo de 5s a troca
+   começa a chamar mais atenção que a foto.
 
-   Duas vieram do acervo (por-do-sol e igapo-troncos), recortadas para 16:9 e
-   com um ganho leve de contraste e saturação para casar com as três novas.
-   Nada de tingir: o global.css declara que as cores da marca saíram destes
-   pixels, e a rodada de 20/08 já rejeitou um overlay que fazia isso. */
+   Cinco vieram do acervo (por-do-sol, igapo-troncos, banco-pegadas, banco-sol
+   e sup-buritis), recortadas para 16:9 e com um ganho leve de contraste e
+   saturação para casar com a praia-branca. Nada de tingir: o global.css
+   declara que as cores da marca saíram destes pixels, e a rodada de 20/08 já
+   rejeitou um overlay que fazia isso. */
 const PAISAGENS = [
   paisagemPraiaBranca,
-  paisagemBancoDourado,
+  paisagemBancoPegadas,
   paisagemIgapoTroncos,
-  paisagemBancoGente,
+  paisagemBancoSol,
+  paisagemSupBuritis,
   paisagemPorDoSol,
-  paisagemAlterArvores,
 ];
 const heroPaisagem = useList(locale)<{ alt: string }>('home.heroPaisagem')
   .map((item, i) => ({ src: PAISAGENS[i], alt: item.alt }))

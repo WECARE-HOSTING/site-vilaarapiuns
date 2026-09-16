@@ -55,7 +55,7 @@ import arenaBancos from '@/assets/imgs/arena-bancos.jpg';
 /* a água */
 import bancoAreia from '@/assets/imgs/banco-areia.jpg';
 import aguaTransparente from '@/assets/imgs/agua-transparente.jpg';
-import porDoSolPortao from '@/assets/imgs/por-do-sol-portao.jpg';
+import porDoSolRio from '@/assets/imgs/por-do-sol.jpg';
 import praiaEspreguicadeira from '@/assets/imgs/praia-espreguicadeira.jpg';
 import igapoCanoa from '@/assets/imgs/igapo-canoa.jpg';
 import igapoTroncos from '@/assets/imgs/igapo-troncos.jpg';
@@ -124,7 +124,11 @@ const FOTOS_GALERIA: Record<string, Record<string, { src: ImageMetadata; alta?: 
   agua: {
     bancoAreia: { src: bancoAreia },
     aguaTransparente: { src: aguaTransparente },
-    porDoSolPortao: { src: porDoSolPortao, alta: true },
+    /* Era por-do-sol-portao, em retrato: o recorte 3/4 tirava o sol e deixava
+       cerca e folhagem escura — o cliente viu e pediu uma melhor (16/09). Esta
+       é o horizonte limpo, e fica em paisagem porque sol no horizonte é linha,
+       não coluna. */
+    porDoSolRio: { src: porDoSolRio },
     praiaEspreguicadeira: { src: praiaEspreguicadeira },
     igapoCanoa: { src: igapoCanoa },
     igapoTroncos: { src: igapoTroncos, alta: true },
