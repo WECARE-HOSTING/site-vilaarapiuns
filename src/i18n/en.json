@@ -34,7 +34,7 @@
     "learnMore": "Learn more"
   },
   "trust": {
-    "fullBoard": "Full board on lodge stays",
+    "fullBoard": "All meals on lodge stays",
     "boat": "Boat from Alter do Chão in the packages",
     "team": "Our own team on the logistics",
     "host": "Local host at the Villa"
@@ -44,7 +44,7 @@
     "comunidade": "Paid to the community"
   },
   "footer": {
-    "sobre": "A community-based tourism lodge on the banks of the Arapiuns River. Thirteen bungalows, full board at the lodge and a team that looks after the kitchen, the boat and the journey — so that all you have to do is arrive.",
+    "sobre": "A community-based tourism lodge on the banks of the Arapiuns River. Thirteen bungalows, all meals included at the lodge and a team that looks after the kitchen, the boat and the journey — so that all you have to do is arrive.",
     "visita": "The Villa",
     "reserva": "Plan your stay",
     "local": "Where we are",
@@ -59,11 +59,11 @@
     "reveillon": "Hello! I'd like to plan my group's New Year's Eve at Villa Arapiuns."
   },
   "desc": {
-    "home": "Thirteen bungalows on the Arapiuns River, 90 minutes by boat from Alter do Chão. Stay for days with full board, or come on a package with the boat and itinerary already arranged.",
+    "home": "Thirteen bungalows on the Arapiuns River, 90 minutes by boat from Alter do Chão. Stay for days with every meal included, or come on a package with the boat and itinerary already arranged.",
     "lodge": "The 13 bungalows of Villa Arapiuns: two-storey Tapajônica architecture, mahogany, marquetry and handwoven cloth.",
     "dining": "The table at Villa Arapiuns: river fish, cassava flour from the community, coffee brewed to order — and the Piracaia at the water's edge.",
     "experiences": "Trails, canoe, beach and workshops with the riverside communities of the Arapiuns.",
-    "packages": "Packages departing from Alter do Chão with boat, itinerary and half board: one night with seven experiences, or two nights with ten.",
+    "packages": "Packages departing from Alter do Chão with boat, itinerary, breakfast and dinner: one night with seven experiences, or two nights with ten.",
     "privateVilla": "The whole of Villa Arapiuns for one group: retreats, company teams, birdwatching and night dive-fishing with the families who live on the river. Exclusive use from 15 people.",
     "reveillon": "New Year's Eve 2026/27 at Villa Arapiuns: see the year turn on a white-sand freshwater beach on the Rio Arapiuns, 1h30 by boat from Alter do Chão. 4–5 night packages for groups and families.",
     "gettingHere": "How to reach Villa Arapiuns: fly to Santarém, transfer to Alter do Chão and 90 minutes by boat upriver.",
@@ -348,13 +348,13 @@
     "titulo": "Two ways to stay",
     "intro": "The Villa hosts in two ways, and they are not the same product. Choose by what you want from your time.",
     "pousadaT": "Lodge stay",
-    "pousadaD": "You spend your days at the Villa with full board, and choose what to do — or not do. Boat and excursions are arranged separately, according to the group's interest.",
-    "pousadaInc": "Bungalow accommodation · full board · Piracaia",
-    "pousadaFora": "Boat transfer and excursions",
+    "pousadaD": "You spend your days at the Villa with every meal included, and choose what to do — or not do. Boat and excursions are arranged separately, according to the group's interest.",
+    "pousadaInc": "Bungalow accommodation · all meals · Piracaia",
+    "pousadaFora": "Boat transfer, excursions and alcoholic drinks",
     "pacoteT": "Full package",
     "pacoteD": "Departs from Alter do Chão with boat, itinerary and activities already arranged. One night with seven experiences, or two nights with ten.",
-    "pacoteInc": "Transport · accommodation · half board · activities",
-    "pacoteFora": "Nothing separate: the itinerary is set",
+    "pacoteInc": "Transport · accommodation · breakfast and dinner · activities",
+    "pacoteFora": "Alcoholic drinks. The itinerary itself has no extras.",
     "inclusoRot": "Included",
     "foraRot": "Separate",
     "aPartirDe": "From",
@@ -416,10 +416,12 @@
     "h1": "The table at the Villa",
     "intro": "River fish, cassava flour from the community, fruit from the garden and coffee brewed to order. Our own kitchen, serving in the open pavilion.",
     "escopoT": "What is included depends on how you stay",
-    "escopo1T": "Lodge stay: full board",
+    "escopo1T": "Lodge stay: all meals",
     "escopo1D": "Breakfast, lunch and dinner, every day of your stay — crowned by the Piracaia.",
-    "escopo2T": "Packages: half board",
+    "escopo2T": "Packages: breakfast and dinner",
     "escopo2D": "Breakfast and dinner. Lunch on one of the days happens in the community, as part of the itinerary.",
+    "escopo3T": "Alcoholic drinks: separate",
+    "escopo3D": "Beer, wine and spirits are not included in either option, and are charged separately.",
     "piraT": "The Piracaia",
     "piraD": "A fire on the sand, fish grilled at the water's edge, a sky full of stars. It is the meal that closes the stay, and the only one that does not happen at the table.",
     "ctaVerPacotes": "See what's included in each package",
@@ -599,7 +601,7 @@
   },
   "pacote": {
     "h1": "Two packages, departing from Alter do Chão",
-    "intro": "Boat, accommodation, half board and a set itinerary. You get to Alter do Chão and the rest is ours.",
+    "intro": "Boat, accommodation, breakfast and dinner, and a set itinerary. You get to Alter do Chão and the rest is ours.",
     "p1T": "Classic Arapiuns",
     "p1Sub": "1 night · 2 days · 7 experiences",
     "p1D": "The forest in a single breath: sunset and a night at the Villa.",
@@ -607,8 +609,10 @@
     "p2Sub": "2 nights · 3 days · 10 experiences",
     "p2D": "Everything in the Classic, plus the Samaúma, the Coroca and the Piracaia under the stars.",
     "incT": "Included in both",
-    "incD": "Transport · accommodation · half board (breakfast and dinner) · itinerary activities",
+    "incD": "Transport · accommodation · breakfast and dinner · itinerary activities",
     "opcNota": "Items marked optional depend on the group's interest.",
+    "cancelaT": "Payment and cancellation",
+    "cancelaD": "Card and PIX. Within 48 hours of signing and paying the deposit, the refund is full. After that, cancelling thirty days or more before check-in retains 30% of the total; inside thirty days there is no refund. Retreats and corporate groups run on their own, longer terms.",
     "opcionalLabel": "optional",
     "roteiroFotoT": "The itinerary, in photographs",
     "roteiroFotoI": "Not every item on the itinerary has a photo in our collection — the ones that do are here, unretouched and unstaged.",
@@ -717,7 +721,7 @@
     "figRetiroAlt": "A circle of about twenty people sitting on mats on the wooden floor of the thatched pavilion, facing a facilitator who is standing, with the forest visible through the open bays",
     "corpT": "Companies",
     "corpD": "Covered space for the team together, a long table to work at, and a whole day of activity outside it: trail, canoe, cassava-flour making with the communities. The team arrives together and shares the house with no one else.",
-    "corpConexao": "About signal, let's be straight. There is Starlink on site for what cannot wait, and it will not carry the whole team through an online meeting at once. What this trip delivers is not an office with a view: it is the team in one place with no screen in between — which is usually the reason for bringing people out here at all.",
+    "corpConexao": "About signal, let's be straight. There is Starlink on site on stable solar power, and it carries the whole team through an online meeting at once. What this trip delivers is not an office with a view: it is the team in one place with no screen in between — which is usually the reason for bringing people out here at all.",
     "figCorp": "The thatched pavilion · where the group sits all together",
     "figCorpAlt": "Open pavilion with a thatched roof over a wooden floor, with a lounger, surrounded by forest",
     "avesT": "Birdwatching",
@@ -771,7 +775,7 @@
     "b1T": "The window",
     "b1D": "4–5 night packages between December 28 and January 2 — the journey deserves that much time, and it's what lets the city leave your body.",
     "b1M": "4–5 nights",
-    "b2T": "Full board",
+    "b2T": "All meals",
     "b2D": "Breakfast, lunch and dinner from the house kitchen, with river fish and community-made farinha. On the 31st, the piracaia on the sand.",
     "b2M": "included",
     "b3T": "Exclusive use from 15 guests",
@@ -906,6 +910,11 @@
             "id": "arenaBancos",
             "leg": "The fire circle",
             "alt": "Solid tree-trunk benches forming a circle on the sand of the clearing, surrounded by forest"
+          },
+          {
+            "id": "pavilhaoFrente",
+            "leg": "The pavilion, front on",
+            "alt": "Long palm-thatched pavilion seen from the sand, with a timber deck, chairs and broad steps down to the pale ground"
           }
         ]
       },
@@ -991,6 +1000,11 @@
             "id": "mesaCaneca",
             "leg": "The tableware",
             "alt": "A blue ceramic mug resting on a woven-palm placemat, on the timber table"
+          },
+          {
+            "id": "jantarPraia",
+            "leg": "Table on the sand",
+            "alt": "Long low tables set on the sand at dusk, dressed in blue and white, with floral cotton cushions and a strung line of lit bulbs overhead"
           }
         ]
       },

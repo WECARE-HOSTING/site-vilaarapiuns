@@ -132,6 +132,18 @@ const ROTEIRO_FOTOS = [
       <p class="etiqueta">{t('pacote.incT')}</p>
       <p class="mt-2 flex items-start gap-2.5"><Voluta class="mt-1.5" /><span>{t('pacote.incD')}</span></p>
       <p class="numero etiqueta mt-6 opacity-80">{t('pacote.opcNota')}</p>
+
+      {/* A condição de cancelamento mora AQUI, e não só no contrato: é a
+          pergunta que o visitante faz por último e que decide a reserva, e
+          ela estava em lugar nenhum do site até 16/09/2026. A régua desta
+          página é a dos pacotes menores; retiros e grupos corporativos têm a
+          sua, mais longa, escrita nos artigos do Diário que os endereçam —
+          por isso a última frase manda para lá em vez de repetir dois
+          conjuntos de prazos no mesmo parágrafo. */}
+      <div class="emenda mt-8 border-t pt-6">
+        <p class="etiqueta">{t('pacote.cancelaT')}</p>
+        <p class="container-texto mt-2 sm:mx-0">{t('pacote.cancelaD')}</p>
+      </div>
       <p class="mt-8 flex flex-wrap gap-3">
         <a href={whatsappUrl(t('whatsapp.geral'))} class="btn btn-primario" target="_blank" rel="noopener noreferrer">{t('cta.checkAvailability')}</a>
         <a href={href(locale, 'gettingHere')} class="btn btn-secundario">{t('nav.gettingHere')}</a>

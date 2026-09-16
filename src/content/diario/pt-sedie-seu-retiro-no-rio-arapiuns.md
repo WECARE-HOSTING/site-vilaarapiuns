@@ -19,11 +19,13 @@ duvidas:
   - q: "Existe espaço para prática e para roda/círculo?"
     a: "Sim: uma shala de yoga e um pavilhão coberto de palha grande o suficiente para o grupo inteiro sentado junto. A própria praia é o terceiro espaço, e é o que a maioria dos grupos acaba usando ao entardecer."
   - q: "Como é a internet?"
-    a: "Tem Starlink no local, mantido para emergências. Não sustenta um grupo inteiro fazendo chamada de vídeo, e a gente prefere te contar isso agora do que você descobrir lá. Para um retiro, isso costuma ser justamente o objetivo."
+    a: "Tem Starlink no local, com energia solar estável, e ele funciona bem — inclusive para chamada de vídeo com o grupo inteiro. A gente conta isso porque a desconexão aqui é uma escolha que você desenha e comunica, não uma limitação que o lugar impõe. A maioria dos grupos sabe que dá e escolhe não usar."
   - q: "Vocês recebem retiros de ayahuasca ou plant-medicine?"
     a: "Não. A gente não oferece, não organiza, e não é isso que este lugar é. Recebemos grupos de bem-estar, movimento, meditação, liderança e criatividade. Se plant medicine é central no seu programa, a gente não é o espaço certo — e prefere dizer isso antes de você viajar."
   - q: "Qual é a melhor janela para reservar?"
     a: "De fevereiro a junho é a estação de cheia: sem praias, mas com silêncio, floresta alagada para remar e a maior disponibilidade — a maioria das nossas reservas de propriedade inteira cai nessa janela. Dias de semana entre setembro e novembro trazem o melhor clima do ano com a propriedade ainda aberta."
+  - q: "Como funcionam o pagamento e o cancelamento?"
+    a: "São 30% de sinal para segurar a data e o saldo integral até sete dias antes do check-in, em cartão ou PIX, com nota fiscal e contrato de grupo. O contrato tem 48 horas de arrependimento com reembolso integral; depois disso, cancelamento com mais de sessenta dias do check-in retém 30% do valor total, e a sessenta dias ou menos não há devolução."
 ---
 
 Se você organiza retiros, já sabe que a parte difícil não é o programa. É achar um lugar que aguente um grupo de vinte pessoas por uma semana sem que o próprio espaço vire o problema — longe o suficiente para parecer uma saída de verdade, estruturado o suficiente para funcionar de fato, e disponível por inteiro, para que seu grupo não divida o café da manhã com estranhos.
@@ -66,7 +68,7 @@ A gente prefere perder uma reserva a deixar um facilitador descobrir isso na che
 
 **Chegar até aqui é um dia inteiro.** Voo até Santarém (STM) — direto de Manaus, Belém e Brasília, com conexão saindo de São Paulo — depois 40 minutos de carro, depois 90 minutos de barco. Da Europa ou da América do Norte, conte dois dias, incluindo uma pernoite no Brasil. Para um retiro de cinco noites, tudo bem. Para um fim de semana, é um absurdo, e a gente vai dizer isso.
 
-**A conectividade é propositalmente fraca.** Tem Starlink, guardado para emergências. Ele não sustenta um grupo trabalhando online. Para a maioria dos retiros isso é o diferencial; se o seu programa exige que os participantes deem satisfação ao trabalho, escolha outro lugar.
+**A conectividade funciona.** Tem Starlink com energia solar estável, e ele sustenta um grupo trabalhando online. Isso muda o desenho do seu retiro: a desconexão aqui é uma regra que você estabelece, não uma que a geografia impõe. Vale decidir isso antes e dizer na inscrição — grupo que chega esperando ficar off e descobre que tem sinal se desorganiza sozinho.
 
 **Sem praias de fevereiro a junho.** O rio sobe e a areia fica debaixo d'água. No lugar dela entram a floresta alagada e um silêncio quase total. É uma estação bonita e diferente — só não venda praia para os seus participantes em abril.
 
@@ -81,6 +83,12 @@ A diária depende do **tamanho do grupo e do número de noites**, e cai conforme
 Para dar uma referência de comparação: espaços de retiro premium na Europa costumam cobrar entre €280 e €380 por pessoa por dia. A gente fica abaixo disso, numa localização consideravelmente mais difícil de chegar e consideravelmente mais difícil de encontrar equivalente.
 
 Conte pra gente as suas datas, o tamanho do grupo, quantas noites, e o que o seu programa realmente precisa de um espaço. Você vai receber um número real, não um folder.
+
+## Reserva e cancelamento
+
+Emitimos nota fiscal e trabalhamos com contrato de grupo. **30% de sinal** seguram a data, e o **saldo integral vence sete dias antes do check-in**. Aceitamos **cartão e PIX**.
+
+O contrato tem **48 horas de arrependimento**: cancelado nesse prazo, depois da assinatura e do sinal, o reembolso é integral. Passado isso, **cancelamento com mais de sessenta dias do check-in retém 30% do valor total**, e **a sessenta dias ou menos não há devolução**. Um grupo grande bloqueia a propriedade inteira, e é por isso que a régua aqui é mais longa que a dos pacotes menores: quando uma data de retiro cai, ela não volta ao mercado.
 
 ## A janela que vale a pena conhecer
 

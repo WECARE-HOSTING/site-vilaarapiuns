@@ -19,11 +19,13 @@ duvidas:
   - q: "Is there a space for practice and for sitting in circle?"
     a: "Yes: a yoga shala, and a covered palm pavilion large enough for the entire group seated together. The beach itself is the third room, and the one most groups end up using at dusk."
   - q: "What is the internet like?"
-    a: "There is Starlink on site, kept for emergencies. It will not carry a whole group running video calls, and we would rather tell you that now than have you discover it. For a retreat this is usually the point."
+    a: "There is Starlink on site, on stable solar power, and it works well — including video calls for the whole group. We say so because disconnection here is something you design and announce, not a limitation the place imposes. Most groups know it works and choose not to use it."
   - q: "Do you host ayahuasca or plant-medicine retreats?"
     a: "No. We do not offer it, do not arrange it, and it is not what this place is. We host wellness, movement, meditation, leadership and creative groups. If plant medicine is central to your programme, we are the wrong venue and would rather say so before you travel."
   - q: "When is the best window to book?"
     a: "February to June is the flood season: no beaches, but silence, flooded forest to paddle through, and the widest availability — most of our whole-property bookings sit there. Weekdays from September to November give you the best weather of the year with the property still open."
+  - q: "How do payment and cancellation work?"
+    a: "A 30% deposit holds the date, and the balance is due in full seven days before check-in, by card or PIX, with an invoice and a group contract. The contract carries a 48-hour cooling-off window with a full refund; after that, cancelling more than sixty days before check-in retains 30% of the total, and at sixty days or less there is no refund."
 ---
 
 If you run retreats, you already know the hard part is not the programme. It is finding somewhere that can hold a group of twenty for a week without the venue becoming the problem — somewhere far enough to feel like a real departure, structured enough to actually function, and available as a whole so your group is not sharing breakfast with strangers.
@@ -66,7 +68,7 @@ We would rather lose a booking than have a facilitator discover these on arrival
 
 **Getting here is a full day.** Fly to Santarém (STM) — direct from Manaus, Belém and Brasília, connecting from São Paulo — then a 40-minute road transfer, then 90 minutes by boat. From Europe or North America, count two days including an overnight in Brazil. For a five-night retreat this is fine. For a weekend it is absurd, and we will say so.
 
-**Connectivity is deliberately thin.** There is Starlink, held for emergencies. It cannot support a group working online. For most retreats that is the feature; if your programme needs participants to check in with their jobs, choose somewhere else.
+**Connectivity works.** There is Starlink on stable solar power, and it supports a group working online. That changes how you design the retreat: disconnection here is a rule you set, not one the geography enforces. Decide it in advance and say so at sign-up — a group that arrives expecting to be off-grid and finds signal will unravel its own container.
 
 **No beaches from February to June.** The river rises and the sand goes under. What replaces it is the flooded forest and near-total quiet. It is a beautiful season and a different one — just do not sell your participants a beach in April.
 
@@ -81,6 +83,12 @@ The rate depends on **group size and number of nights**, and it drops as the gro
 For orientation on how this compares: European premium retreat venues commonly run €280–380 per person per day. We sit below that, in a location that is considerably harder to reach and considerably harder to find an equivalent for.
 
 Tell us your dates, group size, how many nights, and what your programme actually needs from a space. You will get a real number rather than a brochure.
+
+## Booking and cancellation
+
+We invoice and we work with a group contract. A **30% deposit** holds the date, and the **balance is due in full seven days before check-in**. We take **card and PIX**.
+
+The contract carries a **48-hour cooling-off window**: cancel inside it, after signing and paying the deposit, and the refund is full. After that, **cancelling more than sixty days before check-in retains 30% of the total**, and **at sixty days or less there is no refund**. A large group books the whole property, which is why the notice here runs longer than on the smaller packages: once a retreat date falls through, it does not go back on the market.
 
 ## The window worth knowing about
 

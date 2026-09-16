@@ -19,11 +19,13 @@ duvidas:
   - q: "Gibt es einen Raum für die Praxis und für den Sitzkreis?"
     a: "Ja: eine Shala de Yoga und ein überdachter Palmpavillon, groß genug, um die gesamte Gruppe gemeinsam sitzen zu lassen. Der Strand selbst ist der dritte Raum — und der, den die meisten Gruppen am Ende in der Abenddämmerung nutzen."
   - q: "Wie ist es mit dem Internet?"
-    a: "Vor Ort gibt es Starlink, das für Notfälle vorgehalten wird. Es trägt keine ganze Gruppe, die Videoanrufe führt, und das sagen wir Ihnen lieber jetzt, als dass Sie es selbst entdecken. Für ein Retreat ist das meist genau der Punkt."
+    a: "Vor Ort gibt es Starlink mit stabiler Solarversorgung, und es funktioniert gut — auch für Videocalls mit der ganzen Gruppe. Wir sagen das, weil Abgeschiedenheit hier etwas ist, das Sie gestalten und ankündigen, keine Einschränkung, die der Ort auferlegt. Die meisten Gruppen wissen, dass es geht, und entscheiden sich dagegen."
   - q: "Veranstalten Sie Ayahuasca- oder Pflanzenmedizin-Retreats?"
     a: "Nein. Wir bieten das nicht an, wir organisieren es nicht, und dafür steht dieser Ort nicht. Wir sind Gastgeber für Wellness-, Bewegungs-, Meditations-, Leadership- und Kreativgruppen. Wenn Pflanzenmedizin im Zentrum Ihres Programms steht, sind wir der falsche Ort — und sagen das lieber, bevor Sie anreisen."
   - q: "Wann ist das beste Zeitfenster für eine Buchung?"
     a: "Februar bis Juni ist die Hochwasserzeit: keine Strände, dafür Stille, überfluteter Wald zum Durchpaddeln und die größte Verfügbarkeit — die meisten unserer Buchungen für die gesamte Anlage liegen in diesem Zeitraum. Wochentage von September bis November bieten das beste Wetter des Jahres, bei weiterhin geöffneter Anlage."
+  - q: "Wie funktionieren Zahlung und Stornierung?"
+    a: "30 % Anzahlung sichern den Termin, der Restbetrag ist spätestens sieben Tage vor Anreise vollständig fällig, per Karte oder PIX, mit Rechnung und Gruppenvertrag. Der Vertrag sieht ein 48-stündiges Widerrufsfenster mit voller Rückerstattung vor; danach werden bei Stornierung mehr als sechzig Tage vor Anreise 30 % des Gesamtbetrags einbehalten, und ab sechzig Tagen oder weniger erfolgt keine Rückerstattung."
 ---
 
 Wenn Sie Retreats veranstalten, wissen Sie bereits: Der schwierige Teil ist nicht das Programm. Es ist, einen Ort zu finden, der eine Gruppe von zwanzig Personen eine Woche lang aufnehmen kann, ohne selbst zum Problem zu werden — weit genug entfernt, um sich wie ein echter Aufbruch anzufühlen, strukturiert genug, um tatsächlich zu funktionieren, und als Ganzes verfügbar, damit Ihre Gruppe nicht mit Fremden das Frühstück teilt.
@@ -66,7 +68,7 @@ Wir verlieren lieber eine Buchung, als dass ein Facilitator dies erst bei der An
 
 **Die Anreise dauert einen vollen Tag.** Flug nach Santarém (STM) — Direktflüge ab Manaus, Belém und Brasília, mit Umsteigeverbindung ab São Paulo —, dann ein 40-minütiger Landtransfer, dann 90 Minuten mit dem Boot. Von Europa oder Nordamerika aus rechnen Sie mit zwei Tagen, einschließlich einer Übernachtung in Brasilien. Für ein fünfnächtiges Retreat ist das kein Problem. Für ein Wochenende ist es absurd, und das sagen wir Ihnen auch.
 
-**Die Konnektivität ist bewusst schwach.** Es gibt Starlink, vorgehalten für Notfälle. Es trägt keine Gruppe, die online arbeitet. Für die meisten Retreats ist genau das das Merkmal; wenn Ihr Programm verlangt, dass Teilnehmende sich bei ihrem Job melden können, wählen Sie einen anderen Ort.
+**Die Konnektivität funktioniert.** Es gibt Starlink mit stabiler Solarversorgung, und es trägt eine Gruppe, die online arbeitet. Das ändert die Gestaltung Ihres Retreats: Abgeschiedenheit ist hier eine Regel, die Sie setzen, nicht eine, die die Geografie erzwingt. Entscheiden Sie das vorab und sagen Sie es bei der Anmeldung — eine Gruppe, die ohne Empfang rechnet und dann doch welchen vorfindet, löst ihren eigenen Rahmen auf.
 
 **Von Februar bis Juni keine Strände.** Der Fluss steigt, und der Sand verschwindet darunter. An seine Stelle treten der überflutete Wald und eine fast vollständige Stille. Es ist eine schöne Jahreszeit, aber eine andere — verkaufen Sie Ihren Teilnehmenden im April nur keinen Strand.
 
@@ -81,6 +83,12 @@ Der Preis richtet sich nach **Gruppengröße und Anzahl der Nächte** und sinkt 
 Zur Orientierung, wie sich das einordnet: Europäische Premium-Retreat-Orte liegen üblicherweise bei 280–380 € pro Person und Tag. Wir liegen darunter — an einem Ort, der deutlich schwerer zu erreichen ist und für den sich deutlich schwerer ein Äquivalent finden lässt.
 
 Nennen Sie uns Ihre Termine, Ihre Gruppengröße, die Anzahl der Nächte und was Ihr Programm tatsächlich von einem Raum braucht. Sie erhalten eine echte Zahl statt einer Broschüre.
+
+## Buchung und Stornierung
+
+Wir stellen Rechnungen aus und arbeiten mit einem Gruppenvertrag. **30 % Anzahlung** sichern den Termin, der **Restbetrag ist spätestens sieben Tage vor Anreise vollständig fällig**. Wir akzeptieren **Karte und PIX**.
+
+Der Vertrag sieht ein **48-stündiges Widerrufsfenster** vor: Wer darin storniert, nach Unterschrift und Anzahlung, erhält den vollen Betrag zurück. Danach werden **bei Stornierung mehr als sechzig Tage vor Anreise 30 % des Gesamtbetrags einbehalten**, und **ab sechzig Tagen oder weniger gibt es keine Rückerstattung**. Eine große Gruppe belegt das gesamte Grundstück — deshalb ist die Frist hier länger als bei den kleineren Paketen: Fällt ein Retreat-Termin aus, kommt er nicht auf den Markt zurück.
 
 ## Das Zeitfenster, das Sie kennen sollten
 
