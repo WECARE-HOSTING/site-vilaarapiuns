@@ -40,7 +40,18 @@ import { SITE, preco, whatsappUrl } from '@/data/site';
 import { ACOMODACOES } from '@/data/acomodacoes';
 import { HTML_LANG, type Locale } from '@/i18n/config';
 
+import FundoPaisagem from '@/components/FundoPaisagem.astro';
 import gal3 from '@/assets/imgs/gal3.jpg';
+
+// Paisagem do hero (16/09/2026). Três fotos da região, recortadas a mão para
+// 16:9 — duas vieram em retrato. Entram como fundo porque o acervo era quase
+// todo maloca e interior, e o rio ficava de fora da primeira dobra.
+import paisagemPraiaBranca from '@/assets/imgs/paisagem-praia-branca.jpg';
+import paisagemBancoDourado from '@/assets/imgs/paisagem-banco-dourado.jpg';
+import paisagemIgapoTroncos from '@/assets/imgs/paisagem-igapo-troncos.jpg';
+import paisagemBancoGente from '@/assets/imgs/paisagem-banco-gente.jpg';
+import paisagemPorDoSol from '@/assets/imgs/paisagem-por-do-sol.jpg';
+import paisagemAlterArvores from '@/assets/imgs/paisagem-alter-arvores.jpg';
 import villaDeCimaPoster from '@/assets/imgs/villa-de-cima-poster.jpg';
 
 // Imagens da coluna de reels do hero (ColunaDeReels, abaixo) — a "tira" de
@@ -101,6 +112,42 @@ const HERO_REELS_MEDIA: Record<string, { imagem: ImageMetadata } | { video: stri
   tecelagem: { imagem: tecelagem },
   piracaia: { video: '/video/reels/reel-piracaia.mp4', poster: reelPiracaiaPoster },
 };
+
+/* A ordem é deliberada, e o critério é quanto cada foto aguenta tipo branco
+   por cima — não qual é a mais bonita solta.
+
+   1. praia-branca abre: é a que tem mais céu, e céu é onde o gancho pousa.
+   2. banco-dourado, a luz mais forte do conjunto.
+   3. igapo-troncos é a única da CHEIA, e a menos genérica das cinco — praia de
+      areia clara qualquer destino tem; floresta alagada com troncos brancos,
+      não. Ela é o que diferencia este hero do de um resort.
+   4. por-do-sol fecha quente, e a folhagem escura do canto esquerdo cai
+      justamente onde o véu já escurece: o gancho ganha contraste de graça.
+   4. banco-gente traz a escala humana: duas pessoas minúsculas num banco de
+      areia enorme. É a foto que diz o tamanho do lugar sem legenda nenhuma.
+   6. alter-arvores por último — é a mais fraca, e num ciclo longo é a que
+      menos visitante chega a ver.
+
+   SEIS fotos a 5s dão trinta segundos de ciclo. Poucos visitantes veem todas,
+   e isso é esperado num hero: as duas primeiras carregam o peso. Se um dia o
+   ciclo parecer longo demais, corte pelo fim da lista, não pelo intervalo —
+   abaixo de 5s a troca começa a chamar mais atenção que a foto.
+
+   Duas vieram do acervo (por-do-sol e igapo-troncos), recortadas para 16:9 e
+   com um ganho leve de contraste e saturação para casar com as três novas.
+   Nada de tingir: o global.css declara que as cores da marca saíram destes
+   pixels, e a rodada de 20/08 já rejeitou um overlay que fazia isso. */
+const PAISAGENS = [
+  paisagemPraiaBranca,
+  paisagemBancoDourado,
+  paisagemIgapoTroncos,
+  paisagemBancoGente,
+  paisagemPorDoSol,
+  paisagemAlterArvores,
+];
+const heroPaisagem = useList(locale)<{ alt: string }>('home.heroPaisagem')
+  .map((item, i) => ({ src: PAISAGENS[i], alt: item.alt }))
+  .filter((foto) => foto.src);
 
 const heroReels = useList(locale)<{ id: string; legenda: string; alt?: string }>('home.heroReelItens')
   .map((item) => {
@@ -257,8 +304,9 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
    continua de pé com os blocos em outra ordem. */
 ---
 
-<section class="bg-areia-clara pt-header">
-  <div class="container-editorial">
+<section class="relative isolate overflow-hidden pt-header">
+  <FundoPaisagem fotos={heroPaisagem} />
+  <div class="container-editorial relative z-10">
 
     <div class="flex flex-col">
 
@@ -286,14 +334,17 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
           para 2,75rem por causa de um estouro que não existia — era artefato de
           screenshot em headless, que impõe janela mínima de 500px e recorta a
           imagem no tamanho pedido. Medir dentro da página, não na foto dela. */}
-      <h1 class="font-display text-[clamp(3.25rem,4.6vw,4rem)] leading-[1.02] tracking-[0.01em]">
+      {/* Branco sobre o véu, não mar-fundo sobre areia: desde 16/09 o hero
+          abre em fotografia. O `text-espuma` da segunda linha guarda a mesma
+          hierarquia de duas vozes que o `text-ceu` fazia sobre o creme. */}
+      <h1 class="font-display text-[clamp(3.25rem,4.6vw,4rem)] leading-[1.02] tracking-[0.01em] text-white [text-shadow:0_2px_26px_rgb(13_50_68_/_0.45)]">
         {t('home.hookA')}
-        <span class="block text-ceu">{t('home.hookB')}</span>
+        <span class="block text-espuma">{t('home.hookB')}</span>
       </h1>
 
       <div class="mt-8 flex flex-wrap gap-3">
         <a href={href(locale, 'book')} class="btn btn-primario">{t('cta.book')}</a>
-        <a href={href(locale, 'packages')} class="btn btn-secundario">{t('cta.seePackages')}</a>
+        <a href={href(locale, 'packages')} class="btn btn-secundario border-white/85 text-white">{t('cta.seePackages')}</a>
       </div>
     </div>
 
