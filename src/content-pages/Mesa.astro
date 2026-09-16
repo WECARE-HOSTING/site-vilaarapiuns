@@ -30,9 +30,16 @@ interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = useTranslations(locale);
 
+/* A terceira linha é a única SEM voluta, e é de propósito: a voluta marca o
+   que está incluso, e bebida alcoólica não está. Ela entrou em 16/09/2026
+   porque o site não dizia isso em lugar nenhum — e `modo.pacoteFora` chegava a
+   afirmar "nada à parte", o que deixou de ser verdade no instante em que o
+   grupo pede a primeira cerveja. Escopo mal contado vira discussão na hora da
+   conta, e esta página existe justamente para que isso não aconteça. */
 const escopo = [
   { titulo: t('mesa.escopo1T'), detalhe: t('mesa.escopo1D'), medida: 'Pousada', marcado: true },
   { titulo: t('mesa.escopo2T'), detalhe: t('mesa.escopo2D'), medida: 'Pacotes', marcado: true },
+  { titulo: t('mesa.escopo3T'), detalhe: t('mesa.escopo3D'), medida: t('modo.foraRot') },
 ];
 ---
 
