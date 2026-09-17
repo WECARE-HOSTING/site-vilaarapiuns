@@ -12,6 +12,11 @@
  * só `opacity`. Nada de `transform`, nada de reflow — o navegador compõe na
  * GPU e o custo por troca é o de uma camada.
  *
+ * Desde 17/09/2026 a troca é sobreposição, não fade cruzado: a que sai fica
+ * inteira por baixo e só a que entra desvanece — e ela só entra depois de
+ * `decode()` resolver. As duas coisas juntas tiram o estalo que o cliente viu
+ * em produção (ver a nota no CSS e no script).
+ *
  * Sem JavaScript: a primeira foto tem `.esta` no HTML e as outras nascem em
  * opacidade 0. Sem o script a primeira fica, parada, e o hero continua de pé —
  * a mesma degradação honesta do Padrão 1 (Home.astro) e da ColunaDeReels.
@@ -73,9 +78,20 @@ const { fotos, intervalo = 5000 } = Astro.props;
     object-fit: cover;
     opacity: 0;
     transition: opacity 1400ms ease-in-out;
+    /* Camada própria desde o início: sem isto o navegador cria a camada no
+       primeiro quadro da transição, e esse quadro atrasa — é um dos estalos. */
+    will-change: opacity;
   }
 
-  .fundo-paisagem__foto.esta { opacity: 1; }
+  /* A troca é SOBREPOSIÇÃO, não fade cruzado. A foto que sai (`saindo`) fica
+     parada em 100%, por baixo; só a que entra (`esta`) desvanece, por cima.
+     Antes as duas desvaneciam juntas e, no meio da troca, cada uma estava a
+     50% sobre o mar-fundo: a cena escurecia e a nova parecia pular no fim. E
+     se a nova ainda não tinha decodificado, o que aparecia por um instante era
+     o azul-escuro — o estalo que o cliente viu em 17/09. Com a que sai inteira
+     por baixo, nada disso tem onde aparecer. */
+  .fundo-paisagem__foto.saindo { opacity: 1; transition: none; z-index: 0; }
+  .fundo-paisagem__foto.esta { opacity: 1; z-index: 1; }
 
   /* O tipo pousa NO PÉ do quadro, à esquerda — desde 16/09/2026 (segunda
      rodada) o hero não tem mais nada além do gancho e dos dois comandos, e
@@ -130,7 +146,8 @@ const { fotos, intervalo = 5000 } = Astro.props;
 </style>
 
 <script>
-  const CLASSE = 'esta';
+  const ESTA = 'esta';
+  const SAINDO = 'saindo';
 
   document.querySelectorAll<HTMLElement>('[data-fundo-paisagem]').forEach((palco) => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -141,14 +158,38 @@ const { fotos, intervalo = 5000 } = Astro.props;
     const intervalo = Number(palco.dataset.intervalo) || 5000;
     let atual = 0;
     let timer: number | undefined;
+    let trocando = false;
 
-    const trocar = () => {
-      fotos[atual].classList.remove(CLASSE);
-      atual = (atual + 1) % fotos.length;
-      fotos[atual].classList.add(CLASSE);
+    /* O estalo tinha uma causa concreta: a foto seguinte é `loading="lazy"` e o
+       navegador só decodifica uma imagem quando vai pintá-la. Na troca, a
+       transição de opacidade começava com a imagem ainda por decodificar, e
+       ela aparecia de repente no meio do fade, no quadro em que a decodificação
+       terminava. `decode()` resolve quando os pixels já estão prontos — a troca
+       só dispara depois disso. Aquecer na metade do intervalo garante que, na
+       hora, o `await` volta na mesma hora. */
+    const aquecer = (img: HTMLImageElement) => {
+      if (img.loading === 'lazy') img.loading = 'eager';
+      return img.decode ? img.decode().catch(() => {}) : Promise.resolve();
     };
 
-    const ligar = () => { timer ??= window.setInterval(trocar, intervalo); };
+    const trocar = async () => {
+      if (trocando) return;
+      trocando = true;
+      const prox = (atual + 1) % fotos.length;
+      await aquecer(fotos[prox]);
+      fotos.forEach((f) => f.classList.remove(SAINDO));
+      fotos[atual].classList.replace(ESTA, SAINDO);
+      fotos[prox].classList.add(ESTA);
+      atual = prox;
+      trocando = false;
+      window.setTimeout(() => aquecer(fotos[(atual + 1) % fotos.length]), intervalo / 2);
+    };
+
+    const ligar = () => {
+      if (timer) return;
+      aquecer(fotos[(atual + 1) % fotos.length]);
+      timer = window.setInterval(trocar, intervalo);
+    };
     const parar = () => { if (timer) { clearInterval(timer); timer = undefined; } };
 
     /* Aba escondida não gasta bateria nem decodifica imagem à toa. */
