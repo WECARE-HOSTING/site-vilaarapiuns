@@ -78,9 +78,17 @@ const { fotos, intervalo = 5000 } = Astro.props;
     object-fit: cover;
     opacity: 0;
     transition: opacity 1400ms ease-in-out;
-    /* Camada própria desde o início: sem isto o navegador cria a camada no
-       primeiro quadro da transição, e esse quadro atrasa — é um dos estalos. */
-    will-change: opacity;
+    /* Camada própria PERMANENTE. `will-change: opacity` sozinho não bastou:
+       medido em 17/09 com captura quadro a quadro, no instante em que a
+       transição terminava o navegador repintava o hero inteiro — foto, véu,
+       gancho e botões — porque desfazia as camadas que só existiam por causa
+       da animação. O texto trocava de suavização, a foto de reamostragem, e
+       o resultado era a "piscada" que o cliente viu: parece um ajuste de
+       brilho a cada troca. `translateZ(0)` fixa a camada para sempre, e o
+       fim da transição deixa de ser um evento de repintura. */
+    will-change: opacity, transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
 
   /* A troca é SOBREPOSIÇÃO, não fade cruzado. A foto que sai (`saindo`) fica
@@ -90,8 +98,12 @@ const { fotos, intervalo = 5000 } = Astro.props;
      se a nova ainda não tinha decodificado, o que aparecia por um instante era
      o azul-escuro — o estalo que o cliente viu em 17/09. Com a que sai inteira
      por baixo, nada disso tem onde aparecer. */
-  .fundo-paisagem__foto.saindo { opacity: 1; transition: none; z-index: 0; }
-  .fundo-paisagem__foto.esta { opacity: 1; z-index: 1; }
+  /* Três degraus de z, não dois: a foto que acabou de deixar de ser `saindo`
+     ainda está desvanecendo para 0 e, na volta do ciclo (5 → 0 → 1), ela vem
+     DEPOIS da `saindo` no DOM — com o mesmo z-index ela pintava por cima e o
+     visitante via a foto de duas trocas atrás reaparecer por um segundo. */
+  .fundo-paisagem__foto.saindo { opacity: 1; transition: none; z-index: 1; }
+  .fundo-paisagem__foto.esta { opacity: 1; z-index: 2; }
 
   /* O tipo pousa NO PÉ do quadro, à esquerda — desde 16/09/2026 (segunda
      rodada) o hero não tem mais nada além do gancho e dos dois comandos, e
@@ -112,6 +124,11 @@ const { fotos, intervalo = 5000 } = Astro.props;
      rejeitou um overlay que tingia a imagem inteira. */
   .fundo-paisagem__veu {
     grid-area: 1 / 1;
+    /* O véu também mora numa camada fixa, pela mesma razão das fotos: se ele
+       for promovido só enquanto a foto de baixo anima, ele é repintado quando
+       a animação acaba. */
+    will-change: transform;
+    transform: translateZ(0);
     background: linear-gradient(
       to top,
       color-mix(in srgb, var(--color-mar-fundo) 80%, transparent) 0%,
