@@ -295,7 +295,12 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
 >
   <FundoPaisagem fotos={heroPaisagem} />
 
-  <div class="container-editorial relative z-10 w-full pb-14 pt-32 lg:pb-20 lg:pt-40">
+  {/* `will-change-transform`: o gancho e os botões ficam numa camada própria
+      permanente. Sem isso, o navegador os promovia só enquanto a foto de
+      baixo animava e os repintava no fim — o texto trocava de suavização a
+      cada troca, e era isso que o cliente lia como "piscada". Ver a nota no
+      CSS do FundoPaisagem. */}
+  <div class="container-editorial relative z-10 w-full pb-14 pt-32 will-change-transform lg:pb-20 lg:pt-40">
     {/* Teto do corpo MENOR que o --text-display global (6rem): a 96px o gancho
         quebra em quatro linhas a 1440px e come o quadro inteiro. A 4rem cada
         frase cabe numa linha só.
