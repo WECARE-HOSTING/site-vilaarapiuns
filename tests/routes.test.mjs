@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
 import { LOCALES } from '../src/i18n/config.ts';
-import { PAGE_KEYS, SLUGS, caminhosNoindex, href } from '../src/i18n/routes.ts';
+import { PAGE_KEYS, SLUGS, caminhosNoindex, href, reescreveApexDoSitemap, urlEntraNoSitemap } from '../src/i18n/routes.ts';
 
 test('href: página "home" (slug vazio) vira só a raiz do idioma', () => {
   assert.equal(href('pt', 'home'), '/pt/');
@@ -39,6 +39,30 @@ test('SLUGS: toda PageKey tem slug definido pra todo Locale (sem buraco na tabel
       );
     }
   }
+});
+
+test('urlEntraNoSitemap: apex fora; /en/ entra; styleguide e noindex fora', () => {
+  assert.equal(urlEntraNoSitemap('https://villaarapiuns.com.br/'), false);
+  assert.equal(urlEntraNoSitemap('https://villaarapiuns.com.br/en/'), true);
+  assert.equal(urlEntraNoSitemap('https://villaarapiuns.com.br/pt/'), true);
+  assert.equal(urlEntraNoSitemap('https://villaarapiuns.com.br/pt/styleguide/'), false);
+  assert.equal(urlEntraNoSitemap('https://villaarapiuns.com.br/en/book/sent/'), false);
+});
+
+test('reescreveApexDoSitemap: loc e hreflang en saem do apex para /en/', () => {
+  const item = reescreveApexDoSitemap({
+    url: 'https://villaarapiuns.com.br/',
+    links: [
+      { lang: 'en', url: 'https://villaarapiuns.com.br/' },
+      { lang: 'en', url: 'https://villaarapiuns.com.br/en/' },
+      { lang: 'pt-BR', url: 'https://villaarapiuns.com.br/pt/' },
+    ],
+  });
+  assert.equal(item.url, 'https://villaarapiuns.com.br/en/');
+  assert.deepEqual(item.links, [
+    { lang: 'en', url: 'https://villaarapiuns.com.br/en/' },
+    { lang: 'pt-BR', url: 'https://villaarapiuns.com.br/pt/' },
+  ]);
 });
 
 test('SLUGS: slugs não-home não têm barra inicial nem final (href já adiciona)', () => {

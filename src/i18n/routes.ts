@@ -1,4 +1,4 @@
-import type { Locale } from './config';
+import { DEFAULT_LOCALE, type Locale } from './config';
 
 /** Chave interna de cada página. A ordem aqui é a ordem do menu. */
 export const PAGE_KEYS = [
@@ -80,6 +80,42 @@ export const NOINDEX_KEYS: readonly PageKey[] = ['bookSent'];
 /** Os caminhos noindex em todos os idiomas, para o filtro do sitemap. */
 export function caminhosNoindex(): string[] {
   return NOINDEX_KEYS.flatMap((k) => Object.values(SLUGS[k]));
+}
+
+/**
+ * A raiz `/` não é documento: 301 para `/en/` (x-default). Listá-la no
+ * sitemap era o que alimentava o canonical mismatch no Search Console —
+ * o XML anunciava o apex, a página devolvia 200 com canonical em `/en/`.
+ */
+export function urlEntraNoSitemap(page: string): boolean {
+  if (new URL(page).pathname === '/') return false;
+  return !page.includes('/styleguide') &&
+    !caminhosNoindex().some((c) => page.includes(`/${c}/`));
+}
+
+type LinkSitemap = { url: string; lang: string };
+type ItemSitemap = { url: string; links?: LinkSitemap[] };
+
+/**
+ * O plugin do sitemap trata `defaultLocale: 'en'` como URL sem prefixo, então
+ * os xhtml:link de `/en/` apontavam para o apex. Reescreve esse apex para
+ * `/en/` e tira o par duplicado que a reescrita criaria.
+ */
+export function reescreveApexDoSitemap<T extends ItemSitemap>(item: T): T {
+  const destino = new URL(`/${DEFAULT_LOCALE}/`, item.url).href;
+  const rewrite = (u: string) => new URL(u).pathname === '/' ? destino : u;
+  const url = rewrite(item.url);
+  if (!item.links) return { ...item, url };
+  const seen = new Set<string>();
+  const links = item.links
+    .map((l) => ({ ...l, url: rewrite(l.url) }))
+    .filter((l) => {
+      const k = `${l.lang}|${l.url}`;
+      if (seen.has(k)) return false;
+      seen.add(k);
+      return true;
+    });
+  return { ...item, url, links };
 }
 
 /** Monta a URL final de uma página num idioma: /pt/pacotes/ */
