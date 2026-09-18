@@ -40,9 +40,9 @@ let falhou = false;
 // tem esse ponto cego: uma página só sai da obrigação se alguém a colocar
 // aqui de propósito.
 //
-// Hoje só existe uma rota assim: o stub de detecção de idioma construído a
-// partir de `src/pages/index.astro`, que o Astro gera sem cabeçalho nem
-// rodapé (é um redirect de 0s, ver comentário no próprio arquivo).
+// Hoje só existe uma rota assim: o stub da raiz (`src/pages/index.astro`),
+// que o Astro pode ainda emitir como HTML de fallback do 301 `/` → `/en/`.
+// Não tem cabeçalho nem rodapé. O 301 de produção está no nginx.
 const ROTAS_SEM_CHROME = ['dist/index.html'];
 
 const paginasComContatoObrigatorio = paginas.filter((f) => !ROTAS_SEM_CHROME.includes(f));

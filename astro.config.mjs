@@ -3,7 +3,8 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
-import { caminhosNoindex } from './src/i18n/routes.ts';
+import { reescreveApexDoSitemap, urlEntraNoSitemap } from './src/i18n/routes.ts';
+import { DEFAULT_LOCALE } from './src/i18n/config.ts';
 import { readdirSync, readFileSync } from 'node:fs';
 
 /**
@@ -67,10 +68,16 @@ export default defineConfig({
     locales: ['en', 'pt', 'es', 'de', 'ja'],
     routing: {
       prefixDefaultLocale: true,
-      // Escrevemos nosso próprio redirect da raiz, que detecta o idioma
-      // do navegador em vez de mandar todo mundo para /en/.
-      redirectToDefaultLocale: false,
+      // x-default já é en. 200 + meta refresh na raiz fazia o Search Console
+      // ver canonical mismatch (usuário declara /en/, Google às vezes fica no apex).
+      redirectToDefaultLocale: true,
     },
+  },
+
+  // SSG ainda pode emitir HTML de fallback; o 301 de verdade no ar é o
+  // `location = /` em nginx-root-redirect.conf (nginx serve dist/ como arquivo).
+  redirects: {
+    '/': { status: 301, destination: `/${DEFAULT_LOCALE}/` },
   },
 
   integrations: [
@@ -82,13 +89,12 @@ export default defineConfig({
     sitemap({
       // '/styleguide' é a página interna de aprovação de design; os caminhos
       // noindex vêm de NOINDEX_KEYS, uma fonte só para os cinco idiomas.
-      filter: (page) =>
-        !page.includes('/styleguide') &&
-        !caminhosNoindex().some((c) => page.includes(`/${c}/`)),
+      filter: (page) => urlEntraNoSitemap(page),
       i18n: { defaultLocale: 'en', locales: { en: 'en', pt: 'pt-BR', es: 'es', de: 'de', ja: 'ja' } },
       serialize(item) {
-        const data = LASTMOD.get(new URL(item.url).pathname);
-        return data ? { ...item, lastmod: data } : item;
+        const reescrito = reescreveApexDoSitemap(item);
+        const data = LASTMOD.get(new URL(reescrito.url).pathname);
+        return data ? { ...reescrito, lastmod: data } : reescrito;
       },
     }),
   ],
