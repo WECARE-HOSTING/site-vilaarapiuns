@@ -93,8 +93,8 @@ export default defineConfig({
       i18n: { defaultLocale: 'en', locales: { en: 'en', pt: 'pt-BR', es: 'es', de: 'de', ja: 'ja' } },
       serialize(item) {
         const reescrito = reescreveApexDoSitemap(item);
-        const data = LASTMOD.get(new URL(reescreito.url).pathname);
-        return data ? { ...reescreito, lastmod: data } : reescrito;
+        const data = LASTMOD.get(new URL(reescrito.url).pathname);
+        return data ? { ...reescrito, lastmod: data } : reescrito;
       },
     }),
   ],
