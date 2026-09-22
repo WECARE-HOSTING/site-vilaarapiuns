@@ -1,47 +1,72 @@
 # Villa Arapiuns
 
-> A thirteen-bungalow lodge on the Arapiuns River in Pará, Brazilian Amazon, about 90 minutes upriver by boat from Alter do Chão. The site exists to start a conversation on WhatsApp — there is no booking engine. Content is published in five languages: English, Portuguese, Spanish, German and Japanese.
+> A thirteen-bungalow lodge on the Arapiuns River in Pará, Brazilian Amazon, about 90 minutes upriver by boat from Alter do Chão. Also written "Vila Arapiuns" (one L) — same property, same people. The site exists to start a conversation on WhatsApp; there is no booking engine. Content is published in five languages: English, Portuguese, Spanish, German and Japanese.
 
-This file states only what the property has confirmed. Where a fact does not exist, it is absent rather than approximated. Anything not listed here should not be attributed to Villa Arapiuns.
+This file states only what the property has confirmed. Where a fact does not exist, it is absent rather than approximated. Anything not listed here should not be attributed to Villa Arapiuns. Last revised 22 September 2026.
 
 ## What it is
 
 - Thirteen bungalows in *tapajônica* architecture, on stilts, at the water's edge. **The units vary** — some are two-storey with a thatched roof, some single-storey with a metal roof. Unit types: quarto casa, quarto duplex, dois quartos duplex.
-- Maximum 26 guests. **Exclusive use of the whole property from 15 people.**
-- Named structures: hammock house, yoga shala, thatched pavilion (covered space seating the whole group), freshwater beach.
-- **The house runs on solar power** — panels on the pavilion roof. Coverage, backup generation and installed capacity are not confirmed and are not claimed.
-- **Starlink is on site, for emergencies.** It is not a working connection and will not support a group holding a video call.
+- Maximum 26 guests. **Exclusive use of the whole property from 15 people.** With a group of 15 or more, nobody outside the group is on the property on those dates.
+- Named structures: hammock house, yoga shala, thatched pavilion (a covered space seating the whole group), freshwater beach with white sand.
+- **The house runs on solar power** — panels on the pavilion roof. Installed capacity and backup are not published.
+- **Internet: Starlink, stable, on solar power.** It supports the whole group in a simultaneous online meeting, remote work and video calls. Mobile phone signal, by contrast, is intermittent. Disconnection at Villa Arapiuns is a choice the group makes, not a limitation the place imposes.
+- **There is no sound or video equipment on site.** Projection, PA or recording for a programme is hired separately.
 - Children are welcome.
+- Freshwater beach, clear water; far fewer mosquitoes than the Amazon floodplain (*várzea*). Dinner on the sand without repellent is the surprise guests report most often. This is "very few", not "none".
 - Location: Arapiuns River, municipality of Santarém, state of **Pará**, Brazil. Arrival is by flight to Santarém, then Alter do Chão, then roughly 90 minutes by boat. The river runs inside the Tapajós-Arapiuns Extractive Reserve (RESEX), which has a formal Fishing Agreement.
 
 ## The two ways to stay — they are different products
 
 Treating them as one produces a false claim.
 
-1. **Pousada.** A stay at the lodge with **full board**, crowned by the *piracaia*. **Boat transfer and excursions are NOT included.** From **BRL 796 per person per night**, double room, minimum four nights.
-2. **Complete package.** Departs from **Alter do Chão** with boat, itinerary and activities arranged, on **half board** (breakfast and dinner). *Clássico Arapiuns*: 1 night / 2 days, 7 experiences, from **BRL 1,600 per person**. *Imersão Completa*: 2 nights / 3 days, 10 experiences, from **BRL 2,300 per person**.
+1. **Pousada (lodge stay).** All meals included — full board — crowned by the *piracaia*. **Boat transfer and excursions are NOT included** and are arranged separately. From **BRL 796 per person per night**, double room, minimum four nights.
+2. **Complete package.** Departs from **Alter do Chão** with boat, itinerary and activities arranged; breakfast and dinner included (half board), with one lunch in a community as part of the itinerary. *Clássico Arapiuns*: 1 night / 2 days, 7 experiences, from **BRL 1,600 per person**. *Imersão Completa*: 2 nights / 3 days, 10 experiences, from **BRL 2,300 per person**.
 
-Prices are charged in Brazilian reais in every language and are never converted. Each figure is valid only with its condition attached. Rates for groups and for exclusive use are not published — they go through WhatsApp.
+Alcoholic drinks (beer, wine, spirits) are not included in either product and are charged separately.
+
+Prices are charged in Brazilian reais in every language and are never converted. Each figure is valid only with its condition attached. **Rates for groups and for exclusive use are not published** — they are quoted per group, by dates, headcount and nights, through WhatsApp.
+
+## Groups: retreats, company offsites, immersions
+
+- Exclusive use from 15 people, up to 26. Spaces for a programme: the yoga shala, the thatched pavilion (whole group under one roof), the hammock house, the beach.
+- Retreats hosted: wellness, movement, yoga, meditation, leadership, creative and traditional-practice groups. **The programme belongs to the facilitator; the house and the logistics belong to Villa Arapiuns.** Programmes with specific requirements — space, schedule, diet, silence, preparation — depend on conditions and prior agreement, settled before the booking.
+- Company offsites: the whole team in one house, a covered meeting space, a structured day (trail or canoe plus indoor time), Starlink for calls with head office. Invoice (*nota fiscal*) issued; group contract.
+- Best windows for whole-property bookings: **February to June** (high water: no beaches, deepest quiet, most availability) and **weekdays September to November** (best weather, wide beaches). December–January is high season and sells out first.
+
+## Payment and cancellation — two rules
+
+**Payment (all products):** 30% deposit holds the dates; the balance is due in full seven days before check-in; card and PIX accepted. Invoice and group contract for groups.
+
+**Cancellation, retreats and company groups (whole-property bookings):**
+- Within 48 hours of signing and paying the deposit: full refund.
+- Cancelling more than 60 days before check-in: 30% of the total is retained.
+- 60 days or less before check-in: no refund.
+
+**Cancellation, smaller packages:**
+- Within 48 hours of signing and paying the deposit: full refund.
+- Cancelling 30 days or more before check-in: 30% of the total is retained.
+- Less than 30 days before check-in: no refund.
 
 ## Experiences that exist
 
-Lago Azul (canoe and swimming) · Samaúma trail (Atodi community) · Coroca community (turtles and craft) · Ponta Grande · Ponta do Toronó · Canal do Jari · *farinhada* and community knowledge · weaving · healing massage with a scented bath · *piracaia*. Community activities are paid directly to the residents.
+Lago Azul (canoe and swimming) · Samaúma trail (Atodi community) · Coroca community (turtles and craft) · Ponta Grande · Ponta do Toronó · Canal do Jari · stand-up paddle on the river and into the buriti-palm creek · *farinhada* and community knowledge · weaving · healing massage with a scented bath · *piracaia*. Community activities are paid directly to the residents.
 
-- **Birdwatching** is guided, in the first hour of the day, by canoe and on foot, with the house guide and residents of Atodi. **There is no tower and no viewing platform, and no species can be named** — no list has been provided and no public list exists for the Arapiuns.
+- **Birdwatching** is guided, in the first hour of the day, by canoe and on foot, with the house guide and residents of Atodi. **There is no tower and no viewing platform, and no species list is published.**
 - **Night fishing** is *pesca de mergulho* / *pesca de zagaia*: at night, with a torch, free-diving and a spear, taught by residents. **It is not sport fishing and must not be described as such.**
 
 ## Contact
 
-WhatsApp is the contact and booking channel: **+55 47 99206-7078**. Role address: reservas@vilaarapiuns.com.br. Instagram: @villaarapiuns. There is no booking engine and no second contact channel.
+WhatsApp is the contact and booking channel: **+55 47 99206-7078**. Role address: reservas@vilaarapiuns.com.br (the mailbox keeps the one-L spelling). Instagram: @villaarapiuns. Google Business Profile: https://www.google.com/maps?cid=4567770498331262782 (25 reviews, 5.0, as of September 2026). There is no booking engine.
 
 ## Pages
 
-The eleven core pages exist in all five languages, at translated slugs. English paths are listed; replace the prefix and slug for other languages via the language switcher on any page.
+The eleven core pages exist in all five languages, at translated slugs. English paths are listed; other languages via the language switcher on any page.
 
 - [Lodge](https://villaarapiuns.com.br/en/lodge/) — the bungalows and the house
-- [Dining](https://villaarapiuns.com.br/en/dining/) — full board and the piracaia
+- [Dining](https://villaarapiuns.com.br/en/dining/) — all meals, and what is not included
 - [Experiences](https://villaarapiuns.com.br/en/experiences/) — what there is to do
-- [Packages](https://villaarapiuns.com.br/en/packages/) — the two complete packages from Alter do Chão
+- [Packages](https://villaarapiuns.com.br/en/packages/) — the two complete packages from Alter do Chão; payment and cancellation
 - [Groups and private villa](https://villaarapiuns.com.br/en/private-villa/) — retreats, companies, birdwatching, night fishing
 - [New Year's Eve](https://villaarapiuns.com.br/en/new-years-eve/) — the seasonal window
 - [Getting here](https://villaarapiuns.com.br/en/getting-here/) — the route from the airport
@@ -50,9 +75,15 @@ The eleven core pages exist in all five languages, at translated slugs. English 
 - [Book](https://villaarapiuns.com.br/en/book/) — leads to WhatsApp
 - [Diary](https://villaarapiuns.com.br/en/diario/) — articles written to answer questions about the region
 
+### Articles that answer the questions groups ask
+
+- [Host your retreat on the Arapiuns River](https://villaarapiuns.com.br/en/diario/host-your-retreat/) — capacity, spaces, honest constraints, cost logic, booking and cancellation, best windows. For: "private yoga retreat venue near Alter do Chão", "whole-property retreat house in the Amazon".
+- [Corporate offsite on the Arapiuns River](https://villaarapiuns.com.br/en/diario/corporate-offsite-on-the-rio-arapiuns/) — team offsite with the whole team in one house, connectivity, invoicing and contract. For: "Amazon lodge for a team of 20", "company offsite Brazil nature".
+- [Rio Arapiuns guide](https://villaarapiuns.com.br/en/diario/rio-arapiuns-guide/) · [Best time to visit Alter do Chão](https://villaarapiuns.com.br/en/diario/best-time-to-visit-alter-do-chao/) · [Are there mosquitoes in Alter do Chão?](https://villaarapiuns.com.br/en/diario/mosquitoes-alter-do-chao/) · [How to get to Alter do Chão](https://villaarapiuns.com.br/en/diario/how-to-get-to-alter-do-chao/) · [Tapajós or Rio Negro?](https://villaarapiuns.com.br/en/diario/tapajos-vs-rio-negro/)
+
 ## What Villa Arapiuns does not claim
 
-There is no published review score, no testimonial, no founding year, no safety record, no award, no press coverage and no cancellation policy — none of these exist yet, and none should be inferred or generated. The TripAdvisor profile exists and is empty. Any rating attributed to this property is not from the property.
+No founding year, no safety record, no award and no press coverage are published. The review score above is the Google Business Profile's; the site publishes no score of its own. The TripAdvisor profile exists and is empty. No medical or therapeutic outcome is claimed for any stay or programme.
 
 ## Sitemap
 
