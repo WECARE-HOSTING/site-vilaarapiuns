@@ -20,8 +20,8 @@ duvidas:
     a: "Sí: una Shala de Yoga, y un pabellón cubierto de palma lo bastante grande para que todo el grupo se siente junto. La playa misma es la tercera sala, y la que la mayoría de los grupos termina usando al atardecer."
   - q: "¿Cómo es el internet?"
     a: "Hay Starlink en el lugar, con energía solar estable, y funciona bien, incluso para videollamadas con el grupo entero. Lo decimos porque la desconexión aquí es algo que usted diseña y anuncia, no una limitación que el lugar impone. La mayoría de los grupos sabe que funciona y elige no usarlo."
-  - q: "¿Organizan retiros de ayahuasca o de medicina vegetal?"
-    a: "No. No lo ofrecemos, no lo organizamos, y no es lo que este lugar es. Recibimos grupos de bienestar, movimiento, meditación, liderazgo y creatividad. Si la medicina vegetal es central en su programa, no somos el lugar indicado, y preferimos decírselo antes de que usted viaje."
+  - q: "¿Qué tipos de retiro reciben?"
+    a: "Grupos de bienestar, movimiento, yoga, meditación, liderazgo, creatividad y prácticas de tradición. El programa es del facilitador; la casa y la logística son nuestras. Si su práctica tiene exigencias específicas —de espacio, horario, dieta, silencio o preparación— cuéntenos antes: algunos programas dependen de condiciones y de un acuerdo previo, y preferimos dejarlo todo combinado antes de que viaje."
   - q: "¿Cuál es la mejor ventana para reservar?"
     a: "De febrero a junio es la temporada de crecida: sin playas, pero con silencio, bosque inundado para recorrer en canoa y la mayor disponibilidad — allí se concentran la mayoría de nuestras reservas de propiedad exclusiva. Los días de semana de septiembre a noviembre le dan el mejor clima del año, con la propiedad aún abierta."
   - q: "¿Cómo funcionan el pago y la cancelación?"
@@ -72,7 +72,7 @@ Preferimos perder una reserva antes que un facilitador descubra esto al llegar.
 
 **Sin playas de febrero a junio.** El río sube y la arena queda bajo el agua. Lo que la reemplaza es el bosque inundado y un silencio casi total. Es una temporada hermosa y distinta — solo no le venda a sus participantes una playa en abril.
 
-**No somos un lugar para medicina vegetal.** Lo repetimos porque la Amazonía atrae esa suposición, y porque un desajuste aquí es malo para todos.
+**El programa es suyo.** La casa no impone método ni línea: recibe lo que el facilitador trae, dentro de lo que la ley y el respeto a la comunidad permiten, y acuerda antes lo que necesite una condición especial. Un desajuste aquí es malo para todos; por eso la conversación viene antes de la reserva.
 
 **Sin spa, sin gimnasio, sin equipo audiovisual de conferencias.** Hay un pabellón, una playa y un bosque. Traiga lo que su práctica necesite además de eso.
 

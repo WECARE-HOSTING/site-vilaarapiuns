@@ -20,8 +20,8 @@ duvidas:
     a: "Ja: eine Shala de Yoga und ein überdachter Palmpavillon, groß genug, um die gesamte Gruppe gemeinsam sitzen zu lassen. Der Strand selbst ist der dritte Raum — und der, den die meisten Gruppen am Ende in der Abenddämmerung nutzen."
   - q: "Wie ist es mit dem Internet?"
     a: "Vor Ort gibt es Starlink mit stabiler Solarversorgung, und es funktioniert gut — auch für Videocalls mit der ganzen Gruppe. Wir sagen das, weil Abgeschiedenheit hier etwas ist, das Sie gestalten und ankündigen, keine Einschränkung, die der Ort auferlegt. Die meisten Gruppen wissen, dass es geht, und entscheiden sich dagegen."
-  - q: "Veranstalten Sie Ayahuasca- oder Pflanzenmedizin-Retreats?"
-    a: "Nein. Wir bieten das nicht an, wir organisieren es nicht, und dafür steht dieser Ort nicht. Wir sind Gastgeber für Wellness-, Bewegungs-, Meditations-, Leadership- und Kreativgruppen. Wenn Pflanzenmedizin im Zentrum Ihres Programms steht, sind wir der falsche Ort — und sagen das lieber, bevor Sie anreisen."
+  - q: "Welche Arten von Retreats nehmen Sie auf?"
+    a: "Wellness-, Bewegungs-, Yoga-, Meditations-, Leadership-, Kreativ- und Traditionspraxis-Gruppen. Das Programm gehört der Leitung; Haus und Logistik gehören uns. Wenn Ihre Praxis besondere Anforderungen hat — an Raum, Zeitplan, Ernährung, Stille oder Vorbereitung — sagen Sie es vorher: manche Programme hängen von Bedingungen und einer vorherigen Vereinbarung ab, und wir klären lieber alles, bevor Sie reisen."
   - q: "Wann ist das beste Zeitfenster für eine Buchung?"
     a: "Februar bis Juni ist die Hochwasserzeit: keine Strände, dafür Stille, überfluteter Wald zum Durchpaddeln und die größte Verfügbarkeit — die meisten unserer Buchungen für die gesamte Anlage liegen in diesem Zeitraum. Wochentage von September bis November bieten das beste Wetter des Jahres, bei weiterhin geöffneter Anlage."
   - q: "Wie funktionieren Zahlung und Stornierung?"
@@ -72,7 +72,7 @@ Wir verlieren lieber eine Buchung, als dass ein Facilitator dies erst bei der An
 
 **Von Februar bis Juni keine Strände.** Der Fluss steigt, und der Sand verschwindet darunter. An seine Stelle treten der überflutete Wald und eine fast vollständige Stille. Es ist eine schöne Jahreszeit, aber eine andere — verkaufen Sie Ihren Teilnehmenden im April nur keinen Strand.
 
-**Wir sind kein Ort für Pflanzenmedizin.** Das wiederholen wir, weil das Amazonasgebiet diese Annahme anzieht — und weil eine Fehlpassung hier für alle Seiten schlecht ist.
+**Das Programm ist Ihres.** Das Haus gibt weder Methode noch Linie vor: Es nimmt auf, was die Leitung mitbringt, im Rahmen dessen, was Gesetz und Respekt gegenüber der Gemeinde erlauben, und vereinbart vorab, was eine besondere Bedingung braucht. Eine Fehlpassung ist hier für alle schlecht — deshalb kommt das Gespräch vor der Buchung.
 
 **Kein Spa, kein Fitnessraum, keine Konferenztechnik.** Es gibt einen Pavillon, einen Strand und einen Wald. Bringen Sie mit, was Ihre Praxis darüber hinaus braucht.
 

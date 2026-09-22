@@ -20,8 +20,8 @@ duvidas:
     a: "Sim: uma shala de yoga e um pavilhão coberto de palha grande o suficiente para o grupo inteiro sentado junto. A própria praia é o terceiro espaço, e é o que a maioria dos grupos acaba usando ao entardecer."
   - q: "Como é a internet?"
     a: "Tem Starlink no local, com energia solar estável, e ele funciona bem — inclusive para chamada de vídeo com o grupo inteiro. A gente conta isso porque a desconexão aqui é uma escolha que você desenha e comunica, não uma limitação que o lugar impõe. A maioria dos grupos sabe que dá e escolhe não usar."
-  - q: "Vocês recebem retiros de ayahuasca ou plant-medicine?"
-    a: "Não. A gente não oferece, não organiza, e não é isso que este lugar é. Recebemos grupos de bem-estar, movimento, meditação, liderança e criatividade. Se plant medicine é central no seu programa, a gente não é o espaço certo — e prefere dizer isso antes de você viajar."
+  - q: "Que tipos de retiro vocês recebem?"
+    a: "Grupos de bem-estar, movimento, yoga, meditação, liderança, criatividade e práticas de tradição. O programa é do facilitador; a casa e a logística são nossas. Se a sua prática tem exigências específicas — de espaço, horário, dieta, silêncio ou preparo — conte antes: alguns programas dependem de condições e de um acordo prévio, e a gente prefere combinar tudo antes de você viajar."
   - q: "Qual é a melhor janela para reservar?"
     a: "De fevereiro a junho é a estação de cheia: sem praias, mas com silêncio, floresta alagada para remar e a maior disponibilidade — a maioria das nossas reservas de propriedade inteira cai nessa janela. Dias de semana entre setembro e novembro trazem o melhor clima do ano com a propriedade ainda aberta."
   - q: "Como funcionam o pagamento e o cancelamento?"
@@ -72,7 +72,7 @@ A gente prefere perder uma reserva a deixar um facilitador descobrir isso na che
 
 **Sem praias de fevereiro a junho.** O rio sobe e a areia fica debaixo d'água. No lugar dela entram a floresta alagada e um silêncio quase total. É uma estação bonita e diferente — só não venda praia para os seus participantes em abril.
 
-**A gente não é um espaço de plant-medicine.** Dito de novo porque a Amazônia atrai essa suposição, e porque um desencontro aqui é ruim para todo mundo.
+**O programa é seu.** A casa não impõe método nem linha: recebe o que o facilitador traz, dentro do que a lei e o respeito à comunidade permitem, e combina antes o que precisar de condição especial. Um desencontro aqui é ruim para todo mundo — por isso a conversa vem antes da reserva.
 
 **Sem spa, sem academia, sem estrutura de audiovisual para conferência.** Tem um pavilhão, uma praia e uma floresta. Traga o que a sua prática exigir além disso.
 

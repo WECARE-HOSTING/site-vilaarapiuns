@@ -112,6 +112,8 @@ export const SITE = {
      */
     email: 'reservas@vilaarapiuns.com.br',
     instagram: '@villaarapiuns',
+    /** Ficha do Google (Business Profile), pelo cid estável — 25 avaliações, nota 5,0 em 22/09/2026. */
+    googleMaps: 'https://www.google.com/maps?cid=4567770498331262782',
   },
 
   /**
