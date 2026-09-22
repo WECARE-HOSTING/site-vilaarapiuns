@@ -34,7 +34,7 @@
     "learnMore": "Mehr erfahren"
   },
   "trust": {
-    "fullBoard": "Alle Mahlzeiten in der Lodge",
+    "fullBoard": "Vollpension: alle Mahlzeiten inklusive",
     "boat": "Boot ab Alter do Chão in den Paketen",
     "team": "Eigenes Team für die Logistik",
     "host": "Gastgeber vor Ort in der Villa"
@@ -648,7 +648,7 @@
     "q3": "Wie lange dauert es von Santarém zur Villa?",
     "a3": "Die Strecke Alter do Chão–Villa dauert 1,5 Stunden mit dem Boot. Die Zeit von Santarém nach Alter do Chão hängt vom Transfer ab, den wir mit Ihnen abstimmen.",
     "q4": "Gibt es Handyempfang?",
-    "a4": "Der Empfang ist unbeständig. Klären Sie vorher, was zu klären ist, und sagen Sie denen Bescheid, die auf Nachricht warten.",
+    "a4": "Das Mobilfunksignal ist unregelmäßig. Das Internet des Hauses ist Starlink, stabil, und trägt Online-Meetings und Remote-Arbeit. Klären Sie vorher, was zu klären ist, und sagen Sie Bescheid, wer auf Nachricht wartet.",
     "q5": "Kann ich Kinder mitbringen?",
     "a5": "Ja. Nennen Sie uns das Alter, wenn Sie mit uns sprechen, damit wir Unterkunft und Tagesrhythmus gemeinsam mit Ihnen planen können.",
     "figFimEtapa3": "Das Ende von Etappe 03 · Ankunft im Sand der Villa",
