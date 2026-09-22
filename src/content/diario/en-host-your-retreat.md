@@ -20,8 +20,8 @@ duvidas:
     a: "Yes: a yoga shala, and a covered palm pavilion large enough for the entire group seated together. The beach itself is the third room, and the one most groups end up using at dusk."
   - q: "What is the internet like?"
     a: "There is Starlink on site, on stable solar power, and it works well — including video calls for the whole group. We say so because disconnection here is something you design and announce, not a limitation the place imposes. Most groups know it works and choose not to use it."
-  - q: "Do you host ayahuasca or plant-medicine retreats?"
-    a: "No. We do not offer it, do not arrange it, and it is not what this place is. We host wellness, movement, meditation, leadership and creative groups. If plant medicine is central to your programme, we are the wrong venue and would rather say so before you travel."
+  - q: "What kinds of retreat do you host?"
+    a: "Wellness, movement, yoga, meditation, leadership, creative and traditional-practice groups. The programme is the facilitator’s; the house and the logistics are ours. If your practice has specific requirements — of space, schedule, diet, silence or preparation — tell us first: some programmes depend on conditions and on prior agreement, and we would rather settle everything before you travel."
   - q: "When is the best window to book?"
     a: "February to June is the flood season: no beaches, but silence, flooded forest to paddle through, and the widest availability — most of our whole-property bookings sit there. Weekdays from September to November give you the best weather of the year with the property still open."
   - q: "How do payment and cancellation work?"
@@ -72,7 +72,7 @@ We would rather lose a booking than have a facilitator discover these on arrival
 
 **No beaches from February to June.** The river rises and the sand goes under. What replaces it is the flooded forest and near-total quiet. It is a beautiful season and a different one — just do not sell your participants a beach in April.
 
-**We are not a plant-medicine venue.** Stated again because the Amazon attracts the assumption, and because a mismatch here is bad for everyone.
+**The programme is yours.** The house imposes no method and no lineage: it hosts what the facilitator brings, within what the law and respect for the community allow, and agrees in advance on anything that needs a special condition. A mismatch here is bad for everyone — which is why the conversation comes before the booking.
 
 **No spa, no gym, no conference AV.** There is a pavilion, a beach and a forest. Bring what your practice requires beyond that.
 
