@@ -166,9 +166,36 @@ if (SITE.reviews.rating && SITE.reviews.count) {
 if (SITE.prices.pousadaMin) {
   dados.priceRange = `${SITE.prices.currency} ${SITE.prices.pousadaMin}+`;
 }
-if (SITE.contact.instagram) {
-  dados.sameAs = [`https://instagram.com/${SITE.contact.instagram.replace('@', '')}`];
-}
+/* A MARCA TEM DUAS GRAFIAS NO MUNDO, E O GOOGLE PRECISA SABER QUE SÃO UMA.
+   O domínio antigo, a ficha do Google e boa parte das agências escrevem
+   "Vila Arapiuns", com um L. Sem `alternateName`, a busca trata as duas
+   grafias como entidades diferentes e divide o sinal — que é exatamente o
+   que a consolidação de domínio existe para desfazer. `hasMap` e o `sameAs`
+   da ficha do Google amarram esta entidade à ficha que já tem 25 avaliações:
+   é a ficha que aparece no topo da busca pela marca, e hoje ela não aponta
+   para este domínio. O cid é o identificador estável da ficha. */
+dados.alternateName = ['Vila Arapiuns', 'Villa Arapiuns Lodge'];
+dados.hasMap = SITE.contact.googleMaps;
+dados.sameAs = [
+  `https://instagram.com/${SITE.contact.instagram.replace('@', '')}`,
+  SITE.contact.googleMaps,
+];
+
+/* TRILHA DE MIGALHAS: o que a busca usa para montar os sitelinks. Não há
+   como pedir sitelinks ao Google — eles aparecem quando a estrutura do site
+   é legível e a marca tem volume de busca. A trilha diz, em cada página
+   interna, de onde ela desce; a home não tem trilha porque é a raiz. */
+const trilha =
+  pageKey !== 'home'
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: SITE.name, item: new URL(href(locale, 'home'), SITE.domain).toString() },
+          { '@type': 'ListItem', position: 2, name: title.replace(/\s*[·|–-]\s*Villa Arapiuns\s*$/, ''), item: canonical },
+        ],
+      }
+    : null;
 ---
 
 <!doctype html>
@@ -207,6 +234,7 @@ if (SITE.contact.instagram) {
     />
 
     {!semSchemaNegocio && <script type="application/ld+json" set:html={JSON.stringify(dados)} is:inline />}
+    {trilha && <script type="application/ld+json" set:html={JSON.stringify(trilha)} is:inline />}
 
     <slot name="head" />
 
