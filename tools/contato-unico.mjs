@@ -41,7 +41,7 @@ let falhou = false;
 // aqui de propósito.
 //
 // Hoje só existe uma rota assim: o stub da raiz (`src/pages/index.astro`),
-// que o Astro pode ainda emitir como HTML de fallback do 301 `/` → `/en/`.
+// que o Astro pode ainda emitir como HTML de fallback do 301 `/` → `/pt/`.
 // Não tem cabeçalho nem rodapé. O 301 de produção depende do nginx
 // (docs/redirect-raiz.md); este HTML é só o fallback estático.
 const ROTAS_SEM_CHROME = ['dist/index.html'];

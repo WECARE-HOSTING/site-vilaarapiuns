@@ -83,9 +83,10 @@ export function caminhosNoindex(): string[] {
 }
 
 /**
- * A raiz `/` não é documento: 301 para `/en/` (x-default). Listá-la no
- * sitemap era o que alimentava o canonical mismatch no Search Console —
- * o XML anunciava o apex, a página devolvia 200 com canonical em `/en/`.
+ * A raiz `/` não é documento: 301 para `/pt/` (ROOT_LOCALE, x-default).
+ * Listá-la no sitemap era o que alimentava o canonical mismatch no
+ * Search Console — o XML anunciava o apex, a página devolvia 200 com
+ * canonical no idioma da raiz.
  */
 export function urlEntraNoSitemap(page: string): boolean {
   if (new URL(page).pathname === '/') return false;
@@ -97,9 +98,13 @@ type LinkSitemap = { url: string; lang: string };
 type ItemSitemap = { url: string; links?: LinkSitemap[] };
 
 /**
- * O plugin do sitemap trata `defaultLocale: 'en'` como URL sem prefixo, então
- * os xhtml:link de `/en/` apontavam para o apex. Reescreve esse apex para
- * `/en/` e tira o par duplicado que a reescrita criaria.
+ * O plugin do sitemap trata `defaultLocale: 'en'` (DEFAULT_LOCALE, não
+ * ROOT_LOCALE) como URL sem prefixo, então os xhtml:link de `/en/`
+ * apontavam para o apex. Reescreve esse apex para `/en/` e tira o par
+ * duplicado que a reescrita criaria.
+ *
+ * O destino tem de ser o inglês. Trocar para `/pt/` faria o `loc` e o
+ * hreflang `en` do sitemap apontarem para a versão em português.
  */
 export function reescreveApexDoSitemap<T extends ItemSitemap>(item: T): T {
   const destino = new URL(`/${DEFAULT_LOCALE}/`, item.url).href;

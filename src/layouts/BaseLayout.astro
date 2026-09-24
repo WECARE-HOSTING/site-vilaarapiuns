@@ -1,6 +1,6 @@
 ---
 import '@/styles/global.css';
-import { HTML_LANG, LOCALES, type Locale } from '@/i18n/config';
+import { HTML_LANG, LOCALES, ROOT_LOCALE, type Locale } from '@/i18n/config';
 import { href, type PageKey } from '@/i18n/routes';
 import { useTranslations } from '@/i18n/utils';
 import { SITE } from '@/data/site';
@@ -54,12 +54,16 @@ const alternates = !indexavel
     : LOCALES.map((l) => ({ lang: HTML_LANG[l], url: new URL(href(l, pageKey), SITE.domain).toString() }));
 
 /**
- * O x-default aponta para o inglês quando ele existe, e para o que existe
- * quando não. Apontar para uma URL que não foi gerada é pior que não apontar.
+ * O x-default aponta para o português (ROOT_LOCALE) quando essa versão
+ * existe, e para o que existe quando não. Apontar para uma URL que não
+ * foi gerada é pior que não apontar.
+ *
+ * Não usa DEFAULT_LOCALE. Esse continua inglês: sitemap e fallback de
+ * tradução. O mercado principal (24/09/2026) é o Brasil.
  */
 const xDefault = alternativas
-  ? (alternativas.find((a) => a.locale === 'en') ?? alternativas[0])?.caminho
-  : href('en', pageKey);
+  ? (alternativas.find((a) => a.locale === ROOT_LOCALE) ?? alternativas[0])?.caminho
+  : href(ROOT_LOCALE, pageKey);
 
 /**
  * O preview de link é o momento de aquisição real deste negócio: o WhatsApp é

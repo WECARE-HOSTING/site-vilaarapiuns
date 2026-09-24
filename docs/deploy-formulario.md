@@ -358,9 +358,12 @@ Se um dia aquele `curl` voltar `200` sem `Location:`, o lugar de resolver é a
 configuração do servidor, pelo painel ou pelo suporte da hospedagem — não
 este arquivo.
 
-O redirect da raiz (`/` → `/en/`) é **301** no nginx desde 2026-09-24
-(include de `nginx-root-redirect.conf` no server apex). Um deploy não
-aplica nem recarrega isso sozinho. Estado e runbook: `docs/redirect-raiz.md`.
+O redirect da raiz (`/` → `/pt/`) é **301** no nginx desde 2026-09-24
+18:12 BRT. Nessa hora o server apex deixou o include e passou a ter o
+bloco inline `location = / { return 301 /pt/; }`. Um deploy não aplica
+nem recarrega isso sozinho. Depois do deploy, o include de
+`nginx-root-redirect.conf` pode voltar no lugar do inline. Estado e
+runbook: `docs/redirect-raiz.md`.
 
 **Não mova este arquivo para `public/` para "resolver" isso.** O `.htaccess` do
 `public_html` costuma acumular regras que o próprio cPanel escreve (PHP
