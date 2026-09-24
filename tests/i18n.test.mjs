@@ -1,8 +1,14 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
-import { DEFAULT_LOCALE, HTML_LANG, LOCALES, READY_LOCALES } from '../src/i18n/config.ts';
+import { DEFAULT_LOCALE, HTML_LANG, LOCALES, READY_LOCALES, ROOT_LOCALE } from '../src/i18n/config.ts';
 import { isLocale, useList, useTranslations } from '../src/i18n/utils.ts';
+
+test('ROOT_LOCALE é pt; DEFAULT_LOCALE continua en', () => {
+  assert.equal(ROOT_LOCALE, 'pt');
+  assert.equal(DEFAULT_LOCALE, 'en');
+  assert.notEqual(ROOT_LOCALE, DEFAULT_LOCALE);
+});
 
 test('isLocale: aceita só os códigos configurados em LOCALES', () => {
   for (const locale of LOCALES) {

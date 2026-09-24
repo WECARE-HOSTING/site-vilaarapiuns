@@ -1,17 +1,18 @@
 ---
 /**
- * Obrigatório com prefixDefaultLocale. A raiz não é página: x-default é en,
- * então `/` 301 para `/en/`. O HTML antigo (200 + meta refresh + canonical
- * `/en/` + detecção de idioma no JS) é o que o Search Console via como
- * declared-canonical mismatch.
+ * Obrigatório com prefixDefaultLocale. A raiz não é página: x-default é
+ * português (ROOT_LOCALE), então `/` 301 para `/pt/`. O HTML antigo
+ * (200 + meta refresh + canonical no idioma da raiz + detecção de idioma
+ * no JS) é o que o Search Console via como declared-canonical mismatch.
  *
- * Astro SSG não emite o status HTTP: o build deixa um HTML de fallback e
- * o nginx serve o arquivo. `astro dev` usa o 301 de astro.config.mjs.
- * O 302 que o ar devolve em `GET /` é regra do nginx, não este arquivo.
- * O snippet 301 (nginx-root-redirect.conf) só entra depois do include e
- * do reload em docs/redirect-raiz.md.
+ * Astro SSG não emite o status HTTP: o build deixa um HTML de fallback
+ * (meta refresh e canonical para `/pt/`) e o nginx serve o arquivo se
+ * não houver `location = /`. `astro dev` usa o 301 de astro.config.mjs.
+ * No ar, `GET /` é o nginx (docs/redirect-raiz.md): bloco inline
+ * `return 301 /pt/;` desde 24/09/2026 18:12 BRT. Depois do deploy, o
+ * include de nginx-root-redirect.conf pode voltar no lugar do inline.
  */
-import { DEFAULT_LOCALE } from '@/i18n/config';
+import { ROOT_LOCALE } from '@/i18n/config';
 
-return Astro.redirect(`/${DEFAULT_LOCALE}/`, 301);
+return Astro.redirect(`/${ROOT_LOCALE}/`, 301);
 ---

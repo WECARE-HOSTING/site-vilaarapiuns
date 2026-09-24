@@ -4,6 +4,25 @@ export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = 'en';
 
 /**
+ * Idioma da raiz (`GET /` → 301) e do hreflang `x-default`.
+ *
+ * Não é `DEFAULT_LOCALE`. Esse continua `'en'` de propósito:
+ *   · `@astrojs/sitemap` usa `defaultLocale: 'en'` e emite o inglês sem
+ *     prefixo; `reescreveApexDoSitemap` devolve esse apex para `/en/`.
+ *     Apontar a reescrita para cá faria o hreflang `en` do sitemap cair
+ *     em português.
+ *   · `useTranslations` / `useList` caem em `DEFAULT_LOCALE` quando falta
+ *     uma chave. O dicionário de reserva continua o inglês.
+ *   · O `i18n.defaultLocale` do Astro continua `'en'` (prefixado).
+ *     `redirectToDefaultLocale` manda os outros caminhos sem prefixo
+ *     para `/en/`. Só a raiz é exceção, e ela lê daqui.
+ *
+ * Decisão do dono em 24/09/2026: o mercado principal é o Brasil, então
+ * `/` e o `x-default` apontam para a versão em português.
+ */
+export const ROOT_LOCALE: Locale = 'pt';
+
+/**
  * Os idiomas que têm dicionário COMPLETO e podem ser servidos, anunciados e
  * rotulados como tal.
  *

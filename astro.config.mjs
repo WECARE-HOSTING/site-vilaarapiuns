@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import { reescreveApexDoSitemap, urlEntraNoSitemap } from './src/i18n/routes.ts';
-import { DEFAULT_LOCALE } from './src/i18n/config.ts';
+import { ROOT_LOCALE } from './src/i18n/config.ts';
 import { readdirSync, readFileSync } from 'node:fs';
 
 /**
@@ -62,24 +62,27 @@ export default defineConfig({
   trailingSlash: 'always',
 
   i18n: {
-    // O site final é inglês-first para o visitante estrangeiro.
-    // A CONSTRUÇÃO, porém, começa em português (ver plano, Fase 2).
+    // Inglês continua o defaultLocale do Astro, prefixado. O mercado
+    // principal é o Brasil: a raiz `/` vai para ROOT_LOCALE (`/pt/`),
+    // não para este defaultLocale. Ver `redirects` abaixo.
     defaultLocale: 'en',
     locales: ['en', 'pt', 'es', 'de', 'ja'],
     routing: {
       prefixDefaultLocale: true,
-      // x-default já é en. 200 + meta refresh na raiz fazia o Search Console
-      // ver canonical mismatch (usuário declara /en/, Google às vezes fica no apex).
+      // Caminho sem prefixo cai em /en/. A raiz é exceção e vai para /pt/.
+      // 200 + meta refresh na raiz fazia o Search Console ver canonical
+      // mismatch (a página declara um idioma, o Google às vezes fica no apex).
       redirectToDefaultLocale: true,
     },
   },
 
-  // SSG emite HTML de fallback (200 + meta refresh). `astro dev` honra o
-  // status 301 abaixo. No ar, quem responde `GET /` é o nginx — e o
-  // snippet em nginx-root-redirect.conf só vale depois do include e do
-  // reload descritos em docs/redirect-raiz.md. Sem isso o host segue 302.
+  // SSG emite HTML de fallback (200 + meta refresh para /pt/). `astro dev`
+  // honra o status 301 abaixo. No ar, quem responde `GET /` é o nginx:
+  // bloco inline desde 24/09/2026 18:12 BRT. Depois do deploy dá para
+  // voltar ao include de nginx-root-redirect.conf. Runbook:
+  // docs/redirect-raiz.md.
   redirects: {
-    '/': { status: 301, destination: `/${DEFAULT_LOCALE}/` },
+    '/': { status: 301, destination: `/${ROOT_LOCALE}/` },
   },
 
   integrations: [
@@ -92,6 +95,8 @@ export default defineConfig({
       // '/styleguide' é a página interna de aprovação de design; os caminhos
       // noindex vêm de NOINDEX_KEYS, uma fonte só para os cinco idiomas.
       filter: (page) => urlEntraNoSitemap(page),
+      // O defaultLocale do plugin é o inglês, o mesmo de DEFAULT_LOCALE e
+      // não ROOT_LOCALE: reescreveApexDoSitemap devolve o apex para `/en/`.
       i18n: { defaultLocale: 'en', locales: { en: 'en', pt: 'pt-BR', es: 'es', de: 'de', ja: 'ja' } },
       serialize(item) {
         const reescrito = reescreveApexDoSitemap(item);

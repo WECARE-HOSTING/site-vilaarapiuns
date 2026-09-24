@@ -19,9 +19,11 @@ function lookup(dict: Dict, path: string): unknown {
 /**
  * Resolve uma chave de texto para o idioma pedido.
  *
- * Cadeia de fallback: idioma pedido → DEFAULT_LOCALE. Cada idioma renderiza
- * com seu próprio dicionário; se uma chave específica ainda faltar nele,
- * cai em DEFAULT_LOCALE em vez de quebrar ou mostrar a chave crua.
+ * Cadeia de fallback: idioma pedido → DEFAULT_LOCALE (inglês). Cada idioma
+ * renderiza com seu próprio dicionário; se uma chave específica ainda
+ * faltar nele, cai em DEFAULT_LOCALE em vez de quebrar ou mostrar a chave
+ * crua. Não é ROOT_LOCALE: o português é o destino da raiz e do x-default,
+ * não o dicionário de reserva.
  */
 export function useTranslations(locale: Locale) {
   return function t(key: string): string {
