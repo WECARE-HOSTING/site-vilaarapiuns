@@ -74,8 +74,10 @@ export default defineConfig({
     },
   },
 
-  // SSG ainda pode emitir HTML de fallback; o 301 de verdade no ar é o
-  // `location = /` em nginx-root-redirect.conf (nginx serve dist/ como arquivo).
+  // SSG emite HTML de fallback (200 + meta refresh). `astro dev` honra o
+  // status 301 abaixo. No ar, quem responde `GET /` é o nginx — e o
+  // snippet em nginx-root-redirect.conf só vale depois do include e do
+  // reload descritos em docs/redirect-raiz.md. Sem isso o host segue 302.
   redirects: {
     '/': { status: 301, destination: `/${DEFAULT_LOCALE}/` },
   },
