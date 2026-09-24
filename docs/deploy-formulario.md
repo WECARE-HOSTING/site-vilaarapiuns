@@ -358,6 +358,10 @@ Se um dia aquele `curl` voltar `200` sem `Location:`, o lugar de resolver é a
 configuração do servidor, pelo painel ou pelo suporte da hospedagem — não
 este arquivo.
 
+O redirect de idioma da raiz (`/` → `/en/`) é outro problema, no mesmo nginx:
+em 2026-09-24 o apex ainda responde **302**. O snippet do repositório não entra
+sozinho. O include e o reload estão em `docs/redirect-raiz.md`.
+
 **Não mova este arquivo para `public/` para "resolver" isso.** O `.htaccess` do
 `public_html` costuma acumular regras que o próprio cPanel escreve (PHP
 selector, cache, bloqueios); um deploy que sobrescrevesse o arquivo do servidor

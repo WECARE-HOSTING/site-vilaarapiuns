@@ -5,9 +5,11 @@
  * `/en/` + detecção de idioma no JS) é o que o Search Console via como
  * declared-canonical mismatch.
  *
- * Astro SSG não emite HTTP 301 sozinho — nginx serve dist/ como arquivo.
- * O 301 de produção está em nginx-root-redirect.conf; o de preview/config
- * está em astro.config.mjs (`redirects` + redirectToDefaultLocale).
+ * Astro SSG não emite o status HTTP: o build deixa um HTML de fallback e
+ * o nginx serve o arquivo. `astro dev` usa o 301 de astro.config.mjs.
+ * O 302 que o ar devolve em `GET /` é regra do nginx, não este arquivo.
+ * O snippet 301 (nginx-root-redirect.conf) só entra depois do include e
+ * do reload em docs/redirect-raiz.md.
  */
 import { DEFAULT_LOCALE } from '@/i18n/config';
 
