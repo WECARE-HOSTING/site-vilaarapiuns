@@ -135,7 +135,7 @@ cpSync(join('dist', '_i18n'), join(raiz, '_i18n'), { recursive: true });
 writeFileSync(join(tmp, 'va-config.php'), `<?php return [
   'smtpHost' => '', 'smtpPort' => 465, 'smtpUser' => '', 'smtpPass' => '',
   'from' => 'site@vilaarapiuns.com.br', 'fromName' => 'Villa Arapiuns',
-  'to' => 'reservas@vilaarapiuns.com.br',
+  'to' => 'reservas@villaarapiuns.com.br',
   'bcc' => 'carlos@wecarehosting.com.br',
   'dryRun' => true,
   'varDir' => ${JSON.stringify(varDir)},
@@ -388,7 +388,7 @@ try {
   ok('avisa o idioma do visitante', email.includes('escreveu em Deutsch'));
   ok('mensagem verbatim, sem tradução', email.includes('Wir möchten im März kommen.'));
   verificaCabecalho('envio válido', email, [
-    'To: reservas@vilaarapiuns.com.br',
+    'To: reservas@villaarapiuns.com.br',
     'Bcc: carlos@wecarehosting.com.br',
     'Reply-To: Ana Silva <ana@example.com>',
     'Subject: [Villa Arapiuns] Ana Silva — 2 pessoas — março/2027',
@@ -416,7 +416,7 @@ try {
   // que preenche o formulário, e passaria batido pela suíte antiga.
   verificaCabecalho('auto-resposta', ar, [
     `To: ${VALIDO.email}`,
-    'Reply-To: reservas@vilaarapiuns.com.br',
+    'Reply-To: reservas@villaarapiuns.com.br',
     `Subject: ${dicDe.autoresp.assunto}`,
   ]);
 
@@ -602,7 +602,7 @@ try {
   limpa();
   await post({ ...VALIDO, nome: 'Ana\r\nBcc: invasor@example.com' }, { Accept: 'application/json' });
   verificaCabecalho('injeção com @', leEnviado(), [
-    'To: reservas@vilaarapiuns.com.br',
+    'To: reservas@villaarapiuns.com.br',
     'Bcc: carlos@wecarehosting.com.br',
     'Reply-To: AnaBcc invasorexample.com <ana@example.com>',
     'Subject: [Villa Arapiuns] AnaBcc invasorexample.com — 2 pessoas — março/2027',
@@ -614,7 +614,7 @@ try {
   limpa();
   await post({ ...VALIDO, nome: 'Ana\r\nSubject: promocao imperdivel' }, { Accept: 'application/json' });
   verificaCabecalho('injeção sem @', leEnviado(), [
-    'To: reservas@vilaarapiuns.com.br',
+    'To: reservas@villaarapiuns.com.br',
     'Bcc: carlos@wecarehosting.com.br',
     'Reply-To: AnaSubject promocao imperdivel <ana@example.com>',
     'Subject: [Villa Arapiuns] AnaSubject promocao imperdivel — 2 pessoas — março/2027',

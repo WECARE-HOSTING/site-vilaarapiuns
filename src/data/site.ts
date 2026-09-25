@@ -110,7 +110,7 @@ export const SITE = {
      * para um hóspede antigo que salvou o contato. Um alias sobrevive à
      * troca sem o site mudar uma linha.
      */
-    email: 'reservas@vilaarapiuns.com.br',
+    email: 'reservas@villaarapiuns.com.br',
     instagram: '@villaarapiuns',
     /** Ficha do Google (Business Profile), pelo cid estável — 25 avaliações, nota 5,0 em 22/09/2026. */
     googleMaps: 'https://www.google.com/maps?cid=4567770498331262782',

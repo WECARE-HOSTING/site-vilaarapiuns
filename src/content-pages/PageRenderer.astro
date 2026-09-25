@@ -84,11 +84,11 @@ const Interna = PAGINAS[pageKey as keyof typeof PAGINAS];
  * posicionamento certo para a home e errado para uma página sazonal: um link
  * de réveillon que chega com foto de cama não fala do produto.
  *
- * Só a chave que tem foto própria entra no mapa; as demais continuam no
- * `og.jpg`, e é por isso que o tipo é `Partial`. Nada de foto genérica só para
- * preencher a linha. `home` fica de fora de propósito: o `og.jpg` padrão já É
- * a foto da home (o quarto), então dar a ela uma entrada aqui duplicaria a
- * mesma imagem por dois caminhos.
+ * Só a chave que tem foto própria entra no mapa; as demais continuam na
+ * imagem padrão do site (`/og-arapiuns-banco-areia.jpg`), e é por isso que o
+ * tipo é `Partial`. Nada de foto genérica só para preencher a linha. `home`
+ * fica de fora de propósito: a imagem padrão já é a foto da home, então dar
+ * a ela uma entrada aqui duplicaria a mesma imagem por dois caminhos.
  */
 const OG_PROPRIO: Partial<Record<PageKey, ImageMetadata>> = {
   reveillon: piracaiaRoda,
