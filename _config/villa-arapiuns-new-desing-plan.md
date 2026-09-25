@@ -123,7 +123,7 @@ FormularioReserva.astro	364	 nativo +  de melhoria progressiva
 CarrosselHero.tsx	639	React + framer-motion, pista circular infinita, suporte a vídeo por item, desligado
 CarrosselAcomodacoes.tsx	287	React + framer-motion, fusão em quadro 3:2, não autoplaya de propósito
 2.4 Dados
-src/data/site.ts (236 l.) é a fonte única: SITE (nome, domínio, capacity: {cabins:13, maxGuests:26, minGuestsPrivate:15}, location, contact.whatsapp: '5547992067078', contact.email: 'reservas@vilaarapiuns.com.br', prices: {pousadaMin:796, pacoteMin:1600, pacote2Min:2300}, reviews tudo null); COMMUNITY_ACTIVITIES; MODALIDADES; PACOTES; helpers preco(), whatsappUrl(), telefoneLegivel() (que lança em vez de formatar às cegas).
+src/data/site.ts (236 l.) é a fonte única: SITE (nome, domínio, capacity: {cabins:13, maxGuests:26, minGuestsPrivate:15}, location, contact.whatsapp: '5547992067078', contact.email: 'reservas@villaarapiuns.com.br', prices: {pousadaMin:796, pacoteMin:1600, pacote2Min:2300}, reviews tudo null); COMMUNITY_ACTIVITIES; MODALIDADES; PACOTES; helpers preco(), whatsappUrl(), telefoneLegivel() (que lança em vez de formatar às cegas).
 
 src/data/acomodacoes.ts (71 l.) — as 10 fotos de acomodação, com regra de admissão documentada: só unidade do hóspede, nada de área comum, nada de mosquiteiro armado (porque o site afirma "praticamente sem mosquito" e mosquiteiro ao lado disso é contradição visível).
 
@@ -528,7 +528,7 @@ Não existe arquivo vetorial do logotipo — a marca no site é redesenho em SVG
 ). Não afeta texto visível, só leitor de tela. Ficou de fora por escopo; perguntar ao Carlos antes de estender.
 A tipografia do impresso é serifa de alto contraste; o site mantém Archivo. Decisão separada, em aberto — e a Fase 1 pode reabri-la, já que tipografia está na mesa.
 Correção de documentação encontrada de passagem
-PRODUCT.md:131-135 está desatualizado: diz que o canal público é +55 11 96976-0096 e que contact.email é null. Os dois mudaram em 21/08 — o número saiu do site inteiro, e o site.ts hoje tem reservas@vilaarapiuns.com.br e o WhatsApp 5547992067078. Quem ler o documento vai ser enganado por ele.
+PRODUCT.md:131-135 está desatualizado: diz que o canal público é +55 11 96976-0096 e que contact.email é null. Os dois mudaram em 21/08 — o número saiu do site inteiro, e o site.ts hoje tem reservas@villaarapiuns.com.br e o WhatsApp 5547992067078. Quem ler o documento vai ser enganado por ele.
 
 Decisões do cliente ainda abertas — não inventar, não exibir
 Ano de fundação (yearFounded: null; a alegação "5+ anos, zero incidentes" foi removida por falta de respaldo) · avaliações (rating/count null; busca web em 20/08 não achou nenhuma avaliação pública — TripAdvisor existe e está vazio, e a propriedade está fragmentada em ≥3 listagens nas OTAs; a ação é coletar, não buscar) · tabela de preços das atividades das comunidades (os valores existem em COMMUNITY_ACTIVITIES mas o uso não foi confirmado) · tarifas de agência (documento confidencial; R$ 796 é a única cifra pública autorizada, sempre com "4 noites · quarto duplo" ao lado, nunca solta).

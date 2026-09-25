@@ -11,7 +11,7 @@ interface Props {
   pageKey: PageKey;
   title: string;
   description: string;
-  /** Caminho absoluto de uma imagem própria da página; cai no og.jpg do site. */
+  /** Caminho absoluto de uma imagem própria da página; cai na imagem padrão do site. */
   image?: string;
   /**
    * Falso põe a página fora do índice E tira os hreflang: alternates de
@@ -69,10 +69,12 @@ const xDefault = alternativas
  * O preview de link é o momento de aquisição real deste negócio: o WhatsApp é
  * o canal de reserva, e antes cada link colado num grupo chegava como um
  * retângulo cinza sem foto, porque o twitter:card pedia imagem grande e não
- * existia og:image nenhum. A imagem padrão é o quarto — a casa e o material,
- * que é o posicionamento — e não a trilha, que promete passeio.
+ * existia og:image nenhum. A imagem padrão é o banco de areia branca no Rio
+ * Arapiuns. O arquivo não se chama `og.jpg`: o WhatsApp guarda o cartão pela
+ * URL, e regravar o arquivo antigo não troca o preview que já foi visto.
  */
-const ogImage = new URL(image ?? '/og.jpg', SITE.domain).toString();
+const ogImage = new URL(image ?? '/og-arapiuns-banco-areia.jpg', SITE.domain).toString();
+const ogImageEhJpeg = /\.jpe?g(?:$|[?#])/i.test(ogImage);
 
 /**
  * JSON-LD emitido só com fato confirmado. Campos ausentes ficam ausentes:
@@ -227,8 +229,10 @@ const trilha =
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    {ogImageEhJpeg && <meta property="og:image:type" content="image/jpeg" />}
     <meta property="og:image:alt" content={t('seo.ogImageAlt')} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

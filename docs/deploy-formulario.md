@@ -275,7 +275,7 @@ porta `465` (SSL). Confirme em **E-mail → Contas de E-mail → Configurar
 Cliente de E-mail** que esses valores continuam corretos para a conta nova.
 
 `site@` é caixa de **envio**, não de leitura: a auto-resposta sai com
-`Reply-To` apontando para `reservas@vilaarapiuns.com.br` (o mesmo alias
+`Reply-To` apontando para `reservas@villaarapiuns.com.br` (o mesmo alias
 de `$cfg['to']`), então quem aperta "responder" cai lá, não em `site@`.
 Não é preciso monitorar `site@` por causa disso.
 
@@ -437,7 +437,7 @@ credencial nenhuma, de propósito). Ler o código não substitui este envio.
    verdade — de preferência num provedor grande (Gmail, Outlook), que é onde
    SPF e DKIM se provam.
 2. Confirme as **três** entregas, uma por uma:
-   - o pedido chegou em `reservas@vilaarapiuns.com.br` (na caixa para onde o
+   - o pedido chegou em `reservas@villaarapiuns.com.br` (na caixa para onde o
      alias encaminha);
    - a cópia oculta chegou em `carlos@wecarehosting.com.br`;
    - a auto-resposta chegou no endereço que você digitou no formulário.

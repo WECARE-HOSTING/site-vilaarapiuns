@@ -10,7 +10,7 @@ depende do dado da primeira.
 
 **1. O contato comercial mudou.** Todo contato de venda da Villa Arapiuns passa a
 ser com a Gabriela: `+55 47 99206-7078` e, por e-mail, o alias de função
-`reservas@vilaarapiuns.com.br`, que encaminha para ela. O site
+`reservas@villaarapiuns.com.br`, que encaminha para ela. O site
 hoje publica `+55 11 96976-0096` — o número do panfleto — em sete CTAs, no rodapé
 e no `telephone` do JSON-LD. Esse número sai do site inteiro.
 
@@ -34,7 +34,7 @@ se prometia canal que não existia. Agora o canal vai existir.
 | Prazo de resposta | **24 horas**, confirmado pelo Carlos |
 | Endereço do BCC | `carlos@wecarehosting.com.br` |
 | Caixa remetente | `site@vilaarapiuns.com.br` |
-| Destino do formulário | `reservas@vilaarapiuns.com.br` — **alias de função**, encaminha para a Gabriela |
+| Destino do formulário | `reservas@villaarapiuns.com.br` — **alias de função**, encaminha para a Gabriela |
 
 ## Arquitetura
 
@@ -45,7 +45,7 @@ contact: {
   /** Contato comercial ÚNICO. Confirmado por Carlos em 21/08/2026. */
   whatsapp: '5547992067078',
   /** Destino do formulário e do link de e-mail no rodapé. */
-  email: 'reservas@vilaarapiuns.com.br',
+  email: 'reservas@villaarapiuns.com.br',
   instagram: '@villaarapiuns',
 }
 ```
@@ -165,7 +165,7 @@ sem os valores:
 return [
   'smtpHost' => '', 'smtpPort' => 465, 'smtpUser' => '', 'smtpPass' => '',
   'from' => 'site@vilaarapiuns.com.br',
-  'to' => 'reservas@vilaarapiuns.com.br',
+  'to' => 'reservas@villaarapiuns.com.br',
   'bcc' => 'carlos@wecarehosting.com.br',
   'dryRun' => false,      // true = grava em arquivo em vez de enviar
   'logDir' => '',         // fora do webroot
@@ -276,7 +276,7 @@ Casos a verificar antes de aprovar:
 ## O que você precisa providenciar
 
 1. Criar a caixa `site@vilaarapiuns.com.br` com senha, para o SMTP
-2. Criar o alias `reservas@vilaarapiuns.com.br` encaminhando para a caixa pessoal
+2. Criar o alias `reservas@villaarapiuns.com.br` encaminhando para a caixa pessoal
    de quem atende (o endereço em si não entra neste documento — ver "Nota de 21/08/2026"
    na seção "por que o e-mail é um alias e não a pessoa")
 3. PHP habilitado no plano

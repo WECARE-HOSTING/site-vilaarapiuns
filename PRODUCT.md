@@ -145,7 +145,7 @@ R$ 716. Acima de 26 hóspedes, consultar. **Direito de exclusividade a partir de
 ## Capabilities and Constraints
 
 - Site estático, cinco idiomas (pt, en, es, de, ja), português como idioma-base.
-- Canal de contato e reserva: WhatsApp. E-mail de papel `reservas@vilaarapiuns.com.br`
+- Canal de contato e reserva: WhatsApp. E-mail de papel `reservas@villaarapiuns.com.br`
   (`contact.email` em `src/data/site.ts`) — destino do formulário, não um segundo canal
   prometido: o site continua tratando o WhatsApp como o canal.
 - Sem motor de reservas: o site conduz a uma conversa, não a um checkout.

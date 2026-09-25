@@ -17,7 +17,7 @@
 import { readFileSync, globSync, existsSync } from 'node:fs';
 
 const PROIBIDO = ['5511969760096', '11969760096', '969760096', '96976-0096'];
-const OBRIGATORIO = ['5547992067078', 'reservas@vilaarapiuns.com.br'];
+const OBRIGATORIO = ['5547992067078', 'reservas@villaarapiuns.com.br'];
 
 const paginas = globSync('dist/**/*.html');
 if (paginas.length === 0) {
