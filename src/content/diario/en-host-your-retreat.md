@@ -3,8 +3,8 @@ locale: en
 grupo: retreat-venue
 slug: host-your-retreat-on-the-rio-arapiuns
 titulo: "Host your retreat on the Rio Arapiuns"
-tituloCurto: "Host your retreat"
-descricao: "A whole-property retreat venue in the Brazilian Amazon: thirteen bungalows, a covered pavilion, a yoga shala and a private freshwater beach, for groups from fifteen guests."
+tituloCurto: "Amazon retreat venue near Alter do Chão"
+descricao: "Retreat venue in the Amazon, 1h30 by boat from Alter do Chão: 13 bungalows for 26 guests, a yoga shala, river beach, full board and Starlink Wi-Fi."
 resposta: "Villa Arapiuns takes over as a single-group venue from fifteen guests: thirteen bungalows for up to twenty-six people, a covered palm pavilion, a yoga shala, a hammock grove and a private white-sand beach on the Rio Arapiuns, an hour and a half by boat from Alter do Chão. Full board, solar power, and a local team. Rates depend on group size and nights, and the flood months from February to June are the quietest and most available."
 data: 2026-08-31
 imagem: shala-cheia
