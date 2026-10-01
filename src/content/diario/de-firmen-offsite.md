@@ -3,8 +3,8 @@ locale: de
 grupo: corporate-venue
 slug: firmen-offsite-am-rio-arapiuns
 titulo: "Firmen-Offsite am Rio Arapiuns"
-tituloCurto: "Firmen-Offsite"
-descricao: "Exklusivnutzung der gesamten Anlage im Amazonasgebiet für Firmenteams: dreizehn Bangalôs, überdachter Pavillon für das Plenum, Speisesaal und Privatstrand. Angebot pro Gruppe."
+tituloCurto: "Firmen-Offsite im Amazonas · Alter do Chão"
+descricao: "Firmen-Offsite im Amazonas, 1,5 Bootsstunden von Alter do Chão: 13 Bangalôs für 26 Personen, Plenum-Pavillon, Vollpension, Starlink. Angebot pro Gruppe."
 resposta: "Villa Arapiuns empfängt Firmenteams zur Exklusivnutzung der gesamten Anlage: dreizehn Bangalôs für bis zu sechsundzwanzig Personen, ein überdachter Palmpavillon für das Plenum, ein Speisesaal, in dem das ganze Team zusammen isst, und ein Privatstrand am Rio Arapiuns, anderthalb Bootsstunden von Alter do Chão. Vollpension, Solarenergie und ein lokales Team. Die Preise werden pro Gruppe kalkuliert, nach Personenzahl und Nächten."
 data: 2026-08-29
 imagem: pavilhao-palha
