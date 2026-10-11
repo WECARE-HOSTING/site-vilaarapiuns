@@ -89,6 +89,13 @@ const faqSchema = {
     <Voluta />
     {t('privativa.campoExclusividade').replace('{n}', String(SITE.capacity.minGuestsPrivate))}
   </Campo>
+  {/* SEO W43 (D9): o WhatsApp sobe para a abertura, com a escassez real ao
+      lado (13 bangalôs, até 26 pessoas). Prazo de reserva NÃO entra: não há
+      data confirmada pelo cliente, e prazo inventado é promessa falsa. */}
+  <p class="mt-8">
+    <a href={whatsappUrl(t('whatsapp.reveillon'))} class="btn btn-primario" target="_blank" rel="noopener noreferrer">{t('reveillon.cta')}</a>
+  </p>
+  <p class="numero etiqueta mt-4">{t('reveillon.notaFinal')}</p>
 </AberturaPagina>
 
 <!-- a roda ao anoitecer: a imagem que é a promessa da página -->

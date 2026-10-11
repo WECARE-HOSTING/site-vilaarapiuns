@@ -10,6 +10,14 @@
     "name": "Villa Arapiuns",
     "tagline": "Amazon Lodge · Arapiuns River, Pará"
   },
+  "titulo": {
+    "home": "Villa Arapiuns — Amazon Lodge · Arapiuns River, Pará",
+    "lodge": "The Lodge · Villa Arapiuns",
+    "packages": "Packages · Villa Arapiuns",
+    "privateVilla": "Groups · Villa Arapiuns",
+    "reveillon": "New Year's Eve · Villa Arapiuns",
+    "gettingHere": "Getting Here · Villa Arapiuns"
+  },
   "nav": {
     "lodge": "The Lodge",
     "dining": "The Table",
@@ -53,10 +61,13 @@
     "brasil": "Brazil"
   },
   "whatsapp": {
-    "geral": "Hello! I'd like to know more about Villa Arapiuns.",
+    "geral": "Hello! I found Villa Arapiuns through the website and would like to know more.",
     "preco": "Hello! I'd like to know the nightly rate at Villa Arapiuns.",
-    "grupo": "Hello! I'd like to bring a group to Villa Arapiuns.",
-    "reveillon": "Hello! I'd like to plan my group's New Year's Eve at Villa Arapiuns."
+    "grupo": "Hello! I'm writing from the Groups page on the Villa Arapiuns website. I'd like a quote for my group.",
+    "reveillon": "Hello! I'm writing from the New Year's Eve page on the Villa Arapiuns website. I'd like to know about New Year's for my group.",
+    "home": "Hello! I'm writing from the Villa Arapiuns website home page and would like to know dates and rates.",
+    "pacotes": "Hello! I'm writing from the Packages page on the Villa Arapiuns website and would like to check dates.",
+    "diario": "Hello! I read an article in the Villa Arapiuns journal and would like to know more."
   },
   "desc": {
     "home": "Thirteen bungalows on the Arapiuns River, 90 minutes by boat from Alter do Chão. Stay for days with every meal included, or come on a package with the boat and itinerary already arranged.",
@@ -73,9 +84,9 @@
     "bookSent": "Your message arrived. We reply within 24 hours."
   },
   "home": {
-    "hookA": "A freshwater Caribbean, warm all year, inside the forest.",
-    "hookB": "And you sleep there.",
-    "intro": "The beach is fresh water, clear to the bottom, and there are hardly any mosquitoes. That is the Arapiuns. The bungalows are timber, Tapajônica architecture, feet in the sand. Come for a few days — or come and live here. Why not?",
+    "hookA": "A lodge on the Arapiuns River,",
+    "hookB": "90 minutes by boat from Alter do Chão",
+    "intro": "Thirteen timber bungalows on a clear freshwater beach. On a lodge stay, all meals are included. We host couples, families and groups of up to 26, and from 15 guests the whole Villa is booked for your group alone.",
     "travessiaT": "The crossing",
     "travessiaI": "Getting here is part of it. Three stages, and the last one is ours.",
     "etapa1T": "Fly to Santarém",
@@ -686,12 +697,12 @@
     "dialogo": "Video enlarged"
   },
   "privativa": {
-    "h1": "The whole Villa, for your group alone",
-    "intro": "From 15 people the Villa runs on exclusive use: the thirteen bungalows, the pavilion, the hammock grove and the beach, with nobody from outside. Retreats come here, and so do company teams, birdwatchers, and people who want to learn dive-fishing from the families who live on the river.",
+    "h1": "The whole Villa for your group, from 15 to 26 people",
+    "intro": "Retreats, company teams, families and friends. You get 13 bungalows, a thatched pavilion where the whole group sits together, a hammock house, a freshwater beach and full board, on the Arapiuns River, 90 minutes by boat from Alter do Chão. On your dates, nobody from outside the group stays at the Villa.",
     "b1T": "Thirteen bungalows",
     "b1D": "Up to 26 guests accommodated.",
     "b2T": "Exclusivity from 15",
-    "b2D": "Above that number, nobody else comes in on your date.",
+    "b2D": "From 15 people, your dates are closed to everyone but your group.",
     "b3T": "An itinerary designed together",
     "b3D": "Wedding, retreat, training, birthday — the day is organised around your group.",
     "nota": "Groups of more than 26 guests: please ask about availability.",
@@ -707,9 +718,9 @@
     "espacoRedario": "The hammock shelter · hammocks in the shade, facing the river",
     "espacoRedarioAlt": "Two striped hammocks slung under a thatched roof set on the sand, with the forest and the river behind",
     "campoExclusividade": "exclusive use from {n} guests",
-    "b4T": "The rate is per group",
-    "b4D": "It comes down with the number of people and the number of nights, and booking the whole Villa has a rate of its own. Bring us your dates and we'll settle the figure.",
-    "b4M": "ask us",
+    "b4T": "Rates per group",
+    "b4D": "The price depends on your dates, the number of people and the number of nights. Send us those on WhatsApp and we reply with a quote for your group.",
+    "b4M": "ask on WhatsApp",
     "publicosT": "Who comes as a group",
     "publicosI": "Four ways of using the same house. What changes is the shape of the day — the structure is always this one.",
     "retiroT": "Retreats",
@@ -763,14 +774,15 @@
     "respFig": "The weaving workshop · paid straight to the families who host the group",
     "respFigAlt": "Five women from the community sitting on the ground among the trees, braiding bundles of straw dyed orange and red",
     "figPiracaiaRoda": "The piracaia · the whole group in a circle on the sand, by candlelight",
-    "figPiracaiaRodaAlt": "Beach at night: the group seated in a circle on the sand around a palm, ringed by dozens of lit candle lanterns, with the moonlit river behind"
+    "figPiracaiaRodaAlt": "Beach at night: the group seated in a circle on the sand around a palm, ringed by dozens of lit candle lanterns, with the moonlit river behind",
+    "cta": "Ask for a quote on WhatsApp"
   },
   "reveillon": {
-    "h1": "New Year's Eve on the Villa's beach",
-    "intro": "Between December 28 and January 2, the year turns here: a white-sand freshwater beach, the piracaia fish roast at the river's edge, a circle of candles on the sand — and no crowds. Alter do Chão fills up for the New Year; the Villa is 1h30 upriver by boat, between two protected reserves.",
+    "h1": "New Year 2026/27 on the Arapiuns River, near Alter do Chão",
+    "intro": "From December 28 to January 2, the Villa hosts the New Year with all meals included. Alter do Chão is packed that week, and the Villa is 90 minutes upriver from there by boat, on a freshwater beach with white sand. There are 13 bungalows: you can book one, or close the whole Villa for a group of 15 to 26.",
     "campoJanela": "Dec 28 – Jan 02",
     "b1T": "The window",
-    "b1D": "4–5 night packages between December 28 and January 2 — the journey deserves that much time, and it's what lets the city leave your body.",
+    "b1D": "Packages of 4 to 5 nights between December 28 and January 2. The trip here is long, and fewer nights are not worth it.",
     "b1M": "4–5 nights",
     "b2T": "All meals",
     "b2D": "Breakfast, lunch and dinner from the house kitchen, with river fish and community-made farinha. On the 31st, the piracaia on the sand.",
@@ -779,8 +791,8 @@
     "b3D": "Above that number, the turn of the year belongs to your group alone: all thirteen bungalows, the pavilion, the hammock grove and the beach.",
     "b3M": "15+ guests",
     "b4T": "Group pricing",
-    "b4D": "The rate depends on group size and nights — it drops as the group grows. The conversation starts on WhatsApp.",
-    "b4M": "on request",
+    "b4D": "The price depends on the number of people and nights, and the rate drops as the group grows. Ask for your group's rate on WhatsApp.",
+    "b4M": "ask on WhatsApp",
     "figHero": "The circle on the beach · dusk on the Arapiuns",
     "figHeroAlt": "Large group seated in a circle on the sand at dusk, surrounded by lit lanterns, with a palm tree at the center and the river behind",
     "viradaT": "How the year turns here",
@@ -817,7 +829,7 @@
     "a5": "Fly to Santarém (STM) — connections from São Paulo, direct flights from Brasília, Belém and Manaus — then transfer to Alter do Chão and 1h30 by boat to the Villa. The trip upriver is where the journey really begins.",
     "q6": "Can we book the whole Villa?",
     "a6": "Yes. From 15 guests your group has exclusive use: thirteen bungalows for up to 26 guests, the pavilion, the hammock grove and the beach, with no one else on the property.",
-    "notaFinal": "The New Year window has one date — and thirteen bungalows.",
+    "notaFinal": "Limited places: 13 bungalows, for at most 26 people over the New Year week.",
     "cta": "Ask about New Year's Eve on WhatsApp",
     "ctaPagina": "See New Year's Eve"
   },

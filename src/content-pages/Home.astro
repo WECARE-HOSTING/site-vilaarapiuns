@@ -58,6 +58,10 @@ interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = useTranslations(locale);
 
+/* O botão do Réveillon no hero vale até a virada acabar (2/1/2027). O site é
+   estático e reconstruído a cada push, então a data do build decide. */
+const mostraReveillon = new Date() < new Date('2027-01-03T00:00:00-03:00');
+
 const momentos = [
   { hora: '07:00', titulo: 'Café na varanda', detalhe: 'Tapioca, frutas do quintal, café passado na hora.', refeicao: true },
   { hora: '08:30', titulo: 'Trilha até o Lago Azul', detalhe: 'Com o guia da Villa. Canoa na lagoa escondida.' },
@@ -317,9 +321,18 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
       <span class="block text-espuma">{t('home.hookB')}</span>
     </h1>
 
+    {/* SEO W43 (D7). O primeiro comando é a conversa: WhatsApp com a origem
+        escrita na mensagem ("Vim pela página inicial…"), para quem atende
+        saber de onde veio o contato sem depender de analytics. O segundo é a
+        oferta do calendário: o Réveillon até a virada passar, e os pacotes
+        depois. A troca acontece sozinha no primeiro build depois de 2/1. */}
     <div class="mt-9 flex flex-wrap gap-3">
-      <a href={href(locale, 'book')} class="btn btn-primario">{t('cta.book')}</a>
-      <a href={href(locale, 'packages')} class="btn btn-secundario border-white/85 text-white">{t('cta.seePackages')}</a>
+      <a href={whatsappUrl(t('whatsapp.home'))} class="btn btn-primario" target="_blank" rel="noopener noreferrer">{t('cta.whatsapp')}</a>
+      {mostraReveillon ? (
+        <a href={href(locale, 'reveillon')} class="btn btn-secundario border-white/85 text-white">{t('nav.reveillon')} · {t('reveillon.campoJanela')}</a>
+      ) : (
+        <a href={href(locale, 'packages')} class="btn btn-secundario border-white/85 text-white">{t('cta.seePackages')}</a>
+      )}
     </div>
   </div>
 </section>
@@ -347,7 +360,13 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
         <Voluta class="text-areia-sol" />
         {t('home.tiraMedidaHospedes').replace('{n}', String(SITE.capacity.maxGuests))}
         <Voluta class="text-areia-sol" />
-        {t('home.campoLancha').replace('{place}', SITE.location.departsFrom)}
+        {SITE.googleRating ? (
+          <a href={SITE.contact.googleMaps} class="link-texto" target="_blank" rel="noopener noreferrer">
+            Google {SITE.googleRating.nota.toLocaleString(HTML_LANG[locale], { minimumFractionDigits: 1 })} · {SITE.googleRating.total} {t('aval.reviewsCount')}
+          </a>
+        ) : (
+          t('home.campoLancha').replace('{place}', SITE.location.departsFrom)
+        )}
       </Campo>
     </div>
   </div>

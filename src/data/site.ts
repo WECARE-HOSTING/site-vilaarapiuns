@@ -164,6 +164,22 @@ export const SITE = {
   },
 
   /**
+   * NOTA DA FICHA DO GOOGLE, mostrada como selo com link (SEO W43).
+   *
+   * Fonte: a própria ficha do Google (Business Profile) em `contact.googleMaps`,
+   * lida em 22/09/2026: 25 avaliações, nota 5,0. O mesmo número está no
+   * llms.txt. O selo SEMPRE leva o link para a ficha: quem lê confere na fonte.
+   *
+   * Fica SEPARADO de `reviews` de propósito. `reviews.rating` liga o
+   * `aggregateRating` no JSON-LD (BaseLayout), e essa decisão continua aberta;
+   * nota de terceiro marcada como avaliação própria é o tipo de schema que o
+   * Google trata como autopromoção. Este campo só desenha o selo.
+   *
+   * Quando a ficha mudar, atualize nota, total e data juntos. `null` tira o selo.
+   */
+  googleRating: { nota: 5.0, total: 25, lidoEm: '2026-09-22' } as { nota: number; total: number; lidoEm: string } | null,
+
+  /**
    * PENDENTE: nota, quantidade e as avaliações em si.
    *
    * `itens` fica VAZIO até chegarem avaliações reais. O componente

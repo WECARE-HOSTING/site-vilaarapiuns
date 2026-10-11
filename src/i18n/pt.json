@@ -10,6 +10,14 @@
     "name": "Villa Arapiuns",
     "tagline": "Pousada na Amazônia · Rio Arapiuns, Pará"
   },
+  "titulo": {
+    "home": "Villa Arapiuns · Pousada perto de Alter do Chão (PA)",
+    "lodge": "Pousada e bangalôs perto de Alter do Chão · Villa Arapiuns",
+    "packages": "Pacotes saindo de Alter do Chão · Villa Arapiuns",
+    "privateVilla": "Grupos de 15 a 26 perto de Alter do Chão · Villa Arapiuns",
+    "reveillon": "Réveillon 2026/27 perto de Alter do Chão · Villa Arapiuns",
+    "gettingHere": "Como chegar por Santarém e Alter do Chão · Villa Arapiuns"
+  },
   "nav": {
     "lodge": "A Pousada",
     "dining": "A Mesa",
@@ -53,19 +61,22 @@
     "brasil": "Brasil"
   },
   "whatsapp": {
-    "geral": "Olá! Gostaria de saber mais sobre a Villa Arapiuns.",
+    "geral": "Olá! Vim pelo site da Villa Arapiuns e queria saber mais.",
     "preco": "Olá! Queria saber o valor da diária na Villa Arapiuns.",
-    "grupo": "Olá! Gostaria de levar um grupo para a Villa Arapiuns.",
-    "reveillon": "Olá! Quero montar o réveillon do meu grupo na Villa Arapiuns."
+    "grupo": "Olá! Vim pela página de Grupos do site da Villa Arapiuns. Queria uma proposta para o meu grupo.",
+    "reveillon": "Olá! Vim pela página do Réveillon do site da Villa Arapiuns. Queria saber da virada para o meu grupo.",
+    "home": "Olá! Vim pela página inicial do site da Villa Arapiuns e queria saber datas e valores.",
+    "pacotes": "Olá! Vim pela página de Pacotes do site da Villa Arapiuns e queria consultar datas.",
+    "diario": "Olá! Li um artigo do Diário no site da Villa Arapiuns e queria saber mais."
   },
   "desc": {
-    "home": "Treze bangalôs no Rio Arapiuns, a 1h30 de lancha de Alter do Chão. Fique dias com todas as refeições inclusas, ou venha num pacote com barco e roteiro fechados.",
-    "lodge": "Os 13 bangalôs da Villa Arapiuns: arquitetura tapajônica de dois andares, mogno, marchetaria e tecelagem.",
+    "home": "Pousada de 13 bangalôs no Rio Arapiuns, a 1h30 de lancha de Alter do Chão. Fique dias com as refeições inclusas ou venha num pacote com barco e roteiro.",
+    "lodge": "Os 13 bangalôs da Villa Arapiuns, a 1h30 de lancha de Alter do Chão: arquitetura tapajônica, portas de mogno com marchetaria e mantas de tear.",
     "dining": "A mesa da Villa Arapiuns: peixe do rio, farinha da comunidade, café passado na hora — e a Piracaia à beira-rio.",
     "experiences": "Trilhas, canoa, praia e oficinas com as comunidades ribeirinhas do Arapiuns.",
     "packages": "Pacotes saindo de Alter do Chão com barco, roteiro, café da manhã e jantar: uma noite com sete experiências, ou duas noites com dez.",
-    "privateVilla": "A Villa Arapiuns inteira para um grupo só: retiros, equipes de empresa, observação de aves e a pesca de mergulho noturna com os ribeirinhos. Exclusividade a partir de 15 pessoas.",
-    "reveillon": "Réveillon 2026/27 na Villa Arapiuns: a virada numa praia de água doce do Rio Arapiuns, com piracaia e luau, a 1h30 de Alter do Chão. Pacotes de 4 a 5 noites para grupos e famílias.",
+    "privateVilla": "A Villa Arapiuns inteira para o seu grupo, de 15 a 26 pessoas: 13 bangalôs, pavilhão, redário e praia no Rio Arapiuns, a 1h30 de lancha de Alter do Chão.",
+    "reveillon": "Réveillon 2026/27 na Villa Arapiuns, de 28/12 a 2/1: praia de água doce no Rio Arapiuns, a 1h30 de lancha de Alter do Chão, e piracaia na noite de 31.",
     "gettingHere": "Como chegar à Villa Arapiuns: voo até Santarém, traslado a Alter do Chão e 1h30 de barco rio acima.",
     "gallery": "Fotos da Villa Arapiuns: os bangalôs, o rio, a mata e as comunidades do Arapiuns.",
     "reviews": "O que os hóspedes contam depois de ficar na Villa Arapiuns.",
@@ -73,9 +84,9 @@
     "bookSent": "Sua mensagem chegou. Respondemos em até 24 horas."
   },
   "home": {
-    "hookA": "Um Caribe de água doce e quente, dentro da floresta.",
-    "hookB": "E você dorme lá.",
-    "intro": "A praia é de água doce e transparente, e quase não tem mosquito. É assim o Arapiuns. Os bangalôs são de madeira, arquitetura tapajônica, pé na areia. Você pode vir por alguns dias, ou até morar aqui, já pensou?",
+    "hookA": "Pousada no Rio Arapiuns,",
+    "hookB": "a 1h30 de lancha de Alter do Chão",
+    "intro": "São 13 bangalôs de madeira numa praia de água doce e transparente. Na pousada, todas as refeições estão inclusas. Recebemos casais, famílias e grupos de até 26 pessoas, e a partir de 15 a Villa fecha só para o seu grupo.",
     "travessiaT": "A travessia",
     "travessiaI": "Chegar faz parte. São três etapas, e a última é nossa.",
     "etapa1T": "Voo até Santarém",
@@ -686,12 +697,12 @@
     "dialogo": "Vídeo ampliado"
   },
   "privativa": {
-    "h1": "A Villa inteira, só para o seu grupo",
-    "intro": "A partir de 15 pessoas a Villa opera em exclusividade: os treze bangalôs, o pavilhão, o redário e a praia sem ninguém de fora. Vêm para cá retiros, equipes de empresa, quem observa aves e quem quer aprender a pesca de mergulho com os ribeirinhos.",
+    "h1": "A Villa inteira para o seu grupo, de 15 a 26 pessoas",
+    "intro": "Retiros, equipes de empresa, famílias e amigos. São 13 bangalôs, um pavilhão de palha onde o grupo inteiro se senta junto, redário, praia de água doce e pensão completa, no Rio Arapiuns, a 1h30 de lancha de Alter do Chão. Na data do seu grupo, ninguém de fora entra na Villa.",
     "b1T": "Treze bangalôs",
     "b1D": "Até 26 hóspedes acomodados.",
     "b2T": "Exclusividade a partir de 15",
-    "b2D": "Acima desse número, ninguém mais entra na data.",
+    "b2D": "A partir de 15 pessoas, a data fica fechada só para o seu grupo.",
     "b3T": "Roteiro desenhado junto",
     "b3D": "Casamento, retiro, formação, aniversário — o dia se organiza em volta do seu grupo.",
     "nota": "Grupos acima de 26 hóspedes: consulte disponibilidade.",
@@ -707,9 +718,9 @@
     "espacoRedario": "O redário · redes à sombra, de frente para o rio",
     "espacoRedarioAlt": "Duas redes listradas penduradas sob um telhado de palha assentado na areia, com a mata e o rio ao fundo",
     "campoExclusividade": "exclusividade a partir de {n}",
-    "b4T": "A tarifa é por grupo",
-    "b4D": "Cai conforme o número de pessoas e de noites, e a Villa fechada tem condição própria. Traga as suas datas que a gente fecha o número.",
-    "b4M": "consulte",
+    "b4T": "Condição por grupo",
+    "b4D": "O valor depende das datas, do número de pessoas e de noites. Mande isso pelo WhatsApp e a gente responde com a proposta do seu grupo.",
+    "b4M": "consulte no WhatsApp",
     "publicosT": "Quem vem em grupo",
     "publicosI": "Quatro modos de ocupar a mesma Villa. O que muda é o desenho do dia — a estrutura é sempre esta.",
     "retiroT": "Retiros",
@@ -763,14 +774,15 @@
     "respFig": "A oficina de tecelagem · paga direto às famílias que recebem o grupo",
     "respFigAlt": "Cinco mulheres da comunidade sentadas no chão de terra entre as árvores, trançando feixes de palha tingidos de laranja e vermelho",
     "figPiracaiaRoda": "A piracaia · o grupo inteiro em roda na areia, à luz de velas",
-    "figPiracaiaRodaAlt": "Praia à noite: o grupo sentado em roda na areia em volta de uma palmeira, cercado por dezenas de lanternas de vela acesas, com o rio iluminado pela lua ao fundo"
+    "figPiracaiaRodaAlt": "Praia à noite: o grupo sentado em roda na areia em volta de uma palmeira, cercado por dezenas de lanternas de vela acesas, com o rio iluminado pela lua ao fundo",
+    "cta": "Pedir proposta no WhatsApp"
   },
   "reveillon": {
-    "h1": "Réveillon na praia da Villa",
-    "intro": "Entre 28 de dezembro e 2 de janeiro, o ano vira aqui: praia de água doce e areia branca, a piracaia na beira do rio, a roda de velas na areia — e nenhuma multidão. Alter do Chão lota na virada; a Villa fica a 1h30 de lancha, rio acima, entre duas áreas de preservação.",
+    "h1": "Réveillon 2026/27 no Rio Arapiuns, perto de Alter do Chão",
+    "intro": "De 28 de dezembro a 2 de janeiro, a Villa recebe a virada com todas as refeições inclusas. Alter do Chão lota nessa semana, e a Villa fica a 1h30 de lancha de lá, rio acima, numa praia de água doce e areia branca. São 13 bangalôs: dá para reservar o seu ou fechar a Villa inteira para um grupo de 15 a 26 pessoas.",
     "campoJanela": "28 dez – 02 jan",
     "b1T": "A janela da virada",
-    "b1D": "Pacotes de 4 a 5 noites entre 28 de dezembro e 2 de janeiro — a viagem pede esse fôlego, e é ele que faz a cidade sair do corpo.",
+    "b1D": "Pacotes de 4 a 5 noites entre 28 de dezembro e 2 de janeiro. A viagem até aqui é longa, e com menos noites não compensa.",
     "b1M": "4–5 noites",
     "b2T": "Todas as refeições",
     "b2D": "Café, almoço e jantar da casa, com peixe do rio e farinha da comunidade. Na noite de 31, a piracaia na areia.",
@@ -779,8 +791,8 @@
     "b3D": "Acima desse número, a virada é só do seu grupo: os treze bangalôs, o pavilhão, o redário e a praia.",
     "b3M": "15+ pessoas",
     "b4T": "Condição por grupo",
-    "b4D": "A tarifa depende do número de pessoas e de noites — cai conforme o grupo cresce. A conversa começa no WhatsApp.",
-    "b4M": "sob consulta",
+    "b4D": "O valor depende do número de pessoas e de noites, e a tarifa cai conforme o grupo cresce. Consulte a condição do seu grupo no WhatsApp.",
+    "b4M": "consulte no WhatsApp",
     "figHero": "A roda na praia · anoitecer no Arapiuns",
     "figHeroAlt": "Grupo grande sentado em roda na areia ao anoitecer, entre lamparinas acesas, com uma palmeira ao centro e o rio ao fundo",
     "viradaT": "Como o ano vira aqui",
@@ -817,7 +829,7 @@
     "a5": "Voo até Santarém (STM) — com conexão a partir de São Paulo, ou direto de Brasília, Belém e Manaus —, traslado até Alter do Chão e 1h30 de lancha até a Villa. A subida do rio já é o começo da viagem.",
     "q6": "Posso fechar a Villa inteira?",
     "a6": "Sim. A partir de 15 pessoas o grupo tem direito de exclusividade: treze bangalôs para até 26 hóspedes, o pavilhão, o redário e a praia, sem ninguém de fora na data.",
-    "notaFinal": "A janela da virada tem uma data só — e treze bangalôs.",
+    "notaFinal": "Vagas limitadas: são 13 bangalôs, para no máximo 26 pessoas na semana da virada.",
     "cta": "Consultar a virada no WhatsApp",
     "ctaPagina": "Ver o réveillon"
   },

@@ -10,6 +10,14 @@
     "name": "Villa Arapiuns",
     "tagline": "Lodge im Amazonasgebiet · Rio Arapiuns, Pará"
   },
+  "titulo": {
+    "home": "Villa Arapiuns — Lodge im Amazonasgebiet · Rio Arapiuns, Pará",
+    "lodge": "Die Lodge · Villa Arapiuns",
+    "packages": "Pakete · Villa Arapiuns",
+    "privateVilla": "Gruppen · Villa Arapiuns",
+    "reveillon": "Silvester · Villa Arapiuns",
+    "gettingHere": "Anreise · Villa Arapiuns"
+  },
   "nav": {
     "lodge": "Die Lodge",
     "dining": "Der Tisch",
@@ -56,7 +64,10 @@
     "geral": "Hallo! Ich würde gern mehr über die Villa Arapiuns erfahren.",
     "preco": "Hallo! Ich würde gern den Übernachtungspreis der Villa Arapiuns erfahren.",
     "grupo": "Hallo! Ich würde gern mit einer Gruppe in die Villa Arapiuns kommen.",
-    "reveillon": "Hallo! Ich möchte Silvester für meine Gruppe in der Villa Arapiuns planen."
+    "reveillon": "Hallo! Ich möchte Silvester für meine Gruppe in der Villa Arapiuns planen.",
+    "home": "Hallo! Ich komme von der Startseite der Villa Arapiuns und hätte gern Termine und Preise.",
+    "pacotes": "Hallo! Ich komme von der Seite „Pakete“ der Villa Arapiuns und möchte Termine anfragen.",
+    "diario": "Hallo! Ich habe einen Artikel im Journal der Villa Arapiuns gelesen und würde gern mehr erfahren."
   },
   "desc": {
     "home": "Dreizehn Bungalows am Rio Arapiuns, 1,5 Stunden per Boot von Alter do Chão. Bleiben Sie mehrere Tage, alle Mahlzeiten inklusive, oder kommen Sie mit einem Paket, in dem Boot und Programm bereits feststehen.",
@@ -763,7 +774,8 @@
     "respFig": "Die Flechtwerkstatt · direkt an die Familien bezahlt, die die Gruppe empfangen",
     "respFigAlt": "Fünf Frauen aus der Gemeinde sitzen zwischen den Bäumen auf dem Boden und flechten orange und rot gefärbte Strohbündel",
     "figPiracaiaRoda": "Die Piracaia · die ganze Gruppe im Kreis im Sand, bei Kerzenlicht",
-    "figPiracaiaRodaAlt": "Strand bei Nacht: die Gruppe sitzt im Kreis im Sand um eine Palme, umgeben von Dutzenden brennender Kerzenlaternen, dahinter der mondbeleuchtete Fluss"
+    "figPiracaiaRodaAlt": "Strand bei Nacht: die Gruppe sitzt im Kreis im Sand um eine Palme, umgeben von Dutzenden brennender Kerzenlaternen, dahinter der mondbeleuchtete Fluss",
+    "cta": "Angebot per WhatsApp anfragen"
   },
   "reveillon": {
     "h1": "Silvester am Strand der Villa",

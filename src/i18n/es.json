@@ -10,6 +10,14 @@
     "name": "Villa Arapiuns",
     "tagline": "Posada en la Amazonía · Río Arapiuns, Pará"
   },
+  "titulo": {
+    "home": "Villa Arapiuns — Posada en la Amazonía · Río Arapiuns, Pará",
+    "lodge": "La Posada · Villa Arapiuns",
+    "packages": "Paquetes · Villa Arapiuns",
+    "privateVilla": "Grupos · Villa Arapiuns",
+    "reveillon": "Fin de Año · Villa Arapiuns",
+    "gettingHere": "Cómo Llegar · Villa Arapiuns"
+  },
   "nav": {
     "lodge": "La Posada",
     "dining": "La Mesa",
@@ -56,7 +64,10 @@
     "geral": "¡Hola! Me gustaría saber más sobre Villa Arapiuns.",
     "preco": "¡Hola! Quería saber el valor de la noche en Villa Arapiuns.",
     "grupo": "¡Hola! Me gustaría llevar un grupo a Villa Arapiuns.",
-    "reveillon": "¡Hola! Quiero organizar el Fin de Año de mi grupo en Villa Arapiuns."
+    "reveillon": "¡Hola! Quiero organizar el Fin de Año de mi grupo en Villa Arapiuns.",
+    "home": "¡Hola! Vengo de la página de inicio del sitio de Villa Arapiuns y quería saber fechas y precios.",
+    "pacotes": "¡Hola! Vengo de la página de Paquetes del sitio de Villa Arapiuns y quería consultar fechas.",
+    "diario": "¡Hola! Leí un artículo del Diario de Villa Arapiuns y me gustaría saber más."
   },
   "desc": {
     "home": "Trece bungalós en el río Arapiuns, a 1h30 en lancha desde Alter do Chão. Quédese varios días con todas las comidas incluidas, o venga en un paquete con barco e itinerario ya cerrados.",
@@ -763,7 +774,8 @@
     "respFig": "El taller de tejido · pagado directamente a las familias que reciben al grupo",
     "respFigAlt": "Cinco mujeres de la comunidad sentadas en el suelo entre los árboles, trenzando haces de paja teñidos de naranja y rojo",
     "figPiracaiaRoda": "La piracaia · todo el grupo en ronda en la arena, a la luz de las velas",
-    "figPiracaiaRodaAlt": "Playa de noche: el grupo sentado en ronda en la arena alrededor de una palmera, rodeado por decenas de faroles de vela encendidos, con el río iluminado por la luna al fondo"
+    "figPiracaiaRodaAlt": "Playa de noche: el grupo sentado en ronda en la arena alrededor de una palmera, rodeado por decenas de faroles de vela encendidos, con el río iluminado por la luna al fondo",
+    "cta": "Pedir propuesta por WhatsApp"
   },
   "reveillon": {
     "h1": "Fin de Año en la playa de la Villa",

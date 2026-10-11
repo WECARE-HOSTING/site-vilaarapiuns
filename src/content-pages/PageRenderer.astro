@@ -51,8 +51,16 @@ interface Props {
 const { locale, pageKey } = Astro.props;
 const t = useTranslations(locale);
 
-const title =
-  pageKey === 'home'
+/* TÍTULO PRÓPRIO (SEO W43). As páginas comerciais ganharam `titulo.*` no
+   dicionário para o title poder carregar "Alter do Chão", que é o que as
+   pessoas buscam (Google Trends, 11/10/2026): ninguém procura "lodge" nem
+   "retiro corporativo", procura o destino. Em ES/DE/JA e EN o `titulo.*` é
+   exatamente o que a fórmula abaixo gerava, então lá nada muda no ar.
+   Página sem `titulo.*` continua na fórmula. Teto de 60 caracteres. */
+const TITULO_PROPRIO: readonly PageKey[] = ['home', 'lodge', 'packages', 'privateVilla', 'reveillon', 'gettingHere'];
+const title = TITULO_PROPRIO.includes(pageKey)
+  ? t(`titulo.${pageKey}`)
+  : pageKey === 'home'
     ? `${SITE.name} — ${t('site.tagline')}`
     : `${t(`nav.${pageKey}`)} · ${SITE.name}`;
 
