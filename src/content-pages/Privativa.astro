@@ -167,6 +167,12 @@ const ESPACOS = [
     <Voluta />
     {t('privativa.campoExclusividade').replace('{n}', String(SITE.capacity.minGuestsPrivate))}
   </Campo>
+  {/* SEO W43 (D8): o pedido de proposta sobe para a abertura. A mensagem
+      pré-preenchida diz que veio da página de Grupos. */}
+  <p class="mt-8">
+    <a href={whatsappUrl(t('whatsapp.grupo'))} class="btn btn-primario" target="_blank" rel="noopener noreferrer">{t('privativa.cta')}</a>
+  </p>
+  <p class="numero etiqueta mt-4">{t('cta.condicaoWhatsapp')}</p>
 </AberturaPagina>
 
 <!-- campo reservado: o grupo, que é o que esta página vende -->

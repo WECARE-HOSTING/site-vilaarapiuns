@@ -9,6 +9,7 @@ export const PAGE_KEYS = [
   'packages',
   'privateVilla',
   'reveillon',
+  'detox',
   'gettingHere',
   'gallery',
   'reviews',
@@ -35,6 +36,9 @@ export const SLUGS: Record<PageKey, Record<Locale, string>> = {
      entradas hoje: a fileira do menu, o destaque na página de Pacotes e a
      coluna Reservar do rodapé. */
   reveillon:    { en: 'new-years-eve', pt: 'reveillon',        es: 'ano-nuevo',      de: 'silvester',      ja: 'new-year' },
+  /* Detox pós-Ano Novo (1 a 10/01/2027), pedido do Leonardo em 11/10/2026.
+     Mesma lógica do Réveillon: slug com a palavra que a pessoa digita. */
+  detox:        { en: 'post-new-year-detox', pt: 'detox-pos-ano-novo', es: 'detox-ano-nuevo', de: 'detox-nach-neujahr', ja: 'new-year-detox' },
   gettingHere:  { en: 'getting-here',  pt: 'como-chegar',      es: 'como-llegar',    de: 'anreise',        ja: 'access' },
   gallery:      { en: 'gallery',       pt: 'galeria',          es: 'galeria',        de: 'galerie',        ja: 'gallery' },
   reviews:      { en: 'reviews',       pt: 'avaliacoes',       es: 'opiniones',      de: 'bewertungen',    ja: 'reviews' },
@@ -62,6 +66,7 @@ export const NAV_KEYS: PageKey[] = [
   // o oitavo é o que aperta entre 1024 e 1280px, e é onde conferir primeiro
   // quando alguém acrescentar o nono.
   'reveillon',
+  'detox',
   'gettingHere',
   'gallery',
 ];

@@ -5,7 +5,7 @@ slug: sedie-seu-retiro-no-rio-arapiuns
 titulo: "Sedie seu retiro no Rio Arapiuns"
 tituloCurto: "Sedie seu retiro"
 descricao: "Um espaço de retiro de propriedade inteira na Amazônia brasileira: treze bangalôs, um pavilhão coberto, uma shala de yoga e uma praia de água doce privativa, para grupos a partir de quinze pessoas."
-resposta: "A partir de quinze pessoas, a Villa Arapiuns vira espaço de grupo único: treze bangalôs para até vinte e seis pessoas, um pavilhão coberto de palha, uma shala de yoga, um redário e uma praia privativa de areia branca no Rio Arapiuns, a uma hora e meia de barco de Alter do Chão. Pensão completa, energia solar e equipe local. As diárias dependem do tamanho do grupo e do número de noites, e os meses de cheia, de fevereiro a junho, são os mais tranquilos e com maior disponibilidade."
+resposta: "A partir de quinze pessoas, a Villa Arapiuns vira espaço de grupo único: treze bangalôs para até vinte e seis pessoas, um pavilhão coberto de palha, uma shala de yoga, um redário e uma praia privativa de areia branca no Rio Arapiuns, a uma hora e meia de barco de Alter do Chão. Energia solar e equipe local. As diárias dependem do tamanho do grupo e do número de noites, e os meses de cheia, de fevereiro a junho, são os mais tranquilos e com maior disponibilidade."
 data: 2026-08-31
 imagem: shala-cheia
 imagemAlt: "Uma dezena de pessoas em pé sobre tapetes ao longo de um deck de madeira sob um longo telhado de palha, com as mãos unidas na altura do peito, e painéis solares instalados acima da linha do telhado"
@@ -50,9 +50,9 @@ Treze bangalôs na margem do Rio Arapiuns, no Pará — a uma hora e meia de bar
 
 **O salão de refeições.** Todo mundo comendo junto, o que, para um retiro, é um espaço de trabalho tanto quanto o pavilhão.
 
-## O que está incluso e o que não está
+## O que a casa oferece
 
-**Pensão completa.** Café da manhã, almoço e jantar da cozinha da casa: peixe de rio, farinha de mandioca das comunidades vizinhas, café moído na hora. Cardápio vegetariano e vegano é rotina. O ritual da casa é a **piracaia** — peixe assado na areia, em folha de bananeira, à luz de vela, servido em roda na praia. Ela fecha a última noite da maioria dos grupos sem que ninguém precise desenhar uma cerimônia de encerramento.
+**A cozinha da casa.** Peixe de rio, farinha de mandioca das comunidades vizinhas, café moído na hora. Cardápio vegetariano e vegano é rotina. O ritual da casa é a **piracaia** — peixe assado na areia, em folha de bananeira, à luz de vela, servido em roda na praia. Ela fecha a última noite da maioria dos grupos sem que ninguém precise desenhar uma cerimônia de encerramento.
 
 **A equipe local**, que mora aqui e toca o lugar.
 
@@ -60,7 +60,7 @@ Treze bangalôs na margem do Rio Arapiuns, no Pará — a uma hora e meia de bar
 
 **Atividades com as comunidades**, organizadas em torno da sua agenda, não contra ela: canoa na floresta alagada, a trilha da Samaúma a partir da comunidade de Atodi, o processo da farinhada, trançado de palha, pesca noturna com arpão ensinada por pescadores locais. Elas são conduzidas e pagas diretamente às famílias que as lideram — então o seu grupo deve trazer dinheiro em reais.
 
-**Não incluso:** o transporte de barco e as passagens aéreas. A gente organiza o barco como parte do pacote de grupo; as passagens são por sua conta.
+**Por sua conta:** as passagens aéreas. O barco desde Alter do Chão e o que entra na diária do grupo, a gente detalha na proposta, pelo WhatsApp.
 
 ## As restrições honestas
 
@@ -79,8 +79,6 @@ A gente prefere perder uma reserva a deixar um facilitador descobrir isso na che
 ## Custo, e como a gente cota
 
 A diária depende do **tamanho do grupo e do número de noites**, e cai conforme o grupo cresce. A gente cota por grupo, em vez de publicar uma tabela fixa, porque um fim de semana para quinze pessoas e uma semana para vinte e seis pessoas não são o mesmo negócio.
-
-Para dar uma referência de comparação: espaços de retiro premium na Europa costumam cobrar entre €280 e €380 por pessoa por dia. A gente fica abaixo disso, numa localização consideravelmente mais difícil de chegar e consideravelmente mais difícil de encontrar equivalente.
 
 Conte pra gente as suas datas, o tamanho do grupo, quantas noites, e o que o seu programa realmente precisa de um espaço. Você vai receber um número real, não um folder.
 

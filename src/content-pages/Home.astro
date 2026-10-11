@@ -35,7 +35,7 @@ import LinhaDoDia from '@/components/LinhaDoDia.astro';
 import MapaSituacao from '@/components/MapaSituacao.astro';
 import { href } from '@/i18n/routes';
 import { useTranslations, useList } from '@/i18n/utils';
-import { SITE, preco, whatsappUrl } from '@/data/site';
+import { SITE, whatsappUrl } from '@/data/site';
 import { ACOMODACOES } from '@/data/acomodacoes';
 import { HTML_LANG, type Locale } from '@/i18n/config';
 
@@ -58,6 +58,34 @@ interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = useTranslations(locale);
 
+/* O botão do Réveillon no hero vale até a virada acabar (2/1/2027). O site é
+   estático e reconstruído a cada push, então a data do build decide. */
+const mostraReveillon = new Date() < new Date('2027-01-03T00:00:00-03:00');
+/* O Detox pós-Ano Novo (1 a 10/01/2027) é o segundo botão do hero até a
+   janela fechar; depois volta o de Pacotes. */
+const mostraDetox = new Date() < new Date('2027-01-11T00:00:00-03:00');
+
+/* Frases do gancho para as fotos 2 a 6 do hero, na ordem de PAISAGENS. A foto
+   1 usa o h1 (home.hookA/hookB). Ficam aqui, e não no dicionário, porque só PT
+   e EN rodam; ES/DE/JA mantêm o gancho fixo. */
+const FRASES_HERO: Partial<Record<Locale, string[]>> = {
+  pt: [
+    'O rio inteiro na frente do seu bangalô.',
+    'Na cheia, o rio entra na floresta.',
+    'Uma praia que aparece no meio do rio.',
+    'De prancha entre os buritis, no igarapé.',
+    'Aqui o ano começa no rio.',
+  ],
+  en: [
+    'The whole river in front of your bungalow.',
+    'When the river rises, it runs into the forest.',
+    'A beach that surfaces in the middle of the river.',
+    'Paddling between buriti palms on a forest creek.',
+    'Here the year begins on the river.',
+  ],
+};
+const frasesHero = FRASES_HERO[locale] ?? [];
+
 const momentos = [
   { hora: '07:00', titulo: 'Café na varanda', detalhe: 'Tapioca, frutas do quintal, café passado na hora.', refeicao: true },
   { hora: '08:30', titulo: 'Trilha até o Lago Azul', detalhe: 'Com o guia da Villa. Canoa na lagoa escondida.' },
@@ -72,7 +100,7 @@ const momentos = [
 const travessia = [
   { n: '01', titulo: t('home.etapa1T'), detalhe: t('home.etapa1D'), medida: 'Santarém · PA' },
   { n: '02', titulo: t('home.etapa2T'), detalhe: t('home.etapa2D'), medida: 'Alter do Chão' },
-  { n: '03', titulo: t('home.etapa3T'), detalhe: t('home.etapa3D'), medida: `${SITE.location.boatMinutes} min de barco`, incluso: true },
+  { n: '03', titulo: t('home.etapa3T'), detalhe: t('home.etapa3D'), medida: `${SITE.location.boatMinutes} min de barco`, incluso: false }, // 11/10/2026: o site não afirma barco incluso
 ];
 /* A ordem é deliberada, e o critério é quanto cada foto aguenta tipo branco
    por cima — não qual é a mais bonita solta.
@@ -295,6 +323,9 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
   class="relative isolate flex min-h-[88svh] items-end overflow-hidden lg:min-h-[92svh]"
 >
   <FundoPaisagem fotos={heroPaisagem} />
+  {/* Lâmina extra só do hero da home: escurece de leve a metade de baixo,
+      onde o gancho e os botões pousam sobre a areia clara. O céu fica livre. */}
+  <div aria-hidden="true" class="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-[65%] bg-gradient-to-t from-mar-fundo/60 via-mar-fundo/30 to-transparent"></div>
 
   {/* `will-change-transform`: o gancho e os botões ficam numa camada própria
       permanente. Sem isso, o navegador os promovia só enquanto a foto de
@@ -312,15 +343,47 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
         FOTOGRAFIA, e sete linhas de tipo a 52px cobriam o rio de ponta a
         ponta num 390px. A `max-w-[19ch]` faz o mesmo trabalho no desktop:
         segura a medida de leitura e deixa a paisagem respirar à direita. */}
-    <h1 class="font-display max-w-[23ch] text-[clamp(2.5rem,4.6vw,4rem)] leading-[1.03] tracking-[0.01em] text-white [text-shadow:0_2px_26px_rgb(13_50_68_/_0.45)]">
-      {t('home.hookA')}
-      <span class="block text-espuma">{t('home.hookB')}</span>
-    </h1>
-
-    <div class="mt-9 flex flex-wrap gap-3">
-      <a href={href(locale, 'book')} class="btn btn-primario">{t('cta.book')}</a>
-      <a href={href(locale, 'packages')} class="btn btn-secundario border-white/85 text-white">{t('cta.seePackages')}</a>
+    {/* SEO W43, ajuste de 11/10/2026: a segunda linha era `text-espuma` (azul
+        claro) e sumia na areia branca, sobretudo no celular. O gancho inteiro
+        fica branco, com uma sombra curta e escura que segura a letra em
+        qualquer foto do rodízio. */}
+    {/* GANCHO QUE ACOMPANHA A FOTO (11/10/2026, pedido do Leonardo). O h1 é
+        sempre o da foto 1 e está no HTML estático, que é o que a busca lê. As
+        outras frases são <p aria-hidden> empilhadas na mesma célula da grade
+        e só trocam de opacidade quando o FundoPaisagem avisa a troca
+        (evento `paisagem:troca`). Sem JS ou com prefers-reduced-motion, o
+        rodízio não liga e fica só o h1. Só PT e EN têm frases por foto; nos
+        outros idiomas o gancho é fixo. */}
+    <div class="gancho-hero grid" data-gancho-hero>
+      <h1 class="gancho-hero__frase esta max-w-[23ch] font-display text-[clamp(2.5rem,4.6vw,4rem)] leading-[1.03] tracking-[0.01em] text-white [text-shadow:0_1px_3px_rgb(13_50_68_/_0.55),0_2px_24px_rgb(13_50_68_/_0.6)]" data-gancho-i="0">
+        {t('home.hookA')}
+        <span class="block">{t('home.hookB')}</span>
+      </h1>
+      {frasesHero.map((frase, i) => (
+        <p class="gancho-hero__frase max-w-[23ch] font-display font-semibold text-balance [font-stretch:125%] text-[clamp(2.5rem,4.6vw,4rem)] leading-[1.03] tracking-[0.01em] text-white [text-shadow:0_1px_3px_rgb(13_50_68_/_0.55),0_2px_24px_rgb(13_50_68_/_0.6)]" data-gancho-i={i + 1} aria-hidden="true">{frase}</p>
+      ))}
     </div>
+    <p class="mt-5 max-w-[40ch] text-lg leading-snug text-white [text-shadow:0_1px_3px_rgb(13_50_68_/_0.6),0_1px_16px_rgb(13_50_68_/_0.5)] sm:text-xl">{t('home.heroSub')}</p>
+
+    {/* SEO W43 (D7). O primeiro comando é a conversa: WhatsApp com a origem
+        escrita na mensagem ("Vim pela página inicial…"), para quem atende
+        saber de onde veio o contato sem depender de analytics. O segundo é a
+        oferta do calendário: o Réveillon até a virada passar, e os pacotes
+        depois. A troca acontece sozinha no primeiro build depois de 2/1. */}
+    <div class="mt-8 flex max-w-sm flex-col gap-3 sm:max-w-none sm:flex-row sm:flex-wrap">
+      <a href={whatsappUrl(t('whatsapp.home'))} class="btn btn-primario" target="_blank" rel="noopener noreferrer">{t('cta.whatsapp')}</a>
+      {mostraDetox ? (
+        <a href={href(locale, 'detox')} class="btn btn-secundario border-white/85 text-white">{t('detox.nome')} · {t('detox.janelaCurta')}</a>
+      ) : (
+        <a href={href(locale, 'packages')} class="btn btn-secundario border-white/85 text-white">{t('cta.seePackages')}</a>
+      )}
+    </div>
+    {/* O Réveillon continua a um toque, como terceiro comando, mais discreto. */}
+    {mostraReveillon && (
+      <p class="mt-4">
+        <a href={href(locale, 'reveillon')} class="etiqueta text-white no-underline underline-offset-[0.3em] hover:underline [text-shadow:0_1px_3px_rgb(13_50_68_/_0.6)]">{t('nav.reveillon')} · {t('reveillon.campoJanela')}</a>
+      </p>
+    )}
   </div>
 </section>
 
@@ -346,9 +409,20 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
         {t('home.tiraMedidaBangalos').replace('{n}', String(SITE.capacity.cabins))}
         <Voluta class="text-areia-sol" />
         {t('home.tiraMedidaHospedes').replace('{n}', String(SITE.capacity.maxGuests))}
-        <Voluta class="text-areia-sol" />
-        {t('home.campoLancha').replace('{place}', SITE.location.departsFrom)}
+        {!SITE.googleRating && <Voluta class="text-areia-sol" />}
+        {!SITE.googleRating && t('home.campoLancha').replace('{place}', SITE.location.departsFrom)}
       </Campo>
+      {/* O selo vai numa linha própria, com a mesma cor e letra da faixa de
+          medidas. Antes ele dividia a linha e, no celular, quebrava sozinho,
+          deixando a voluta pendurada no fim da linha de cima. Sublinhado só
+          no hover, para não virar o único link azul da faixa. */}
+      {SITE.googleRating && (
+        <p class="numero etiqueta mt-2">
+          <a href={SITE.contact.googleMaps} class="no-underline underline-offset-[0.3em] hover:underline" target="_blank" rel="noopener noreferrer">
+            Google {SITE.googleRating.nota.toLocaleString(HTML_LANG[locale], { minimumFractionDigits: 1 })} · {SITE.googleRating.total} {t('aval.reviewsCount')}
+          </a>
+        </p>
+      )}
     </div>
   </div>
 </section>
@@ -447,9 +521,8 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
      veio oposto encontrando-se numa emenda — não dois cards: sem raio, sem
      sombra, a junta é que divide. O preço mora DENTRO da modalidade, porque
      preço sem modalidade não informa: na pousada o barco não está incluso.
-
-     Os pisos vêm de src/data/site.ts e cada um carrega a sua condição. "A
-     partir de" sem a condição ao lado seria meia-verdade. -->
+     Desde 11/10/2026 o site não publica valor: no lugar do número entra
+     `cta.condicaoWhatsapp`, com link para o WhatsApp. -->
 <section class="cunha-topo secao">
   <div class="container-editorial">
     <h2 class="font-display text-titulo">{t('modo.titulo')}</h2>
@@ -458,9 +531,9 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
     <div class="emenda mt-12 grid gap-10 border-t pt-10 md:grid-cols-2 md:gap-0">
       {[
         { t: t('modo.pousadaT'), d: t('modo.pousadaD'), inc: t('modo.pousadaInc'), fora: t('modo.pousadaFora'),
-          v: SITE.prices.pousadaMin, cond: t('modo.condPousada'), un: t('modo.porPax'), cta: 'lodge' as const },
+          cta: 'lodge' as const },
         { t: t('modo.pacoteT'), d: t('modo.pacoteD'), inc: t('modo.pacoteInc'), fora: t('modo.pacoteFora'),
-          v: SITE.prices.pacoteMin, cond: t('modo.condPacote'), un: t('modo.porPacote'), cta: 'packages' as const },
+          cta: 'packages' as const },
       ].map((m, i) => (
         <div class:list={['flex flex-col', i === 1 ? 'emenda md:border-l md:pl-10 lg:pl-16' : 'md:pr-10 lg:pr-16']}>
           <h3 class="font-display text-secao">{m.t}</h3>
@@ -476,12 +549,12 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
             <dd>{m.fora}</dd>
           </dl>
 
+          {/* Sem preço publicado (11/10/2026): a Gabriela negocia cada grupo
+              no WhatsApp. O lugar do número vira o convite para a conversa. */}
           <p class="emenda mt-auto border-t pt-6">
-            <span class="etiqueta block">{t('modo.aPartirDe')}</span>
-            <span class="numero cor-titulo mt-1 block text-titulo">
-              {preco(m.v, locale)}
-            </span>
-            <span class="numero etiqueta mt-1 block">{m.un} · {m.cond}</span>
+            <a href={whatsappUrl(t('whatsapp.home'))} class="numero cor-titulo block text-lg no-underline underline-offset-[0.3em] hover:underline" target="_blank" rel="noopener noreferrer">
+              {t('cta.condicaoWhatsapp')}
+            </a>
           </p>
 
           <a href={href(locale, m.cta)} class="btn btn-secundario mt-6 self-start">{t('cta.learnMore')}</a>
@@ -615,3 +688,36 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
      Links internos para os posts de retiro, offsite, melhor época e turismo
      de base comunitária, na versão do idioma da página (SEO W42). -->
 <LeiturasDoDiario locale={locale} grupos={['retreat-venue', 'corporate-venue', 'melhor-epoca', 'tbc']} />
+
+<style>
+  /* Gancho do hero: todas as frases na mesma célula, a da foto atual visível.
+     A célula tem a altura da frase mais alta, então o texto de baixo não pula
+     na troca; `align-items: end` mantém cada frase encostada no subtítulo. */
+  .gancho-hero { align-items: end; }
+  .gancho-hero__frase {
+    grid-area: 1 / 1;
+    margin: 0;
+    opacity: 0;
+    transition: opacity 0.9s ease;
+  }
+  .gancho-hero__frase.esta { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) {
+    .gancho-hero__frase { transition: none; }
+  }
+</style>
+
+<script>
+  /* Sincroniza o gancho com a foto. O FundoPaisagem dispara `paisagem:troca`
+     com o índice da foto que entrou; se não houver frase para esse índice
+     (idiomas sem rodízio), o h1 fica. */
+  document.querySelectorAll<HTMLElement>('[data-gancho-hero]').forEach((gancho) => {
+    const frases = gancho.querySelectorAll<HTMLElement>('[data-gancho-i]');
+    if (frases.length < 2) return;
+    const palco = gancho.closest('[data-palco-foto]');
+    palco?.addEventListener('paisagem:troca', (e) => {
+      const i = (e as CustomEvent<number>).detail;
+      const alvo = gancho.querySelector<HTMLElement>(`[data-gancho-i="${i}"]`) ?? frases[0];
+      frases.forEach((f) => f.classList.toggle('esta', f === alvo));
+    });
+  });
+</script>

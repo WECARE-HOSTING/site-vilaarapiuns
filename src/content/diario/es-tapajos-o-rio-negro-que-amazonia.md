@@ -78,6 +78,6 @@ Y una tercera respuesta que nadie ofrece: **los dos**. Hay vuelos directos entre
 
 ## Dónde entramos nosotros
 
-Villa Arapiuns son trece bangalôs en el Arapiuns, a una hora y media en barco de Alter do Chão, dentro de la reserva. Pensión completa, energía solar, operación liderada por la comunidad, y la playa enfrente. Uso exclusivo de toda la propiedad a partir de quince huéspedes.
+Villa Arapiuns son trece bangalôs en el Arapiuns, a una hora y media en barco de Alter do Chão, dentro de la reserva. Energía solar, operación liderada por la comunidad, y la playa enfrente. Uso exclusivo de toda la propiedad a partir de quince huéspedes.
 
 Si después de leer esto el Río Negro es la mejor opción para su viaje, vaya — es un río extraordinario y preferimos que tenga las vacaciones que quiere.

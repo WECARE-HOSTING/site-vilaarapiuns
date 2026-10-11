@@ -74,7 +74,7 @@ Neither is the good season. They are different trips, and the mistake is arrivin
 
 **Book earlier than feels necessary.** International trips to Amazon lodges are typically planned three to nine months ahead. Retreat organisers lock a venue six to twelve months out. New Year is a single date.
 
-**Stay longer than two nights.** Getting here is a full day from São Paulo and two from Europe. Three or four nights is where the arithmetic starts working, which is why our full-board rate begins at four.
+**Stay longer than two nights.** Getting here is a full day from São Paulo and two from Europe. Three or four nights is where the arithmetic starts working, which is why our lodge stays begin at four nights.
 
 ## What does not change
 

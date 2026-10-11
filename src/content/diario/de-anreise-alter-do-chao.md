@@ -66,7 +66,7 @@ Rechnen Sie vom Flug rückwärts. Vom Arapiuns nach Alter do Chão sind es 1,5 S
 
 Für Reisende, die von São Paulo aus starten, lautet die ehrliche Rechnung: **ein voller Tag hin, ein voller Tag zurück**. Aus Europa oder Nordamerika sind es zwei Tage hin, die Übernachtung eingerechnet.
 
-Das ist das Argument für einen längeren Aufenthalt, und wir sagen es lieber offen, als dass Sie es selbst herausfinden: Bei zwei Nächten am Arapiuns entfallen zwei Drittel der Zeit auf die Reise. Bei **drei bis vier Nächten** kippt das Verhältnis — deshalb beginnt unser Vollpensionstarif bei vier.
+Das ist das Argument für einen längeren Aufenthalt, und wir sagen es lieber offen, als dass Sie es selbst herausfinden: Bei zwei Nächten am Arapiuns entfallen zwei Drittel der Zeit auf die Reise. Bei **drei bis vier Nächten** kippt das Verhältnis — deshalb beginnt ein Aufenthalt in der Lodge bei vier Nächten.
 
 ## Was Sie mitbringen sollten
 

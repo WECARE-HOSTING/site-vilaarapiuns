@@ -130,38 +130,37 @@ export const SITE = {
   },
 
   /**
-   * Duas modalidades, com estrutura de preço diferente. Confirmado pelo
-   * cliente em 20/08/2026 e cruzado com os documentos em Assets/Docs.
+   * PREÇO NÃO É PUBLICADO (decisão do Leonardo, 11/10/2026).
    *
-   * Aqui moram só os NÚMEROS. A condição de cada piso é frase, não dado, e
-   * por isso vive no dicionário: `modo.condPousada`, `modo.condPacote` e
-   * `modo.condPacote2`. Mexeu no número, confira a condição junto.
+   * Nenhum valor aparece no site, no JSON-LD nem no llms.txt: a Gabriela
+   * negocia caso a caso pelo WhatsApp. Os pisos que moravam aqui (pousada por
+   * pessoa/noite e os dois pacotes) saíram do repositório para não vazarem
+   * por engano em página nenhuma. Onde havia número, o site mostra
+   * `cta.condicaoWhatsapp` ("Condição por grupo, consulte no WhatsApp").
+   *
+   * `currency` fica só para `preco()`, que continua testada, mas não tem
+   * consumidor renderizado. Antes de voltar a usar `preco()` em página,
+   * confirme com o Leonardo que a decisão mudou.
    */
   prices: {
     currency: 'BRL',
-
-    /**
-     * POUSADA — estadia com alimentação completa. Barco e passeios NÃO inclusos.
-     * R$ 796 é o PISO da tabela: por pessoa/noite em quarto duplo, a partir de
-     * 4 noites. O plano tarifário amarrava esse piso a um grupo de 20 pax; o
-     * cliente confirmou em 20/08/2026 que NÃO precisa ser grupo de 20, e a
-     * condição de grupo saiu do site. O que sobra da condição vai junto do
-     * número; "a partir de" sem condição seria meia-verdade.
-     */
-    pousadaMin: 796,
-
-    /**
-     * PACOTE COMPLETO — sai de Alter do Chão com barco, atividades e MEIA
-     * pensão (café e jantar). A partir de R$ 1.600 para 1 noite.
-     */
-    pacoteMin: 1600,
-
-    /**
-     * IMERSÃO COMPLETA — o mesmo pacote em 2 noites/3 dias, com Samaúma,
-     * Coroca e Piracaia. A partir de R$ 2.300 por pessoa.
-     */
-    pacote2Min: 2300,
   },
+
+  /**
+   * NOTA DA FICHA DO GOOGLE, mostrada como selo com link (SEO W43).
+   *
+   * Fonte: a própria ficha do Google (Business Profile) em `contact.googleMaps`,
+   * lida em 22/09/2026: 25 avaliações, nota 5,0. O mesmo número está no
+   * llms.txt. O selo SEMPRE leva o link para a ficha: quem lê confere na fonte.
+   *
+   * Fica SEPARADO de `reviews` de propósito. `reviews.rating` liga o
+   * `aggregateRating` no JSON-LD (BaseLayout), e essa decisão continua aberta;
+   * nota de terceiro marcada como avaliação própria é o tipo de schema que o
+   * Google trata como autopromoção. Este campo só desenha o selo.
+   *
+   * Quando a ficha mudar, atualize nota, total e data juntos. `null` tira o selo.
+   */
+  googleRating: { nota: 5.0, total: 25, lidoEm: '2026-09-22' } as { nota: number; total: number; lidoEm: string } | null,
 
   /**
    * PENDENTE: nota, quantidade e as avaliações em si.

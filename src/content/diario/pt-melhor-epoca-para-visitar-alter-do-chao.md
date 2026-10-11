@@ -74,7 +74,7 @@ Nenhuma das duas é a estação boa. São viagens diferentes, e o erro é chegar
 
 **Reserve mais cedo do que parece necessário.** Viagens internacionais para pousadas na Amazônia costumam ser planejadas de três a nove meses de antecedência. Organizadores de retiro fecham o local de seis a doze meses antes. Ano Novo é uma data só.
 
-**Fique mais do que duas noites.** Chegar até aqui é um dia inteiro partindo de São Paulo e dois partindo da Europa. Três ou quatro noites é onde a conta começa a fechar, e é por isso que nossa diária com pensão completa começa em quatro noites.
+**Fique mais do que duas noites.** Chegar até aqui é um dia inteiro partindo de São Paulo e dois partindo da Europa. Três ou quatro noites é onde a conta começa a fechar, e é por isso que nossa estadia na pousada começa em quatro noites.
 
 ## O que não muda
 

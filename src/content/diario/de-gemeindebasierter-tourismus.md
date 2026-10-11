@@ -72,6 +72,6 @@ Würde der Text hier enden, wäre es Werbung. Zwei ehrliche Punkte.
 
 ## Was die Villa also ist
 
-Dreizehn Bangalôs in tapajônischer Architektur am Ufer des Arapiuns, für bis zu sechsundzwanzig Gäste, mit Vollpension und Solarenergie. Betrieb und Leitung liegen bei der Flussgemeinde; die Aktivitäten bei denen, die dort leben. Ab fünfzehn Personen hat die Gruppe die gesamte Villa für sich.
+Dreizehn Bangalôs in tapajônischer Architektur am Ufer des Arapiuns, für bis zu sechsundzwanzig Gäste, mit Solarenergie. Betrieb und Leitung liegen bei der Flussgemeinde; die Aktivitäten bei denen, die dort leben. Ab fünfzehn Personen hat die Gruppe die gesamte Villa für sich.
 
 Das ist gemeindebasierter Tourismus mit dem Komfort einer Pousada — und wir schreiben das, weil diese beiden Dinge selten zusammen auftreten, und wenn sie es tun, ist es fast immer die zweite Sache, die die erste verschlingt.

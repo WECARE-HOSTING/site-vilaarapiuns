@@ -74,7 +74,7 @@ Keine der beiden ist die gute Jahreszeit. Es sind unterschiedliche Reisen, und d
 
 **Buchen Sie früher, als es sich nötig anfühlt.** Internationale Reisen zu Lodges im Amazonasgebiet werden in der Regel drei bis neun Monate im Voraus geplant. Retreat-Organisatoren legen einen Ort sechs bis zwölf Monate im Voraus fest. Der Jahreswechsel ist ein einziges festes Datum.
 
-**Bleiben Sie länger als zwei Nächte.** Die Anreise dauert von São Paulo aus einen vollen Tag, von Europa aus zwei. Bei drei oder vier Nächten beginnt die Rechnung aufzugehen, weshalb unser Vollpensionstarif erst ab vier Nächten gilt.
+**Bleiben Sie länger als zwei Nächte.** Die Anreise dauert von São Paulo aus einen vollen Tag, von Europa aus zwei. Bei drei oder vier Nächten beginnt die Rechnung aufzugehen, weshalb ein Aufenthalt in der Lodge erst ab vier Nächten möglich ist.
 
 ## Was sich nicht ändert
 

@@ -65,14 +65,14 @@ const t = useTranslations(locale);
          abre para `gap-8` em 2xl porque em 1280 exato os 12px extras por item
          voltariam a estourar. -->
     <nav class="hidden xl:block" aria-label={t('nav.menu')}>
-      <ul class="flex items-center gap-5 2xl:gap-8">
+      <ul class="flex items-center gap-4 2xl:gap-7">
         {NAV_KEYS.map((k) => (
           <li>
             <a
               href={href(locale, k)}
               aria-current={k === pageKey ? 'page' : undefined}
               class:list={[
-                'etiqueta inline-flex min-h-6 items-center transition-opacity',
+                'etiqueta inline-flex min-h-6 items-center whitespace-nowrap transition-opacity',
                 // Hover e estado ativo eram a MESMA propriedade (opacity), então
                 // durante o movimento do mouse a página atual desaparecia.
                 // O sublinhado é o que marca a página; a opacidade só é hover.

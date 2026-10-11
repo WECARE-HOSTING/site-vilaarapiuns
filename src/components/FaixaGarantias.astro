@@ -15,11 +15,16 @@ const t = useTranslations(locale);
 // 4 itens, não 5: `years` afirmava "5+ anos, zero incidentes" sem nenhum dado
 // por trás (yearFounded é null e o site antigo dizia 4 anos). Removido em
 // PRODUCT.md como decisão aberta. 4 também cabe na memória de trabalho.
-const itens = ['fullBoard', 'boat', 'team', 'host'] as const;
+// 11/10/2026 (decisão do Leonardo): saíram `fullBoard` ("Todas as refeições
+// incluídas") e `boat` ("Barco de Alter do Chão nos pacotes"). Numa faixa que
+// aparece em toda página, as duas frases não diziam de qual modalidade falavam.
+// O que está incluído em cada estadia a Gabriela explica no WhatsApp; os cards
+// de Pousada e Pacote continuam com a lista própria de cada um.
+const itens = ['team', 'host'] as const;
 ---
 
 <div class="emenda border-y">
-  <ul class="container-editorial flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5 py-3.5 xl:justify-between">
+  <ul class="container-editorial flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5 py-3.5 sm:gap-x-12">
     {itens.map((k) => (
       <li class="flex items-center gap-2.5">
         <Voluta class="text-areia-sol" />

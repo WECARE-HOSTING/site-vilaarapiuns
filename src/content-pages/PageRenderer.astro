@@ -19,6 +19,7 @@ import Experiencias from '@/content-pages/Experiencias.astro';
 import Pacotes from '@/content-pages/Pacotes.astro';
 import Privativa from '@/content-pages/Privativa.astro';
 import Reveillon from '@/content-pages/Reveillon.astro';
+import Detox from '@/content-pages/Detox.astro';
 import Chegar from '@/content-pages/Chegar.astro';
 import Galeria from '@/content-pages/Galeria.astro';
 import Avaliacoes from '@/content-pages/Avaliacoes.astro';
@@ -33,6 +34,7 @@ import type { Locale } from '@/i18n/config';
 import { NOINDEX_KEYS, type PageKey } from '@/i18n/routes';
 
 import piracaiaRoda from '@/assets/imgs/piracaia-roda.jpg';
+import banhoRioGrupo from '@/assets/imgs/banho-rio-grupo.jpg';
 import bangaloPalafita from '@/assets/imgs/bangalo-palafita.jpg';
 import jantarPeixe from '@/assets/imgs/jantar-peixe.jpg';
 import igapoCanoaGrupo from '@/assets/imgs/igapo-canoa-grupo.jpg';
@@ -51,8 +53,16 @@ interface Props {
 const { locale, pageKey } = Astro.props;
 const t = useTranslations(locale);
 
-const title =
-  pageKey === 'home'
+/* TÍTULO PRÓPRIO (SEO W43). As páginas comerciais ganharam `titulo.*` no
+   dicionário para o title poder carregar "Alter do Chão", que é o que as
+   pessoas buscam (Google Trends, 11/10/2026): ninguém procura "lodge" nem
+   "retiro corporativo", procura o destino. Em ES/DE/JA e EN o `titulo.*` é
+   exatamente o que a fórmula abaixo gerava, então lá nada muda no ar.
+   Página sem `titulo.*` continua na fórmula. Teto de 60 caracteres. */
+const TITULO_PROPRIO: readonly PageKey[] = ['home', 'lodge', 'packages', 'privateVilla', 'reveillon', 'detox', 'gettingHere'];
+const title = TITULO_PROPRIO.includes(pageKey)
+  ? t(`titulo.${pageKey}`)
+  : pageKey === 'home'
     ? `${SITE.name} — ${t('site.tagline')}`
     : `${t(`nav.${pageKey}`)} · ${SITE.name}`;
 
@@ -66,6 +76,7 @@ const PAGINAS = {
   packages: Pacotes,
   privateVilla: Privativa,
   reveillon: Reveillon,
+  detox: Detox,
   gettingHere: Chegar,
   gallery: Galeria,
   reviews: Avaliacoes,
@@ -92,6 +103,7 @@ const Interna = PAGINAS[pageKey as keyof typeof PAGINAS];
  */
 const OG_PROPRIO: Partial<Record<PageKey, ImageMetadata>> = {
   reveillon: piracaiaRoda,
+  detox: banhoRioGrupo,
   lodge: bangaloPalafita,
   dining: jantarPeixe,
   experiences: igapoCanoaGrupo,

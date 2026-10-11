@@ -5,7 +5,7 @@ slug: organice-su-retiro-en-el-rio-arapiuns
 titulo: "Organice su retiro en el Río Arapiuns"
 tituloCurto: "Organice su retiro"
 descricao: "Un espacio de retiro de propiedad exclusiva en la Amazonía brasileña: trece bangalôs, un pabellón cubierto, una Shala de Yoga y una playa privada de agua dulce, para grupos desde quince huéspedes."
-resposta: "Villa Arapiuns se convierte en espacio de uso exclusivo a partir de quince huéspedes: trece bangalôs para hasta veintiséis personas, un pabellón cubierto de palma, una Shala de Yoga, un redário entre los árboles y una playa privada de arena blanca en el Río Arapiuns, a una hora y media en barco de Alter do Chão. Pensión completa, energía solar y equipo local. Las tarifas dependen del tamaño del grupo y las noches, y los meses de crecida, de febrero a junio, son los más tranquilos y con mayor disponibilidad."
+resposta: "Villa Arapiuns se convierte en espacio de uso exclusivo a partir de quince huéspedes: trece bangalôs para hasta veintiséis personas, un pabellón cubierto de palma, una Shala de Yoga, un redário entre los árboles y una playa privada de arena blanca en el Río Arapiuns, a una hora y media en barco de Alter do Chão. Energía solar y equipo local. Las tarifas dependen del tamaño del grupo y las noches, y los meses de crecida, de febrero a junio, son los más tranquilos y con mayor disponibilidad."
 data: 2026-08-31
 imagem: shala-cheia
 imagemAlt: "Una docena de personas de pie sobre esterillas a lo largo de una plataforma de madera, bajo un techo largo de paja de palma, con las manos juntas frente al pecho, y paneles solares instalados sobre el techo"
@@ -50,9 +50,9 @@ Trece bangalôs a orillas del Río Arapiuns, en Pará, Brasil — a una hora y m
 
 **El comedor.** Todos comiendo juntos, que para un retiro es un espacio de trabajo tanto como lo es el pabellón.
 
-## Qué está incluido y qué no
+## Lo que ofrece la casa
 
-**Pensión completa.** Desayuno, almuerzo y cena de la cocina de la casa: pescado de río, harina de mandioca de las comunidades vecinas, café molido en el día. La cocina vegetariana y vegana es rutina. El ritual de la casa es la **piracaia** — pescado asado en la arena, envuelto en hoja de banano, a la luz de las velas, servido en círculo en la playa. Cierra la última noche de la mayoría de los grupos sin que nadie tenga que diseñar una ceremonia de cierre.
+**La cocina de la casa.** Pescado de río, harina de mandioca de las comunidades vecinas, café molido en el día. La cocina vegetariana y vegana es rutina. El ritual de la casa es la **piracaia** — pescado asado en la arena, envuelto en hoja de banano, a la luz de las velas, servido en círculo en la playa. Cierra la última noche de la mayoría de los grupos sin que nadie tenga que diseñar una ceremonia de cierre.
 
 **El equipo local**, que vive aquí y dirige el lugar.
 
@@ -60,7 +60,7 @@ Trece bangalôs a orillas del Río Arapiuns, en Pará, Brasil — a una hora y m
 
 **Actividades con las comunidades**, organizadas alrededor de su horario y no en contra de él: paseos en canoa por el bosque inundado, el sendero de la Samaúma desde la comunidad de Atodi, el proceso de la farinhada de mandioca, el tejido de palma, la pesca nocturna de arpón enseñada por pescadores locales. Se realizan y se pagan directamente a las familias que las dirigen — así que su grupo debe traer efectivo en reales.
 
-**No incluido:** el traslado en barco y los vuelos. Organizamos el barco como parte de un paquete de grupo; los vuelos corren por su cuenta.
+**Por su cuenta:** los vuelos. El barco desde Alter do Chão y lo que cubre la tarifa del grupo se lo detallamos en la propuesta, por WhatsApp.
 
 ## Las limitaciones, con honestidad
 
@@ -79,8 +79,6 @@ Preferimos perder una reserva antes que un facilitador descubra esto al llegar.
 ## Costo, y cómo cotizamos
 
 La tarifa depende del **tamaño del grupo y del número de noches**, y baja a medida que el grupo crece. Cotizamos por grupo en vez de publicar una tarifa fija, porque un fin de semana de quince personas y una semana de veintiséis no son el mismo negocio.
-
-Como referencia de comparación: los espacios de retiro premium en Europa suelen costar entre 280 y 380 euros por persona al día. Nosotros estamos por debajo de eso, en una ubicación considerablemente más difícil de alcanzar y considerablemente más difícil de encontrar un equivalente.
 
 Cuéntenos sus fechas, el tamaño del grupo, cuántas noches, y lo que su programa realmente necesita de un espacio. Recibirá una cifra real, no un folleto.
 

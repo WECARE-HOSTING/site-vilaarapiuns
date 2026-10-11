@@ -79,7 +79,8 @@ const ogImageEhJpeg = /\.jpe?g(?:$|[?#])/i.test(ogImage);
 /**
  * JSON-LD emitido só com fato confirmado. Campos ausentes ficam ausentes:
  *  · aggregateRating fora enquanto reviews.rating for null;
- *  · priceRange fora enquanto prices for null;
+ *  · preço nenhum: nem priceRange nem priceSpecification (decisão de
+ *    11/10/2026, o valor é negociado por grupo no WhatsApp);
  *  · geo vem de SITE.location.geo, que é o pin da ficha do Google lido no
  *    próprio Google Maps pelo cid (SEO W42, 11/10/2026). Antes ficava fora
  *    porque a coordenada que circulava no repositório nunca foi confirmada —
@@ -106,20 +107,20 @@ const idEntidade = `${SITE.domain}/#pousada`;
  * O schema tinha um `priceRange` único, que não distingue nada: um modelo lendo
  * a página não tinha como saber que o barco não está incluso na Pousada.
  *
- * Nome, descrição e condição saem do dicionário, então isto existe nos cinco
- * idiomas sem chave nova. O preço nunca é convertido — a cobrança é em BRL em
- * qualquer idioma, como registra `preco()` em `site.ts`.
+ * Nome e descrição saem do dicionário, então isto existe nos cinco idiomas.
+ * SEM PREÇO desde 11/10/2026: a Offer diz o que é o produto e que o valor é
+ * sob consulta; número nenhum entra no schema (ver `prices` em `site.ts`).
  */
 const ofertas = [
-  { nome: t('modo.pousadaT'), desc: t('modo.pousadaD'), valor: SITE.prices.pousadaMin, unidade: t('modo.porPax'),     cond: t('modo.condPousada') },
+  { nome: t('modo.pousadaT'), desc: t('modo.pousadaD') },
   /**
    * Os dois pacotes são NOMEADOS, e é assim que o cliente os chama: Clássico
    * Arapiuns e Imersão Completa. Usar `modo.pacoteT` nos dois emitiria duas
    * Offers idênticas separadas só pelo preço, o que não diz nada a quem lê.
    */
-  { nome: t('pacote.p1T'),    desc: t('pacote.p1D'),    valor: SITE.prices.pacoteMin,  unidade: t('modo.porPacote'),  cond: t('modo.condPacote') },
-  { nome: t('pacote.p2T'),    desc: t('pacote.p2D'),    valor: SITE.prices.pacote2Min, unidade: t('modo.porPacote2'), cond: t('modo.condPacote2') },
-].filter((o) => o.valor);
+  { nome: t('pacote.p1T'),    desc: t('pacote.p1D') },
+  { nome: t('pacote.p2T'),    desc: t('pacote.p2D') },
+];
 
 const dados: Record<string, unknown> = {
   '@context': 'https://schema.org',
@@ -153,14 +154,7 @@ const dados: Record<string, unknown> = {
   makesOffer: ofertas.map((o) => ({
     '@type': 'Offer',
     name: o.nome,
-    description: o.desc,
-    priceSpecification: {
-      '@type': 'UnitPriceSpecification',
-      price: o.valor,
-      priceCurrency: SITE.prices.currency,
-      unitText: o.unidade,
-      description: o.cond,
-    },
+    description: `${o.desc} ${t('cta.condicaoWhatsapp')}.`,
   })),
 };
 if (SITE.reviews.rating && SITE.reviews.count) {
@@ -169,9 +163,6 @@ if (SITE.reviews.rating && SITE.reviews.count) {
     ratingValue: SITE.reviews.rating,
     reviewCount: SITE.reviews.count,
   };
-}
-if (SITE.prices.pousadaMin) {
-  dados.priceRange = `${SITE.prices.currency} ${SITE.prices.pousadaMin}+`;
 }
 /* A MARCA TEM DUAS GRAFIAS NO MUNDO, E O GOOGLE PRECISA SABER QUE SÃO UMA.
    O domínio antigo, a ficha do Google e boa parte das agências escrevem
