@@ -12,6 +12,7 @@
     "lastmod:gera": "node --experimental-loader ./tests/resolve-alias.mjs tools/lastmod.mjs",
     "contato:check": "node tools/contato-unico.mjs",
     "prazo:check": "node tools/prazo-unico.mjs",
+    "indexnow": "node tools/indexnow-ping.mjs",
     "form:check": "npm run build && node tools/testa-endpoint.mjs",
     "test": "node --experimental-loader ./tests/resolve-alias.mjs --test tests/*.test.mjs"
   },
