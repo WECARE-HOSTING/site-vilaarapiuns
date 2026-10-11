@@ -16,7 +16,8 @@
     "packages": "Packages · Villa Arapiuns",
     "privateVilla": "Groups · Villa Arapiuns",
     "reveillon": "New Year's Eve · Villa Arapiuns",
-    "gettingHere": "Getting Here · Villa Arapiuns"
+    "gettingHere": "Getting Here · Villa Arapiuns",
+    "detox": "Post-New Year Detox near Alter do Chão · Villa Arapiuns"
   },
   "nav": {
     "lodge": "The Lodge",
@@ -32,18 +33,18 @@
     "bookSent": "Message sent",
     "menu": "Menu",
     "close": "Close",
-    "language": "Language"
+    "language": "Language",
+    "detox": "Detox"
   },
   "cta": {
     "book": "Book",
     "checkAvailability": "Check dates",
     "whatsapp": "Chat on WhatsApp",
     "seePackages": "See packages",
-    "learnMore": "Learn more"
+    "learnMore": "Learn more",
+    "condicaoWhatsapp": "Rates per group, ask on WhatsApp"
   },
   "trust": {
-    "fullBoard": "Full board: all meals included",
-    "boat": "Boat from Alter do Chão in the packages",
     "team": "Our own team on the logistics",
     "host": "Local host at the Villa"
   },
@@ -67,7 +68,8 @@
     "reveillon": "Hello! I'm writing from the New Year's Eve page on the Villa Arapiuns website. I'd like to know about New Year's for my group.",
     "home": "Hello! I'm writing from the Villa Arapiuns website home page and would like to know dates and rates.",
     "pacotes": "Hello! I'm writing from the Packages page on the Villa Arapiuns website and would like to check dates.",
-    "diario": "Hello! I read an article in the Villa Arapiuns journal and would like to know more."
+    "diario": "Hello! I read an article in the Villa Arapiuns journal and would like to know more.",
+    "detox": "Hello! I'm writing from the Post-New Year Detox page on the Villa Arapiuns website (1 to 10 January 2027). We are __ people and would like to arrive on __ and leave on __ January."
   },
   "desc": {
     "home": "Thirteen bungalows on the Arapiuns River, 90 minutes by boat from Alter do Chão. Stay for days with every meal included, or come on a package with the boat and itinerary already arranged.",
@@ -81,12 +83,13 @@
     "gallery": "Photographs of Villa Arapiuns: the bungalows, the river, the forest and the Arapiuns communities.",
     "reviews": "What guests say after staying at Villa Arapiuns.",
     "book": "Book your stay at Villa Arapiuns on WhatsApp and talk straight to the house.",
-    "bookSent": "Your message arrived. We reply within 24 hours."
+    "bookSent": "Your message arrived. We reply within 24 hours.",
+    "detox": "Post-New Year Detox at Villa Arapiuns, 1 to 10 January 2027: forest food, açaí, no alcohol served by the house and 13 bungalows near Alter do Chão."
   },
   "home": {
-    "hookA": "A lodge on the Arapiuns River,",
-    "hookB": "90 minutes by boat from Alter do Chão",
-    "intro": "Thirteen timber bungalows on a clear freshwater beach. On a lodge stay, all meals are included. We host couples, families and groups of up to 26, and from 15 guests the whole Villa is booked for your group alone.",
+    "hookA": "A freshwater Caribbean",
+    "hookB": "in the middle of the Amazon rainforest.",
+    "intro": "Thirteen timber bungalows on a clear freshwater beach. We host couples, families and groups of up to 26, and from 15 guests the whole Villa is booked for your group alone.",
     "travessiaT": "The crossing",
     "travessiaI": "Getting here is part of it. Three stages, and the last one is ours.",
     "etapa1T": "Fly to Santarém",
@@ -106,7 +109,7 @@
     "diaI": "From coffee on the veranda to the fire on the beach. Each moment tells you whether it is included or paid directly to the community.",
     "precoT": "Price",
     "precoSob": "On request",
-    "precoD": "The nightly rate comes down as the group grows and the stay lengthens. Tell us how many people and how many nights, and we come back with a firm price on WhatsApp — no forms.",
+    "precoD": "The nightly rate comes down as the group grows and the stay lengthens. Tell us how many people and how many nights, and we come back with a firm price on WhatsApp, no forms.",
     "fechaQ": "You arrive, drop your bags and head straight out. You come back tired in the best possible way — from the forest, the sun, the stories. You eat well and you sleep deeply.",
     "fechaT": "Talk to the house",
     "fechaD": "The person who answers is the person who welcomes you. Tell us how many people and what dates you have in mind.",
@@ -350,7 +353,8 @@
         "alt": "Sunset over the river seen from under the foliage, orange sky above dark water in short waves"
       }
     ],
-    "campoLancha": "1h30 by boat from {place}"
+    "campoLancha": "1h30 by boat from {place}",
+    "heroSub": "A lodge on the Arapiuns River, 90 minutes by boat from Alter do Chão. 13 bungalows on a freshwater beach."
   },
   "modo": {
     "titulo": "Two ways to stay",
@@ -698,7 +702,7 @@
   },
   "privativa": {
     "h1": "The whole Villa for your group, from 15 to 26 people",
-    "intro": "Retreats, company teams, families and friends. You get 13 bungalows, a thatched pavilion where the whole group sits together, a hammock house, a freshwater beach and full board, on the Arapiuns River, 90 minutes by boat from Alter do Chão. On your dates, nobody from outside the group stays at the Villa.",
+    "intro": "Retreats, company teams, families and friends. You get 13 bungalows, a thatched pavilion where the whole group sits together, a hammock house and a freshwater beach on the Arapiuns River, 90 minutes by boat from Alter do Chão. On your dates, nobody from outside the group stays at the Villa.",
     "b1T": "Thirteen bungalows",
     "b1D": "Up to 26 guests accommodated.",
     "b2T": "Exclusivity from 15",
@@ -779,7 +783,7 @@
   },
   "reveillon": {
     "h1": "New Year 2026/27 on the Arapiuns River, near Alter do Chão",
-    "intro": "From December 28 to January 2, the Villa hosts the New Year with all meals included. Alter do Chão is packed that week, and the Villa is 90 minutes upriver from there by boat, on a freshwater beach with white sand. There are 13 bungalows: you can book one, or close the whole Villa for a group of 15 to 26.",
+    "intro": "From December 28 to January 2, 90 minutes by boat from Alter do Chão. There are 13 bungalows: book your own, or close the Villa for a group of 15 to 26.",
     "campoJanela": "Dec 28 – Jan 02",
     "b1T": "The window",
     "b1D": "Packages of 4 to 5 nights between December 28 and January 2. The trip here is long, and fewer nights are not worth it.",
@@ -831,7 +835,58 @@
     "a6": "Yes. From 15 guests your group has exclusive use: thirteen bungalows for up to 26 guests, the pavilion, the hammock grove and the beach, with no one else on the property.",
     "notaFinal": "Limited places: 13 bungalows, for at most 26 people over the New Year week.",
     "cta": "Ask about New Year's Eve on WhatsApp",
-    "ctaPagina": "See New Year's Eve"
+    "ctaPagina": "See New Year's Eve",
+    "verDetox": "Stay on for the Detox, 1 to 10 January"
+  },
+  "detox": {
+    "h1": "Post-New Year Detox on the Arapiuns River",
+    "intro": "The party is over. From 1 to 10 January 2027, the Villa hosts people who want to start the year slowly: forest food, no cocktails and no speakers, 90 minutes by boat from Alter do Chão.",
+    "campoJanela": "01 – 10 Jan",
+    "janelaCurta": "1–10 Jan",
+    "campoMinimo": "2-night minimum",
+    "cta": "Ask about the Detox on WhatsApp",
+    "notaFinal": "Limited places: 13 bungalows, for at most 26 people.",
+    "figHero": "River bath · the whole group in the water",
+    "figHeroAlt": "A group of women up to their necks in the wide river, side by side, with the far bank behind them",
+    "b1T": "1 to 10 January",
+    "b1D": "Check-in from Friday 1 January. The minimum stay runs to Sunday the 3rd, and you can stay until Sunday the 10th.",
+    "b1M": "2-night minimum",
+    "b2T": "Menu being finalised",
+    "b2D": "The direction is set: food from the forest and the river, açaí from Pará, spirulina and shots in the morning. The house serves no alcohol on these dates. The dishes are still being worked out with the kitchen.",
+    "b2M": "no alcohol",
+    "b3T": "The Villa for your group alone",
+    "b3D": "If you saw the year in together, you can start it together. From 15 people, nobody from outside stays at the Villa on your dates.",
+    "b3M": "15+ people",
+    "b4T": "Rates per group",
+    "b4D": "The price depends on the number of people and nights. Send us those on WhatsApp and we reply with a quote for your group.",
+    "b4M": "ask on WhatsApp",
+    "ideiaT": "A detox from what",
+    "ideiaD": "From the week of parties, queues, fireworks and a phone in your hand. Here the detox is stopping all that for a few nights. The day starts early, because the sun comes through the thatch. A swim in the river in the morning, the hammock in the heat of the day, dinner and an early night.",
+    "programaT": "What to do",
+    "programaD": "The week's programme is being finalised. The Villa already has the freshwater beach, canoeing in the flooded forest, the Samaúma trail with the Atodi community and stand-up paddling on the buriti creek. We agree what goes into your stay on WhatsApp. Doing nothing counts too.",
+    "figMesa": "Breakfast on the dining-room veranda",
+    "figMesaAlt": "Wooden table laid for breakfast with cake, fruit, red juice and mugs, on a veranda open to the forest",
+    "figSup": "Stand-up paddling on the river, close to the bank",
+    "figSupAlt": "A woman standing on a paddleboard on still water, with dense forest on the bank",
+    "avisoT": "Before you book",
+    "avisoD": "The Post-New Year Detox is not a medical or therapeutic programme. It is a week of rest with the food of the region. The Villa is far from town and has no medical facilities on site. If you have a health condition or a dietary restriction, tell us on WhatsApp before you book.",
+    "verReveillon": "Before the Detox, the turn of the year: New Year's Eve from 28 December to 2 January",
+    "faqT": "Questions",
+    "q1": "When is the Post-New Year Detox?",
+    "a1": "Between 1 and 10 January 2027. Check-in is from Friday the 1st, and the minimum stay runs to Sunday the 3rd, which is two nights. You can stay until Sunday 10 January.",
+    "q2": "How much does it cost?",
+    "a2": "Rates are per group and depend on the number of people and nights. Message us on WhatsApp with your group size and dates and we reply with a quote.",
+    "q3": "Is it a health treatment?",
+    "a3": "No. It is a rest stay with forest food and no alcohol served by the house. It is not a medical or therapeutic programme, and the Villa is far from town, with no medical facilities on site.",
+    "q4": "Is there alcohol?",
+    "a4": "The house serves no alcohol on these dates. The table has water, juices, tea, açaí, spirulina and shots.",
+    "q5": "Can we book the whole Villa for our group?",
+    "a5": "Yes. From 15 people the group has exclusive use: the 13 bungalows for up to 26 guests, the pavilion, the hammock house, the shala and the beach, with nobody from outside on your dates.",
+    "q6": "How do I get there?",
+    "a6": "Fly to Santarém (STM), transfer by road to Alter do Chão, then 90 minutes by boat up the Arapiuns to the Villa. There is no road for the last stretch.",
+    "ctaFinalD": "There are 13 bungalows for the first days of 2027. Tell us how many of you there are and when you want to arrive.",
+    "ctaPagina": "See the Detox",
+    "nome": "Post-New Year Detox"
   },
   "diario": {
     "titulo": "Journal",

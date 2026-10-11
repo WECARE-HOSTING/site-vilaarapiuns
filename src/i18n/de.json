@@ -16,7 +16,8 @@
     "packages": "Pakete · Villa Arapiuns",
     "privateVilla": "Gruppen · Villa Arapiuns",
     "reveillon": "Silvester · Villa Arapiuns",
-    "gettingHere": "Anreise · Villa Arapiuns"
+    "gettingHere": "Anreise · Villa Arapiuns",
+    "detox": "Detox nach Neujahr bei Alter do Chão · Villa Arapiuns"
   },
   "nav": {
     "lodge": "Die Lodge",
@@ -32,18 +33,18 @@
     "bookSent": "Nachricht gesendet",
     "menu": "Menü",
     "close": "Schließen",
-    "language": "Sprache"
+    "language": "Sprache",
+    "detox": "Detox"
   },
   "cta": {
     "book": "Buchen",
     "checkAvailability": "Termine anfragen",
     "whatsapp": "Über WhatsApp schreiben",
     "seePackages": "Pakete ansehen",
-    "learnMore": "Mehr erfahren"
+    "learnMore": "Mehr erfahren",
+    "condicaoWhatsapp": "Preis je nach Gruppe, Anfrage per WhatsApp"
   },
   "trust": {
-    "fullBoard": "Vollpension: alle Mahlzeiten inklusive",
-    "boat": "Boot ab Alter do Chão in den Paketen",
     "team": "Eigenes Team für die Logistik",
     "host": "Gastgeber vor Ort in der Villa"
   },
@@ -67,7 +68,8 @@
     "reveillon": "Hallo! Ich möchte Silvester für meine Gruppe in der Villa Arapiuns planen.",
     "home": "Hallo! Ich komme von der Startseite der Villa Arapiuns und hätte gern Termine und Preise.",
     "pacotes": "Hallo! Ich komme von der Seite „Pakete“ der Villa Arapiuns und möchte Termine anfragen.",
-    "diario": "Hallo! Ich habe einen Artikel im Journal der Villa Arapiuns gelesen und würde gern mehr erfahren."
+    "diario": "Hallo! Ich habe einen Artikel im Journal der Villa Arapiuns gelesen und würde gern mehr erfahren.",
+    "detox": "Hallo! Ich komme von der Seite Detox nach Neujahr auf der Website der Villa Arapiuns (1. bis 10. Januar 2027). Wir sind __ Personen und möchten am __ anreisen und am __ Januar abreisen."
   },
   "desc": {
     "home": "Dreizehn Bungalows am Rio Arapiuns, 1,5 Stunden per Boot von Alter do Chão. Bleiben Sie mehrere Tage, alle Mahlzeiten inklusive, oder kommen Sie mit einem Paket, in dem Boot und Programm bereits feststehen.",
@@ -81,7 +83,8 @@
     "gallery": "Fotos der Villa Arapiuns: die Bungalows, der Fluss, der Wald und die Gemeinden des Arapiuns.",
     "reviews": "Was Gäste nach ihrem Aufenthalt in der Villa Arapiuns erzählen.",
     "book": "Buchen Sie Ihren Aufenthalt in der Villa Arapiuns über WhatsApp und sprechen Sie direkt mit dem Haus.",
-    "bookSent": "Ihre Nachricht ist angekommen. Wir antworten innerhalb von 24 Stunden."
+    "bookSent": "Ihre Nachricht ist angekommen. Wir antworten innerhalb von 24 Stunden.",
+    "detox": "Detox nach Neujahr in der Villa Arapiuns, 1. bis 10. Januar 2027: Essen aus dem Wald, Açaí, kein Alkohol vom Haus und 13 Bungalows nahe Alter do Chão."
   },
   "home": {
     "hookA": "Eine Karibik aus Süßwasser, das ganze Jahr warm, mitten im Wald.",
@@ -106,7 +109,7 @@
     "diaI": "Vom Kaffee auf der Veranda bis zum Feuer am Strand. Bei jedem Moment steht, ob er enthalten ist oder direkt an die Gemeinde gezahlt wird.",
     "precoT": "Preis",
     "precoSob": "Auf Anfrage",
-    "precoD": "Der Übernachtungspreis sinkt, je größer die Gruppe und je länger der Aufenthalt. Sagen Sie uns, wie viele Personen und wie viele Nächte, und wir antworten mit einem festen Preis über WhatsApp — ohne Formular.",
+    "precoD": "Der Übernachtungspreis sinkt, je größer die Gruppe und je länger der Aufenthalt. Sagen Sie uns, wie viele Personen und wie viele Nächte, und wir antworten mit einem festen Preis über WhatsApp, ohne Formular.",
     "fechaQ": "Sie kommen an, stellen das Gepäck ab und ziehen gleich wieder los. Sie kehren müde zurück, auf die bestmögliche Weise — vom Wald, von der Sonne, von den Geschichten. Sie essen gut und schlafen tief.",
     "fechaT": "Sprechen Sie mit dem Haus",
     "fechaD": "Wer antwortet, ist auch die Person, die Sie empfängt. Sagen Sie uns, wie viele Personen und welchen Zeitraum Sie im Sinn haben.",
@@ -350,7 +353,8 @@
         "alt": "Sonnenuntergang über dem Fluss, vom Laub aus gesehen, orangefarbener Himmel über dunklem Wasser in kurzen Wellen"
       }
     ],
-    "campoLancha": "1,5 Std. mit dem Boot ab {place}"
+    "campoLancha": "1,5 Std. mit dem Boot ab {place}",
+    "heroSub": "Lodge am Rio Arapiuns, 1,5 Stunden per Boot von Alter do Chão. 13 Bungalows an einem Süßwasserstrand."
   },
   "modo": {
     "titulo": "Zwei Arten zu bleiben",
@@ -831,7 +835,58 @@
     "a6": "Ja. Ab 15 Gästen hat Ihre Gruppe Exklusivrecht: dreizehn Bungalows für bis zu 26 Gäste, der Pavillon, der Hängemattenhain und der Strand, ohne Fremde am Termin.",
     "notaFinal": "Das Silvesterfenster hat nur einen Termin — und dreizehn Bungalows.",
     "cta": "Silvester auf WhatsApp anfragen",
-    "ctaPagina": "Silvester ansehen"
+    "ctaPagina": "Silvester ansehen",
+    "verDetox": "Bleiben Sie zum Detox, 1. bis 10. Januar"
+  },
+  "detox": {
+    "h1": "Detox nach Neujahr am Rio Arapiuns",
+    "intro": "Die Party ist vorbei. Vom 1. bis 10. Januar 2027 empfängt die Villa alle, die das Jahr langsam beginnen wollen: Essen aus dem Wald, keine Cocktails und keine Lautsprecher, 1,5 Stunden per Boot von Alter do Chão.",
+    "campoJanela": "01. – 10. Jan",
+    "janelaCurta": "1.–10. Jan",
+    "campoMinimo": "mindestens 2 Nächte",
+    "cta": "Detox per WhatsApp anfragen",
+    "notaFinal": "Begrenzte Plätze: 13 Bungalows, für höchstens 26 Personen.",
+    "figHero": "Bad im Fluss · die ganze Gruppe im Wasser",
+    "figHeroAlt": "Eine Gruppe Frauen bis zum Hals im breiten Fluss, nebeneinander, mit dem anderen Ufer im Hintergrund",
+    "b1T": "1. bis 10. Januar",
+    "b1D": "Anreise ab Freitag, 1. Januar. Der Mindestaufenthalt geht bis Sonntag, den 3., und wer möchte, bleibt bis Sonntag, den 10.",
+    "b1M": "mindestens 2 Nächte",
+    "b2T": "Speiseplan in Arbeit",
+    "b2D": "Die Richtung steht: Essen aus dem Wald und dem Fluss, Açaí aus Pará, Spirulina und Shots am Morgen. Das Haus schenkt an diesen Tagen keinen Alkohol aus. Die Gerichte werden gerade mit der Küche festgelegt.",
+    "b2M": "kein Alkohol",
+    "b3T": "Die Villa nur für Ihre Gruppe",
+    "b3D": "Wer Silvester zusammen gefeiert hat, kann das Jahr auch zusammen beginnen. Ab 15 Personen wohnt an Ihren Tagen niemand sonst in der Villa.",
+    "b3M": "15+ Personen",
+    "b4T": "Preis je nach Gruppe",
+    "b4D": "Der Preis hängt von der Zahl der Personen und Nächte ab. Schicken Sie uns das per WhatsApp, und wir antworten mit einem Angebot für Ihre Gruppe.",
+    "b4M": "Anfrage per WhatsApp",
+    "ideiaT": "Detox wovon",
+    "ideiaD": "Von der Woche mit Partys, Warteschlangen, Feuerwerk und dem Handy in der Hand. Hier heißt Detox, damit für ein paar Nächte aufzuhören. Der Tag beginnt früh, weil die Sonne durch das Palmdach fällt. Morgens ein Bad im Fluss, in der Mittagshitze die Hängematte, dann Abendessen und früh ins Bett.",
+    "programaT": "Was man tun kann",
+    "programaD": "Das Programm der Woche wird gerade festgelegt. In der Villa gibt es schon den Süßwasserstrand, Kanufahrten im überfluteten Wald, den Samaúma-Pfad mit der Gemeinde Atodi und Stand-up-Paddling im Buriti-Bach. Was in Ihren Aufenthalt kommt, besprechen wir per WhatsApp. Nichts tun zählt auch.",
+    "figMesa": "Frühstück auf der Veranda des Speisesaals",
+    "figMesaAlt": "Holztisch zum Frühstück gedeckt, mit Kuchen, Obst, rotem Saft und Tassen, auf einer zum Wald offenen Veranda",
+    "figSup": "Stand-up-Paddling auf dem Fluss, nah am Ufer",
+    "figSupAlt": "Eine Frau steht auf einem Paddleboard auf ruhigem Wasser, am Ufer dichter Wald",
+    "avisoT": "Vor der Buchung",
+    "avisoD": "Das Detox nach Neujahr ist kein medizinisches oder therapeutisches Programm. Es ist eine Woche Erholung mit der Küche der Region. Die Villa liegt weit von der Stadt entfernt und hat keine medizinische Versorgung vor Ort. Wenn Sie eine gesundheitliche Einschränkung oder eine besondere Ernährung haben, sagen Sie es uns vor der Buchung per WhatsApp.",
+    "verReveillon": "Vor dem Detox der Jahreswechsel: Silvester vom 28. Dezember bis 2. Januar",
+    "faqT": "Fragen",
+    "q1": "Wann ist das Detox nach Neujahr?",
+    "a1": "Zwischen dem 1. und 10. Januar 2027. Anreise ist ab Freitag, dem 1., und der Mindestaufenthalt geht bis Sonntag, den 3., also zwei Nächte. Bleiben können Sie bis Sonntag, 10. Januar.",
+    "q2": "Was kostet es?",
+    "a2": "Der Preis gilt je Gruppe und hängt von der Zahl der Personen und Nächte ab. Schreiben Sie uns per WhatsApp Gruppengröße und Daten, und wir antworten mit einem Angebot.",
+    "q3": "Ist es eine Gesundheitsbehandlung?",
+    "a3": "Nein. Es ist ein Erholungsaufenthalt mit Essen aus dem Wald, ohne Alkohol vom Haus. Es ist kein medizinisches oder therapeutisches Programm, und die Villa liegt weit von der Stadt, ohne medizinische Versorgung vor Ort.",
+    "q4": "Gibt es Alkohol?",
+    "a4": "Das Haus schenkt an diesen Tagen keinen Alkohol aus. Auf den Tisch kommen Wasser, Säfte, Tee, Açaí, Spirulina und Shots.",
+    "q5": "Können wir die ganze Villa für unsere Gruppe buchen?",
+    "a5": "Ja. Ab 15 Personen hat die Gruppe die Villa exklusiv: die 13 Bungalows für bis zu 26 Gäste, den Pavillon, das Hängemattenhaus, die Shala und den Strand, ohne fremde Gäste an Ihren Tagen.",
+    "q6": "Wie komme ich hin?",
+    "a6": "Flug nach Santarém (STM), Transfer über Land nach Alter do Chão und 1,5 Stunden per Boot den Arapiuns hinauf bis zur Villa. Für das letzte Stück gibt es keine Straße.",
+    "ctaFinalD": "Es gibt 13 Bungalows für die ersten Tage von 2027. Sagen Sie uns, wie viele Sie sind und wann Sie ankommen möchten.",
+    "ctaPagina": "Zum Detox",
+    "nome": "Detox nach Neujahr"
   },
   "diario": {
     "titulo": "Journal",

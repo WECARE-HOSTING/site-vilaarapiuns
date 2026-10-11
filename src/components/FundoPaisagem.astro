@@ -204,6 +204,8 @@ const { fotos, intervalo = 5000 } = Astro.props;
       fotos[prox].classList.add(ESTA);
       atual = prox;
       trocando = false;
+      /* Avisa quem estiver ouvindo (o gancho da home troca de frase junto). */
+      palco.dispatchEvent(new CustomEvent('paisagem:troca', { detail: atual, bubbles: true }));
       window.setTimeout(() => aquecer(fotos[(atual + 1) % fotos.length]), intervalo / 2);
     };
 

@@ -16,7 +16,8 @@
     "packages": "Pacotes saindo de Alter do Chão · Villa Arapiuns",
     "privateVilla": "Grupos de 15 a 26 perto de Alter do Chão · Villa Arapiuns",
     "reveillon": "Réveillon 2026/27 perto de Alter do Chão · Villa Arapiuns",
-    "gettingHere": "Como chegar por Santarém e Alter do Chão · Villa Arapiuns"
+    "gettingHere": "Como chegar por Santarém e Alter do Chão · Villa Arapiuns",
+    "detox": "Detox pós-Ano Novo perto de Alter do Chão · Villa Arapiuns"
   },
   "nav": {
     "lodge": "A Pousada",
@@ -32,18 +33,18 @@
     "bookSent": "Mensagem enviada",
     "menu": "Menu",
     "close": "Fechar",
-    "language": "Idioma"
+    "language": "Idioma",
+    "detox": "Detox"
   },
   "cta": {
     "book": "Reservar",
     "checkAvailability": "Consultar datas",
     "whatsapp": "Falar no WhatsApp",
     "seePackages": "Ver pacotes",
-    "learnMore": "Saiba mais"
+    "learnMore": "Saiba mais",
+    "condicaoWhatsapp": "Condição por grupo, consulte no WhatsApp"
   },
   "trust": {
-    "fullBoard": "Todas as refeições incluídas",
-    "boat": "Barco de Alter do Chão nos pacotes",
     "team": "Equipe própria na logística",
     "host": "Anfitrião local na Villa"
   },
@@ -67,7 +68,8 @@
     "reveillon": "Olá! Vim pela página do Réveillon do site da Villa Arapiuns. Queria saber da virada para o meu grupo.",
     "home": "Olá! Vim pela página inicial do site da Villa Arapiuns e queria saber datas e valores.",
     "pacotes": "Olá! Vim pela página de Pacotes do site da Villa Arapiuns e queria consultar datas.",
-    "diario": "Olá! Li um artigo do Diário no site da Villa Arapiuns e queria saber mais."
+    "diario": "Olá! Li um artigo do Diário no site da Villa Arapiuns e queria saber mais.",
+    "detox": "Olá! Vim pela página do Detox pós-Ano Novo no site da Villa Arapiuns (1 a 10 de janeiro de 2027). Somos __ pessoas e pensamos em chegar dia __ e sair dia __ de janeiro."
   },
   "desc": {
     "home": "Pousada de 13 bangalôs no Rio Arapiuns, a 1h30 de lancha de Alter do Chão. Fique dias com as refeições inclusas ou venha num pacote com barco e roteiro.",
@@ -81,12 +83,13 @@
     "gallery": "Fotos da Villa Arapiuns: os bangalôs, o rio, a mata e as comunidades do Arapiuns.",
     "reviews": "O que os hóspedes contam depois de ficar na Villa Arapiuns.",
     "book": "Reserve sua estadia na Villa Arapiuns pelo WhatsApp e fale direto com a Villa.",
-    "bookSent": "Sua mensagem chegou. Respondemos em até 24 horas."
+    "bookSent": "Sua mensagem chegou. Respondemos em até 24 horas.",
+    "detox": "Detox pós-Ano Novo na Villa Arapiuns, de 1 a 10 de janeiro de 2027: comida da floresta, açaí, nenhum álcool servido pela casa e 13 bangalôs perto de Alter do Chão."
   },
   "home": {
-    "hookA": "Pousada no Rio Arapiuns,",
-    "hookB": "a 1h30 de lancha de Alter do Chão",
-    "intro": "São 13 bangalôs de madeira numa praia de água doce e transparente. Na pousada, todas as refeições estão inclusas. Recebemos casais, famílias e grupos de até 26 pessoas, e a partir de 15 a Villa fecha só para o seu grupo.",
+    "hookA": "Um Caribe de água doce,",
+    "hookB": "no meio da floresta amazônica.",
+    "intro": "São 13 bangalôs de madeira numa praia de água doce e transparente. Recebemos casais, famílias e grupos de até 26 pessoas, e a partir de 15 a Villa fecha só para o seu grupo.",
     "travessiaT": "A travessia",
     "travessiaI": "Chegar faz parte. São três etapas, e a última é nossa.",
     "etapa1T": "Voo até Santarém",
@@ -106,7 +109,7 @@
     "diaI": "Do café na varanda à fogueira na praia. Cada momento diz se está incluído ou se é pago direto à comunidade.",
     "precoT": "Preço",
     "precoSob": "Sob consulta",
-    "precoD": "A diária cai conforme o grupo cresce e a estadia se alonga. Diga quantas pessoas e quantas noites, e a gente responde com o valor fechado pelo WhatsApp — sem formulário.",
+    "precoD": "A diária cai conforme o grupo cresce e a estadia se alonga. Diga quantas pessoas e quantas noites, e a gente responde com o valor fechado pelo WhatsApp, sem formulário.",
     "fechaQ": "Você chega, deposita as malas e parte direto. Volta cansado do melhor jeito possível — pela floresta, pelo sol, pelas histórias. Come bem, dorme fundo.",
     "fechaT": "Fale com a gente",
     "fechaD": "Quem responde é quem recebe. Diga quantas pessoas e que período você tem em mente.",
@@ -350,7 +353,8 @@
         "alt": "Pôr do sol sobre o rio visto de sob a folhagem, com o céu laranja e a água escura em ondas curtas"
       }
     ],
-    "campoLancha": "1h30 de lancha de {place}"
+    "campoLancha": "1h30 de lancha de {place}",
+    "heroSub": "Pousada no Rio Arapiuns, a 1h30 de lancha de Alter do Chão. 13 bangalôs na beira de uma praia de água doce."
   },
   "modo": {
     "titulo": "Duas maneiras de ficar",
@@ -698,7 +702,7 @@
   },
   "privativa": {
     "h1": "A Villa inteira para o seu grupo, de 15 a 26 pessoas",
-    "intro": "Retiros, equipes de empresa, famílias e amigos. São 13 bangalôs, um pavilhão de palha onde o grupo inteiro se senta junto, redário, praia de água doce e pensão completa, no Rio Arapiuns, a 1h30 de lancha de Alter do Chão. Na data do seu grupo, ninguém de fora entra na Villa.",
+    "intro": "Retiros, equipes de empresa, famílias e amigos. São 13 bangalôs, um pavilhão de palha onde o grupo inteiro se senta junto, redário e praia de água doce no Rio Arapiuns, a 1h30 de lancha de Alter do Chão. Na data do seu grupo, ninguém de fora entra na Villa.",
     "b1T": "Treze bangalôs",
     "b1D": "Até 26 hóspedes acomodados.",
     "b2T": "Exclusividade a partir de 15",
@@ -779,7 +783,7 @@
   },
   "reveillon": {
     "h1": "Réveillon 2026/27 no Rio Arapiuns, perto de Alter do Chão",
-    "intro": "De 28 de dezembro a 2 de janeiro, a Villa recebe a virada com todas as refeições inclusas. Alter do Chão lota nessa semana, e a Villa fica a 1h30 de lancha de lá, rio acima, numa praia de água doce e areia branca. São 13 bangalôs: dá para reservar o seu ou fechar a Villa inteira para um grupo de 15 a 26 pessoas.",
+    "intro": "De 28 de dezembro a 2 de janeiro, a 1h30 de lancha de Alter do Chão. São 13 bangalôs: dá para reservar o seu ou fechar a Villa para um grupo de 15 a 26 pessoas.",
     "campoJanela": "28 dez – 02 jan",
     "b1T": "A janela da virada",
     "b1D": "Pacotes de 4 a 5 noites entre 28 de dezembro e 2 de janeiro. A viagem até aqui é longa, e com menos noites não compensa.",
@@ -831,7 +835,58 @@
     "a6": "Sim. A partir de 15 pessoas o grupo tem direito de exclusividade: treze bangalôs para até 26 hóspedes, o pavilhão, o redário e a praia, sem ninguém de fora na data.",
     "notaFinal": "Vagas limitadas: são 13 bangalôs, para no máximo 26 pessoas na semana da virada.",
     "cta": "Consultar a virada no WhatsApp",
-    "ctaPagina": "Ver o réveillon"
+    "ctaPagina": "Ver o réveillon",
+    "verDetox": "Fique para o Detox, de 1 a 10 de janeiro"
+  },
+  "detox": {
+    "h1": "Detox pós-Ano Novo no Rio Arapiuns",
+    "intro": "A festa acabou. De 1 a 10 de janeiro de 2027, a Villa recebe quem quer começar o ano devagar: comida da floresta, nenhum drinque e nenhuma caixa de som, a 1h30 de lancha de Alter do Chão.",
+    "campoJanela": "01 – 10 jan",
+    "janelaCurta": "1 a 10 jan",
+    "campoMinimo": "mínimo 2 noites",
+    "cta": "Quero saber do Detox no WhatsApp",
+    "notaFinal": "Vagas limitadas: são 13 bangalôs, para no máximo 26 pessoas.",
+    "figHero": "Banho de rio · o grupo inteiro dentro d'água",
+    "figHeroAlt": "Grupo de mulheres com água até o pescoço, lado a lado no rio largo, com a outra margem ao fundo",
+    "b1T": "De 1 a 10 de janeiro",
+    "b1D": "Check-in a partir de sexta, 1º de janeiro. A estadia mínima vai até domingo, dia 3. Quem quiser fica até domingo, dia 10.",
+    "b1M": "mínimo 2 noites",
+    "b2T": "Cardápio em fechamento",
+    "b2D": "A direção já está dada: comida da floresta e do rio, açaí do Pará, spirulina e shots pela manhã. A casa não serve bebida alcoólica nessas datas. Os pratos ainda estão sendo fechados com a cozinha.",
+    "b2M": "zero álcool",
+    "b3T": "A Villa só para o seu grupo",
+    "b3D": "Quem passou a virada junto pode começar o ano junto. A partir de 15 pessoas, ninguém de fora entra na Villa na sua data.",
+    "b3M": "15+ pessoas",
+    "b4T": "Condição por grupo",
+    "b4D": "O valor depende do número de pessoas e de noites. Mande isso pelo WhatsApp e a gente responde com a proposta do seu grupo.",
+    "b4M": "consulte no WhatsApp",
+    "ideiaT": "Detox de quê",
+    "ideiaD": "Da semana de festa, de fila, de fogos e de celular na mão. Aqui o detox é parar com isso por algumas noites. O dia começa cedo, porque o sol entra pela palha. Banho de rio de manhã, rede na hora do calor, jantar e cama cedo.",
+    "programaT": "O que fazer",
+    "programaD": "A programação da semana está em fechamento. Na Villa já existem a praia de água doce, a canoa no igapó, a trilha da Samaúma com a comunidade do Atodi e o stand-up no igarapé de buriti. O que entra na sua estadia a gente combina pelo WhatsApp. Não fazer nada também vale.",
+    "figMesa": "Café na varanda do refeitório",
+    "figMesaAlt": "Mesa de madeira posta para o café, com bolo, frutas, suco vermelho e canecas, na varanda aberta para a mata",
+    "figSup": "Stand-up no rio, perto da margem",
+    "figSupAlt": "Mulher de pé numa prancha de stand-up, remando na água parada, com a mata fechada na margem",
+    "avisoT": "Antes de reservar",
+    "avisoD": "O Detox pós-Ano Novo não é um programa médico nem terapêutico. É uma semana de descanso com a comida da região. A Villa fica longe da cidade e não tem estrutura médica no local. Se você tem alguma condição de saúde ou restrição alimentar, conte no WhatsApp antes de fechar.",
+    "verReveillon": "Antes do Detox, a virada: Réveillon de 28 de dezembro a 2 de janeiro",
+    "faqT": "Dúvidas",
+    "q1": "Quando é o Detox pós-Ano Novo?",
+    "a1": "Entre 1 e 10 de janeiro de 2027. O check-in é a partir de sexta, dia 1º, e a estadia mínima vai até domingo, dia 3, ou seja, duas noites. Dá para ficar até domingo, 10 de janeiro.",
+    "q2": "Quanto custa?",
+    "a2": "A condição é por grupo e depende do número de pessoas e de noites. Chame no WhatsApp com o tamanho do grupo e as datas, e a gente responde com a proposta.",
+    "q3": "É um tratamento de saúde?",
+    "a3": "Não. É uma estadia de descanso, com comida da floresta e sem álcool servido pela casa. Não é programa médico nem terapêutico, e a Villa fica longe da cidade, sem estrutura médica no local.",
+    "q4": "Tem bebida alcoólica?",
+    "a4": "A casa não serve bebida alcoólica nessas datas. Na mesa entram água, sucos, chá, açaí, spirulina e shots.",
+    "q5": "Dá para fechar a Villa só para o nosso grupo?",
+    "a5": "Sim. A partir de 15 pessoas o grupo tem exclusividade: os 13 bangalôs para até 26 hóspedes, o pavilhão, o redário, a shala e a praia, sem ninguém de fora na data.",
+    "q6": "Como chego?",
+    "a6": "Voo até Santarém (STM), traslado por terra até Alter do Chão e 1h30 de lancha pelo Arapiuns até a Villa. O último trecho não tem estrada.",
+    "ctaFinalD": "São 13 bangalôs para os primeiros dias de 2027. Diga quantas pessoas são e quando querem chegar.",
+    "ctaPagina": "Ver o Detox",
+    "nome": "Detox pós-Ano Novo"
   },
   "diario": {
     "titulo": "Diário",

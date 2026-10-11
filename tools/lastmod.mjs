@@ -53,6 +53,7 @@ export const COMPONENTE_DA_PAGINA = {
   packages: 'Pacotes',
   privateVilla: 'Privativa',
   reveillon: 'Reveillon',
+  detox: 'Detox',
   gettingHere: 'Chegar',
   gallery: 'Galeria',
   reviews: 'Avaliacoes',

@@ -1,0 +1,166 @@
+---
+/**
+ * DETOX PÓS-ANO NOVO — página sazonal de 1 a 10 de janeiro de 2027.
+ *
+ * Pedido do Leonardo em 11/10/2026, que considera esta oferta MAIS importante
+ * que o Réveillon. Espelha a estrutura da página do Réveillon (abertura com
+ * campo de dados e WhatsApp, lista de corte, seções curtas, FAQ com schema).
+ *
+ * O QUE A PÁGINA PODE AFIRMAR (e nada além): janela de 1 a 10/01/2027,
+ * check-in a partir de sexta 1/01, mínimo de 1 a 3/01 (2 noites), saída até
+ * domingo 10/01; vagas limitadas pelos 13 bangalôs e 26 pessoas; exclusividade
+ * a partir de 15; a casa não serve álcool nessas datas; cardápio EM FECHAMENTO
+ * na direção comida da floresta, açaí, spirulina e shots.
+ *
+ * NÃO AFIRMAR: preço (decisão de 11/10/2026, a Gabriela negocia no WhatsApp);
+ * o que está incluso (refeições, barco, atividades: a Gabriela explica no
+ * WhatsApp); nenhum efeito de saúde; açaí fresco (janeiro é entressafra no
+ * Pará). A linha de aviso diz que não é programa médico nem terapêutico e que
+ * a Villa não tem estrutura médica no local.
+ *
+ * FAQPage em JSON-LD com as mesmas chaves do texto visível, só com respostas
+ * confirmadas.
+ */
+import { Image } from 'astro:assets';
+import AberturaPagina from '@/components/AberturaPagina.astro';
+import ListaCorte from '@/components/ListaCorte.astro';
+import Campo from '@/components/Campo.astro';
+import Voluta from '@/components/Voluta.astro';
+import { href } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/utils';
+import { SITE, whatsappUrl } from '@/data/site';
+import type { Locale } from '@/i18n/config';
+
+import banhoRioGrupo from '@/assets/imgs/banho-rio-grupo.jpg';
+import cafeManha from '@/assets/imgs/cafe-manha.jpg';
+import supRio from '@/assets/imgs/sup-rio.jpg';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const wa = whatsappUrl(t('whatsapp.detox'));
+
+const blocos = [
+  { titulo: t('detox.b1T'), detalhe: t('detox.b1D'), medida: t('detox.b1M') },
+  { titulo: t('detox.b2T'), detalhe: t('detox.b2D'), medida: t('detox.b2M'), marcado: true },
+  { titulo: t('detox.b3T'), detalhe: t('detox.b3D'), medida: t('detox.b3M') },
+  { titulo: t('detox.b4T'), detalhe: t('detox.b4D'), medida: t('detox.b4M') },
+];
+
+const duvidas = [1, 2, 3, 4, 5, 6].map((i) => ({
+  titulo: t(`detox.q${i}`),
+  detalhe: t(`detox.a${i}`),
+}));
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: duvidas.map((d) => ({
+    '@type': 'Question',
+    name: d.titulo,
+    acceptedAnswer: { '@type': 'Answer', text: d.detalhe },
+  })),
+};
+---
+
+<AberturaPagina titulo={t('detox.h1')} intro={t('detox.intro')}>
+  <Campo class="mt-8">
+    {t('detox.campoJanela')}
+    <Voluta />
+    {t('detox.campoMinimo')}
+    <Voluta />
+    {t('home.tiraMedidaBangalos').replace('{n}', String(SITE.capacity.cabins))}
+  </Campo>
+  <p class="mt-8">
+    <a href={wa} class="btn btn-primario" target="_blank" rel="noopener noreferrer">{t('detox.cta')}</a>
+  </p>
+  <p class="numero etiqueta mt-4">{t('detox.notaFinal')}</p>
+</AberturaPagina>
+
+<figure class="container-editorial">
+  <Image
+    src={banhoRioGrupo}
+    alt={t('detox.figHeroAlt')}
+    widths={[600, 900, 1288]}
+    sizes="(min-width: 1280px) 76rem, 100vw"
+    loading="eager"
+    fetchpriority="high"
+    class="aspect-[16/9] w-full object-cover"
+  />
+  <figcaption class="meta numero mt-3">{t('detox.figHero')}</figcaption>
+</figure>
+
+<section class="cunha-topo secao bg-areia">
+  <div class="container-editorial">
+    <ListaCorte itens={blocos} nivel="h2" />
+    <p class="numero etiqueta mt-6">{t('detox.notaFinal')}</p>
+    <p class="mt-10">
+      <a href={wa} class="btn btn-primario" target="_blank" rel="noopener noreferrer">{t('detox.cta')}</a>
+    </p>
+  </div>
+</section>
+
+<section class="secao">
+  <div class="container-editorial">
+    <div class="grid gap-x-10 gap-y-10 sm:grid-cols-2">
+      <article>
+        <h2 class="font-display text-titulo">{t('detox.ideiaT')}</h2>
+        <p class="mt-4">{t('detox.ideiaD')}</p>
+      </article>
+      <article>
+        <h2 class="font-display text-titulo">{t('detox.programaT')}</h2>
+        <p class="mt-4">{t('detox.programaD')}</p>
+      </article>
+    </div>
+
+    <div class="mt-14 grid gap-6 sm:grid-cols-2">
+      <figure>
+        <Image
+          src={cafeManha}
+          alt={t('detox.figMesaAlt')}
+          widths={[480, 800, 1200]}
+          sizes="(min-width: 640px) 48vw, 100vw"
+          loading="lazy"
+          decoding="async"
+          class="aspect-[3/2] w-full object-cover"
+        />
+        <figcaption class="meta numero mt-3">{t('detox.figMesa')}</figcaption>
+      </figure>
+      <figure>
+        <Image
+          src={supRio}
+          alt={t('detox.figSupAlt')}
+          widths={[480, 800, 1200]}
+          sizes="(min-width: 640px) 48vw, 100vw"
+          loading="lazy"
+          decoding="async"
+          class="aspect-[3/2] w-full object-cover"
+        />
+        <figcaption class="meta numero mt-3">{t('detox.figSup')}</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="secao bg-areia">
+  <div class="container-editorial">
+    <h2 class="font-display text-titulo">{t('detox.avisoT')}</h2>
+    <p class="container-texto mt-4 sm:mx-0">{t('detox.avisoD')}</p>
+    <p class="mt-8">
+      <a href={href(locale, 'reveillon')} class="link-texto">{t('detox.verReveillon')}</a>
+    </p>
+  </div>
+</section>
+
+<section class="secao">
+  <div class="container-editorial">
+    <h2 class="font-display text-titulo">{t('detox.faqT')}</h2>
+    <ListaCorte itens={duvidas} class="mt-10" />
+    <p class="lead container-texto mt-12 sm:mx-0">{t('detox.ctaFinalD')}</p>
+    <p class="mt-6">
+      <a href={wa} class="btn btn-primario" target="_blank" rel="noopener noreferrer">{t('detox.cta')}</a>
+    </p>
+  </div>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} is:inline />
