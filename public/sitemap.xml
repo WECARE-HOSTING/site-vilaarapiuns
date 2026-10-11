@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Alias de /sitemap-index.xml (SEO W42, 11/10/2026).
+
+  O sitemap de verdade é o que o @astrojs/sitemap gera no build:
+  /sitemap-index.xml -> /sitemap-0.xml. É ele que o robots.txt anuncia e que
+  está enviado no Search Console. Este arquivo existe só porque /sitemap.xml
+  é o primeiro endereço que muito rastreador e ferramenta de SEO tenta, e ele
+  respondia 404. A hospedagem é estática (nginx, sem config no repositório),
+  então o alias é um arquivo, não um redirect.
+
+  Sem <lastmod> de propósito: a data real mora em cada URL do sitemap-0.xml.
+  tests/sitemap-alias.test.mjs falha se a lista de endereços daqui divergir da
+  do sitemap-index.xml gerado.
+-->
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://villaarapiuns.com.br/sitemap-0.xml</loc>
+  </sitemap>
+</sitemapindex>

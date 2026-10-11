@@ -80,10 +80,11 @@ const ogImageEhJpeg = /\.jpe?g(?:$|[?#])/i.test(ogImage);
  * JSON-LD emitido só com fato confirmado. Campos ausentes ficam ausentes:
  *  · aggregateRating fora enquanto reviews.rating for null;
  *  · priceRange fora enquanto prices for null;
- *  · geo e hasMap fora de propósito — a coordenada que circula no repositório
- *    não foi confirmada, e publicar coordenada errada de um lugar remoto é pior
- *    que não publicar nenhuma. Entram quando o cliente confirmar a coordenada;
- *    até lá, ausência é a resposta certa e não uma pendência técnica.
+ *  · geo vem de SITE.location.geo, que é o pin da ficha do Google lido no
+ *    próprio Google Maps pelo cid (SEO W42, 11/10/2026). Antes ficava fora
+ *    porque a coordenada que circulava no repositório nunca foi confirmada —
+ *    publicar coordenada errada de um lugar remoto é pior que não publicar
+ *    nenhuma. `null` lá tira o campo daqui.
  *  · petsAllowed saiu como literal e VOLTOU como dado no mesmo dia
  *    (2026-08-26): estava afirmado `false` em todas as páginas sem constar de
  *    documento nenhum, e o Carlos confirmou no mesmo dia que a Villa não aceita
@@ -181,6 +182,13 @@ if (SITE.prices.pousadaMin) {
    é a ficha que aparece no topo da busca pela marca, e hoje ela não aponta
    para este domínio. O cid é o identificador estável da ficha. */
 dados.alternateName = ['Vila Arapiuns', 'Villa Arapiuns Lodge'];
+if (SITE.location.geo) {
+  dados.geo = {
+    '@type': 'GeoCoordinates',
+    latitude: SITE.location.geo.latitude,
+    longitude: SITE.location.geo.longitude,
+  };
+}
 dados.hasMap = SITE.contact.googleMaps;
 dados.sameAs = [
   `https://instagram.com/${SITE.contact.instagram.replace('@', '')}`,

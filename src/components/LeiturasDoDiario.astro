@@ -1,0 +1,56 @@
+---
+/**
+ * LEITURAS DO DIÁRIO — o bloco de links internos da home e da página de grupos.
+ *
+ * Por que existe (SEO W42, 11/10/2026): o Search Console mostrou posts do
+ * diário que o Google só conhecia pelo sitemap — `melhor-epoca-para-visitar-
+ * alter-do-chao` ficou "detectada, não rastreada" e `turismo-de-base-
+ * comunitaria` ficou "rastreada, não indexada". Nenhuma página do site levava
+ * até eles fora do índice do diário. Link interno das duas páginas mais fortes
+ * do site é o sinal que faltava.
+ *
+ * Quem chama passa GRUPOS, não slugs. O slug muda por idioma
+ * (`sedie-seu-retiro-no-rio-arapiuns` em pt, `host-your-retreat` em en); o
+ * `grupo` do frontmatter é o mesmo nos cinco. Então cada idioma linka a SUA
+ * versão do post, resolvida pela coleção — nunca um slug em português dentro
+ * de uma página alemã. Grupo sem post naquele idioma simplesmente não aparece;
+ * se nenhum aparecer, o bloco inteiro some.
+ *
+ * Sem copy nova: o título da seção é a mesma chave `diario.seguintes` que
+ * fecha cada post, e o rótulo de cada link é o título do próprio post.
+ */
+import { useTranslations } from '@/i18n/utils';
+import { posts, caminhoDoPost, caminhoDoIndice } from '@/lib/diario';
+import type { Locale } from '@/i18n/config';
+
+interface Props {
+  locale: Locale;
+  /** Valores de `grupo` do frontmatter, na ordem em que devem aparecer. */
+  grupos: string[];
+  class?: string;
+}
+
+const { locale, grupos, class: className = '' } = Astro.props;
+const t = useTranslations(locale);
+
+const doIdioma = await posts(locale);
+const leituras = grupos
+  .map((g) => doIdioma.find((p) => p.data.grupo === g))
+  .filter((p): p is NonNullable<typeof p> => Boolean(p));
+---
+
+{leituras.length > 0 && (
+  <section class:list={['secao bg-areia', className]}>
+    <div class="container-editorial">
+      <h2 class="font-display text-titulo">{t('diario.seguintes')}</h2>
+      <ul class="emenda mt-8 border-t">
+        {leituras.map((p) => (
+          <li class="emenda border-b py-4">
+            <a href={caminhoDoPost(locale, p.data.slug)} class="link-texto font-display text-secao">{p.data.titulo}</a>
+          </li>
+        ))}
+      </ul>
+      <a href={caminhoDoIndice(locale)} class="link-texto etiqueta mt-8 inline-block">{t('diario.titulo')}</a>
+    </div>
+  </section>
+)}
