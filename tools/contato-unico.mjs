@@ -44,7 +44,12 @@ let falhou = false;
 // que o Astro pode ainda emitir como HTML de fallback do 301 `/` → `/pt/`.
 // Não tem cabeçalho nem rodapé. O 301 de produção depende do nginx
 // (docs/redirect-raiz.md); este HTML é só o fallback estático.
-const ROTAS_SEM_CHROME = ['dist/index.html'];
+//
+// A segunda é o arquivo de verificação do Search Console (public/, commit
+// 458b2c7): o Google exige o conteúdo exato que ele mesmo gerou, então ele
+// não pode levar rodapé nem contato. Sem esta entrada o check falhava em main
+// desde que o arquivo entrou (achado no SEO W42).
+const ROTAS_SEM_CHROME = ['dist/index.html', 'dist/google6fc8a7f274c68d66.html'];
 
 const paginasComContatoObrigatorio = paginas.filter((f) => !ROTAS_SEM_CHROME.includes(f));
 

@@ -25,6 +25,11 @@
  * "transição mais curta": é decidir que a rotação não acontece, igual ao que
  * docs/video.md §2 estabelece para os reels.
  *
+ * Alt: as seis levam a descrição real (home.heroPaisagem, cinco idiomas). Até
+ * 11/10/2026 só a primeira levava; as outras saíam com alt vazio e a busca de
+ * imagens não tinha o que ler nelas. Para leitor de tela nada muda: da segunda
+ * em diante continuam `aria-hidden`, então só a primeira é anunciada.
+ *
  * A primeira imagem leva `loading="eager"` e `fetchpriority="high"` porque é
  * LCP. As outras são `lazy`: não competem pela primeira dobra num celular
  * em 3G, que é o público #1 do PRODUCT.md.
@@ -49,7 +54,7 @@ const { fotos, intervalo = 5000 } = Astro.props;
   {fotos.map((foto, i) => (
     <Image
       src={foto.src}
-      alt={i === 0 ? foto.alt : ''}
+      alt={foto.alt}
       widths={[640, 1024, 1600, 2400]}
       sizes="100vw"
       class:list={['fundo-paisagem__foto', i === 0 && 'esta']}

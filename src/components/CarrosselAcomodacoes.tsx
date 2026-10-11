@@ -187,9 +187,12 @@ export function CarrosselAcomodacoes({
               src={f.src}
               srcSet={f.srcset}
               sizes={sizes}
-              /* A folha à vista é a única que se anuncia; as outras são pilha. O
-                 texto para leitor de tela vive no aria-live abaixo. */
-              alt=""
+              /* Para leitor de tela, a voz do carrossel é o aria-live abaixo:
+                 toda <img> é aria-hidden e por isso nada é anunciado em dobro.
+                 O alt carrega a descrição real mesmo assim (SEO W42) — a busca
+                 de imagens lê o alt e ignora aria-hidden; com alt vazio, as dez
+                 fotos das acomodações saíam sem descrição nenhuma. */
+              alt={f.alt}
               aria-hidden
               draggable={false}
               loading={i === 0 && prioridade ? 'eager' : 'lazy'}

@@ -52,6 +52,7 @@ import paisagemBancoSol from '@/assets/imgs/paisagem-banco-sol.jpg';
 import paisagemSupBuritis from '@/assets/imgs/paisagem-sup-buritis.jpg';
 import paisagemPorDoSol from '@/assets/imgs/paisagem-por-do-sol.jpg';
 import villaDeCimaPoster from '@/assets/imgs/villa-de-cima-poster.jpg';
+import LeiturasDoDiario from '@/components/LeiturasDoDiario.astro';
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -609,3 +610,8 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
     </a>
   </div>
 </section>
+
+<!-- ══════════════════ LEITURAS DO DIÁRIO ══════════════════
+     Links internos para os posts de retiro, offsite, melhor época e turismo
+     de base comunitária, na versão do idioma da página (SEO W42). -->
+<LeiturasDoDiario locale={locale} grupos={['retreat-venue', 'corporate-venue', 'melhor-epoca', 'tbc']} />

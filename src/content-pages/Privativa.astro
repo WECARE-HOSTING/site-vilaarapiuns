@@ -24,6 +24,7 @@ import AberturaPagina from '@/components/AberturaPagina.astro';
 import ListaCorte from '@/components/ListaCorte.astro';
 import Campo from '@/components/Campo.astro';
 import Voluta from '@/components/Voluta.astro';
+import LeiturasDoDiario from '@/components/LeiturasDoDiario.astro';
 import { useTranslations, useList } from '@/i18n/utils';
 import { SITE, whatsappUrl } from '@/data/site';
 import type { Locale } from '@/i18n/config';
@@ -303,6 +304,12 @@ const ESPACOS = [
     </div>
   </div>
 </section>
+
+<!-- ═══════════ LEITURAS DO DIÁRIO ═══════════
+     Antes do fechamento, para o convite ao WhatsApp continuar sendo a última
+     coisa da página. Links internos para os posts que respondem a quem organiza
+     grupo (SEO W42). -->
+<LeiturasDoDiario locale={locale} grupos={['retreat-venue', 'corporate-venue', 'melhor-epoca', 'tbc']} />
 
 <!-- ═══════════ FECHAMENTO ═══════════ -->
 <section class="cunha-topo secao bg-mar sobre-escuro">
