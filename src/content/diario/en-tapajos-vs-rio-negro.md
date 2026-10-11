@@ -78,6 +78,6 @@ And a third answer nobody offers: **both**. There are direct flights between Man
 
 ## Where we come in
 
-Villa Arapiuns is thirteen bungalows on the Arapiuns, an hour and a half by boat from Alter do Chão, inside the reserve. Full board, solar power, community-led operation, and the beach in front. Exclusive use of the whole property from fifteen guests.
+Villa Arapiuns is thirteen bungalows on the Arapiuns, an hour and a half by boat from Alter do Chão, inside the reserve. Solar power, community-led operation, and the beach in front. Exclusive use of the whole property from fifteen guests.
 
 If after reading this the Rio Negro is the better fit for your trip, go — it is a remarkable river and we would rather you had the holiday you wanted.

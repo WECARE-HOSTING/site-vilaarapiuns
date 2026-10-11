@@ -82,6 +82,6 @@ The trip is long, and it's long on purpose. The boat stretch is what separates t
 
 ## Where to stay
 
-What's available on the Arapiuns is limited, and that's part of what keeps it the way it is. There are **community-run guesthouses** in the communities — simple, inexpensive, run by the residents themselves, and the best way to sleep inside the daily life of the river. And there's **Villa Arapiuns**: thirteen bangalôs of tapajônica architecture, steps from the sand, for up to 26 guests, with full meals, solar power, and community-run operations. This is where we're writing from.
+What's available on the Arapiuns is limited, and that's part of what keeps it the way it is. There are **community-run guesthouses** in the communities — simple, inexpensive, run by the residents themselves, and the best way to sleep inside the daily life of the river. And there's **Villa Arapiuns**: thirteen bangalôs of tapajônica architecture, steps from the sand, for up to 26 guests, with solar power and community-run operations. This is where we're writing from.
 
 From 15 people, the Villa operates as a full buyout — which suits retreats, groups of friends, and company teams who want the whole place to themselves.

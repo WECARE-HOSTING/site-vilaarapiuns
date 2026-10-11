@@ -4,8 +4,8 @@ grupo: corporate-venue
 slug: firmen-offsite-am-rio-arapiuns
 titulo: "Firmen-Offsite am Rio Arapiuns"
 tituloCurto: "Firmen-Offsite im Amazonas · Alter do Chão"
-descricao: "Firmen-Offsite im Amazonas, 1,5 Bootsstunden von Alter do Chão: 13 Bangalôs für 26 Personen, Plenum-Pavillon, Vollpension, Starlink. Angebot pro Gruppe."
-resposta: "Villa Arapiuns empfängt Firmenteams zur Exklusivnutzung der gesamten Anlage: dreizehn Bangalôs für bis zu sechsundzwanzig Personen, ein überdachter Palmpavillon für das Plenum, ein Speisesaal, in dem das ganze Team zusammen isst, und ein Privatstrand am Rio Arapiuns, anderthalb Bootsstunden von Alter do Chão. Vollpension, Solarenergie und ein lokales Team. Die Preise werden pro Gruppe kalkuliert, nach Personenzahl und Nächten."
+descricao: "Firmen-Offsite im Amazonas, 1,5 Bootsstunden von Alter do Chão: 13 Bangalôs für 26 Personen, Plenum-Pavillon, Starlink. Angebot pro Gruppe."
+resposta: "Villa Arapiuns empfängt Firmenteams zur Exklusivnutzung der gesamten Anlage: dreizehn Bangalôs für bis zu sechsundzwanzig Personen, ein überdachter Palmpavillon für das Plenum, ein Speisesaal, in dem das ganze Team zusammen isst, und ein Privatstrand am Rio Arapiuns, anderthalb Bootsstunden von Alter do Chão. Solarenergie und ein lokales Team. Die Preise werden pro Gruppe kalkuliert, nach Personenzahl und Nächten."
 data: 2026-08-29
 revisado: 2026-10-05
 imagem: pavilhao-palha
@@ -14,7 +14,7 @@ legenda: "Der Pavillon · der Plenumsraum, an allen vier Seiten offen"
 destino: privateVilla
 duvidas:
   - q: "Was kostet ein Firmen-Offsite am Rio Arapiuns?"
-    a: "Der Preis wird pro Gruppe kalkuliert, nach Personenzahl und Nächten, und sinkt, je größer die Gruppe. Im Gruppenpaket: Exklusivnutzung ab fünfzehn Personen, dreizehn Bangalôs für bis zu sechsundzwanzig Personen, Vollpension, Pavillon und Shala, Starlink, und das Boot ab Alter do Chão organisieren wir. Flüge, Aktivitäten mit den Gemeinden und Technik laufen separat. Angebot per WhatsApp an +55 47 99206-7078 oder an reservas@villaarapiuns.com.br."
+    a: "Der Preis wird pro Gruppe kalkuliert, nach Personenzahl und Nächten, und sinkt, je größer die Gruppe. Im Gruppenpaket: Exklusivnutzung ab fünfzehn Personen, dreizehn Bangalôs für bis zu sechsundzwanzig Personen, Pavillon und Shala sowie Starlink; das Boot ab Alter do Chão und alles Weitere im Preis legen wir im Angebot dar. Flüge, Aktivitäten mit den Gemeinden und Technik laufen separat. Angebot per WhatsApp an +55 47 99206-7078 oder an reservas@villaarapiuns.com.br."
   - q: "Kann das Team von dort online arbeiten?"
     a: "Ja. Vor Ort gibt es Starlink mit stabiler Solarversorgung, und es trägt das ganze Team gleichzeitig durch eine Online-Besprechung. Wenn Ihr Programm mitten in der Woche einen Call mit der Zentrale braucht, findet er statt — ohne dass jemand für Empfang auf eine Böschung steigt."
   - q: "Welche Präsentationstechnik gibt es?"
@@ -45,7 +45,7 @@ Bei Exklusivnutzung ist an diesen Terminen niemand außerhalb Ihres Teams vor Or
 
 **Die Shala** ist der zweite Raum, geschlossen genug, damit sich eine kleinere Gruppe zurückziehen kann.
 
-**Der Speisesaal** — alle an einem Tisch, dreimal am Tag, über mehrere Tage. Für ein Team ist das ebenso Arbeitsraum wie der Pavillon. Hier entstehen die Gespräche, die nicht in die Agenda passen.
+**Der Speisesaal** — alle an einem Tisch, über mehrere Tage. Für ein Team ist das ebenso Arbeitsraum wie der Pavillon. Hier entstehen die Gespräche, die nicht in die Agenda passen.
 
 **Der Strand und der Hängemattenhain** sind die Orte, an denen Menschen es schaffen, nicht in einer Session zu sein. Ein Offsite ohne diese beiden wird zu einer langen Sitzung an einem teuren Ort.
 
@@ -87,14 +87,14 @@ Was kostet ein Firmen-Offsite am Rio Arapiuns? Eine feste Preistabelle veröffen
 
 - **Exklusivnutzung der gesamten Anlage** ab fünfzehn Personen — an Ihren Terminen ist niemand außerhalb des Teams vor Ort.
 - **Dreizehn Bangalôs für bis zu sechsundzwanzig Personen.**
-- **Vollpension**: alle Mahlzeiten, das ganze Team an einem Tisch im Speisesaal.
 - **Der Pavillon als Plenum und die Shala** als zweiter Raum, dazu Flussstrand und Hängemattenhain.
 - **Starlink** mit stabiler Solarversorgung, tragfähig für das ganze Team gleichzeitig.
-- **Das Boot ab Alter do Chão** organisieren wir als Teil des Gruppenpakets.
+
+Das Boot ab Alter do Chão und alles Weitere im Preis legen wir im Angebot dar, per WhatsApp.
 
 **Was separat läuft:** die Flüge nach Santarém (STM), die Aktivitäten mit den Gemeinden (direkt und bar in Reais an die Familien bezahlt) und jede Ton-, Video- oder Projektionstechnik, die Ihr Programm braucht.
 
-**Pakete:** Ein Offsite-Paket von der Stange gibt es nicht — das Paket ist Ihre Gruppe, Ihre Termine und Ihr Programm. Wer keine Exklusivnutzung braucht, findet unsere festen [Pakete ab Alter do Chão](/de/pakete/), mit Boot, Programm und Halbpension.
+**Pakete:** Ein Offsite-Paket von der Stange gibt es nicht — das Paket ist Ihre Gruppe, Ihre Termine und Ihr Programm. Wer keine Exklusivnutzung braucht, findet unsere festen [Pakete ab Alter do Chão](/de/pakete/), mit festem Programm.
 
 **So bekommen Sie ein Angebot:** Schicken Sie uns Termine, Personenzahl, Anzahl der Nächte und das, was Ihr Programm wirklich von einem Ort braucht — per [WhatsApp an +55 47 99206-7078](https://wa.me/5547992067078), per E-Mail an [reservas@villaarapiuns.com.br](mailto:reservas@villaarapiuns.com.br) oder über die [Buchungsanfrage](/de/buchen/). Sie bekommen eine echte Zahl zurück. Ab drei Nächten geht die Rechnung auf; für eine einzige Nacht sagen wir es Ihnen lieber vorher.
 

@@ -66,7 +66,7 @@ Planeje de trás para frente, a partir do voo. Do Arapiuns até Alter do Chão s
 
 Para quem sai de São Paulo, a conta honesta é **um dia inteiro de ida e um dia inteiro de volta**. Da Europa ou da América do Norte são dois dias de ida, contando a pernoite.
 
-Esse é o argumento para ficar mais tempo, e preferimos dizer isso direto a deixar você descobrir sozinho: uma estadia de duas noites no Arapiuns é dois terços viagem. **Três ou quatro noites** é onde essa conta vira, e é por isso que a nossa diária com pensão completa começa em quatro.
+Esse é o argumento para ficar mais tempo, e preferimos dizer isso direto a deixar você descobrir sozinho: uma estadia de duas noites no Arapiuns é dois terços viagem. **Três ou quatro noites** é onde essa conta vira, e é por isso que a nossa estadia na pousada começa em quatro noites.
 
 ## O que levar
 

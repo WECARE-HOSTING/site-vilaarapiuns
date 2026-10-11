@@ -74,7 +74,7 @@ Ninguna es la estación buena. Son viajes distintos, y el error es llegar espera
 
 **Reserve con más anticipación de la que parece necesaria.** Los viajes internacionales a alojamientos en la Amazonía suelen planearse entre tres y nueve meses antes. Los organizadores de retiros aseguran el lugar entre seis y doce meses antes. Año Nuevo es una fecha única.
 
-**Quédese más de dos noches.** Llegar hasta aquí toma un día completo desde São Paulo y dos desde Europa. Tres o cuatro noches es donde la aritmética empieza a funcionar, por eso nuestra tarifa de pensión completa comienza en cuatro.
+**Quédese más de dos noches.** Llegar hasta aquí toma un día completo desde São Paulo y dos desde Europa. Tres o cuatro noches es donde la aritmética empieza a funcionar, por eso nuestra estadía en la posada comienza en cuatro noches.
 
 ## Lo que no cambia
 

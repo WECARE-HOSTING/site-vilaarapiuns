@@ -5,7 +5,7 @@ slug: retreat-am-rio-arapiuns
 titulo: "Ihr Retreat am Rio Arapiuns"
 tituloCurto: "Ihr Retreat"
 descricao: "Ein Retreat-Ort für die gesamte Anlage im brasilianischen Amazonasgebiet: dreizehn Bangalôs, ein überdachter Pavillon, eine Shala de Yoga und ein privater Süßwasserstrand, für Gruppen ab fünfzehn Gästen."
-resposta: "Ab fünfzehn Gästen übernimmt Villa Arapiuns als Ort für eine einzige Gruppe: dreizehn Bangalôs für bis zu sechsundzwanzig Personen, ein überdachter Palmpavillon, eine Shala de Yoga, ein Hängemattenhain und ein privater weißer Sandstrand am Rio Arapiuns, anderthalb Bootsstunden von Alter do Chão entfernt. Vollpension, Solarenergie und ein lokales Team. Die Preise richten sich nach Gruppengröße und Nächten, und die Hochwassermonate von Februar bis Juni sind am ruhigsten und am besten verfügbar."
+resposta: "Ab fünfzehn Gästen übernimmt Villa Arapiuns als Ort für eine einzige Gruppe: dreizehn Bangalôs für bis zu sechsundzwanzig Personen, ein überdachter Palmpavillon, eine Shala de Yoga, ein Hängemattenhain und ein privater weißer Sandstrand am Rio Arapiuns, anderthalb Bootsstunden von Alter do Chão entfernt. Solarenergie und ein lokales Team. Die Preise richten sich nach Gruppengröße und Nächten, und die Hochwassermonate von Februar bis Juni sind am ruhigsten und am besten verfügbar."
 data: 2026-08-31
 imagem: shala-cheia
 imagemAlt: "Etwa ein Dutzend Menschen stehen auf Matten entlang einer Holzterrasse unter einem langen, mit Palmblättern gedeckten Dach, die Hände vor der Brust zusammengelegt, darüber Solarpaneele auf dem Dachfirst"
@@ -50,9 +50,9 @@ Dreizehn Bangalôs am Ufer des Rio Arapiuns, in Pará, Brasilien — anderthalb 
 
 **Der Speisesaal.** Alle essen gemeinsam, was für ein Retreat ebenso ein Arbeitsraum ist wie der Pavillon.
 
-## Was inbegriffen ist und was nicht
+## Was das Haus bietet
 
-**Vollpension.** Frühstück, Mittag- und Abendessen aus der Hausküche: Flussfisch, Maniokmehl aus den benachbarten Gemeinden, am selben Tag gemahlener Kaffee. Vegetarische und vegane Verpflegung ist Routine. Das Ritual des Hauses ist die **piracaia** — Fisch, im Bananenblatt bei Kerzenlicht auf dem Sand gegart, im Kreis am Strand serviert. Sie beschließt für die meisten Gruppen die letzte Nacht, ohne dass jemand eine Abschlusszeremonie entwerfen muss.
+**Die Hausküche.** Flussfisch, Maniokmehl aus den benachbarten Gemeinden, am selben Tag gemahlener Kaffee. Vegetarische und vegane Verpflegung ist Routine. Das Ritual des Hauses ist die **piracaia** — Fisch, im Bananenblatt bei Kerzenlicht auf dem Sand gegart, im Kreis am Strand serviert. Sie beschließt für die meisten Gruppen die letzte Nacht, ohne dass jemand eine Abschlusszeremonie entwerfen muss.
 
 **Das lokale Team**, das hier lebt und die Anlage führt.
 
@@ -60,7 +60,7 @@ Dreizehn Bangalôs am Ufer des Rio Arapiuns, in Pará, Brasilien — anderthalb 
 
 **Aktivitäten mit den Gemeinden**, die sich nach Ihrem Zeitplan richten und nicht dagegen: Kanufahren im überfluteten Wald, der Samaúma-Pfad ab der Gemeinde Atodi, die farinhada — der Maniokmehl-Herstellungsprozess —, Palmblattflechten, nächtliches Speerfischen, gelehrt von lokalen Fischern. Diese werden direkt mit den Familien durchgeführt und bezahlt, die sie anleiten — Ihre Gruppe sollte also Bargeld in Real mitbringen.
 
-**Nicht inbegriffen:** der Bootstransfer und die Flüge. Das Boot organisieren wir als Teil eines Gruppenpakets; die Flüge liegen bei Ihnen.
+**Ihre Sache:** die Flüge. Das Boot ab Alter do Chão und was der Gruppenpreis umfasst, legen wir im Angebot dar, per WhatsApp.
 
 ## Die ehrlichen Einschränkungen
 
@@ -79,8 +79,6 @@ Wir verlieren lieber eine Buchung, als dass ein Facilitator dies erst bei der An
 ## Kosten, und wie wir Angebote erstellen
 
 Der Preis richtet sich nach **Gruppengröße und Anzahl der Nächte** und sinkt mit wachsender Gruppengröße. Wir erstellen Angebote pro Gruppe, statt einen Listenpreis zu veröffentlichen, denn ein Wochenende für fünfzehn Personen und eine Woche für sechsundzwanzig Personen sind nicht dasselbe Geschäft.
-
-Zur Orientierung, wie sich das einordnet: Europäische Premium-Retreat-Orte liegen üblicherweise bei 280–380 € pro Person und Tag. Wir liegen darunter — an einem Ort, der deutlich schwerer zu erreichen ist und für den sich deutlich schwerer ein Äquivalent finden lässt.
 
 Nennen Sie uns Ihre Termine, Ihre Gruppengröße, die Anzahl der Nächte und was Ihr Programm tatsächlich von einem Raum braucht. Sie erhalten eine echte Zahl statt einer Broschüre.
 

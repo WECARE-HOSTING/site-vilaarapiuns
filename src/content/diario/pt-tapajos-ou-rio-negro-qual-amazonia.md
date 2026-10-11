@@ -78,6 +78,6 @@ E existe uma terceira resposta que ninguém oferece: **os dois**. Há voos diret
 
 ## Onde a gente entra
 
-A Villa Arapiuns tem treze bangalôs no Arapiuns, a uma hora e meia de barco de Alter do Chão, dentro da reserva. Pensão completa, energia solar, operação conduzida pela comunidade, e a praia na frente. Uso exclusivo de toda a propriedade a partir de quinze hóspedes.
+A Villa Arapiuns tem treze bangalôs no Arapiuns, a uma hora e meia de barco de Alter do Chão, dentro da reserva. Energia solar, operação conduzida pela comunidade, e a praia na frente. Uso exclusivo de toda a propriedade a partir de quinze hóspedes.
 
 Se depois de ler isso o Rio Negro for a opção mais adequada para a sua viagem, vá — é um rio notável, e a gente prefere que você tenha as férias que você queria.

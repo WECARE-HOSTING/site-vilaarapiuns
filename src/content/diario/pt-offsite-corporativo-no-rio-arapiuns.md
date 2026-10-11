@@ -5,7 +5,7 @@ slug: offsite-corporativo-no-rio-arapiuns
 titulo: "Offsite corporativo no Rio Arapiuns"
 tituloCurto: "Offsite corporativo"
 descricao: "Uso exclusivo da propriedade inteira na Amazônia para times de empresa: treze bangalôs, pavilhão coberto para a plenária, refeitório e praia privativa. Cotação por grupo."
-resposta: "A Villa Arapiuns recebe times de empresa em uso exclusivo da propriedade: treze bangalôs para até vinte e seis pessoas, um pavilhão coberto de palha para a plenária, um refeitório onde o time inteiro come junto e uma praia privativa no Rio Arapiuns, a uma hora e meia de barco de Alter do Chão. Pensão completa, energia solar e equipe local. A cotação é por grupo, conforme o número de pessoas e de noites."
+resposta: "A Villa Arapiuns recebe times de empresa em uso exclusivo da propriedade: treze bangalôs para até vinte e seis pessoas, um pavilhão coberto de palha para a plenária, um refeitório onde o time inteiro come junto e uma praia privativa no Rio Arapiuns, a uma hora e meia de barco de Alter do Chão. Energia solar e equipe local. A cotação é por grupo, conforme o número de pessoas e de noites."
 data: 2026-08-29
 revisado: 2026-10-05
 imagem: pavilhao-palha
@@ -14,7 +14,7 @@ legenda: "O pavilhão · o espaço de plenária, aberto dos quatro lados"
 destino: privateVilla
 duvidas:
   - q: "Quanto custa um offsite corporativo aí?"
-    a: "A cotação é por grupo, conforme o número de pessoas e de noites, e a tarifa cai conforme o grupo cresce. O pacote do grupo inclui uso exclusivo a partir de quinze pessoas, treze bangalôs para até vinte e seis pessoas, pensão completa, pavilhão e shala, Starlink, e a gente organiza o barco desde Alter do Chão. Passagens, atividades com as comunidades e som/vídeo ficam fora. Peça a cotação no WhatsApp +55 47 99206-7078 ou em reservas@villaarapiuns.com.br."
+    a: "A cotação é por grupo, conforme o número de pessoas e de noites, e a tarifa cai conforme o grupo cresce. O pacote do grupo inclui uso exclusivo a partir de quinze pessoas, treze bangalôs para até vinte e seis pessoas, pavilhão e shala e Starlink; o barco desde Alter do Chão e o que mais entra na diária, a gente detalha na proposta. Passagens, atividades com as comunidades e som/vídeo ficam fora. Peça a cotação no WhatsApp +55 47 99206-7078 ou em reservas@villaarapiuns.com.br."
   - q: "Dá para trabalhar online de lá?"
     a: "Dá. Tem Starlink no local, com energia solar estável, e ele sustenta o time inteiro numa reunião online ao mesmo tempo. Se o seu programa precisa de uma call com a matriz no meio da semana, ela acontece — sem alguém subir num barranco atrás de sinal."
   - q: "Que estrutura existe para apresentação?"
@@ -45,7 +45,7 @@ Em uso exclusivo, ninguém fora do seu time fica no local nessas datas. É a dif
 
 **A shala** é o segundo espaço fechado o suficiente para um grupo menor se separar.
 
-**O refeitório** — todo mundo comendo na mesma mesa, três vezes por dia, durante vários dias. Para um time, isso é espaço de trabalho tanto quanto o pavilhão. É onde as conversas que não cabem na agenda acontecem.
+**O refeitório** — todo mundo comendo na mesma mesa, durante vários dias. Para um time, isso é espaço de trabalho tanto quanto o pavilhão. É onde as conversas que não cabem na agenda acontecem.
 
 **A praia e o redário** são os espaços em que as pessoas conseguem não estar em sessão. Um offsite sem esses dois vira uma reunião longa num lugar caro.
 
@@ -87,14 +87,14 @@ Quanto custa um offsite corporativo no Rio Arapiuns? A gente não publica tabela
 
 - **Uso exclusivo da propriedade inteira** a partir de quinze pessoas — ninguém de fora do time na Villa nas suas datas.
 - **Treze bangalôs para até vinte e seis pessoas.**
-- **Pensão completa**: todas as refeições, o time inteiro na mesma mesa do refeitório.
 - **O pavilhão para a plenária e a shala** como segunda sala, além da praia de rio e do redário.
 - **Starlink** com energia solar estável, que sustenta o time inteiro on-line ao mesmo tempo.
-- **O barco desde Alter do Chão**, que a gente organiza como parte do pacote do grupo.
+
+O barco desde Alter do Chão e o que mais entra na diária, a gente detalha na proposta, pelo WhatsApp.
 
 **O que fica fora:** as passagens até Santarém (STM), as atividades com as comunidades (pagas direto às famílias, em dinheiro) e qualquer estrutura de som, vídeo ou projeção que o programa pedir.
 
-**Pacotes:** não existe pacote de offsite de prateleira — o pacote é o seu grupo, as suas datas e o seu programa. Quem não precisa de exclusividade encontra os nossos [pacotes saindo de Alter do Chão](/pt/pacotes/), com barco, roteiro e meia pensão.
+**Pacotes:** não existe pacote de offsite de prateleira — o pacote é o seu grupo, as suas datas e o seu programa. Quem não precisa de exclusividade encontra os nossos [pacotes saindo de Alter do Chão](/pt/pacotes/), com roteiro fechado.
 
 **Como pedir a cotação:** mande as datas, quantas pessoas, quantas noites e o que o seu programa precisa de um espaço — pelo [WhatsApp +55 47 99206-7078](https://wa.me/5547992067078), por e-mail para [reservas@villaarapiuns.com.br](mailto:reservas@villaarapiuns.com.br) ou pelo [pedido de reserva](/pt/reservar/). Você recebe um número real. A partir de três noites a conta fecha; para uma noite só, não — e a gente prefere dizer antes.
 

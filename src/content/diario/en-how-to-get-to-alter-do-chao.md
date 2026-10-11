@@ -66,7 +66,7 @@ Work backwards from the flight. From the Arapiuns to Alter do Chão is 1h30, plu
 
 For a traveller leaving São Paulo, the honest arithmetic is a **full day out and a full day back**. From Europe or North America it is two days out, counting the overnight.
 
-That is the argument for staying longer, and we would rather say it plainly than discover it with you: a two-night stay on the Arapiuns is two-thirds travel. **Three or four nights** is where the ratio turns, which is why our full-board rate starts at four.
+That is the argument for staying longer, and we would rather say it plainly than discover it with you: a two-night stay on the Arapiuns is two-thirds travel. **Three or four nights** is where the ratio turns, which is why our lodge stays start at four nights.
 
 ## What to bring
 

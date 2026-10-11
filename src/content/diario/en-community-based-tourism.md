@@ -72,6 +72,6 @@ If this piece stopped here, it would be marketing copy. Two honest admissions.
 
 ## What the Villa is, then
 
-Thirteen bangalôs of tapajônica architecture on the bank of the Arapiuns, for up to 26 guests, with full meals and solar power. Operations and management are run by the riverside community; the activities, by the people who live there. From 15 people, the group gets the whole Villa.
+Thirteen bangalôs of tapajônica architecture on the bank of the Arapiuns, for up to 26 guests, with solar power. Operations and management are run by the riverside community; the activities, by the people who live there. From 15 people, the group gets the whole Villa.
 
 It's community-based tourism with lodge-level comfort — and the reason we're writing this is that those two things rarely show up together, and when they do, it's almost always the second one that eats the first.

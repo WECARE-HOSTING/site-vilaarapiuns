@@ -4,8 +4,8 @@ grupo: retreat-venue
 slug: host-your-retreat-on-the-rio-arapiuns
 titulo: "Host your retreat on the Rio Arapiuns"
 tituloCurto: "Amazon retreat venue near Alter do Chão"
-descricao: "Retreat venue in the Amazon, 1h30 by boat from Alter do Chão: 13 bungalows for 26 guests, a yoga shala, river beach, full board and Starlink Wi-Fi."
-resposta: "Villa Arapiuns takes over as a single-group venue from fifteen guests: thirteen bungalows for up to twenty-six people, a covered palm pavilion, a yoga shala, a hammock grove and a private white-sand beach on the Rio Arapiuns, an hour and a half by boat from Alter do Chão. Full board, solar power, and a local team. Rates depend on group size and nights, and the flood months from February to June are the quietest and most available."
+descricao: "Retreat venue in the Amazon, 1h30 by boat from Alter do Chão: 13 bungalows for 26 guests, a yoga shala, river beach and Starlink Wi-Fi."
+resposta: "Villa Arapiuns takes over as a single-group venue from fifteen guests: thirteen bungalows for up to twenty-six people, a covered palm pavilion, a yoga shala, a hammock grove and a private white-sand beach on the Rio Arapiuns, an hour and a half by boat from Alter do Chão. Solar power and a local team. Rates depend on group size and nights, and the flood months from February to June are the quietest and most available."
 data: 2026-08-31
 imagem: shala-cheia
 imagemAlt: "A dozen people standing on mats along a wooden deck under a long palm-thatched roof, hands together at the chest, with solar panels mounted above the roofline"
@@ -50,9 +50,9 @@ Thirteen bungalows on the bank of the Rio Arapiuns, in Pará, Brazil — an hour
 
 **The dining hall.** Everyone eating together, which for a retreat is a working space as much as the pavilion is.
 
-## What is included and what is not
+## What the house offers
 
-**Full board.** Breakfast, lunch and dinner from the house kitchen: river fish, cassava flour from the neighbouring communities, coffee ground on the day. Vegetarian and vegan catering is routine. The house ritual is the **piracaia** — fish roasted on the sand in banana leaf by candlelight, served in a circle on the beach. It closes most groups' final night without anyone having to design a closing ceremony.
+**The house kitchen.** River fish, cassava flour from the neighbouring communities, coffee ground on the day. Vegetarian and vegan catering is routine. The house ritual is the **piracaia** — fish roasted on the sand in banana leaf by candlelight, served in a circle on the beach. It closes most groups' final night without anyone having to design a closing ceremony.
 
 **The local team**, who live here and run the place.
 
@@ -60,7 +60,7 @@ Thirteen bungalows on the bank of the Rio Arapiuns, in Pará, Brazil — an hour
 
 **Activities with the communities**, arranged around your schedule rather than against it: canoeing in the flooded forest, the Samaúma trail from the community of Atodi, the farinhada cassava process, palm weaving, night spearfishing taught by local fishers. These are conducted and paid directly to the families who lead them — so your group should bring cash in reais.
 
-**Not included:** the boat transfer and the flights. We arrange the boat as part of a group package; the flights are yours.
+**On your side:** the flights. The boat from Alter do Chão and what the group's rate covers, we set out in the proposal, on WhatsApp.
 
 ## The honest constraints
 
@@ -79,8 +79,6 @@ We would rather lose a booking than have a facilitator discover these on arrival
 ## Cost, and how we quote
 
 The rate depends on **group size and number of nights**, and it drops as the group grows. We quote per group rather than publishing a rack rate, because a fifteen-person weekend and a twenty-six-person week are not the same business.
-
-For orientation on how this compares: European premium retreat venues commonly run €280–380 per person per day. We sit below that, in a location that is considerably harder to reach and considerably harder to find an equivalent for.
 
 Tell us your dates, group size, how many nights, and what your programme actually needs from a space. You will get a real number rather than a brochure.
 

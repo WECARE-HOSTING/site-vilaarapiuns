@@ -5,7 +5,7 @@ slug: offsite-corporativo-en-el-rio-arapiuns
 titulo: "Un offsite corporativo en el Río Arapiuns"
 tituloCurto: "Offsite corporativo"
 descricao: "Uso exclusivo de toda la propiedad en la Amazonía para equipos de empresa: trece bangalôs, pabellón cubierto para la plenaria, comedor y playa privada. Cotización por grupo."
-resposta: "Villa Arapiuns recibe equipos de empresa en uso exclusivo de toda la propiedad: trece bangalôs para hasta veintiséis personas, un pabellón cubierto de palma para la plenaria, un comedor donde el equipo entero come junto y una playa privada en el Río Arapiuns, a una hora y media en barco de Alter do Chão. Pensión completa, energía solar y equipo local. La cotización es por grupo, según el número de personas y de noches."
+resposta: "Villa Arapiuns recibe equipos de empresa en uso exclusivo de toda la propiedad: trece bangalôs para hasta veintiséis personas, un pabellón cubierto de palma para la plenaria, un comedor donde el equipo entero come junto y una playa privada en el Río Arapiuns, a una hora y media en barco de Alter do Chão. Energía solar y equipo local. La cotización es por grupo, según el número de personas y de noches."
 data: 2026-08-29
 imagem: pavilhao-palha
 imagemAlt: "Un pabellón abierto de estructura de madera con techo de paja de palma y plataforma de madera, rodeado de bosque, con paneles solares instalados en la cumbrera"
@@ -42,7 +42,7 @@ En uso exclusivo, nadie fuera de su equipo está en el lugar en esas fechas. Esa
 
 **La shala** es el segundo espacio, lo bastante cerrado para que un grupo menor se separe.
 
-**El comedor**: todos en la misma mesa, tres veces al día, varios días seguidos. Para un equipo eso es espacio de trabajo tanto como el pabellón. Ahí ocurren las conversaciones que no caben en la agenda.
+**El comedor**: todos en la misma mesa, varios días seguidos. Para un equipo eso es espacio de trabajo tanto como el pabellón. Ahí ocurren las conversaciones que no caben en la agenda.
 
 **La playa y el redário** son los espacios donde la gente logra no estar en sesión. Un offsite sin esos dos se convierte en una reunión larga en un lugar caro.
 

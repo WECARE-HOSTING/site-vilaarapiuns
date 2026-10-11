@@ -5,7 +5,7 @@ slug: corporate-offsite-on-the-rio-arapiuns
 titulo: "A corporate offsite on the Rio Arapiuns"
 tituloCurto: "Corporate offsite"
 descricao: "Exclusive use of a whole Amazon property for company teams: thirteen bungalows, a covered pavilion for plenary sessions, a dining hall and a private beach. Quoted per group."
-resposta: "Villa Arapiuns hosts company teams on exclusive use of the whole property: thirteen bungalows for up to twenty-six people, a covered palm pavilion for plenary sessions, a dining hall where the whole team eats together, and a private beach on the Rio Arapiuns, an hour and a half by boat from Alter do Chão. Full board, solar power and a local team. Rates are quoted per group, by number of people and nights."
+resposta: "Villa Arapiuns hosts company teams on exclusive use of the whole property: thirteen bungalows for up to twenty-six people, a covered palm pavilion for plenary sessions, a dining hall where the whole team eats together, and a private beach on the Rio Arapiuns, an hour and a half by boat from Alter do Chão. Solar power and a local team. Rates are quoted per group, by number of people and nights."
 data: 2026-08-29
 revisado: 2026-10-05
 imagem: pavilhao-palha
@@ -14,7 +14,7 @@ legenda: "The pavilion · the plenary space, open on all four sides"
 destino: privateVilla
 duvidas:
   - q: "What does a corporate offsite there cost?"
-    a: "It is quoted per group, by number of people and nights, and the rate falls as the group grows. The group package covers exclusive use from fifteen guests, thirteen bungalows for up to twenty-six people, full board, the pavilion and the shala, Starlink, and we arrange the boat from Alter do Chão. Flights, community activities and AV sit outside it. Ask for a quote on WhatsApp at +55 47 99206-7078 or at reservas@villaarapiuns.com.br."
+    a: "It is quoted per group, by number of people and nights, and the rate falls as the group grows. The group package covers exclusive use from fifteen guests, thirteen bungalows for up to twenty-six people, the pavilion and the shala, and Starlink; the boat from Alter do Chão and anything else in the rate, we set out in the proposal. Flights, community activities and AV sit outside it. Ask for a quote on WhatsApp at +55 47 99206-7078 or at reservas@villaarapiuns.com.br."
   - q: "Can the team work online from there?"
     a: "Yes. There is Starlink on site, on stable solar power, and it carries the whole team through an online meeting at once. If your programme needs a call with head office mid-week, it happens — without anyone climbing a bank hunting for signal."
   - q: "What presentation setup is there?"
@@ -45,7 +45,7 @@ On exclusive use, nobody outside your team is on site on those dates. That is th
 
 **The shala** is the second space, enclosed enough for a smaller group to break away.
 
-**The dining hall** — everyone at the same table, three times a day, for several days running. For a team that is as much a working space as the pavilion. It is where the conversations that do not fit the agenda happen.
+**The dining hall** — everyone at the same table, for several days running. For a team that is as much a working space as the pavilion. It is where the conversations that do not fit the agenda happen.
 
 **The beach and the hammock grove** are where people manage not to be in a session. An offsite without those two becomes a long meeting in an expensive place.
 
@@ -87,14 +87,14 @@ What does a corporate offsite on the Rio Arapiuns cost? We do not publish a fixe
 
 - **Exclusive use of the whole property** from fifteen guests — nobody outside your team is on site on your dates.
 - **Thirteen bungalows for up to twenty-six people.**
-- **Full board**: every meal, the whole team at one table in the dining hall.
 - **The pavilion for plenary sessions and the shala** as a second room, plus the river beach and the hammock grove.
 - **Starlink** on stable solar power, enough for the whole team online at once.
-- **The boat from Alter do Chão**, which we arrange as part of the group package.
+
+The boat from Alter do Chão and anything else in the rate, we set out in the proposal, on WhatsApp.
 
 **What sits outside it:** flights to Santarém (STM), the activities with the communities (paid directly to the families, in cash, in reais) and any sound, video or projection your programme needs.
 
-**Packages:** there is no off-the-shelf offsite package — the package is your group, your dates and your programme. If you do not need exclusive use, see our fixed [packages from Alter do Chão](/en/packages/), with boat, itinerary and half board.
+**Packages:** there is no off-the-shelf offsite package — the package is your group, your dates and your programme. If you do not need exclusive use, see our fixed [packages from Alter do Chão](/en/packages/), with a set itinerary.
 
 **How to get a quote:** send the dates, how many people, how many nights and what your programme actually needs from a space — by [WhatsApp on +55 47 99206-7078](https://wa.me/5547992067078), by email to [reservas@villaarapiuns.com.br](mailto:reservas@villaarapiuns.com.br), or through the [booking request](/en/book/). You get a real number back. From three nights up the maths works; for a single night it does not, and we would rather say so first.
 

@@ -82,6 +82,6 @@ Die Reise ist lang, und das ist Absicht. Die Bootsfahrt ist es, die den Arapiuns
 
 ## Wo Sie übernachten können
 
-Das Angebot am Arapiuns ist knapp, und genau das ist Teil dessen, was ihn bewahrt. Es gibt **gemeinschaftlich geführte Unterkünfte** in den Gemeinden — einfach, günstig, von den Bewohnern selbst betrieben, und die beste Art, mitten im Leben des Flusses zu schlafen. Und es gibt die **Villa Arapiuns**: dreizehn Bangalôs in tapajônischer Architektur, direkt am Sand, für bis zu sechsundzwanzig Gäste, mit Vollpension, Solarenergie und gemeindegeführtem Betrieb. Von hier aus schreiben wir diesen Text.
+Das Angebot am Arapiuns ist knapp, und genau das ist Teil dessen, was ihn bewahrt. Es gibt **gemeinschaftlich geführte Unterkünfte** in den Gemeinden — einfach, günstig, von den Bewohnern selbst betrieben, und die beste Art, mitten im Leben des Flusses zu schlafen. Und es gibt die **Villa Arapiuns**: dreizehn Bangalôs in tapajônischer Architektur, direkt am Sand, für bis zu sechsundzwanzig Gäste, mit Solarenergie und gemeindegeführtem Betrieb. Von hier aus schreiben wir diesen Text.
 
 Ab fünfzehn Gästen operiert die Villa exklusiv — das eignet sich für Retreats, Freundesgruppen und Firmenteams, die den ganzen Ort für sich haben möchten.

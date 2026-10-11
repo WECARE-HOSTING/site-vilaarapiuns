@@ -66,7 +66,7 @@ Calcule hacia atrás desde el horario de su vuelo. Del Arapiuns a Alter do Chão
 
 Para quien sale de São Paulo, la cuenta honesta es **un día completo de ida y un día completo de vuelta**. Desde Europa o Norteamérica son dos días de ida, contando la noche de escala.
 
-Ese es el argumento a favor de quedarse más tiempo, y preferimos decirlo con claridad a que usted lo descubra durante el viaje: una estadía de dos noches en el Arapiuns es dos tercios viaje. **Tres o cuatro noches** es donde la proporción cambia, por lo que nuestra tarifa de pensión completa comienza en cuatro noches.
+Ese es el argumento a favor de quedarse más tiempo, y preferimos decirlo con claridad a que usted lo descubra durante el viaje: una estadía de dos noches en el Arapiuns es dos tercios viaje. **Tres o cuatro noches** es donde la proporción cambia, por lo que nuestra estadía en la posada comienza en cuatro noches.
 
 ## Qué llevar
 
