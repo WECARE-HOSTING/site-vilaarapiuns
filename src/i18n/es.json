@@ -11,7 +11,7 @@
     "tagline": "Posada en la Amazonía · Río Arapiuns, Pará"
   },
   "titulo": {
-    "home": "Villa Arapiuns — Posada en la Amazonía · Río Arapiuns, Pará",
+    "home": "Villa Arapiuns | Lodge amazónico en el Río Arapiuns | Alter do Chão",
     "lodge": "La Posada · Villa Arapiuns",
     "packages": "Paquetes · Villa Arapiuns",
     "privateVilla": "Grupos · Villa Arapiuns",
@@ -360,7 +360,7 @@
   "modo": {
     "titulo": "Dos maneras de quedarse",
     "intro": "La Villa recibe de dos formas, y no son el mismo producto. Elija según lo que quiera de su tiempo.",
-    "pousadaT": "Posada",
+    "pousadaT": "Estadía en la posada",
     "pousadaD": "Usted pasa los días en la Villa y elige qué hacer — o no hacer. El barco y los paseos se contratan aparte, según el interés del grupo.",
     "pousadaInc": "Alojamiento en bungaló · el resto se lo explicamos por WhatsApp",
     "pousadaFora": "Traslado en barco, paseos y bebidas alcohólicas",
@@ -385,7 +385,7 @@
     "matP1": "Las puertas son de caoba con marquetería: cuñas de veta opuesta que irradian desde un centro octogonal, cortadas y encajadas a mano. El mismo octógono vuelve como medallón en las puertas interiores.",
     "matP2": "Las mantas están tejidas en telar, a cuadros color chocolate y avena. La lámpara de la terraza es de fibra trenzada, y la estera del suelo también. Nada salió de un catálogo.",
     "tiposT": "Tres tipos de unidad",
-    "tipo1T": "Habitación casa",
+    "tipo1T": "Bungaló",
     "tipo1D": "Bungaló sobre palafitos, con terraza propia frente a la selva.",
     "tipo2T": "Habitación dúplex",
     "tipo2D": "Unidad de dos plantas, con escalera interna.",
@@ -401,10 +401,10 @@
     "c3D": "Pies en la arena, agua transparente. Es el frente de la posada.",
     "c4T": "Shala de Yoga",
     "c4D": "Espacio cubierto para la práctica, o para no hacer nada.",
-    "viverT": "Cómo es vivir aquí",
+    "viverT": "Cómo es una estadía aquí",
     "viverI": "Tres cosas que nadie pregunta antes de llegar, y que todo el mundo comenta después.",
     "mosquitoT": "Prácticamente sin mosquitos",
-    "mosquitoD": "Las aguas claras y las playas de arena del Arapiuns tienen muchos menos mosquitos que la Amazonía de várzea. Cenar en la arena sin repelente es la sorpresa que más aparece en los relatos de quien llega esperando lo contrario.",
+    "mosquitoD": "Las aguas claras y las playas de arena del Arapiuns tienen muchos menos mosquitos que la Amazonía de llanura inundable (várzea). Cenar en la arena sin repelente es la sorpresa que más aparece en los relatos de quien llega esperando lo contrario.",
     "aguaT": "La ducha no necesita calentador",
     "aguaD": "No hay calentador en la Villa, porque el clima no lo exige. El agua de la ducha es el agua natural de nuestro propio pozo, a la temperatura en que llega, y cambia con la estación — es la parte que más acerca al huésped con el lugar. Para beber, hay filtro: agua potable todo el tiempo.",
     "telaT": "No hay televisión",
@@ -412,11 +412,11 @@
     "figCopaExterna": "Cocina exterior · madera maciza y ventana de listones",
     "figShala": "Shala · plataforma cubierta de paja",
     "figPavilhao": "Pabellón del comedor · plataforma de madera",
-    "ctaFalarComCasa": "Hablar con la casa",
+    "ctaFalarComCasa": "Escríbanos por WhatsApp",
     "figPassarela": "La pasarela · conecta todo",
     "figRodaFogo": "La ronda del fuego · bancos de tronco",
     "figBanheiro": "El baño · cuba y cestería",
-    "figChale11": "Chalé 11 · hamaca en la terraza",
+    "figChale11": "Bungaló 11 · hamaca en la terraza",
     "figAguaClara": "Agua clara · el fondo a la vista",
     "figBanhoSemAquecedor": "La ducha · sin calentador",
     "figVarandaRede": "La veranda · hamaca colgada, vista al bosque",
@@ -923,7 +923,7 @@
           },
           {
             "id": "chale11",
-            "leg": "Chalé 11",
+            "leg": "Bungaló 11",
             "alt": "Fachada del chalé número 11 con hamaca colgada en la terraza, medio escondido por la vegetación"
           },
           {
@@ -1119,7 +1119,7 @@
     "reviewsCount": "opiniones"
   },
   "reservar": {
-    "h1": "Hablar con la casa",
+    "h1": "Hable directamente con nosotros",
     "intro": "No hay motor de reservas ni carrito. Usted escribe — por WhatsApp o con este formulario — y quien responde es quien lo recibe.",
     "comoT": "Si prefiere WhatsApp, ayuda decirlo todo de una vez",
     "c1": "Cuántas personas, y la edad de los niños si los hay",
