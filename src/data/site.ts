@@ -53,6 +53,8 @@ export const SITE = {
     city: 'Santarém',
     state: 'PA',
     country: 'BR',
+    /** CEP da Villa (guardrail confirmado: 68060-290). Vai para o PostalAddress do schema. */
+    postalCode: '68060-290',
     departsFrom: 'Alter do Chão',
     boatMinutes: 90,
     /**
