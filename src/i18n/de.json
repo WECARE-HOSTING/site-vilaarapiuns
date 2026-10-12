@@ -46,7 +46,9 @@
   },
   "trust": {
     "team": "Eigenes Team für die Logistik",
-    "host": "Gastgeber vor Ort in der Villa"
+    "host": "Gastgeber vor Ort in der Villa",
+    "power": "Strom rund um die Uhr (Solar) und Starlink-WLAN",
+    "mosquito": "So gut wie keine Mücken"
   },
   "dia": {
     "incluso": "Mahlzeit",
@@ -87,13 +89,13 @@
     "detox": "Detox nach Neujahr in der Villa Arapiuns, 1. bis 10. Januar 2027: Essen aus dem Wald, Açaí, kein Alkohol vom Haus und 13 Bungalows nahe Alter do Chão."
   },
   "home": {
-    "hookA": "Eine Karibik aus Süßwasser, das ganze Jahr warm, mitten im Wald.",
-    "hookB": "Und Sie schlafen dort.",
-    "intro": "Der Strand ist Süßwasser, klar bis auf den Grund, und es gibt so gut wie keine Mücken. So ist der Arapiuns. Die Bungalows sind aus Holz, tapajónische Architektur, die Füße im Sand. Sie können für ein paar Tage kommen — oder hierbleiben. Schon mal daran gedacht?",
+    "hookA": "Eine Karibik aus Süßwasser,",
+    "hookB": "mitten im Amazonas-Regenwald.",
+    "intro": "Wir empfangen Paare, Familien und Gruppen bis 26 Personen, und ab 15 Gästen gehört die Villa ganz Ihrer Gruppe. Die Bungalows sind aus Holz, in tapajónischer Architektur, mit den Füßen im Sand.",
     "travessiaT": "Die Überfahrt",
     "travessiaI": "Das Ankommen gehört dazu. Drei Etappen, und die letzte ist unsere.",
     "etapa1T": "Flug nach Santarém",
-    "etapa1D": "Flughafen Santarém, im Bundesstaat Pará. Hier beginnt die eigentliche Reise.",
+    "etapa1D": "Flughafen Santarém (STM), im Bundesstaat Pará. Hier beginnt die eigentliche Reise.",
     "etapa2T": "Santarém nach Alter do Chão",
     "etapa2D": "Transfer auf dem Landweg bis in den Ort. Die Uhrzeit stimmen wir mit Ihnen ab.",
     "etapa3T": "Alter do Chão zur Villa",
@@ -362,11 +364,11 @@
     "intro": "Die Villa empfängt auf zwei Arten, und das ist nicht dasselbe Produkt. Wählen Sie danach, was Sie von Ihrer Zeit erwarten.",
     "pousadaT": "Lodge-Aufenthalt",
     "pousadaD": "Sie verbringen Ihre Tage in der Villa und entscheiden selbst, was Sie tun — oder lassen. Boot und Ausflüge werden separat gebucht, je nach Interesse der Gruppe.",
-    "pousadaInc": "Unterkunft im Bungalow · alles Weitere erklären wir per WhatsApp",
+    "pousadaInc": "Unterkunft im Bungalow · alle Mahlzeiten inklusive (Frühstück, Mittag- und Abendessen)",
     "pousadaFora": "Bootstransfer, Ausflüge und alkoholische Getränke",
     "pacoteT": "Komplettpaket",
     "pacoteD": "Startet in Alter do Chão, mit Programm und Aktivitäten bereits festgelegt. Eine Nacht mit sieben Erlebnissen oder zwei Nächte mit zehn.",
-    "pacoteInc": "Unterkunft · Aktivitäten des Programms · alles Weitere erklären wir per WhatsApp",
+    "pacoteInc": "Unterkunft · Aktivitäten des Programms · Frühstück und Abendessen",
     "pacoteFora": "Alkoholische Getränke. Das Programm selbst verursacht keine Zusatzkosten.",
     "inclusoRot": "Enthalten",
     "foraRot": "Separat",
@@ -408,7 +410,7 @@
     "aguaT": "Die Dusche braucht keinen Boiler",
     "aguaD": "In der Villa gibt es keinen Warmwasserboiler, weil das Klima keinen braucht. Das Duschwasser ist das natürliche Wasser aus unserem eigenen Brunnen, mit der Temperatur, mit der es ankommt — und die ändert sich mit der Jahreszeit. Das ist der Teil, der die Gäste dem Ort am nächsten bringt. Zum Trinken gibt es einen Filter: jederzeit sauberes Wasser.",
     "telaT": "Es gibt keinen Fernseher",
-    "telaD": "Es gibt Starlink-Internet, um in Kontakt zu bleiben. Fernsehen nicht. Abends gibt es Gespräche, das Geräusch des Flusses und die Lust, früh schlafen zu gehen.",
+    "telaD": "Strom rund um die Uhr, aus Solarenergie. Es gibt Starlink-Internet, um in Kontakt zu bleiben. Fernsehen nicht. Abends gibt es Gespräche, das Geräusch des Flusses und die Lust, früh schlafen zu gehen.",
     "figCopaExterna": "Außenküche · Massivholz und Lattenfenster",
     "figShala": "Shala · strohgedeckte Terrasse",
     "figPavilhao": "Speisepavillon · Holzterrasse",
@@ -428,9 +430,9 @@
   "mesa": {
     "h1": "Der Tisch der Villa",
     "intro": "Fisch aus dem Fluss, Maniokmehl aus der Gemeinde, Obst aus dem Garten und frisch aufgebrühter Kaffee. Eigene Küche, serviert im offenen Pavillon.",
-    "escopoT": "Was enthalten ist, erklären wir per WhatsApp",
-    "escopo1T": "Mahlzeiten: je nach Aufenthalt",
-    "escopo1D": "Was ein Aufenthalt umfasst, hängt von Format und Gruppe ab. Wir erklären alles per WhatsApp, bevor Sie buchen.",
+    "escopoT": "Was enthalten ist",
+    "escopo1T": "Mahlzeiten: inklusive",
+    "escopo1D": "Lodge-Aufenthalt: alle Mahlzeiten inklusive (Frühstück, Mittag- und Abendessen). Pakete mit Boot ab Alter do Chão: Frühstück und Abendessen.",
     "escopo3T": "Alkoholische Getränke: separat",
     "escopo3D": "Bier, Wein und Spirituosen sind in keiner der Varianten enthalten und werden separat berechnet.",
     "piraT": "Die Piracaia",
@@ -684,14 +686,16 @@
         "legenda": "Die Pérola do Tapajós, mit Schwimmwesten",
         "alt": "Gäste mit Schwimmwesten beim Einstieg in das Boot Pérola do Tapajós, das am Sand vertäut ist"
       }
-    ]
+    ],
+    "q6": "Gibt es Mücken?",
+    "a6": "Kaum. Das klare Wasser und die Sandstrände des Arapiuns haben weit weniger Mücken als das Überschwemmungsgebiet (Várzea) des Amazonas."
   },
   "mapa": {
     "alt": "Karte der Region: Die Villa Arapiuns liegt am Ufer des Rio Arapiuns, im Westen. Im Osten, wo der Rio Tapajós auf den Amazonas trifft, liegen Alter do Chão und, etwas weiter, Santarém.",
     "ampliar": "Karte vergrößern",
     "fechar": "Schließen",
     "dialogo": "Karte der Arapiuns-Region, vergrößert",
-    "aeroporto": "Flughafen in Santarém, PA",
+    "aeroporto": "Flughafen in Santarém (STM), PA",
     "ondeT": "Wo die Villa liegt",
     "ondeI": "Die Villa liegt am Rio Arapiuns, westlich von Alter do Chão. Die letzte Etappe führt über das Wasser, weil es dort keine Straße gibt — und genau das hält den Fluss leer."
   },

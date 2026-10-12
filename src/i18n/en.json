@@ -46,7 +46,9 @@
   },
   "trust": {
     "team": "Our own team on the logistics",
-    "host": "Local host at the Villa"
+    "host": "Local host at the Villa",
+    "power": "Power around the clock (solar) and Starlink Wi‑Fi",
+    "mosquito": "Almost no mosquitoes"
   },
   "dia": {
     "incluso": "Meal",
@@ -93,7 +95,7 @@
     "travessiaT": "The crossing",
     "travessiaI": "Getting here is part of it. Three stages, and the last one is ours.",
     "etapa1T": "Fly to Santarém",
-    "etapa1D": "Santarém airport, in Pará. This is where the journey really begins.",
+    "etapa1D": "Santarém airport (STM), in Pará. This is where the journey really begins.",
     "etapa2T": "Santarém to Alter do Chão",
     "etapa2D": "Overland transfer to the village. We agree the time with you.",
     "etapa3T": "Alter do Chão to the Villa",
@@ -362,11 +364,11 @@
     "intro": "The Villa hosts in two ways, and they are not the same product. Choose by what you want from your time.",
     "pousadaT": "Lodge stay",
     "pousadaD": "You spend your days at the Villa and choose what to do — or not do. Boat and excursions are arranged separately, according to the group's interest.",
-    "pousadaInc": "Bungalow accommodation · the rest, we explain on WhatsApp",
+    "pousadaInc": "Bungalow accommodation · all meals included (breakfast, lunch and dinner)",
     "pousadaFora": "Boat transfer, excursions and alcoholic drinks",
     "pacoteT": "Full package",
     "pacoteD": "Departs from Alter do Chão with itinerary and activities already arranged. One night with seven experiences, or two nights with ten.",
-    "pacoteInc": "Accommodation · itinerary activities · the rest, we explain on WhatsApp",
+    "pacoteInc": "Accommodation · itinerary activities · breakfast and dinner",
     "pacoteFora": "Alcoholic drinks. The itinerary itself has no extras.",
     "inclusoRot": "Included",
     "foraRot": "Separate",
@@ -408,7 +410,7 @@
     "aguaT": "The shower doesn't need a heater",
     "aguaD": "There's no water heater at the Villa, because the climate doesn't call for one. Your shower is the natural water from our own well, at whatever temperature it arrives — and that changes with the season — it's the part that brings guests closest to the place. For drinking, there's a filter: safe water at all times.",
     "telaT": "There is no television",
-    "telaD": "There is Starlink internet, for keeping in touch. Television, no. At night what there is is conversation, the sound of the river and the urge to sleep early.",
+    "telaD": "Power around the clock, from solar. There is Starlink internet, for keeping in touch. Television, no. At night what there is is conversation, the sound of the river and the urge to sleep early.",
     "figCopaExterna": "Outdoor kitchen · solid timber and slatted window",
     "figShala": "Shala · thatch-covered deck",
     "figPavilhao": "Dining pavilion · wooden deck",
@@ -428,9 +430,9 @@
   "mesa": {
     "h1": "The table at the Villa",
     "intro": "River fish, cassava flour from the community, fruit from the garden and coffee brewed to order. Our own kitchen, serving in the open pavilion.",
-    "escopoT": "What is included, we explain on WhatsApp",
-    "escopo1T": "Meals: depending on your stay",
-    "escopo1D": "What each stay covers depends on its format and the group. We explain it all on WhatsApp, before you book.",
+    "escopoT": "What's included",
+    "escopo1T": "Meals: included",
+    "escopo1D": "Lodge stay: all meals included (breakfast, lunch and dinner). Packages with boat from Alter do Chão: breakfast and dinner.",
     "escopo3T": "Alcoholic drinks: separate",
     "escopo3D": "Beer, wine and spirits are not included in either option, and are charged separately.",
     "piraT": "The Piracaia",
@@ -684,14 +686,16 @@
         "legenda": "The Pérola do Tapajós, life vests on",
         "alt": "Guests in life vests boarding the boat Pérola do Tapajós, moored by the sand"
       }
-    ]
+    ],
+    "q6": "Are there mosquitoes?",
+    "a6": "Hardly any. The clear water and sand beaches of the Arapiuns have far fewer mosquitoes than the floodplain Amazon."
   },
   "mapa": {
     "alt": "Map of the region: Villa Arapiuns sits on the bank of the Arapiuns River, to the west. To the east, where the Tapajós meets the Amazon, are Alter do Chão and, further on, Santarém.",
     "ampliar": "Enlarge the map",
     "fechar": "Close",
     "dialogo": "Map of the Arapiuns region, enlarged",
-    "aeroporto": "Airport in Santarém, PA",
+    "aeroporto": "Airport in Santarém (STM), PA",
     "ondeT": "Where the Villa is",
     "ondeI": "The Villa is on the Arapiuns River, west of Alter do Chão. The last leg is by boat because there is no road — which is what keeps the river empty."
   },
