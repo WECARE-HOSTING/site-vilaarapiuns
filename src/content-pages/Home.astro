@@ -354,11 +354,14 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
         (evento `paisagem:troca`). Sem JS ou com prefers-reduced-motion, o
         rodízio não liga e fica só o h1. Só PT e EN têm frases por foto; nos
         outros idiomas o gancho é fixo. */}
+    {/* MARCA NO H1 (SEO busca de marca, 10/2026): o h1 é a marca, em sobretítulo
+        pequeno; o gancho continua sendo o destaque visual, agora como <p>. */}
+    <h1 class="mb-3 font-sans text-sm font-semibold uppercase tracking-[0.18em] text-white sm:text-base [text-shadow:0_1px_3px_rgb(13_50_68_/_0.7),0_1px_12px_rgb(13_50_68_/_0.6)]">{t('home.heroMarca')}</h1>
     <div class="gancho-hero grid" data-gancho-hero>
-      <h1 class="gancho-hero__frase esta max-w-[23ch] font-display text-[clamp(2.5rem,4.6vw,4rem)] leading-[1.03] tracking-[0.01em] text-white [text-shadow:0_1px_3px_rgb(13_50_68_/_0.55),0_2px_24px_rgb(13_50_68_/_0.6)]" data-gancho-i="0">
+      <p class="gancho-hero__frase esta max-w-[23ch] font-display text-[clamp(2.5rem,4.6vw,4rem)] leading-[1.03] tracking-[0.01em] text-white [text-shadow:0_1px_3px_rgb(13_50_68_/_0.55),0_2px_24px_rgb(13_50_68_/_0.6)]" data-gancho-i="0">
         {t('home.hookA')}
         <span class="block">{t('home.hookB')}</span>
-      </h1>
+      </p>
       {frasesHero.map((frase, i) => (
         <p class="gancho-hero__frase max-w-[23ch] font-display font-semibold text-balance [font-stretch:125%] text-[clamp(2.5rem,4.6vw,4rem)] leading-[1.03] tracking-[0.01em] text-white [text-shadow:0_1px_3px_rgb(13_50_68_/_0.55),0_2px_24px_rgb(13_50_68_/_0.6)]" data-gancho-i={i + 1} aria-hidden="true">{frase}</p>
       ))}

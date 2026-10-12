@@ -136,6 +136,7 @@ const dados: Record<string, unknown> = {
     addressLocality: SITE.location.city,
     addressRegion: SITE.location.state,
     addressCountry: SITE.location.country,
+    postalCode: SITE.location.postalCode,
   },
   numberOfRooms: SITE.capacity.cabins,
   petsAllowed: SITE.petsAllowed,
@@ -184,7 +185,11 @@ dados.hasMap = SITE.contact.googleMaps;
 dados.sameAs = [
   `https://instagram.com/${SITE.contact.instagram.replace('@', '')}`,
   SITE.contact.googleMaps,
+  /* Busca pela marca (SEO 10/2026): amarra a entidade ao perfil do TripAdvisor,
+     que hoje disputa a marca. sameAs não renderiza link para o visitante. */
+  ...(SITE.reviews.tripadvisorUrl ? [SITE.reviews.tripadvisorUrl] : []),
 ];
+dados.email = SITE.contact.email;
 
 /* TRILHA DE MIGALHAS: o que a busca usa para montar os sitelinks. Não há
    como pedir sitelinks ao Google — eles aparecem quando a estrutura do site

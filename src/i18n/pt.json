@@ -11,7 +11,7 @@
     "tagline": "Pousada na Amazônia · Rio Arapiuns, Pará"
   },
   "titulo": {
-    "home": "Villa Arapiuns · Pousada perto de Alter do Chão (PA)",
+    "home": "Villa Arapiuns | Pousada no Rio Arapiuns | Alter do Chão",
     "lodge": "Pousada e bangalôs perto de Alter do Chão · Villa Arapiuns",
     "packages": "Pacotes saindo de Alter do Chão · Villa Arapiuns",
     "privateVilla": "Grupos de 15 a 26 perto de Alter do Chão · Villa Arapiuns",
@@ -72,7 +72,7 @@
     "detox": "Olá! Vim pela página do Detox pós-Ano Novo no site da Villa Arapiuns (1 a 10 de janeiro de 2027). Somos __ pessoas e pensamos em chegar dia __ e sair dia __ de janeiro."
   },
   "desc": {
-    "home": "Pousada de 13 bangalôs no Rio Arapiuns, a 1h30 de lancha de Alter do Chão. Fique alguns dias na Villa ou venha num pacote com roteiro saindo de Alter do Chão.",
+    "home": "Site oficial da Villa Arapiuns: 13 bangalôs no Rio Arapiuns, a 1h30 de lancha de Alter do Chão. Reserve direto com a casa pelo WhatsApp +55 47 99206-7078.",
     "lodge": "Os 13 bangalôs da Villa Arapiuns, a 1h30 de lancha de Alter do Chão: arquitetura tapajônica, portas de mogno com marchetaria e mantas de tear.",
     "dining": "A mesa da Villa Arapiuns: peixe do rio, farinha da comunidade, café passado na hora — e a Piracaia à beira-rio.",
     "experiences": "Trilhas, canoa, praia e oficinas com as comunidades ribeirinhas do Arapiuns.",
@@ -354,6 +354,7 @@
       }
     ],
     "campoLancha": "1h30 de lancha de {place}",
+    "heroMarca": "Villa Arapiuns | Pousada no Rio Arapiuns",
     "heroSub": "Pousada no Rio Arapiuns, a 1h30 de lancha de Alter do Chão. 13 bangalôs na beira de uma praia de água doce."
   },
   "modo": {
