@@ -11,7 +11,7 @@
     "tagline": "Posada en la Amazonía · Río Arapiuns, Pará"
   },
   "titulo": {
-    "home": "Villa Arapiuns — Posada en la Amazonía · Río Arapiuns, Pará",
+    "home": "Villa Arapiuns | Lodge amazónico en el Río Arapiuns | Alter do Chão",
     "lodge": "La Posada · Villa Arapiuns",
     "packages": "Paquetes · Villa Arapiuns",
     "privateVilla": "Grupos · Villa Arapiuns",
@@ -46,7 +46,9 @@
   },
   "trust": {
     "team": "Equipo propio en la logística",
-    "host": "Anfitrión local en la Villa"
+    "host": "Anfitrión local en la Villa",
+    "power": "Electricidad las 24 horas (solar) y Wi‑Fi Starlink",
+    "mosquito": "Prácticamente sin mosquitos"
   },
   "dia": {
     "incluso": "Comida",
@@ -87,13 +89,13 @@
     "detox": "Detox de Año Nuevo en Villa Arapiuns, del 1 al 10 de enero de 2027: comida de la selva, açaí, sin alcohol servido por la casa y 13 bungalós cerca de Alter do Chão."
   },
   "home": {
-    "hookA": "Un Caribe de agua dulce y cálida, dentro de la selva.",
-    "hookB": "Y usted duerme ahí.",
-    "intro": "La playa es de agua dulce y transparente, y casi no hay mosquitos. Así es el Arapiuns. Los bungalós son de madera, arquitectura tapajónica, con los pies en la arena. Puede venir unos días, o incluso vivir aquí, ¿ya lo pensó?",
+    "hookA": "Un Caribe de agua dulce,",
+    "hookB": "en medio de la selva amazónica.",
+    "intro": "Recibimos parejas, familias y grupos de hasta 26 personas, y a partir de 15 la Villa se reserva solo para su grupo. Los bungalós son de madera, de arquitectura tapajónica, con los pies en la arena.",
     "travessiaT": "La travesía",
     "travessiaI": "Llegar es parte del viaje. Son tres etapas, y la última es nuestra.",
     "etapa1T": "Vuelo hasta Santarém",
-    "etapa1D": "Aeropuerto de Santarém, en Pará. Es donde el viaje empieza a valer la pena.",
+    "etapa1D": "Aeropuerto de Santarém (STM), en Pará. Aquí empieza de verdad el viaje.",
     "etapa2T": "De Santarém a Alter do Chão",
     "etapa2D": "Traslado por tierra hasta el pueblo. Acordamos el horario con usted.",
     "etapa3T": "De Alter do Chão a la Villa",
@@ -360,13 +362,13 @@
   "modo": {
     "titulo": "Dos maneras de quedarse",
     "intro": "La Villa recibe de dos formas, y no son el mismo producto. Elija según lo que quiera de su tiempo.",
-    "pousadaT": "Posada",
+    "pousadaT": "Estadía en la posada",
     "pousadaD": "Usted pasa los días en la Villa y elige qué hacer — o no hacer. El barco y los paseos se contratan aparte, según el interés del grupo.",
-    "pousadaInc": "Alojamiento en bungaló · el resto se lo explicamos por WhatsApp",
+    "pousadaInc": "Alojamiento en bungaló · todas las comidas incluidas (desayuno, almuerzo y cena)",
     "pousadaFora": "Traslado en barco, paseos y bebidas alcohólicas",
     "pacoteT": "Paquete completo",
     "pacoteD": "Sale de Alter do Chão con itinerario y actividades ya cerrados. Una noche con siete experiencias, o dos noches con diez.",
-    "pacoteInc": "Alojamiento · actividades del itinerario · el resto se lo explicamos por WhatsApp",
+    "pacoteInc": "Alojamiento · actividades del itinerario · desayuno y cena",
     "pacoteFora": "Bebidas alcohólicas. El itinerario en sí no tiene extras.",
     "inclusoRot": "Incluido",
     "foraRot": "Aparte",
@@ -385,7 +387,7 @@
     "matP1": "Las puertas son de caoba con marquetería: cuñas de veta opuesta que irradian desde un centro octogonal, cortadas y encajadas a mano. El mismo octógono vuelve como medallón en las puertas interiores.",
     "matP2": "Las mantas están tejidas en telar, a cuadros color chocolate y avena. La lámpara de la terraza es de fibra trenzada, y la estera del suelo también. Nada salió de un catálogo.",
     "tiposT": "Tres tipos de unidad",
-    "tipo1T": "Habitación casa",
+    "tipo1T": "Bungaló",
     "tipo1D": "Bungaló sobre palafitos, con terraza propia frente a la selva.",
     "tipo2T": "Habitación dúplex",
     "tipo2D": "Unidad de dos plantas, con escalera interna.",
@@ -401,22 +403,22 @@
     "c3D": "Pies en la arena, agua transparente. Es el frente de la posada.",
     "c4T": "Shala de Yoga",
     "c4D": "Espacio cubierto para la práctica, o para no hacer nada.",
-    "viverT": "Cómo es vivir aquí",
+    "viverT": "Cómo es una estadía aquí",
     "viverI": "Tres cosas que nadie pregunta antes de llegar, y que todo el mundo comenta después.",
     "mosquitoT": "Prácticamente sin mosquitos",
-    "mosquitoD": "Las aguas claras y las playas de arena del Arapiuns tienen muchos menos mosquitos que la Amazonía de várzea. Cenar en la arena sin repelente es la sorpresa que más aparece en los relatos de quien llega esperando lo contrario.",
+    "mosquitoD": "Las aguas claras y las playas de arena del Arapiuns tienen muchos menos mosquitos que la Amazonía de llanura inundable (várzea). Cenar en la arena sin repelente es la sorpresa que más aparece en los relatos de quien llega esperando lo contrario.",
     "aguaT": "La ducha no necesita calentador",
     "aguaD": "No hay calentador en la Villa, porque el clima no lo exige. El agua de la ducha es el agua natural de nuestro propio pozo, a la temperatura en que llega, y cambia con la estación — es la parte que más acerca al huésped con el lugar. Para beber, hay filtro: agua potable todo el tiempo.",
     "telaT": "No hay televisión",
-    "telaD": "Hay internet Starlink, para comunicarse. Televisión, no. Por la noche lo que hay es conversación, el sonido del río y las ganas de dormir temprano.",
+    "telaD": "Electricidad las 24 horas, solar. Hay internet Starlink, para comunicarse. Televisión, no. Por la noche lo que hay es conversación, el sonido del río y las ganas de dormir temprano.",
     "figCopaExterna": "Cocina exterior · madera maciza y ventana de listones",
     "figShala": "Shala · plataforma cubierta de paja",
     "figPavilhao": "Pabellón del comedor · plataforma de madera",
-    "ctaFalarComCasa": "Hablar con la casa",
+    "ctaFalarComCasa": "Escríbanos por WhatsApp",
     "figPassarela": "La pasarela · conecta todo",
     "figRodaFogo": "La ronda del fuego · bancos de tronco",
     "figBanheiro": "El baño · cuba y cestería",
-    "figChale11": "Chalé 11 · hamaca en la terraza",
+    "figChale11": "Bungaló 11 · hamaca en la terraza",
     "figAguaClara": "Agua clara · el fondo a la vista",
     "figBanhoSemAquecedor": "La ducha · sin calentador",
     "figVarandaRede": "La veranda · hamaca colgada, vista al bosque",
@@ -428,9 +430,9 @@
   "mesa": {
     "h1": "La mesa de la Villa",
     "intro": "Pescado del río, harina de yuca de la comunidad, fruta de la huerta y café recién hecho. Cocina propia, sirviendo en el pabellón abierto.",
-    "escopoT": "Lo que está incluido se lo explicamos por WhatsApp",
-    "escopo1T": "Comidas: según la estadía",
-    "escopo1D": "Lo que cubre cada estadía depende del formato y del grupo. Se lo explicamos todo por WhatsApp, antes de reservar.",
+    "escopoT": "Qué está incluido",
+    "escopo1T": "Comidas: incluidas",
+    "escopo1D": "Estadía en la posada: todas las comidas incluidas (desayuno, almuerzo y cena). Paquetes con barco desde Alter do Chão: desayuno y cena.",
     "escopo3T": "Bebidas alcohólicas: aparte",
     "escopo3D": "Cerveza, vino y destilados no están incluidos en ninguna de las modalidades, y se cobran aparte.",
     "piraT": "La Piracaia",
@@ -684,14 +686,16 @@
         "legenda": "El Pérola do Tapajós, con los chalecos",
         "alt": "Huéspedes con chaleco salvavidas subiendo al barco Pérola do Tapajós, atracado en la arena"
       }
-    ]
+    ],
+    "q6": "¿Hay mosquitos?",
+    "a6": "Prácticamente no. Las aguas claras y las playas de arena del Arapiuns tienen muchos menos mosquitos que la Amazonía de llanura inundable (várzea)."
   },
   "mapa": {
     "alt": "Mapa de la región: Villa Arapiuns está en la margen del río Arapiuns, al oeste. Al este, donde el río Tapajós se encuentra con el río Amazonas, están Alter do Chão y, más adelante, Santarém.",
     "ampliar": "Ampliar el mapa",
     "fechar": "Cerrar",
     "dialogo": "Mapa de la región del Arapiuns, ampliado",
-    "aeroporto": "Aeropuerto en Santarém, PA",
+    "aeroporto": "Aeropuerto en Santarém (STM), PA",
     "ondeT": "Dónde está la Villa",
     "ondeI": "La Villa está en el río Arapiuns, al oeste de Alter do Chão. El último tramo es en barco porque allí no hay carretera — es lo que mantiene el río vacío."
   },
@@ -923,7 +927,7 @@
           },
           {
             "id": "chale11",
-            "leg": "Chalé 11",
+            "leg": "Bungaló 11",
             "alt": "Fachada del chalé número 11 con hamaca colgada en la terraza, medio escondido por la vegetación"
           },
           {
@@ -1119,7 +1123,7 @@
     "reviewsCount": "opiniones"
   },
   "reservar": {
-    "h1": "Hablar con la casa",
+    "h1": "Hable directamente con nosotros",
     "intro": "No hay motor de reservas ni carrito. Usted escribe — por WhatsApp o con este formulario — y quien responde es quien lo recibe.",
     "comoT": "Si prefiere WhatsApp, ayuda decirlo todo de una vez",
     "c1": "Cuántas personas, y la edad de los niños si los hay",

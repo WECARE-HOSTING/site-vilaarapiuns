@@ -11,7 +11,7 @@
     "tagline": "Lodge im Amazonasgebiet · Rio Arapiuns, Pará"
   },
   "titulo": {
-    "home": "Villa Arapiuns — Lodge im Amazonasgebiet · Rio Arapiuns, Pará",
+    "home": "Villa Arapiuns | Amazonas-Lodge am Rio Arapiuns | Alter do Chão",
     "lodge": "Die Lodge · Villa Arapiuns",
     "packages": "Pakete · Villa Arapiuns",
     "privateVilla": "Gruppen · Villa Arapiuns",
@@ -46,7 +46,9 @@
   },
   "trust": {
     "team": "Eigenes Team für die Logistik",
-    "host": "Gastgeber vor Ort in der Villa"
+    "host": "Gastgeber vor Ort in der Villa",
+    "power": "Strom rund um die Uhr (Solar) und Starlink-WLAN",
+    "mosquito": "So gut wie keine Mücken"
   },
   "dia": {
     "incluso": "Mahlzeit",
@@ -75,7 +77,7 @@
     "home": "Dreizehn Bungalows am Rio Arapiuns, 1,5 Stunden per Boot von Alter do Chão. Bleiben Sie ein paar Tage in der Villa, oder kommen Sie mit einem Paket mit festem Programm ab Alter do Chão.",
     "lodge": "Die 13 Bungalows der Villa Arapiuns: zweigeschossige tapajónische Architektur, Mahagoni, Intarsien und handgewebte Stoffe.",
     "dining": "Der Tisch der Villa Arapiuns: Fisch aus dem Fluss, Maniokmehl aus der Gemeinde, frisch aufgebrühter Kaffee — und die Piracaia am Flussufer.",
-    "experiences": "Wanderwege, Kanu, Strand und Werkstätten mit den Flussgemeinden des Arapiuns.",
+    "experiences": "Wanderwege, Kanu, Strand und Workshops mit den Flussgemeinden des Arapiuns.",
     "packages": "Pakete ab Alter do Chão mit festem Programm: eine Nacht mit sieben Erlebnissen oder zwei Nächte mit zehn.",
     "privateVilla": "Die ganze Villa Arapiuns für eine Gruppe: Retreats, Firmenteams, Vogelbeobachtung und nächtliches Tauchfischen mit den Familien am Fluss. Exklusivnutzung ab 15 Personen.",
     "reveillon": "Silvester 2026/27 in der Villa Arapiuns: Jahreswechsel an einem weißen Süßwasserstrand am Rio Arapiuns, 1,5 Bootsstunden von Alter do Chão. Pakete mit 4–5 Nächten für Gruppen und Familien.",
@@ -87,13 +89,13 @@
     "detox": "Detox nach Neujahr in der Villa Arapiuns, 1. bis 10. Januar 2027: Essen aus dem Wald, Açaí, kein Alkohol vom Haus und 13 Bungalows nahe Alter do Chão."
   },
   "home": {
-    "hookA": "Eine Karibik aus Süßwasser, das ganze Jahr warm, mitten im Wald.",
-    "hookB": "Und Sie schlafen dort.",
-    "intro": "Der Strand ist Süßwasser, klar bis auf den Grund, und es gibt so gut wie keine Mücken. So ist der Arapiuns. Die Bungalows sind aus Holz, tapajónische Architektur, die Füße im Sand. Sie können für ein paar Tage kommen — oder hierbleiben. Schon mal daran gedacht?",
+    "hookA": "Eine Karibik aus Süßwasser,",
+    "hookB": "mitten im Amazonas-Regenwald.",
+    "intro": "Wir empfangen Paare, Familien und Gruppen bis 26 Personen, und ab 15 Gästen gehört die Villa ganz Ihrer Gruppe. Die Bungalows sind aus Holz, in tapajónischer Architektur, mit den Füßen im Sand.",
     "travessiaT": "Die Überfahrt",
     "travessiaI": "Das Ankommen gehört dazu. Drei Etappen, und die letzte ist unsere.",
     "etapa1T": "Flug nach Santarém",
-    "etapa1D": "Flughafen Santarém, im Bundesstaat Pará. Hier beginnt sich die Reise zu lohnen.",
+    "etapa1D": "Flughafen Santarém (STM), im Bundesstaat Pará. Hier beginnt die eigentliche Reise.",
     "etapa2T": "Santarém nach Alter do Chão",
     "etapa2D": "Transfer auf dem Landweg bis in den Ort. Die Uhrzeit stimmen wir mit Ihnen ab.",
     "etapa3T": "Alter do Chão zur Villa",
@@ -221,8 +223,8 @@
       },
       {
         "id": "chale",
-        "assunto": "Das Chalet",
-        "alt": "Die Fassade von Chalet Nummer 11 mit einer aufgespannten Hängematte auf der Veranda, halb verborgen von der umgebenden Vegetation"
+        "assunto": "Der Bungalow",
+        "alt": "Die Fassade von Bungalow Nummer 11 mit einer aufgespannten Hängematte auf der Veranda, halb verborgen von der umgebenden Vegetation"
       },
       {
         "id": "passarela",
@@ -358,15 +360,15 @@
     "heroSub": "Lodge am Rio Arapiuns, 1,5 Stunden per Boot von Alter do Chão. 13 Bungalows an einem Süßwasserstrand."
   },
   "modo": {
-    "titulo": "Zwei Arten zu bleiben",
+    "titulo": "Zwei Arten des Aufenthalts",
     "intro": "Die Villa empfängt auf zwei Arten, und das ist nicht dasselbe Produkt. Wählen Sie danach, was Sie von Ihrer Zeit erwarten.",
     "pousadaT": "Lodge-Aufenthalt",
     "pousadaD": "Sie verbringen Ihre Tage in der Villa und entscheiden selbst, was Sie tun — oder lassen. Boot und Ausflüge werden separat gebucht, je nach Interesse der Gruppe.",
-    "pousadaInc": "Unterkunft im Bungalow · alles Weitere erklären wir per WhatsApp",
+    "pousadaInc": "Unterkunft im Bungalow · alle Mahlzeiten inklusive (Frühstück, Mittag- und Abendessen)",
     "pousadaFora": "Bootstransfer, Ausflüge und alkoholische Getränke",
     "pacoteT": "Komplettpaket",
     "pacoteD": "Startet in Alter do Chão, mit Programm und Aktivitäten bereits festgelegt. Eine Nacht mit sieben Erlebnissen oder zwei Nächte mit zehn.",
-    "pacoteInc": "Unterkunft · Aktivitäten des Programms · alles Weitere erklären wir per WhatsApp",
+    "pacoteInc": "Unterkunft · Aktivitäten des Programms · Frühstück und Abendessen",
     "pacoteFora": "Alkoholische Getränke. Das Programm selbst verursacht keine Zusatzkosten.",
     "inclusoRot": "Enthalten",
     "foraRot": "Separat",
@@ -385,7 +387,7 @@
     "matP1": "Die Türen sind aus Mahagoni mit Intarsien: Keile mit gegenläufiger Maserung, die von einem achteckigen Zentrum ausstrahlen, von Hand geschnitten und eingepasst. Dasselbe Achteck kehrt als Medaillon auf den Innentüren wieder.",
     "matP2": "Die Decken sind auf dem Webstuhl gewebt, kariert in Schokolade und Hafer. Die Lampe auf der Veranda besteht aus geflochtener Faser, die Matte auf dem Boden ebenso. Nichts stammt aus einem Katalog.",
     "tiposT": "Drei Arten von Unterkunft",
-    "tipo1T": "Zimmer im Haus",
+    "tipo1T": "Bungalow",
     "tipo1D": "Bungalow auf Pfählen, mit eigener Veranda zum Wald hin.",
     "tipo2T": "Maisonette-Zimmer",
     "tipo2D": "Zweigeschossige Einheit mit Innentreppe.",
@@ -401,22 +403,22 @@
     "c3D": "Füße im Sand, klares Wasser. Es ist die Vorderseite der Lodge.",
     "c4T": "Yoga-Shala",
     "c4D": "Ein überdachter Raum für die Praxis — oder dafür, gar nichts zu tun.",
-    "viverT": "Wie es ist, hier zu leben",
+    "viverT": "Wie sich ein Aufenthalt hier anfühlt",
     "viverI": "Drei Dinge, nach denen vor der Ankunft niemand fragt und die danach alle erwähnen.",
     "mosquitoT": "So gut wie keine Mücken",
     "mosquitoD": "Das klare Wasser und die Sandstrände des Arapiuns haben weit weniger Mücken als der Überschwemmungswald des Amazonas. Abendessen im Sand ohne Mückenschutz ist die Überraschung, von der am häufigsten berichtet wird — gerade von denen, die das Gegenteil erwartet hatten.",
     "aguaT": "Die Dusche braucht keinen Boiler",
     "aguaD": "In der Villa gibt es keinen Warmwasserboiler, weil das Klima keinen braucht. Das Duschwasser ist das natürliche Wasser aus unserem eigenen Brunnen, mit der Temperatur, mit der es ankommt — und die ändert sich mit der Jahreszeit. Das ist der Teil, der die Gäste dem Ort am nächsten bringt. Zum Trinken gibt es einen Filter: jederzeit sauberes Wasser.",
     "telaT": "Es gibt keinen Fernseher",
-    "telaD": "Es gibt Starlink-Internet, um in Kontakt zu bleiben. Fernsehen nicht. Abends gibt es Gespräche, das Geräusch des Flusses und die Lust, früh schlafen zu gehen.",
+    "telaD": "Strom rund um die Uhr, aus Solarenergie. Es gibt Starlink-Internet, um in Kontakt zu bleiben. Fernsehen nicht. Abends gibt es Gespräche, das Geräusch des Flusses und die Lust, früh schlafen zu gehen.",
     "figCopaExterna": "Außenküche · Massivholz und Lattenfenster",
     "figShala": "Shala · strohgedeckte Terrasse",
     "figPavilhao": "Speisepavillon · Holzterrasse",
-    "ctaFalarComCasa": "Mit dem Haus sprechen",
+    "ctaFalarComCasa": "Per WhatsApp anfragen",
     "figPassarela": "Der Holzsteg · verbindet alles",
     "figRodaFogo": "Der Feuerkreis · Bänke aus Baumstämmen",
     "figBanheiro": "Das Bad · Becken und Korbwaren",
-    "figChale11": "Chalet 11 · Hängematte auf der Veranda",
+    "figChale11": "Bungalow 11 · Hängematte auf der Veranda",
     "figAguaClara": "Klares Wasser · der Grund sichtbar",
     "figBanhoSemAquecedor": "Die Dusche · ohne Boiler",
     "figVarandaRede": "Die Veranda · aufgehängte Hängematte, Blick auf den Wald",
@@ -428,9 +430,9 @@
   "mesa": {
     "h1": "Der Tisch der Villa",
     "intro": "Fisch aus dem Fluss, Maniokmehl aus der Gemeinde, Obst aus dem Garten und frisch aufgebrühter Kaffee. Eigene Küche, serviert im offenen Pavillon.",
-    "escopoT": "Was enthalten ist, erklären wir per WhatsApp",
-    "escopo1T": "Mahlzeiten: je nach Aufenthalt",
-    "escopo1D": "Was ein Aufenthalt umfasst, hängt von Format und Gruppe ab. Wir erklären alles per WhatsApp, bevor Sie buchen.",
+    "escopoT": "Was enthalten ist",
+    "escopo1T": "Mahlzeiten: inklusive",
+    "escopo1D": "Lodge-Aufenthalt: alle Mahlzeiten inklusive (Frühstück, Mittag- und Abendessen). Pakete mit Boot ab Alter do Chão: Frühstück und Abendessen.",
     "escopo3T": "Alkoholische Getränke: separat",
     "escopo3D": "Bier, Wein und Spirituosen sind in keiner der Varianten enthalten und werden separat berechnet.",
     "piraT": "Die Piracaia",
@@ -684,14 +686,16 @@
         "legenda": "Die Pérola do Tapajós, mit Schwimmwesten",
         "alt": "Gäste mit Schwimmwesten beim Einstieg in das Boot Pérola do Tapajós, das am Sand vertäut ist"
       }
-    ]
+    ],
+    "q6": "Gibt es Mücken?",
+    "a6": "Kaum. Das klare Wasser und die Sandstrände des Arapiuns haben weit weniger Mücken als das Überschwemmungsgebiet (Várzea) des Amazonas."
   },
   "mapa": {
     "alt": "Karte der Region: Die Villa Arapiuns liegt am Ufer des Rio Arapiuns, im Westen. Im Osten, wo der Rio Tapajós auf den Amazonas trifft, liegen Alter do Chão und, etwas weiter, Santarém.",
     "ampliar": "Karte vergrößern",
     "fechar": "Schließen",
     "dialogo": "Karte der Arapiuns-Region, vergrößert",
-    "aeroporto": "Flughafen in Santarém, PA",
+    "aeroporto": "Flughafen in Santarém (STM), PA",
     "ondeT": "Wo die Villa liegt",
     "ondeI": "Die Villa liegt am Rio Arapiuns, westlich von Alter do Chão. Die letzte Etappe führt über das Wasser, weil es dort keine Straße gibt — und genau das hält den Fluss leer."
   },
@@ -811,7 +815,7 @@
     "c1T": "Anreise über Alter do Chão",
     "c1D": "Flug nach Santarém (STM), Transfer nach Alter do Chão, dann 1,5 Stunden mit dem Schnellboot den Arapiuns hinauf. Das Boot der Gruppe stimmen wir per WhatsApp ab.",
     "c2T": "Die Tage",
-    "c2D": "Strand, Kanu im überfluteten Wald, der Samaúma-Pfad, Werkstätten mit den Flussgemeinden — das Programm entsteht mit Ihrer Gruppe, in ihrem Rhythmus.",
+    "c2D": "Strand, Kanu im überfluteten Wald, der Samaúma-Pfad, Workshops mit den Flussgemeinden — das Programm entsteht mit Ihrer Gruppe, in ihrem Rhythmus.",
     "c3T": "Die Nacht des 31.",
     "c3D": "Piracaia im Sand und ein Kreis am Strand. Das neue Jahr kommt mit dem Klang des Flusses, nicht aus Lautsprechern.",
     "c4T": "Kinder",
@@ -923,8 +927,8 @@
           },
           {
             "id": "chale11",
-            "leg": "Chalet 11",
-            "alt": "Die Fassade von Chalet Nummer 11 mit einer Hängematte auf der Veranda, halb verborgen von der umgebenden Vegetation"
+            "leg": "Bungalow 11",
+            "alt": "Die Fassade von Bungalow Nummer 11 mit einer Hängematte auf der Veranda, halb verborgen von der umgebenden Vegetation"
           },
           {
             "id": "gal6",
@@ -1119,7 +1123,7 @@
     "reviewsCount": "Bewertungen"
   },
   "reservar": {
-    "h1": "Mit dem Haus sprechen",
+    "h1": "Sprechen Sie direkt mit uns",
     "intro": "Kein Buchungssystem, kein Warenkorb. Sie schreiben — über WhatsApp oder dieses Formular — und wer antwortet, ist auch, wer Sie empfängt.",
     "comoT": "Wenn Sie WhatsApp bevorzugen, hilft es, alles auf einmal zu sagen",
     "c1": "Wie viele Personen, und das Alter der Kinder, falls welche mitkommen",
@@ -1216,9 +1220,9 @@
       },
       {
         "id": "chale-11",
-        "assunto": "Das Chalet",
+        "assunto": "Der Bungalow",
         "legenda": "Ein Stockwerk, Hängematte auf der Veranda",
-        "alt": "Die Fassade von Chalet Nummer 11, eine eingeschossige Einheit aus dunklem Holz auf Pfosten, mit einer gestreiften Hängematte auf der überdachten Veranda"
+        "alt": "Die Fassade von Bungalow Nummer 11, eine eingeschossige Einheit aus dunklem Holz auf Pfosten, mit einer gestreiften Hängematte auf der überdachten Veranda"
       },
       {
         "id": "varanda-rede",
