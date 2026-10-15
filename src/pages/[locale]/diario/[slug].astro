@@ -86,7 +86,7 @@ if (d.duvidas.length) {
 <BaseLayout
   locale={locale}
   pageKey="home"
-  title={`${d.tituloCurto ?? d.titulo} · ${SITE.name}`}
+  title={d.tituloSeo ?? `${d.tituloCurto ?? d.titulo} · ${SITE.name}`}
   description={d.descricao}
   image={capa}
   caminho={caminho}
