@@ -32,6 +32,7 @@ const diario = defineCollection({
     titulo: z.string(),
     /** Vira <title> e og:title. Curto — o site já acrescenta a marca. */
     tituloCurto: z.string().optional(),
+    tituloSeo: z.string().optional(),
     descricao: z.string(),
     /**
      * A RESPOSTA DIRETA, de 40 a 90 palavras, que abre o post.
