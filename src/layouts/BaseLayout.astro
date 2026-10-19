@@ -151,7 +151,19 @@ const dados: Record<string, unknown> = {
     { '@type': 'LocationFeatureSpecification', name: t('pousada.c2T') },
     { '@type': 'LocationFeatureSpecification', name: t('pousada.c3T') },
     { '@type': 'LocationFeatureSpecification', name: t('pousada.c4T') },
+    /* SEO/GEO 19/10/2026: energia+Starlink e mosquito (faixa de confiança,
+       já no ar) e refeições da pousada (cards Pousada/Reservar, já no ar),
+       declarados também em schema para que buscador e IA leiam o mesmo fato
+       do site. `trust.meals` é só para o schema; a faixa não mostra.
+       Fatos confirmados pelo Leonardo em 19/10/2026. */
+    { '@type': 'LocationFeatureSpecification', name: t('trust.power'), value: true },
+    { '@type': 'LocationFeatureSpecification', name: t('trust.meals'), value: true },
+    { '@type': 'LocationFeatureSpecification', name: t('trust.mosquito'), value: true },
   ],
+  containedInPlace: {
+    '@type': 'Place',
+    name: 'Rio Arapiuns, Alter do Chão, Santarém — Amazônia, Pará',
+  },
   makesOffer: ofertas.map((o) => ({
     '@type': 'Offer',
     name: o.nome,

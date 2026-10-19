@@ -8,6 +8,7 @@ tituloSeo: "Arapiuns River Guide | White-Sand Beaches near Alter do Chão | Vill
 descricao: "When to go, how to get there from Alter do Chão and where to stay on the Arapiuns River, the Amazon's clear-water river with white-sand beaches. A local guide from Villa Arapiuns."
 resposta: "The Rio Arapiuns is a clearwater tributary of the Tapajós, in western Pará, 1.5 hours by boat from Alter do Chão. It runs entirely inside the Tapajós-Arapiuns Extractive Reserve, and it's where you find the white-sand beaches and clear water the Amazon rarely shows. From August to January the river drops and the beaches emerge; from February to June it floods and the landscape becomes flooded forest."
 data: 2026-08-26
+revisado: 2026-10-15
 imagem: banco-areia
 imagemAlt: "Golden sandbank stretching into the blue river, footprints in the sand and the tree line on the horizon"
 legenda: "Sandbank on the Arapiuns · dry season"
