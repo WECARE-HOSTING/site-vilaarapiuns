@@ -12,12 +12,12 @@
   },
   "titulo": {
     "home": "Villa Arapiuns | Pousada no Rio Arapiuns | Alter do Chão",
-    "lodge": "Pousada e bangalôs perto de Alter do Chão · Villa Arapiuns",
+    "lodge": "Bangalôs da Villa Arapiuns | Pousada no Rio Arapiuns | Alter do Chão",
     "packages": "Pacotes saindo de Alter do Chão · Villa Arapiuns",
-    "privateVilla": "Grupos de 15 a 26 perto de Alter do Chão · Villa Arapiuns",
-    "reveillon": "Réveillon 2026/27 perto de Alter do Chão · Villa Arapiuns",
+    "privateVilla": "Villa inteira para grupos de 15 a 26 | Rio Arapiuns | Villa Arapiuns",
+    "reveillon": "Réveillon 2026/27 no Rio Arapiuns | Alter do Chão | Villa Arapiuns",
     "gettingHere": "Como chegar por Santarém e Alter do Chão · Villa Arapiuns",
-    "detox": "Detox pós-Ano Novo perto de Alter do Chão · Villa Arapiuns"
+    "detox": "Detox pós-Ano Novo 2027 | Rio Arapiuns | Villa Arapiuns"
   },
   "nav": {
     "lodge": "A Pousada",
@@ -48,7 +48,8 @@
     "team": "Equipe própria na logística",
     "host": "Anfitrião local na Villa",
     "power": "Energia 24h (solar) e Wi‑Fi Starlink",
-    "mosquito": "Praticamente sem mosquito"
+    "mosquito": "Praticamente sem mosquito",
+    "meals": "Todas as refeições incluídas na hospedagem (café da manhã, almoço e jantar)"
   },
   "dia": {
     "incluso": "Refeição",
@@ -75,18 +76,18 @@
   },
   "desc": {
     "home": "Site oficial da Villa Arapiuns: 13 bangalôs no Rio Arapiuns, a 1h30 de lancha de Alter do Chão. Reserve direto com a casa pelo WhatsApp +55 47 99206-7078.",
-    "lodge": "Os 13 bangalôs da Villa Arapiuns, a 1h30 de lancha de Alter do Chão: arquitetura tapajônica, portas de mogno com marchetaria e mantas de tear.",
+    "lodge": "13 bangalôs de madeira sobre palafitas no Rio Arapiuns, a 1h30 de lancha de Alter do Chão. Todas as refeições incluídas, energia 24h, Wi‑Fi Starlink e praticamente sem mosquito.",
     "dining": "A mesa da Villa Arapiuns: peixe do rio, farinha da comunidade, café passado na hora — e a Piracaia à beira-rio.",
     "experiences": "Trilhas, canoa, praia e oficinas com as comunidades ribeirinhas do Arapiuns.",
     "packages": "Pacotes saindo de Alter do Chão com roteiro fechado: uma noite com sete experiências, ou duas noites com dez.",
-    "privateVilla": "A Villa Arapiuns inteira para o seu grupo, de 15 a 26 pessoas: 13 bangalôs, pavilhão, redário e praia no Rio Arapiuns, a 1h30 de lancha de Alter do Chão.",
+    "privateVilla": "A Villa Arapiuns inteira para o seu grupo, de 15 a 26 pessoas: 13 bangalôs, shala, pavilhão, redário e praia de água doce no Rio Arapiuns, a 1h30 de lancha de Alter do Chão.",
     "reveillon": "Réveillon 2026/27 na Villa Arapiuns, de 28/12 a 2/1: praia de água doce no Rio Arapiuns, a 1h30 de lancha de Alter do Chão, e piracaia na noite de 31.",
     "gettingHere": "Como chegar à Villa Arapiuns: voo até Santarém, traslado a Alter do Chão e 1h30 de barco rio acima.",
     "gallery": "Fotos da Villa Arapiuns: os bangalôs, o rio, a mata e as comunidades do Arapiuns.",
     "reviews": "O que os hóspedes contam depois de ficar na Villa Arapiuns.",
     "book": "Reserve sua estadia na Villa Arapiuns pelo WhatsApp e fale direto com a Villa.",
     "bookSent": "Sua mensagem chegou. Respondemos em até 24 horas.",
-    "detox": "Detox pós-Ano Novo na Villa Arapiuns, de 1 a 10 de janeiro de 2027: comida da floresta, açaí, nenhum álcool servido pela casa e 13 bangalôs perto de Alter do Chão."
+    "detox": "Detox pós-Ano Novo na Villa Arapiuns, de 1 a 10 de janeiro de 2027: comida da floresta, açaí, nenhum álcool servido pela casa e 13 bangalôs no Rio Arapiuns, a 1h30 de lancha de Alter do Chão."
   },
   "home": {
     "hookA": "Um Caribe de água doce,",
@@ -785,7 +786,7 @@
     "cta": "Pedir proposta no WhatsApp"
   },
   "reveillon": {
-    "h1": "Réveillon 2026/27 no Rio Arapiuns, perto de Alter do Chão",
+    "h1": "Réveillon 2026/27 no Rio Arapiuns | Alter do Chão",
     "intro": "De 28 de dezembro a 2 de janeiro, a 1h30 de lancha de Alter do Chão. São 13 bangalôs: dá para reservar o seu ou fechar a Villa para um grupo de 15 a 26 pessoas.",
     "campoJanela": "28 dez – 02 jan",
     "b1T": "A janela da virada",
