@@ -7,6 +7,7 @@ tituloCurto: "Best time to visit"
 descricao: "When the Tapajós and Arapiuns beaches appear and disappear, month by month, and which months suit beaches, flooded forest, festivals or an empty river."
 resposta: "For beaches, come between August and January, when the rivers fall and the white sandbanks emerge — October and November are the peak, with the water at its lowest and the sand at its widest. From February to June the rivers rise, the beaches go under, and the forest floods into the igapó you can paddle through. July is the turn, with the beaches coming back."
 data: 2026-08-28
+revisado: 2026-10-28
 imagem: banco-areia-gente
 imagemAlt: "Two people walking away across an enormous pale sandbank, with more figures and moored boats far off at the waterline under a hazy sky"
 legenda: "Late dry season · the sandbanks at their widest"
@@ -78,4 +79,4 @@ Neither is the good season. They are different trips, and the mistake is arrivin
 
 ## What does not change
 
-The sun is strong all year — you are near the Equator, and the pale sand and clear water reflect everything back. And the beaches have no mosquitoes in any month, which surprises people enough that it has its own page.
+The sun is strong all year — you are near the Equator, and the pale sand and clear water reflect everything back. And the beaches are practically mosquito-free all year, which surprises people enough that it has its own page.

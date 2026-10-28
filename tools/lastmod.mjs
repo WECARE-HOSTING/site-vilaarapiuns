@@ -65,8 +65,12 @@ function dataSP(d) {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Sao_Paulo', year: 'numeric', month: '2-digit', day: '2-digit' }).format(d);
 }
 
+function gitBruto(args) {
+  return execFileSync('git', args, { cwd: RAIZ, encoding: 'utf-8', stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 64 * 1024 * 1024 });
+}
+
 function git(args) {
-  return execFileSync('git', args, { cwd: RAIZ, encoding: 'utf-8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+  return gitBruto(args).trim();
 }
 
 /** Histórico completo disponível? Clone raso ou sem git → false. */
@@ -108,7 +112,7 @@ export function fontesPorCaminho(slugs) {
     if (!comp) continue;
     for (const l of LOCALES) {
       const caminho = porLocale[l] ? `/${l}/${porLocale[l]}/` : `/${l}/`;
-      mapa.set(caminho, [`src/content-pages/${comp}.astro`, `src/i18n/${l}.json`]);
+      mapa.set(caminho, [`src/content-pages/${comp}.astro`, `src/i18n/${l}.json#${key}`]);
     }
   }
   const posts = postsDoDiario();
@@ -120,11 +124,52 @@ export function fontesPorCaminho(slugs) {
   return mapa;
 }
 
+/**
+ * O DICIONÁRIO É POR SEÇÃO, NÃO POR ARQUIVO. `src/i18n/<l>.json` alimenta
+ * todas as páginas do idioma; datar a página pelo arquivo inteiro fazia uma
+ * troca no title da pousada mudar o lastmod das ~14 páginas PT. Aqui a página
+ * só depende do que ela lê: `titulo.<key>`, `desc.<key>` e as seções que o
+ * componente chama com t('secao.…'). Seções compartilhadas (nav, cta, footer)
+ * contam como moldura, igual ao layout. A data é a do último commit
+ * (--first-parent) em que ESSE recorte mudou.
+ */
+const secoesCache = new Map();
+function secoesDoComponente(comp) {
+  if (secoesCache.has(comp)) return secoesCache.get(comp);
+  const txt = readFileSync(`${RAIZ}src/content-pages/${comp}.astro`, 'utf-8');
+  const usadas = new Set([...txt.matchAll(/t\(\s*['"`]([A-Za-z0-9_]+)\./g)].map((m) => m[1]));
+  for (const moldura of ['nav', 'cta', 'footer', 'whatsapp', 'a11y', 'carousel', 'trust', 'site']) usadas.delete(moldura);
+  secoesCache.set(comp, usadas);
+  return usadas;
+}
+function recorte(jsonTxt, key) {
+  let obj;
+  try { obj = JSON.parse(jsonTxt); } catch { return null; }
+  const secoes = [...secoesDoComponente(COMPONENTE_DA_PAGINA[key])].sort();
+  return JSON.stringify([obj.titulo?.[key], obj.desc?.[key], secoes.map((k) => [k, obj[k]])]);
+}
+function dataDoTrecho(ref, sujos, hoje) {
+  const [arq, key] = ref.split('#');
+  const show = (rev) => { try { return gitBruto(['show', `${rev}:${arq}`]); } catch { return null; } };
+  if (sujos.has(arq)) {
+    if (recorte(readFileSync(`${RAIZ}${arq}`, 'utf-8'), key) !== recorte(show('HEAD') ?? '', key)) return hoje;
+  }
+  const commits = git(['log', '--first-parent', '--format=%H %ct', '--', arq]).split('\n').filter(Boolean).map((l) => l.split(' '));
+  for (let i = 0; i < commits.length; i++) {
+    const [h, ts] = commits[i];
+    const antes = i + 1 < commits.length ? show(commits[i + 1][0]) : null;
+    if (antes === null || recorte(show(h) ?? '', key) !== recorte(antes, key)) return dataSP(new Date(Number(ts) * 1000));
+  }
+  return null;
+}
+
 /** Datas pelo git. Só chamar com temHistoricoGit() verdadeiro. */
 export function lastmodPeloGit(slugs) {
   const hoje = dataSP(new Date());
   const sujos = new Set(
-    git(['status', '--porcelain', '--untracked-files=all'])
+    // Sem trim(): o porcelain começa com espaço (" M arq") e o trim comia o
+    // 1º caractere do caminho da 1ª linha — esse arquivo nunca era "sujo".
+    gitBruto(['status', '--porcelain', '--untracked-files=all'])
       .split('\n')
       .filter(Boolean)
       .map((l) => l.slice(3).trim()),
@@ -132,6 +177,11 @@ export function lastmodPeloGit(slugs) {
   const cache = new Map();
   const dataDoArquivo = (f) => {
     if (cache.has(f)) return cache.get(f);
+    if (f.includes('#')) {
+      const d = dataDoTrecho(f, sujos, hoje);
+      cache.set(f, d);
+      return d;
+    }
     let d = null;
     if (sujos.has(f)) d = hoje;
     else {
