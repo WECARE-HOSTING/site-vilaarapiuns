@@ -15,7 +15,7 @@ destino: lodge
 duvidas:
   - q: "¿Necesito repelente de mosquitos en Alter do Chão?"
     a: "Llévelo, úselo en las caminatas por la selva al anochecer, y no espere necesitarlo en la playa. La mayoría de los huéspedes termina una semana con el frasco casi lleno."
-  - q: "¿Por qué no hay mosquitos en estas playas?"
+  - q: "¿Por qué casi no hay mosquitos en estas playas?"
     a: "Las larvas de mosquito necesitan agua quieta. Un río de agua clara, con fondo arenoso y una orilla abierta y expuesta al viento, no les deja casi ningún lugar para desarrollarse, y el agua lleva poca materia orgánica de la que se alimentan las larvas."
   - q: "¿Es la malaria un riesgo en el Tapajós?"
     a: "El riesgo en la Amazonía brasileña varía enormemente según el lugar y la temporada, y la cuenca de agua clara del Tapajós no es comparable a un igarapé de agua negra inundado. Esto es una pregunta médica, no una pregunta de blog de viajes — consulte a un servicio de salud del viajero sobre su itinerario específico."

@@ -7,6 +7,7 @@ tituloCurto: "Guide zum Rio Arapiuns"
 descricao: "Was der Rio Arapiuns ist, wo die weißen Sandstrände liegen, wann der Fluss fällt, wie Sie von Alter do Chão aus hinkommen und wo Sie übernachten können. Ein Guide, verfasst aus dem Inneren der RESEX Tapajós-Arapiuns."
 resposta: "Der Rio Arapiuns ist ein Klarwasser-Nebenfluss des Tapajós im Westen von Pará, anderthalb Bootsstunden von Alter do Chão entfernt. Er verläuft vollständig innerhalb des Tapajós-Arapiuns-Extraktivreservats und ist dort, wo die weißen Sandstrände und das klare Wasser liegen, die man im Amazonasgebiet selten findet. Von August bis Januar fällt der Fluss, und die Strände tauchen auf; von Februar bis Juni steigt er, und die Landschaft wird zum überfluteten Wald."
 data: 2026-08-26
+revisado: 2026-10-28
 imagem: banco-areia
 imagemAlt: "Goldene Sandbank, die sich in den blauen Fluss hinein vorschiebt, mit Fußspuren im Sand und der Waldlinie am Horizont"
 legenda: "Sandbank am Arapiuns · Trockenzeit"
@@ -68,7 +69,7 @@ Sie verdient einen eigenen Absatz, denn sie ist kein Ausflug, sondern eine Mahlz
 
 ## Mücken, Sonne und was Sie mitbringen sollten
 
-Die häufigste Frage verdient eine direkte Antwort: **Am weißen Sandstrand des Arapiuns gibt es keine Mücken**. Klares Wasser mit sandigem Grund und offenem Ufer ist kein Brutplatz — die Mücke, die dem Amazonas-Bild ihren schlechten Ruf verleiht, brütet in dunklen Igarapés unter geschlossenem Blätterdach und in schlammigen Überschwemmungsgebieten. Das ist kein Versprechen, dass es im Wald keine Insekten gibt: Auf einem Waldpfad am späten Nachmittag ist ein Mückenschutzmittel sinnvoll. Aber das Szenario, das man fürchtet — nicht im Freien zu Abend essen zu können —, ist nicht das Szenario hier.
+Die häufigste Frage verdient eine direkte Antwort: **Am weißen Sandstrand des Arapiuns gibt es so gut wie keine Mücken**. Klares Wasser mit sandigem Grund und offenem Ufer ist kein Brutplatz — die Mücke, die dem Amazonas-Bild ihren schlechten Ruf verleiht, brütet in dunklen Igarapés unter geschlossenem Blätterdach und in schlammigen Überschwemmungsgebieten. Das ist kein Versprechen, dass es im Wald keine Insekten gibt: Auf einem Waldpfad am späten Nachmittag ist ein Mückenschutzmittel sinnvoll. Aber das Szenario, das man fürchtet — nicht im Freien zu Abend essen zu können —, ist nicht das Szenario hier.
 
 Was hier tatsächlich zusetzt, ist die **Sonne**. Man befindet sich nahe am Äquator, reflektiert von hellem Sand und Wasser. Hut, langärmliges Hemd und Sonnencreme sind keine Übertreibung.
 

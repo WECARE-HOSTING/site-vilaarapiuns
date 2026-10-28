@@ -15,7 +15,7 @@ destino: lodge
 duvidas:
   - q: "Brauche ich in Alter do Chão ein Mückenschutzmittel?"
     a: "Bringen Sie es mit, verwenden Sie es bei Waldspaziergängen in der Abenddämmerung, und rechnen Sie damit, es am Strand nicht zu brauchen. Die meisten Gäste beenden eine Woche mit fast voller Flasche."
-  - q: "Warum gibt es an diesen Stränden keine Mücken?"
+  - q: "Warum gibt es an diesen Stränden so gut wie keine Mücken?"
     a: "Mückenlarven brauchen stehendes Wasser. Ein Klarwasserfluss mit sandigem Grund und einem offenen, dem Wind ausgesetzten Ufer lässt ihnen kaum Platz zur Entwicklung, und das Wasser führt wenig von dem organischen Material mit sich, von dem sich ihre Larven ernähren."
   - q: "Ist Malaria am Tapajós ein Risiko?"
     a: "Das Risiko im brasilianischen Amazonasgebiet variiert enorm je nach Ort und Jahreszeit, und das Klarwasserbecken des Tapajós ist nicht mit einem überfluteten Schwarzwasser-Igarapé vergleichbar. Das ist eine medizinische Frage, keine Reiseblog-Frage — fragen Sie einen reisemedizinischen Dienst zu Ihrer konkreten Reiseroute."

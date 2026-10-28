@@ -7,6 +7,7 @@ tituloCurto: "Getting to Alter do Chão"
 descricao: "Flights to Santarém, the transfer to Alter do Chão, and the boat up the Rio Arapiuns. Times, costs, connections and what actually goes wrong, written from the far end of the trip."
 resposta: "Alter do Chão is reached by flying to Santarém (STM) in Pará, Brazil, then driving about 40 minutes. There are direct flights to Santarém from Manaus, Belém and Brasília; from São Paulo you connect, usually through Brasília, and the fastest routings take about four and a quarter hours. Villa Arapiuns is a further 1h30 by boat up the Rio Arapiuns from Alter do Chão."
 data: 2026-08-26
+revisado: 2026-10-28
 imagem: chegada-barco
 imagemAlt: "Four people wading through shallow river water carrying bags, with a white boat moored behind them and open water to the horizon"
 legenda: "Landing on the Arapiuns · the last hundred metres are on foot"
@@ -72,7 +73,7 @@ That is the argument for staying longer, and we would rather say it plainly than
 
 Sun protection is the real hazard, not wildlife: you are close to the Equator, on white sand, next to reflective water. Hat, long sleeves, high-factor sunscreen.
 
-Repellent for forest walks at dusk — though the beach itself has no mosquitoes, which surprises people enough that we wrote about it separately.
+Repellent for forest walks at dusk — though the beach itself has practically no mosquitoes, which surprises people enough that we wrote about it separately.
 
 Cash in reais. Some community activities are paid directly to the families who run them, and there is no card machine in the middle of a reserve.
 

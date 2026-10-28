@@ -8,7 +8,7 @@ tituloSeo: "Arapiuns River Guide | White-Sand Beaches near Alter do Chão | Vill
 descricao: "When to go, how to get there from Alter do Chão and where to stay on the Arapiuns River, the Amazon's clear-water river with white-sand beaches. A local guide from Villa Arapiuns."
 resposta: "The Rio Arapiuns is a clearwater tributary of the Tapajós, in western Pará, 1.5 hours by boat from Alter do Chão. It runs entirely inside the Tapajós-Arapiuns Extractive Reserve, and it's where you find the white-sand beaches and clear water the Amazon rarely shows. From August to January the river drops and the beaches emerge; from February to June it floods and the landscape becomes flooded forest."
 data: 2026-08-26
-revisado: 2026-10-15
+revisado: 2026-10-28
 imagem: banco-areia
 imagemAlt: "Golden sandbank stretching into the blue river, footprints in the sand and the tree line on the horizon"
 legenda: "Sandbank on the Arapiuns · dry season"
@@ -70,7 +70,7 @@ This one gets its own paragraph because it isn't an activity, it's a meal. River
 
 ## Mosquitoes, sun, and what to bring
 
-The most common question deserves a direct answer: **the Arapiuns' white-sand beach doesn't have mosquitoes**. Clear water over a sandy bottom with open banks isn't a breeding ground — the Amazon mosquito that looms in people's imagination lives in the dark streams of dense forest and in muddy floodplain areas. That's not a promise that no insect exists in the forest: on a forest trail, late in the afternoon, repellent is sensible. But the scenario people fear — not being able to eat dinner outdoors — isn't the scenario here.
+The most common question deserves a direct answer: **the Arapiuns' white-sand beach has practically no mosquitoes**. Clear water over a sandy bottom with open banks isn't a breeding ground — the Amazon mosquito that looms in people's imagination lives in the dark streams of dense forest and in muddy floodplain areas. That's not a promise that no insect exists in the forest: on a forest trail, late in the afternoon, repellent is sensible. But the scenario people fear — not being able to eat dinner outdoors — isn't the scenario here.
 
 What really gets you is the **sun**. You're close to the equator, reflected off clear sand and water. A hat, a long-sleeve shirt, and sunscreen aren't overkill.
 

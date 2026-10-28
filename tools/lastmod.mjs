@@ -119,7 +119,7 @@ export function fontesPorCaminho(slugs) {
   for (const p of posts) mapa.set(p.caminho, [p.arquivo]);
   for (const l of LOCALES) {
     const doIdioma = posts.filter((p) => p.locale === l).map((p) => p.arquivo);
-    if (doIdioma.length) mapa.set(`/${l}/diario/`, doIdioma);
+    if (doIdioma.length) mapa.set(`/${l}/diario/`, [`${DIARIO}#listagem:${l}`]);
   }
   return mapa;
 }
@@ -131,7 +131,7 @@ export function fontesPorCaminho(slugs) {
  * só depende do que ela lê: `titulo.<key>`, `desc.<key>` e as chaves que o
  * componente chama com t('secao.chave'). Seções compartilhadas (nav, cta,
  * footer) contam como moldura, igual ao layout. A data é a do último commit
- * (--first-parent) em que ESSE recorte mudou, com o PISO abaixo.
+ * (--first-parent) em que ESSE recorte mudou.
  */
 const chavesCache = new Map();
 /**
@@ -164,13 +164,6 @@ function recorte(jsonTxt, key) {
   const chaves = chavesDoComponente(COMPONENTE_DA_PAGINA[key]);
   return JSON.stringify([obj.titulo?.[key], obj.desc?.[key], chaves.map((k) => [k, valor(obj, k)])]);
 }
-/**
- * PISO. Até 19/10/2026 a regra era o arquivo inteiro, e essas datas já estão
- * publicadas no sitemap. A granularidade por chave vale daqui para frente:
- * uma página sem mudança não volta no tempo (lastmod que recua também é sinal
- * de dado inconsistente).
- */
-const PISO_DICIONARIO = '2026-10-19';
 function dataDoTrecho(ref, sujos, hoje) {
   const [arq, key] = ref.split('#');
   const show = (rev) => { try { return gitBruto(['show', `${rev}:${arq}`]); } catch { return null; } };
@@ -182,9 +175,42 @@ function dataDoTrecho(ref, sujos, hoje) {
     const [h, ts] = commits[i];
     const antes = i + 1 < commits.length ? show(commits[i + 1][0]) : null;
     if (antes === null || recorte(show(h) ?? '', key) !== recorte(antes, key)) {
-      const d = dataSP(new Date(Number(ts) * 1000));
-      return d < PISO_DICIONARIO ? PISO_DICIONARIO : d;
+      return dataSP(new Date(Number(ts) * 1000));
     }
+  }
+  return null;
+}
+
+/**
+ * ÍNDICE DO DIÁRIO = A LISTAGEM RENDERIZADA. O índice mostra, de cada post
+ * publicado do idioma, título, descrição, data, imagem, alt e link. Mexer no
+ * corpo de um post não muda o índice; então o índice só ganha data quando
+ * esse recorte muda (src/pages/[locale]/diario/index.astro).
+ */
+const CAMPOS_LISTAGEM = ['locale', 'slug', 'titulo', 'descricao', 'data', 'imagem', 'imagemAlt', 'rascunho'];
+function listagem(arquivos, locale) {
+  return JSON.stringify(
+    arquivos
+      .map((txt) => Object.fromEntries(CAMPOS_LISTAGEM.map((k) => [k, campo(txt, k) ?? null])))
+      .filter((p) => p.locale === locale && p.rascunho !== 'true')
+      .sort((x, y) => (x.slug ?? '').localeCompare(y.slug ?? '')),
+  );
+}
+function listagemNoRev(rev, locale) {
+  const nomes = git(['ls-tree', '--name-only', rev, `${DIARIO}/`]).split('\n').filter((f) => f.endsWith('.md'));
+  return listagem(nomes.map((f) => gitBruto(['show', `${rev}:${f}`])), locale);
+}
+function dataDaListagem(locale, sujos, hoje) {
+  const sujo = [...sujos].some((f) => f.startsWith(`${DIARIO}/`));
+  if (sujo) {
+    const atual = listagem(readdirSync(`${RAIZ}${DIARIO}`).filter((f) => f.endsWith('.md')).map((f) => readFileSync(`${RAIZ}${DIARIO}/${f}`, 'utf-8')), locale);
+    if (atual !== listagemNoRev('HEAD', locale)) return hoje;
+  }
+  const commits = git(['log', '--first-parent', '--format=%H %ct', '--', DIARIO]).split('\n').filter(Boolean).map((l) => l.split(' '));
+  for (let i = 0; i < commits.length; i++) {
+    const [h, ts] = commits[i];
+    const antes = i + 1 < commits.length ? listagemNoRev(commits[i + 1][0], locale) : null;
+    if (antes === null || listagemNoRev(h, locale) !== antes) return dataSP(new Date(Number(ts) * 1000));
   }
   return null;
 }
@@ -203,6 +229,11 @@ export function lastmodPeloGit(slugs) {
   const cache = new Map();
   const dataDoArquivo = (f) => {
     if (cache.has(f)) return cache.get(f);
+    if (f.includes('#listagem:')) {
+      const d = dataDaListagem(f.split('#listagem:')[1], sujos, hoje);
+      cache.set(f, d);
+      return d;
+    }
     if (f.includes('#')) {
       const d = dataDoTrecho(f, sujos, hoje);
       cache.set(f, d);

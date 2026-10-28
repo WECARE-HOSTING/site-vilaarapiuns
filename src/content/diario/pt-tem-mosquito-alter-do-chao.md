@@ -15,7 +15,7 @@ destino: lodge
 duvidas:
   - q: "Preciso levar repelente para Alter do Chão?"
     a: "Leve, use nas trilhas de mata no fim da tarde, e conte com não precisar na praia. A maioria dos hóspedes volta com o frasco quase cheio."
-  - q: "Por que não tem mosquito nessas praias?"
+  - q: "Por que quase não tem mosquito nessas praias?"
     a: "A larva do mosquito precisa de água parada. Rio de água clara com fundo de areia e margem aberta ao vento praticamente não oferece onde ela se desenvolva, e a água carrega pouca matéria orgânica para alimentá-la."
   - q: "Tem risco de malária no Tapajós?"
     a: "O risco na Amazônia brasileira varia muito por local e por época, e a bacia de água clara do Tapajós não é comparável a um igarapé de água preta alagado. Essa é uma pergunta médica: consulte um serviço de saúde do viajante sobre o seu roteiro específico."

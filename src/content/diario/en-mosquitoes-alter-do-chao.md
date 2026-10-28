@@ -15,7 +15,7 @@ destino: lodge
 duvidas:
   - q: "Do I need mosquito repellent in Alter do Chão?"
     a: "Bring it, use it on forest walks at dusk, and expect not to need it on the beach. Most guests finish a week with the bottle nearly full."
-  - q: "Why are there no mosquitoes on these beaches?"
+  - q: "Why are there almost no mosquitoes on these beaches?"
     a: "Mosquito larvae need still water. A clearwater river with a sandy bottom and an open, wind-exposed shoreline gives them almost nowhere to develop, and the water carries little of the organic matter their larvae feed on."
   - q: "Is malaria a risk on the Tapajós?"
     a: "Risk in the Brazilian Amazon varies enormously by location and season, and the clearwater Tapajós basin is not comparable to a flooded blackwater igarapé. This is a medical question, not a travel-blog question — ask a travel health service about your specific itinerary."

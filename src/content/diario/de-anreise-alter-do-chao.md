@@ -7,6 +7,7 @@ tituloCurto: "Anreise nach Alter do Chão"
 descricao: "Flüge nach Santarém, der Transfer nach Alter do Chão und die Bootsfahrt den Rio Arapiuns hinauf. Zeiten, Kosten, Anschlüsse und was tatsächlich schiefgehen kann — geschrieben vom anderen Ende der Reise."
 resposta: "Alter do Chão erreichen Sie, indem Sie nach Santarém (STM) in Pará, Brasilien, fliegen und dann etwa 40 Minuten mit dem Auto fahren. Direktflüge nach Santarém gibt es ab Manaus, Belém und Brasília; von São Paulo aus fliegen Sie mit Umstieg, meist über Brasília, und die schnellsten Verbindungen dauern etwa vier ein Viertel Stunden. Von Alter do Chão sind es weitere 1,5 Stunden mit dem Boot den Rio Arapiuns hinauf bis zur Villa Arapiuns."
 data: 2026-08-26
+revisado: 2026-10-28
 imagem: chegada-barco
 imagemAlt: "Vier Personen waten mit Taschen durch flaches Flusswasser, dahinter liegt ein weißes Boot vor Anker, im Hintergrund offenes Wasser bis zum Horizont"
 legenda: "Ankunft am Arapiuns · die letzten hundert Meter zu Fuß"
@@ -72,7 +73,7 @@ Das ist das Argument für einen längeren Aufenthalt, und wir sagen es lieber of
 
 Sonne ist die eigentliche Gefahr, nicht die Tierwelt: Sie sind nah am Äquator, auf weißem Sand, neben reflektierendem Wasser. Hut, lange Ärmel, Sonnencreme mit hohem Lichtschutzfaktor.
 
-Insektenschutz für Waldspaziergänge in der Dämmerung — der Strand selbst hat allerdings keine Mücken, was viele so überrascht, dass wir eigens darüber geschrieben haben.
+Insektenschutz für Waldspaziergänge in der Dämmerung — am Strand selbst gibt es allerdings so gut wie keine Mücken, was viele so überrascht, dass wir eigens darüber geschrieben haben.
 
 Bargeld in Reais. Manche Aktivitäten in der Gemeinde werden direkt an die Familien bezahlt, die sie anbieten, und mitten im Reservat gibt es kein Kartenlesegerät.
 
