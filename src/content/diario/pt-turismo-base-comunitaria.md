@@ -7,6 +7,7 @@ tituloCurto: "Turismo de base comunitária"
 descricao: "Turismo de base comunitária não é turismo com visita a comunidade. É turismo em que quem mora decide, conduz e recebe. Como isso funciona dentro de uma reserva extrativista no Rio Arapiuns."
 resposta: "Turismo de base comunitária é o modelo em que os moradores do território conduzem a operação e ficam com a receita, em vez de serem paisagem ou mão de obra de um negócio de fora. No Rio Arapiuns isso acontece dentro da Reserva Extrativista Tapajós-Arapiuns, onde as comunidades detêm o direito de uso do território: os guias, a cozinha e as oficinas são de quem vive ali, e as atividades são pagas diretamente às famílias que as conduzem."
 data: 2026-08-30
+revisado: 2026-10-28
 imagem: farinhada
 imagemAlt: "Duas mulheres debruçadas sobre um tabuleiro de madeira cheio de massa de mandioca, sob um telheiro de palha, com outras pessoas ao redor"
 legenda: "A farinhada · a massa de mandioca, com quem faz isso toda semana"
@@ -72,6 +73,10 @@ Se o texto acabasse aqui seria propaganda. Duas honestidades.
 
 ## O que a Villa é, então
 
-Treze bangalôs de arquitetura tapajônica na margem do Arapiuns, para até 26 hóspedes, com alimentação completa e energia solar. A operação e a gestão são conduzidas pela comunidade ribeirinha; as atividades, por quem mora. A partir de 15 pessoas o grupo tem a Villa inteira.
+Treze bangalôs de arquitetura tapajônica na margem do Arapiuns, para até 26 hóspedes, com todas as refeições incluídas, energia solar 24h e Wi‑Fi Starlink. A operação e a gestão são conduzidas pela comunidade ribeirinha; as atividades, por quem mora. A partir de 15 pessoas o grupo tem a Villa inteira.
 
 É turismo de base comunitária com conforto de pousada — e a razão de escrevermos isto é que essas duas coisas raramente aparecem juntas, e quando aparecem, quase sempre é a segunda que come a primeira.
+
+## Para planejar a visita
+
+Na pousada, **todas as refeições incluídas**; o almoço na comunidade é pago à parte. Os bangalôs têm **energia solar 24h** e **Wi‑Fi Starlink**, e a casa é praticamente sem mosquito. Para conhecer as praias e as comunidades do rio, leia o [guia do Rio Arapiuns](/pt/diario/rio-arapiuns-guia/); a temporada de praias vai até janeiro, passando pelo [Réveillon no Rio Arapiuns](/pt/reveillon/). Chegada e alimentação são combinadas com o anfitrião antes da viagem: [fale com a gente no WhatsApp](https://wa.me/5547992067078).

@@ -7,6 +7,7 @@ tituloCurto: "Mosquitos en Alter do Chão"
 descricao: "Por qué las playas de agua clara del Tapajós y el Arapiuns casi no tienen mosquitos, dónde sí los encontrará, y qué significa esto para un viaje a la Amazonía."
 resposta: "Muchos menos de lo que usted espera. Las playas de arena blanca de Alter do Chão y el Río Arapiuns están sobre ríos de agua clara, de fondo arenoso y orillas abiertas, lavadas por el oleaje — un mal criadero para mosquitos. Los insectos que la gente asocia con la Amazonía se reproducen en aguas negras, quietas y sombreadas, y en llanuras de inundación fangosas, no en estas playas. Usted los encontrará en un sendero de la selva al anochecer, no en la cena sobre la arena."
 data: 2026-08-27
+revisado: 2026-10-28
 imagem: agua-transparente
 imagemAlt: "Banco de arena que se curva hacia el agua azul y clara del río, sol alto, línea de selva en la orilla opuesta, fondo arenoso visible a través de las aguas poco profundas"
 legenda: "Agua clara sobre arena · la razón por la que las playas están tranquilas"
@@ -59,6 +60,10 @@ Preferimos que nos crean a que nos encuentren impresionantes, así que van las s
 El sol. Siempre.
 
 Usted está cerca del Ecuador, sobre arena clara, junto a un agua que le devuelve la luz directamente. Los huéspedes que se prepararon para los insectos y no para la radiación ultravioleta pasan el tercer día adentro. Sombrero, mangas largas, protector solar de factor alto, y sombra a mediodía.
+
+## En la Villa, hoy
+
+En la Villa Arapiuns casi no hay mosquitos — no prometemos cero, esto es selva. Los bungalós tienen energía solar las 24 horas y wifi Starlink, y en la posada todas las comidas están incluidas. Hay primeros auxilios en el lugar, no atención médica. La temporada de playas va hasta enero, con [Año Nuevo en el Arapiuns](/es/ano-nuevo/); más sobre el río en la [guía del Río Arapiuns](/es/diario/guia-del-rio-arapiuns/). La llegada y las comidas se coordinan con el anfitrión antes del viaje: [escríbanos por WhatsApp](https://wa.me/5547992067078).
 
 ## Por qué nos tomamos el trabajo de escribir esto
 

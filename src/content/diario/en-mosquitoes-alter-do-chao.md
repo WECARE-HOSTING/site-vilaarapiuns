@@ -7,6 +7,7 @@ tituloCurto: "Mosquitoes in Alter do Chão"
 descricao: "Why the clearwater beaches of the Tapajós and Arapiuns have almost no mosquitoes, where you will actually meet them, and what that means for an Amazon trip."
 resposta: "Far fewer than you expect. The white-sand beaches of Alter do Chão and the Rio Arapiuns sit on clearwater rivers with sandy bottoms and open, wave-washed shorelines, which are poor breeding ground for mosquitoes. The insects people associate with the Amazon breed in still, shaded blackwater and in muddy floodplain — not on these beaches. You will meet them on a forest trail at dusk, not at dinner on the sand."
 data: 2026-08-27
+revisado: 2026-10-28
 imagem: agua-transparente
 imagemAlt: "Sandbank curving into clear blue river water, sun high, forest line on the far shore, the sandy bottom visible through the shallows"
 legenda: "Clear water over sand · the reason the beaches are quiet"
@@ -59,6 +60,12 @@ We would rather be believed than impressive, so the qualifications:
 The sun. Every time.
 
 You are near the Equator, on pale sand, beside water that throws light straight back at you. Guests who prepared for insects and not for ultraviolet spend the third day indoors. Hat, long sleeves, high-factor sunscreen, and shade in the middle of the day.
+
+## What it is like at the Villa now
+
+At Villa Arapiuns the property is **practically mosquito-free** — we won't promise zero, because this is forest. Dinner is served on the sand, the bungalows have **24h solar power** and **Starlink Wi‑Fi**, and the lodge includes **all meals** (packages include breakfast and dinner). There is first aid on site, not medical care, so the travel-clinic conversation still applies.
+
+October and November are the peak of the dry season, with the sandbanks at their widest, and beach season runs through January, including [New Year's Eve on the Arapiuns](/en/new-years-eve/). To understand the river before you come, read the [Arapiuns River guide](/en/diario/rio-arapiuns-guide/). Arrival logistics and meals are arranged with the host before your trip: [message us on WhatsApp](https://wa.me/5547992067078).
 
 ## Why we bothered writing this
 
