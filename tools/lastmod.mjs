@@ -128,26 +128,49 @@ export function fontesPorCaminho(slugs) {
  * O DICIONÁRIO É POR SEÇÃO, NÃO POR ARQUIVO. `src/i18n/<l>.json` alimenta
  * todas as páginas do idioma; datar a página pelo arquivo inteiro fazia uma
  * troca no title da pousada mudar o lastmod das ~14 páginas PT. Aqui a página
- * só depende do que ela lê: `titulo.<key>`, `desc.<key>` e as seções que o
- * componente chama com t('secao.…'). Seções compartilhadas (nav, cta, footer)
- * contam como moldura, igual ao layout. A data é a do último commit
- * (--first-parent) em que ESSE recorte mudou.
+ * só depende do que ela lê: `titulo.<key>`, `desc.<key>` e as chaves que o
+ * componente chama com t('secao.chave'). Seções compartilhadas (nav, cta,
+ * footer) contam como moldura, igual ao layout. A data é a do último commit
+ * (--first-parent) em que ESSE recorte mudou, com o PISO abaixo.
  */
-const secoesCache = new Map();
-function secoesDoComponente(comp) {
-  if (secoesCache.has(comp)) return secoesCache.get(comp);
+const chavesCache = new Map();
+/**
+ * Chaves do dicionário que o componente lê. t('sec.chave') literal → só
+ * aquela chave; t(`sec.${x}`) dinâmico → a seção inteira (não dá para saber
+ * qual chave). Seções de moldura ficam de fora.
+ */
+function chavesDoComponente(comp) {
+  if (chavesCache.has(comp)) return chavesCache.get(comp);
   const txt = readFileSync(`${RAIZ}src/content-pages/${comp}.astro`, 'utf-8');
-  const usadas = new Set([...txt.matchAll(/t\(\s*['"`]([A-Za-z0-9_]+)\./g)].map((m) => m[1]));
-  for (const moldura of ['nav', 'cta', 'footer', 'whatsapp', 'a11y', 'carousel', 'trust', 'site']) usadas.delete(moldura);
-  secoesCache.set(comp, usadas);
-  return usadas;
+  const MOLDURA = new Set(['nav', 'cta', 'footer', 'whatsapp', 'a11y', 'carousel', 'trust', 'site']);
+  const chaves = new Set();
+  for (const m of txt.matchAll(/t\(\s*(['"`])([^'"`]+)\1/g)) {
+    const ref = m[2];
+    const sec = ref.split('.')[0];
+    if (MOLDURA.has(sec)) continue;
+    chaves.add(m[1] === '`' && ref.includes('${') ? sec : ref);
+  }
+  for (const m of txt.matchAll(/t\(\s*`([A-Za-z0-9_]+)\.\$\{/g)) chaves.add(m[1]);
+  const lista = [...chaves].sort();
+  chavesCache.set(comp, lista);
+  return lista;
+}
+function valor(obj, caminho) {
+  return caminho.split('.').reduce((o, k) => (o == null ? undefined : o[k]), obj);
 }
 function recorte(jsonTxt, key) {
   let obj;
   try { obj = JSON.parse(jsonTxt); } catch { return null; }
-  const secoes = [...secoesDoComponente(COMPONENTE_DA_PAGINA[key])].sort();
-  return JSON.stringify([obj.titulo?.[key], obj.desc?.[key], secoes.map((k) => [k, obj[k]])]);
+  const chaves = chavesDoComponente(COMPONENTE_DA_PAGINA[key]);
+  return JSON.stringify([obj.titulo?.[key], obj.desc?.[key], chaves.map((k) => [k, valor(obj, k)])]);
 }
+/**
+ * PISO. Até 19/10/2026 a regra era o arquivo inteiro, e essas datas já estão
+ * publicadas no sitemap. A granularidade por chave vale daqui para frente:
+ * uma página sem mudança não volta no tempo (lastmod que recua também é sinal
+ * de dado inconsistente).
+ */
+const PISO_DICIONARIO = '2026-10-19';
 function dataDoTrecho(ref, sujos, hoje) {
   const [arq, key] = ref.split('#');
   const show = (rev) => { try { return gitBruto(['show', `${rev}:${arq}`]); } catch { return null; } };
@@ -158,7 +181,10 @@ function dataDoTrecho(ref, sujos, hoje) {
   for (let i = 0; i < commits.length; i++) {
     const [h, ts] = commits[i];
     const antes = i + 1 < commits.length ? show(commits[i + 1][0]) : null;
-    if (antes === null || recorte(show(h) ?? '', key) !== recorte(antes, key)) return dataSP(new Date(Number(ts) * 1000));
+    if (antes === null || recorte(show(h) ?? '', key) !== recorte(antes, key)) {
+      const d = dataSP(new Date(Number(ts) * 1000));
+      return d < PISO_DICIONARIO ? PISO_DICIONARIO : d;
+    }
   }
   return null;
 }
