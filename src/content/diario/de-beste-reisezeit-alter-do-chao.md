@@ -7,6 +7,7 @@ tituloCurto: "Beste Reisezeit"
 descricao: "Wann die Strände von Tapajós und Arapiuns Monat für Monat erscheinen und verschwinden – und welche Monate sich für Strände, überfluteten Wald, Feste oder einen menschenleeren Fluss eignen."
 resposta: "Für Strände kommen Sie zwischen August und Januar, wenn die Flüsse fallen und die weißen Sandbänke auftauchen — Oktober und November sind der Höhepunkt, mit dem niedrigsten Wasserstand und den breitesten Sandflächen. Von Februar bis Juni steigen die Flüsse, die Strände verschwinden unter Wasser, und der Wald flutet zum Igapó, durch den Sie paddeln können. Der Juli ist die Wende, mit zurückkehrenden Stränden."
 data: 2026-08-28
+revisado: 2026-10-28
 imagem: banco-areia-gente
 imagemAlt: "Zwei Menschen gehen über eine riesige helle Sandbank davon, weitere Gestalten und vertäute Boote weit entfernt am Wasserrand unter einem diesigen Himmel"
 legenda: "Spätes Ende der Trockenzeit · die Sandbänke auf ihrer größten Ausdehnung"
@@ -78,4 +79,4 @@ Keine der beiden ist die gute Jahreszeit. Es sind unterschiedliche Reisen, und d
 
 ## Was sich nicht ändert
 
-Die Sonne ist das ganze Jahr über stark — Sie befinden sich in der Nähe des Äquators, und der helle Sand und das klare Wasser werfen alles zurück. Und an den Stränden gibt es in keinem Monat Mücken, was Menschen so sehr überrascht, dass es eine eigene Seite dazu gibt.
+Die Sonne ist das ganze Jahr über stark — Sie befinden sich in der Nähe des Äquators, und der helle Sand und das klare Wasser werfen alles zurück. Und an den Stränden gibt es das ganze Jahr über so gut wie keine Mücken, was Menschen so sehr überrascht, dass es eine eigene Seite dazu gibt.

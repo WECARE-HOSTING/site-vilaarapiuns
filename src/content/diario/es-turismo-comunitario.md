@@ -7,6 +7,7 @@ tituloCurto: "Turismo de base comunitaria"
 descricao: "El turismo de base comunitaria no es turismo con visita a la comunidad. Es turismo en el que quien vive allí decide, conduce y recibe. Cómo funciona esto dentro de una reserva extractivista en el río Arapiuns."
 resposta: "El turismo de base comunitaria es el modelo en que los habitantes del territorio conducen la operación y se quedan con los ingresos, en vez de ser paisaje o mano de obra de un negocio externo. En el río Arapiuns esto ocurre dentro de la Reserva Extractivista Tapajós-Arapiuns, donde las comunidades tienen el derecho de uso del territorio: los guías, la cocina y los talleres son de quienes viven allí, y las actividades se pagan directamente a las familias que las conducen."
 data: 2026-08-30
+revisado: 2026-10-28
 imagem: farinhada
 imagemAlt: "Dos mujeres inclinadas sobre una bandeja de madera llena de masa de mandioca, bajo un tejado de paja, con otras personas alrededor"
 legenda: "La farinhada · la masa de mandioca, con quien la hace cada semana"
@@ -72,6 +73,10 @@ Si el texto terminara aquí, sería propaganda. Dos honestidades.
 
 ## Qué es la Villa, entonces
 
-Trece bangalôs de arquitetura tapajônica en la margen del Arapiuns, para hasta 26 huéspedes, con alimentación completa y energía solar. La operación y la gestión son conducidas por la comunidad ribereña; las actividades, por quienes viven allí. A partir de 15 personas, el grupo tiene la Villa entera.
+Trece bangalôs de arquitetura tapajônica en la margen del Arapiuns, para hasta 26 huéspedes, con todas las comidas incluidas, energía solar las 24 horas y wifi Starlink. La operación y la gestión son conducidas por la comunidad ribereña; las actividades, por quienes viven allí. A partir de 15 personas, el grupo tiene la Villa entera.
 
 Es turismo de base comunitaria con el confort de una posada — y la razón por la que escribimos esto es que esas dos cosas rara vez aparecen juntas, y cuando aparecen, casi siempre es la segunda la que se come a la primera.
+
+## Para planear la visita
+
+En la Villa, todas las comidas están incluidas; el almuerzo en la comunidad se paga aparte, y va directo a quien lo prepara. Los bungalós tienen energía solar las 24 horas y wifi Starlink, y casi no hay mosquitos. Para conocer las playas y comunidades del río, lea la [guía del Río Arapiuns](/es/diario/guia-del-rio-arapiuns/); la temporada de playas va hasta enero, con [Año Nuevo en el Arapiuns](/es/ano-nuevo/). La llegada y las comidas se coordinan con el anfitrión antes del viaje: [escríbanos por WhatsApp](https://wa.me/5547992067078).

@@ -7,6 +7,7 @@ tituloCurto: "Mejor época para visitar"
 descricao: "Cuándo aparecen y desaparecen las playas del Tapajós y del Arapiuns, mes a mes, y qué meses convienen para playas, bosque inundado, festivales o un río casi vacío."
 resposta: "Para las playas, venga entre agosto y enero, cuando los ríos bajan y emergen los bancos de arena blanca — octubre y noviembre son el punto máximo, con el agua en su nivel más bajo y la arena en su punto más ancho. De febrero a junio los ríos suben, las playas quedan bajo el agua, y el bosque se inunda en el igapó, que se puede recorrer en canoa. Julio es el giro, con las playas regresando."
 data: 2026-08-28
+revisado: 2026-10-28
 imagem: banco-areia-gente
 imagemAlt: "Dos personas alejándose a través de un enorme banco de arena pálida, con más figuras y botes amarrados a lo lejos, en la línea del agua, bajo un cielo brumoso"
 legenda: "Final de la estación seca · los bancos de arena en su punto más ancho"
@@ -78,4 +79,4 @@ Ninguna es la estación buena. Son viajes distintos, y el error es llegar espera
 
 ## Lo que no cambia
 
-El sol es fuerte todo el año — está cerca del Ecuador, y la arena pálida y el agua clara reflejan todo. Y las playas no tienen mosquitos en ningún mes, lo que sorprende a la gente lo suficiente como para tener su propia página.
+El sol es fuerte todo el año — está cerca del Ecuador, y la arena pálida y el agua clara reflejan todo. Y las playas casi no tienen mosquitos en todo el año, lo que sorprende a la gente lo suficiente como para tener su propia página.

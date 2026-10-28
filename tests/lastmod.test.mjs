@@ -16,7 +16,7 @@ test('lastmod: toda PageKey tem componente de conteúdo, e o arquivo existe', ()
 test('lastmod: as fontes de cada URL existem (nenhuma data sai de arquivo fantasma)', () => {
   for (const [caminho, fontes] of fontesPorCaminho(SLUGS)) {
     assert.ok(fontes.length > 0, `${caminho} sem fonte`);
-    for (const f of fontes) assert.ok(existsSync(f), `${caminho}: ${f} não existe`);
+    for (const f of fontes) { const arq = f.split("#")[0]; assert.ok(existsSync(arq), `${caminho}: ${arq} não existe`); }
   }
 });
 

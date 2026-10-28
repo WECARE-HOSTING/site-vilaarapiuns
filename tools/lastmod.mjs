@@ -65,8 +65,12 @@ function dataSP(d) {
   return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Sao_Paulo', year: 'numeric', month: '2-digit', day: '2-digit' }).format(d);
 }
 
+function gitBruto(args) {
+  return execFileSync('git', args, { cwd: RAIZ, encoding: 'utf-8', stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 64 * 1024 * 1024 });
+}
+
 function git(args) {
-  return execFileSync('git', args, { cwd: RAIZ, encoding: 'utf-8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+  return gitBruto(args).trim();
 }
 
 /** Histórico completo disponível? Clone raso ou sem git → false. */
@@ -108,23 +112,116 @@ export function fontesPorCaminho(slugs) {
     if (!comp) continue;
     for (const l of LOCALES) {
       const caminho = porLocale[l] ? `/${l}/${porLocale[l]}/` : `/${l}/`;
-      mapa.set(caminho, [`src/content-pages/${comp}.astro`, `src/i18n/${l}.json`]);
+      mapa.set(caminho, [`src/content-pages/${comp}.astro`, `src/i18n/${l}.json#${key}`]);
     }
   }
   const posts = postsDoDiario();
   for (const p of posts) mapa.set(p.caminho, [p.arquivo]);
   for (const l of LOCALES) {
     const doIdioma = posts.filter((p) => p.locale === l).map((p) => p.arquivo);
-    if (doIdioma.length) mapa.set(`/${l}/diario/`, doIdioma);
+    if (doIdioma.length) mapa.set(`/${l}/diario/`, [`${DIARIO}#listagem:${l}`]);
   }
   return mapa;
+}
+
+/**
+ * O DICIONÁRIO É POR SEÇÃO, NÃO POR ARQUIVO. `src/i18n/<l>.json` alimenta
+ * todas as páginas do idioma; datar a página pelo arquivo inteiro fazia uma
+ * troca no title da pousada mudar o lastmod das ~14 páginas PT. Aqui a página
+ * só depende do que ela lê: `titulo.<key>`, `desc.<key>` e as chaves que o
+ * componente chama com t('secao.chave'). Seções compartilhadas (nav, cta,
+ * footer) contam como moldura, igual ao layout. A data é a do último commit
+ * (--first-parent) em que ESSE recorte mudou.
+ */
+const chavesCache = new Map();
+/**
+ * Chaves do dicionário que o componente lê. t('sec.chave') literal → só
+ * aquela chave; t(`sec.${x}`) dinâmico → a seção inteira (não dá para saber
+ * qual chave). Seções de moldura ficam de fora.
+ */
+function chavesDoComponente(comp) {
+  if (chavesCache.has(comp)) return chavesCache.get(comp);
+  const txt = readFileSync(`${RAIZ}src/content-pages/${comp}.astro`, 'utf-8');
+  const MOLDURA = new Set(['nav', 'cta', 'footer', 'whatsapp', 'a11y', 'carousel', 'trust', 'site']);
+  const chaves = new Set();
+  for (const m of txt.matchAll(/t\(\s*(['"`])([^'"`]+)\1/g)) {
+    const ref = m[2];
+    const sec = ref.split('.')[0];
+    if (MOLDURA.has(sec)) continue;
+    chaves.add(m[1] === '`' && ref.includes('${') ? sec : ref);
+  }
+  for (const m of txt.matchAll(/t\(\s*`([A-Za-z0-9_]+)\.\$\{/g)) chaves.add(m[1]);
+  const lista = [...chaves].sort();
+  chavesCache.set(comp, lista);
+  return lista;
+}
+function valor(obj, caminho) {
+  return caminho.split('.').reduce((o, k) => (o == null ? undefined : o[k]), obj);
+}
+function recorte(jsonTxt, key) {
+  let obj;
+  try { obj = JSON.parse(jsonTxt); } catch { return null; }
+  const chaves = chavesDoComponente(COMPONENTE_DA_PAGINA[key]);
+  return JSON.stringify([obj.titulo?.[key], obj.desc?.[key], chaves.map((k) => [k, valor(obj, k)])]);
+}
+function dataDoTrecho(ref, sujos, hoje) {
+  const [arq, key] = ref.split('#');
+  const show = (rev) => { try { return gitBruto(['show', `${rev}:${arq}`]); } catch { return null; } };
+  if (sujos.has(arq)) {
+    if (recorte(readFileSync(`${RAIZ}${arq}`, 'utf-8'), key) !== recorte(show('HEAD') ?? '', key)) return hoje;
+  }
+  const commits = git(['log', '--first-parent', '--format=%H %ct', '--', arq]).split('\n').filter(Boolean).map((l) => l.split(' '));
+  for (let i = 0; i < commits.length; i++) {
+    const [h, ts] = commits[i];
+    const antes = i + 1 < commits.length ? show(commits[i + 1][0]) : null;
+    if (antes === null || recorte(show(h) ?? '', key) !== recorte(antes, key)) {
+      return dataSP(new Date(Number(ts) * 1000));
+    }
+  }
+  return null;
+}
+
+/**
+ * ÍNDICE DO DIÁRIO = A LISTAGEM RENDERIZADA. O índice mostra, de cada post
+ * publicado do idioma, título, descrição, data, imagem, alt e link. Mexer no
+ * corpo de um post não muda o índice; então o índice só ganha data quando
+ * esse recorte muda (src/pages/[locale]/diario/index.astro).
+ */
+const CAMPOS_LISTAGEM = ['locale', 'slug', 'titulo', 'descricao', 'data', 'imagem', 'imagemAlt', 'rascunho'];
+function listagem(arquivos, locale) {
+  return JSON.stringify(
+    arquivos
+      .map((txt) => Object.fromEntries(CAMPOS_LISTAGEM.map((k) => [k, campo(txt, k) ?? null])))
+      .filter((p) => p.locale === locale && p.rascunho !== 'true')
+      .sort((x, y) => (x.slug ?? '').localeCompare(y.slug ?? '')),
+  );
+}
+function listagemNoRev(rev, locale) {
+  const nomes = git(['ls-tree', '--name-only', rev, `${DIARIO}/`]).split('\n').filter((f) => f.endsWith('.md'));
+  return listagem(nomes.map((f) => gitBruto(['show', `${rev}:${f}`])), locale);
+}
+function dataDaListagem(locale, sujos, hoje) {
+  const sujo = [...sujos].some((f) => f.startsWith(`${DIARIO}/`));
+  if (sujo) {
+    const atual = listagem(readdirSync(`${RAIZ}${DIARIO}`).filter((f) => f.endsWith('.md')).map((f) => readFileSync(`${RAIZ}${DIARIO}/${f}`, 'utf-8')), locale);
+    if (atual !== listagemNoRev('HEAD', locale)) return hoje;
+  }
+  const commits = git(['log', '--first-parent', '--format=%H %ct', '--', DIARIO]).split('\n').filter(Boolean).map((l) => l.split(' '));
+  for (let i = 0; i < commits.length; i++) {
+    const [h, ts] = commits[i];
+    const antes = i + 1 < commits.length ? listagemNoRev(commits[i + 1][0], locale) : null;
+    if (antes === null || listagemNoRev(h, locale) !== antes) return dataSP(new Date(Number(ts) * 1000));
+  }
+  return null;
 }
 
 /** Datas pelo git. Só chamar com temHistoricoGit() verdadeiro. */
 export function lastmodPeloGit(slugs) {
   const hoje = dataSP(new Date());
   const sujos = new Set(
-    git(['status', '--porcelain', '--untracked-files=all'])
+    // Sem trim(): o porcelain começa com espaço (" M arq") e o trim comia o
+    // 1º caractere do caminho da 1ª linha — esse arquivo nunca era "sujo".
+    gitBruto(['status', '--porcelain', '--untracked-files=all'])
       .split('\n')
       .filter(Boolean)
       .map((l) => l.slice(3).trim()),
@@ -132,6 +229,16 @@ export function lastmodPeloGit(slugs) {
   const cache = new Map();
   const dataDoArquivo = (f) => {
     if (cache.has(f)) return cache.get(f);
+    if (f.includes('#listagem:')) {
+      const d = dataDaListagem(f.split('#listagem:')[1], sujos, hoje);
+      cache.set(f, d);
+      return d;
+    }
+    if (f.includes('#')) {
+      const d = dataDoTrecho(f, sujos, hoje);
+      cache.set(f, d);
+      return d;
+    }
     let d = null;
     if (sujos.has(f)) d = hoje;
     else {

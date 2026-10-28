@@ -7,6 +7,7 @@ tituloCurto: "Mücken in Alter do Chão"
 descricao: "Warum es an den Klarwasserstränden des Tapajós und des Arapiuns fast keine Mücken gibt, wo Sie ihnen tatsächlich begegnen und was das für eine Amazonas-Reise bedeutet."
 resposta: "Deutlich weniger, als Sie erwarten. Die weißen Sandstrände von Alter do Chão und am Rio Arapiuns liegen an Klarwasserflüssen mit sandigem Grund und offenen, vom Wellengang bespülten Ufern — ein schlechter Nährboden für Mücken. Die Insekten, die man mit dem Amazonas verbindet, brüten in stillem, beschattetem Schwarzwasser und in schlammigen Überschwemmungsgebieten, nicht an diesen Stränden. Ihnen begegnen Sie auf einem Waldpfad in der Abenddämmerung, nicht beim Abendessen auf dem Sand."
 data: 2026-08-27
+revisado: 2026-10-28
 imagem: agua-transparente
 imagemAlt: "Eine Sandbank, die sich ins klare, blaue Flusswasser krümmt, hoch stehende Sonne, Waldlinie am gegenüberliegenden Ufer, der sandige Grund durch die Untiefen hindurch sichtbar"
 legenda: "Klares Wasser über Sand · der Grund, warum die Strände ruhig sind"
@@ -14,7 +15,7 @@ destino: lodge
 duvidas:
   - q: "Brauche ich in Alter do Chão ein Mückenschutzmittel?"
     a: "Bringen Sie es mit, verwenden Sie es bei Waldspaziergängen in der Abenddämmerung, und rechnen Sie damit, es am Strand nicht zu brauchen. Die meisten Gäste beenden eine Woche mit fast voller Flasche."
-  - q: "Warum gibt es an diesen Stränden keine Mücken?"
+  - q: "Warum gibt es an diesen Stränden so gut wie keine Mücken?"
     a: "Mückenlarven brauchen stehendes Wasser. Ein Klarwasserfluss mit sandigem Grund und einem offenen, dem Wind ausgesetzten Ufer lässt ihnen kaum Platz zur Entwicklung, und das Wasser führt wenig von dem organischen Material mit sich, von dem sich ihre Larven ernähren."
   - q: "Ist Malaria am Tapajós ein Risiko?"
     a: "Das Risiko im brasilianischen Amazonasgebiet variiert enorm je nach Ort und Jahreszeit, und das Klarwasserbecken des Tapajós ist nicht mit einem überfluteten Schwarzwasser-Igarapé vergleichbar. Das ist eine medizinische Frage, keine Reiseblog-Frage — fragen Sie einen reisemedizinischen Dienst zu Ihrer konkreten Reiseroute."
@@ -59,6 +60,10 @@ Uns ist wichtiger, dass man uns glaubt, als dass wir beeindrucken — deshalb di
 Die Sonne. Jedes Mal.
 
 Sie sind in der Nähe des Äquators, auf hellem Sand, neben Wasser, das das Licht direkt zurückwirft. Gäste, die sich auf Insekten vorbereitet haben und nicht auf Ultraviolettstrahlung, verbringen den dritten Tag drinnen. Hut, lange Ärmel, Sonnencreme mit hohem Lichtschutzfaktor und Schatten in der Mitte des Tages.
+
+## Bei uns in der Villa
+
+In der Villa Arapiuns gibt es so gut wie keine Mücken — null versprechen wir nicht, es ist Regenwald. Die Bungalows haben rund um die Uhr Solarstrom und Starlink-WLAN, in der Pousada sind alle Mahlzeiten inklusive. Vor Ort gibt es Erste Hilfe, aber keine ärztliche Versorgung. Mehr zum Fluss steht im [Rio-Arapiuns-Führer](/de/diario/rio-arapiuns-fuehrer/), und die Strandsaison reicht bis Januar, [Silvester am Arapiuns](/de/silvester/) inklusive. Anreise und Verpflegung stimmen Sie vorab mit dem Gastgeber ab: [per WhatsApp](https://wa.me/5547992067078).
 
 ## Warum wir uns die Mühe gemacht haben, das zu schreiben
 

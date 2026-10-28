@@ -8,7 +8,7 @@ tituloSeo: "Rio Arapiuns | Guia de praias, época e como chegar | Villa Arapiuns
 descricao: "Praias de areia branca, a época do rio baixo e como chegar de Alter do Chão (1h30 de lancha). O guia do Rio Arapiuns escrito por quem mora nele, na Amazônia."
 resposta: "O Rio Arapiuns é um afluente de água clara do Tapajós, no oeste do Pará, a 1h30 de lancha de Alter do Chão. Corre inteiro dentro da Reserva Extrativista Tapajós-Arapiuns, e é onde estão as praias de areia branca e água transparente que a Amazônia raramente mostra. De agosto a janeiro o rio baixa e as praias emergem; de fevereiro a junho ele enche e a paisagem vira floresta alagada."
 data: 2026-08-26
-revisado: 2026-10-19
+revisado: 2026-10-28
 imagem: banco-areia
 imagemAlt: "Banco de areia dourada avançando dentro do rio azul, com pegadas na areia e a linha de mata no horizonte"
 legenda: "Banco de areia no Arapiuns · estação seca"
@@ -70,7 +70,7 @@ Essa merece parágrafo próprio porque não é um passeio, é uma refeição. Pe
 
 ## Mosquito, sol e o que levar
 
-A pergunta mais frequente merece resposta direta: **a praia de areia branca do Arapiuns não tem mosquito**. Água clara com fundo de areia e margem aberta não é criadouro — o mosquito da Amazônia que assombra o imaginário vive nos igarapés escuros de mata fechada e nas áreas de várzea barrenta. Isso não é uma promessa de que nenhum inseto existe na floresta: numa trilha de mata, em fim de tarde, repelente é sensato. Mas o cenário que a pessoa teme — não conseguir jantar ao ar livre — não é o cenário daqui.
+A pergunta mais frequente merece resposta direta: **a praia de areia branca do Arapiuns é praticamente sem mosquito**. Água clara com fundo de areia e margem aberta não é criadouro — o mosquito da Amazônia que assombra o imaginário vive nos igarapés escuros de mata fechada e nas áreas de várzea barrenta. Isso não é uma promessa de que nenhum inseto existe na floresta: numa trilha de mata, em fim de tarde, repelente é sensato. Mas o cenário que a pessoa teme — não conseguir jantar ao ar livre — não é o cenário daqui.
 
 O que castiga de verdade é o **sol**. Está-se perto da linha do Equador, refletido em areia clara e água. Chapéu, camisa de manga e protetor não são exagero.
 

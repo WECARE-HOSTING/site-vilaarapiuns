@@ -3,10 +3,12 @@ locale: pt
 grupo: melhor-epoca
 slug: melhor-epoca-para-visitar-alter-do-chao
 titulo: "Melhor época para visitar Alter do Chão: calendário de praias mês a mês"
+tituloSeo: "Melhor época no Rio Arapiuns | Alter do Chão | Villa Arapiuns"
 tituloCurto: "Melhor época para visitar"
-descricao: "Quando as praias do Tapajós e do Arapiuns aparecem e somem, mês a mês, e quais meses combinam com praia, floresta alagada, festival ou rio vazio."
+descricao: "Praias de areia branca de agosto a janeiro, com pico em outubro e novembro: calendário mês a mês do Rio Arapiuns, com o Réveillon no meio da temporada."
 resposta: "Para praias, venha entre agosto e janeiro, quando os rios baixam e os bancos de areia branca aparecem — outubro e novembro são o pico, com a água no nível mais baixo e a areia na largura máxima. De fevereiro a junho os rios sobem, as praias somem debaixo d'água, e a floresta alaga formando o igapó, que dá pra navegar de canoa. Julho é a virada, com as praias voltando."
 data: 2026-08-28
+revisado: 2026-10-28
 imagem: banco-areia-gente
 imagemAlt: "Duas pessoas caminhando ao longe sobre um enorme banco de areia clara, com mais figuras e barcos ancorados distantes na linha d'água sob um céu enevoado"
 legenda: "Fim da estação seca · os bancos de areia na largura máxima"
@@ -78,4 +80,4 @@ Nenhuma das duas é a estação boa. São viagens diferentes, e o erro é chegar
 
 ## O que não muda
 
-O sol é forte o ano inteiro — você está perto do Equador, e a areia clara e a água transparente refletem tudo de volta. E as praias não têm mosquitos em nenhum mês, o que surpreende tanto que virou assunto de página própria.
+O sol é forte o ano inteiro — você está a poucos graus do Equador, e a areia clara e a água transparente refletem tudo de volta. E as praias são praticamente sem mosquito o ano inteiro, o que surpreende tanto que virou assunto de página própria.

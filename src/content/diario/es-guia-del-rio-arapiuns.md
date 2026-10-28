@@ -7,6 +7,7 @@ tituloCurto: "Guía del Río Arapiuns"
 descricao: "Qué es el Río Arapiuns, dónde quedan las playas de arena blanca, cuándo baja el río, cómo se llega desde Alter do Chão y dónde hospedarse. Guía escrita desde dentro de la RESEX Tapajós-Arapiuns."
 resposta: "El Río Arapiuns es un afluente de agua clara del Tapajós, en el oeste de Pará, a 1h30 en lancha desde Alter do Chão. Corre enteramente dentro de la Reserva Extractivista Tapajós-Arapiuns, y es donde están las playas de arena blanca y agua transparente que la Amazonía rara vez muestra. De agosto a enero el río baja y las playas emergen; de febrero a junio se llena y el paisaje se convierte en bosque inundado."
 data: 2026-08-26
+revisado: 2026-10-28
 imagem: banco-areia
 imagemAlt: "Banco de arena dorada avanzando dentro del río azul, con huellas en la arena y la línea de selva en el horizonte"
 legenda: "Banco de arena en el Arapiuns · temporada seca"
@@ -82,6 +83,12 @@ El viaje es largo y es así a propósito. El tramo de barco es lo que separa al 
 
 ## Dónde hospedarse
 
-La oferta en el Arapiuns es corta, y eso es parte de lo que lo preserva. Existen **hospedajes comunitarios** en las comunidades — simples, baratos, gestionados por los propios habitantes, y la mejor forma de dormir dentro de la vida del río. Y existe la **Villa Arapiuns**: trece bangalôs de arquitetura tapajônica, a pie de playa, para hasta 26 huéspedes, con alimentación completa, energía solar y operación conducida por la comunidad. Es donde estamos escribiendo esto.
+La oferta en el Arapiuns es corta, y eso es parte de lo que lo preserva. Existen **hospedajes comunitarios** en las comunidades — simples, baratos, gestionados por los propios habitantes, y la mejor forma de dormir dentro de la vida del río. Y existe la **Villa Arapiuns**: trece bangalôs de arquitetura tapajônica, a pie de playa, para hasta 26 huéspedes, con todas las comidas incluidas, energía solar las 24 horas, wifi Starlink y operación conducida por la comunidad. Es donde estamos escribiendo esto.
 
 A partir de 15 personas la Villa opera en exclusividad — lo que sirve a retiros, grupos de amigos y equipos de empresa que quieren el lugar entero.
+
+## Antes de reservar
+
+Hoy la Villa ofrece en los bungalós **energía solar las 24 horas** y **wifi Starlink**; en la posada, **todas las comidas incluidas** (en los paquetes, desayuno y cena). El almuerzo en la comunidad se paga aparte. Casi no hay mosquitos — lo explicamos en [¿Hay mosquitos en Alter do Chão?](/es/diario/hay-mosquitos-en-alter-do-chao/). Hay primeros auxilios en el lugar e hidroavión bajo demanda; no hay atención médica.
+
+El acceso es de 1h30 en lancha desde Alter do Chão, y el aeropuerto es Santarém (STM). La llegada y las comidas se coordinan con el anfitrión antes del viaje. Octubre y noviembre son el pico de las playas, y la temporada sigue hasta enero, pasando por [Año Nuevo en el Arapiuns](/es/ano-nuevo/). Disponibilidad y condiciones: [consulte por WhatsApp](https://wa.me/5547992067078).

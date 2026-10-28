@@ -7,6 +7,7 @@ tituloCurto: "Tem mosquito em Alter do Chão?"
 descricao: "Por que as praias de água clara do Tapajós e do Arapiuns quase não têm mosquito, onde você vai encontrar mosquito de verdade, e o que isso muda numa viagem à Amazônia."
 resposta: "Muito menos do que se imagina. As praias de areia branca de Alter do Chão e do Rio Arapiuns ficam em rios de água clara, com fundo de areia e margem aberta ao sol e ao vento — condição ruim para a larva do mosquito se desenvolver. O mosquito que assombra o imaginário amazônico vive em igarapé escuro de mata fechada e em várzea barrenta, não nessas praias. Você vai encontrá-lo numa trilha ao anoitecer, não no jantar na areia."
 data: 2026-08-27
+revisado: 2026-10-28
 imagem: agua-transparente
 imagemAlt: "Banco de areia entrando na água azul e transparente do rio, sol alto, linha de mata na outra margem e o fundo de areia visível na parte rasa"
 legenda: "Água clara sobre areia · a razão da praia ser calma"
@@ -14,7 +15,7 @@ destino: lodge
 duvidas:
   - q: "Preciso levar repelente para Alter do Chão?"
     a: "Leve, use nas trilhas de mata no fim da tarde, e conte com não precisar na praia. A maioria dos hóspedes volta com o frasco quase cheio."
-  - q: "Por que não tem mosquito nessas praias?"
+  - q: "Por que quase não tem mosquito nessas praias?"
     a: "A larva do mosquito precisa de água parada. Rio de água clara com fundo de areia e margem aberta ao vento praticamente não oferece onde ela se desenvolva, e a água carrega pouca matéria orgânica para alimentá-la."
   - q: "Tem risco de malária no Tapajós?"
     a: "O risco na Amazônia brasileira varia muito por local e por época, e a bacia de água clara do Tapajós não é comparável a um igarapé de água preta alagado. Essa é uma pergunta médica: consulte um serviço de saúde do viajante sobre o seu roteiro específico."
@@ -58,7 +59,13 @@ Preferimos ser acreditados a ser impressionantes, então as ressalvas:
 
 O sol. Sempre.
 
-Você está perto da linha do Equador, sobre areia clara, ao lado de uma água que devolve a luz inteira. Hóspede que se preparou para insetos e não para ultravioleta passa o terceiro dia na sombra. Chapéu, camisa de manga comprida, protetor de fator alto, e sombra no meio do dia.
+Você está a poucos graus da linha do Equador, sobre areia clara, ao lado de uma água que devolve a luz inteira. Hóspede que se preparou para insetos e não para ultravioleta passa o terceiro dia na sombra. Chapéu, camisa de manga comprida, protetor de fator alto, e sombra no meio do dia.
+
+## Como é na Villa, hoje
+
+Na Villa Arapiuns a casa é **praticamente sem mosquito** — não prometemos zero, porque é floresta. O jantar sai na areia, e os bangalôs têm **energia solar 24h** e **Wi‑Fi Starlink**, com **todas as refeições incluídas** na pousada (nos pacotes, café da manhã e jantar). Há primeiros socorros no local; atendimento médico, não — por isso a conversa com o serviço de saúde do viajante continua valendo.
+
+Outubro e novembro são o pico da seca, com os bancos de areia na largura máxima, e a temporada de praias segue até janeiro, passando pelo [Réveillon no Rio Arapiuns](/pt/reveillon/). Para entender o rio antes de vir, leia o [guia do Rio Arapiuns](/pt/diario/rio-arapiuns-guia/). Chegada e alimentação são combinadas com o anfitrião antes da viagem: [fale com a gente no WhatsApp](https://wa.me/5547992067078).
 
 ## Por que escrevemos isso
 
