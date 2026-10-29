@@ -26,12 +26,13 @@ interface Props {
   maxHospedes: number;
 }
 const p = Astro.props;
+const fim = new Date(Date.parse(p.dataMax + 'T00:00:00Z') + p.minNoites * 864e5).toISOString().slice(0, 10);
 const WA = `https://wa.me/${SITE.contact.whatsapp}`;
 const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
 ---
 <main class="ck">
-  <form id="ck" class="ck-caixa" data-wa={WA} data-tag="carlospecucci" data-pacote={p.nome} data-min={p.minNoites}
-    data-sinal={p.sinalPct} data-pornoite={p.porNoite ? 1 : 0} data-max={p.maxHospedes} data-bangalos={p.restantes}>
+  <form id="ck" class="ck-caixa" data-wa={WA} data-fim={fim} data-tag="carlospecucci" data-pacote={p.nome} data-min={p.minNoites}
+    data-sinal={p.sinalPct} data-pornoite={p.porNoite ? 1 : 0} data-max={p.maxHospedes} data-fixas={p.datasFixas ? 1 : undefined} data-bangalos={p.restantes}>
     <a href="/pt/" class="ck-marca">Villa Arapiuns · Rio Arapiuns, Pará</a>
     <h1 class="ck-h1">{p.nome}</h1>
     <p class="ck-promessa">{p.promessa}</p>
@@ -41,8 +42,8 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
       <input type="hidden" name="chegada" value={p.dataMin} /><input type="hidden" name="noites" value={p.maxNoites} />
     ) : (
       <div class="ck-linha">
-        <label><span>Chegada</span><input type="date" name="chegada" min={p.dataMin} max={p.dataMax} value={p.dataMin} /></label>
-        <label><span>Noites (mín. {p.minNoites})</span><input type="number" inputmode="numeric" name="noites" min={p.minNoites} max={p.maxNoites} value={p.minNoites} /></label>
+        <label><span>Chegada (check-in)</span><input type="date" name="chegada" min={p.dataMin} max={p.dataMax} value={p.dataMin} /></label>
+        <label><span>Quantas noites? (mín. {p.minNoites})</span><select name="noites">{Array.from({ length: p.maxNoites - p.minNoites + 1 }, (_, i) => p.minNoites + i).map((n) => <option value={n}>{n} noites</option>)}</select></label>
       </div>
     )}
 
@@ -81,14 +82,15 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
 </main>
 
 <script>
+  import { limitarNoites } from '@/scripts/noites';
   const f = document.querySelector<HTMLFormElement>('#ck')!;
   const d = f.dataset;
   const fmt = (x: Date) => x.toLocaleDateString('pt-BR', { timeZone: 'UTC', day: '2-digit', month: '2-digit' });
   const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   const val = (n: string) => Math.max(+((f.elements.namedItem(n) as HTMLInputElement | null)?.value ?? 0) || 0, 0);
   const calc = () => {
-    const c = new Date((f.elements.namedItem('chegada') as HTMLInputElement).value + 'T00:00:00Z');
-    const n = Math.max(val('noites'), +d.min!);
+    const { chegada: c, noites: n0 } = limitarNoites(f);
+    const n = Math.max(n0, +d.min!);
     const mult = d.pornoite === '1' ? n : 1;
     const oc = [...f.querySelectorAll<HTMLInputElement>('[data-pessoas]')];
     let total = 0, bang = 0, pessoas = 0;
@@ -101,8 +103,8 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
     const excede = bang > +d.bangalos! || pessoas > +d.max!;
     const ok = total > 0 && !excede;
     const sinal = ok ? Math.round(total * +d.sinal!) / 100 : 0;
-    const datas = isNaN(c.getTime()) ? '' : `${fmt(c)} a ${fmt(new Date(c.getTime() + n * 864e5))}`;
-    const resumo = `${desc.join(' + ') || 'escolha os bangalôs'}${c03 + c412 ? ` + ${c03 + c412} criança(s)` : ''} · ${n} noites · ${pessoas} pessoas`;
+    const datas = isNaN(c.getTime()) ? '' : `check-in ${fmt(c)}, check-out ${fmt(new Date(c.getTime() + n * 864e5))}`;
+    const resumo = `${d.fixas ? '' : datas + ' · '}${desc.join(' + ') || 'escolha os bangalôs'}${c03 + c412 ? ` + ${c03 + c412} criança(s)` : ''} · ${n} noites · ${pessoas} pessoas`;
     f.querySelector('[data-resumo]')!.textContent = resumo;
     f.querySelector('[data-total]')!.textContent = excede ? `Acima de ${d.bangalos} bangalôs / ${d.max} pessoas: fale no WhatsApp` : ok ? brl(total) : '—';
     f.querySelector('[data-sinal-valor]')!.textContent = ok ? brl(sinal) : '—';
@@ -133,6 +135,7 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
   .ck-oc { grid-template-columns: repeat(3, 1fr); margin-top: .3rem; }
   .ck label > span { display: block; font-family: var(--font-label); font-size: .72rem; text-transform: uppercase; letter-spacing: .05em; color: var(--color-areia-funda); }
   .ck label small { display: block; text-transform: none; letter-spacing: 0; color: var(--color-mar); font-family: var(--font-sans); font-size: .72rem; }
+  .ck select { width: 100%; padding: .6rem; font-size: 1.05rem; border: 2px solid var(--color-ceu); background: #fff; color: var(--color-mar-fundo); font-weight: 700; }
   .ck input { width: 100%; padding: .6rem; font-size: 1.05rem; border: 1px solid var(--color-areia-sol); background: #fff; color: var(--color-mar-fundo); }
   .ck-total { display: grid; grid-template-columns: 1fr auto; gap: .15rem .5rem; margin-top: .3rem; font-size: .9rem; align-items: baseline; }
   .ck-resumo { margin-top: .8rem; padding-top: .6rem; border-top: 1px solid var(--color-areia-sol); font-size: .78rem; color: var(--color-mar); }
