@@ -1,0 +1,54 @@
+---
+/** PREÇOS DO DETOX: pró-rata do Réveillon, PENDENTES de confirmação do Leonardo. Sinal 30% idem.
+ * LP de conversão do Detox (rascunho, noindex, fora do sitemap). Placeholders: preço, sinal, restantes, cancelamento. */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import LandingPacote from '@/components/LandingPacote.astro';
+import { Image } from 'astro:assets';
+import hero from '@/assets/imgs/agua-transparente.jpg';
+import a from '@/assets/imgs/banho-rio-grupo.jpg';
+import b from '@/assets/imgs/cafe-manha.jpg';
+import c from '@/assets/imgs/sup-rio.jpg';
+import d from '@/assets/imgs/redario.jpg';
+import e from '@/assets/imgs/bangalo-palafita.jpg';
+import g from '@/assets/imgs/por-do-sol.jpg';
+import chegada from '@/assets/imgs/travessia-barco.jpg';
+
+const faq = [
+  { t: 'Tem energia o dia todo?', d: 'Sim. Energia solar 24h.' },
+  { t: 'Tem Wi-Fi?', d: 'Sim, internet Starlink. Dá para avisar a família, mas a ideia é desacelerar.' },
+  { t: 'Tem mosquito?', d: 'Praticamente sem mosquito: o Rio Arapiuns tem água escura e ácida, que não favorece o mosquito.' },
+  { t: 'O que está incluído nas refeições?', d: 'Café da manhã, almoço e jantar incluídos, com comida regional feita na casa.' },
+  { t: 'Posso levar crianças?', d: 'São bem-vindas. Diga as idades no WhatsApp. [VALOR PARA CRIANÇAS A DEFINIR]' },
+  { t: 'Quais as datas?', d: 'De 1 a 10/1/2027, com datas flexíveis dentro dessa janela e mínimo de 2 noites.' },
+  { t: 'E se eu precisar cancelar?', d: '[POLÍTICA DE CANCELAMENTO A DEFINIR]' },
+];
+---
+<BaseLayout locale="pt" pageKey="detox" title="Detox pós-Réveillon | Pousada no Rio Arapiuns | Alter do Chão" description="De 1 a 10/1/2027, mínimo de 2 noites. 1h30 de barco de Alter do Chão, café da manhã, almoço e jantar incluídos. Vagas limitadas." indexavel={false} caminho="/pt/lp/detox-pos-reveillon/" semSchemaNegocio>
+  <Header slot="header" locale="pt" pageKey="detox" sobreFoto />
+  <LandingPacote
+    slug="detox-pos-reveillon" selo="Detox pós-Réveillon · 1 a 10/1/2027"
+    h1="Depois da virada, o rio."
+    promessa="Descanse do Réveillon na Villa Arapiuns: 1h30 de barco de Alter do Chão, água transparente e café da manhã, almoço e jantar incluídos."
+    campo={['1 a 10/1/2027', 'Datas flexíveis', 'Mínimo 2 noites', 'Vagas limitadas']}
+    hero={hero} heroAlt="Água transparente do Rio Arapiuns em frente à Villa"
+    inclui={[
+      { t: 'Café da manhã, almoço e jantar incluídos', d: 'Comida regional feita na casa, todos os dias.' },
+      { t: 'Bangalô na beira do rio', d: 'Um dos 13 bangalôs da Villa.' },
+      { t: 'Energia solar 24h', d: 'Luz e tomada o dia todo, sem gerador barulhento.' },
+      { t: 'Starlink', d: 'Internet para quando precisar.' },
+      { t: 'Praticamente sem mosquito', d: 'Água escura do Arapiuns: noites tranquilas na rede.' },
+      { t: 'Rio, praia e silêncio', d: 'Banho de rio, SUP e pôr do sol na areia.' },
+    ]}
+    galeria={[{ src: a, alt: 'Banho de rio em grupo' }, { src: b, alt: 'Café da manhã da Villa' }, { src: c, alt: 'SUP no rio' }, { src: d, alt: 'Redário' }, { src: e, alt: 'Bangalô palafita' }, { src: g, alt: 'Pôr do sol no Arapiuns' }]}
+    faq={faq} dataMin="2027-01-01" dataMax="2027-01-08" minNoites={2} maxNoites={9}
+    pacoteNome="Detox pós-Réveillon" totalBangalos={13} restantes={null}
+    precoNoitePessoa={null} sinalPct={30} porNoite maxHospedes={26}
+    ocupacoes={[{ nome: 'Single', pessoas: 1, precoPessoa: 1800 }, { nome: 'Duplo', pessoas: 2, precoPessoa: 1200 }, { nome: 'Triplo', pessoas: 3, precoPessoa: 1000 }]}
+    aParte={['voo até Santarém (STM)', 'transfer e lancha de Alter do Chão', 'passeios, pagos diretamente às comunidades']}
+  >
+    <Image slot="chegada" src={chegada} alt="Travessia de barco pelo rio" widths={[480, 800, 1200]} sizes="(min-width:640px) 50vw, 100vw" loading="lazy" class="aspect-[4/3] w-full object-cover" />
+  </LandingPacote>
+  <Footer slot="footer" locale="pt" />
+</BaseLayout>
