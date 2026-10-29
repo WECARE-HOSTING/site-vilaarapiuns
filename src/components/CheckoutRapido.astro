@@ -1,0 +1,153 @@
+---
+/**
+ * CHECKOUT-FIRST (link da bio do Instagram). Rascunho, noindex, fora do sitemap (/lp/).
+ * Acima da dobra: pacote, promessa, calculadora, total + sinal, botões de pagamento.
+ * Abaixo: só links pequenos para a LP completa e o WhatsApp.
+ * Pagamento: pay.infinitepay.io/{InfiniteTag}/{valor com vírgula} (sem valor = 500).
+ * O link InfinitePay não diz QUEM pagou: o botão "Já paguei" manda o resumo no WhatsApp.
+ */
+import { SITE } from '@/data/site';
+
+interface Props {
+  nome: string;
+  promessa: string;
+  datas: string;
+  lp: string;
+  ocupacoes: { nome: string; pessoas: number; precoPessoa: number }[];
+  porNoite: boolean;
+  minNoites: number;
+  maxNoites: number;
+  dataMin: string;
+  dataMax: string;
+  datasFixas?: boolean;
+  sinalPct: number;
+  totalBangalos: number;
+  restantes: number;
+  maxHospedes: number;
+}
+const p = Astro.props;
+const fim = new Date(Date.parse(p.dataMax + 'T00:00:00Z') + p.minNoites * 864e5).toISOString().slice(0, 10);
+const WA = `https://wa.me/${SITE.contact.whatsapp}`;
+const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+---
+<main class="ck">
+  <form id="ck" class="ck-caixa" data-wa={WA} data-fim={fim} data-tag="carlospecucci" data-pacote={p.nome} data-min={p.minNoites}
+    data-sinal={p.sinalPct} data-pornoite={p.porNoite ? 1 : 0} data-max={p.maxHospedes} data-fixas={p.datasFixas ? 1 : undefined} data-bangalos={p.restantes}>
+    <a href="/pt/" class="ck-marca">Villa Arapiuns · Rio Arapiuns, Pará</a>
+    <h1 class="ck-h1">{p.nome}</h1>
+    <p class="ck-promessa">{p.promessa}</p>
+    <p class="ck-escassez"><span>{p.datas}</span> · <strong>restam {p.restantes} de {p.totalBangalos} bangalôs</strong></p>
+
+    {p.datasFixas ? (
+      <input type="hidden" name="chegada" value={p.dataMin} /><input type="hidden" name="noites" value={p.maxNoites} />
+    ) : (
+      <div class="ck-linha">
+        <label><span>Chegada (check-in)</span><input type="date" name="chegada" min={p.dataMin} max={p.dataMax} value={p.dataMin} /></label>
+        <label><span>Quantas noites? (mín. {p.minNoites})</span><select name="noites">{Array.from({ length: p.maxNoites - p.minNoites + 1 }, (_, i) => p.minNoites + i).map((n) => <option value={n}>{n} noites</option>)}</select></label>
+      </div>
+    )}
+
+    <p class="ck-rot">Quantos bangalôs?</p>
+    <div class="ck-oc">
+      {p.ocupacoes.map((o, i) => (
+        <label>
+          <span>{o.nome}<small>{brl(o.precoPessoa)}/pessoa{p.porNoite ? '/noite' : ''}</small></span>
+          <input type="number" inputmode="numeric" name={`oc${i}`} min="0" max={p.restantes} value={i === 1 ? 1 : 0} data-pessoas={o.pessoas} data-preco={o.precoPessoa} aria-label={`Bangalôs ${o.nome}`} />
+        </label>
+      ))}
+    </div>
+    <div class="ck-linha">
+      <label><span>Crianças 0–3 (grátis)</span><input type="number" inputmode="numeric" name="cri03" min="0" max="10" value="0" /></label>
+      <label><span>Crianças 4–12 (50%)</span><input type="number" inputmode="numeric" name="cri412" min="0" max="10" value="0" /></label>
+    </div>
+
+    <p class="ck-resumo" data-resumo></p>
+    <dl class="ck-total">
+      <dt>Total</dt><dd data-total>—</dd>
+      <dt>Sinal {p.sinalPct}% agora</dt><dd data-sinal-valor class="ck-destaque">—</dd>
+    </dl>
+    <button type="submit" name="modo" value="sinal" class="ck-btn">Pagar sinal de {p.sinalPct}%</button>
+    <button type="submit" name="modo" value="total" class="ck-btn ck-btn2">Pagar total</button>
+    <p class="ck-nota">No Pix ou em até 12x no cartão, pela InfinitePay. Café da manhã, almoço e jantar incluídos. Sem vaga, devolvemos o valor integral.</p>
+    <a data-ja-paguei href={WA} target="_blank" rel="noopener" class="ck-pago">Já paguei: enviar meu comprovante no WhatsApp</a>
+
+    <nav class="ck-links" aria-label="Saiba mais">
+      <a href={`${p.lp}#incluido`}>O que está incluído</a>
+      <a href={`${p.lp}#chegar`}>Como chegar</a>
+      <a href={`${p.lp}#faq`}>Cancelamento</a>
+      <a href={`${p.lp}#faq`}>Perguntas frequentes</a>
+      <a data-wa-link href={WA} target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </nav>
+  </form>
+</main>
+
+<script>
+  import { limitarNoites } from '@/scripts/noites';
+  const f = document.querySelector<HTMLFormElement>('#ck')!;
+  const d = f.dataset;
+  const fmt = (x: Date) => x.toLocaleDateString('pt-BR', { timeZone: 'UTC', day: '2-digit', month: '2-digit' });
+  const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  const val = (n: string) => Math.max(+((f.elements.namedItem(n) as HTMLInputElement | null)?.value ?? 0) || 0, 0);
+  const calc = () => {
+    const { chegada: c, noites: n0 } = limitarNoites(f);
+    const n = Math.max(n0, +d.min!);
+    const mult = d.pornoite === '1' ? n : 1;
+    const oc = [...f.querySelectorAll<HTMLInputElement>('[data-pessoas]')];
+    let total = 0, bang = 0, pessoas = 0;
+    const desc: string[] = [];
+    for (const i of oc) { const q = Math.max(+i.value || 0, 0); if (!q) continue; bang += q; pessoas += q * +i.dataset.pessoas!; total += q * +i.dataset.pessoas! * +i.dataset.preco! * mult; desc.push(`${q} ${i.getAttribute('aria-label')!.replace('Bangalôs ', '')}`); }
+    const c03 = val('cri03'), c412 = val('cri412');
+    const precos = oc.filter((i) => +i.value > 0).map((i) => +i.dataset.preco!);
+    if (c412 && precos.length) total += c412 * Math.min(...precos) * 0.5 * mult; // 4–12: 50% da ocupação mais barata escolhida
+    pessoas += c03 + c412;
+    const excede = bang > +d.bangalos! || pessoas > +d.max!;
+    const ok = total > 0 && !excede;
+    const sinal = ok ? Math.round(total * +d.sinal!) / 100 : 0;
+    const datas = isNaN(c.getTime()) ? '' : `check-in ${fmt(c)}, check-out ${fmt(new Date(c.getTime() + n * 864e5))}`;
+    const resumo = `${d.fixas ? '' : datas + ' · '}${desc.join(' + ') || 'escolha os bangalôs'}${c03 + c412 ? ` + ${c03 + c412} criança(s)` : ''} · ${n} noites · ${pessoas} pessoas`;
+    f.querySelector('[data-resumo]')!.textContent = resumo;
+    f.querySelector('[data-total]')!.textContent = excede ? `Acima de ${d.bangalos} bangalôs / ${d.max} pessoas: fale no WhatsApp` : ok ? brl(total) : '—';
+    f.querySelector('[data-sinal-valor]')!.textContent = ok ? brl(sinal) : '—';
+    const msg = `Oi! ${d.pacote}, ${datas}: ${resumo}.`;
+    f.querySelector<HTMLAnchorElement>('[data-wa-link]')!.href = `${d.wa}?text=${encodeURIComponent(msg)}`;
+    f.querySelector<HTMLAnchorElement>('[data-ja-paguei]')!.href = `${d.wa}?text=${encodeURIComponent(`Paguei! ${msg} Segue o comprovante.`)}`;
+    return { ok, total, sinal, msg };
+  };
+  f.addEventListener('input', calc); calc();
+  f.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const { ok, total, sinal, msg } = calc();
+    const modo = ((e as SubmitEvent).submitter as HTMLButtonElement | null)?.value;
+    const v = modo === 'total' ? total : sinal;
+    window.open(ok ? `https://pay.infinitepay.io/${d.tag}/${v.toFixed(2).replace('.', ',')}` : `${d.wa}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+  });
+</script>
+
+<style>
+  .ck { min-height: 100svh; background: var(--color-areia-clara); display: flex; justify-content: center; padding: 1rem .9rem 2rem; }
+  .ck-caixa { width: 100%; max-width: 30rem; }
+  .ck-marca { font-family: var(--font-label); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--color-areia-funda); }
+  .ck-h1 { font-size: 1.9rem; line-height: 1.05; margin-top: .35rem; }
+  .ck-promessa { margin-top: .35rem; font-size: .95rem; color: var(--color-mar-fundo); }
+  .ck-escassez { margin-top: .5rem; font-size: .85rem; color: var(--color-erro); }
+  .ck-linha, .ck-oc { display: grid; gap: .5rem; margin-top: .6rem; }
+  .ck-linha { grid-template-columns: 1fr 1fr; }
+  .ck-oc { grid-template-columns: repeat(3, 1fr); margin-top: .3rem; }
+  .ck label > span { display: block; font-family: var(--font-label); font-size: .72rem; text-transform: uppercase; letter-spacing: .05em; color: var(--color-areia-funda); }
+  .ck label small { display: block; text-transform: none; letter-spacing: 0; color: var(--color-mar); font-family: var(--font-sans); font-size: .72rem; }
+  .ck select { width: 100%; padding: .6rem; font-size: 1.05rem; border: 2px solid var(--color-ceu); background: #fff; color: var(--color-mar-fundo); font-weight: 700; }
+  .ck input { width: 100%; padding: .6rem; font-size: 1.05rem; border: 1px solid var(--color-areia-sol); background: #fff; color: var(--color-mar-fundo); }
+  .ck-total { display: grid; grid-template-columns: 1fr auto; gap: .15rem .5rem; margin-top: .3rem; font-size: .9rem; align-items: baseline; }
+  .ck-resumo { margin-top: .8rem; padding-top: .6rem; border-top: 1px solid var(--color-areia-sol); font-size: .78rem; color: var(--color-mar); }
+  .ck-rot { margin-top: .7rem; font-weight: 700; font-size: .85rem; color: var(--color-mar-fundo); }
+  .ck-total dd { text-align: right; font-weight: 700; }
+  .ck-destaque { color: var(--color-ceu); font-size: 1.15rem; }
+  .ck-btn { display: block; width: 100%; margin-top: .7rem; padding: 1rem; background: var(--color-ceu); color: #fff; font-weight: 800; font-size: 1.1rem; border-radius: .25rem; }
+  .ck-btn:hover { background: var(--color-ceu-hover); }
+  .ck-btn2 { margin-top: .45rem; background: transparent; color: var(--color-ceu); border: 2px solid var(--color-ceu); font-size: 1rem; padding: .75rem; }
+  .ck-btn2:hover { background: var(--color-espuma); }
+  .ck-nota { margin-top: .5rem; font-size: .75rem; text-align: center; color: var(--color-mar-fundo); }
+  .ck-pago { display: block; margin-top: .4rem; text-align: center; font-size: .78rem; color: var(--color-mar); text-decoration: underline; }
+  .ck-links { display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem .9rem; margin-top: 1.4rem; font-size: .78rem; }
+  .ck-links a { color: var(--color-ceu); text-decoration: underline; }
+</style>
