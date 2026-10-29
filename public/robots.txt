@@ -11,38 +11,53 @@
 # OAI-SearchBot é o índice de busca do ChatGPT, ChatGPT-User é a busca sob
 # demanda quando alguém pergunta. O Diário foi escrito para ser lido e citado por
 # esses três, e pelo Claude e pelo Perplexity — então a permissão é explícita.
+#
+# /social/ guarda só as imagens dos posts do Instagram (hospedadas para o
+# Buffer). Não é conteúdo do site, então fica fora do rastreio em todos os
+# grupos — cada grupo nomeado substitui o *, por isso a linha se repete.
 
 User-agent: GPTBot
 Allow: /
+Disallow: /social/
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /social/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /social/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /social/
 
 User-agent: Claude-Web
 Allow: /
+Disallow: /social/
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /social/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /social/
 
 User-agent: Perplexity-User
 Allow: /
+Disallow: /social/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /social/
 
 User-agent: CCBot
 Allow: /
+Disallow: /social/
 
 User-agent: *
 Allow: /
+Disallow: /social/
 
 Sitemap: https://villaarapiuns.com.br/sitemap-index.xml
