@@ -1,0 +1,54 @@
+---
+/** LP de conversão do Réveillon (rascunho, noindex, fora do sitemap). Placeholders: preço, sinal, restantes, cancelamento. */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import LandingPacote from '@/components/LandingPacote.astro';
+import { Image } from 'astro:assets';
+import hero from '@/assets/imgs/luau-praia.jpg';
+import a from '@/assets/imgs/jantar-praia.jpg';
+import b from '@/assets/imgs/piracaia-roda.jpg';
+import c from '@/assets/imgs/banco-areia.jpg';
+import d from '@/assets/imgs/quarto-varanda.jpg';
+import e from '@/assets/imgs/jantar-peixe.jpg';
+import g from '@/assets/imgs/porsol-gente.jpg';
+import chegada from '@/assets/imgs/chegada-barco.jpg';
+
+const faq = [
+  { t: 'Quais as datas?', d: 'De 28/12/2026 a 2/1/2027. Quer ficar mais? O Detox segue até 10/1.' },
+  { t: 'Tem energia o dia todo?', d: 'Sim. Energia solar 24h.' },
+  { t: 'Tem Wi-Fi?', d: 'Sim, internet Starlink.' },
+  { t: 'Tem mosquito?', d: 'Praticamente sem mosquito: a água escura do Arapiuns não favorece o mosquito.' },
+  { t: 'O que está incluído nas refeições?', d: 'Café da manhã, almoço e jantar incluídos.' },
+  { t: 'Posso levar crianças?', d: 'São bem-vindas. Diga as idades no WhatsApp e o roteiro considera todo mundo. [VALOR PARA CRIANÇAS A DEFINIR]' },
+  { t: 'Dá para fechar a Villa só para o meu grupo?', d: 'Sim: a partir de 15 pessoas a Villa fecha em exclusividade, com os 13 bangalôs, o pavilhão, o redário e a praia.' },
+  { t: 'E se eu precisar cancelar?', d: '[POLÍTICA DE CANCELAMENTO A DEFINIR]' },
+];
+---
+<BaseLayout locale="pt" pageKey="reveillon" title="Réveillon 2027 | Pousada no Rio Arapiuns | Alter do Chão" description="De 28/12 a 2/1, 13 bangalôs. 1h30 de barco de Alter do Chão, café da manhã, almoço e jantar incluídos. Vagas limitadas." indexavel={false} caminho="/pt/lp/reveillon/" semSchemaNegocio>
+  <Header slot="header" locale="pt" pageKey="reveillon" sobreFoto />
+  <LandingPacote
+    slug="reveillon" selo="Réveillon · 28/12/2026 a 2/1/2027"
+    h1="Uma virada sem palco nem fila."
+    promessa="Réveillon na beira do Rio Arapiuns, 1h30 de barco de Alter do Chão, com café da manhã, almoço e jantar incluídos e só 13 bangalôs."
+    campo={['28/12 a 2/1', '5 noites', '13 bangalôs', 'Vagas limitadas']}
+    hero={hero} heroAlt="Noite na praia da Villa Arapiuns"
+    inclui={[
+      { t: 'Café da manhã, almoço e jantar incluídos', d: 'Comida regional feita na casa, do check-in à saída.' },
+      { t: '13 bangalôs', d: 'Poucas pessoas, sem fila e sem multidão.' },
+      { t: 'Energia solar 24h', d: 'Luz e tomada o dia todo.' },
+      { t: 'Starlink', d: 'Para mandar o feliz ano novo.' },
+      { t: 'Praticamente sem mosquito', d: 'Noites tranquilas na beira do rio.' },
+      { t: 'Piracaia de 31', d: 'Peixe do rio assado na areia, à luz de velas, em roda na praia.' },
+    ]}
+    galeria={[{ src: a, alt: 'Jantar na praia' }, { src: b, alt: 'Roda na areia' }, { src: c, alt: 'Banco de areia no rio' }, { src: d, alt: 'Quarto com varanda' }, { src: e, alt: 'Peixe no jantar' }, { src: g, alt: 'Pôr do sol na praia' }]}
+    faq={faq} dataMin="2026-12-28" dataMax="2026-12-28" minNoites={5} maxNoites={5} datasFixas
+    pacoteNome="Réveillon 28/12 a 2/1" totalBangalos={13} restantes={null}
+    precoNoitePessoa={null} sinalPct={30} maxHospedes={26}
+    ocupacoes={[{ nome: 'Single', pessoas: 1, precoPessoa: 9000 }, { nome: 'Duplo', pessoas: 2, precoPessoa: 6000 }, { nome: 'Triplo', pessoas: 3, precoPessoa: 5000 }]}
+    aParte={['voo até Santarém (STM)', 'transfer e lancha de Alter do Chão', 'passeios, pagos diretamente às comunidades']}
+  >
+    <Image slot="chegada" src={chegada} alt="Chegada de barco à Villa" widths={[480, 800, 1200]} sizes="(min-width:640px) 50vw, 100vw" loading="lazy" class="aspect-[4/3] w-full object-cover" />
+  </LandingPacote>
+  <Footer slot="footer" locale="pt" />
+</BaseLayout>

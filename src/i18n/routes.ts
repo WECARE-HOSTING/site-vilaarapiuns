@@ -95,7 +95,7 @@ export function caminhosNoindex(): string[] {
  */
 export function urlEntraNoSitemap(page: string): boolean {
   if (new URL(page).pathname === '/') return false;
-  return !page.includes('/styleguide') &&
+  return !page.includes('/styleguide') && !page.includes('/lp/') &&
     !caminhosNoindex().some((c) => page.includes(`/${c}/`));
 }
 

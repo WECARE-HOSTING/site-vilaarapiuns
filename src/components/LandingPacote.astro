@@ -1,0 +1,209 @@
+---
+/**
+ * LANDING DE CONVERSÃO (rascunho, noindex) — tráfego do Instagram.
+ * Fora do sitemap (/lp/ em urlEntraNoSitemap) e fora do menu.
+ * NÃO inventar: preço, sinal, política de cancelamento e bangalôs restantes
+ * são placeholders até o Leonardo definir. `restantes` null = não mostra número.
+ */
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { SITE } from '@/data/site';
+
+interface Item { t: string; d: string }
+interface Props {
+  slug: string;
+  selo: string;
+  h1: string;
+  promessa: string;
+  campo: string[];
+  hero: ImageMetadata;
+  heroAlt: string;
+  inclui: Item[];
+  galeria: { src: ImageMetadata; alt: string }[];
+  faq: Item[];
+  dataMin: string;
+  dataMax: string;
+  minNoites: number;
+  maxNoites: number;
+  pacoteNome: string;
+  totalBangalos: number;
+  restantes: number | null;
+  datasFixas?: boolean;
+  /** R$ por pessoa/noite. null = [PREÇO A DEFINIR] (botão cai no WhatsApp). */
+  precoNoitePessoa: number | null;
+  /** % do total cobrado como sinal. null = [SINAL A DEFINIR]. */
+  sinalPct: number | null;
+  /** Preço do PACOTE por pessoa conforme ocupação do bangalô (substitui precoNoitePessoa). */
+  ocupacoes?: { nome: string; pessoas: number; precoPessoa: number }[];
+  /** Linhas "não incluído", mostradas na seção de valores. */
+  aParte?: string[];
+  maxHospedes?: number;
+  /** true: precoPessoa das ocupações é por noite (× noites). */
+  porNoite?: boolean;
+}
+const p = Astro.props;
+const WA = `https://wa.me/${SITE.contact.whatsapp}`;
+/** Link público InfinitePay: pay.infinitepay.io/{InfiniteTag}/{valor com vírgula}. Sem valor dá 500. */
+const INFINITETAG = 'carlospecucci';
+const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
+---
+<div class="lp">
+  <section class="relative isolate min-h-[88svh] flex items-end text-white">
+    <Image src={p.hero} alt={p.heroAlt} widths={[480, 800, 1280, 1920]} sizes="100vw" loading="eager" fetchpriority="high" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+    <div class="absolute inset-0 -z-10 bg-gradient-to-t from-mar-fundo/90 via-mar-fundo/40 to-transparent"></div>
+    <div class="container-editorial pb-14 pt-32">
+      <p class="lp-selo">{p.selo}</p>
+      <h1 class="font-display text-4xl sm:text-6xl leading-[1.05] mt-3 max-w-3xl">{p.h1}</h1>
+      <p class="mt-5 text-lg sm:text-xl max-w-2xl text-espuma">{p.promessa}</p>
+      <ul class="mt-6 flex flex-wrap gap-2">{p.campo.map((c) => <li class="lp-chip">{c}</li>)}</ul>
+      <p class="mt-8 flex flex-wrap gap-3">
+        <a href="#reservar" class="btn btn-primario">Reservar e pagar</a>
+        <a href={`${WA}?text=${encodeURIComponent(msgPadrao)}`} class="lp-btn-claro" target="_blank" rel="noopener">Consultar no WhatsApp</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="secao bg-areia">
+    <div class="container-editorial">
+      <h2 class="font-display text-titulo">O que está incluído</h2>
+      <ul class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {p.inclui.map((i) => <li class="lp-card"><h3 class="font-display text-xl text-mar">{i.t}</h3><p class="mt-2">{i.d}</p></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="container-editorial grid gap-10 sm:grid-cols-2 items-center">
+      <div>
+        <h2 class="font-display text-titulo">Como chegar</h2>
+        <ol class="mt-6 space-y-4 list-decimal pl-5">
+          <li>Voo até <strong>Santarém (STM)</strong>.</li>
+          <li>Estrada até <strong>Alter do Chão</strong> (cerca de 35 km).</li>
+          <li><strong>1h30 de barco</strong> de Alter do Chão até a Villa, no Rio Arapiuns.</li>
+        </ol>
+        <p class="mt-6 text-sm">Dúvidas sobre a chegada? A gente orienta no WhatsApp.</p>
+      </div>
+      <slot name="chegada" />
+    </div>
+  </section>
+
+  <section class="secao bg-areia">
+    <div class="container-editorial">
+      <h2 class="font-display text-titulo">Fotos reais da Villa</h2>
+      <div class="mt-8 grid grid-cols-2 gap-3 lg:grid-cols-3">
+        {p.galeria.map((g, i) => <Image src={g.src} alt={g.alt} widths={[400, 700, 1000]} sizes="(min-width:1024px) 33vw, 50vw" loading="lazy" decoding="async" class={`w-full object-cover ${i === 0 ? 'col-span-2 aspect-[16/9] lg:row-span-2 lg:aspect-auto lg:h-full' : 'aspect-square'}`} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="preco">
+    <div class="container-editorial grid gap-10 lg:grid-cols-2">
+      <div>
+        <h2 class="font-display text-titulo">Valores</h2>
+        {p.ocupacoes ? (
+          <table class="mt-4 w-full text-left"><tbody>
+            {p.ocupacoes.map((o) => <tr class="border-b border-areia-sol/40"><th class="py-2 font-semibold">{o.nome}</th><td class="py-2 text-right font-display text-2xl text-mar">{brl(o.precoPessoa)}</td></tr>)}
+          </tbody></table>
+        ) : (
+          <p class={`mt-4 text-3xl font-display ${p.precoNoitePessoa ? 'text-mar' : 'text-erro'}`}>{p.precoNoitePessoa ? brl(p.precoNoitePessoa) : '[PREÇO A DEFINIR]'}</p>
+        )}
+        <p class="mt-2">{p.ocupacoes ? (p.porNoite ? 'por pessoa / noite' : 'por pessoa, pacote completo') : 'por pessoa / noite'} · sinal de {p.sinalPct ?? '[SINAL A DEFINIR]'}% para garantir a vaga, no Pix ou em até 12x no cartão (InfinitePay)</p>
+        {p.aParte && <p class="mt-4 text-sm"><strong>À parte:</strong> {p.aParte.join(' · ')}</p>}
+        <p class="mt-6 lp-escassez">
+          Vagas limitadas: {p.totalBangalos} bangalôs no total
+          {p.restantes !== null ? <> · <strong>restam {p.restantes}</strong></> : <> · <strong>[RESTANTES A DEFINIR]</strong></>}
+        </p>
+      </div>
+
+      <form id="reservar" class="lp-card scroll-mt-24" data-wa={WA} data-pacote={p.pacoteNome} data-min={p.minNoites} data-tag={INFINITETAG} data-preco={p.precoNoitePessoa ?? ''} data-sinal={p.sinalPct ?? ''} data-pornoite={p.porNoite ? 1 : 0} data-max={p.maxHospedes ?? 26} data-bangalos={p.totalBangalos}>
+        <h3 class="font-display text-2xl text-mar">Reservar</h3>
+        <label class="block mt-4"><span class="lp-rotulo">Chegada</span>
+          <input type="date" name="chegada" min={p.dataMin} max={p.dataMax} value={p.dataMin} required class="lp-campo" readonly={p.datasFixas} /></label>
+        <div class="grid grid-cols-2 gap-3 mt-3">
+          <label class="block"><span class="lp-rotulo">Noites (mín. {p.minNoites})</span>
+            <input type="number" name="noites" min={p.minNoites} max={p.maxNoites} value={p.datasFixas ? p.maxNoites : p.minNoites} class="lp-campo" readonly={p.datasFixas} /></label>
+          {!p.ocupacoes && <label class="block"><span class="lp-rotulo">Hóspedes</span>
+            <input type="number" name="hospedes" min="1" max={p.maxHospedes ?? 26} value="2" class="lp-campo" /></label>}
+        </div>
+        {p.ocupacoes && <fieldset class="mt-3"><legend class="lp-rotulo">Bangalôs por ocupação</legend>
+          <div class="grid grid-cols-3 gap-3 mt-1">{p.ocupacoes.map((o, i) => <label class="block text-sm">{o.nome}<input type="number" name={`oc${i}`} min="0" max={p.totalBangalos} value={i === 1 ? 1 : 0} data-pessoas={o.pessoas} data-preco={o.precoPessoa} class="lp-campo" /></label>)}</div>
+          <p class="mt-2 text-xs">A partir de 15 pessoas, a Villa fecha em exclusividade para o grupo. Máximo {p.maxHospedes ?? 26} pessoas.</p>
+        </fieldset>}
+        <p class="mt-3 text-sm" data-saida></p>
+        <dl class="mt-4 grid grid-cols-2 gap-y-1 text-sm">
+          <dt>Total estimado</dt><dd class="text-right font-semibold" data-total>[PREÇO A DEFINIR]</dd>
+          <dt>Sinal agora</dt><dd class="text-right font-semibold text-mar" data-sinal-valor>[SINAL A DEFINIR]</dd>
+        </dl>
+        <button type="submit" name="modo" value="sinal" class="btn btn-primario w-full mt-5">Reservar e pagar o sinal</button>
+        <button type="submit" name="modo" value="total" class="w-full mt-2 py-3 border border-ceu text-ceu font-semibold">Pagar o valor total</button>
+        <p class="mt-2 text-xs text-center">Sinal ou total: no Pix ou em até 12x no cartão, pela InfinitePay.</p>
+        <a data-wa-link href={`${WA}?text=${encodeURIComponent(msgPadrao)}`} target="_blank" rel="noopener" class="block text-center mt-3 underline">Prefiro falar no WhatsApp</a>
+        <p class="mt-3 text-xs">Disponibilidade confirmada pela equipe após o pagamento do sinal. Cancelamento: [POLÍTICA A DEFINIR].</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="secao bg-areia">
+    <div class="container-editorial max-w-3xl">
+      <h2 class="font-display text-titulo">Perguntas frequentes</h2>
+      <div class="mt-6 divide-y divide-areia-sol/40">
+        {p.faq.map((f) => <details class="py-4"><summary class="cursor-pointer font-semibold text-mar">{f.t}</summary><p class="mt-2">{f.d}</p></details>)}
+      </div>
+    </div>
+  </section>
+
+  <a href="#reservar" class="lp-sticky sm:hidden">Reservar com sinal</a>
+</div>
+
+<script>
+  const f = document.querySelector<HTMLFormElement>('#reservar');
+  if (f) {
+    const d = f.dataset;
+    const fmt = (x: Date) => x.toLocaleDateString('pt-BR', { timeZone: 'UTC', day: '2-digit', month: '2-digit' });
+    const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    const calc = () => {
+      const c = new Date(f.chegada.value + 'T00:00:00Z');
+      const n = Math.max(+f.noites.value || 0, +d.min!);
+      const oc = [...f.querySelectorAll<HTMLInputElement>('[data-pessoas]')];
+      let h = f.hospedes ? Math.max(+f.hospedes.value || 1, 1) : 0;
+      let pacote = 0, bang = 0;
+      for (const i of oc) { const q = Math.max(+i.value || 0, 0); bang += q; h += q * +i.dataset.pessoas!; pacote += q * +i.dataset.pessoas! * +i.dataset.preco! * (d.pornoite === '1' ? n : 1); }
+      const excede = oc.length > 0 && (bang > +d.bangalos! || h > +d.max!);
+      const s = new Date(c.getTime() + n * 864e5);
+      f.querySelector('[data-saida]')!.textContent = isNaN(c.getTime()) ? '' : `Saída: ${fmt(s)} · ${n} noites · ${h} pessoas`;
+      const total = oc.length ? (excede || !pacote ? null : pacote) : d.preco ? +d.preco * n * h : null;
+      if (excede) f.querySelector('[data-total]')!.textContent = `Acima de ${d.bangalos} bangalôs / ${d.max} pessoas`;
+      const sinal = total && d.sinal ? Math.round(total * +d.sinal) / 100 : null;
+      if (total) f.querySelector('[data-total]')!.textContent = brl(total);
+      if (sinal) f.querySelector('[data-sinal-valor]')!.textContent = brl(sinal);
+      const msg = `Oi! Quero reservar ${d.pacote}: chegada ${isNaN(c.getTime()) ? '' : fmt(c)}, ${n} noites, ${h} pessoas.`;
+      f.querySelector<HTMLAnchorElement>('[data-wa-link]')!.href = `${d.wa}?text=${encodeURIComponent(msg)}`;
+      return { msg, sinal, total };
+    };
+    f.addEventListener('input', calc); calc();
+    f.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const { msg, sinal, total } = calc();
+      const modo = ((e as SubmitEvent).submitter as HTMLButtonElement | null)?.value;
+      const valor = modo === 'total' ? total : sinal;
+      const url = valor
+        ? `https://pay.infinitepay.io/${d.tag}/${valor.toFixed(2).replace('.', ',')}`
+        : `${d.wa}?text=${encodeURIComponent(msg)}`; // sem preço definido: cai no WhatsApp
+      window.open(url, '_blank', 'noopener');
+    });
+  }
+</script>
+
+<style>
+  .lp-selo { font-family: var(--font-label); text-transform: uppercase; letter-spacing: .12em; color: var(--color-sol); font-size: .85rem; }
+  .lp-chip { border: 1px solid rgb(255 255 255 / .5); padding: .3rem .7rem; font-size: .9rem; }
+  .lp-btn-claro { display: inline-flex; align-items: center; padding: .85rem 1.3rem; border: 1px solid #fff; color: #fff; font-weight: 600; }
+  .lp-card { background: var(--color-areia-clara); border: 1px solid color-mix(in srgb, var(--color-areia-sol) 40%, transparent); padding: 1.5rem; }
+  .lp-rotulo { font-family: var(--font-label); font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--color-areia-funda); }
+  .lp-campo { display: block; width: 100%; margin-top: .25rem; padding: .7rem; border: 1px solid var(--color-areia-sol); background: #fff; color: var(--color-mar-fundo); font-size: 1rem; }
+  .lp-escassez { border-left: 3px solid var(--color-areia-sol); padding-left: .8rem; }
+  .lp-sticky { position: fixed; left: 1rem; right: 1rem; bottom: max(1rem, env(safe-area-inset-bottom)); z-index: 50; background: var(--color-ceu); color: #fff; text-align: center; font-weight: 700; padding: 1rem; box-shadow: 0 6px 20px rgb(0 0 0 / .25); }
+  .lp { padding-bottom: 5rem; }
+  @media (min-width: 640px) { .lp { padding-bottom: 0; } }
+</style>
