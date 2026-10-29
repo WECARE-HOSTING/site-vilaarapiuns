@@ -1,6 +1,5 @@
 ---
-/** PREÇOS DO DETOX: pró-rata do Réveillon, PENDENTES de confirmação do Leonardo. Sinal 30% idem.
- * LP de conversão do Detox (rascunho, noindex, fora do sitemap). Placeholders: preço, sinal, restantes, cancelamento. */
+/** LP de conversão do Detox (rascunho, noindex, fora do sitemap). Preços, sinal 30%, restantes e cancelamento confirmados pelo Leonardo em 28/10/2026. */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
@@ -20,9 +19,11 @@ const faq = [
   { t: 'Tem Wi-Fi?', d: 'Sim, internet Starlink. Dá para avisar a família, mas a ideia é desacelerar.' },
   { t: 'Tem mosquito?', d: 'Praticamente sem mosquito: o Rio Arapiuns tem água escura e ácida, que não favorece o mosquito.' },
   { t: 'O que está incluído nas refeições?', d: 'Café da manhã, almoço e jantar incluídos, com comida regional feita na casa.' },
-  { t: 'Posso levar crianças?', d: 'São bem-vindas. Diga as idades no WhatsApp. [VALOR PARA CRIANÇAS A DEFINIR]' },
+  { t: 'Posso levar crianças?', d: 'São bem-vindas. Bebês até 3 anos não pagam. De 4 a 12 anos pagam 50%. A partir de 13 anos, valor de adulto. As crianças ficam no bangalô dos pais.' },
   { t: 'Quais as datas?', d: 'De 1 a 10/1/2027, com datas flexíveis dentro dessa janela e mínimo de 2 noites.' },
-  { t: 'E se eu precisar cancelar?', d: '[POLÍTICA DE CANCELAMENTO A DEFINIR]' },
+  { t: 'E se não tiver vaga depois que eu pagar o sinal?', d: 'O sinal de 30% garante a reserva. Se não houver disponibilidade, devolvemos o valor integral.' },
+  { t: 'Como funciona o pagamento?', d: 'Sinal de 30% ou valor total, no Pix ou em até 12x no cartão, pela InfinitePay.' },
+  { t: 'E se eu precisar cancelar?', d: 'Até 30 dias antes do check-in: reembolso de 100% do valor pago. De 29 a 15 dias: 50%. Com 14 dias ou menos, ou no-show: sem reembolso. A reserva pode ser transferida para outra pessoa sem custo. Mudança de data dentro de 1 a 10/1, sujeita a disponibilidade, até 15 dias antes do check-in.' },
 ];
 ---
 <BaseLayout locale="pt" pageKey="detox" title="Detox pós-Réveillon | Pousada no Rio Arapiuns | Alter do Chão" description="De 1 a 10/1/2027, mínimo de 2 noites. 1h30 de barco de Alter do Chão, café da manhã, almoço e jantar incluídos. Vagas limitadas." indexavel={false} caminho="/pt/lp/detox-pos-reveillon/" semSchemaNegocio>
@@ -43,7 +44,7 @@ const faq = [
     ]}
     galeria={[{ src: a, alt: 'Banho de rio em grupo' }, { src: b, alt: 'Café da manhã da Villa' }, { src: c, alt: 'SUP no rio' }, { src: d, alt: 'Redário' }, { src: e, alt: 'Bangalô palafita' }, { src: g, alt: 'Pôr do sol no Arapiuns' }]}
     faq={faq} dataMin="2027-01-01" dataMax="2027-01-08" minNoites={2} maxNoites={9}
-    pacoteNome="Detox pós-Réveillon" totalBangalos={13} restantes={null}
+    pacoteNome="Detox pós-Réveillon" totalBangalos={13} restantes={10}
     precoNoitePessoa={null} sinalPct={30} porNoite maxHospedes={26}
     ocupacoes={[{ nome: 'Single', pessoas: 1, precoPessoa: 1800 }, { nome: 'Duplo', pessoas: 2, precoPessoa: 1200 }, { nome: 'Triplo', pessoas: 3, precoPessoa: 1000 }]}
     aParte={['voo até Santarém (STM)', 'transfer e lancha de Alter do Chão', 'passeios, pagos diretamente às comunidades']}

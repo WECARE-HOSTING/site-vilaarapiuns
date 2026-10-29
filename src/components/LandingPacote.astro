@@ -49,12 +49,12 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
 const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
 ---
 <div class="lp">
-  <section class="relative isolate min-h-[88svh] flex items-end text-white">
+  <section class="sobre-escuro relative isolate min-h-[88svh] flex items-end text-white">
     <Image src={p.hero} alt={p.heroAlt} widths={[480, 800, 1280, 1920]} sizes="100vw" loading="eager" fetchpriority="high" class="absolute inset-0 -z-10 h-full w-full object-cover" />
-    <div class="absolute inset-0 -z-10 bg-gradient-to-t from-mar-fundo/90 via-mar-fundo/40 to-transparent"></div>
+    <div class="absolute inset-0 -z-10 bg-gradient-to-t from-mar-fundo/95 via-mar-fundo/60 to-mar-fundo/25 lg:bg-gradient-to-r lg:from-mar-fundo/90 lg:via-mar-fundo/60 lg:to-mar-fundo/20"></div>
     <div class="container-editorial pb-14 pt-32">
       <p class="lp-selo">{p.selo}</p>
-      <h1 class="font-display text-4xl sm:text-6xl leading-[1.05] mt-3 max-w-3xl">{p.h1}</h1>
+      <h1 style="color:#fff;text-shadow:0 2px 16px rgb(0 0 0 / .45)" class="font-display text-4xl sm:text-6xl leading-[1.05] mt-3 max-w-3xl">{p.h1}</h1>
       <p class="mt-5 text-lg sm:text-xl max-w-2xl text-espuma">{p.promessa}</p>
       <ul class="mt-6 flex flex-wrap gap-2">{p.campo.map((c) => <li class="lp-chip">{c}</li>)}</ul>
       <p class="mt-8 flex flex-wrap gap-3">
@@ -112,7 +112,7 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
         {p.aParte && <p class="mt-4 text-sm"><strong>À parte:</strong> {p.aParte.join(' · ')}</p>}
         <p class="mt-6 lp-escassez">
           Vagas limitadas: {p.totalBangalos} bangalôs no total
-          {p.restantes !== null ? <> · <strong>restam {p.restantes}</strong></> : <> · <strong>[RESTANTES A DEFINIR]</strong></>}
+          {p.restantes !== null ? <> · <strong>restam {p.restantes} bangalôs</strong></> : <> · <strong>[RESTANTES A DEFINIR]</strong></>}
         </p>
       </div>
 
@@ -128,8 +128,13 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
         </div>
         {p.ocupacoes && <fieldset class="mt-3"><legend class="lp-rotulo">Bangalôs por ocupação</legend>
           <div class="grid grid-cols-3 gap-3 mt-1">{p.ocupacoes.map((o, i) => <label class="block text-sm">{o.nome}<input type="number" name={`oc${i}`} min="0" max={p.totalBangalos} value={i === 1 ? 1 : 0} data-pessoas={o.pessoas} data-preco={o.precoPessoa} class="lp-campo" /></label>)}</div>
-          <p class="mt-2 text-xs">A partir de 15 pessoas, a Villa fecha em exclusividade para o grupo. Máximo {p.maxHospedes ?? 26} pessoas.</p>
+          <div class="grid grid-cols-2 gap-3 mt-3">
+            <label class="block text-sm">Crianças 0 a 3 anos (grátis)<input type="number" name="cri03" min="0" max="10" value="0" class="lp-campo" /></label>
+            <label class="block text-sm">Crianças 4 a 12 anos (50%)<input type="number" name="cri412" min="0" max="10" value="0" class="lp-campo" /></label>
+          </div>
+          <p class="mt-2 text-xs">Crianças ficam no bangalô dos pais; a partir de 13 anos contam como adulto. Máximo {p.maxHospedes ?? 26} pessoas.</p>
         </fieldset>}
+        <p class="mt-3 text-sm lp-escassez" data-grupo>Vem em grupo grande ou quer a Villa exclusiva? <a class="underline" target="_blank" rel="noopener" href={`${WA}?text=${encodeURIComponent('Oi! Quero cotar ' + p.pacoteNome + ' para grupo grande / Villa exclusiva.')}`}>Fale com a gente no WhatsApp</a>.</p>
         <p class="mt-3 text-sm" data-saida></p>
         <dl class="mt-4 grid grid-cols-2 gap-y-1 text-sm">
           <dt>Total estimado</dt><dd class="text-right font-semibold" data-total>[PREÇO A DEFINIR]</dd>
@@ -139,12 +144,12 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
         <button type="submit" name="modo" value="total" class="w-full mt-2 py-3 border border-ceu text-ceu font-semibold">Pagar o valor total</button>
         <p class="mt-2 text-xs text-center">Sinal ou total: no Pix ou em até 12x no cartão, pela InfinitePay.</p>
         <a data-wa-link href={`${WA}?text=${encodeURIComponent(msgPadrao)}`} target="_blank" rel="noopener" class="block text-center mt-3 underline">Prefiro falar no WhatsApp</a>
-        <p class="mt-3 text-xs">Disponibilidade confirmada pela equipe após o pagamento do sinal. Cancelamento: [POLÍTICA A DEFINIR].</p>
+        <p class="mt-3 text-xs">O sinal garante a reserva. Se não houver disponibilidade, devolvemos o valor integral. Cancelamento: reembolso de 100% até 30 dias antes do check-in, 50% de 29 a 15 dias, sem reembolso a 14 dias ou menos (ou no-show). <a href="#faq" class="underline">Ver política completa</a>.</p>
       </form>
     </div>
   </section>
 
-  <section class="secao bg-areia">
+  <section class="secao bg-areia" id="faq">
     <div class="container-editorial max-w-3xl">
       <h2 class="font-display text-titulo">Perguntas frequentes</h2>
       <div class="mt-6 divide-y divide-areia-sol/40">
@@ -169,6 +174,13 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
       let h = f.hospedes ? Math.max(+f.hospedes.value || 1, 1) : 0;
       let pacote = 0, bang = 0;
       for (const i of oc) { const q = Math.max(+i.value || 0, 0); bang += q; h += q * +i.dataset.pessoas!; pacote += q * +i.dataset.pessoas! * +i.dataset.preco! * (d.pornoite === '1' ? n : 1); }
+      // Criança 4–12 paga 50% da diária da ocupação mais barata escolhida (fica no bangalô dos pais).
+      const c03 = Math.max(+(f.cri03?.value ?? 0) || 0, 0), c412 = Math.max(+(f.cri412?.value ?? 0) || 0, 0);
+      const escolhidas = oc.filter((i) => +i.value > 0).map((i) => +i.dataset.preco!);
+      if (oc.length && c412 && escolhidas.length) pacote += c412 * Math.min(...escolhidas) * 0.5 * (d.pornoite === '1' ? n : 1);
+      h += c03 + c412;
+      const grupo = f.querySelector<HTMLElement>('[data-grupo]')!;
+      grupo.style.fontWeight = h > 15 ? '700' : '';
       const excede = oc.length > 0 && (bang > +d.bangalos! || h > +d.max!);
       const s = new Date(c.getTime() + n * 864e5);
       f.querySelector('[data-saida]')!.textContent = isNaN(c.getTime()) ? '' : `Saída: ${fmt(s)} · ${n} noites · ${h} pessoas`;
