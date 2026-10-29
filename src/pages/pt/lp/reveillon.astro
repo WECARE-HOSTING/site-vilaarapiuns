@@ -1,5 +1,5 @@
 ---
-/** LP de conversão do Réveillon (rascunho, noindex, fora do sitemap). Placeholders: preço, sinal, restantes, cancelamento. */
+/** LP de conversão do Réveillon (rascunho, noindex, fora do sitemap). Preços, sinal 30%, restantes e cancelamento confirmados pelo Leonardo em 28/10/2026. */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
@@ -20,9 +20,11 @@ const faq = [
   { t: 'Tem Wi-Fi?', d: 'Sim, internet Starlink.' },
   { t: 'Tem mosquito?', d: 'Praticamente sem mosquito: a água escura do Arapiuns não favorece o mosquito.' },
   { t: 'O que está incluído nas refeições?', d: 'Café da manhã, almoço e jantar incluídos.' },
-  { t: 'Posso levar crianças?', d: 'São bem-vindas. Diga as idades no WhatsApp e o roteiro considera todo mundo. [VALOR PARA CRIANÇAS A DEFINIR]' },
+  { t: 'Posso levar crianças?', d: 'São bem-vindas. Bebês até 3 anos não pagam. De 4 a 12 anos pagam 50%. A partir de 13 anos, valor de adulto. As crianças ficam no bangalô dos pais.' },
   { t: 'Dá para fechar a Villa só para o meu grupo?', d: 'Sim: a partir de 15 pessoas a Villa fecha em exclusividade, com os 13 bangalôs, o pavilhão, o redário e a praia.' },
-  { t: 'E se eu precisar cancelar?', d: '[POLÍTICA DE CANCELAMENTO A DEFINIR]' },
+  { t: 'E se não tiver vaga depois que eu pagar o sinal?', d: 'O sinal de 30% garante a reserva. Se não houver disponibilidade, devolvemos o valor integral.' },
+  { t: 'Como funciona o pagamento?', d: 'Sinal de 30% ou valor total, no Pix ou em até 12x no cartão, pela InfinitePay.' },
+  { t: 'E se eu precisar cancelar?', d: 'Até 30 dias antes do check-in: reembolso de 100% do valor pago. De 29 a 15 dias: 50%. Com 14 dias ou menos, ou no-show: sem reembolso. A reserva pode ser transferida para outra pessoa sem custo.' },
 ];
 ---
 <BaseLayout locale="pt" pageKey="reveillon" title="Réveillon 2027 | Pousada no Rio Arapiuns | Alter do Chão" description="De 28/12 a 2/1, 13 bangalôs. 1h30 de barco de Alter do Chão, café da manhã, almoço e jantar incluídos. Vagas limitadas." indexavel={false} caminho="/pt/lp/reveillon/" semSchemaNegocio>
@@ -43,7 +45,7 @@ const faq = [
     ]}
     galeria={[{ src: a, alt: 'Jantar na praia' }, { src: b, alt: 'Roda na areia' }, { src: c, alt: 'Banco de areia no rio' }, { src: d, alt: 'Quarto com varanda' }, { src: e, alt: 'Peixe no jantar' }, { src: g, alt: 'Pôr do sol na praia' }]}
     faq={faq} dataMin="2026-12-28" dataMax="2026-12-28" minNoites={5} maxNoites={5} datasFixas
-    pacoteNome="Réveillon 28/12 a 2/1" totalBangalos={13} restantes={null}
+    pacoteNome="Réveillon 28/12 a 2/1" totalBangalos={13} restantes={10}
     precoNoitePessoa={null} sinalPct={30} maxHospedes={26}
     ocupacoes={[{ nome: 'Single', pessoas: 1, precoPessoa: 9000 }, { nome: 'Duplo', pessoas: 2, precoPessoa: 6000 }, { nome: 'Triplo', pessoas: 3, precoPessoa: 5000 }]}
     aParte={['voo até Santarém (STM)', 'transfer e lancha de Alter do Chão', 'passeios, pagos diretamente às comunidades']}
