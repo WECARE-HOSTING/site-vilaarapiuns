@@ -42,6 +42,7 @@ interface Props {
   porNoite?: boolean;
 }
 const p = Astro.props;
+const fim = new Date(Date.parse(p.dataMax + 'T00:00:00Z') + p.minNoites * 864e5).toISOString().slice(0, 10);
 const WA = `https://wa.me/${SITE.contact.whatsapp}`;
 /** Link público InfinitePay: pay.infinitepay.io/{InfiniteTag}/{valor com vírgula}. Sem valor dá 500. */
 const INFINITETAG = 'carlospecucci';
@@ -52,13 +53,22 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
   <section class="sobre-escuro relative isolate min-h-[88svh] flex items-end text-white">
     <Image src={p.hero} alt={p.heroAlt} widths={[480, 800, 1280, 1920]} sizes="100vw" loading="eager" fetchpriority="high" class="absolute inset-0 -z-10 h-full w-full object-cover" />
     <div class="absolute inset-0 -z-10 bg-gradient-to-t from-mar-fundo/95 via-mar-fundo/60 to-mar-fundo/25 lg:bg-gradient-to-r lg:from-mar-fundo/90 lg:via-mar-fundo/60 lg:to-mar-fundo/20"></div>
-    <div class="container-editorial pb-14 pt-32">
+    <div class="container-editorial pb-10 pt-28">
       <p class="lp-selo">{p.selo}</p>
       <h1 style="color:#fff;text-shadow:0 2px 16px rgb(0 0 0 / .45)" class="font-display text-4xl sm:text-6xl leading-[1.05] mt-3 max-w-3xl">{p.h1}</h1>
       <p class="mt-5 text-lg sm:text-xl max-w-2xl text-espuma">{p.promessa}</p>
       <ul class="mt-6 flex flex-wrap gap-2">{p.campo.map((c) => <li class="lp-chip">{c}</li>)}</ul>
-      <p class="mt-8 flex flex-wrap gap-3">
-        <a href="#reservar" class="btn btn-primario">Reservar e pagar</a>
+      {!p.datasFixas && (
+        <div data-rapido class="mt-6 grid grid-cols-2 gap-2 max-w-md text-mar-fundo">
+          <label class="block"><span class="lp-rotulo" style="color:#fff">Chegada (check-in)</span>
+            <input type="date" name="r-chegada" min={p.dataMin} max={p.dataMax} value={p.dataMin} class="lp-campo bg-white" /></label>
+          <label class="block"><span class="lp-rotulo" style="color:#fff">Quantas noites? (mín. {p.minNoites})</span>
+            <select name="r-noites" class="lp-campo bg-white font-bold">{Array.from({ length: p.maxNoites - p.minNoites + 1 }, (_, i) => p.minNoites + i).map((n) => <option value={n}>{n} noites</option>)}</select></label>
+          <p data-rapido-resumo class="col-span-2 text-sm text-espuma"></p>
+        </div>
+      )}
+      <p class={`${p.datasFixas ? 'mt-8' : 'mt-4'} flex flex-wrap gap-3`}>
+        <a href="#reservar" class="btn btn-primario">{p.datasFixas ? 'Reservar e pagar' : 'Ver total e pagar'}</a>
         <a href={`${WA}?text=${encodeURIComponent(msgPadrao)}`} class="lp-btn-claro" target="_blank" rel="noopener">Consultar no WhatsApp</a>
       </p>
     </div>
@@ -116,13 +126,15 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
         </p>
       </div>
 
-      <form id="reservar" class="lp-card scroll-mt-24" data-wa={WA} data-pacote={p.pacoteNome} data-min={p.minNoites} data-tag={INFINITETAG} data-preco={p.precoNoitePessoa ?? ''} data-sinal={p.sinalPct ?? ''} data-pornoite={p.porNoite ? 1 : 0} data-max={p.maxHospedes ?? 26} data-bangalos={p.totalBangalos}>
+      <form id="reservar" class="lp-card scroll-mt-24" data-wa={WA} data-fim={fim} data-pacote={p.pacoteNome} data-min={p.minNoites} data-tag={INFINITETAG} data-preco={p.precoNoitePessoa ?? ''} data-sinal={p.sinalPct ?? ''} data-pornoite={p.porNoite ? 1 : 0} data-max={p.maxHospedes ?? 26} data-bangalos={p.totalBangalos}>
         <h3 class="font-display text-2xl text-mar">Reservar</h3>
-        <label class="block mt-4"><span class="lp-rotulo">Chegada</span>
+        <label class="block mt-4"><span class="lp-rotulo">Chegada (check-in)</span>
           <input type="date" name="chegada" min={p.dataMin} max={p.dataMax} value={p.dataMin} required class="lp-campo" readonly={p.datasFixas} /></label>
         <div class="grid grid-cols-2 gap-3 mt-3">
-          <label class="block"><span class="lp-rotulo">Noites (mín. {p.minNoites})</span>
-            <input type="number" name="noites" min={p.minNoites} max={p.maxNoites} value={p.datasFixas ? p.maxNoites : p.minNoites} class="lp-campo" readonly={p.datasFixas} /></label>
+          {p.datasFixas ? (<label class="block"><span class="lp-rotulo">Noites</span>
+            <input type="number" name="noites" value={p.maxNoites} class="lp-campo" readonly /></label>) : (
+          <label class="block"><span class="lp-rotulo">Quantas noites? (mín. {p.minNoites})</span>
+            <select name="noites" class="lp-campo">{Array.from({ length: p.maxNoites - p.minNoites + 1 }, (_, i) => p.minNoites + i).map((n) => <option value={n}>{n} noites</option>)}</select></label>)}
           {!p.ocupacoes && <label class="block"><span class="lp-rotulo">Hóspedes</span>
             <input type="number" name="hospedes" min="1" max={p.maxHospedes ?? 26} value="2" class="lp-campo" /></label>}
         </div>
@@ -162,14 +174,33 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
 </div>
 
 <script>
+  import { limitarNoites } from '@/scripts/noites';
   const f = document.querySelector<HTMLFormElement>('#reservar');
+  const r = document.querySelector<HTMLElement>('[data-rapido]');
+  if (f && r) {
+    // seletor do hero (acima da dobra) espelha o formulário completo
+    const rc = r.querySelector<HTMLInputElement>('[name=r-chegada]')!, rn = r.querySelector<HTMLSelectElement>('[name=r-noites]')!;
+    const sync = () => {
+      (f.elements.namedItem('chegada') as HTMLInputElement).value = rc.value;
+      (f.elements.namedItem('noites') as HTMLSelectElement).value = rn.value;
+      f.dispatchEvent(new Event('input'));
+      rc.value = (f.elements.namedItem('chegada') as HTMLInputElement).value;
+      const fs = f.querySelector<HTMLSelectElement>('select[name=noites]')!;
+      [...rn.options].forEach((o, i) => (o.disabled = fs.options[i].disabled));
+      rn.value = fs.value;
+      r.querySelector('[data-rapido-resumo]')!.textContent = `${f.querySelector('[data-saida]')!.textContent} · ${f.querySelector('[data-total]')!.textContent}`;
+    };
+    rc.addEventListener('input', sync); rn.addEventListener('input', sync);
+    f.addEventListener('input', (e) => { if (e.isTrusted) queueMicrotask(() => { rc.value = (f.elements.namedItem('chegada') as HTMLInputElement).value; rn.value = (f.elements.namedItem('noites') as HTMLSelectElement).value; [...rn.options].forEach((o, i) => (o.disabled = (f.querySelector<HTMLSelectElement>('select[name=noites]')!).options[i].disabled)); r.querySelector('[data-rapido-resumo]')!.textContent = `${f.querySelector('[data-saida]')!.textContent} · ${f.querySelector('[data-total]')!.textContent}`; }); });
+    queueMicrotask(sync);
+  }
   if (f) {
     const d = f.dataset;
     const fmt = (x: Date) => x.toLocaleDateString('pt-BR', { timeZone: 'UTC', day: '2-digit', month: '2-digit' });
     const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     const calc = () => {
-      const c = new Date(f.chegada.value + 'T00:00:00Z');
-      const n = Math.max(+f.noites.value || 0, +d.min!);
+      const { chegada: c, noites: n0 } = limitarNoites(f);
+      const n = Math.max(n0, +d.min!);
       const oc = [...f.querySelectorAll<HTMLInputElement>('[data-pessoas]')];
       let h = f.hospedes ? Math.max(+f.hospedes.value || 1, 1) : 0;
       let pacote = 0, bang = 0;
@@ -183,13 +214,13 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
       grupo.style.fontWeight = h > 15 ? '700' : '';
       const excede = oc.length > 0 && (bang > +d.bangalos! || h > +d.max!);
       const s = new Date(c.getTime() + n * 864e5);
-      f.querySelector('[data-saida]')!.textContent = isNaN(c.getTime()) ? '' : `Saída: ${fmt(s)} · ${n} noites · ${h} pessoas`;
+      f.querySelector('[data-saida]')!.textContent = isNaN(c.getTime()) ? '' : `Check-in ${fmt(c)} · Check-out ${fmt(s)} · ${n} noites · ${h} pessoas`;
       const total = oc.length ? (excede || !pacote ? null : pacote) : d.preco ? +d.preco * n * h : null;
       if (excede) f.querySelector('[data-total]')!.textContent = `Acima de ${d.bangalos} bangalôs / ${d.max} pessoas`;
       const sinal = total && d.sinal ? Math.round(total * +d.sinal) / 100 : null;
       if (total) f.querySelector('[data-total]')!.textContent = brl(total);
       if (sinal) f.querySelector('[data-sinal-valor]')!.textContent = brl(sinal);
-      const msg = `Oi! Quero reservar ${d.pacote}: chegada ${isNaN(c.getTime()) ? '' : fmt(c)}, ${n} noites, ${h} pessoas.`;
+      const msg = `Oi! Quero reservar ${d.pacote}: check-in ${isNaN(c.getTime()) ? '' : fmt(c)}, check-out ${isNaN(c.getTime()) ? '' : fmt(s)}, ${n} noites, ${h} pessoas.`;
       f.querySelector<HTMLAnchorElement>('[data-wa-link]')!.href = `${d.wa}?text=${encodeURIComponent(msg)}`;
       return { msg, sinal, total };
     };
