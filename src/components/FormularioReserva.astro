@@ -363,3 +363,20 @@ const pessoas = ['1', '2', '3-6', '7-14', '15-26'] as const;
     });
   })();
 </script>
+
+{/* Pré-preenchimento vindo da barra de reserva (?pacote=reveillon|detox).
+    Sem JS o formulário segue vazio e funcional. */}
+<script is:inline define:vars={{ pacoteMsg: { reveillon: t('barra.msg_reveillon'), detox: t('barra.msg_detox') } }}>
+  (function () {
+    var q = new URLSearchParams(location.search);
+    var p = q.get('pacote');
+    var datas = { reveillon: ['12', '2026'], detox: ['1', '2027'] };
+    if (!datas[p]) return;
+    function set(id, v) { var el = document.getElementById(id); if (el && !el.value) el.value = v; }
+    set('f-mes', datas[p][0]);
+    set('f-ano', datas[p][1]);
+    set('f-interesse', 'pacote');
+    set('f-mensagem', pacoteMsg[p]);
+    var n = q.get('pessoas'); if (n) set('f-pessoas', n);
+  })();
+</script>

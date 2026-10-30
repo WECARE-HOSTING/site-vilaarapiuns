@@ -73,8 +73,6 @@
     "pacotes": "Olá! Vim pela página de Pacotes do site da Villa Arapiuns e queria consultar datas.",
     "diario": "Olá! Li um artigo do Diário no site da Villa Arapiuns e queria saber mais.",
     "detox": "Olá! Vim pela página do Detox pós-Ano Novo no site da Villa Arapiuns (1 a 10 de janeiro de 2027). Somos __ pessoas e pensamos em chegar dia __ e sair dia __ de janeiro.",
-    "fechar_reveillon": "Olá! Quero fechar o Réveillon na Villa Arapiuns (28/12/2026 a 02/01/2027). Somos __ pessoas. Pode me mandar o valor e como pagar?",
-    "fechar_detox": "Olá! Quero fechar o Detox pós-Ano Novo na Villa Arapiuns (1 a 10 de janeiro de 2027). Somos __ pessoas, chegada dia __ e saída dia __. Pode me mandar o valor e como pagar?",
     "aviseme": "Olá! Quero receber as novidades e as próximas datas da Villa Arapiuns."
   },
   "desc": {
@@ -1276,8 +1274,10 @@
     "rotulo": "Reservar este pacote",
     "reveillon": "Réveillon · 28 dez – 2 jan",
     "detox": "Detox · 1 – 10 jan",
-    "fechar": "Quero fechar",
+    "fechar": "Reservar",
     "whatsapp": "Tirar dúvidas",
-    "aviseme": "Avise-me das próximas datas"
+    "aviseme": "Avise-me das próximas datas",
+    "msg_reveillon": "Quero reservar o Réveillon (28/12/2026 a 02/01/2027).",
+    "msg_detox": "Quero reservar o Detox pós-Ano Novo (1 a 10/01/2027). Chegada dia __, saída dia __."
   }
 }

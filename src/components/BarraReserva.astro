@@ -3,16 +3,16 @@
  * BARRA DE RESERVA — fixa no rodapé da tela nas páginas de pacote sazonal
  * (Réveillon, Detox), que recebem o tráfego da bio do Instagram.
  *
- * "Quero fechar" abre o WhatsApp com pacote e datas já escritos. Motivo: a
- * conta Hostaway não tem Booking Engine/site direto ativo (bookingEngineUrls
- * vazio em todos os anúncios, verificado em 30/10/2026). Quando existir, este
- * é o único lugar a trocar o href.
+ * "Reservar" (decisão do Leonardo, 30/10) vai ao formulário /reservar/ com
+ * o pacote pré-preenchido; WhatsApp fica só como "Tirar dúvidas". Hostaway
+ * não tem Booking Engine ativo (bookingEngineUrls vazio, 30/10/2026).
  *
  * SEM PREÇO no HTML (decisão do cliente). "Avise-me" é WhatsApp também: não
  * há provedor de newsletter no site e não entra serviço novo de terceiro.
  * O clique é medido pelo listener de wa.me do BaseLayout; `data-cta` diz qual.
  */
 import { whatsappUrl } from '@/data/site';
+import { href } from '@/i18n/routes';
 import { useTranslations } from '@/i18n/utils';
 import type { Locale } from '@/i18n/config';
 
@@ -20,7 +20,9 @@ interface Props { locale: Locale; pacote: 'reveillon' | 'detox' }
 const { locale, pacote } = Astro.props;
 const t = useTranslations(locale);
 const etiqueta = t(`barra.${pacote}`);
-const fechar = whatsappUrl(t(`whatsapp.fechar_${pacote}`));
+/* "Reservar" leva ao formulário do site com o pacote pré-preenchido
+   (?pacote=). Quando o checkout InfinitePay existir, troca-se só este href. */
+const fechar = `${href(locale, 'book')}?pacote=${pacote}`;
 const conversar = whatsappUrl(t(`whatsapp.${pacote}`));
 const avise = whatsappUrl(t('whatsapp.aviseme'));
 ---
@@ -32,7 +34,7 @@ const avise = whatsappUrl(t('whatsapp.aviseme'));
     </p>
     <div class="barra-reserva__acoes">
       <a href={conversar} class="barra-reserva__btn barra-reserva__btn--sec" target="_blank" rel="noopener noreferrer" data-cta={`whatsapp_${pacote}`}>{t('barra.whatsapp')}</a>
-      <a href={fechar} class="barra-reserva__btn barra-reserva__btn--pri" target="_blank" rel="noopener noreferrer" data-cta={`fechar_${pacote}`}>{t('barra.fechar')}</a>
+      <a href={fechar} class="barra-reserva__btn barra-reserva__btn--pri" data-cta={`reservar_${pacote}`}>{t('barra.fechar')}</a>
     </div>
   </div>
 </aside>

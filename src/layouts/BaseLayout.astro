@@ -295,10 +295,10 @@ const trilha =
          */
         document.addEventListener('click', function (e) {
           var alvo = e.target;
-          var a = alvo && alvo.closest ? alvo.closest('a[href*="wa.me"]') : null;
+          var a = alvo && alvo.closest ? alvo.closest('a[href*="wa.me"], a[data-cta]') : null;
           if (!a) return;
           gtag('event', 'generate_lead', {
-            metodo: 'whatsapp',
+            metodo: a.href.indexOf('wa.me') > -1 ? 'whatsapp' : 'formulario',
             pagina: location.pathname,
             idioma: document.documentElement.lang,
             cta: a.getAttribute('data-cta') || 'whatsapp',
