@@ -301,6 +301,7 @@ const trilha =
             metodo: 'whatsapp',
             pagina: location.pathname,
             idioma: document.documentElement.lang,
+            cta: a.getAttribute('data-cta') || 'whatsapp',
           });
         }, { capture: true });
       </script>

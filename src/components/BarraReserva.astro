@@ -1,0 +1,67 @@
+---
+/**
+ * BARRA DE RESERVA — fixa no rodapé da tela nas páginas de pacote sazonal
+ * (Réveillon, Detox), que recebem o tráfego da bio do Instagram.
+ *
+ * "Quero fechar" abre o WhatsApp com pacote e datas já escritos. Motivo: a
+ * conta Hostaway não tem Booking Engine/site direto ativo (bookingEngineUrls
+ * vazio em todos os anúncios, verificado em 30/10/2026). Quando existir, este
+ * é o único lugar a trocar o href.
+ *
+ * SEM PREÇO no HTML (decisão do cliente). "Avise-me" é WhatsApp também: não
+ * há provedor de newsletter no site e não entra serviço novo de terceiro.
+ * O clique é medido pelo listener de wa.me do BaseLayout; `data-cta` diz qual.
+ */
+import { whatsappUrl } from '@/data/site';
+import { useTranslations } from '@/i18n/utils';
+import type { Locale } from '@/i18n/config';
+
+interface Props { locale: Locale; pacote: 'reveillon' | 'detox' }
+const { locale, pacote } = Astro.props;
+const t = useTranslations(locale);
+const etiqueta = t(`barra.${pacote}`);
+const fechar = whatsappUrl(t(`whatsapp.fechar_${pacote}`));
+const conversar = whatsappUrl(t(`whatsapp.${pacote}`));
+const avise = whatsappUrl(t('whatsapp.aviseme'));
+---
+<aside class="barra-reserva" aria-label={t('barra.rotulo')}>
+  <div class="barra-reserva__miolo">
+    <p class="barra-reserva__pacote">
+      <span class="barra-reserva__etiqueta">{etiqueta}</span>
+      <a href={avise} class="barra-reserva__avise" target="_blank" rel="noopener noreferrer" data-cta={`aviseme_${pacote}`}>{t('barra.aviseme')}</a>
+    </p>
+    <div class="barra-reserva__acoes">
+      <a href={conversar} class="barra-reserva__btn barra-reserva__btn--sec" target="_blank" rel="noopener noreferrer" data-cta={`whatsapp_${pacote}`}>{t('barra.whatsapp')}</a>
+      <a href={fechar} class="barra-reserva__btn barra-reserva__btn--pri" target="_blank" rel="noopener noreferrer" data-cta={`fechar_${pacote}`}>{t('barra.fechar')}</a>
+    </div>
+  </div>
+</aside>
+
+<style>
+  .barra-reserva {
+    position: fixed; inset-inline: 0; bottom: 0; z-index: 90;
+    background: color-mix(in srgb, var(--color-mar-fundo) 94%, transparent);
+    backdrop-filter: blur(6px);
+    border-top: 1px solid var(--color-areia-sol);
+    color: var(--color-areia-clara);
+    padding: 0.6rem 1rem calc(0.6rem + env(safe-area-inset-bottom));
+  }
+  .barra-reserva__miolo { max-width: 72rem; margin: 0 auto; display: flex; flex-direction: column; gap: 0.5rem; }
+  .barra-reserva__pacote { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin: 0; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .barra-reserva__etiqueta { color: var(--color-sol); }
+  .barra-reserva__avise { color: var(--color-espuma); text-decoration: underline; text-underline-offset: 3px; text-transform: none; letter-spacing: 0; }
+  .barra-reserva__acoes { display: grid; grid-template-columns: 1fr 1.4fr; gap: 0.5rem; }
+  .barra-reserva__btn { display: flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 1rem; font-size: 0.95rem; letter-spacing: 0.03em; text-decoration: none; border: 1px solid var(--color-areia-sol); }
+  .barra-reserva__btn--sec { color: var(--color-areia-clara); }
+  .barra-reserva__btn--pri { background: var(--color-sol); color: var(--color-mar-fundo); border-color: var(--color-sol); font-weight: 600; }
+  .barra-reserva__btn:hover { filter: brightness(1.08); }
+  .barra-reserva a:focus-visible { outline: 2px solid var(--color-sol); outline-offset: 2px; }
+  @media (min-width: 768px) {
+    .barra-reserva { padding-block: 0.5rem; }
+    .barra-reserva__miolo { flex-direction: row; align-items: center; justify-content: space-between; }
+    .barra-reserva__acoes { display: flex; }
+    .barra-reserva__btn { min-height: 40px; font-size: 0.9rem; }
+  }
+  :global(body:has(.barra-reserva)) { padding-bottom: 7.5rem; }
+  @media (min-width: 768px) { :global(body:has(.barra-reserva)) { padding-bottom: 4rem; } }
+</style>

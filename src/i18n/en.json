@@ -72,7 +72,10 @@
     "home": "Hello! I'm writing from the Villa Arapiuns website home page and would like to know dates and rates.",
     "pacotes": "Hello! I'm writing from the Packages page on the Villa Arapiuns website and would like to check dates.",
     "diario": "Hello! I read an article in the Villa Arapiuns journal and would like to know more.",
-    "detox": "Hello! I'm writing from the Post-New Year Detox page on the Villa Arapiuns website (1 to 10 January 2027). We are __ people and would like to arrive on __ and leave on __ January."
+    "detox": "Hello! I'm writing from the Post-New Year Detox page on the Villa Arapiuns website (1 to 10 January 2027). We are __ people and would like to arrive on __ and leave on __ January.",
+    "fechar_reveillon": "Hi! I'd like to book New Year's at Villa Arapiuns (Dec 28, 2026 to Jan 2, 2027). We are __ people. Could you send me the price and how to pay?",
+    "fechar_detox": "Hi! I'd like to book the post-New Year Detox at Villa Arapiuns (January 1–10, 2027). We are __ people, arriving on __ and leaving on __. Could you send me the price and how to pay?",
+    "aviseme": "Hi! I'd like to hear about news and upcoming dates at Villa Arapiuns."
   },
   "desc": {
     "home": "Official site of Villa Arapiuns: 13 bungalows on the Arapiuns River, 90 minutes by boat from Alter do Chão. Book direct with the house on WhatsApp +55 47 99206-7078.",
@@ -1268,5 +1271,13 @@
         "alt": "A white ceramic basin on a solid-timber counter, with a tall tap, a wood-framed mirror, woven baskets and the thatched roof visible above the wall"
       }
     ]
+  },
+  "barra": {
+    "rotulo": "Book this package",
+    "reveillon": "New Year's · Dec 28 – Jan 2",
+    "detox": "Detox · Jan 1 – 10",
+    "fechar": "Book now",
+    "whatsapp": "Ask a question",
+    "aviseme": "Notify me of new dates"
   }
 }
