@@ -90,7 +90,7 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
         <ol class="mt-6 space-y-4 list-decimal pl-5">
           <li>Voo até <strong>Santarém (STM)</strong>.</li>
           <li>Estrada até <strong>Alter do Chão</strong> (cerca de 35 km).</li>
-          <li><strong>1h30 de barco</strong> de Alter do Chão até a Villa, no Rio Arapiuns.</li>
+          <li><strong>1h30</strong> de Alter do Chão até a Villa, no Rio Arapiuns.</li>
         </ol>
         <p class="mt-6 text-sm">Dúvidas sobre a chegada? A gente orienta no WhatsApp.</p>
       </div>
@@ -118,7 +118,7 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
         ) : (
           <p class={`mt-4 text-3xl font-display ${p.precoNoitePessoa ? 'text-mar' : 'text-erro'}`}>{p.precoNoitePessoa ? brl(p.precoNoitePessoa) : '[PREÇO A DEFINIR]'}</p>
         )}
-        <p class="mt-2">{p.ocupacoes ? (p.porNoite ? 'por pessoa / noite' : 'por pessoa, pacote completo') : 'por pessoa / noite'} · sinal de {p.sinalPct ?? '[SINAL A DEFINIR]'}% para garantir a vaga, no Pix ou em até 12x no cartão (InfinitePay)</p>
+        <p class="mt-2">{p.ocupacoes ? (p.porNoite ? 'por pessoa / noite' : 'por pessoa, pacote completo') : 'por pessoa / noite'} · sinal de {p.sinalPct ?? '[SINAL A DEFINIR]'}% para a pré-reserva, no cartão em até 12x (InfinitePay)</p>
         {p.aParte && <p class="mt-4 text-sm"><strong>À parte:</strong> {p.aParte.join(' · ')}</p>}
         <p class="mt-6 lp-escassez">
           Vagas limitadas: {p.totalBangalos} bangalôs no total
@@ -154,9 +154,11 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
         </dl>
         <button type="submit" name="modo" value="sinal" class="btn btn-primario w-full mt-5">Reservar e pagar o sinal</button>
         <button type="submit" name="modo" value="total" class="w-full mt-2 py-3 border border-ceu text-ceu font-semibold">Pagar o valor total</button>
-        <p class="mt-2 text-xs text-center">Sinal ou total: no Pix ou em até 12x no cartão, pela InfinitePay.</p>
+        <p class="mt-2 text-sm text-center font-semibold">Sem disponibilidade, devolução integral do valor.</p>
+        <p class="mt-3 p-3 text-center font-semibold bg-espuma" data-prereserva role="status" hidden>Pré-reserva recebida. Vamos entrar em contato para confirmar a disponibilidade.</p>
+        <p class="mt-2 text-xs text-center">Sinal ou total: cartão de crédito em até 12x, pela InfinitePay. Para Pix, fale no WhatsApp.</p>
         <a data-wa-link href={`${WA}?text=${encodeURIComponent(msgPadrao)}`} target="_blank" rel="noopener" class="block text-center mt-3 underline">Prefiro falar no WhatsApp</a>
-        <p class="mt-3 text-xs">O sinal garante a reserva. Se não houver disponibilidade, devolvemos o valor integral. Cancelamento: reembolso de 100% até 30 dias antes do check-in, 50% de 29 a 15 dias, sem reembolso a 14 dias ou menos (ou no-show). <a href="#faq" class="underline">Ver política completa</a>.</p>
+        <p class="mt-3 text-xs">O sinal registra a pré-reserva; a gente confirma a disponibilidade com você. Sem disponibilidade, devolução integral do valor. Cancelamento: reembolso de 100% até 30 dias antes do check-in, 50% de 29 a 15 dias, sem reembolso a 14 dias ou menos (ou no-show). <a href="#faq" class="underline">Ver política completa</a>.</p>
       </form>
     </div>
   </section>
@@ -233,6 +235,7 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
       const url = valor
         ? `https://pay.infinitepay.io/${d.tag}/${valor.toFixed(2).replace('.', ',')}`
         : `${d.wa}?text=${encodeURIComponent(msg)}`; // sem preço definido: cai no WhatsApp
+      if (valor) f.querySelector<HTMLElement>('[data-prereserva]')!.hidden = false;
       window.open(url, '_blank', 'noopener');
     });
   }

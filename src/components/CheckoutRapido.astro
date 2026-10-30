@@ -68,7 +68,9 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
     </dl>
     <button type="submit" name="modo" value="sinal" class="ck-btn">Pagar sinal de {p.sinalPct}%</button>
     <button type="submit" name="modo" value="total" class="ck-btn ck-btn2">Pagar total</button>
-    <p class="ck-nota">No Pix ou em até 12x no cartão, pela InfinitePay. Café da manhã, almoço e jantar incluídos. Sem vaga, devolvemos o valor integral.</p>
+    <p class="ck-devolucao">Sem disponibilidade, devolução integral do valor.</p>
+    <p class="ck-nota">Cartão de crédito em até 12x, pela InfinitePay (Pix: fale no WhatsApp). Na pousada, todas as refeições estão incluídas; o pacote inclui café da manhã e jantar, e o almoço na comunidade é pago à parte.</p>
+    <p class="ck-prereserva" data-prereserva role="status" hidden>Pré-reserva recebida. Vamos entrar em contato para confirmar a disponibilidade.</p>
     <a data-ja-paguei href={WA} target="_blank" rel="noopener" class="ck-pago">Já paguei: enviar meu comprovante no WhatsApp</a>
 
     <nav class="ck-links" aria-label="Saiba mais">
@@ -77,6 +79,7 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
       <a href={`${p.lp}#faq`}>Cancelamento</a>
       <a href={`${p.lp}#faq`}>Perguntas frequentes</a>
       <a data-wa-link href={WA} target="_blank" rel="noopener">Falar no WhatsApp</a>
+      <a href={`mailto:${SITE.contact.email}`}>{SITE.contact.email}</a>
     </nav>
   </form>
 </main>
@@ -114,11 +117,15 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
     return { ok, total, sinal, msg };
   };
   f.addEventListener('input', calc); calc();
+  const pre = f.querySelector<HTMLElement>('[data-prereserva]')!;
+  const mostrarPre = () => { pre.hidden = false; };
+  f.querySelector('[data-ja-paguei]')!.addEventListener('click', mostrarPre);
   f.addEventListener('submit', (e) => {
     e.preventDefault();
     const { ok, total, sinal, msg } = calc();
     const modo = ((e as SubmitEvent).submitter as HTMLButtonElement | null)?.value;
     const v = modo === 'total' ? total : sinal;
+    if (ok) mostrarPre();
     window.open(ok ? `https://pay.infinitepay.io/${d.tag}/${v.toFixed(2).replace('.', ',')}` : `${d.wa}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
   });
 </script>
@@ -146,6 +153,8 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
   .ck-btn:hover { background: var(--color-ceu-hover); }
   .ck-btn2 { margin-top: .45rem; background: transparent; color: var(--color-ceu); border: 2px solid var(--color-ceu); font-size: 1rem; padding: .75rem; }
   .ck-btn2:hover { background: var(--color-espuma); }
+  .ck-devolucao { margin-top: .5rem; text-align: center; font-weight: 700; font-size: .85rem; color: var(--color-mar-fundo); }
+  .ck-prereserva { margin-top: .6rem; padding: .7rem; text-align: center; font-weight: 700; background: var(--color-espuma); color: var(--color-mar-fundo); }
   .ck-nota { margin-top: .5rem; font-size: .75rem; text-align: center; color: var(--color-mar-fundo); }
   .ck-pago { display: block; margin-top: .4rem; text-align: center; font-size: .78rem; color: var(--color-mar); text-decoration: underline; }
   .ck-links { display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem .9rem; margin-top: 1.4rem; font-size: .78rem; }

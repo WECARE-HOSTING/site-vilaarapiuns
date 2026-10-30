@@ -1278,6 +1278,8 @@
     "whatsapp": "Ask a question",
     "aviseme": "Notify me of new dates",
     "msg_reveillon": "I'd like to book New Year's (Dec 28, 2026 to Jan 2, 2027).",
-    "msg_detox": "I'd like to book the post-New Year Detox (Jan 1–10, 2027). Arriving __, leaving __."
+    "msg_detox": "I'd like to book the post-New Year Detox (Jan 1–10, 2027). Arriving __, leaving __.",
+    "devolucao": "No availability, full refund.",
+    "preReserva": "Pre-booking received. We'll contact you to confirm availability."
   }
 }

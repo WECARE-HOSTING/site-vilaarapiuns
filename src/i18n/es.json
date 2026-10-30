@@ -1278,6 +1278,8 @@
     "whatsapp": "Hacer una consulta",
     "aviseme": "Avísame de nuevas fechas",
     "msg_reveillon": "Quiero reservar el Año Nuevo (28/12/2026 al 02/01/2027).",
-    "msg_detox": "Quiero reservar el Detox post Año Nuevo (1 al 10/01/2027). Llegada el __, salida el __."
+    "msg_detox": "Quiero reservar el Detox post Año Nuevo (1 al 10/01/2027). Llegada el __, salida el __.",
+    "devolucao": "Sin disponibilidad, devolución total del importe.",
+    "preReserva": "Prerreserva recibida. Nos pondremos en contacto para confirmar la disponibilidad."
   }
 }

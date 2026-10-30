@@ -19,24 +19,24 @@ const faq = [
   { t: 'Tem energia o dia todo?', d: 'Sim. Energia solar 24h.' },
   { t: 'Tem Wi-Fi?', d: 'Sim, internet Starlink.' },
   { t: 'Tem mosquito?', d: 'Praticamente sem mosquito: a água escura do Arapiuns não favorece o mosquito.' },
-  { t: 'O que está incluído nas refeições?', d: 'Café da manhã, almoço e jantar incluídos.' },
+  { t: 'O que está incluído nas refeições?', d: 'Na pousada, todas as refeições estão incluídas. O pacote inclui café da manhã e jantar; o almoço na comunidade é pago à parte.' },
   { t: 'Posso levar crianças?', d: 'São bem-vindas. Bebês até 3 anos não pagam. De 4 a 12 anos pagam 50%. A partir de 13 anos, valor de adulto. As crianças ficam no bangalô dos pais.' },
   { t: 'Dá para fechar a Villa só para o meu grupo?', d: 'Sim: a partir de 15 pessoas a Villa fecha em exclusividade, com os 13 bangalôs, o pavilhão, o redário e a praia.' },
-  { t: 'E se não tiver vaga depois que eu pagar o sinal?', d: 'O sinal de 30% garante a reserva. Se não houver disponibilidade, devolvemos o valor integral.' },
-  { t: 'Como funciona o pagamento?', d: 'Sinal de 30% ou valor total, no Pix ou em até 12x no cartão, pela InfinitePay.' },
+  { t: 'E se não tiver vaga depois que eu pagar o sinal?', d: 'O sinal de 30% registra a pré-reserva, e a gente confirma a disponibilidade com você. Se não houver disponibilidade, devolvemos o valor integral.' },
+  { t: 'Como funciona o pagamento?', d: 'Sinal de 30% ou valor total, no cartão de crédito em até 12x, pela InfinitePay. Para pagar no Pix, fale no WhatsApp.' },
   { t: 'E se eu precisar cancelar?', d: 'Até 30 dias antes do check-in: reembolso de 100% do valor pago. De 29 a 15 dias: 50%. Com 14 dias ou menos, ou no-show: sem reembolso. A reserva pode ser transferida para outra pessoa sem custo.' },
 ];
 ---
-<BaseLayout locale="pt" pageKey="reveillon" title="Réveillon 2027 | Pousada no Rio Arapiuns | Alter do Chão" description="De 28/12 a 2/1, 13 bangalôs. 1h30 de barco de Alter do Chão, café da manhã, almoço e jantar incluídos. Vagas limitadas." indexavel={false} caminho="/pt/lp/reveillon/" semSchemaNegocio>
+<BaseLayout locale="pt" pageKey="reveillon" title="Réveillon 2027 | Pousada no Rio Arapiuns | Alter do Chão" description="De 28/12 a 2/1, 13 bangalôs. A 1h30 de Alter do Chão, café da manhã e jantar incluídos. Vagas limitadas." indexavel={false} caminho="/pt/lp/reveillon/" semSchemaNegocio>
   <Header slot="header" locale="pt" pageKey="reveillon" sobreFoto />
   <LandingPacote
     slug="reveillon" selo="Réveillon · 28/12/2026 a 2/1/2027"
     h1="Uma virada sem palco nem fila."
-    promessa="Réveillon na beira do Rio Arapiuns, 1h30 de barco de Alter do Chão, com café da manhã, almoço e jantar incluídos e só 13 bangalôs."
+    promessa="Réveillon na beira do Rio Arapiuns, a 1h30 de Alter do Chão, com café da manhã e jantar incluídos e só 13 bangalôs."
     campo={['28/12 a 2/1', '5 noites', '13 bangalôs', 'Vagas limitadas']}
     hero={hero} heroAlt="Noite na praia da Villa Arapiuns"
     inclui={[
-      { t: 'Café da manhã, almoço e jantar incluídos', d: 'Comida regional feita na casa, do check-in à saída.' },
+      { t: 'Café da manhã e jantar incluídos', d: 'Comida regional feita na casa, do check-in à saída. O almoço na comunidade é pago à parte.' },
       { t: '13 bangalôs', d: 'Poucas pessoas, sem fila e sem multidão.' },
       { t: 'Energia solar 24h', d: 'Luz e tomada o dia todo.' },
       { t: 'Starlink', d: 'Para mandar o feliz ano novo.' },
@@ -48,9 +48,9 @@ const faq = [
     pacoteNome="Réveillon 28/12 a 2/1" totalBangalos={13} restantes={10}
     precoNoitePessoa={null} sinalPct={30} maxHospedes={26}
     ocupacoes={[{ nome: 'Single', pessoas: 1, precoPessoa: 9000 }, { nome: 'Duplo', pessoas: 2, precoPessoa: 6000 }, { nome: 'Triplo', pessoas: 3, precoPessoa: 5000 }]}
-    aParte={['voo até Santarém (STM)', 'transfer e lancha de Alter do Chão', 'passeios, pagos diretamente às comunidades']}
+    aParte={['voo até Santarém (STM)', 'transporte até a Villa, combinado com o anfitrião antes da viagem', 'passeios, pagos diretamente às comunidades']}
   >
-    <Image slot="chegada" src={chegada} alt="Chegada de barco à Villa" widths={[480, 800, 1200]} sizes="(min-width:640px) 50vw, 100vw" loading="lazy" class="aspect-[4/3] w-full object-cover" />
+    <Image slot="chegada" src={chegada} alt="Chegada à Villa" widths={[480, 800, 1200]} sizes="(min-width:640px) 50vw, 100vw" loading="lazy" class="aspect-[4/3] w-full object-cover" />
   </LandingPacote>
   <Footer slot="footer" locale="pt" />
 </BaseLayout>

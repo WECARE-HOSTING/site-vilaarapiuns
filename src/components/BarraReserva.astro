@@ -12,7 +12,6 @@
  * O clique é medido pelo listener de wa.me do BaseLayout; `data-cta` diz qual.
  */
 import { whatsappUrl } from '@/data/site';
-import { href } from '@/i18n/routes';
 import { useTranslations } from '@/i18n/utils';
 import type { Locale } from '@/i18n/config';
 
@@ -20,9 +19,9 @@ interface Props { locale: Locale; pacote: 'reveillon' | 'detox' }
 const { locale, pacote } = Astro.props;
 const t = useTranslations(locale);
 const etiqueta = t(`barra.${pacote}`);
-/* "Reservar" leva ao formulário do site com o pacote pré-preenchido
-   (?pacote=). Quando o checkout InfinitePay existir, troca-se só este href. */
-const fechar = `${href(locale, 'book')}?pacote=${pacote}`;
+/* "Reservar" leva ao checkout /pt/lp/pagar-{pacote}/ (sinal 30% via link
+   InfinitePay). Só existe em PT: todos os idiomas apontam para ele. */
+const fechar = `/pt/lp/pagar-${pacote}/`; /* só existe em PT por ora */
 const conversar = whatsappUrl(t(`whatsapp.${pacote}`));
 const avise = whatsappUrl(t('whatsapp.aviseme'));
 ---
@@ -30,6 +29,7 @@ const avise = whatsappUrl(t('whatsapp.aviseme'));
   <div class="barra-reserva__miolo">
     <p class="barra-reserva__pacote">
       <span class="barra-reserva__etiqueta">{etiqueta}</span>
+      <span class="barra-reserva__devolucao">{t('barra.devolucao')}</span>
       <a href={avise} class="barra-reserva__avise" target="_blank" rel="noopener noreferrer" data-cta={`aviseme_${pacote}`}>{t('barra.aviseme')}</a>
     </p>
     <div class="barra-reserva__acoes">
@@ -51,6 +51,7 @@ const avise = whatsappUrl(t('whatsapp.aviseme'));
   .barra-reserva__miolo { max-width: 72rem; margin: 0 auto; display: flex; flex-direction: column; gap: 0.5rem; }
   .barra-reserva__pacote { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin: 0; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
   .barra-reserva__etiqueta { color: var(--color-sol); }
+  .barra-reserva__devolucao { color: var(--color-espuma); text-transform: none; letter-spacing: 0; }
   .barra-reserva__avise { color: var(--color-espuma); text-decoration: underline; text-underline-offset: 3px; text-transform: none; letter-spacing: 0; }
   .barra-reserva__acoes { display: grid; grid-template-columns: 1fr 1.4fr; gap: 0.5rem; }
   .barra-reserva__btn { display: flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 1rem; font-size: 0.95rem; letter-spacing: 0.03em; text-decoration: none; border: 1px solid var(--color-areia-sol); }

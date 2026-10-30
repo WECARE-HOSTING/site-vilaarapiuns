@@ -18,24 +18,24 @@ const faq = [
   { t: 'Tem energia o dia todo?', d: 'Sim. Energia solar 24h.' },
   { t: 'Tem Wi-Fi?', d: 'Sim, internet Starlink. Dá para avisar a família, mas a ideia é desacelerar.' },
   { t: 'Tem mosquito?', d: 'Praticamente sem mosquito: o Rio Arapiuns tem água escura e ácida, que não favorece o mosquito.' },
-  { t: 'O que está incluído nas refeições?', d: 'Café da manhã, almoço e jantar incluídos, com comida regional feita na casa.' },
+  { t: 'O que está incluído nas refeições?', d: 'Na pousada, todas as refeições estão incluídas. O pacote inclui café da manhã e jantar, com comida regional feita na casa; o almoço na comunidade é pago à parte.' },
   { t: 'Posso levar crianças?', d: 'São bem-vindas. Bebês até 3 anos não pagam. De 4 a 12 anos pagam 50%. A partir de 13 anos, valor de adulto. As crianças ficam no bangalô dos pais.' },
   { t: 'Quais as datas?', d: 'De 1 a 10/1/2027, com datas flexíveis dentro dessa janela e mínimo de 2 noites.' },
-  { t: 'E se não tiver vaga depois que eu pagar o sinal?', d: 'O sinal de 30% garante a reserva. Se não houver disponibilidade, devolvemos o valor integral.' },
-  { t: 'Como funciona o pagamento?', d: 'Sinal de 30% ou valor total, no Pix ou em até 12x no cartão, pela InfinitePay.' },
+  { t: 'E se não tiver vaga depois que eu pagar o sinal?', d: 'O sinal de 30% registra a pré-reserva, e a gente confirma a disponibilidade com você. Se não houver disponibilidade, devolvemos o valor integral.' },
+  { t: 'Como funciona o pagamento?', d: 'Sinal de 30% ou valor total, no cartão de crédito em até 12x, pela InfinitePay. Para pagar no Pix, fale no WhatsApp.' },
   { t: 'E se eu precisar cancelar?', d: 'Até 30 dias antes do check-in: reembolso de 100% do valor pago. De 29 a 15 dias: 50%. Com 14 dias ou menos, ou no-show: sem reembolso. A reserva pode ser transferida para outra pessoa sem custo. Mudança de data dentro de 1 a 10/1, sujeita a disponibilidade, até 15 dias antes do check-in.' },
 ];
 ---
-<BaseLayout locale="pt" pageKey="detox" title="Detox pós-Réveillon | Pousada no Rio Arapiuns | Alter do Chão" description="De 1 a 10/1/2027, mínimo de 2 noites. 1h30 de barco de Alter do Chão, café da manhã, almoço e jantar incluídos. Vagas limitadas." indexavel={false} caminho="/pt/lp/detox-pos-reveillon/" semSchemaNegocio>
+<BaseLayout locale="pt" pageKey="detox" title="Detox pós-Réveillon | Pousada no Rio Arapiuns | Alter do Chão" description="De 1 a 10/1/2027, mínimo de 2 noites. A 1h30 de Alter do Chão, café da manhã e jantar incluídos. Vagas limitadas." indexavel={false} caminho="/pt/lp/detox-pos-reveillon/" semSchemaNegocio>
   <Header slot="header" locale="pt" pageKey="detox" sobreFoto />
   <LandingPacote
     slug="detox-pos-reveillon" selo="Detox pós-Réveillon · 1 a 10/1/2027"
     h1="Depois da virada, o rio."
-    promessa="Descanse do Réveillon na Villa Arapiuns: 1h30 de barco de Alter do Chão, água transparente e café da manhã, almoço e jantar incluídos."
+    promessa="Descanse do Réveillon na Villa Arapiuns, a 1h30 de Alter do Chão, água transparente e café da manhã e jantar incluídos."
     campo={['1 a 10/1/2027', 'Datas flexíveis', 'Mínimo 2 noites', 'Vagas limitadas']}
     hero={hero} heroAlt="Água transparente do Rio Arapiuns em frente à Villa"
     inclui={[
-      { t: 'Café da manhã, almoço e jantar incluídos', d: 'Comida regional feita na casa, todos os dias.' },
+      { t: 'Café da manhã e jantar incluídos', d: 'Comida regional feita na casa, todos os dias. O almoço na comunidade é pago à parte.' },
       { t: 'Bangalô na beira do rio', d: 'Um dos 13 bangalôs da Villa.' },
       { t: 'Energia solar 24h', d: 'Luz e tomada o dia todo, sem gerador barulhento.' },
       { t: 'Starlink', d: 'Internet para quando precisar.' },
@@ -47,9 +47,9 @@ const faq = [
     pacoteNome="Detox pós-Réveillon" totalBangalos={13} restantes={10}
     precoNoitePessoa={null} sinalPct={30} porNoite maxHospedes={26}
     ocupacoes={[{ nome: 'Single', pessoas: 1, precoPessoa: 1800 }, { nome: 'Duplo', pessoas: 2, precoPessoa: 1200 }, { nome: 'Triplo', pessoas: 3, precoPessoa: 1000 }]}
-    aParte={['voo até Santarém (STM)', 'transfer e lancha de Alter do Chão', 'passeios, pagos diretamente às comunidades']}
+    aParte={['voo até Santarém (STM)', 'transporte até a Villa, combinado com o anfitrião antes da viagem', 'passeios, pagos diretamente às comunidades']}
   >
-    <Image slot="chegada" src={chegada} alt="Travessia de barco pelo rio" widths={[480, 800, 1200]} sizes="(min-width:640px) 50vw, 100vw" loading="lazy" class="aspect-[4/3] w-full object-cover" />
+    <Image slot="chegada" src={chegada} alt="O rio a caminho da Villa" widths={[480, 800, 1200]} sizes="(min-width:640px) 50vw, 100vw" loading="lazy" class="aspect-[4/3] w-full object-cover" />
   </LandingPacote>
   <Footer slot="footer" locale="pt" />
 </BaseLayout>

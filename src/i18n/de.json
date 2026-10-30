@@ -1278,6 +1278,8 @@
     "whatsapp": "Frage stellen",
     "aviseme": "Über neue Termine informieren",
     "msg_reveillon": "Ich möchte Silvester buchen (28.12.2026 bis 02.01.2027).",
-    "msg_detox": "Ich möchte das Detox nach Neujahr buchen (1. bis 10.01.2027). Anreise am __, Abreise am __."
+    "msg_detox": "Ich möchte das Detox nach Neujahr buchen (1. bis 10.01.2027). Anreise am __, Abreise am __.",
+    "devolucao": "Keine Verfügbarkeit: volle Rückerstattung.",
+    "preReserva": "Vorreservierung erhalten. Wir melden uns, um die Verfügbarkeit zu bestätigen."
   }
 }
