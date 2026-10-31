@@ -82,13 +82,13 @@
     "experiences": "Wanderwege, Kanu, Strand und Workshops mit den Flussgemeinden des Arapiuns.",
     "packages": "Pakete ab Alter do Chão mit festem Programm: eine Nacht mit sieben Erlebnissen oder zwei Nächte mit zehn.",
     "privateVilla": "Die ganze Villa Arapiuns für eine Gruppe: Retreats, Firmenteams, Vogelbeobachtung und nächtliches Tauchfischen mit den Familien am Fluss. Exklusivnutzung ab 15 Personen.",
-    "reveillon": "Silvester 2026/27 in der Villa Arapiuns: Jahreswechsel an einem weißen Süßwasserstrand am Rio Arapiuns, 1,5 Bootsstunden von Alter do Chão. Pakete mit 4–5 Nächten für Gruppen und Familien.",
+    "reveillon": "Silvester 2026/27 in der Villa Arapiuns: Jahreswechsel an einem weißen Süßwasserstrand am Rio Arapiuns, 1,5 Stunden von Alter do Chão. Pakete mit 4–5 Nächten für Gruppen und Familien.",
     "gettingHere": "So erreichen Sie die Villa Arapiuns: Flug nach Santarém, Transfer nach Alter do Chão und 1,5 Stunden mit dem Boot flussaufwärts.",
     "gallery": "Fotos der Villa Arapiuns: die Bungalows, der Fluss, der Wald und die Gemeinden des Arapiuns.",
     "reviews": "Was Gäste nach ihrem Aufenthalt in der Villa Arapiuns erzählen.",
     "book": "Buchen Sie Ihren Aufenthalt in der Villa Arapiuns über WhatsApp und sprechen Sie direkt mit dem Haus.",
     "bookSent": "Ihre Nachricht ist angekommen. Wir antworten innerhalb von 24 Stunden.",
-    "detox": "Detox nach Neujahr in der Villa Arapiuns, 1. bis 10. Januar 2027: Essen aus dem Wald, Açaí, kein Alkohol vom Haus und 13 Bungalows am Rio Arapiuns, 1,5 Bootsstunden von Alter do Chão."
+    "detox": "Detox nach Neujahr in der Villa Arapiuns, 1. bis 10. Januar 2027: Essen aus dem Wald, Açaí, kein Alkohol vom Haus und 13 Bungalows am Rio Arapiuns, 1,5 Stunden von Alter do Chão."
   },
   "home": {
     "hookA": "Eine Karibik aus Süßwasser,",
@@ -788,7 +788,7 @@
   },
   "reveillon": {
     "h1": "Silvester am Strand der Villa",
-    "intro": "Zwischen dem 28. Dezember und dem 2. Januar wechselt das Jahr hier: weißer Süßwasserstrand, die Piracaia am Flussufer, ein Kerzenkreis im Sand — und keine Menschenmassen. Alter do Chão ist an Silvester überfüllt; die Villa liegt 1,5 Bootsstunden flussaufwärts, zwischen zwei Schutzgebieten.",
+    "intro": "Zwischen dem 28. Dezember und dem 2. Januar wechselt das Jahr hier: weißer Süßwasserstrand, die Piracaia am Flussufer, ein Kerzenkreis im Sand — und keine Menschenmassen. Alter do Chão ist an Silvester überfüllt; die Villa liegt 1,5 Stunden flussaufwärts, zwischen zwei Schutzgebieten.",
     "campoJanela": "28. Dez – 02. Jan",
     "b1T": "Das Zeitfenster",
     "b1D": "Pakete mit 4–5 Nächten zwischen dem 28. Dezember und dem 2. Januar — die Reise braucht diesen Atem, und genau er lässt die Stadt aus dem Körper weichen.",
@@ -815,7 +815,7 @@
     "figSolAlt": "Sonne, die hinter tiefen Wolken über dem gekräuselten Wasser des Flusses untergeht, gerahmt von Zweigen in Silhouette",
     "comoT": "So funktioniert es",
     "c1T": "Anreise über Alter do Chão",
-    "c1D": "Flug nach Santarém (STM), Transfer nach Alter do Chão, dann 1,5 Stunden mit dem Schnellboot den Arapiuns hinauf. Das Boot der Gruppe stimmen wir per WhatsApp ab.",
+    "c1D": "Flug nach Santarém (STM), Transfer nach Alter do Chão, von dort 1,5 Stunden bis zur Villa. Die Logistik der Gruppe stimmen wir vor der Reise per WhatsApp ab.",
     "c2T": "Die Tage",
     "c2D": "Strand, Kanu im überfluteten Wald, der Samaúma-Pfad, Workshops mit den Flussgemeinden — das Programm entsteht mit Ihrer Gruppe, in ihrem Rhythmus.",
     "c3T": "Die Nacht des 31.",
@@ -832,7 +832,7 @@
     "q4": "Gibt es Mücken?",
     "a4": "Der Strand der Villa ist Süßwasser und weißer Sand, so gut wie ohne Mücken. An Silvester herrscht am Arapiuns Trockenzeit, mit niedrigem Fluss und den Stränden auf ihrem Höchststand.",
     "q5": "Wie reise ich aus dem Ausland an?",
-    "a5": "Flug nach Santarém (STM) — mit Umstieg ab São Paulo, oder direkt ab Brasília, Belém und Manaus —, Transfer nach Alter do Chão und 1,5 Bootsstunden bis zur Villa. Die Fahrt flussaufwärts ist bereits der Anfang der Reise.",
+    "a5": "Flug nach Santarém (STM) — mit Umstieg ab São Paulo, oder direkt ab Brasília, Belém und Manaus —, Transfer nach Alter do Chão, von dort 1,5 Stunden bis zur Villa. Die Logistik stimmen wir vor der Reise mit Ihnen ab.",
     "q6": "Können wir die ganze Villa buchen?",
     "a6": "Ja. Ab 15 Gästen hat Ihre Gruppe Exklusivrecht: dreizehn Bungalows für bis zu 26 Gäste, der Pavillon, der Hängemattenhain und der Strand, ohne Fremde am Termin.",
     "notaFinal": "Das Silvesterfenster hat nur einen Termin — und dreizehn Bungalows.",
@@ -842,7 +842,7 @@
   },
   "detox": {
     "h1": "Detox nach Neujahr am Rio Arapiuns",
-    "intro": "Die Party ist vorbei. Vom 1. bis 10. Januar 2027 empfängt die Villa alle, die das Jahr langsam beginnen wollen: Essen aus dem Wald, keine Cocktails und keine Lautsprecher, 1,5 Stunden per Boot von Alter do Chão.",
+    "intro": "Die Party ist vorbei. Vom 1. bis 10. Januar 2027 empfängt die Villa alle, die das Jahr langsam beginnen wollen: Essen aus dem Wald, keine Cocktails und keine Lautsprecher, 1,5 Stunden von Alter do Chão.",
     "campoJanela": "01. – 10. Jan",
     "janelaCurta": "1.–10. Jan",
     "campoMinimo": "mindestens 2 Nächte",
@@ -885,7 +885,7 @@
     "q5": "Können wir die ganze Villa für unsere Gruppe buchen?",
     "a5": "Ja. Ab 15 Personen hat die Gruppe die Villa exklusiv: die 13 Bungalows für bis zu 26 Gäste, den Pavillon, das Hängemattenhaus, die Shala und den Strand, ohne fremde Gäste an Ihren Tagen.",
     "q6": "Wie komme ich hin?",
-    "a6": "Flug nach Santarém (STM), Transfer über Land nach Alter do Chão und 1,5 Stunden per Boot den Arapiuns hinauf bis zur Villa. Für das letzte Stück gibt es keine Straße.",
+    "a6": "Flug nach Santarém (STM), Transfer über Land nach Alter do Chão, von dort 1,5 Stunden bis zur Villa. Die Logistik stimmen wir vor der Reise mit Ihnen ab.",
     "ctaFinalD": "Es gibt 13 Bungalows für die ersten Tage von 2027. Sagen Sie uns, wie viele Sie sind und wann Sie ankommen möchten.",
     "ctaPagina": "Zum Detox",
     "nome": "Detox nach Neujahr"

@@ -82,13 +82,13 @@
     "experiences": "Senderos, canoa, playa y talleres con las comunidades ribereñas del Arapiuns.",
     "packages": "Paquetes desde Alter do Chão con itinerario cerrado: una noche con siete experiencias, o dos noches con diez.",
     "privateVilla": "La Villa Arapiuns entera para un solo grupo: retiros, equipos de empresa, observación de aves y la pesca a pulmón nocturna con los ribereños. Exclusividad a partir de 15 personas.",
-    "reveillon": "Fin de Año 2026/27 en Villa Arapiuns: el año nuevo en una playa fluvial de arena blanca en el Río Arapiuns, a 1h30 en lancha de Alter do Chão. Paquetes de 4 a 5 noches para grupos y familias.",
+    "reveillon": "Fin de Año 2026/27 en Villa Arapiuns: el año nuevo en una playa fluvial de arena blanca en el Río Arapiuns, a 1h30 de Alter do Chão. Paquetes de 4 a 5 noches para grupos y familias.",
     "gettingHere": "Cómo llegar a Villa Arapiuns: vuelo hasta Santarém, traslado a Alter do Chão y 1h30 de barco río arriba.",
     "gallery": "Fotos de Villa Arapiuns: los bungalós, el río, la selva y las comunidades del Arapiuns.",
     "reviews": "Lo que cuentan los huéspedes después de alojarse en Villa Arapiuns.",
     "book": "Reserve su estadía en Villa Arapiuns por WhatsApp y hable directo con la casa.",
     "bookSent": "Su mensaje llegó. Respondemos en un plazo de 24 horas.",
-    "detox": "Detox de Año Nuevo en Villa Arapiuns, del 1 al 10 de enero de 2027: comida de la selva, açaí, sin alcohol servido por la casa y 13 bungalós en el Río Arapiuns, a 1h30 en lancha de Alter do Chão."
+    "detox": "Detox de Año Nuevo en Villa Arapiuns, del 1 al 10 de enero de 2027: comida de la selva, açaí, sin alcohol servido por la casa y 13 bungalós en el Río Arapiuns, a 1h30 de Alter do Chão."
   },
   "home": {
     "hookA": "Un Caribe de agua dulce,",
@@ -788,7 +788,7 @@
   },
   "reveillon": {
     "h1": "Fin de Año en la playa de la Villa",
-    "intro": "Entre el 28 de diciembre y el 2 de enero, el año cambia aquí: playa de agua dulce y arena blanca, la piracaia a la orilla del río, la ronda de velas en la arena — y ninguna multitud. Alter do Chão se llena en Año Nuevo; la Villa está a 1h30 en lancha, río arriba, entre dos áreas de preservación.",
+    "intro": "Entre el 28 de diciembre y el 2 de enero, el año cambia aquí: playa de agua dulce y arena blanca, la piracaia a la orilla del río, la ronda de velas en la arena — y ninguna multitud. Alter do Chão se llena en Año Nuevo; la Villa está a 1h30 río arriba, entre dos áreas de preservación.",
     "campoJanela": "28 dic – 02 ene",
     "b1T": "La ventana",
     "b1D": "Paquetes de 4 a 5 noches entre el 28 de diciembre y el 2 de enero — el viaje pide ese tiempo, y es lo que hace que la ciudad salga del cuerpo.",
@@ -815,7 +815,7 @@
     "figSolAlt": "Sol poniéndose tras nubes bajas sobre el agua del río, enmarcado por ramas en silueta",
     "comoT": "Cómo funciona",
     "c1T": "Llegada por Alter do Chão",
-    "c1D": "Vuelo a Santarém (STM), traslado a Alter do Chão y 1h30 en lancha por el Arapiuns. El barco del grupo lo coordinamos por WhatsApp.",
+    "c1D": "Vuelo a Santarém (STM), traslado a Alter do Chão y, desde allí, 1h30 hasta la Villa. La logística del grupo la coordinamos por WhatsApp antes del viaje.",
     "c2T": "Los días",
     "c2D": "Playa, canoa en el igapó, el sendero de la Samaúma, talleres con las comunidades — el itinerario se dibuja con el grupo, a su ritmo.",
     "c3T": "La noche del 31",
@@ -832,7 +832,7 @@
     "q4": "¿Hay mosquitos?",
     "a4": "La playa de la Villa es de agua dulce y arena blanca, prácticamente sin mosquitos. En Año Nuevo el Arapiuns está en estación seca, con el río bajo y las playas en su mejor momento.",
     "q5": "¿Cómo llego desde el exterior?",
-    "a5": "Vuelo a Santarém (STM) — con conexión desde São Paulo, o directo desde Brasília, Belém y Manaus —, traslado a Alter do Chão y 1h30 en lancha hasta la Villa. La subida del río ya es el comienzo del viaje.",
+    "a5": "Vuelo a Santarém (STM) — con conexión desde São Paulo, o directo desde Brasília, Belém y Manaus —, traslado a Alter do Chão y, desde allí, 1h30 hasta la Villa. La logística la coordinamos contigo antes del viaje.",
     "q6": "¿Podemos reservar la Villa entera?",
     "a6": "Sí. A partir de 15 personas el grupo tiene derecho de exclusividad: trece bungalós para hasta 26 huéspedes, el pabellón, el hamacario y la playa, sin nadie más en la fecha.",
     "notaFinal": "La ventana de Año Nuevo tiene una sola fecha — y trece bungalós.",
@@ -842,7 +842,7 @@
   },
   "detox": {
     "h1": "Detox de Año Nuevo en el Río Arapiuns",
-    "intro": "La fiesta terminó. Del 1 al 10 de enero de 2027, la Villa recibe a quien quiere empezar el año despacio: comida de la selva, nada de cócteles y ningún parlante, a 1h30 en lancha de Alter do Chão.",
+    "intro": "La fiesta terminó. Del 1 al 10 de enero de 2027, la Villa recibe a quien quiere empezar el año despacio: comida de la selva, nada de cócteles y ningún parlante, a 1h30 de Alter do Chão.",
     "campoJanela": "01 – 10 ene",
     "janelaCurta": "1–10 ene",
     "campoMinimo": "mínimo 2 noches",
@@ -885,7 +885,7 @@
     "q5": "¿Podemos cerrar la Villa solo para nuestro grupo?",
     "a5": "Sí. A partir de 15 personas el grupo tiene exclusividad: los 13 bungalós para hasta 26 huéspedes, el pabellón, el redário, la shala y la playa, sin nadie de fuera en la fecha.",
     "q6": "¿Cómo llego?",
-    "a6": "Vuelo a Santarém (STM), traslado por tierra hasta Alter do Chão y 1h30 en lancha por el Arapiuns hasta la Villa. El último tramo no tiene carretera.",
+    "a6": "Vuelo a Santarém (STM), traslado por tierra hasta Alter do Chão y, desde allí, 1h30 hasta la Villa. La logística la coordinamos contigo antes del viaje.",
     "ctaFinalD": "Son 13 bungalós para los primeros días de 2027. Díganos cuántas personas son y cuándo quieren llegar.",
     "ctaPagina": "Ver el Detox",
     "nome": "Detox de Año Nuevo"
