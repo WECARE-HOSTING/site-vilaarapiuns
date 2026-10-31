@@ -36,7 +36,7 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
     <a href="/pt/" class="ck-marca">Villa Arapiuns · Rio Arapiuns, Pará</a>
     <h1 class="ck-h1">{p.nome}</h1>
     <p class="ck-promessa">{p.promessa}</p>
-    <p class="ck-escassez"><span>{p.datas}</span> · <strong>restam {p.restantes} bangalôs</strong></p>
+    <p class="ck-escassez"><span>{p.datas}</span> · <strong>Restam apenas {p.restantes} acomodações.</strong></p>
 
     {p.datasFixas ? (
       <input type="hidden" name="chegada" value={p.dataMin} /><input type="hidden" name="noites" value={p.maxNoites} />

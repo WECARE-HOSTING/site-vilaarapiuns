@@ -1280,7 +1280,7 @@
     "msg_reveillon": "Quero reservar o Réveillon (28/12/2026 a 02/01/2027).",
     "msg_detox": "Quero reservar o Detox pós-Ano Novo (1 a 10/01/2027). Chegada dia __, saída dia __.",
     "devolucao": "Sem disponibilidade, devolução integral do valor.",
-    "restam": "Restam {n} bangalôs para estas datas.",
+    "restam": "Restam apenas {n} acomodações.",
     "preReserva": "Pré-reserva recebida. Vamos entrar em contato para confirmar a disponibilidade."
   }
 }

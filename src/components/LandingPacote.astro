@@ -122,7 +122,7 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
         {p.aParte && <p class="mt-4 text-sm"><strong>À parte:</strong> {p.aParte.join(' · ')}</p>}
         <p class="mt-6 lp-escassez">
           Vagas limitadas: {p.totalBangalos} bangalôs no total
-          {p.restantes !== null ? <> · <strong>restam {p.restantes} bangalôs</strong></> : <> · <strong>[RESTANTES A DEFINIR]</strong></>}
+          {p.restantes !== null ? <> · <strong>Restam apenas {p.restantes} acomodações.</strong></> : <> · <strong>[RESTANTES A DEFINIR]</strong></>}
         </p>
       </div>
 

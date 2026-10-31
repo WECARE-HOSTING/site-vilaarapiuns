@@ -1280,7 +1280,7 @@
     "msg_reveillon": "I'd like to book New Year's (Dec 28, 2026 to Jan 2, 2027).",
     "msg_detox": "I'd like to book the post-New Year Detox (Jan 1–10, 2027). Arriving __, leaving __.",
     "devolucao": "No availability, full refund.",
-    "restam": "{n} bungalows still available for these dates.",
+    "restam": "{n} accommodations left for these dates.",
     "preReserva": "Pre-booking received. We'll contact you to confirm availability."
   }
 }
