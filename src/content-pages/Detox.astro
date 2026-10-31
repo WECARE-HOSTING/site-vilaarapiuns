@@ -73,7 +73,8 @@ const faqSchema = {
     {t('home.tiraMedidaBangalos').replace('{n}', String(SITE.capacity.cabins))}
   </Campo>
   <p class="mt-8">
-    <a href={wa} class="btn btn-primario" target="_blank" rel="noopener noreferrer">{t('detox.cta')}</a>
+    <a href="/pt/lp/pagar-detox/#reservar" class="btn btn-primario" data-cta="reservar_detox_1">{t('barra.fechar')}</a>
+    <a href={wa} class="btn btn-secundario" target="_blank" rel="noopener noreferrer" data-cta="whatsapp_detox_1">{t('barra.whatsapp')}</a>
   </p>
   <p class="numero etiqueta mt-4">{t('detox.notaFinal')}</p>
 </AberturaPagina>
@@ -96,7 +97,8 @@ const faqSchema = {
     <ListaCorte itens={blocos} nivel="h2" />
     <p class="numero etiqueta mt-6">{t('detox.notaFinal')}</p>
     <p class="mt-10">
-      <a href={wa} class="btn btn-primario" target="_blank" rel="noopener noreferrer">{t('detox.cta')}</a>
+      <a href="/pt/lp/pagar-detox/#reservar" class="btn btn-primario" data-cta="reservar_detox_2">{t('barra.fechar')}</a>
+    <a href={wa} class="btn btn-secundario" target="_blank" rel="noopener noreferrer" data-cta="whatsapp_detox_2">{t('barra.whatsapp')}</a>
     </p>
   </div>
 </section>
@@ -159,7 +161,8 @@ const faqSchema = {
     <ListaCorte itens={duvidas} class="mt-10" />
     <p class="lead container-texto mt-12 sm:mx-0">{t('detox.ctaFinalD')}</p>
     <p class="mt-6">
-      <a href={wa} class="btn btn-primario" target="_blank" rel="noopener noreferrer">{t('detox.cta')}</a>
+      <a href="/pt/lp/pagar-detox/#reservar" class="btn btn-primario" data-cta="reservar_detox_3">{t('barra.fechar')}</a>
+    <a href={wa} class="btn btn-secundario" target="_blank" rel="noopener noreferrer" data-cta="whatsapp_detox_3">{t('barra.whatsapp')}</a>
     </p>
   </div>
 </section>
