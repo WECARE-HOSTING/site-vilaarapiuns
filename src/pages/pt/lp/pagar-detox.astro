@@ -1,9 +1,10 @@
 ---
+import { BANGALOS_RESTANTES } from '@/data/site';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import CheckoutRapido from '@/components/CheckoutRapido.astro';
 ---
 <BaseLayout locale="pt" pageKey="detox" title="Pagar Detox pós-Réveillon | Villa Arapiuns | Rio Arapiuns" description="Detox de 1 a 10/1/2027 no Rio Arapiuns, a 1h30 de Alter do Chão. Café da manhã e jantar incluídos." indexavel={false} caminho="/pt/lp/pagar-detox/" semSchemaNegocio>
   <CheckoutRapido nome="Detox pós-Réveillon" promessa="Desacelere no Rio Arapiuns: café da manhã e jantar incluídos, energia solar 24h, Starlink e praticamente sem mosquito." datas="1 a 10/1/2027 · mín. 2 noites" lp="/pt/lp/detox-pos-reveillon/"
     ocupacoes={[{ nome: 'Single', pessoas: 1, precoPessoa: 1800 }, { nome: 'Duplo', pessoas: 2, precoPessoa: 1200 }, { nome: 'Triplo', pessoas: 3, precoPessoa: 1000 }]}
-    porNoite minNoites={2} maxNoites={9} dataMin="2027-01-01" dataMax="2027-01-08" sinalPct={30} totalBangalos={13} restantes={10} maxHospedes={26} />
+    porNoite minNoites={2} maxNoites={9} dataMin="2027-01-01" dataMax="2027-01-08" sinalPct={30} totalBangalos={13} restantes={BANGALOS_RESTANTES} maxHospedes={26} />
 </BaseLayout>
