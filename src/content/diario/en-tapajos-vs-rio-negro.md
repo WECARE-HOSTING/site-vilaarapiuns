@@ -66,7 +66,7 @@ Almost everything else about the two trips follows from this one fact.
 
 **Lower prices at comparable quality**, mostly because the region has less recognition, not less to offer.
 
-**The honest downsides.** Access is harder: no direct flight from São Paulo to Santarém, then a road transfer, then a boat. Choice is thin — you are picking from a handful of places, not a market. Review volume is low, so you cannot crowd-source your confidence the way you can on the Rio Negro. And in the flood months, February to June, the beaches — the main argument for coming — are underwater.
+**The honest downsides.** Access is harder: no direct flight from São Paulo to Santarém, then a road transfer, then another 90 minutes to the Villa. Choice is thin — you are picking from a handful of places, not a market. Review volume is low, so you cannot crowd-source your confidence the way you can on the Rio Negro. And in the flood months, February to June, the beaches — the main argument for coming — are underwater.
 
 ## Choosing
 
@@ -78,6 +78,6 @@ And a third answer nobody offers: **both**. There are direct flights between Man
 
 ## Where we come in
 
-Villa Arapiuns is thirteen bungalows on the Arapiuns, an hour and a half by boat from Alter do Chão, inside the reserve. Solar power, community-led operation, and the beach in front. Exclusive use of the whole property from fifteen guests.
+Villa Arapiuns is thirteen bungalows on the Arapiuns, an hour and a half from Alter do Chão, inside the reserve. Solar power, community-led operation, and the beach in front. Exclusive use of the whole property from fifteen guests.
 
 If after reading this the Rio Negro is the better fit for your trip, go — it is a remarkable river and we would rather you had the holiday you wanted.

@@ -56,7 +56,7 @@
     "comunidade": "Paid to the community"
   },
   "footer": {
-    "sobre": "A community-based tourism lodge on the banks of the Arapiuns River. Thirteen bungalows and a team that looks after the kitchen, the boat and the journey — so that all you have to do is arrive.",
+    "sobre": "A community-based tourism lodge on the banks of the Arapiuns River. Thirteen bungalows and a team that looks after the kitchen, the logistics and the journey — so that all you have to do is arrive.",
     "visita": "The Villa",
     "reserva": "Plan your stay",
     "local": "Where we are",
@@ -76,14 +76,14 @@
     "aviseme": "Hi! I'd like to hear about news and upcoming dates at Villa Arapiuns."
   },
   "desc": {
-    "home": "Official site of Villa Arapiuns: 13 bungalows on the Arapiuns River, 90 minutes by boat from Alter do Chão. Book direct with the house on WhatsApp +55 47 99206-7078.",
+    "home": "Official site of Villa Arapiuns: 13 bungalows on the Arapiuns River, 90 minutes from Alter do Chão. Book direct with the house on WhatsApp +55 47 99206-7078.",
     "lodge": "The 13 bungalows of Villa Arapiuns: two-storey Tapajônica architecture, mahogany, marquetry and handwoven cloth.",
     "dining": "The table at Villa Arapiuns: river fish, cassava flour from the community, coffee brewed to order — and the Piracaia at the water's edge.",
     "experiences": "Trails, canoe, beach and workshops with the riverside communities of the Arapiuns.",
     "packages": "Packages departing from Alter do Chão with a set itinerary: one night with seven experiences, or two nights with ten.",
     "privateVilla": "The whole of Villa Arapiuns for one group: retreats, company teams, birdwatching and night dive-fishing with the families who live on the river. Exclusive use from 15 people.",
     "reveillon": "New Year's Eve 2026/27 at Villa Arapiuns: see the year turn on a white-sand freshwater beach on the Rio Arapiuns, 1h30 from Alter do Chão. 4–5 night packages for groups and families.",
-    "gettingHere": "How to reach Villa Arapiuns: fly to Santarém, transfer to Alter do Chão and 90 minutes by boat upriver.",
+    "gettingHere": "How to reach Villa Arapiuns: fly to Santarém, transfer to Alter do Chão, and from there 90 minutes to the Villa. Logistics are arranged with the host before the trip.",
     "gallery": "Photographs of Villa Arapiuns: the bungalows, the river, the forest and the Arapiuns communities.",
     "reviews": "What guests say after staying at Villa Arapiuns.",
     "book": "Book your stay at Villa Arapiuns on WhatsApp and talk straight to the house.",
@@ -101,7 +101,7 @@
     "etapa2T": "Santarém to Alter do Chão",
     "etapa2D": "Overland transfer to the village. We agree the time with you.",
     "etapa3T": "Alter do Chão to the Villa",
-    "etapa3D": "By boat upriver, the last leg. How the boat works for your stay, we arrange on WhatsApp.",
+    "etapa3D": "From Alter do Chão to the Villa, the last leg. We arrange the logistics with you on WhatsApp before the trip.",
     "vistaLegenda": "The Villa from above · the roofs inside closed forest",
     "vistaControle": "Play the video",
     "vistaMedida": "{s} s · {mb} MB · no sound",
@@ -119,14 +119,14 @@
     "fechaD": "The person who answers is the person who welcomes you. Tell us how many people and what dates you have in mind.",
     "fechaA": "Gabriela",
     "fechaH": "guest · July 2026",
-    "tiraMedidaBarco": "{min} min by boat",
+    "tiraMedidaBarco": "{min} min from Alter do Chão",
     "tiraMedidaBangalos": "{n} bungalows",
     "tiraMedidaHospedes": "up to {n} guests",
     "tiraItens": [
       {
         "id": "travessia",
         "assunto": "The crossing",
-        "alt": "A group of guests with backpacks boarding a wooden boat moored at the riverbank, under a sky of high clouds"
+        "alt": "A group of guests with backpacks at the riverbank, under a sky of high clouds"
       },
       {
         "id": "banco",
@@ -357,17 +357,17 @@
         "alt": "Sunset over the river seen from under the foliage, orange sky above dark water in short waves"
       }
     ],
-    "campoLancha": "1h30 by boat from {place}",
+    "campoLancha": "1h30 from {place}",
     "heroMarca": "Villa Arapiuns | Amazon Lodge",
-    "heroSub": "A lodge on the Arapiuns River, 90 minutes by boat from Alter do Chão. 13 bungalows on a freshwater beach."
+    "heroSub": "A lodge on the Arapiuns River, 90 minutes from Alter do Chão. 13 bungalows on a freshwater beach."
   },
   "modo": {
     "titulo": "Two ways to stay",
     "intro": "The Villa hosts in two ways, and they are not the same product. Choose by what you want from your time.",
     "pousadaT": "Lodge stay",
-    "pousadaD": "You spend your days at the Villa and choose what to do — or not do. Boat and excursions are arranged separately, according to the group's interest.",
+    "pousadaD": "You spend your days at the Villa and choose what to do — or not do. Excursions are arranged separately, according to the group's interest.",
     "pousadaInc": "Bungalow accommodation · all meals included (breakfast, lunch and dinner)",
-    "pousadaFora": "Boat transfer, excursions and alcoholic drinks",
+    "pousadaFora": "Getting to the Villa, excursions and alcoholic drinks",
     "pacoteT": "Full package",
     "pacoteD": "Departs from Alter do Chão with itinerary and activities already arranged. One night with seven experiences, or two nights with ten.",
     "pacoteInc": "Accommodation · itinerary activities · breakfast and dinner",
@@ -434,7 +434,7 @@
     "intro": "River fish, cassava flour from the community, fruit from the garden and coffee brewed to order. Our own kitchen, serving in the open pavilion.",
     "escopoT": "What's included",
     "escopo1T": "Meals: included",
-    "escopo1D": "Lodge stay: all meals included (breakfast, lunch and dinner). Packages with boat from Alter do Chão: breakfast and dinner.",
+    "escopo1D": "Lodge stay: all meals included (breakfast, lunch and dinner). Packages from Alter do Chão: breakfast and dinner.",
     "escopo3T": "Alcoholic drinks: separate",
     "escopo3D": "Beer, wine and spirits are not included in either option, and are charged separately.",
     "piraT": "The Piracaia",
@@ -492,7 +492,7 @@
       },
       {
         "titulo": "Ponta Grande",
-        "detalhe": "Sunset on the white sand beach, with a swim in the river. You can go by kayak, or by boat too.",
+        "detalhe": "Sunset on the white sand beach, with a swim in the river. You can go by kayak.",
         "medida": "In the package",
         "marcado": true
       },
@@ -631,8 +631,8 @@
     "opcionalLabel": "optional",
     "roteiroFotoT": "The itinerary, in photographs",
     "roteiroFotoI": "Not every item on the itinerary has a photo in our collection — the ones that do are here, unretouched and unstaged.",
-    "lanchaT": "The boat, we arrange with you",
-    "lanchaD": "From {place} to the Villa is {min} minutes on the river, the last leg of the journey. How the boat works in your package, we explain on WhatsApp.",
+    "lanchaT": "Your arrival, we arrange with you",
+    "lanchaD": "From {place} to the Villa is {min} minutes, the last leg of the journey. Logistics for your package are arranged with the host on WhatsApp before the trip.",
     "itemLagoAzul": "Lago Azul",
     "itemMassagem": "Massage and herbal bath",
     "itemFarinhadaRedario": "Farinhada, weaving and hammock area",
@@ -660,11 +660,11 @@
     "intro": "Three stages, and the last one is ours. The journey is part of it — and that is why the Villa is never crowded.",
     "duvT": "What people usually worry about",
     "q1": "What if my flight is delayed?",
-    "a1": "Let us know on WhatsApp as soon as you do. The boat leaves when the group arrives; we rearrange the time with you.",
-    "q2": "Do I need to book the boat separately?",
-    "a2": "We arrange the boat transfer with you on WhatsApp, along with your booking.",
+    "a1": "Let us know on WhatsApp as soon as you do. We rearrange the time with you.",
+    "q2": "Do I need to book the trip to the Villa separately?",
+    "a2": "We arrange the logistics to the Villa with you on WhatsApp, along with your booking and before the trip.",
     "q3": "How long does it take from Santarém to the Villa?",
-    "a3": "The Alter do Chão–Villa leg is 90 minutes by boat. The time from Santarém to Alter do Chão depends on the transfer, and we arrange that with you.",
+    "a3": "The Alter do Chão–Villa leg takes 90 minutes. The time from Santarém to Alter do Chão depends on the transfer, and we arrange that with you.",
     "q4": "Is there mobile signal?",
     "a4": "Mobile signal is intermittent. The house internet is Starlink, stable, and it supports online meetings and remote work. Settle beforehand whatever needs settling, and tell anyone expecting news.",
     "q5": "Can I bring children?",
@@ -680,13 +680,13 @@
       },
       {
         "id": "grupo",
-        "legenda": "The group, on the way to the boat",
-        "alt": "A group of guests with backpacks walking across the sand toward the anchored boats"
+        "legenda": "The group, on the way to the Villa",
+        "alt": "A group of guests with backpacks walking across the sand by the river"
       },
       {
         "id": "colete",
         "legenda": "The Pérola do Tapajós, life vests on",
-        "alt": "Guests in life vests boarding the boat Pérola do Tapajós, moored by the sand"
+        "alt": "Guests arriving at the edge of the sand, on the riverbank"
       }
     ],
     "q6": "Are there mosquitoes?",
@@ -699,7 +699,7 @@
     "dialogo": "Map of the Arapiuns region, enlarged",
     "aeroporto": "Airport in Santarém (STM), PA",
     "ondeT": "Where the Villa is",
-    "ondeI": "The Villa is on the Arapiuns River, west of Alter do Chão. The last leg is by boat because there is no road — which is what keeps the river empty."
+    "ondeI": "The Villa is on the Arapiuns River, west of Alter do Chão and 90 minutes from it. There is no road there — which is what keeps the river empty."
   },
   "video": {
     "fechar": "Close",
@@ -707,7 +707,7 @@
   },
   "privativa": {
     "h1": "The whole Villa for your group, from 15 to 26 people",
-    "intro": "Retreats, company teams, families and friends. You get 13 bungalows, a thatched pavilion where the whole group sits together, a hammock house and a freshwater beach on the Arapiuns River, 90 minutes by boat from Alter do Chão. On your dates, nobody from outside the group stays at the Villa.",
+    "intro": "Retreats, company teams, families and friends. You get 13 bungalows, a thatched pavilion where the whole group sits together, a hammock house and a freshwater beach on the Arapiuns River, 90 minutes from Alter do Chão. On your dates, nobody from outside the group stays at the Villa.",
     "b1T": "Thirteen bungalows",
     "b1D": "Up to 26 guests accommodated.",
     "b2T": "Exclusivity from 15",
@@ -761,7 +761,7 @@
       },
       {
         "titulo": "The guide and the crew are from there",
-        "detalhe": "The kitchen, the boat and the route are in the hands of people who live on the river. It is local work, not an itinerary brought in from outside.",
+        "detalhe": "The kitchen, the logistics and the route are in the hands of people who live on the river. It is local work, not an itinerary brought in from outside.",
         "medida": "local crew"
       },
       {

@@ -66,7 +66,7 @@ Quase tudo o mais sobre as duas viagens decorre desse mesmo fato.
 
 **Preços mais baixos em qualidade comparável**, principalmente porque a região tem menos reconhecimento, não menos a oferecer.
 
-**Os lados honestos.** O acesso é mais difícil: não tem voo direto de São Paulo para Santarém, depois é transfer por estrada, depois barco. A variedade é pequena — você escolhe entre um punhado de lugares, não um mercado. O volume de avaliações é baixo, então você não consegue construir confiança coletiva do jeito que dá no Rio Negro. E nos meses de cheia, de fevereiro a junho, as praias — o principal motivo para vir — ficam debaixo d'água.
+**Os lados honestos.** O acesso é mais difícil: não tem voo direto de São Paulo para Santarém, depois é transfer por estrada, depois mais 1h30 até a Villa. A variedade é pequena — você escolhe entre um punhado de lugares, não um mercado. O volume de avaliações é baixo, então você não consegue construir confiança coletiva do jeito que dá no Rio Negro. E nos meses de cheia, de fevereiro a junho, as praias — o principal motivo para vir — ficam debaixo d'água.
 
 ## Como escolher
 
@@ -78,6 +78,6 @@ E existe uma terceira resposta que ninguém oferece: **os dois**. Há voos diret
 
 ## Onde a gente entra
 
-A Villa Arapiuns tem treze bangalôs no Arapiuns, a uma hora e meia de barco de Alter do Chão, dentro da reserva. Energia solar, operação conduzida pela comunidade, e a praia na frente. Uso exclusivo de toda a propriedade a partir de quinze hóspedes.
+A Villa Arapiuns tem treze bangalôs no Arapiuns, a uma hora e meia de Alter do Chão, dentro da reserva. Energia solar, operação conduzida pela comunidade, e a praia na frente. Uso exclusivo de toda a propriedade a partir de quinze hóspedes.
 
 Se depois de ler isso o Rio Negro for a opção mais adequada para a sua viagem, vá — é um rio notável, e a gente prefere que você tenha as férias que você queria.

@@ -36,7 +36,7 @@ const t = useTranslations(locale);
 const etapas = [
   { n: '01', titulo: t('home.etapa1T'), detalhe: t('home.etapa1D'), medida: 'Santarém · PA' },
   { n: '02', titulo: t('home.etapa2T'), detalhe: t('home.etapa2D'), medida: 'Alter do Chão' },
-  { n: '03', titulo: t('home.etapa3T'), detalhe: t('home.etapa3D'), medida: `${SITE.location.boatMinutes} min de lancha`, marcado: true },
+  { n: '03', titulo: t('home.etapa3T'), detalhe: t('home.etapa3D'), medida: t('home.tiraMedidaBarco').replace('{min}', String(SITE.location.boatMinutes)), marcado: true },
 ];
 
 /* FASE 6 (22/08/2026): a travessia inteira, não só o fim da etapa 03 — o
@@ -108,7 +108,7 @@ const duvidas = [
     <figure class="mt-8">
       <Image
         src={chegadaBarco}
-        alt="Pessoas desembarcando de um barco na água rasa junto à areia, com bagagem na mão"
+        alt="Pessoas chegando pela água rasa junto à areia, com bagagem na mão"
         widths={[600, 900, 1289]}
         sizes="(min-width: 1280px) 76rem, 100vw"
         loading="lazy"

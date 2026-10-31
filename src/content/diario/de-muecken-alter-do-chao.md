@@ -67,6 +67,6 @@ In der Villa Arapiuns gibt es so gut wie keine Mücken — null versprechen wir 
 
 ## Warum wir uns die Mühe gemacht haben, das zu schreiben
 
-Weil die Mückenfrage der häufigste einzelne Grund ist, warum sich Menschen den Amazonas ausreden, und an diesem speziellen Fluss richtet sich die Angst an die falsche Stelle. Der Kompromiss hier ist real, aber es ist nicht der, den Sie erwartet haben: nicht Insekten, sondern Entfernung. Der Arapiuns liegt 1,5 Stunden mit dem Boot hinter Alter do Chão, und das ist der tatsächliche Preis des Eintritts.
+Weil die Mückenfrage der häufigste einzelne Grund ist, warum sich Menschen den Amazonas ausreden, und an diesem speziellen Fluss richtet sich die Angst an die falsche Stelle. Der Kompromiss hier ist real, aber es ist nicht der, den Sie erwartet haben: nicht Insekten, sondern Entfernung. Der Arapiuns liegt 1,5 Stunden hinter Alter do Chão, und das ist der tatsächliche Preis des Eintritts.
 
 Der Strand ist in Ordnung. Bringen Sie Sonnencreme mit.

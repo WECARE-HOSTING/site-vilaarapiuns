@@ -4,8 +4,8 @@ grupo: corporate-venue
 slug: firmen-offsite-am-rio-arapiuns
 titulo: "Firmen-Offsite am Rio Arapiuns"
 tituloCurto: "Firmen-Offsite im Amazonas · Alter do Chão"
-descricao: "Firmen-Offsite im Amazonas, 1,5 Bootsstunden von Alter do Chão: 13 Bangalôs für 26 Personen, Plenum-Pavillon, Starlink. Angebot pro Gruppe."
-resposta: "Villa Arapiuns empfängt Firmenteams zur Exklusivnutzung der gesamten Anlage: dreizehn Bangalôs für bis zu sechsundzwanzig Personen, ein überdachter Palmpavillon für das Plenum, ein Speisesaal, in dem das ganze Team zusammen isst, und ein Privatstrand am Rio Arapiuns, anderthalb Bootsstunden von Alter do Chão. Solarenergie und ein lokales Team. Die Preise werden pro Gruppe kalkuliert, nach Personenzahl und Nächten."
+descricao: "Firmen-Offsite im Amazonas, 1,5 Stunden von Alter do Chão: 13 Bangalôs für 26 Personen, Plenum-Pavillon, Starlink. Angebot pro Gruppe."
+resposta: "Villa Arapiuns empfängt Firmenteams zur Exklusivnutzung der gesamten Anlage: dreizehn Bangalôs für bis zu sechsundzwanzig Personen, ein überdachter Palmpavillon für das Plenum, ein Speisesaal, in dem das ganze Team zusammen isst, und ein Privatstrand am Rio Arapiuns, anderthalb Stunden von Alter do Chão. Solarenergie und ein lokales Team. Die Preise werden pro Gruppe kalkuliert, nach Personenzahl und Nächten."
 data: 2026-08-29
 revisado: 2026-10-05
 imagem: pavilhao-palha
@@ -14,7 +14,7 @@ legenda: "Der Pavillon · der Plenumsraum, an allen vier Seiten offen"
 destino: privateVilla
 duvidas:
   - q: "Was kostet ein Firmen-Offsite am Rio Arapiuns?"
-    a: "Der Preis wird pro Gruppe kalkuliert, nach Personenzahl und Nächten, und sinkt, je größer die Gruppe. Im Gruppenpaket: Exklusivnutzung ab fünfzehn Personen, dreizehn Bangalôs für bis zu sechsundzwanzig Personen, Pavillon und Shala sowie Starlink; das Boot ab Alter do Chão und alles Weitere im Preis legen wir im Angebot dar. Flüge, Aktivitäten mit den Gemeinden und Technik laufen separat. Angebot per WhatsApp an +55 47 99206-7078 oder an reservas@villaarapiuns.com.br."
+    a: "Der Preis wird pro Gruppe kalkuliert, nach Personenzahl und Nächten, und sinkt, je größer die Gruppe. Im Gruppenpaket: Exklusivnutzung ab fünfzehn Personen, dreizehn Bangalôs für bis zu sechsundzwanzig Personen, Pavillon und Shala sowie Starlink; die Logistik ab Alter do Chão und alles Weitere im Preis legen wir im Angebot dar. Flüge, Aktivitäten mit den Gemeinden und Technik laufen separat. Angebot per WhatsApp an +55 47 99206-7078 oder an reservas@villaarapiuns.com.br."
   - q: "Kann das Team von dort online arbeiten?"
     a: "Ja. Vor Ort gibt es Starlink mit stabiler Solarversorgung, und es trägt das ganze Team gleichzeitig durch eine Online-Besprechung. Wenn Ihr Programm mitten in der Woche einen Call mit der Zentrale braucht, findet er statt — ohne dass jemand für Empfang auf eine Böschung steigt."
   - q: "Welche Präsentationstechnik gibt es?"
@@ -35,7 +35,7 @@ Diese Seite beantwortet alle drei — auch in den Teilen, die uns von Ihrer List
 
 ## Was der Ort ist
 
-Dreizehn Bangalôs am Ufer des Rio Arapiuns im Bundesstaat Pará, innerhalb des Extraktivreservats Tapajós-Arapiuns — anderthalb Bootsstunden flussaufwärts von Alter do Chão. Bis zu sechsundzwanzig Personen. Aufgeständertes Holz, Palmdächer, Solarenergie und ein Team, das hier lebt.
+Dreizehn Bangalôs am Ufer des Rio Arapiuns im Bundesstaat Pará, innerhalb des Extraktivreservats Tapajós-Arapiuns — anderthalb Stunden von Alter do Chão. Bis zu sechsundzwanzig Personen. Aufgeständertes Holz, Palmdächer, Solarenergie und ein Team, das hier lebt.
 
 Bei Exklusivnutzung ist an diesen Terminen niemand außerhalb Ihres Teams vor Ort. Das ist der Unterschied zwischen einem Offsite und einer Incentive-Reise, bei der man das Frühstück mit Fremden teilt.
 
@@ -67,9 +67,9 @@ Die **Piracaia** — im Sand gegarter Fisch im Bananenblatt, bei Kerzenlicht, im
 
 ## Anreise
 
-Flug nach Santarém (STM), direkt aus Manaus, Belém und Brasília, mit Anschluss ab São Paulo. Danach 40 Minuten mit dem Auto und 90 Minuten mit dem Boot.
+Flug nach Santarém (STM), direkt aus Manaus, Belém und Brasília, mit Anschluss ab São Paulo. Danach 40 Minuten mit dem Auto und 90 Minuten bis zur Villa.
 
-Rechnen Sie an jedem Ende mit einem vollen Reisetag. Das Boot organisieren wir als Teil des Gruppenpakets; die Flüge liegen bei Ihnen.
+Rechnen Sie an jedem Ende mit einem vollen Reisetag. Die Logistik stimmen wir vor der Reise mit Ihnen ab; die Flüge liegen bei Ihnen.
 
 ## Was es nicht gibt
 
@@ -90,7 +90,7 @@ Was kostet ein Firmen-Offsite am Rio Arapiuns? Eine feste Preistabelle veröffen
 - **Der Pavillon als Plenum und die Shala** als zweiter Raum, dazu Flussstrand und Hängemattenhain.
 - **Starlink** mit stabiler Solarversorgung, tragfähig für das ganze Team gleichzeitig.
 
-Das Boot ab Alter do Chão und alles Weitere im Preis legen wir im Angebot dar, per WhatsApp.
+Die Logistik ab Alter do Chão und alles Weitere im Preis legen wir im Angebot dar, per WhatsApp.
 
 **Was separat läuft:** die Flüge nach Santarém (STM), die Aktivitäten mit den Gemeinden (direkt und bar in Reais an die Familien bezahlt) und jede Ton-, Video- oder Projektionstechnik, die Ihr Programm braucht.
 

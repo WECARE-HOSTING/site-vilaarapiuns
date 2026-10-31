@@ -4,12 +4,12 @@ grupo: chegar-alter
 slug: how-to-get-to-alter-do-chao
 titulo: "How to get to Alter do Chão — and to the Arapiuns beyond it"
 tituloCurto: "Getting to Alter do Chão"
-descricao: "Flights to Santarém, the transfer to Alter do Chão, and the boat up the Rio Arapiuns. Times, costs, connections and what actually goes wrong, written from the far end of the trip."
-resposta: "Alter do Chão is reached by flying to Santarém (STM) in Pará, Brazil, then driving about 40 minutes. There are direct flights to Santarém from Manaus, Belém and Brasília; from São Paulo you connect, usually through Brasília, and the fastest routings take about four and a quarter hours. Villa Arapiuns is a further 1h30 by boat up the Rio Arapiuns from Alter do Chão."
+descricao: "Flights to Santarém, the transfer to Alter do Chão, and the final leg up the Rio Arapiuns. Times, costs, connections and what actually goes wrong, written from the far end of the trip."
+resposta: "Alter do Chão is reached by flying to Santarém (STM) in Pará, Brazil, then driving about 40 minutes. There are direct flights to Santarém from Manaus, Belém and Brasília; from São Paulo you connect, usually through Brasília, and the fastest routings take about four and a quarter hours. Villa Arapiuns is a further 1h30 up the Rio Arapiuns from Alter do Chão."
 data: 2026-08-26
 revisado: 2026-10-28
 imagem: chegada-barco
-imagemAlt: "Four people wading through shallow river water carrying bags, with a white boat moored behind them and open water to the horizon"
+imagemAlt: "Four people wading through shallow river water carrying bags, with open water to the horizon"
 legenda: "Landing on the Arapiuns · the last hundred metres are on foot"
 destino: gettingHere
 duvidas:
@@ -17,8 +17,8 @@ duvidas:
     a: "No. From São Paulo you connect — most often through Brasília, sometimes Manaus or Belém. Best routings run about 4h15 total; the common ones take considerably longer."
   - q: "Which airport do I fly into for Alter do Chão?"
     a: "Santarém — Maestro Wilson Fonseca Airport, code STM. It is about 33 km from Alter do Chão, roughly a 40-minute drive."
-  - q: "How long is the boat ride to the Arapiuns?"
-    a: "About an hour and a half by speedboat from Alter do Chão to Villa Arapiuns, upriver. Slower community boats take considerably longer and run on their own schedule."
+  - q: "How long does it take from Alter do Chão to the Arapiuns?"
+    a: "About an hour and a half from Alter do Chão to Villa Arapiuns, upriver."
   - q: "Can I do Alter do Chão as a two-night trip?"
     a: "You can, but you will spend most of it travelling. Getting from São Paulo to the Arapiuns is a full day each way, which is why we ask for three to four nights minimum — anything shorter and the journey eats the trip."
   - q: "Do I need a yellow fever vaccination?"
@@ -47,17 +47,15 @@ Alter do Chão is a village on a freshwater lagoon, with the sandbank called Ilh
 
 If your destination is Alter do Chão itself, you have arrived. If it is the Arapiuns, you are at the port.
 
-## Stage 3 — The boat up the Arapiuns
+## Stage 3 — From Alter do Chão to the Arapiuns
 
-From Alter do Chão it is **about 1h30 by speedboat**, upriver, to Villa Arapiuns. You leave the Tapajós, turn into the Arapiuns, and the water changes character as you go: clearer, quieter, with white sandbanks appearing on both sides.
+From Alter do Chão it is **about 1h30**, upriver, to Villa Arapiuns. You leave the Tapajós, turn into the Arapiuns, and the water changes character as you go: clearer, quieter, with white sandbanks appearing on both sides.
 
 Two things people misjudge here.
 
 The first is that **this leg is not a transfer, it is the trip**. It is the ninety minutes in which the phone stops mattering, and most guests describe it afterwards as the moment the holiday actually began.
 
 The second is **the landing**. There is no deep-water pier. Depending on the river level you may step off into shin-deep water and walk the last stretch to the sand. Bring footwear that can get wet and pack anything precious somewhere dry. This is normal, it is not a sign that something has gone wrong, and it is the reason the beach in front of the lodge is a beach and not a concrete dock.
-
-Community boats also run the river on their own timetable and are a fraction of the cost. They are a real option if you have time and flexibility, and a bad one if you have a flight to catch.
 
 ## Stage 4 — Getting back out
 

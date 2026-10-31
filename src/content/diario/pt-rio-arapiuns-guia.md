@@ -5,8 +5,8 @@ slug: rio-arapiuns-guia
 titulo: "Rio Arapiuns: o guia de quem mora nele"
 tituloCurto: "Guia do Rio Arapiuns"
 tituloSeo: "Rio Arapiuns | Guia de praias, época e como chegar | Villa Arapiuns"
-descricao: "Praias de areia branca, a época do rio baixo e como chegar de Alter do Chão (1h30 de lancha). O guia do Rio Arapiuns escrito por quem mora nele, na Amazônia."
-resposta: "O Rio Arapiuns é um afluente de água clara do Tapajós, no oeste do Pará, a 1h30 de lancha de Alter do Chão. Corre inteiro dentro da Reserva Extrativista Tapajós-Arapiuns, e é onde estão as praias de areia branca e água transparente que a Amazônia raramente mostra. De agosto a janeiro o rio baixa e as praias emergem; de fevereiro a junho ele enche e a paisagem vira floresta alagada."
+descricao: "Praias de areia branca, a época do rio baixo e como chegar de Alter do Chão (1h30). O guia do Rio Arapiuns escrito por quem mora nele, na Amazônia."
+resposta: "O Rio Arapiuns é um afluente de água clara do Tapajós, no oeste do Pará, a 1h30 de Alter do Chão. Corre inteiro dentro da Reserva Extrativista Tapajós-Arapiuns, e é onde estão as praias de areia branca e água transparente que a Amazônia raramente mostra. De agosto a janeiro o rio baixa e as praias emergem; de fevereiro a junho ele enche e a paisagem vira floresta alagada."
 data: 2026-08-26
 revisado: 2026-10-28
 imagem: banco-areia
@@ -15,11 +15,11 @@ legenda: "Banco de areia no Arapiuns · estação seca"
 destino: lodge
 duvidas:
   - q: "Onde fica o Rio Arapiuns?"
-    a: "No oeste do Pará, município de Santarém. Ele desce do norte e encontra o Tapajós perto de Alter do Chão, que é o ponto de partida de quem visita — 1h30 de lancha rio acima."
+    a: "No oeste do Pará, município de Santarém. Ele desce do norte e encontra o Tapajós perto de Alter do Chão, que é o ponto de partida de quem visita — 1h30."
   - q: "O Arapiuns é rio de água preta ou de água clara?"
     a: "Água clara. É por isso que o fundo aparece e a areia é branca: o Arapiuns não carrega o sedimento do Amazonas nem o tanino escuro do Rio Negro."
   - q: "Dá para visitar o Arapiuns em um dia saindo de Alter do Chão?"
-    a: "Dá, e muita gente faz — mas são 3 horas de barco só de ida e volta. Para conhecer as praias, as comunidades e o igapó sem correr, o mínimo honesto é uma noite; três ou quatro é quando a viagem começa a valer o deslocamento."
+    a: "Dá, e muita gente faz — mas são 3 horas só de ida e volta. Para conhecer as praias, as comunidades e o igapó sem correr, o mínimo honesto é uma noite; três ou quatro é quando a viagem começa a valer o deslocamento."
   - q: "Precisa de autorização para entrar na reserva?"
     a: "O visitante não precisa tirar autorização por conta própria. A RESEX é uma reserva de uso sustentável, habitada pelas comunidades ribeirinhas, e o turismo acontece com elas — quem organiza a visita responde pela logística."
 ---
@@ -78,9 +78,9 @@ Leve calçado que pode molhar: em vários pontos se desembarca com o pé na águ
 
 ## Como chegar
 
-Resumido, porque tem texto próprio: voo até **Santarém (STM)** — direto de Manaus, Belém e Brasília; com conexão a partir de São Paulo —, traslado de cerca de 40 minutos até **Alter do Chão**, e de lá **1h30 de lancha** rio acima.
+Resumido, porque tem texto próprio: voo até **Santarém (STM)** — direto de Manaus, Belém e Brasília; com conexão a partir de São Paulo —, traslado de cerca de 40 minutos até **Alter do Chão**, e de lá **1h30** rio acima.
 
-A viagem é longa e é assim de propósito. O trecho de barco é o que separa o Arapiuns do fluxo de Alter do Chão, e é também a parte em que a cabeça desacelera. Quem chega reclamando do deslocamento normalmente reclama menos na volta.
+A viagem é longa e é assim de propósito. O trecho pelo rio é o que separa o Arapiuns do fluxo de Alter do Chão, e é também a parte em que a cabeça desacelera. Quem chega reclamando do deslocamento normalmente reclama menos na volta.
 
 ## Onde se hospedar
 
