@@ -3,8 +3,8 @@
  * BARRA DE RESERVA — fixa no rodapé da tela nas páginas de pacote sazonal
  * (Réveillon, Detox), que recebem o tráfego da bio do Instagram.
  *
- * "Reservar" (decisão do Leonardo, 30/10) vai ao formulário /reservar/ com
- * o pacote pré-preenchido; WhatsApp fica só como "Tirar dúvidas". Hostaway
+ * "Reservar" (decisão do Leonardo, 31/10) abre direto o checkout PT
+ * /pt/lp/pagar-{pacote}/; WhatsApp fica só como "Tirar dúvidas". Hostaway
  * não tem Booking Engine ativo (bookingEngineUrls vazio, 30/10/2026).
  *
  * SEM PREÇO no HTML (decisão do cliente). "Avise-me" é WhatsApp também: não
@@ -21,7 +21,7 @@ const t = useTranslations(locale);
 const etiqueta = t(`barra.${pacote}`);
 /* "Reservar" leva ao checkout /pt/lp/pagar-{pacote}/ (sinal 30% via link
    InfinitePay). Só existe em PT: todos os idiomas apontam para ele. */
-const fechar = `/pt/lp/pagar-${pacote}/`; /* só existe em PT por ora */
+const fechar = `/pt/lp/pagar-${pacote}/#reservar`; /* só existe em PT por ora */
 const conversar = whatsappUrl(t(`whatsapp.${pacote}`));
 const avise = whatsappUrl(t('whatsapp.aviseme'));
 ---

@@ -94,7 +94,8 @@ const faqSchema = {
       lado (13 bangalôs, até 26 pessoas). Prazo de reserva NÃO entra: não há
       data confirmada pelo cliente, e prazo inventado é promessa falsa. */}
   <p class="mt-8">
-    <a href={whatsappUrl(t('whatsapp.reveillon'))} class="btn btn-primario" target="_blank" rel="noopener noreferrer">{t('reveillon.cta')}</a>
+    <a href="/pt/lp/pagar-reveillon/#reservar" class="btn btn-primario" data-cta="reservar_reveillon_1">{t('barra.fechar')}</a>
+    <a href={whatsappUrl(t('whatsapp.reveillon'))} class="btn btn-secundario" target="_blank" rel="noopener noreferrer" data-cta="whatsapp_reveillon_1">{t('barra.whatsapp')}</a>
   </p>
   <p class="numero etiqueta mt-4">{t('reveillon.notaFinal')}</p>
 </AberturaPagina>
@@ -118,7 +119,8 @@ const faqSchema = {
     <ListaCorte itens={blocos} nivel="h2" />
     <p class="numero etiqueta mt-6">{t('reveillon.notaFinal')}</p>
     <p class="mt-10">
-      <a href={whatsappUrl(t('whatsapp.reveillon'))} class="btn btn-primario" target="_blank" rel="noopener noreferrer">{t('reveillon.cta')}</a>
+      <a href="/pt/lp/pagar-reveillon/#reservar" class="btn btn-primario" data-cta="reservar_reveillon_2">{t('barra.fechar')}</a>
+    <a href={whatsappUrl(t('whatsapp.reveillon'))} class="btn btn-secundario" target="_blank" rel="noopener noreferrer" data-cta="whatsapp_reveillon_2">{t('barra.whatsapp')}</a>
     </p>
     {/* Ponte para o Detox pós-Ano Novo (1 a 10/01), a oferta seguinte do
         calendário. A regra de emenda entre as duas ainda não está decidida,
@@ -187,7 +189,8 @@ const faqSchema = {
     <h2 class="font-display text-titulo">{t('reveillon.faqT')}</h2>
     <ListaCorte itens={duvidas} class="mt-10" />
     <p class="mt-12">
-      <a href={whatsappUrl(t('whatsapp.reveillon'))} class="btn btn-primario" target="_blank" rel="noopener noreferrer">{t('reveillon.cta')}</a>
+      <a href="/pt/lp/pagar-reveillon/#reservar" class="btn btn-primario" data-cta="reservar_reveillon_3">{t('barra.fechar')}</a>
+    <a href={whatsappUrl(t('whatsapp.reveillon'))} class="btn btn-secundario" target="_blank" rel="noopener noreferrer" data-cta="whatsapp_reveillon_3">{t('barra.whatsapp')}</a>
     </p>
   </div>
 </section>
