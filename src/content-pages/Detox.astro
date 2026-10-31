@@ -21,6 +21,7 @@
  * FAQPage em JSON-LD com as mesmas chaves do texto visível, só com respostas
  * confirmadas.
  */
+import BarraReserva from '@/components/BarraReserva.astro';
 import { Image } from 'astro:assets';
 import AberturaPagina from '@/components/AberturaPagina.astro';
 import ListaCorte from '@/components/ListaCorte.astro';
@@ -164,3 +165,5 @@ const faqSchema = {
 </section>
 
 <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} is:inline />
+
+<BarraReserva locale={locale} pacote="detox" />

@@ -72,7 +72,8 @@
     "home": "Olá! Vim pela página inicial do site da Villa Arapiuns e queria saber datas e valores.",
     "pacotes": "Olá! Vim pela página de Pacotes do site da Villa Arapiuns e queria consultar datas.",
     "diario": "Olá! Li um artigo do Diário no site da Villa Arapiuns e queria saber mais.",
-    "detox": "Olá! Vim pela página do Detox pós-Ano Novo no site da Villa Arapiuns (1 a 10 de janeiro de 2027). Somos __ pessoas e pensamos em chegar dia __ e sair dia __ de janeiro."
+    "detox": "Olá! Vim pela página do Detox pós-Ano Novo no site da Villa Arapiuns (1 a 10 de janeiro de 2027). Somos __ pessoas e pensamos em chegar dia __ e sair dia __ de janeiro.",
+    "aviseme": "Olá! Quero receber as novidades e as próximas datas da Villa Arapiuns."
   },
   "desc": {
     "home": "Site oficial da Villa Arapiuns: 13 bangalôs no Rio Arapiuns, a 1h30 de lancha de Alter do Chão. Reserve direto com a casa pelo WhatsApp +55 47 99206-7078.",
@@ -1268,5 +1269,15 @@
         "alt": "Cuba branca de louça sobre bancada de madeira maciça, com torneira alta, espelho de moldura de madeira, cestos trançados e o telhado de palha visível por cima da parede"
       }
     ]
+  },
+  "barra": {
+    "rotulo": "Reservar este pacote",
+    "reveillon": "Réveillon · 28 dez – 2 jan",
+    "detox": "Detox · 1 – 10 jan",
+    "fechar": "Reservar",
+    "whatsapp": "Tirar dúvidas",
+    "aviseme": "Avise-me das próximas datas",
+    "msg_reveillon": "Quero reservar o Réveillon (28/12/2026 a 02/01/2027).",
+    "msg_detox": "Quero reservar o Detox pós-Ano Novo (1 a 10/01/2027). Chegada dia __, saída dia __."
   }
 }

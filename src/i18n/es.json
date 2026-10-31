@@ -72,7 +72,8 @@
     "home": "¡Hola! Vengo de la página de inicio del sitio de Villa Arapiuns y quería saber fechas y precios.",
     "pacotes": "¡Hola! Vengo de la página de Paquetes del sitio de Villa Arapiuns y quería consultar fechas.",
     "diario": "¡Hola! Leí un artículo del Diario de Villa Arapiuns y me gustaría saber más.",
-    "detox": "¡Hola! Vengo de la página del Detox de Año Nuevo del sitio de Villa Arapiuns (1 al 10 de enero de 2027). Somos __ personas y pensamos llegar el __ y salir el __ de enero."
+    "detox": "¡Hola! Vengo de la página del Detox de Año Nuevo del sitio de Villa Arapiuns (1 al 10 de enero de 2027). Somos __ personas y pensamos llegar el __ y salir el __ de enero.",
+    "aviseme": "¡Hola! Quiero recibir novedades y próximas fechas de Villa Arapiuns."
   },
   "desc": {
     "home": "Trece bungalós en el río Arapiuns, a 1h30 en lancha desde Alter do Chão. Quédese unos días en la Villa, o venga en un paquete con itinerario cerrado desde Alter do Chão.",
@@ -1268,5 +1269,15 @@
         "alt": "Cuba blanca de loza sobre encimera de madera maciza, con grifo alto, espejo de marco de madera, cestos trenzados y el techo de paja visible por encima de la pared"
       }
     ]
+  },
+  "barra": {
+    "rotulo": "Reservar este paquete",
+    "reveillon": "Año Nuevo · 28 dic – 2 ene",
+    "detox": "Detox · 1 – 10 ene",
+    "fechar": "Reservar",
+    "whatsapp": "Hacer una consulta",
+    "aviseme": "Avísame de nuevas fechas",
+    "msg_reveillon": "Quiero reservar el Año Nuevo (28/12/2026 al 02/01/2027).",
+    "msg_detox": "Quiero reservar el Detox post Año Nuevo (1 al 10/01/2027). Llegada el __, salida el __."
   }
 }

@@ -72,7 +72,8 @@
     "home": "Hallo! Ich komme von der Startseite der Villa Arapiuns und hätte gern Termine und Preise.",
     "pacotes": "Hallo! Ich komme von der Seite „Pakete“ der Villa Arapiuns und möchte Termine anfragen.",
     "diario": "Hallo! Ich habe einen Artikel im Journal der Villa Arapiuns gelesen und würde gern mehr erfahren.",
-    "detox": "Hallo! Ich komme von der Seite Detox nach Neujahr auf der Website der Villa Arapiuns (1. bis 10. Januar 2027). Wir sind __ Personen und möchten am __ anreisen und am __ Januar abreisen."
+    "detox": "Hallo! Ich komme von der Seite Detox nach Neujahr auf der Website der Villa Arapiuns (1. bis 10. Januar 2027). Wir sind __ Personen und möchten am __ anreisen und am __ Januar abreisen.",
+    "aviseme": "Hallo! Ich möchte Neuigkeiten und kommende Termine der Villa Arapiuns erhalten."
   },
   "desc": {
     "home": "Dreizehn Bungalows am Rio Arapiuns, 1,5 Stunden per Boot von Alter do Chão. Bleiben Sie ein paar Tage in der Villa, oder kommen Sie mit einem Paket mit festem Programm ab Alter do Chão.",
@@ -1268,5 +1269,15 @@
         "alt": "Ein weißes Keramikbecken auf einer Massivholzablage, mit einem hohen Wasserhahn, einem holzgerahmten Spiegel, geflochtenen Körben und dem über der Wand sichtbaren Strohdach"
       }
     ]
+  },
+  "barra": {
+    "rotulo": "Dieses Paket buchen",
+    "reveillon": "Silvester · 28. Dez – 2. Jan",
+    "detox": "Detox · 1. – 10. Jan",
+    "fechar": "Buchen",
+    "whatsapp": "Frage stellen",
+    "aviseme": "Über neue Termine informieren",
+    "msg_reveillon": "Ich möchte Silvester buchen (28.12.2026 bis 02.01.2027).",
+    "msg_detox": "Ich möchte das Detox nach Neujahr buchen (1. bis 10.01.2027). Anreise am __, Abreise am __."
   }
 }
