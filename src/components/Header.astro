@@ -3,6 +3,7 @@ import Logo from '@/components/Logo.astro';
 import { LOCALES, LOCALE_NAMES, HTML_LANG, type Locale } from '@/i18n/config';
 import { NAV_KEYS, href, type PageKey } from '@/i18n/routes';
 import { useTranslations } from '@/i18n/utils';
+import { checkoutReservar } from '@/data/site';
 
 interface Props {
   locale: Locale;
@@ -13,6 +14,7 @@ interface Props {
 
 const { locale, pageKey, sobreFoto = false } = Astro.props;
 const t = useTranslations(locale);
+const reservarHref = checkoutReservar(Astro.url.pathname);
 ---
 
 <header
@@ -124,7 +126,7 @@ const t = useTranslations(locale);
         </ul>
       </details>
 
-      <a href={href(locale, 'book')} class="btn btn-primario hidden py-3 sm:inline-flex">
+      <a href={reservarHref} data-cta="reservar_header" class="btn btn-primario hidden py-3 sm:inline-flex">
         {t('cta.book')}
       </a>
 
@@ -170,7 +172,7 @@ const t = useTranslations(locale);
               ))}
             </ul>
 
-            <a href={href(locale, 'book')} class="btn btn-primario mt-8 w-full">{t('cta.book')}</a>
+            <a href={reservarHref} data-cta="reservar_menu" class="btn btn-primario mt-8 w-full">{t('cta.book')}</a>
 
             <div class="mt-10 border-t border-espuma/15 pt-6">
               <p class="etiqueta mb-3">{t('nav.language')}</p>
