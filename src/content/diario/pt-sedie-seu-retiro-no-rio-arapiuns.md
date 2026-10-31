@@ -5,7 +5,7 @@ slug: sedie-seu-retiro-no-rio-arapiuns
 titulo: "Sedie seu retiro no Rio Arapiuns"
 tituloCurto: "Sedie seu retiro"
 descricao: "Um espaço de retiro de propriedade inteira na Amazônia brasileira: treze bangalôs, um pavilhão coberto, uma shala de yoga e uma praia de água doce privativa, para grupos a partir de quinze pessoas."
-resposta: "A partir de quinze pessoas, a Villa Arapiuns vira espaço de grupo único: treze bangalôs para até vinte e seis pessoas, um pavilhão coberto de palha, uma shala de yoga, um redário e uma praia privativa de areia branca no Rio Arapiuns, a uma hora e meia de barco de Alter do Chão. Energia solar e equipe local. As diárias dependem do tamanho do grupo e do número de noites, e os meses de cheia, de fevereiro a junho, são os mais tranquilos e com maior disponibilidade."
+resposta: "A partir de quinze pessoas, a Villa Arapiuns vira espaço de grupo único: treze bangalôs para até vinte e seis pessoas, um pavilhão coberto de palha, uma shala de yoga, um redário e uma praia privativa de areia branca no Rio Arapiuns, a uma hora e meia de Alter do Chão. Energia solar e equipe local. As diárias dependem do tamanho do grupo e do número de noites, e os meses de cheia, de fevereiro a junho, são os mais tranquilos e com maior disponibilidade."
 data: 2026-08-31
 imagem: shala-cheia
 imagemAlt: "Uma dezena de pessoas em pé sobre tapetes ao longo de um deck de madeira sob um longo telhado de palha, com as mãos unidas na altura do peito, e painéis solares instalados acima da linha do telhado"
@@ -34,7 +34,7 @@ Esta página é para você, não para quem está de férias, então ela é escri
 
 ## O que é o lugar
 
-Treze bangalôs na margem do Rio Arapiuns, no Pará — a uma hora e meia de barco rio acima de Alter do Chão, dentro da Reserva Extrativista Tapajós-Arapiuns. Até vinte e seis pessoas. Arquitetura tapajônica: madeira elevada, telhado de palha, portas de mogno com marchetaria radial, tecidos artesanais.
+Treze bangalôs na margem do Rio Arapiuns, no Pará — a uma hora e meia de Alter do Chão, dentro da Reserva Extrativista Tapajós-Arapiuns. Até vinte e seis pessoas. Arquitetura tapajônica: madeira elevada, telhado de palha, portas de mogno com marchetaria radial, tecidos artesanais.
 
 **A partir de quinze pessoas, a propriedade funciona em exclusividade.** Nessas datas, ninguém fora do seu grupo fica no local.
 
@@ -60,13 +60,13 @@ Treze bangalôs na margem do Rio Arapiuns, no Pará — a uma hora e meia de bar
 
 **Atividades com as comunidades**, organizadas em torno da sua agenda, não contra ela: canoa na floresta alagada, a trilha da Samaúma a partir da comunidade de Atodi, o processo da farinhada, trançado de palha, pesca noturna com arpão ensinada por pescadores locais. Elas são conduzidas e pagas diretamente às famílias que as lideram — então o seu grupo deve trazer dinheiro em reais.
 
-**Por sua conta:** as passagens aéreas. O barco desde Alter do Chão e o que entra na diária do grupo, a gente detalha na proposta, pelo WhatsApp.
+**Por sua conta:** as passagens aéreas. A logística desde Alter do Chão e o que entra na diária do grupo, a gente detalha na proposta, pelo WhatsApp.
 
 ## As restrições honestas
 
 A gente prefere perder uma reserva a deixar um facilitador descobrir isso na chegada.
 
-**Chegar até aqui é um dia inteiro.** Voo até Santarém (STM) — direto de Manaus, Belém e Brasília, com conexão saindo de São Paulo — depois 40 minutos de carro, depois 90 minutos de barco. Da Europa ou da América do Norte, conte dois dias, incluindo uma pernoite no Brasil. Para um retiro de cinco noites, tudo bem. Para um fim de semana, é um absurdo, e a gente vai dizer isso.
+**Chegar até aqui é um dia inteiro.** Voo até Santarém (STM) — direto de Manaus, Belém e Brasília, com conexão saindo de São Paulo — depois 40 minutos de carro, depois 90 minutos até a Villa. Da Europa ou da América do Norte, conte dois dias, incluindo uma pernoite no Brasil. Para um retiro de cinco noites, tudo bem. Para um fim de semana, é um absurdo, e a gente vai dizer isso.
 
 **A conectividade funciona.** Tem Starlink com energia solar estável, e ele sustenta um grupo trabalhando online. Isso muda o desenho do seu retiro: a desconexão aqui é uma regra que você estabelece, não uma que a geografia impõe. Vale decidir isso antes e dizer na inscrição — grupo que chega esperando ficar off e descobre que tem sinal se desorganiza sozinho.
 

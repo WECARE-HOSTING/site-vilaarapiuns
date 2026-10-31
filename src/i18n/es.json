@@ -56,7 +56,7 @@
     "comunidade": "Pagado a la comunidad"
   },
   "footer": {
-    "sobre": "Posada de turismo de base comunitaria a orillas del río Arapiuns. Trece bungalós y un equipo que se ocupa de la cocina, del barco y del camino — para que usted solo tenga que llegar.",
+    "sobre": "Posada de turismo de base comunitaria a orillas del río Arapiuns. Trece bungalós y un equipo que se ocupa de la cocina, de la logística y del camino — para que usted solo tenga que llegar.",
     "visita": "La Villa",
     "reserva": "Planifique su estadía",
     "local": "Dónde estamos",
@@ -76,19 +76,19 @@
     "aviseme": "¡Hola! Quiero recibir novedades y próximas fechas de Villa Arapiuns."
   },
   "desc": {
-    "home": "Trece bungalós en el río Arapiuns, a 1h30 en lancha desde Alter do Chão. Quédese unos días en la Villa, o venga en un paquete con itinerario cerrado desde Alter do Chão.",
+    "home": "Trece bungalós en el río Arapiuns, a 1h30 de Alter do Chão. Quédese unos días en la Villa, o venga en un paquete con itinerario cerrado desde Alter do Chão.",
     "lodge": "Los 13 bungalós de Villa Arapiuns: arquitectura tapajónica de dos plantas, caoba, marquetería y tejido artesanal.",
     "dining": "La mesa de Villa Arapiuns: pescado del río, harina de yuca de la comunidad, café recién hecho — y la Piracaia a la orilla del río.",
     "experiences": "Senderos, canoa, playa y talleres con las comunidades ribereñas del Arapiuns.",
     "packages": "Paquetes desde Alter do Chão con itinerario cerrado: una noche con siete experiencias, o dos noches con diez.",
     "privateVilla": "La Villa Arapiuns entera para un solo grupo: retiros, equipos de empresa, observación de aves y la pesca a pulmón nocturna con los ribereños. Exclusividad a partir de 15 personas.",
-    "reveillon": "Fin de Año 2026/27 en Villa Arapiuns: el año nuevo en una playa fluvial de arena blanca en el Río Arapiuns, a 1h30 en lancha de Alter do Chão. Paquetes de 4 a 5 noches para grupos y familias.",
-    "gettingHere": "Cómo llegar a Villa Arapiuns: vuelo hasta Santarém, traslado a Alter do Chão y 1h30 de barco río arriba.",
+    "reveillon": "Fin de Año 2026/27 en Villa Arapiuns: el año nuevo en una playa fluvial de arena blanca en el Río Arapiuns, a 1h30 de Alter do Chão. Paquetes de 4 a 5 noches para grupos y familias.",
+    "gettingHere": "Cómo llegar a Villa Arapiuns: vuelo hasta Santarém, traslado a Alter do Chão y, desde allí, 1h30 hasta la Villa. La logística se coordina con el anfitrión antes del viaje.",
     "gallery": "Fotos de Villa Arapiuns: los bungalós, el río, la selva y las comunidades del Arapiuns.",
     "reviews": "Lo que cuentan los huéspedes después de alojarse en Villa Arapiuns.",
     "book": "Reserve su estadía en Villa Arapiuns por WhatsApp y hable directo con la casa.",
     "bookSent": "Su mensaje llegó. Respondemos en un plazo de 24 horas.",
-    "detox": "Detox de Año Nuevo en Villa Arapiuns, del 1 al 10 de enero de 2027: comida de la selva, açaí, sin alcohol servido por la casa y 13 bungalós en el Río Arapiuns, a 1h30 en lancha de Alter do Chão."
+    "detox": "Detox de Año Nuevo en Villa Arapiuns, del 1 al 10 de enero de 2027: comida de la selva, açaí, sin alcohol servido por la casa y 13 bungalós en el Río Arapiuns, a 1h30 de Alter do Chão."
   },
   "home": {
     "hookA": "Un Caribe de agua dulce,",
@@ -101,7 +101,7 @@
     "etapa2T": "De Santarém a Alter do Chão",
     "etapa2D": "Traslado por tierra hasta el pueblo. Acordamos el horario con usted.",
     "etapa3T": "De Alter do Chão a la Villa",
-    "etapa3D": "En lancha río arriba, la última etapa. Cómo funciona el barco en su estadía lo coordinamos por WhatsApp.",
+    "etapa3D": "De Alter do Chão a la Villa, la última etapa. La logística la coordinamos con usted por WhatsApp antes del viaje.",
     "vistaLegenda": "La Villa desde arriba · los techos dentro de la selva cerrada",
     "vistaControle": "Ver el video",
     "vistaMedida": "{s} s · {mb} MB · sin sonido",
@@ -119,14 +119,14 @@
     "fechaD": "Quien responde es quien recibe. Díganos cuántas personas y qué fechas tiene en mente.",
     "fechaA": "Gabriela",
     "fechaH": "huésped · julio de 2026",
-    "tiraMedidaBarco": "{min} min en barco",
+    "tiraMedidaBarco": "{min} min desde Alter do Chão",
     "tiraMedidaBangalos": "{n} bungalós",
     "tiraMedidaHospedes": "hasta {n} huéspedes",
     "tiraItens": [
       {
         "id": "travessia",
         "assunto": "La travesía",
-        "alt": "Grupo de huéspedes con mochilas subiendo a un barco de madera atracado en la orilla del río, bajo un cielo de nubes altas"
+        "alt": "Grupo de huéspedes con mochilas en la orilla del río, bajo un cielo de nubes altas"
       },
       {
         "id": "banco",
@@ -357,17 +357,17 @@
         "alt": "Puesta de sol sobre el río vista desde debajo del follaje, con el cielo naranja y el agua oscura en olas cortas"
       }
     ],
-    "campoLancha": "1h30 en lancha desde {place}",
+    "campoLancha": "a 1h30 de {place}",
     "heroMarca": "Villa Arapiuns | Posada en el Río Arapiuns",
-    "heroSub": "Posada en el Río Arapiuns, a 1h30 en lancha de Alter do Chão. 13 bungalós junto a una playa de agua dulce."
+    "heroSub": "Posada en el Río Arapiuns, a 1h30 de Alter do Chão. 13 bungalós junto a una playa de agua dulce."
   },
   "modo": {
     "titulo": "Dos maneras de quedarse",
     "intro": "La Villa recibe de dos formas, y no son el mismo producto. Elija según lo que quiera de su tiempo.",
     "pousadaT": "Estadía en la posada",
-    "pousadaD": "Usted pasa los días en la Villa y elige qué hacer — o no hacer. El barco y los paseos se contratan aparte, según el interés del grupo.",
+    "pousadaD": "Usted pasa los días en la Villa y elige qué hacer — o no hacer. Los paseos se contratan aparte, según el interés del grupo.",
     "pousadaInc": "Alojamiento en bungaló · todas las comidas incluidas (desayuno, almuerzo y cena)",
-    "pousadaFora": "Traslado en barco, paseos y bebidas alcohólicas",
+    "pousadaFora": "Traslado hasta la Villa, paseos y bebidas alcohólicas",
     "pacoteT": "Paquete completo",
     "pacoteD": "Sale de Alter do Chão con itinerario y actividades ya cerrados. Una noche con siete experiencias, o dos noches con diez.",
     "pacoteInc": "Alojamiento · actividades del itinerario · desayuno y cena",
@@ -434,7 +434,7 @@
     "intro": "Pescado del río, harina de yuca de la comunidad, fruta de la huerta y café recién hecho. Cocina propia, sirviendo en el pabellón abierto.",
     "escopoT": "Qué está incluido",
     "escopo1T": "Comidas: incluidas",
-    "escopo1D": "Estadía en la posada: todas las comidas incluidas (desayuno, almuerzo y cena). Paquetes con barco desde Alter do Chão: desayuno y cena.",
+    "escopo1D": "Estadía en la posada: todas las comidas incluidas (desayuno, almuerzo y cena). Paquetes desde Alter do Chão: desayuno y cena.",
     "escopo3T": "Bebidas alcohólicas: aparte",
     "escopo3D": "Cerveza, vino y destilados no están incluidos en ninguna de las modalidades, y se cobran aparte.",
     "piraT": "La Piracaia",
@@ -492,7 +492,7 @@
       },
       {
         "titulo": "Ponta Grande",
-        "detalhe": "Atardecer en la playa de arena blanca, con baño en el río. Se puede ir en kayak; también en barco.",
+        "detalhe": "Atardecer en la playa de arena blanca, con baño en el río. Se puede ir en kayak.",
         "medida": "En el paquete",
         "marcado": true
       },
@@ -631,8 +631,8 @@
     "opcionalLabel": "opcional",
     "roteiroFotoT": "El itinerario, en fotografía",
     "roteiroFotoI": "No todos los elementos del itinerario tienen foto en el archivo — los que la tienen están aquí, sin retoque y sin escenografía.",
-    "lanchaT": "La lancha la coordinamos con usted",
-    "lanchaD": "De {place} a la Villa son {min} minutos de río, la última etapa del camino. Cómo funciona la lancha en su paquete se lo explicamos por WhatsApp.",
+    "lanchaT": "La llegada la coordinamos con usted",
+    "lanchaD": "De {place} a la Villa son {min} minutos, la última etapa del camino. La logística de su paquete se coordina con el anfitrión por WhatsApp antes del viaje.",
     "itemLagoAzul": "Lago Azul",
     "itemMassagem": "Masaje y baño de esencias",
     "itemFarinhadaRedario": "Farinhada, tejido y área de hamacas",
@@ -653,23 +653,23 @@
     "fotoFogueiraJantar": "Fogata y cena",
     "fotoPiracaia": "Piracaia",
     "figFimDeTardeRio": "Fin de la tarde en el río · visto desde la pasarela",
-    "figChegada": "La llegada · desembarco en la arena"
+    "figChegada": "La llegada · en la arena de la Villa"
   },
   "chegar": {
     "h1": "Cómo llegar",
     "intro": "Son tres etapas, y la última es nuestra. El viaje es parte — y por eso la Villa no se llena.",
     "duvT": "Lo que suele preocupar",
     "q1": "¿Y si mi vuelo se atrasa?",
-    "a1": "Avise por WhatsApp en cuanto lo sepa. La lancha sale cuando llega el grupo; reorganizamos el horario con usted.",
-    "q2": "¿Necesito reservar el barco aparte?",
-    "a2": "El traslado en barco lo coordinamos con usted por WhatsApp, junto con la reserva.",
+    "a1": "Avise por WhatsApp en cuanto lo sepa. Reorganizamos el horario con usted.",
+    "q2": "¿Necesito reservar aparte el traslado hasta la Villa?",
+    "a2": "La logística hasta la Villa la coordinamos con usted por WhatsApp, junto con la reserva y antes del viaje.",
     "q3": "¿Cuánto tardo de Santarém a la Villa?",
-    "a3": "El tramo Alter do Chão–Villa es de 1h30 en lancha. El tiempo de Santarém a Alter do Chão depende del traslado, y lo acordamos con usted.",
+    "a3": "El tramo Alter do Chão–Villa es de 1h30. El tiempo de Santarém a Alter do Chão depende del traslado, y lo acordamos con usted.",
     "q4": "¿Hay señal de celular?",
     "a4": "La señal de celular es intermitente. El internet de la casa es Starlink, estable, y sostiene reuniones en línea y trabajo remoto. Acuerde antes lo que necesite acordar, y avise a quien espera noticias.",
     "q5": "¿Se puede llevar niños?",
     "a5": "Sí. Díganos la edad cuando hable con nosotros, para pensar el alojamiento y el ritmo del día junto con usted.",
-    "figFimEtapa3": "El fin de la etapa 03 · desembarco en la arena de la Villa",
+    "figFimEtapa3": "El fin de la etapa 03 · llegada a la arena de la Villa",
     "duvFinal": "Si queda alguna duda que no está aquí, pregunte — es más rápido que buscar.",
     "ctaVerPacotes": "Ver paquetes",
     "embarqueItens": [
@@ -680,13 +680,13 @@
       },
       {
         "id": "grupo",
-        "legenda": "El grupo, camino al barco",
-        "alt": "Grupo de huéspedes con mochilas caminando en la arena hacia los barcos anclados"
+        "legenda": "El grupo, camino a la Villa",
+        "alt": "Grupo de huéspedes con mochilas caminando en la arena junto al río"
       },
       {
         "id": "colete",
         "legenda": "El Pérola do Tapajós, con los chalecos",
-        "alt": "Huéspedes con chaleco salvavidas subiendo al barco Pérola do Tapajós, atracado en la arena"
+        "alt": "Huéspedes llegando a la orilla de arena, junto al río"
       }
     ],
     "q6": "¿Hay mosquitos?",
@@ -699,7 +699,7 @@
     "dialogo": "Mapa de la región del Arapiuns, ampliado",
     "aeroporto": "Aeropuerto en Santarém (STM), PA",
     "ondeT": "Dónde está la Villa",
-    "ondeI": "La Villa está en el río Arapiuns, al oeste de Alter do Chão. El último tramo es en barco porque allí no hay carretera — es lo que mantiene el río vacío."
+    "ondeI": "La Villa está en el río Arapiuns, al oeste de Alter do Chão, a 1h30 de allí. No hay carretera — es lo que mantiene el río vacío."
   },
   "video": {
     "fechar": "Cerrar",
@@ -761,7 +761,7 @@
       },
       {
         "titulo": "El guía y el equipo son de allí",
-        "detalhe": "La cocina, el barco y el camino están en manos de quienes viven del río. Es trabajo local, no un itinerario traído de fuera.",
+        "detalhe": "La cocina, la logística y el camino están en manos de quienes viven del río. Es trabajo local, no un itinerario traído de fuera.",
         "medida": "equipo local"
       },
       {
@@ -788,7 +788,7 @@
   },
   "reveillon": {
     "h1": "Fin de Año en la playa de la Villa",
-    "intro": "Entre el 28 de diciembre y el 2 de enero, el año cambia aquí: playa de agua dulce y arena blanca, la piracaia a la orilla del río, la ronda de velas en la arena — y ninguna multitud. Alter do Chão se llena en Año Nuevo; la Villa está a 1h30 en lancha, río arriba, entre dos áreas de preservación.",
+    "intro": "Entre el 28 de diciembre y el 2 de enero, el año cambia aquí: playa de agua dulce y arena blanca, la piracaia a la orilla del río, la ronda de velas en la arena — y ninguna multitud. Alter do Chão se llena en Año Nuevo; la Villa está a 1h30 río arriba, entre dos áreas de preservación.",
     "campoJanela": "28 dic – 02 ene",
     "b1T": "La ventana",
     "b1D": "Paquetes de 4 a 5 noches entre el 28 de diciembre y el 2 de enero — el viaje pide ese tiempo, y es lo que hace que la ciudad salga del cuerpo.",
@@ -815,7 +815,7 @@
     "figSolAlt": "Sol poniéndose tras nubes bajas sobre el agua del río, enmarcado por ramas en silueta",
     "comoT": "Cómo funciona",
     "c1T": "Llegada por Alter do Chão",
-    "c1D": "Vuelo a Santarém (STM), traslado a Alter do Chão y 1h30 en lancha por el Arapiuns. El barco del grupo lo coordinamos por WhatsApp.",
+    "c1D": "Vuelo a Santarém (STM), traslado a Alter do Chão y, desde allí, 1h30 hasta la Villa. La logística del grupo la coordinamos por WhatsApp antes del viaje.",
     "c2T": "Los días",
     "c2D": "Playa, canoa en el igapó, el sendero de la Samaúma, talleres con las comunidades — el itinerario se dibuja con el grupo, a su ritmo.",
     "c3T": "La noche del 31",
@@ -832,7 +832,7 @@
     "q4": "¿Hay mosquitos?",
     "a4": "La playa de la Villa es de agua dulce y arena blanca, prácticamente sin mosquitos. En Año Nuevo el Arapiuns está en estación seca, con el río bajo y las playas en su mejor momento.",
     "q5": "¿Cómo llego desde el exterior?",
-    "a5": "Vuelo a Santarém (STM) — con conexión desde São Paulo, o directo desde Brasília, Belém y Manaus —, traslado a Alter do Chão y 1h30 en lancha hasta la Villa. La subida del río ya es el comienzo del viaje.",
+    "a5": "Vuelo a Santarém (STM) — con conexión desde São Paulo, o directo desde Brasília, Belém y Manaus —, traslado a Alter do Chão y, desde allí, 1h30 hasta la Villa. La logística la coordinamos contigo antes del viaje.",
     "q6": "¿Podemos reservar la Villa entera?",
     "a6": "Sí. A partir de 15 personas el grupo tiene derecho de exclusividad: trece bungalós para hasta 26 huéspedes, el pabellón, el hamacario y la playa, sin nadie más en la fecha.",
     "notaFinal": "La ventana de Año Nuevo tiene una sola fecha — y trece bungalós.",
@@ -842,7 +842,7 @@
   },
   "detox": {
     "h1": "Detox de Año Nuevo en el Río Arapiuns",
-    "intro": "La fiesta terminó. Del 1 al 10 de enero de 2027, la Villa recibe a quien quiere empezar el año despacio: comida de la selva, nada de cócteles y ningún parlante, a 1h30 en lancha de Alter do Chão.",
+    "intro": "La fiesta terminó. Del 1 al 10 de enero de 2027, la Villa recibe a quien quiere empezar el año despacio: comida de la selva, nada de cócteles y ningún parlante, a 1h30 de Alter do Chão.",
     "campoJanela": "01 – 10 ene",
     "janelaCurta": "1–10 ene",
     "campoMinimo": "mínimo 2 noches",
@@ -885,7 +885,7 @@
     "q5": "¿Podemos cerrar la Villa solo para nuestro grupo?",
     "a5": "Sí. A partir de 15 personas el grupo tiene exclusividad: los 13 bungalós para hasta 26 huéspedes, el pabellón, el redário, la shala y la playa, sin nadie de fuera en la fecha.",
     "q6": "¿Cómo llego?",
-    "a6": "Vuelo a Santarém (STM), traslado por tierra hasta Alter do Chão y 1h30 en lancha por el Arapiuns hasta la Villa. El último tramo no tiene carretera.",
+    "a6": "Vuelo a Santarém (STM), traslado por tierra hasta Alter do Chão y, desde allí, 1h30 hasta la Villa. La logística la coordinamos contigo antes del viaje.",
     "ctaFinalD": "Son 13 bungalós para los primeros días de 2027. Díganos cuántas personas son y cuándo quieren llegar.",
     "ctaPagina": "Ver el Detox",
     "nome": "Detox de Año Nuevo"
@@ -1280,6 +1280,7 @@
     "msg_reveillon": "Quiero reservar el Año Nuevo (28/12/2026 al 02/01/2027).",
     "msg_detox": "Quiero reservar el Detox post Año Nuevo (1 al 10/01/2027). Llegada el __, salida el __.",
     "devolucao": "Sin disponibilidad, devolución total del importe.",
+    "restam": "Quedan solo {n} alojamientos para estas fechas.",
     "preReserva": "Prerreserva recibida. Nos pondremos en contacto para confirmar la disponibilidad."
   }
 }

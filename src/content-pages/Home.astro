@@ -100,7 +100,7 @@ const momentos = [
 const travessia = [
   { n: '01', titulo: t('home.etapa1T'), detalhe: t('home.etapa1D'), medida: 'Santarém · PA' },
   { n: '02', titulo: t('home.etapa2T'), detalhe: t('home.etapa2D'), medida: 'Alter do Chão' },
-  { n: '03', titulo: t('home.etapa3T'), detalhe: t('home.etapa3D'), medida: `${SITE.location.boatMinutes} min de barco`, incluso: false }, // 11/10/2026: o site não afirma barco incluso
+  { n: '03', titulo: t('home.etapa3T'), detalhe: t('home.etapa3D'), medida: t('home.tiraMedidaBarco').replace('{min}', String(SITE.location.boatMinutes)), incluso: false }, // 11/10/2026: o site não afirma barco incluso
 ];
 /* A ordem é deliberada, e o critério é quanto cada foto aguenta tipo branco
    por cima — não qual é a mais bonita solta.
@@ -401,7 +401,7 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
 
      A régua é a mesma de antes (leitura à esquerda, medidas à direita, a
      emenda separando), e as medidas continuam com a sua unidade colada: bangalôs,
-     hóspedes e o tempo de lancha saem de `src/data/site.ts`, nunca digitados
+     hóspedes e o tempo de deslocamento saem de `src/data/site.ts`, nunca digitados
      aqui. -->
 <section>
   <div class="container-editorial grid gap-8 py-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-end lg:gap-16 lg:py-16">
@@ -523,7 +523,7 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
      A estrutura central do produto, que o site não expressava. Duas folhas de
      veio oposto encontrando-se numa emenda — não dois cards: sem raio, sem
      sombra, a junta é que divide. O preço mora DENTRO da modalidade, porque
-     preço sem modalidade não informa: na pousada o barco não está incluso.
+     preço sem modalidade não informa: na pousada o deslocamento não está incluso.
      Desde 11/10/2026 o site não publica valor: no lugar do número entra
      `cta.condicaoWhatsapp`, com link para o WhatsApp. -->
 <section class="cunha-topo secao">

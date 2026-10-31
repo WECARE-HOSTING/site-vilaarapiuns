@@ -67,6 +67,6 @@ En la Villa Arapiuns casi no hay mosquitos — no prometemos cero, esto es selva
 
 ## Por qué nos tomamos el trabajo de escribir esto
 
-Porque la pregunta de los mosquitos es, con diferencia, la razón más común por la que la gente se convence de no venir a la Amazonía, y en este río en particular el miedo está dirigido al lugar equivocado. La contrapartida aquí es real, pero no es la que usted esperaba: no son los insectos, es la distancia. El Arapiuns está a 1h30 en barco más allá de Alter do Chão, y ese es el precio real de entrada.
+Porque la pregunta de los mosquitos es, con diferencia, la razón más común por la que la gente se convence de no venir a la Amazonía, y en este río en particular el miedo está dirigido al lugar equivocado. La contrapartida aquí es real, pero no es la que usted esperaba: no son los insectos, es la distancia. El Arapiuns está a 1h30 más allá de Alter do Chão, y ese es el precio real de entrada.
 
 La playa está bien. Traiga protector solar.

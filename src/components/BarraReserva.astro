@@ -11,7 +11,7 @@
  * há provedor de newsletter no site e não entra serviço novo de terceiro.
  * O clique é medido pelo listener de wa.me do BaseLayout; `data-cta` diz qual.
  */
-import { whatsappUrl } from '@/data/site';
+import { whatsappUrl, BANGALOS_RESTANTES } from '@/data/site';
 import { useTranslations } from '@/i18n/utils';
 import type { Locale } from '@/i18n/config';
 
@@ -29,6 +29,7 @@ const avise = whatsappUrl(t('whatsapp.aviseme'));
   <div class="barra-reserva__miolo">
     <p class="barra-reserva__pacote">
       <span class="barra-reserva__etiqueta">{etiqueta}</span>
+      <span class="barra-reserva__restam" data-restam>{t('barra.restam').replace('{n}', String(BANGALOS_RESTANTES))}</span>
       <span class="barra-reserva__devolucao">{t('barra.devolucao')}</span>
       <a href={avise} class="barra-reserva__avise" target="_blank" rel="noopener noreferrer" data-cta={`aviseme_${pacote}`}>{t('barra.aviseme')}</a>
     </p>
@@ -51,6 +52,9 @@ const avise = whatsappUrl(t('whatsapp.aviseme'));
   .barra-reserva__miolo { max-width: 72rem; margin: 0 auto; display: flex; flex-direction: column; gap: 0.5rem; }
   .barra-reserva__pacote { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin: 0; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
   .barra-reserva__etiqueta { color: var(--color-sol); }
+  .barra-reserva__restam { color: var(--color-areia-clara); text-transform: none; letter-spacing: 0; font-weight: 600; flex-basis: 100%; order: -1; }
+  .barra-reserva__pacote { flex-wrap: wrap; row-gap: 0.25rem; }
+  @media (min-width: 768px) { .barra-reserva__restam { flex-basis: auto; order: 0; } }
   .barra-reserva__devolucao { color: var(--color-espuma); text-transform: none; letter-spacing: 0; }
   .barra-reserva__avise { color: var(--color-espuma); text-decoration: underline; text-underline-offset: 3px; text-transform: none; letter-spacing: 0; }
   .barra-reserva__acoes { display: grid; grid-template-columns: 1fr 1.4fr; gap: 0.5rem; }

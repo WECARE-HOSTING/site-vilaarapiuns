@@ -5,7 +5,7 @@ slug: organice-su-retiro-en-el-rio-arapiuns
 titulo: "Organice su retiro en el Río Arapiuns"
 tituloCurto: "Organice su retiro"
 descricao: "Un espacio de retiro de propiedad exclusiva en la Amazonía brasileña: trece bangalôs, un pabellón cubierto, una Shala de Yoga y una playa privada de agua dulce, para grupos desde quince huéspedes."
-resposta: "Villa Arapiuns se convierte en espacio de uso exclusivo a partir de quince huéspedes: trece bangalôs para hasta veintiséis personas, un pabellón cubierto de palma, una Shala de Yoga, un redário entre los árboles y una playa privada de arena blanca en el Río Arapiuns, a una hora y media en barco de Alter do Chão. Energía solar y equipo local. Las tarifas dependen del tamaño del grupo y las noches, y los meses de crecida, de febrero a junio, son los más tranquilos y con mayor disponibilidad."
+resposta: "Villa Arapiuns se convierte en espacio de uso exclusivo a partir de quince huéspedes: trece bangalôs para hasta veintiséis personas, un pabellón cubierto de palma, una Shala de Yoga, un redário entre los árboles y una playa privada de arena blanca en el Río Arapiuns, a una hora y media de Alter do Chão. Energía solar y equipo local. Las tarifas dependen del tamaño del grupo y las noches, y los meses de crecida, de febrero a junio, son los más tranquilos y con mayor disponibilidad."
 data: 2026-08-31
 imagem: shala-cheia
 imagemAlt: "Una docena de personas de pie sobre esterillas a lo largo de una plataforma de madera, bajo un techo largo de paja de palma, con las manos juntas frente al pecho, y paneles solares instalados sobre el techo"
@@ -34,7 +34,7 @@ Esta página está escrita para usted, no para un turista de vacaciones, así qu
 
 ## Qué es este lugar
 
-Trece bangalôs a orillas del Río Arapiuns, en Pará, Brasil — a una hora y media en barco, río arriba desde Alter do Chão, dentro de la Reserva Extractivista Tapajós-Arapiuns. Hasta veintiséis huéspedes. Arquitetura tapajônica: madera elevada sobre palafitas, techo de palma, puertas de caoba con marquetería radial, textiles tejidos a mano.
+Trece bangalôs a orillas del Río Arapiuns, en Pará, Brasil — a una hora y media, río arriba desde Alter do Chão, dentro de la Reserva Extractivista Tapajós-Arapiuns. Hasta veintiséis huéspedes. Arquitetura tapajônica: madera elevada sobre palafitas, techo de palma, puertas de caoba con marquetería radial, textiles tejidos a mano.
 
 **A partir de quince huéspedes, la propiedad funciona en exclusividad.** Para esas fechas, nadie fuera de su grupo está en el lugar.
 
@@ -60,13 +60,13 @@ Trece bangalôs a orillas del Río Arapiuns, en Pará, Brasil — a una hora y m
 
 **Actividades con las comunidades**, organizadas alrededor de su horario y no en contra de él: paseos en canoa por el bosque inundado, el sendero de la Samaúma desde la comunidad de Atodi, el proceso de la farinhada de mandioca, el tejido de palma, la pesca nocturna de arpón enseñada por pescadores locales. Se realizan y se pagan directamente a las familias que las dirigen — así que su grupo debe traer efectivo en reales.
 
-**Por su cuenta:** los vuelos. El barco desde Alter do Chão y lo que cubre la tarifa del grupo se lo detallamos en la propuesta, por WhatsApp.
+**Por su cuenta:** los vuelos. La logística desde Alter do Chão y lo que cubre la tarifa del grupo se lo detallamos en la propuesta, por WhatsApp.
 
 ## Las limitaciones, con honestidad
 
 Preferimos perder una reserva antes que un facilitador descubra esto al llegar.
 
-**Llegar hasta aquí toma un día completo.** Vuele a Santarém (STM) — directo desde Manaos, Belém y Brasilia, con conexión desde São Paulo — luego un traslado de 40 minutos por carretera, y después 90 minutos en barco. Desde Europa o Norteamérica, cuente dos días, incluida una noche en Brasil. Para un retiro de cinco noches, esto está bien. Para un fin de semana es absurdo, y se lo diremos así.
+**Llegar hasta aquí toma un día completo.** Vuele a Santarém (STM) — directo desde Manaos, Belém y Brasilia, con conexión desde São Paulo — luego un traslado de 40 minutos por carretera, y después 90 minutos hasta la Villa. Desde Europa o Norteamérica, cuente dos días, incluida una noche en Brasil. Para un retiro de cinco noches, esto está bien. Para un fin de semana es absurdo, y se lo diremos así.
 
 **La conectividad funciona.** Hay Starlink con energía solar estable, y sostiene a un grupo trabajando en línea. Eso cambia el diseño de su retiro: la desconexión aquí es una regla que usted establece, no una que imponga la geografía. Conviene decidirlo antes y decirlo en la inscripción: un grupo que llega esperando estar sin señal y descubre que la hay, se desarma solo.
 

@@ -4,11 +4,11 @@ grupo: chegar-alter
 slug: como-chegar-a-alter-do-chao
 titulo: "Como chegar a Alter do Chão — e ao Arapiuns, mais adiante"
 tituloCurto: "Como chegar a Alter do Chão"
-descricao: "Voos até Santarém, o transfer até Alter do Chão e a lancha rio acima até o Arapiuns. Horários, custos, conexões e o que realmente pode dar errado, escrito do outro lado da viagem."
-resposta: "Chega-se a Alter do Chão voando até Santarém (STM), no Pará, e depois rodando cerca de 40 minutos. Há voo direto para Santarém saindo de Manaus, Belém e Brasília; de São Paulo há conexão, geralmente por Brasília, e o trajeto mais rápido leva cerca de quatro horas e quinze minutos. Da Villa Arapiuns são mais 1h30 de barco rio acima, saindo de Alter do Chão."
+descricao: "Voos até Santarém, o transfer até Alter do Chão e o trecho final até o Arapiuns. Horários, custos, conexões e o que realmente pode dar errado, escrito do outro lado da viagem."
+resposta: "Chega-se a Alter do Chão voando até Santarém (STM), no Pará, e depois rodando cerca de 40 minutos. Há voo direto para Santarém saindo de Manaus, Belém e Brasília; de São Paulo há conexão, geralmente por Brasília, e o trajeto mais rápido leva cerca de quatro horas e quinze minutos. Da Villa Arapiuns são mais 1h30, saindo de Alter do Chão."
 data: 2026-08-26
 imagem: chegada-barco
-imagemAlt: "Quatro pessoas atravessando a água rasa do rio carregando bagagem, com um barco branco ancorado atrás e água aberta até o horizonte"
+imagemAlt: "Quatro pessoas atravessando a água rasa do rio carregando bagagem, com água aberta até o horizonte"
 legenda: "Chegando ao Arapiuns · os últimos cem metros são a pé"
 destino: gettingHere
 duvidas:
@@ -16,8 +16,8 @@ duvidas:
     a: "Não. De São Paulo há conexão — geralmente por Brasília, às vezes por Manaus ou Belém. O melhor trajeto soma cerca de 4h15 ao todo; os mais comuns levam bem mais que isso."
   - q: "Em qual aeroporto eu desembarco para ir a Alter do Chão?"
     a: "Santarém — Aeroporto Maestro Wilson Fonseca, código STM. Fica a cerca de 33 km de Alter do Chão, uns 40 minutos de carro."
-  - q: "Quanto tempo é a lancha até o Arapiuns?"
-    a: "Cerca de uma hora e meia de lancha rápida, rio acima, de Alter do Chão até a Villa Arapiuns. Barcos de comunidade, mais lentos, levam bem mais tempo e seguem horário próprio."
+  - q: "Quanto tempo leva de Alter do Chão até o Arapiuns?"
+    a: "Cerca de uma hora e meia, rio acima, de Alter do Chão até a Villa Arapiuns."
   - q: "Dá para fazer Alter do Chão numa viagem de duas noites?"
     a: "Dá, mas a maior parte do tempo vai ser deslocamento. De São Paulo até o Arapiuns é um dia inteiro em cada trecho, e é por isso que pedimos no mínimo três a quatro noites — qualquer coisa mais curta e a viagem come o passeio."
   - q: "Preciso de vacina de febre amarela?"
@@ -36,7 +36,7 @@ Santarém fica onde o Tapajós encontra o Amazonas, e o código do aeroporto é 
 
 **Vindo de fora do país**, o formato mais comum é um voo internacional até São Paulo, Brasília ou Belém, uma pernoite ali, e o voo da manhã seguinte até Santarém. Tentar emendar tudo direto depois de uma chegada transatlântica durante a noite é possível — e costuma ser um sofrimento.
 
-Uma nota prática: procure pousar em Santarém **antes do meio da tarde**. A última etapa desta viagem é pela água, e ninguém aqui viaja de barco depois de escurecer por brincadeira.
+Uma nota prática: procure pousar em Santarém **antes do meio da tarde**. A última etapa desta viagem é pelo rio, e ninguém aqui faz esse trecho depois de escurecer por brincadeira.
 
 ## Etapa 2 — De Santarém a Alter do Chão
 
@@ -44,19 +44,17 @@ Cerca de **33 km**, uns **40 minutos** de estrada. Táxi e transfer esperam no a
 
 Alter do Chão é uma vila numa lagoa de água doce, com o banco de areia chamado Ilha do Amor bem no meio dela. A imprensa britânica em algum momento chamou o lugar de Caribe da Amazônia, e o apelido pegou. É bonito de verdade e, nos meses secos, movimentado de verdade.
 
-Se o destino é o próprio Alter do Chão, a viagem acabou. Se é o Arapiuns, você está no porto.
+Se o destino é o próprio Alter do Chão, a viagem acabou. Se é o Arapiuns, falta a última etapa, combinada com o anfitrião antes da viagem.
 
-## Etapa 3 — A lancha rio acima até o Arapiuns
+## Etapa 3 — De Alter do Chão até o Arapiuns
 
-De Alter do Chão são **cerca de 1h30 de lancha**, rio acima, até a Villa Arapiuns. Você sai do Tapajós, entra no Arapiuns, e a água muda de cara pelo caminho: mais clara, mais quieta, com bancos de areia branca surgindo dos dois lados.
+De Alter do Chão são **cerca de 1h30**, rio acima, até a Villa Arapiuns. Você sai do Tapajós, entra no Arapiuns, e a água muda de cara pelo caminho: mais clara, mais quieta, com bancos de areia branca surgindo dos dois lados.
 
 Duas coisas costumam pegar as pessoas de surpresa aqui.
 
 A primeira é que **esse trecho não é um transfer, é a viagem**. São os noventa minutos em que o celular deixa de importar, e a maioria dos hóspedes descreve depois como o momento em que as férias realmente começaram.
 
 A segunda é **o desembarque**. Não há píer de água funda. Dependendo do nível do rio, você pode pisar em água na altura da canela e caminhar o resto até a areia. Leve calçado que possa molhar e guarde o que for precioso em algo seco. Isso é normal, não é sinal de que algo deu errado — e é o motivo pelo qual a praia em frente à pousada é uma praia, e não um cais de concreto.
-
-Barcos de comunidade também rodam o rio, em horário próprio, por uma fração do preço. São uma opção real para quem tem tempo e flexibilidade, e uma péssima ideia para quem tem voo marcado.
 
 ## Etapa 4 — Voltando
 

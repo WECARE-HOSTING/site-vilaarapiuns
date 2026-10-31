@@ -1,4 +1,5 @@
 ---
+import { BANGALOS_RESTANTES } from '@/data/site';
 /** LP de conversão do Réveillon (rascunho, noindex, fora do sitemap). Preços, sinal 30%, restantes e cancelamento confirmados pelo Leonardo em 28/10/2026. */
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
@@ -45,7 +46,7 @@ const faq = [
     ]}
     galeria={[{ src: a, alt: 'Jantar na praia' }, { src: b, alt: 'Roda na areia' }, { src: c, alt: 'Banco de areia no rio' }, { src: d, alt: 'Quarto com varanda' }, { src: e, alt: 'Peixe no jantar' }, { src: g, alt: 'Pôr do sol na praia' }]}
     faq={faq} dataMin="2026-12-28" dataMax="2026-12-28" minNoites={5} maxNoites={5} datasFixas
-    pacoteNome="Réveillon 28/12 a 2/1" totalBangalos={13} restantes={10}
+    pacoteNome="Réveillon 28/12 a 2/1" totalBangalos={13} restantes={BANGALOS_RESTANTES}
     precoNoitePessoa={null} sinalPct={30} maxHospedes={26}
     ocupacoes={[{ nome: 'Single', pessoas: 1, precoPessoa: 9000 }, { nome: 'Duplo', pessoas: 2, precoPessoa: 6000 }, { nome: 'Triplo', pessoas: 3, precoPessoa: 5000 }]}
     aParte={['voo até Santarém (STM)', 'transporte até a Villa, combinado com o anfitrião antes da viagem', 'passeios, pagos diretamente às comunidades']}

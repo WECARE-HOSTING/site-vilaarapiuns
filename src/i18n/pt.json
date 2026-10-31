@@ -56,7 +56,7 @@
     "comunidade": "Pago à comunidade"
   },
   "footer": {
-    "sobre": "Pousada de turismo de base comunitária às margens do Rio Arapiuns. Treze bangalôs e uma equipe que cuida da cozinha, do barco e do caminho — para que você só precise chegar.",
+    "sobre": "Pousada de turismo de base comunitária às margens do Rio Arapiuns. Treze bangalôs e uma equipe que cuida da cozinha, da logística e do caminho — para que você só precise chegar.",
     "visita": "A Villa",
     "reserva": "Planeje sua estadia",
     "local": "Onde fica",
@@ -76,19 +76,19 @@
     "aviseme": "Olá! Quero receber as novidades e as próximas datas da Villa Arapiuns."
   },
   "desc": {
-    "home": "Site oficial da Villa Arapiuns: 13 bangalôs no Rio Arapiuns, a 1h30 de lancha de Alter do Chão. Reserve direto com a casa pelo WhatsApp +55 47 99206-7078.",
-    "lodge": "Pousada no Rio Arapiuns, a 1h30 de lancha de Alter do Chão: bangalôs com todas as refeições incluídas, energia solar 24h e Starlink. Réveillon e praias.",
+    "home": "Site oficial da Villa Arapiuns: 13 bangalôs no Rio Arapiuns, a 1h30 de Alter do Chão. Reserve direto com a casa pelo WhatsApp +55 47 99206-7078.",
+    "lodge": "Pousada no Rio Arapiuns, a 1h30 de Alter do Chão: bangalôs com todas as refeições incluídas, energia solar 24h e Starlink. Réveillon e praias.",
     "dining": "A mesa da Villa Arapiuns: peixe do rio, farinha da comunidade, café passado na hora — e a Piracaia à beira-rio.",
     "experiences": "Trilhas, canoa, praia e oficinas com as comunidades ribeirinhas do Arapiuns.",
     "packages": "Pacotes saindo de Alter do Chão com roteiro fechado: uma noite com sete experiências, ou duas noites com dez.",
-    "privateVilla": "A Villa Arapiuns inteira para o seu grupo, de 15 a 26 pessoas: 13 bangalôs, shala, pavilhão, redário e praia de água doce no Rio Arapiuns, a 1h30 de lancha de Alter do Chão.",
-    "reveillon": "Réveillon 2026/27 na Villa Arapiuns, de 28/12 a 2/1: praia de água doce no Rio Arapiuns, a 1h30 de lancha de Alter do Chão, e piracaia na noite de 31.",
-    "gettingHere": "Como chegar à Villa Arapiuns: voo até Santarém, traslado a Alter do Chão e 1h30 de barco rio acima.",
+    "privateVilla": "A Villa Arapiuns inteira para o seu grupo, de 15 a 26 pessoas: 13 bangalôs, shala, pavilhão, redário e praia de água doce no Rio Arapiuns, a 1h30 de Alter do Chão.",
+    "reveillon": "Réveillon 2026/27 na Villa Arapiuns, de 28/12 a 2/1: praia de água doce no Rio Arapiuns, a 1h30 de Alter do Chão, e piracaia na noite de 31.",
+    "gettingHere": "Como chegar à Villa Arapiuns: voo até Santarém, traslado a Alter do Chão e, de lá, 1h30 até a Villa. A logística é combinada com o anfitrião antes da viagem.",
     "gallery": "Fotos da Villa Arapiuns: os bangalôs, o rio, a mata e as comunidades do Arapiuns.",
     "reviews": "O que os hóspedes contam depois de ficar na Villa Arapiuns.",
     "book": "Reserve sua estadia na Villa Arapiuns pelo WhatsApp e fale direto com a Villa.",
     "bookSent": "Sua mensagem chegou. Respondemos em até 24 horas.",
-    "detox": "Detox pós-Ano Novo na Villa Arapiuns, de 1 a 10 de janeiro de 2027: comida da floresta, açaí, nenhum álcool servido pela casa e 13 bangalôs no Rio Arapiuns, a 1h30 de lancha de Alter do Chão."
+    "detox": "Detox pós-Ano Novo na Villa Arapiuns, de 1 a 10 de janeiro de 2027: comida da floresta, açaí, nenhum álcool servido pela casa e 13 bangalôs no Rio Arapiuns, a 1h30 de Alter do Chão."
   },
   "home": {
     "hookA": "Um Caribe de água doce,",
@@ -101,7 +101,7 @@
     "etapa2T": "Santarém a Alter do Chão",
     "etapa2D": "Traslado por terra até a vila. Combinamos com você o horário.",
     "etapa3T": "Alter do Chão à Villa",
-    "etapa3D": "Lancha rio acima, a última etapa. Como fica o barco na sua estadia, a gente combina no WhatsApp.",
+    "etapa3D": "De Alter do Chão até a Villa, a última etapa. A logística a gente combina com você no WhatsApp antes da viagem.",
     "vistaLegenda": "A Villa de cima · os telhados dentro da mata fechada",
     "vistaControle": "Ver o vídeo",
     "vistaMedida": "{s} s · {mb} MB · sem som",
@@ -119,14 +119,14 @@
     "fechaD": "Quem responde é quem recebe. Diga quantas pessoas e que período você tem em mente.",
     "fechaA": "Gabriela",
     "fechaH": "hóspede · julho de 2026",
-    "tiraMedidaBarco": "{min} min de barco",
+    "tiraMedidaBarco": "{min} min de Alter do Chão",
     "tiraMedidaBangalos": "{n} bangalôs",
     "tiraMedidaHospedes": "até {n} hóspedes",
     "tiraItens": [
       {
         "id": "travessia",
         "assunto": "A travessia",
-        "alt": "Grupo de hóspedes com mochilas embarcando num barco de madeira atracado na beira do rio, sob céu de nuvens altas"
+        "alt": "Grupo de hóspedes com mochilas na beira do rio, sob céu de nuvens altas"
       },
       {
         "id": "banco",
@@ -357,17 +357,17 @@
         "alt": "Pôr do sol sobre o rio visto de sob a folhagem, com o céu laranja e a água escura em ondas curtas"
       }
     ],
-    "campoLancha": "1h30 de lancha de {place}",
+    "campoLancha": "a 1h30 de {place}",
     "heroMarca": "Villa Arapiuns | Pousada no Rio Arapiuns",
-    "heroSub": "Pousada no Rio Arapiuns, a 1h30 de lancha de Alter do Chão. 13 bangalôs na beira de uma praia de água doce."
+    "heroSub": "Pousada no Rio Arapiuns, a 1h30 de Alter do Chão. 13 bangalôs na beira de uma praia de água doce."
   },
   "modo": {
     "titulo": "Duas maneiras de ficar",
     "intro": "A Villa recebe de dois jeitos, e eles não são o mesmo produto. Escolha pelo que você quer do tempo.",
     "pousadaT": "Pousada",
-    "pousadaD": "Você fica os dias na Villa e escolhe o que fazer — ou não fazer. Barco e passeios são contratados à parte, conforme o interesse do grupo.",
+    "pousadaD": "Você fica os dias na Villa e escolhe o que fazer — ou não fazer. Passeios são contratados à parte, conforme o interesse do grupo.",
     "pousadaInc": "Hospedagem em bangalô · todas as refeições incluídas (café da manhã, almoço e jantar)",
-    "pousadaFora": "Transfer de barco, passeios e bebidas alcoólicas",
+    "pousadaFora": "Deslocamento até a Villa, passeios e bebidas alcoólicas",
     "pacoteT": "Pacote completo",
     "pacoteD": "Sai de Alter do Chão com roteiro e atividades já fechados. Uma noite com sete experiências, ou duas noites com dez.",
     "pacoteInc": "Hospedagem · atividades do roteiro · café da manhã e jantar",
@@ -434,7 +434,7 @@
     "intro": "Peixe do rio, farinha da comunidade, fruta do quintal e café passado na hora. Cozinha própria, servindo no pavilhão aberto.",
     "escopoT": "O que está incluído",
     "escopo1T": "Refeições: incluídas",
-    "escopo1D": "Na pousada, todas as refeições incluídas (café da manhã, almoço e jantar). Nos pacotes com barco saindo de Alter do Chão, café da manhã e jantar.",
+    "escopo1D": "Na pousada, todas as refeições incluídas (café da manhã, almoço e jantar). Nos pacotes saindo de Alter do Chão, café da manhã e jantar.",
     "escopo3T": "Bebidas alcoólicas: à parte",
     "escopo3D": "Cerveja, vinho e destilados não estão inclusos em nenhuma das modalidades, e são cobrados à parte.",
     "piraT": "A Piracaia",
@@ -492,7 +492,7 @@
       },
       {
         "titulo": "Ponta Grande",
-        "detalhe": "Pôr do sol na praia de areia branca, com banho de rio. Dá para ir de caiaque; de barco também.",
+        "detalhe": "Pôr do sol na praia de areia branca, com banho de rio. Dá para ir de caiaque.",
         "medida": "No pacote",
         "marcado": true
       },
@@ -631,8 +631,8 @@
     "opcionalLabel": "opcional",
     "roteiroFotoT": "O roteiro, em fotografia",
     "roteiroFotoI": "Nem todo item do roteiro tem foto no acervo — os que têm estão aqui, sem retoque e sem cenário montado.",
-    "lanchaT": "A lancha, a gente combina com você",
-    "lanchaD": "De {place} até a Villa são {min} minutos de rio, a última etapa do caminho. Como fica a lancha no seu pacote, a gente explica no WhatsApp.",
+    "lanchaT": "A chegada, a gente combina com você",
+    "lanchaD": "De {place} até a Villa são {min} minutos, a última etapa do caminho. A logística do seu pacote é combinada com o anfitrião antes da viagem, pelo WhatsApp.",
     "itemLagoAzul": "Lago Azul",
     "itemMassagem": "Massagem e banho de cheiro",
     "itemFarinhadaRedario": "Farinhada, tecelagem e redário",
@@ -660,11 +660,11 @@
     "intro": "São três etapas, e a última é nossa. A viagem faz parte — e é por isso que a Villa não fica cheia.",
     "duvT": "O que costuma preocupar",
     "q1": "E se meu voo atrasar?",
-    "a1": "Avise pelo WhatsApp assim que souber. A lancha sai quando o grupo chega; a gente reorganiza o horário com você.",
-    "q2": "Preciso reservar o barco separado?",
-    "a2": "O transfer de barco a gente combina com você pelo WhatsApp, junto com a reserva.",
+    "a1": "Avise pelo WhatsApp assim que souber. A gente reorganiza o horário com você.",
+    "q2": "Preciso reservar o deslocamento até a Villa separado?",
+    "a2": "A logística até a Villa a gente combina com você pelo WhatsApp, junto com a reserva e antes da viagem.",
     "q3": "Quanto tempo levo de Santarém até a Villa?",
-    "a3": "O trecho Alter do Chão–Villa é de 1h30 de lancha. O tempo de Santarém a Alter do Chão depende do traslado, e combinamos com você.",
+    "a3": "O trecho Alter do Chão–Villa é de 1h30. O tempo de Santarém a Alter do Chão depende do traslado, e combinamos com você.",
     "q4": "Tem sinal de celular?",
     "a4": "O sinal de celular é intermitente. A internet da casa é Starlink, estável, e sustenta reunião online e trabalho remoto. Combine antes o que precisar combinar, e avise quem espera notícia.",
     "q5": "Pode levar criança?",
@@ -680,13 +680,13 @@
       },
       {
         "id": "grupo",
-        "legenda": "O grupo, a caminho do barco",
-        "alt": "Grupo de hóspedes com mochilas caminhando na areia em direção aos barcos ancorados"
+        "legenda": "O grupo, a caminho da Villa",
+        "alt": "Grupo de hóspedes com mochilas caminhando na areia à beira do rio"
       },
       {
         "id": "colete",
         "legenda": "O Pérola do Tapajós, com os coletes",
-        "alt": "Hóspedes de colete salva-vidas embarcando no barco Pérola do Tapajós, encostado na areia"
+        "alt": "Hóspedes chegando à beira da areia, à margem do rio"
       }
     ],
     "q6": "Tem mosquito?",
@@ -699,7 +699,7 @@
     "dialogo": "Mapa da região do Arapiuns, ampliado",
     "aeroporto": "Aeroporto em Santarém (STM), PA",
     "ondeT": "Onde a Villa fica",
-    "ondeI": "A Villa está no rio Arapiuns, a oeste de Alter do Chão. O último trecho é de barco porque ali não há estrada — é o que mantém o rio vazio."
+    "ondeI": "A Villa está no rio Arapiuns, a oeste de Alter do Chão, a 1h30 de lá. Ali não há estrada — é o que mantém o rio vazio."
   },
   "video": {
     "fechar": "Fechar",
@@ -707,7 +707,7 @@
   },
   "privativa": {
     "h1": "A Villa inteira para o seu grupo, de 15 a 26 pessoas",
-    "intro": "Retiros, equipes de empresa, famílias e amigos. São 13 bangalôs, um pavilhão de palha onde o grupo inteiro se senta junto, redário e praia de água doce no Rio Arapiuns, a 1h30 de lancha de Alter do Chão. Na data do seu grupo, ninguém de fora entra na Villa.",
+    "intro": "Retiros, equipes de empresa, famílias e amigos. São 13 bangalôs, um pavilhão de palha onde o grupo inteiro se senta junto, redário e praia de água doce no Rio Arapiuns, a 1h30 de Alter do Chão. Na data do seu grupo, ninguém de fora entra na Villa.",
     "b1T": "Treze bangalôs",
     "b1D": "Até 26 hóspedes acomodados.",
     "b2T": "Exclusividade a partir de 15",
@@ -761,7 +761,7 @@
       },
       {
         "titulo": "O guia e a equipe são de lá",
-        "detalhe": "A cozinha, o barco e o caminho estão com quem mora no rio. É trabalho local, não roteiro trazido de fora.",
+        "detalhe": "A cozinha, a logística e o caminho estão com quem mora no rio. É trabalho local, não roteiro trazido de fora.",
         "medida": "equipe local"
       },
       {
@@ -788,7 +788,7 @@
   },
   "reveillon": {
     "h1": "Réveillon 2026/27 no Rio Arapiuns | Alter do Chão",
-    "intro": "De 28 de dezembro a 2 de janeiro, a 1h30 de lancha de Alter do Chão. São 13 bangalôs: dá para reservar o seu ou fechar a Villa para um grupo de 15 a 26 pessoas.",
+    "intro": "De 28 de dezembro a 2 de janeiro, a 1h30 de Alter do Chão. São 13 bangalôs: dá para reservar o seu ou fechar a Villa para um grupo de 15 a 26 pessoas.",
     "campoJanela": "28 dez – 02 jan",
     "b1T": "A janela da virada",
     "b1D": "Pacotes de 4 a 5 noites entre 28 de dezembro e 2 de janeiro. A viagem até aqui é longa, e com menos noites não compensa.",
@@ -815,7 +815,7 @@
     "figSolAlt": "Sol se pondo atrás de nuvens baixas sobre a água do rio, emoldurado por galhos em silhueta",
     "comoT": "Como funciona",
     "c1T": "Chegada por Alter do Chão",
-    "c1D": "Voo até Santarém, traslado a Alter do Chão e 1h30 de lancha pelo Arapiuns. O barco do grupo, a gente combina pelo WhatsApp.",
+    "c1D": "Voo até Santarém, traslado a Alter do Chão e, de lá, 1h30 até a Villa. A logística do grupo a gente combina pelo WhatsApp antes da viagem.",
     "c2T": "Os dias",
     "c2D": "Praia, canoa no igapó, trilha da Samaúma, oficinas com as comunidades — o roteiro se desenha com o grupo, no ritmo dele.",
     "c3T": "A noite de 31",
@@ -832,7 +832,7 @@
     "q4": "Tem mosquito?",
     "a4": "A praia da Villa é de água doce e areia branca, praticamente sem mosquito. Na virada o Arapiuns está na estação seca, com o rio baixo e as praias no ponto mais alto do ano.",
     "q5": "Como chego saindo de São Paulo ou do exterior?",
-    "a5": "Voo até Santarém (STM) — com conexão a partir de São Paulo, ou direto de Brasília, Belém e Manaus —, traslado até Alter do Chão e 1h30 de lancha até a Villa. A subida do rio já é o começo da viagem.",
+    "a5": "Voo até Santarém (STM) — com conexão a partir de São Paulo, ou direto de Brasília, Belém e Manaus —, traslado até Alter do Chão e, de lá, 1h30 até a Villa. A logística combinamos com você antes da viagem.",
     "q6": "Posso fechar a Villa inteira?",
     "a6": "Sim. A partir de 15 pessoas o grupo tem direito de exclusividade: treze bangalôs para até 26 hóspedes, o pavilhão, o redário e a praia, sem ninguém de fora na data.",
     "notaFinal": "Vagas limitadas: são 13 bangalôs, para no máximo 26 pessoas na semana da virada.",
@@ -842,7 +842,7 @@
   },
   "detox": {
     "h1": "Detox pós-Ano Novo no Rio Arapiuns",
-    "intro": "A festa acabou. De 1 a 10 de janeiro de 2027, a Villa recebe quem quer começar o ano devagar: comida da floresta, nenhum drinque e nenhuma caixa de som, a 1h30 de lancha de Alter do Chão.",
+    "intro": "A festa acabou. De 1 a 10 de janeiro de 2027, a Villa recebe quem quer começar o ano devagar: comida da floresta, nenhum drinque e nenhuma caixa de som, a 1h30 de Alter do Chão.",
     "campoJanela": "01 – 10 jan",
     "janelaCurta": "1 a 10 jan",
     "campoMinimo": "mínimo 2 noites",
@@ -885,7 +885,7 @@
     "q5": "Dá para fechar a Villa só para o nosso grupo?",
     "a5": "Sim. A partir de 15 pessoas o grupo tem exclusividade: os 13 bangalôs para até 26 hóspedes, o pavilhão, o redário, a shala e a praia, sem ninguém de fora na data.",
     "q6": "Como chego?",
-    "a6": "Voo até Santarém (STM), traslado por terra até Alter do Chão e 1h30 de lancha pelo Arapiuns até a Villa. O último trecho não tem estrada.",
+    "a6": "Voo até Santarém (STM), traslado por terra até Alter do Chão e, de lá, 1h30 até a Villa. A logística combinamos com você antes da viagem.",
     "ctaFinalD": "São 13 bangalôs para os primeiros dias de 2027. Diga quantas pessoas são e quando querem chegar.",
     "ctaPagina": "Ver o Detox",
     "nome": "Detox pós-Ano Novo"
@@ -1280,6 +1280,7 @@
     "msg_reveillon": "Quero reservar o Réveillon (28/12/2026 a 02/01/2027).",
     "msg_detox": "Quero reservar o Detox pós-Ano Novo (1 a 10/01/2027). Chegada dia __, saída dia __.",
     "devolucao": "Sem disponibilidade, devolução integral do valor.",
+    "restam": "Restam apenas {n} acomodações.",
     "preReserva": "Pré-reserva recebida. Vamos entrar em contato para confirmar a disponibilidade."
   }
 }

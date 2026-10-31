@@ -7,6 +7,9 @@
 
 import { HTML_LANG, type Locale } from '@/i18n/config';
 
+/** Bangalôs ainda livres nas datas de Réveillon/Detox (contagem por bangalô; datas já bloqueadas no Hostaway). Atualize só aqui. */
+export const BANGALOS_RESTANTES = 8;
+
 export const SITE = {
   name: 'Villa Arapiuns',
   domain: 'https://villaarapiuns.com.br',

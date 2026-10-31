@@ -84,7 +84,7 @@ const tempoBarco = minutos ? `${horas}h${String(minutos).padStart(2, '0')}` : `$
     <p class="numero etiqueta flex flex-wrap items-center gap-x-3 gap-y-1">
       {SITE.location.river}
       <Voluta class="text-areia-sol" />
-      {tempoBarco} de lancha de {SITE.location.departsFrom}
+      {t('home.campoLancha').replace('{place}', SITE.location.departsFrom)}
       <Voluta class="text-areia-sol" />
       {t('mapa.aeroporto')}
     </p>

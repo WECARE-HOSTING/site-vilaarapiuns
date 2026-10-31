@@ -56,7 +56,7 @@
     "comunidade": "Direkt an die Gemeinde gezahlt"
   },
   "footer": {
-    "sobre": "Lodge für gemeindebasierten Tourismus am Ufer des Rio Arapiuns. Dreizehn Bungalows und ein Team, das sich um die Küche, das Boot und den Weg kümmert — damit Sie nur noch ankommen müssen.",
+    "sobre": "Lodge für gemeindebasierten Tourismus am Ufer des Rio Arapiuns. Dreizehn Bungalows und ein Team, das sich um die Küche, die Logistik und den Weg kümmert — damit Sie nur noch ankommen müssen.",
     "visita": "Die Villa",
     "reserva": "Planen Sie Ihren Aufenthalt",
     "local": "Wo wir sind",
@@ -76,19 +76,19 @@
     "aviseme": "Hallo! Ich möchte Neuigkeiten und kommende Termine der Villa Arapiuns erhalten."
   },
   "desc": {
-    "home": "Dreizehn Bungalows am Rio Arapiuns, 1,5 Stunden per Boot von Alter do Chão. Bleiben Sie ein paar Tage in der Villa, oder kommen Sie mit einem Paket mit festem Programm ab Alter do Chão.",
+    "home": "Dreizehn Bungalows am Rio Arapiuns, 1,5 Stunden von Alter do Chão. Bleiben Sie ein paar Tage in der Villa, oder kommen Sie mit einem Paket mit festem Programm ab Alter do Chão.",
     "lodge": "Die 13 Bungalows der Villa Arapiuns: zweigeschossige tapajónische Architektur, Mahagoni, Intarsien und handgewebte Stoffe.",
     "dining": "Der Tisch der Villa Arapiuns: Fisch aus dem Fluss, Maniokmehl aus der Gemeinde, frisch aufgebrühter Kaffee — und die Piracaia am Flussufer.",
     "experiences": "Wanderwege, Kanu, Strand und Workshops mit den Flussgemeinden des Arapiuns.",
     "packages": "Pakete ab Alter do Chão mit festem Programm: eine Nacht mit sieben Erlebnissen oder zwei Nächte mit zehn.",
     "privateVilla": "Die ganze Villa Arapiuns für eine Gruppe: Retreats, Firmenteams, Vogelbeobachtung und nächtliches Tauchfischen mit den Familien am Fluss. Exklusivnutzung ab 15 Personen.",
-    "reveillon": "Silvester 2026/27 in der Villa Arapiuns: Jahreswechsel an einem weißen Süßwasserstrand am Rio Arapiuns, 1,5 Bootsstunden von Alter do Chão. Pakete mit 4–5 Nächten für Gruppen und Familien.",
-    "gettingHere": "So erreichen Sie die Villa Arapiuns: Flug nach Santarém, Transfer nach Alter do Chão und 1,5 Stunden mit dem Boot flussaufwärts.",
+    "reveillon": "Silvester 2026/27 in der Villa Arapiuns: Jahreswechsel an einem weißen Süßwasserstrand am Rio Arapiuns, 1,5 Stunden von Alter do Chão. Pakete mit 4–5 Nächten für Gruppen und Familien.",
+    "gettingHere": "So erreichen Sie die Villa Arapiuns: Flug nach Santarém, Transfer nach Alter do Chão und von dort 1,5 Stunden bis zur Villa. Die Logistik wird vor der Reise mit dem Gastgeber abgestimmt.",
     "gallery": "Fotos der Villa Arapiuns: die Bungalows, der Fluss, der Wald und die Gemeinden des Arapiuns.",
     "reviews": "Was Gäste nach ihrem Aufenthalt in der Villa Arapiuns erzählen.",
     "book": "Buchen Sie Ihren Aufenthalt in der Villa Arapiuns über WhatsApp und sprechen Sie direkt mit dem Haus.",
     "bookSent": "Ihre Nachricht ist angekommen. Wir antworten innerhalb von 24 Stunden.",
-    "detox": "Detox nach Neujahr in der Villa Arapiuns, 1. bis 10. Januar 2027: Essen aus dem Wald, Açaí, kein Alkohol vom Haus und 13 Bungalows am Rio Arapiuns, 1,5 Bootsstunden von Alter do Chão."
+    "detox": "Detox nach Neujahr in der Villa Arapiuns, 1. bis 10. Januar 2027: Essen aus dem Wald, Açaí, kein Alkohol vom Haus und 13 Bungalows am Rio Arapiuns, 1,5 Stunden von Alter do Chão."
   },
   "home": {
     "hookA": "Eine Karibik aus Süßwasser,",
@@ -101,7 +101,7 @@
     "etapa2T": "Santarém nach Alter do Chão",
     "etapa2D": "Transfer auf dem Landweg bis in den Ort. Die Uhrzeit stimmen wir mit Ihnen ab.",
     "etapa3T": "Alter do Chão zur Villa",
-    "etapa3D": "Mit dem Boot flussaufwärts, die letzte Etappe. Wie das Boot bei Ihrem Aufenthalt geregelt ist, klären wir per WhatsApp.",
+    "etapa3D": "Von Alter do Chão zur Villa, die letzte Etappe. Die Logistik stimmen wir vor der Reise per WhatsApp mit Ihnen ab.",
     "vistaLegenda": "Die Villa von oben · die Dächer im geschlossenen Wald",
     "vistaControle": "Video ansehen",
     "vistaMedida": "{s} s · {mb} MB · ohne Ton",
@@ -119,7 +119,7 @@
     "fechaD": "Wer antwortet, ist auch die Person, die Sie empfängt. Sagen Sie uns, wie viele Personen und welchen Zeitraum Sie im Sinn haben.",
     "fechaA": "Gabriela",
     "fechaH": "Gast · Juli 2026",
-    "tiraMedidaBarco": "{min} Min. mit dem Boot",
+    "tiraMedidaBarco": "{min} Min. ab Alter do Chão",
     "tiraMedidaBangalos": "{n} Bungalows",
     "tiraMedidaHospedes": "bis zu {n} Gäste",
     "tiraItens": [
@@ -357,17 +357,17 @@
         "alt": "Sonnenuntergang über dem Fluss, vom Laub aus gesehen, orangefarbener Himmel über dunklem Wasser in kurzen Wellen"
       }
     ],
-    "campoLancha": "1,5 Std. mit dem Boot ab {place}",
+    "campoLancha": "1,5 Std. ab {place}",
     "heroMarca": "Villa Arapiuns | Lodge am Rio Arapiuns",
-    "heroSub": "Lodge am Rio Arapiuns, 1,5 Stunden per Boot von Alter do Chão. 13 Bungalows an einem Süßwasserstrand."
+    "heroSub": "Lodge am Rio Arapiuns, 1,5 Stunden von Alter do Chão. 13 Bungalows an einem Süßwasserstrand."
   },
   "modo": {
     "titulo": "Zwei Arten des Aufenthalts",
     "intro": "Die Villa empfängt auf zwei Arten, und das ist nicht dasselbe Produkt. Wählen Sie danach, was Sie von Ihrer Zeit erwarten.",
     "pousadaT": "Lodge-Aufenthalt",
-    "pousadaD": "Sie verbringen Ihre Tage in der Villa und entscheiden selbst, was Sie tun — oder lassen. Boot und Ausflüge werden separat gebucht, je nach Interesse der Gruppe.",
+    "pousadaD": "Sie verbringen Ihre Tage in der Villa und entscheiden selbst, was Sie tun — oder lassen. Ausflüge werden separat gebucht, je nach Interesse der Gruppe.",
     "pousadaInc": "Unterkunft im Bungalow · alle Mahlzeiten inklusive (Frühstück, Mittag- und Abendessen)",
-    "pousadaFora": "Bootstransfer, Ausflüge und alkoholische Getränke",
+    "pousadaFora": "Anreise zur Villa, Ausflüge und alkoholische Getränke",
     "pacoteT": "Komplettpaket",
     "pacoteD": "Startet in Alter do Chão, mit Programm und Aktivitäten bereits festgelegt. Eine Nacht mit sieben Erlebnissen oder zwei Nächte mit zehn.",
     "pacoteInc": "Unterkunft · Aktivitäten des Programms · Frühstück und Abendessen",
@@ -434,7 +434,7 @@
     "intro": "Fisch aus dem Fluss, Maniokmehl aus der Gemeinde, Obst aus dem Garten und frisch aufgebrühter Kaffee. Eigene Küche, serviert im offenen Pavillon.",
     "escopoT": "Was enthalten ist",
     "escopo1T": "Mahlzeiten: inklusive",
-    "escopo1D": "Lodge-Aufenthalt: alle Mahlzeiten inklusive (Frühstück, Mittag- und Abendessen). Pakete mit Boot ab Alter do Chão: Frühstück und Abendessen.",
+    "escopo1D": "Lodge-Aufenthalt: alle Mahlzeiten inklusive (Frühstück, Mittag- und Abendessen). Pakete ab Alter do Chão: Frühstück und Abendessen.",
     "escopo3T": "Alkoholische Getränke: separat",
     "escopo3D": "Bier, Wein und Spirituosen sind in keiner der Varianten enthalten und werden separat berechnet.",
     "piraT": "Die Piracaia",
@@ -492,7 +492,7 @@
       },
       {
         "titulo": "Ponta Grande",
-        "detalhe": "Sonnenuntergang am weißen Sandstrand, mit einem Bad im Fluss. Man kann mit dem Kajak hinfahren, auch mit dem Boot.",
+        "detalhe": "Sonnenuntergang am weißen Sandstrand, mit einem Bad im Fluss. Man kann mit dem Kajak hinfahren.",
         "medida": "Im Paket enthalten",
         "marcado": true
       },
@@ -631,8 +631,8 @@
     "opcionalLabel": "optional",
     "roteiroFotoT": "Der Reiseplan in Bildern",
     "roteiroFotoI": "Nicht jeder Programmpunkt hat ein Foto in unserem Archiv — die, die es haben, sind hier, unretuschiert und ohne Inszenierung.",
-    "lanchaT": "Das Boot stimmen wir mit Ihnen ab",
-    "lanchaD": "Von {place} zur Villa sind es {min} Minuten auf dem Fluss, die letzte Etappe der Reise. Wie das Boot in Ihrem Paket geregelt ist, erklären wir per WhatsApp.",
+    "lanchaT": "Die Anreise stimmen wir mit Ihnen ab",
+    "lanchaD": "Von {place} zur Villa sind es {min} Minuten, die letzte Etappe der Reise. Die Logistik Ihres Pakets wird vor der Reise per WhatsApp mit dem Gastgeber abgestimmt.",
     "itemLagoAzul": "Lago Azul",
     "itemMassagem": "Massage und Kräuterbad",
     "itemFarinhadaRedario": "Farinhada, Weben und Hängemattenbereich",
@@ -660,11 +660,11 @@
     "intro": "Drei Etappen, und die letzte ist unsere. Die Reise gehört dazu — und deshalb ist die Villa nie überfüllt.",
     "duvT": "Was meistens Sorgen macht",
     "q1": "Und wenn mein Flug Verspätung hat?",
-    "a1": "Sagen Sie uns über WhatsApp Bescheid, sobald Sie es wissen. Das Boot fährt, wenn die Gruppe da ist; wir stimmen die Zeit neu mit Ihnen ab.",
-    "q2": "Muss ich das Boot separat buchen?",
-    "a2": "Den Bootstransfer stimmen wir per WhatsApp mit Ihnen ab, zusammen mit der Buchung.",
+    "a1": "Sagen Sie uns über WhatsApp Bescheid, sobald Sie es wissen. Wir stimmen die Zeit neu mit Ihnen ab.",
+    "q2": "Muss ich die Anreise zur Villa separat buchen?",
+    "a2": "Die Logistik bis zur Villa stimmen wir per WhatsApp mit Ihnen ab, zusammen mit der Buchung und vor der Reise.",
     "q3": "Wie lange dauert es von Santarém zur Villa?",
-    "a3": "Die Strecke Alter do Chão–Villa dauert 1,5 Stunden mit dem Boot. Die Zeit von Santarém nach Alter do Chão hängt vom Transfer ab, den wir mit Ihnen abstimmen.",
+    "a3": "Die Strecke Alter do Chão–Villa dauert 1,5 Stunden. Die Zeit von Santarém nach Alter do Chão hängt vom Transfer ab, den wir mit Ihnen abstimmen.",
     "q4": "Gibt es Handyempfang?",
     "a4": "Das Mobilfunksignal ist unregelmäßig. Das Internet des Hauses ist Starlink, stabil, und trägt Online-Meetings und Remote-Arbeit. Klären Sie vorher, was zu klären ist, und sagen Sie Bescheid, wer auf Nachricht wartet.",
     "q5": "Kann ich Kinder mitbringen?",
@@ -680,13 +680,13 @@
       },
       {
         "id": "grupo",
-        "legenda": "Die Gruppe auf dem Weg zum Boot",
-        "alt": "Eine Gruppe von Gästen mit Rucksäcken geht über den Sand zu den vor Anker liegenden Booten"
+        "legenda": "Die Gruppe auf dem Weg zur Villa",
+        "alt": "Eine Gruppe von Gästen mit Rucksäcken geht über den Sand am Fluss"
       },
       {
         "id": "colete",
         "legenda": "Die Pérola do Tapajós, mit Schwimmwesten",
-        "alt": "Gäste mit Schwimmwesten beim Einstieg in das Boot Pérola do Tapajós, das am Sand vertäut ist"
+        "alt": "Gäste kommen am Sandufer des Flusses an"
       }
     ],
     "q6": "Gibt es Mücken?",
@@ -761,7 +761,7 @@
       },
       {
         "titulo": "Guide und Mannschaft sind von dort",
-        "detalhe": "Küche, Boot und Weg liegen in den Händen von Menschen, die am Fluss leben. Das ist lokale Arbeit, kein von außen mitgebrachtes Programm.",
+        "detalhe": "Küche, Logistik und Weg liegen in den Händen von Menschen, die am Fluss leben. Das ist lokale Arbeit, kein von außen mitgebrachtes Programm.",
         "medida": "lokale Mannschaft"
       },
       {
@@ -788,7 +788,7 @@
   },
   "reveillon": {
     "h1": "Silvester am Strand der Villa",
-    "intro": "Zwischen dem 28. Dezember und dem 2. Januar wechselt das Jahr hier: weißer Süßwasserstrand, die Piracaia am Flussufer, ein Kerzenkreis im Sand — und keine Menschenmassen. Alter do Chão ist an Silvester überfüllt; die Villa liegt 1,5 Bootsstunden flussaufwärts, zwischen zwei Schutzgebieten.",
+    "intro": "Zwischen dem 28. Dezember und dem 2. Januar wechselt das Jahr hier: weißer Süßwasserstrand, die Piracaia am Flussufer, ein Kerzenkreis im Sand — und keine Menschenmassen. Alter do Chão ist an Silvester überfüllt; die Villa liegt 1,5 Stunden flussaufwärts, zwischen zwei Schutzgebieten.",
     "campoJanela": "28. Dez – 02. Jan",
     "b1T": "Das Zeitfenster",
     "b1D": "Pakete mit 4–5 Nächten zwischen dem 28. Dezember und dem 2. Januar — die Reise braucht diesen Atem, und genau er lässt die Stadt aus dem Körper weichen.",
@@ -815,7 +815,7 @@
     "figSolAlt": "Sonne, die hinter tiefen Wolken über dem gekräuselten Wasser des Flusses untergeht, gerahmt von Zweigen in Silhouette",
     "comoT": "So funktioniert es",
     "c1T": "Anreise über Alter do Chão",
-    "c1D": "Flug nach Santarém (STM), Transfer nach Alter do Chão, dann 1,5 Stunden mit dem Schnellboot den Arapiuns hinauf. Das Boot der Gruppe stimmen wir per WhatsApp ab.",
+    "c1D": "Flug nach Santarém (STM), Transfer nach Alter do Chão, von dort 1,5 Stunden bis zur Villa. Die Logistik der Gruppe stimmen wir vor der Reise per WhatsApp ab.",
     "c2T": "Die Tage",
     "c2D": "Strand, Kanu im überfluteten Wald, der Samaúma-Pfad, Workshops mit den Flussgemeinden — das Programm entsteht mit Ihrer Gruppe, in ihrem Rhythmus.",
     "c3T": "Die Nacht des 31.",
@@ -832,7 +832,7 @@
     "q4": "Gibt es Mücken?",
     "a4": "Der Strand der Villa ist Süßwasser und weißer Sand, so gut wie ohne Mücken. An Silvester herrscht am Arapiuns Trockenzeit, mit niedrigem Fluss und den Stränden auf ihrem Höchststand.",
     "q5": "Wie reise ich aus dem Ausland an?",
-    "a5": "Flug nach Santarém (STM) — mit Umstieg ab São Paulo, oder direkt ab Brasília, Belém und Manaus —, Transfer nach Alter do Chão und 1,5 Bootsstunden bis zur Villa. Die Fahrt flussaufwärts ist bereits der Anfang der Reise.",
+    "a5": "Flug nach Santarém (STM) — mit Umstieg ab São Paulo, oder direkt ab Brasília, Belém und Manaus —, Transfer nach Alter do Chão, von dort 1,5 Stunden bis zur Villa. Die Logistik stimmen wir vor der Reise mit Ihnen ab.",
     "q6": "Können wir die ganze Villa buchen?",
     "a6": "Ja. Ab 15 Gästen hat Ihre Gruppe Exklusivrecht: dreizehn Bungalows für bis zu 26 Gäste, der Pavillon, der Hängemattenhain und der Strand, ohne Fremde am Termin.",
     "notaFinal": "Das Silvesterfenster hat nur einen Termin — und dreizehn Bungalows.",
@@ -842,7 +842,7 @@
   },
   "detox": {
     "h1": "Detox nach Neujahr am Rio Arapiuns",
-    "intro": "Die Party ist vorbei. Vom 1. bis 10. Januar 2027 empfängt die Villa alle, die das Jahr langsam beginnen wollen: Essen aus dem Wald, keine Cocktails und keine Lautsprecher, 1,5 Stunden per Boot von Alter do Chão.",
+    "intro": "Die Party ist vorbei. Vom 1. bis 10. Januar 2027 empfängt die Villa alle, die das Jahr langsam beginnen wollen: Essen aus dem Wald, keine Cocktails und keine Lautsprecher, 1,5 Stunden von Alter do Chão.",
     "campoJanela": "01. – 10. Jan",
     "janelaCurta": "1.–10. Jan",
     "campoMinimo": "mindestens 2 Nächte",
@@ -885,7 +885,7 @@
     "q5": "Können wir die ganze Villa für unsere Gruppe buchen?",
     "a5": "Ja. Ab 15 Personen hat die Gruppe die Villa exklusiv: die 13 Bungalows für bis zu 26 Gäste, den Pavillon, das Hängemattenhaus, die Shala und den Strand, ohne fremde Gäste an Ihren Tagen.",
     "q6": "Wie komme ich hin?",
-    "a6": "Flug nach Santarém (STM), Transfer über Land nach Alter do Chão und 1,5 Stunden per Boot den Arapiuns hinauf bis zur Villa. Für das letzte Stück gibt es keine Straße.",
+    "a6": "Flug nach Santarém (STM), Transfer über Land nach Alter do Chão, von dort 1,5 Stunden bis zur Villa. Die Logistik stimmen wir vor der Reise mit Ihnen ab.",
     "ctaFinalD": "Es gibt 13 Bungalows für die ersten Tage von 2027. Sagen Sie uns, wie viele Sie sind und wann Sie ankommen möchten.",
     "ctaPagina": "Zum Detox",
     "nome": "Detox nach Neujahr"
@@ -1280,6 +1280,7 @@
     "msg_reveillon": "Ich möchte Silvester buchen (28.12.2026 bis 02.01.2027).",
     "msg_detox": "Ich möchte das Detox nach Neujahr buchen (1. bis 10.01.2027). Anreise am __, Abreise am __.",
     "devolucao": "Keine Verfügbarkeit: volle Rückerstattung.",
+    "restam": "Nur noch {n} Unterkünfte für diese Termine frei.",
     "preReserva": "Vorreservierung erhalten. Wir melden uns, um die Verfügbarkeit zu bestätigen."
   }
 }

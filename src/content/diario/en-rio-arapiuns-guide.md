@@ -6,7 +6,7 @@ titulo: "Rio Arapiuns: the guide from someone who lives on it"
 tituloCurto: "Rio Arapiuns Guide"
 tituloSeo: "Arapiuns River Guide | White-Sand Beaches near Alter do Chão | Villa Arapiuns"
 descricao: "When to go, how to get there from Alter do Chão and where to stay on the Arapiuns River, the Amazon's clear-water river with white-sand beaches. A local guide from Villa Arapiuns."
-resposta: "The Rio Arapiuns is a clearwater tributary of the Tapajós, in western Pará, 1.5 hours by boat from Alter do Chão. It runs entirely inside the Tapajós-Arapiuns Extractive Reserve, and it's where you find the white-sand beaches and clear water the Amazon rarely shows. From August to January the river drops and the beaches emerge; from February to June it floods and the landscape becomes flooded forest."
+resposta: "The Rio Arapiuns is a clearwater tributary of the Tapajós, in western Pará, 1.5 hours from Alter do Chão. It runs entirely inside the Tapajós-Arapiuns Extractive Reserve, and it's where you find the white-sand beaches and clear water the Amazon rarely shows. From August to January the river drops and the beaches emerge; from February to June it floods and the landscape becomes flooded forest."
 data: 2026-08-26
 revisado: 2026-10-28
 imagem: banco-areia
@@ -15,11 +15,11 @@ legenda: "Sandbank on the Arapiuns · dry season"
 destino: lodge
 duvidas:
   - q: "Where is the Rio Arapiuns?"
-    a: "In western Pará, in the municipality of Santarém. It flows down from the north and meets the Tapajós near Alter do Chão, which is where visitors start from — 1.5 hours upriver by boat."
+    a: "In western Pará, in the municipality of Santarém. It flows down from the north and meets the Tapajós near Alter do Chão, which is where visitors start from — 1.5 hours."
   - q: "Is the Arapiuns a blackwater or clearwater river?"
     a: "Clearwater. That's why you can see the riverbed and the sand is white: the Arapiuns carries neither the sediment of the Amazon River nor the dark tannin of the Rio Negro."
   - q: "Can you visit the Arapiuns in a day trip from Alter do Chão?"
-    a: "You can, and a lot of people do — but that's 3 hours of boat travel just for the round trip. To see the beaches, the communities, and the igapó without rushing, one night is the honest minimum; three or four nights is when the trip starts to be worth the travel time."
+    a: "You can, and a lot of people do — but that's 3 hours of travel just for the round trip. To see the beaches, the communities, and the igapó without rushing, one night is the honest minimum; three or four nights is when the trip starts to be worth the travel time."
   - q: "Do you need authorization to enter the reserve?"
     a: "Visitors don't need to get authorization on their own. The RESEX is a sustainable-use reserve, home to riverside communities, and tourism happens with them — whoever organizes the visit handles the logistics."
 ---
@@ -74,13 +74,13 @@ The most common question deserves a direct answer: **the Arapiuns' white-sand be
 
 What really gets you is the **sun**. You're close to the equator, reflected off clear sand and water. A hat, a long-sleeve shirt, and sunscreen aren't overkill.
 
-Bring footwear that can get wet: at several points you step off the boat straight into the water.
+Bring footwear that can get wet: at several points you step straight into the water on arrival.
 
 ## How to get there
 
-Summarized here, because it has its own piece: fly into **Santarém (STM)** — direct from Manaus, Belém, and Brasília; with a connection from São Paulo — then a transfer of about 40 minutes to **Alter do Chão**, and from there **1.5 hours by boat** upriver.
+Summarized here, because it has its own piece: fly into **Santarém (STM)** — direct from Manaus, Belém, and Brasília; with a connection from São Paulo — then a transfer of about 40 minutes to **Alter do Chão**, and from there **1.5 hours** upriver.
 
-The trip is long, and it's long on purpose. The boat stretch is what separates the Arapiuns from the flow of Alter do Chão, and it's also the part where your head slows down. People who complain about the travel time on the way in usually complain less on the way back.
+The trip is long, and it's long on purpose. The river stretch is what separates the Arapiuns from the flow of Alter do Chão, and it's also the part where your head slows down. People who complain about the travel time on the way in usually complain less on the way back.
 
 ## Where to stay
 

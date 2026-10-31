@@ -5,8 +5,8 @@ slug: host-your-retreat-on-the-rio-arapiuns
 titulo: "Host your retreat on the Rio Arapiuns"
 tituloCurto: "Amazon retreat venue on the Arapiuns River"
 tituloSeo: "Amazon Retreat Venue | Arapiuns River, Alter do Chão | Villa Arapiuns"
-descricao: "Retreat venue in the Amazon, 1h30 by boat from Alter do Chão: 13 bungalows for 26 guests, a yoga shala, river beach and Starlink Wi-Fi."
-resposta: "Villa Arapiuns takes over as a single-group venue from fifteen guests: thirteen bungalows for up to twenty-six people, a covered palm pavilion, a yoga shala, a hammock grove and a private white-sand beach on the Rio Arapiuns, an hour and a half by boat from Alter do Chão. Solar power and a local team. Rates depend on group size and nights, and the flood months from February to June are the quietest and most available."
+descricao: "Retreat venue in the Amazon, 1h30 from Alter do Chão: 13 bungalows for 26 guests, a yoga shala, river beach and Starlink Wi-Fi."
+resposta: "Villa Arapiuns takes over as a single-group venue from fifteen guests: thirteen bungalows for up to twenty-six people, a covered palm pavilion, a yoga shala, a hammock grove and a private white-sand beach on the Rio Arapiuns, an hour and a half from Alter do Chão. Solar power and a local team. Rates depend on group size and nights, and the flood months from February to June are the quietest and most available."
 data: 2026-08-31
 revisado: 2026-10-19
 imagem: shala-cheia
@@ -36,7 +36,7 @@ This page is for you rather than for a holidaymaker, so it is written as plainly
 
 ## What the place is
 
-Thirteen bungalows on the bank of the Rio Arapiuns, in Pará, Brazil — an hour and a half by boat upriver from Alter do Chão, inside the Tapajós-Arapiuns Extractive Reserve. Up to twenty-six guests. Tapajônica architecture: raised timber, palm roofing, mahogany doors with radial marquetry, hand-woven textiles.
+Thirteen bungalows on the bank of the Rio Arapiuns, in Pará, Brazil — an hour and a half from Alter do Chão, inside the Tapajós-Arapiuns Extractive Reserve. Up to twenty-six guests. Tapajônica architecture: raised timber, palm roofing, mahogany doors with radial marquetry, hand-woven textiles.
 
 **From fifteen guests the property runs in exclusivity.** For those dates, nobody outside your group is on site.
 
@@ -62,13 +62,13 @@ Thirteen bungalows on the bank of the Rio Arapiuns, in Pará, Brazil — an hour
 
 **Activities with the communities**, arranged around your schedule rather than against it: canoeing in the flooded forest, the Samaúma trail from the community of Atodi, the farinhada cassava process, palm weaving, night spearfishing taught by local fishers. These are conducted and paid directly to the families who lead them — so your group should bring cash in reais.
 
-**On your side:** the flights. The boat from Alter do Chão and what the group's rate covers, we set out in the proposal, on WhatsApp.
+**On your side:** the flights. Logistics from Alter do Chão and what the group's rate covers, we set out in the proposal, on WhatsApp.
 
 ## The honest constraints
 
 We would rather lose a booking than have a facilitator discover these on arrival.
 
-**Getting here is a full day.** Fly to Santarém (STM) — direct from Manaus, Belém and Brasília, connecting from São Paulo — then a 40-minute road transfer, then 90 minutes by boat. From Europe or North America, count two days including an overnight in Brazil. For a five-night retreat this is fine. For a weekend it is absurd, and we will say so.
+**Getting here is a full day.** Fly to Santarém (STM) — direct from Manaus, Belém and Brasília, connecting from São Paulo — then a 40-minute road transfer, then 90 minutes to the Villa. From Europe or North America, count two days including an overnight in Brazil. For a five-night retreat this is fine. For a weekend it is absurd, and we will say so.
 
 **Connectivity works.** There is Starlink on stable solar power, and it supports a group working online. That changes how you design the retreat: disconnection here is a rule you set, not one the geography enforces. Decide it in advance and say so at sign-up — a group that arrives expecting to be off-grid and finds signal will unravel its own container.
 
