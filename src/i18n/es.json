@@ -838,7 +838,9 @@
     "notaFinal": "La ventana de Año Nuevo tiene una sola fecha — y trece bungalós.",
     "cta": "Consultar el Fin de Año por WhatsApp",
     "ctaPagina": "Ver el Fin de Año",
-    "verDetox": "Quédese para el Detox, del 1 al 10 de enero"
+    "verDetox": "Quédese para el Detox, del 1 al 10 de enero",
+    "campoBangalos": "13 bungalós",
+    "campoExclusividade": "exclusividad a partir de 15"
   },
   "detox": {
     "h1": "Detox de Año Nuevo en el Río Arapiuns",
@@ -888,7 +890,8 @@
     "a6": "Vuelo a Santarém (STM), traslado por tierra hasta Alter do Chão y, desde allí, 1h30 hasta la Villa. La logística la coordinamos contigo antes del viaje.",
     "ctaFinalD": "Son 13 bungalós para los primeros días de 2027. Díganos cuántas personas son y cuándo quieren llegar.",
     "ctaPagina": "Ver el Detox",
-    "nome": "Detox de Año Nuevo"
+    "nome": "Detox de Año Nuevo",
+    "campoBangalos": "13 bungalós"
   },
   "diario": {
     "titulo": "Diario",

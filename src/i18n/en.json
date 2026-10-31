@@ -838,7 +838,9 @@
     "notaFinal": "Limited places: 13 bungalows, for at most 26 people over the New Year week.",
     "cta": "Ask about New Year's Eve on WhatsApp",
     "ctaPagina": "See New Year's Eve",
-    "verDetox": "Stay on for the Detox, 1 to 10 January"
+    "verDetox": "Stay on for the Detox, 1 to 10 January",
+    "campoBangalos": "13 bungalows",
+    "campoExclusividade": "exclusive use from 15 guests"
   },
   "detox": {
     "h1": "Post-New Year Detox on the Arapiuns River",
@@ -888,7 +890,8 @@
     "a6": "Fly to Santarém (STM), transfer by road to Alter do Chão; the Villa is 90 minutes from there. We arrange the logistics with you before the trip.",
     "ctaFinalD": "There are 13 bungalows for the first days of 2027. Tell us how many of you there are and when you want to arrive.",
     "ctaPagina": "See the Detox",
-    "nome": "Post-New Year Detox"
+    "nome": "Post-New Year Detox",
+    "campoBangalos": "13 bungalows"
   },
   "diario": {
     "titulo": "Journal",
