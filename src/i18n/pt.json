@@ -90,8 +90,8 @@
     "detox": "Detox pós-Ano Novo na Villa Arapiuns, de 1 a 10 de janeiro de 2027: comida da floresta, açaí, nenhum álcool servido pela casa e 13 bangalôs no Rio Arapiuns, a 1h30 de lancha de Alter do Chão."
   },
   "home": {
-    "hookA": "Um Caribe de água doce,",
-    "hookB": "no meio da floresta amazônica.",
+    "hookA": "Imagina acordar no dia 1",
+    "hookB": "com o rio na porta do bangalô.",
     "intro": "Recebemos casais, famílias e grupos de até 26 pessoas, e a partir de 15 a Villa fecha só para o seu grupo. Os bangalôs são de madeira, em arquitetura tapajônica, com os pés na areia.",
     "travessiaT": "A travessia",
     "travessiaI": "Chegar faz parte. São três etapas, e a última é nossa.",
@@ -358,7 +358,7 @@
     ],
     "campoLancha": "1h30 de lancha de {place}",
     "heroMarca": "Villa Arapiuns | Pousada no Rio Arapiuns",
-    "heroSub": "Pousada no Rio Arapiuns, a 1h30 de lancha de Alter do Chão. 13 bangalôs na beira de uma praia de água doce."
+    "heroSub": "Pousada no Rio Arapiuns, 1h30 de lancha de Alter do Chão, bem em frente à Ponta Grande. Todas as refeições incluídas."
   },
   "modo": {
     "titulo": "Duas maneiras de ficar",
