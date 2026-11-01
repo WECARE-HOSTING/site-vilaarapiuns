@@ -1,0 +1,21 @@
+---
+/** Barra fina no topo de todas as páginas PT (01/11/2026). Some nas páginas de
+ * pagamento e depois da janela dos pacotes. Uma linha no celular. */
+const caminho = Astro.url.pathname;
+const agora = new Date();
+const rev = agora < new Date('2027-01-03T00:00:00-03:00');
+const det = agora < new Date('2027-01-11T00:00:00-03:00');
+const mostra = caminho.startsWith('/pt/') && !caminho.startsWith('/pt/lp/pagar-') && (rev || det);
+---
+{mostra && (
+  <div class="barra-promo" role="region" aria-label="Pacotes de virada">
+    <span class="hidden sm:inline">Réveillon e Ano Novo Detox no Rio Arapiuns, todas as refeições incluídas.</span>
+    <span class="sm:hidden">Réveillon e Detox no Arapiuns</span>
+    {rev && <a href="/pt/lp/pagar-reveillon/" data-promo="reveillon" data-promo-acao="pagar" data-promo-origem="barra">Garanta o Réveillon</a>}
+    {det && <a href="/pt/lp/pagar-detox/" data-promo="detox" data-promo-acao="pagar" data-promo-origem="barra">Garanta o Detox</a>}
+  </div>
+)}
+<style>
+  .barra-promo { background: var(--color-ceu); color: #fff; font-size: .875rem; line-height: 1.3; padding: .5rem 1rem; display: flex; gap: .4rem 1rem; justify-content: center; align-items: center; flex-wrap: wrap; text-align: center; position: relative; z-index: 60; }
+  .barra-promo a { color: #fff; font-weight: 600; text-decoration: underline; text-underline-offset: .2em; white-space: nowrap; }
+</style>

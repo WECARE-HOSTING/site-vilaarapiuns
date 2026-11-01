@@ -1,4 +1,5 @@
 ---
+import BarraPromo from '@/components/BarraPromo.astro';
 import '@/styles/global.css';
 import { HTML_LANG, LOCALES, ROOT_LOCALE, type Locale } from '@/i18n/config';
 import { href, type PageKey } from '@/i18n/routes';
@@ -304,6 +305,22 @@ const trilha =
             cta: a.getAttribute('data-cta') || 'whatsapp',
           });
         }, { capture: true });
+
+        /* PROMO DOS PACOTES (01/11/2026): data-promo nos CTAs de Réveillon/Detox.
+           "pagar" = begin_checkout, "ver" = select_promotion. Não interfere no
+           generate_lead acima (que só olha links wa.me). */
+        document.addEventListener('click', function (e) {
+          var a = e.target && e.target.closest ? e.target.closest('a[data-promo]') : null;
+          if (!a) return;
+          var pacote = a.getAttribute('data-promo');
+          var origem = a.getAttribute('data-promo-origem') || '';
+          var item = { item_id: pacote, item_name: pacote === 'detox' ? 'Ano Novo Detox' : 'Réveillon 2026/27', promotion_name: 'virada-2027', creative_slot: origem };
+          if (a.getAttribute('data-promo-acao') === 'pagar') {
+            gtag('event', 'begin_checkout', { items: [item], pacote: pacote, origem: origem, pagina: location.pathname });
+          } else {
+            gtag('event', 'select_promotion', { promotion_name: 'virada-2027', creative_slot: origem, items: [item], pagina: location.pathname });
+          }
+        }, { capture: true });
       </script>
     )}
   </head>
@@ -316,6 +333,7 @@ const trilha =
       {t('a11y.skipToContent')}
     </a>
 
+    <BarraPromo />
     <slot name="header" />
 
     <main id="conteudo">

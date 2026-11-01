@@ -29,6 +29,7 @@ import { join } from 'node:path';
 import { Image, getImage } from 'astro:assets';
 import { CarrosselAcomodacoes } from '@/components/CarrosselAcomodacoes';
 import Campo from '@/components/Campo.astro';
+import PromoPacotes from '@/components/PromoPacotes.astro';
 import FaixaGarantias from '@/components/FaixaGarantias.astro';
 import Voluta from '@/components/Voluta.astro';
 import LinhaDoDia from '@/components/LinhaDoDia.astro';
@@ -389,6 +390,8 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
     )}
   </div>
 </section>
+
+{locale === 'pt' && <PromoPacotes origem="home" />}
 
 <FaixaGarantias locale={locale} />
 
