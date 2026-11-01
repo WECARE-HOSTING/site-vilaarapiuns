@@ -19,7 +19,7 @@ const faq = [
   { t: 'Tem energia o dia todo?', d: 'Sim. Energia solar 24h.' },
   { t: 'Tem Wi-Fi?', d: 'Sim, internet Starlink. Dá para avisar a família, mas a ideia é desacelerar.' },
   { t: 'Tem mosquito?', d: 'Praticamente sem mosquito: o Rio Arapiuns tem água escura e ácida, que não favorece o mosquito.' },
-  { t: 'O que está incluído nas refeições?', d: 'Na pousada, todas as refeições estão incluídas. O pacote inclui café da manhã e jantar, com comida regional feita na casa; o almoço na comunidade é pago à parte.' },
+  { t: 'O que está incluído nas refeições?', d: 'Todas as refeições incluídas, com comida regional feita na casa.' },
   { t: 'Posso levar crianças?', d: 'São bem-vindas. Bebês até 3 anos não pagam. De 4 a 12 anos pagam 50%. A partir de 13 anos, valor de adulto. As crianças ficam no bangalô dos pais.' },
   { t: 'Quais as datas?', d: 'De 1 a 10/1/2027, com datas flexíveis dentro dessa janela e mínimo de 2 noites.' },
   { t: 'E se não tiver vaga depois que eu pagar o sinal?', d: 'O sinal de 30% registra a pré-reserva, e a gente confirma a disponibilidade com você. Se não houver disponibilidade, devolvemos o valor integral.' },
@@ -27,16 +27,16 @@ const faq = [
   { t: 'E se eu precisar cancelar?', d: 'Até 30 dias antes do check-in: reembolso de 100% do valor pago. De 29 a 15 dias: 50%. Com 14 dias ou menos, ou no-show: sem reembolso. A reserva pode ser transferida para outra pessoa sem custo. Mudança de data dentro de 1 a 10/1, sujeita a disponibilidade, até 15 dias antes do check-in.' },
 ];
 ---
-<BaseLayout locale="pt" pageKey="detox" title="Detox pós-Réveillon | Pousada no Rio Arapiuns | Alter do Chão" description="De 1 a 10/1/2027, mínimo de 2 noites. A 1h30 de Alter do Chão, café da manhã e jantar incluídos. Vagas limitadas." indexavel={false} caminho="/pt/lp/detox-pos-reveillon/" semSchemaNegocio>
+<BaseLayout locale="pt" pageKey="detox" title="Detox pós-Réveillon | Pousada no Rio Arapiuns | Alter do Chão" description="De 1 a 10/1/2027, mínimo de 2 noites. A 1h30 de Alter do Chão, todas as refeições incluídas. Vagas limitadas." indexavel={false} caminho="/pt/lp/detox-pos-reveillon/" semSchemaNegocio>
   <Header slot="header" locale="pt" pageKey="detox" sobreFoto />
   <LandingPacote
     slug="detox-pos-reveillon" selo="Detox pós-Réveillon · 1 a 10/1/2027"
     h1="Depois da virada, o rio."
-    promessa="Descanse do Réveillon na Villa Arapiuns, a 1h30 de Alter do Chão, água cristalina e areia branca, café da manhã e jantar incluídos."
+    promessa="Descanse do Réveillon na Villa Arapiuns, a 1h30 de Alter do Chão, água cristalina e areia branca, todas as refeições incluídas."
     campo={['1 a 10/1/2027', 'Datas flexíveis', 'Mínimo 2 noites', 'Vagas limitadas']}
     hero={hero} heroAlt="Água cristalina e areia branca do Rio Arapiuns em frente à Villa"
     inclui={[
-      { t: 'Café da manhã e jantar incluídos', d: 'Comida regional feita na casa, todos os dias. O almoço na comunidade é pago à parte.' },
+      { t: 'Todas as refeições incluídas', d: 'Comida regional feita na casa, todos os dias.' },
       { t: 'Bangalô na beira do rio', d: 'Um dos 13 bangalôs da Villa.' },
       { t: 'Energia solar 24h', d: 'Luz e tomada o dia todo, sem gerador barulhento.' },
       { t: 'Starlink', d: 'Internet para quando precisar.' },
