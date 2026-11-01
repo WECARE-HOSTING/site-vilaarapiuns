@@ -135,7 +135,7 @@
       },
       {
         "id": "agua",
-        "assunto": "A água transparente",
+        "assunto": "A água cristalina e a areia branca",
         "alt": "Banco de areia dentro do rio, com a água rasa tão clara que se vê o fundo ondulado pela luz"
       },
       {
@@ -290,7 +290,7 @@
     "heroReelItens": [
       {
         "id": "aguaTransparente",
-        "legenda": "A água transparente",
+        "legenda": "Água cristalina e areia branca",
         "alt": "Banco de areia dentro do rio, com a água rasa tão clara que se vê o fundo ondulado pela luz"
       },
       {
@@ -347,7 +347,7 @@
         "alt": "Floresta alagada na cheia, com troncos brancos secos saindo da água rasa e a praia ao fundo"
       },
       {
-        "alt": "Banco de areia baixo no meio do rio, com o sol alto no céu e a água rasa transparente mostrando o fundo"
+        "alt": "Banco de areia baixo no meio do rio, com o sol alto no céu e a água rasa e cristalina mostrando o fundo"
       },
       {
         "alt": "Remador de pé numa prancha de stand-up entrando num igarapé de água escura e parada, entre buritis altos, com o próprio reflexo na água"
@@ -402,7 +402,7 @@
     "c2T": "Pavilhão de refeições",
     "c2D": "Teto de palha, mesa comprida de madeira, aberto para a floresta.",
     "c3T": "Praia de água doce",
-    "c3D": "Pé na areia, água transparente. É a frente da pousada.",
+    "c3D": "Pé na areia, água cristalina e areia branca. É a frente da pousada.",
     "c4T": "Shala de Yoga",
     "c4D": "Espaço coberto para prática, ou para não fazer nada.",
     "viverT": "Como é viver aqui",
@@ -455,7 +455,7 @@
     "gente": "Com as comunidades",
     "nota": "Alguns passeios são pagos diretamente às famílias que recebem o grupo. Cada item diz onde entra.",
     "estacoesT": "O rio tem duas estações",
-    "estacoesI": "Não existe época ruim para vir — existem duas paisagens diferentes, e elas mudam o que se pode fazer. A água é quente e transparente nas duas.",
+    "estacoesI": "Não existe época ruim para vir — existem duas paisagens diferentes, e elas mudam o que se pode fazer. A água cristalina e a areia branca estão lá nas duas.",
     "cheiaT": "A cheia",
     "cheiaQuando": "janeiro a julho",
     "cheiaD": "O rio sobe e entra na floresta. Nascem os igapós, a mata alagada, e a canoa passa por dentro deles — navegando entre as copas das árvores, por onde no resto do ano se caminharia.",
@@ -464,7 +464,7 @@
     "secaD": "A água recua e as praias aparecem: bancos de areia branca que não existiam no semestre anterior, e que vão desaparecer outra vez quando o rio subir.",
     "estacoesNota": "A água do Arapiuns é quente o ano todo. A diferença entre as estações é a paisagem, não o clima.",
     "figIgapoAlt": "Canoa de madeira azul e branca encostada na areia clara, diante de arbustos e palmeiras com o tronco submerso na água do igapó",
-    "figAguaTransparente": "Água transparente · o fundo à vista",
+    "figAguaTransparente": "Água cristalina e areia branca · o fundo à vista",
     "figAguaTransparenteAlt": "Banco de areia dourada avançando para dentro do rio, com a água rasa tão clara que se vê o fundo ondulado pela luz",
     "figTucuxi": "Boto tucuxi",
     "figTucuxiAlt": "Dois botos tucuxi emergindo juntos na superfície de um rio, levantando respingo, a água refletindo o verde da mata",
@@ -997,7 +997,7 @@
           },
           {
             "id": "aguaTransparente",
-            "leg": "Água transparente",
+            "leg": "Água cristalina e areia branca",
             "alt": "Banco de areia dentro do rio, com a água rasa tão clara que o fundo aparece ondulado pela luz"
           },
           {
