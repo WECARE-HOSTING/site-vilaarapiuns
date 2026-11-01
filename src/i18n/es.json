@@ -135,7 +135,7 @@
       },
       {
         "id": "agua",
-        "assunto": "El agua transparente",
+        "assunto": "El agua cristalina y la arena blanca",
         "alt": "Banco de arena dentro del río, con el agua poco profunda tan clara que se ve el fondo ondulado por la luz"
       },
       {
@@ -290,7 +290,7 @@
     "heroReelItens": [
       {
         "id": "aguaTransparente",
-        "legenda": "El agua transparente",
+        "legenda": "Agua cristalina y arena blanca",
         "alt": "Banco de arena dentro del río, con el agua poco profunda tan clara que se ve el fondo ondulado por la luz"
       },
       {
@@ -402,7 +402,7 @@
     "c2T": "Pabellón de comidas",
     "c2D": "Techo de paja, mesa larga de madera, abierto a la selva.",
     "c3T": "Playa de agua dulce",
-    "c3D": "Pies en la arena, agua transparente. Es el frente de la posada.",
+    "c3D": "Pies en la arena, agua cristalina y arena blanca. Es el frente de la posada.",
     "c4T": "Shala de Yoga",
     "c4D": "Espacio cubierto para la práctica, o para no hacer nada.",
     "viverT": "Cómo es una estadía aquí",
@@ -455,7 +455,7 @@
     "gente": "Con las comunidades",
     "nota": "Algunos paseos se pagan directamente a las familias que reciben al grupo. Cada ítem dice dónde entra.",
     "estacoesT": "El río tiene dos estaciones",
-    "estacoesI": "No existe mala época para venir — existen dos paisajes distintos, y cambian lo que se puede hacer. El agua es cálida y transparente en las dos.",
+    "estacoesI": "No existe mala época para venir — existen dos paisajes distintos, y cambian lo que se puede hacer. El agua cristalina y la arena blanca están en las dos.",
     "cheiaT": "La creciente",
     "cheiaQuando": "de enero a julio",
     "cheiaD": "El río sube y entra en la selva. Nacen los igapós, el bosque inundado, y la canoa pasa por dentro de ellos — navegando entre las copas de los árboles, por donde el resto del año se caminaría.",
@@ -464,7 +464,7 @@
     "secaD": "El agua se retira y aparecen las playas: bancos de arena blanca que no existían el semestre anterior, y que van a desaparecer otra vez cuando el río suba.",
     "estacoesNota": "El agua del Arapiuns es cálida todo el año. La diferencia entre las estaciones es el paisaje, no el clima.",
     "figIgapoAlt": "Canoa de madera azul y blanca apoyada en arena clara, frente a arbustos y palmeras con el tronco sumergido en el agua del igapó",
-    "figAguaTransparente": "Agua transparente · el fondo a la vista",
+    "figAguaTransparente": "Agua cristalina y arena blanca · el fondo a la vista",
     "figAguaTransparenteAlt": "Banco de arena dorada avanzando hacia dentro del río, con el agua poco profunda tan clara que se ve el fondo ondulado por la luz",
     "figTucuxi": "Delfín tucuxi",
     "figTucuxiAlt": "Dos delfines tucuxi emergiendo juntos en la superficie de un río, levantando salpicaduras, el agua reflejando el verde del bosque",
@@ -997,7 +997,7 @@
           },
           {
             "id": "aguaTransparente",
-            "leg": "Agua transparente",
+            "leg": "Agua cristalina y arena blanca",
             "alt": "Banco de arena dentro del río, con el agua poco profunda tan clara que el fondo aparece ondulado por la luz"
           },
           {
