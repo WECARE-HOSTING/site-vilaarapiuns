@@ -3,7 +3,7 @@ import Logo from '@/components/Logo.astro';
 import { LOCALES, LOCALE_NAMES, HTML_LANG, type Locale } from '@/i18n/config';
 import { href } from '@/i18n/routes';
 import { useTranslations } from '@/i18n/utils';
-import { SITE, whatsappUrl, telefoneLegivel } from '@/data/site';
+import { SITE, whatsappUrl, telefoneLegivel, checkoutReservar } from '@/data/site';
 import { idiomasComDiario, caminhoDoIndice } from '@/lib/diario';
 
 interface Props { locale: Locale }
@@ -51,7 +51,7 @@ const colunaReserva = ['packages', 'privateVilla', 'reveillon', 'detox', 'gettin
         <p id="rodape-visita" class="etiqueta mb-5">{t('footer.visita')}</p>
         <ul class="space-y-2.5 text-sm">
           {colunaVisita.map((k) => (
-            <li><a href={href(locale, k)} class="inline-block py-1 hover:text-areia">{t(`nav.${k}`)}</a></li>
+            <li><a href={k === 'book' ? checkoutReservar(Astro.url.pathname) : href(locale, k)} data-cta={k === 'book' ? 'reservar_rodape' : undefined} class="inline-block py-1 hover:text-areia">{t(`nav.${k}`)}</a></li>
           ))}
           {temDiario && (
             <li><a href={caminhoDoIndice(locale)} class="inline-block py-1 hover:text-areia">{t('diario.titulo')}</a></li>
@@ -63,7 +63,7 @@ const colunaReserva = ['packages', 'privateVilla', 'reveillon', 'detox', 'gettin
         <p id="rodape-reserva" class="etiqueta mb-5">{t('footer.reserva')}</p>
         <ul class="space-y-2.5 text-sm">
           {colunaReserva.map((k) => (
-            <li><a href={href(locale, k)} class="inline-block py-1 hover:text-areia">{t(`nav.${k}`)}</a></li>
+            <li><a href={k === 'book' ? checkoutReservar(Astro.url.pathname) : href(locale, k)} data-cta={k === 'book' ? 'reservar_rodape' : undefined} class="inline-block py-1 hover:text-areia">{t(`nav.${k}`)}</a></li>
           ))}
         </ul>
       </nav>

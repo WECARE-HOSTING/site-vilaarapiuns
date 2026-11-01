@@ -69,6 +69,6 @@ Outubro e novembro são o pico da seca, com os bancos de areia na largura máxim
 
 ## Por que escrevemos isso
 
-Porque a dúvida do mosquito é o principal motivo pelo qual as pessoas se convencem a não ir para a Amazônia, e neste rio específico o medo está apontado para o lugar errado. Existe um custo real aqui, mas não é o que você esperava: não é inseto, é distância. O Arapiuns fica a 1h30 de lancha depois de Alter do Chão, e esse é o preço de entrada de verdade.
+Porque a dúvida do mosquito é o principal motivo pelo qual as pessoas se convencem a não ir para a Amazônia, e neste rio específico o medo está apontado para o lugar errado. Existe um custo real aqui, mas não é o que você esperava: não é inseto, é distância. O Arapiuns fica a 1h30 depois de Alter do Chão, e esse é o preço de entrada de verdade.
 
 A praia está tranquila. Leve protetor solar.

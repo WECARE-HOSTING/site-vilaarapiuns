@@ -7,6 +7,9 @@
 
 import { HTML_LANG, type Locale } from '@/i18n/config';
 
+/** Bangalôs ainda livres nas datas de Réveillon/Detox (contagem por bangalô; datas já bloqueadas no Hostaway). Atualize só aqui. */
+export const BANGALOS_RESTANTES = 8;
+
 export const SITE = {
   name: 'Villa Arapiuns',
   domain: 'https://villaarapiuns.com.br',
@@ -283,3 +286,8 @@ export const PACOTES = [
   { key: 'imersao',  noites: 2, dias: 3, experiencias: 10 },
 ] as const;
 
+
+/** "Reservar" do header/menu/rodapé abre o checkout PT (decisão do Leonardo, 31/10).
+ *  Páginas Detox → pagar-detox; todas as outras → pagar-reveillon. /reservar/ continua no ar. */
+export const checkoutReservar = (pathname: string) =>
+  `/pt/lp/pagar-${pathname.includes('detox') ? 'detox' : 'reveillon'}/#reservar`;

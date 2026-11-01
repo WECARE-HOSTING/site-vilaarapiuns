@@ -66,7 +66,7 @@ Fast alles andere, was diese beiden Reisen unterscheidet, ergibt sich aus dieser
 
 **Niedrigere Preise bei vergleichbarer Qualität**, vor allem weil die Region weniger bekannt ist, nicht weil sie weniger zu bieten hat.
 
-**Die ehrlichen Nachteile.** Die Anreise ist schwieriger: kein Direktflug von São Paulo nach Santarém, dann ein Landtransfer, dann ein Boot. Die Auswahl ist gering — Sie wählen aus einer Handvoll Orte, nicht aus einem Markt. Es gibt wenige Bewertungen, sodass Sie sich Ihre Sicherheit nicht wie am Rio Negro über die Masse anderer Meinungen holen können. Und in den Flutmonaten, Februar bis Juni, stehen die Strände — das Hauptargument für den Besuch — unter Wasser.
+**Die ehrlichen Nachteile.** Die Anreise ist schwieriger: kein Direktflug von São Paulo nach Santarém, dann ein Landtransfer, dann weitere 1,5 Stunden bis zur Villa. Die Auswahl ist gering — Sie wählen aus einer Handvoll Orte, nicht aus einem Markt. Es gibt wenige Bewertungen, sodass Sie sich Ihre Sicherheit nicht wie am Rio Negro über die Masse anderer Meinungen holen können. Und in den Flutmonaten, Februar bis Juni, stehen die Strände — das Hauptargument für den Besuch — unter Wasser.
 
 ## Die Wahl
 
@@ -78,6 +78,6 @@ Und eine dritte Antwort, die niemand anbietet: **beides**. Es gibt Direktflüge 
 
 ## Wo wir ins Spiel kommen
 
-Villa Arapiuns besteht aus dreizehn Bangalôs am Arapiuns, anderthalb Bootsstunden von Alter do Chão entfernt, innerhalb des Reservats. Solarenergie, gemeindegeführter Betrieb und der Strand direkt vor der Tür. Exklusive Nutzung der gesamten Anlage ab fünfzehn Gästen.
+Villa Arapiuns besteht aus dreizehn Bangalôs am Arapiuns, anderthalb Stunden von Alter do Chão entfernt, innerhalb des Reservats. Solarenergie, gemeindegeführter Betrieb und der Strand direkt vor der Tür. Exklusive Nutzung der gesamten Anlage ab fünfzehn Gästen.
 
 Wenn nach der Lektüre der Rio Negro besser zu Ihrer Reise passt, dann fahren Sie dorthin — er ist ein bemerkenswerter Fluss, und uns ist wichtiger, dass Sie den Urlaub bekommen, den Sie wollten.

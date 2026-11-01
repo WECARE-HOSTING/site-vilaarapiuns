@@ -5,7 +5,7 @@ slug: guia-del-rio-arapiuns
 titulo: "Río Arapiuns: la guía de quien vive en él"
 tituloCurto: "Guía del Río Arapiuns"
 descricao: "Qué es el Río Arapiuns, dónde quedan las playas de arena blanca, cuándo baja el río, cómo se llega desde Alter do Chão y dónde hospedarse. Guía escrita desde dentro de la RESEX Tapajós-Arapiuns."
-resposta: "El Río Arapiuns es un afluente de agua clara del Tapajós, en el oeste de Pará, a 1h30 en lancha desde Alter do Chão. Corre enteramente dentro de la Reserva Extractivista Tapajós-Arapiuns, y es donde están las playas de arena blanca y agua transparente que la Amazonía rara vez muestra. De agosto a enero el río baja y las playas emergen; de febrero a junio se llena y el paisaje se convierte en bosque inundado."
+resposta: "El Río Arapiuns es un afluente de agua clara del Tapajós, en el oeste de Pará, a 1h30 desde Alter do Chão. Corre enteramente dentro de la Reserva Extractivista Tapajós-Arapiuns, y es donde están las playas de arena blanca y agua transparente que la Amazonía rara vez muestra. De agosto a enero el río baja y las playas emergen; de febrero a junio se llena y el paisaje se convierte en bosque inundado."
 data: 2026-08-26
 revisado: 2026-10-28
 imagem: banco-areia
@@ -14,11 +14,11 @@ legenda: "Banco de arena en el Arapiuns · temporada seca"
 destino: lodge
 duvidas:
   - q: "¿Dónde queda el Río Arapiuns?"
-    a: "En el oeste de Pará, municipio de Santarém. Baja desde el norte y se encuentra con el Tapajós cerca de Alter do Chão, que es el punto de partida de quien visita — 1h30 en lancha río arriba."
+    a: "En el oeste de Pará, municipio de Santarém. Baja desde el norte y se encuentra con el Tapajós cerca de Alter do Chão, que es el punto de partida de quien visita — 1h30."
   - q: "¿El Arapiuns es un río de agua negra o de agua clara?"
     a: "Agua clara. Por eso el fondo se ve y la arena es blanca: el Arapiuns no carga el sedimento del Amazonas ni el tanino oscuro del Río Negro."
   - q: "¿Se puede visitar el Arapiuns en un día saliendo de Alter do Chão?"
-    a: "Se puede, y mucha gente lo hace — pero son 3 horas de barco solo de ida y vuelta. Para conocer las playas, las comunidades y el igapó sin correr, lo mínimo honesto es una noche; tres o cuatro es cuando el viaje empieza a justificar el desplazamiento."
+    a: "Se puede, y mucha gente lo hace — pero son 3 horas solo de ida y vuelta. Para conocer las playas, las comunidades y el igapó sin correr, lo mínimo honesto es una noche; tres o cuatro es cuando el viaje empieza a justificar el desplazamiento."
   - q: "¿Se necesita autorización para entrar en la reserva?"
     a: "El visitante no necesita tramitar autorización por su cuenta. La RESEX es una reserva de uso sostenible, habitada por las comunidades ribereñas, y el turismo ocurre con ellas — quien organiza la visita responde por la logística."
 ---
@@ -77,9 +77,9 @@ Lleve calzado que pueda mojarse: en varios puntos se desembarca con el pie en el
 
 ## Cómo llegar
 
-Resumido, porque tiene texto propio: vuelo hasta **Santarém (STM)** — directo desde Manaos, Belém y Brasilia; con conexión desde São Paulo —, traslado de unos 40 minutos hasta **Alter do Chão**, y de allí **1h30 en lancha** río arriba.
+Resumido, porque tiene texto propio: vuelo hasta **Santarém (STM)** — directo desde Manaos, Belém y Brasilia; con conexión desde São Paulo —, traslado de unos 40 minutos hasta **Alter do Chão**, y de allí **1h30** río arriba.
 
-El viaje es largo y es así a propósito. El tramo de barco es lo que separa al Arapiuns del flujo de Alter do Chão, y es también la parte en que la cabeza desacelera. Quien llega quejándose del desplazamiento normalmente se queja menos a la vuelta.
+El viaje es largo y es así a propósito. El tramo por el río es lo que separa al Arapiuns del flujo de Alter do Chão, y es también la parte en que la cabeza desacelera. Quien llega quejándose del desplazamiento normalmente se queja menos a la vuelta.
 
 ## Dónde hospedarse
 
@@ -91,4 +91,4 @@ A partir de 15 personas la Villa opera en exclusividad — lo que sirve a retiro
 
 Hoy la Villa ofrece en los bungalós **energía solar las 24 horas** y **wifi Starlink**; en la posada, **todas las comidas incluidas** (en los paquetes, desayuno y cena). El almuerzo en la comunidad se paga aparte. Casi no hay mosquitos — lo explicamos en [¿Hay mosquitos en Alter do Chão?](/es/diario/hay-mosquitos-en-alter-do-chao/). Hay primeros auxilios en el lugar e hidroavión bajo demanda; no hay atención médica.
 
-El acceso es de 1h30 en lancha desde Alter do Chão, y el aeropuerto es Santarém (STM). La llegada y las comidas se coordinan con el anfitrión antes del viaje. Octubre y noviembre son el pico de las playas, y la temporada sigue hasta enero, pasando por [Año Nuevo en el Arapiuns](/es/ano-nuevo/). Disponibilidad y condiciones: [consulte por WhatsApp](https://wa.me/5547992067078).
+El acceso es de 1h30 desde Alter do Chão, y el aeropuerto es Santarém (STM). La llegada y las comidas se coordinan con el anfitrión antes del viaje. Octubre y noviembre son el pico de las playas, y la temporada sigue hasta enero, pasando por [Año Nuevo en el Arapiuns](/es/ano-nuevo/). Disponibilidad y condiciones: [consulte por WhatsApp](https://wa.me/5547992067078).

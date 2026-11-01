@@ -5,7 +5,7 @@ slug: offsite-corporativo-en-el-rio-arapiuns
 titulo: "Un offsite corporativo en el Río Arapiuns"
 tituloCurto: "Offsite corporativo"
 descricao: "Uso exclusivo de toda la propiedad en la Amazonía para equipos de empresa: trece bangalôs, pabellón cubierto para la plenaria, comedor y playa privada. Cotización por grupo."
-resposta: "Villa Arapiuns recibe equipos de empresa en uso exclusivo de toda la propiedad: trece bangalôs para hasta veintiséis personas, un pabellón cubierto de palma para la plenaria, un comedor donde el equipo entero come junto y una playa privada en el Río Arapiuns, a una hora y media en barco de Alter do Chão. Energía solar y equipo local. La cotización es por grupo, según el número de personas y de noches."
+resposta: "Villa Arapiuns recibe equipos de empresa en uso exclusivo de toda la propiedad: trece bangalôs para hasta veintiséis personas, un pabellón cubierto de palma para la plenaria, un comedor donde el equipo entero come junto y una playa privada en el Río Arapiuns, a una hora y media de Alter do Chão. Energía solar y equipo local. La cotización es por grupo, según el número de personas y de noches."
 data: 2026-08-29
 imagem: pavilhao-palha
 imagemAlt: "Un pabellón abierto de estructura de madera con techo de paja de palma y plataforma de madera, rodeado de bosque, con paneles solares instalados en la cumbrera"
@@ -32,7 +32,7 @@ Esta página responde las tres, incluso en las partes que pueden sacarnos de su 
 
 ## Qué es el lugar
 
-Trece bangalôs a orillas del Río Arapiuns, en Pará, dentro de la Reserva Extractivista Tapajós-Arapiuns, a una hora y media en barco río arriba desde Alter do Chão. Hasta veintiséis personas. Madera elevada, techo de palma, energía solar y un equipo que vive aquí.
+Trece bangalôs a orillas del Río Arapiuns, en Pará, dentro de la Reserva Extractivista Tapajós-Arapiuns, a una hora y media desde Alter do Chão. Hasta veintiséis personas. Madera elevada, techo de palma, energía solar y un equipo que vive aquí.
 
 En uso exclusivo, nadie fuera de su equipo está en el lugar en esas fechas. Esa es la diferencia entre un offsite y un viaje de incentivo compartiendo el desayuno con desconocidos.
 
@@ -64,9 +64,9 @@ La **piracaia** — pescado asado en la arena, en hoja de plátano, a la luz de 
 
 ## Cómo llegar
 
-Vuelo a Santarém (STM), directo desde Manaus, Belém y Brasilia, con conexión desde São Paulo. Después 40 minutos en coche y 90 minutos en barco.
+Vuelo a Santarém (STM), directo desde Manaus, Belém y Brasilia, con conexión desde São Paulo. Después 40 minutos en coche y 90 minutos hasta la Villa.
 
-Cuente un día entero de viaje en cada punta. Organizamos el barco como parte del paquete de grupo; los vuelos corren por su cuenta.
+Cuente un día entero de viaje en cada punta. La logística se coordina con el anfitrión antes del viaje; los vuelos corren por su cuenta.
 
 ## Lo que no hay
 

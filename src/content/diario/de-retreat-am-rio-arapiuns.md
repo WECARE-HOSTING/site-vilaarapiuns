@@ -5,7 +5,7 @@ slug: retreat-am-rio-arapiuns
 titulo: "Ihr Retreat am Rio Arapiuns"
 tituloCurto: "Ihr Retreat"
 descricao: "Ein Retreat-Ort für die gesamte Anlage im brasilianischen Amazonasgebiet: dreizehn Bangalôs, ein überdachter Pavillon, eine Shala de Yoga und ein privater Süßwasserstrand, für Gruppen ab fünfzehn Gästen."
-resposta: "Ab fünfzehn Gästen übernimmt Villa Arapiuns als Ort für eine einzige Gruppe: dreizehn Bangalôs für bis zu sechsundzwanzig Personen, ein überdachter Palmpavillon, eine Shala de Yoga, ein Hängemattenhain und ein privater weißer Sandstrand am Rio Arapiuns, anderthalb Bootsstunden von Alter do Chão entfernt. Solarenergie und ein lokales Team. Die Preise richten sich nach Gruppengröße und Nächten, und die Hochwassermonate von Februar bis Juni sind am ruhigsten und am besten verfügbar."
+resposta: "Ab fünfzehn Gästen übernimmt Villa Arapiuns als Ort für eine einzige Gruppe: dreizehn Bangalôs für bis zu sechsundzwanzig Personen, ein überdachter Palmpavillon, eine Shala de Yoga, ein Hängemattenhain und ein privater weißer Sandstrand am Rio Arapiuns, anderthalb Stunden von Alter do Chão entfernt. Solarenergie und ein lokales Team. Die Preise richten sich nach Gruppengröße und Nächten, und die Hochwassermonate von Februar bis Juni sind am ruhigsten und am besten verfügbar."
 data: 2026-08-31
 imagem: shala-cheia
 imagemAlt: "Etwa ein Dutzend Menschen stehen auf Matten entlang einer Holzterrasse unter einem langen, mit Palmblättern gedeckten Dach, die Hände vor der Brust zusammengelegt, darüber Solarpaneele auf dem Dachfirst"
@@ -34,7 +34,7 @@ Diese Seite richtet sich an Sie und nicht an Urlauber, deshalb ist sie so schlic
 
 ## Was dieser Ort ist
 
-Dreizehn Bangalôs am Ufer des Rio Arapiuns, in Pará, Brasilien — anderthalb Bootsstunden flussaufwärts von Alter do Chão, innerhalb des Tapajós-Arapiuns-Extraktivreservats. Bis zu sechsundzwanzig Gäste. Tapajônische Architektur: erhöhte Holzkonstruktion, Palmdächer, Mahagonitüren mit radialer Intarsienarbeit, handgewebte Textilien.
+Dreizehn Bangalôs am Ufer des Rio Arapiuns, in Pará, Brasilien — anderthalb Stunden von Alter do Chão, innerhalb des Tapajós-Arapiuns-Extraktivreservats. Bis zu sechsundzwanzig Gäste. Tapajônische Architektur: erhöhte Holzkonstruktion, Palmdächer, Mahagonitüren mit radialer Intarsienarbeit, handgewebte Textilien.
 
 **Ab fünfzehn Gästen läuft die Anlage exklusiv.** Für diese Termine ist niemand außerhalb Ihrer Gruppe vor Ort.
 
@@ -60,13 +60,13 @@ Dreizehn Bangalôs am Ufer des Rio Arapiuns, in Pará, Brasilien — anderthalb 
 
 **Aktivitäten mit den Gemeinden**, die sich nach Ihrem Zeitplan richten und nicht dagegen: Kanufahren im überfluteten Wald, der Samaúma-Pfad ab der Gemeinde Atodi, die farinhada — der Maniokmehl-Herstellungsprozess —, Palmblattflechten, nächtliches Speerfischen, gelehrt von lokalen Fischern. Diese werden direkt mit den Familien durchgeführt und bezahlt, die sie anleiten — Ihre Gruppe sollte also Bargeld in Real mitbringen.
 
-**Ihre Sache:** die Flüge. Das Boot ab Alter do Chão und was der Gruppenpreis umfasst, legen wir im Angebot dar, per WhatsApp.
+**Ihre Sache:** die Flüge. Die Logistik ab Alter do Chão und was der Gruppenpreis umfasst, legen wir im Angebot dar, per WhatsApp.
 
 ## Die ehrlichen Einschränkungen
 
 Wir verlieren lieber eine Buchung, als dass ein Facilitator dies erst bei der Ankunft entdeckt.
 
-**Die Anreise dauert einen vollen Tag.** Flug nach Santarém (STM) — Direktflüge ab Manaus, Belém und Brasília, mit Umsteigeverbindung ab São Paulo —, dann ein 40-minütiger Landtransfer, dann 90 Minuten mit dem Boot. Von Europa oder Nordamerika aus rechnen Sie mit zwei Tagen, einschließlich einer Übernachtung in Brasilien. Für ein fünfnächtiges Retreat ist das kein Problem. Für ein Wochenende ist es absurd, und das sagen wir Ihnen auch.
+**Die Anreise dauert einen vollen Tag.** Flug nach Santarém (STM) — Direktflüge ab Manaus, Belém und Brasília, mit Umsteigeverbindung ab São Paulo —, dann ein 40-minütiger Landtransfer, dann 90 Minuten bis zur Villa. Von Europa oder Nordamerika aus rechnen Sie mit zwei Tagen, einschließlich einer Übernachtung in Brasilien. Für ein fünfnächtiges Retreat ist das kein Problem. Für ein Wochenende ist es absurd, und das sagen wir Ihnen auch.
 
 **Die Konnektivität funktioniert.** Es gibt Starlink mit stabiler Solarversorgung, und es trägt eine Gruppe, die online arbeitet. Das ändert die Gestaltung Ihres Retreats: Abgeschiedenheit ist hier eine Regel, die Sie setzen, nicht eine, die die Geografie erzwingt. Entscheiden Sie das vorab und sagen Sie es bei der Anmeldung — eine Gruppe, die ohne Empfang rechnet und dann doch welchen vorfindet, löst ihren eigenen Rahmen auf.
 

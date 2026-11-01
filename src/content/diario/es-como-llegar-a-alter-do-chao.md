@@ -4,11 +4,11 @@ grupo: chegar-alter
 slug: como-llegar-a-alter-do-chao
 titulo: "Cómo llegar a Alter do Chão — y al Arapiuns, más allá"
 tituloCurto: "Llegar a Alter do Chão"
-descricao: "Vuelos a Santarém, el traslado a Alter do Chão y el barco río arriba por el Rio Arapiuns. Horarios, costos, conexiones y lo que realmente puede salir mal, escrito desde el otro extremo del viaje."
-resposta: "Se llega a Alter do Chão volando hasta Santarém (STM), en Pará, Brasil, y luego conduciendo unos 40 minutos. Hay vuelos directos a Santarém desde Manaus, Belém y Brasília; desde São Paulo hay que hacer conexión, generalmente por Brasília, y las rutas más rápidas toman alrededor de cuatro horas y cuarto. Villa Arapiuns queda 1h30 más en barco, río arriba por el Rio Arapiuns, desde Alter do Chão."
+descricao: "Vuelos a Santarém, el traslado a Alter do Chão y el último tramo río arriba por el Rio Arapiuns. Horarios, costos, conexiones y lo que realmente puede salir mal, escrito desde el otro extremo del viaje."
+resposta: "Se llega a Alter do Chão volando hasta Santarém (STM), en Pará, Brasil, y luego conduciendo unos 40 minutos. Hay vuelos directos a Santarém desde Manaus, Belém y Brasília; desde São Paulo hay que hacer conexión, generalmente por Brasília, y las rutas más rápidas toman alrededor de cuatro horas y cuarto. Villa Arapiuns queda 1h30 más, río arriba por el Rio Arapiuns, desde Alter do Chão."
 data: 2026-08-26
 imagem: chegada-barco
-imagemAlt: "Cuatro personas caminando por agua poco profunda del río, cargando bolsos, con un barco blanco anclado detrás y agua abierta hasta el horizonte"
+imagemAlt: "Cuatro personas caminando por agua poco profunda del río, cargando bolsos, con agua abierta hasta el horizonte"
 legenda: "Llegada al Arapiuns · los últimos cien metros son a pie"
 destino: gettingHere
 duvidas:
@@ -16,8 +16,8 @@ duvidas:
     a: "No. Desde São Paulo hay que hacer conexión — casi siempre por Brasília, a veces por Manaus o Belém. Las mejores rutas duran en total unas 4h15; las más comunes tardan bastante más."
   - q: "¿A qué aeropuerto se vuela para llegar a Alter do Chão?"
     a: "A Santarém — Aeropuerto Maestro Wilson Fonseca, código STM. Está a unos 33 km de Alter do Chão, aproximadamente 40 minutos en auto."
-  - q: "¿Cuánto dura el trayecto en barco hasta el Arapiuns?"
-    a: "Cerca de una hora y media en lancha rápida desde Alter do Chão hasta Villa Arapiuns, río arriba. Los barcos comunitarios, más lentos, tardan bastante más y siguen su propio horario."
+  - q: "¿Cuánto se tarda de Alter do Chão al Arapiuns?"
+    a: "Cerca de una hora y media desde Alter do Chão hasta Villa Arapiuns, río arriba."
   - q: "¿Puedo hacer Alter do Chão en un viaje de dos noches?"
     a: "Se puede, pero pasará la mayor parte del tiempo viajando. Llegar de São Paulo al Arapiuns toma un día completo en cada dirección. Por eso pedimos un mínimo de tres a cuatro noches — con menos, el viaje se come la estadía."
   - q: "¿Necesito la vacuna contra la fiebre amarilla?"
@@ -46,17 +46,15 @@ Alter do Chão es un pueblo a orillas de una laguna de agua dulce, con el banco 
 
 Si su destino es el propio Alter do Chão, ya llegó. Si es el Arapiuns, está en el puerto.
 
-## Etapa 3 — El barco río arriba por el Arapiuns
+## Etapa 3 — De Alter do Chão al Arapiuns
 
-Desde Alter do Chão son **cerca de 1h30 en lancha rápida**, río arriba, hasta Villa Arapiuns. Se deja el Tapajós, se entra en el Arapiuns, y el agua va cambiando de carácter en el camino: más clara, más tranquila, con bancos de arena blanca apareciendo a ambos lados.
+Desde Alter do Chão son **cerca de 1h30**, río arriba, hasta Villa Arapiuns. Se deja el Tapajós, se entra en el Arapiuns, y el agua va cambiando de carácter en el camino: más clara, más tranquila, con bancos de arena blanca apareciendo a ambos lados.
 
 Hay dos cosas que la gente suele calcular mal aquí.
 
 La primera es que **este tramo no es un traslado, es el viaje**. Son los noventa minutos en los que el teléfono deja de importar, y la mayoría de los huéspedes lo describe después como el momento en que las vacaciones realmente empezaron.
 
 La segunda es **el desembarco**. No hay muelle de aguas profundas. Según el nivel del río, puede que baje a un agua que le llegue hasta la espinilla y camine el último tramo hasta la arena. Lleve calzado que pueda mojarse y guarde lo valioso en algún lugar seco. Esto es normal, no es señal de que algo salió mal, y es la razón por la que la playa frente al alojamiento es una playa, y no un muelle de concreto.
-
-Los barcos comunitarios también recorren el río con su propio horario y cuestan una fracción del precio. Son una opción real si tiene tiempo y flexibilidad, y una mala opción si tiene un vuelo que tomar.
 
 ## Etapa 4 — El regreso
 

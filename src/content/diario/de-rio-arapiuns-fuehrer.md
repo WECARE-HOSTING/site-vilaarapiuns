@@ -5,7 +5,7 @@ slug: rio-arapiuns-fuehrer
 titulo: "Rio Arapiuns: der Guide von jemandem, der dort lebt"
 tituloCurto: "Guide zum Rio Arapiuns"
 descricao: "Was der Rio Arapiuns ist, wo die weißen Sandstrände liegen, wann der Fluss fällt, wie Sie von Alter do Chão aus hinkommen und wo Sie übernachten können. Ein Guide, verfasst aus dem Inneren der RESEX Tapajós-Arapiuns."
-resposta: "Der Rio Arapiuns ist ein Klarwasser-Nebenfluss des Tapajós im Westen von Pará, anderthalb Bootsstunden von Alter do Chão entfernt. Er verläuft vollständig innerhalb des Tapajós-Arapiuns-Extraktivreservats und ist dort, wo die weißen Sandstrände und das klare Wasser liegen, die man im Amazonasgebiet selten findet. Von August bis Januar fällt der Fluss, und die Strände tauchen auf; von Februar bis Juni steigt er, und die Landschaft wird zum überfluteten Wald."
+resposta: "Der Rio Arapiuns ist ein Klarwasser-Nebenfluss des Tapajós im Westen von Pará, anderthalb Stunden von Alter do Chão entfernt. Er verläuft vollständig innerhalb des Tapajós-Arapiuns-Extraktivreservats und ist dort, wo die weißen Sandstrände und das klare Wasser liegen, die man im Amazonasgebiet selten findet. Von August bis Januar fällt der Fluss, und die Strände tauchen auf; von Februar bis Juni steigt er, und die Landschaft wird zum überfluteten Wald."
 data: 2026-08-26
 revisado: 2026-10-28
 imagem: banco-areia
@@ -14,11 +14,11 @@ legenda: "Sandbank am Arapiuns · Trockenzeit"
 destino: lodge
 duvidas:
   - q: "Wo liegt der Rio Arapiuns?"
-    a: "Im Westen von Pará, im Landkreis Santarém. Er kommt aus dem Norden und trifft in der Nähe von Alter do Chão auf den Tapajós — dem Ausgangspunkt für Besucher, anderthalb Bootsstunden flussaufwärts."
+    a: "Im Westen von Pará, im Landkreis Santarém. Er kommt aus dem Norden und trifft in der Nähe von Alter do Chão auf den Tapajós — dem Ausgangspunkt für Besucher, anderthalb Stunden von der Villa entfernt."
   - q: "Ist der Arapiuns ein Schwarzwasser- oder ein Klarwasserfluss?"
     a: "Klarwasser. Deshalb ist der Grund sichtbar und der Sand weiß: Der Arapiuns führt weder das Sediment des Amazonas noch den dunklen Tannin-Gehalt des Rio Negro mit sich."
   - q: "Kann man den Arapiuns an einem Tagesausflug von Alter do Chão aus besuchen?"
-    a: "Das geht, und viele machen es so — aber allein Hin- und Rückfahrt mit dem Boot dauern drei Stunden. Um die Strände, die Gemeinden und den Igapó ohne Hetze kennenzulernen, ist eine Übernachtung das ehrliche Minimum; ab drei oder vier Nächten beginnt sich die Anreise wirklich zu lohnen."
+    a: "Das geht, und viele machen es so — aber allein Hin- und Rückfahrt dauern drei Stunden. Um die Strände, die Gemeinden und den Igapó ohne Hetze kennenzulernen, ist eine Übernachtung das ehrliche Minimum; ab drei oder vier Nächten beginnt sich die Anreise wirklich zu lohnen."
   - q: "Braucht man eine Genehmigung, um das Reservat zu betreten?"
     a: "Besucher müssen selbst keine Genehmigung einholen. Die RESEX ist ein Reservat für nachhaltige Nutzung, bewohnt von den Flussgemeinden, und der Tourismus findet gemeinsam mit ihnen statt — wer die Reise organisiert, ist für die Logistik verantwortlich."
 ---
@@ -77,9 +77,9 @@ Bringen Sie Schuhe mit, die nass werden dürfen: An mehreren Stellen geht man mi
 
 ## Anreise
 
-Kurz zusammengefasst, denn dazu gibt es einen eigenen Text: Flug nach **Santarém (STM)** — Direktflüge ab Manaus, Belém und Brasília; mit Umsteigeverbindung ab São Paulo —, dann ein etwa 40-minütiger Transfer nach **Alter do Chão**, und von dort **anderthalb Stunden mit dem Boot** flussaufwärts.
+Kurz zusammengefasst, denn dazu gibt es einen eigenen Text: Flug nach **Santarém (STM)** — Direktflüge ab Manaus, Belém und Brasília; mit Umsteigeverbindung ab São Paulo —, dann ein etwa 40-minütiger Transfer nach **Alter do Chão**, und von dort **anderthalb Stunden** flussaufwärts.
 
-Die Reise ist lang, und das ist Absicht. Die Bootsfahrt ist es, die den Arapiuns vom Trubel in Alter do Chão trennt, und sie ist auch der Abschnitt, in dem der Kopf zur Ruhe kommt. Wer bei der Ankunft noch über die Anreise klagt, klagt bei der Abreise meist schon weniger.
+Die Reise ist lang, und das ist Absicht. Die Strecke auf dem Fluss ist es, die den Arapiuns vom Trubel in Alter do Chão trennt, und sie ist auch der Abschnitt, in dem der Kopf zur Ruhe kommt. Wer bei der Ankunft noch über die Anreise klagt, klagt bei der Abreise meist schon weniger.
 
 ## Wo Sie übernachten können
 

@@ -4,12 +4,12 @@ grupo: chegar-alter
 slug: anreise-alter-do-chao
 titulo: "Wie Sie nach Alter do Chão kommen — und weiter zum Arapiuns dahinter"
 tituloCurto: "Anreise nach Alter do Chão"
-descricao: "Flüge nach Santarém, der Transfer nach Alter do Chão und die Bootsfahrt den Rio Arapiuns hinauf. Zeiten, Kosten, Anschlüsse und was tatsächlich schiefgehen kann — geschrieben vom anderen Ende der Reise."
-resposta: "Alter do Chão erreichen Sie, indem Sie nach Santarém (STM) in Pará, Brasilien, fliegen und dann etwa 40 Minuten mit dem Auto fahren. Direktflüge nach Santarém gibt es ab Manaus, Belém und Brasília; von São Paulo aus fliegen Sie mit Umstieg, meist über Brasília, und die schnellsten Verbindungen dauern etwa vier ein Viertel Stunden. Von Alter do Chão sind es weitere 1,5 Stunden mit dem Boot den Rio Arapiuns hinauf bis zur Villa Arapiuns."
+descricao: "Flüge nach Santarém, der Transfer nach Alter do Chão und die letzte Etappe den Rio Arapiuns hinauf. Zeiten, Kosten, Anschlüsse und was tatsächlich schiefgehen kann — geschrieben vom anderen Ende der Reise."
+resposta: "Alter do Chão erreichen Sie, indem Sie nach Santarém (STM) in Pará, Brasilien, fliegen und dann etwa 40 Minuten mit dem Auto fahren. Direktflüge nach Santarém gibt es ab Manaus, Belém und Brasília; von São Paulo aus fliegen Sie mit Umstieg, meist über Brasília, und die schnellsten Verbindungen dauern etwa vier ein Viertel Stunden. Von Alter do Chão sind es weitere 1,5 Stunden den Rio Arapiuns hinauf bis zur Villa Arapiuns."
 data: 2026-08-26
 revisado: 2026-10-28
 imagem: chegada-barco
-imagemAlt: "Vier Personen waten mit Taschen durch flaches Flusswasser, dahinter liegt ein weißes Boot vor Anker, im Hintergrund offenes Wasser bis zum Horizont"
+imagemAlt: "Vier Personen waten mit Taschen durch flaches Flusswasser, im Hintergrund offenes Wasser bis zum Horizont"
 legenda: "Ankunft am Arapiuns · die letzten hundert Meter zu Fuß"
 destino: gettingHere
 duvidas:
@@ -17,8 +17,8 @@ duvidas:
     a: "Nein. Von São Paulo aus fliegen Sie mit Umstieg — meist über Brasília, manchmal über Manaus oder Belém. Die besten Verbindungen dauern insgesamt etwa 4:15 Stunden; die üblichen brauchen deutlich länger."
   - q: "Auf welchem Flughafen lande ich für Alter do Chão?"
     a: "Santarém — Flughafen Maestro Wilson Fonseca, Code STM. Er liegt etwa 33 km von Alter do Chão entfernt, mit dem Auto rund 40 Minuten."
-  - q: "Wie lange dauert die Bootsfahrt zum Arapiuns?"
-    a: "Etwa anderthalb Stunden mit dem Schnellboot von Alter do Chão flussaufwärts zur Villa Arapiuns. Langsamere Gemeinschaftsboote brauchen deutlich länger und fahren nach eigenem Zeitplan."
+  - q: "Wie lange dauert es von Alter do Chão zum Arapiuns?"
+    a: "Etwa anderthalb Stunden von Alter do Chão flussaufwärts zur Villa Arapiuns."
   - q: "Kann ich Alter do Chão als Zwei-Nächte-Trip machen?"
     a: "Das können Sie, aber Sie verbringen den Großteil davon mit Reisen. Von São Paulo zum Arapiuns ist es pro Strecke ein voller Tag — deshalb bitten wir um mindestens drei bis vier Nächte. Alles Kürzere, und die Anreise frisst die Reise auf."
   - q: "Brauche ich eine Gelbfieberimpfung?"
@@ -47,17 +47,15 @@ Alter do Chão ist ein Dorf an einer Süßwasserlagune, in deren Mitte die Sandb
 
 Wenn Alter do Chão selbst Ihr Ziel ist, sind Sie angekommen. Wenn es der Arapiuns ist, sind Sie am Hafen.
 
-## Etappe 3 — Die Bootsfahrt den Arapiuns hinauf
+## Etappe 3 — Von Alter do Chão zum Arapiuns
 
-Von Alter do Chão sind es **etwa 1,5 Stunden mit dem Schnellboot** flussaufwärts zur Villa Arapiuns. Sie verlassen den Tapajós, biegen in den Arapiuns ein, und das Wasser verändert unterwegs seinen Charakter: klarer, ruhiger, mit weißen Sandbänken auf beiden Seiten.
+Von Alter do Chão sind es **etwa 1,5 Stunden** flussaufwärts zur Villa Arapiuns. Sie verlassen den Tapajós, biegen in den Arapiuns ein, und das Wasser verändert unterwegs seinen Charakter: klarer, ruhiger, mit weißen Sandbänken auf beiden Seiten.
 
 Zwei Dinge werden hier oft falsch eingeschätzt.
 
 Das Erste: **Diese Etappe ist kein Transfer, sie ist die Reise**. Es sind die neunzig Minuten, in denen das Handy aufhört, wichtig zu sein — und die meisten Gäste beschreiben sie im Nachhinein als den Moment, in dem der Urlaub eigentlich begann.
 
 Das Zweite ist **die Anlandung**. Es gibt keinen Tiefwassersteg. Je nach Wasserstand steigen Sie möglicherweise in schienbeintiefes Wasser und gehen das letzte Stück zu Fuß bis zum Sand. Bringen Sie Schuhe mit, die nass werden dürfen, und verpacken Sie Wertvolles trocken. Das ist normal, kein Zeichen dafür, dass etwas schiefgelaufen ist — und der Grund, warum der Strand vor der Lodge ein Strand ist und kein Betonanleger.
-
-Gemeinschaftsboote fahren den Fluss ebenfalls nach eigenem Zeitplan und kosten nur einen Bruchteil. Sie sind eine echte Option, wenn Sie Zeit und Flexibilität haben — und eine schlechte, wenn Sie einen Flug erreichen müssen.
 
 ## Etappe 4 — Der Rückweg
 

@@ -66,7 +66,7 @@ Casi todo lo demás sobre los dos viajes se desprende de este único hecho.
 
 **Precios más bajos con calidad comparable**, sobre todo porque la región tiene menos reconocimiento, no menos que ofrecer.
 
-**Las desventajas honestas.** El acceso es más difícil: no hay vuelo directo de São Paulo a Santarém, luego un traslado por carretera, y después un barco. La variedad es escasa — usted elige entre un puñado de lugares, no un mercado. El volumen de reseñas es bajo, así que no puede apoyar su confianza en la opinión colectiva como en el Río Negro. Y en los meses de creciente, de febrero a junio, las playas — el argumento principal para venir — están bajo el agua.
+**Las desventajas honestas.** El acceso es más difícil: no hay vuelo directo de São Paulo a Santarém, luego un traslado por carretera, y después 1h30 más hasta la Villa. La variedad es escasa — usted elige entre un puñado de lugares, no un mercado. El volumen de reseñas es bajo, así que no puede apoyar su confianza en la opinión colectiva como en el Río Negro. Y en los meses de creciente, de febrero a junio, las playas — el argumento principal para venir — están bajo el agua.
 
 ## Cómo elegir
 
@@ -78,6 +78,6 @@ Y una tercera respuesta que nadie ofrece: **los dos**. Hay vuelos directos entre
 
 ## Dónde entramos nosotros
 
-Villa Arapiuns son trece bangalôs en el Arapiuns, a una hora y media en barco de Alter do Chão, dentro de la reserva. Energía solar, operación liderada por la comunidad, y la playa enfrente. Uso exclusivo de toda la propiedad a partir de quince huéspedes.
+Villa Arapiuns son trece bangalôs en el Arapiuns, a una hora y media de Alter do Chão, dentro de la reserva. Energía solar, operación liderada por la comunidad, y la playa enfrente. Uso exclusivo de toda la propiedad a partir de quince huéspedes.
 
 Si después de leer esto el Río Negro es la mejor opción para su viaje, vaya — es un río extraordinario y preferimos que tenga las vacaciones que quiere.

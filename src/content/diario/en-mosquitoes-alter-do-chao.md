@@ -69,6 +69,6 @@ October and November are the peak of the dry season, with the sandbanks at their
 
 ## Why we bothered writing this
 
-Because the mosquito question is the single most common reason people talk themselves out of the Amazon, and on this particular river the fear is aimed at the wrong place. The trade-off here is real, but it is not the one you were expecting: not insects, but distance. The Arapiuns is 1h30 by boat beyond Alter do Chão, and that is the actual price of admission.
+Because the mosquito question is the single most common reason people talk themselves out of the Amazon, and on this particular river the fear is aimed at the wrong place. The trade-off here is real, but it is not the one you were expecting: not insects, but distance. The Arapiuns is 1h30 beyond Alter do Chão, and that is the actual price of admission.
 
 The beach is fine. Bring sunscreen.
