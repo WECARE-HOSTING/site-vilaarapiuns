@@ -304,6 +304,10 @@ const trilha =
             idioma: document.documentElement.lang,
             cta: a.getAttribute('data-cta') || 'whatsapp',
           });
+          /* click_whatsapp (02/11/2026): evento dedicado para virar conversão no Google Ads. */
+          if (a.href.indexOf('wa.me') > -1) {
+            gtag('event', 'click_whatsapp', { pagina: location.pathname, idioma: document.documentElement.lang, cta: a.getAttribute('data-cta') || 'whatsapp', transport_type: 'beacon' });
+          }
         }, { capture: true });
 
         /* PROMO DOS PACOTES (01/11/2026): data-promo nos CTAs de Réveillon/Detox.

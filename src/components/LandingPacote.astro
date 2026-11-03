@@ -236,6 +236,8 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
         ? `https://pay.infinitepay.io/${d.tag}/${valor.toFixed(2).replace('.', ',')}`
         : `${d.wa}?text=${encodeURIComponent(msg)}`; // sem preço definido: cai no WhatsApp
       if (valor) f.querySelector<HTMLElement>('[data-prereserva]')!.hidden = false;
+      // GA4 (02/11/2026): clique no Reservar, importável no Google Ads como conversão.
+      (window as any).gtag?.('event', 'click_reservar', { pacote: d.pacote, modo: modo || 'sinal', destino: valor ? 'infinitepay' : 'whatsapp', pagina: location.pathname, transport_type: 'beacon' });
       window.open(url, '_blank', 'noopener');
     });
   }
