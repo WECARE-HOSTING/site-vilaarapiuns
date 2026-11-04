@@ -48,7 +48,6 @@
     "team": "Eigenes Team für die Logistik",
     "host": "Gastgeber vor Ort in der Villa",
     "power": "Strom rund um die Uhr (Solar) und Starlink-WLAN",
-    "mosquito": "So gut wie keine Mücken",
     "meals": "Beim Aufenthalt in der Lodge gehören Frühstück, Mittag- und Abendessen zum Aufenthalt",
     "paddle": "Stand-up-Paddle und Kajak beim Lodge-Aufenthalt inklusive"
   },
@@ -408,8 +407,8 @@
     "c4D": "Ein überdachter Raum für die Praxis — oder dafür, gar nichts zu tun.",
     "viverT": "Wie sich ein Aufenthalt hier anfühlt",
     "viverI": "Drei Dinge, nach denen vor der Ankunft niemand fragt und die danach alle erwähnen.",
-    "mosquitoT": "So gut wie keine Mücken",
-    "mosquitoD": "Das klare Wasser und die Sandstrände des Arapiuns haben weit weniger Mücken als der Überschwemmungswald des Amazonas. Abendessen im Sand ohne Mückenschutz ist die Überraschung, von der am häufigsten berichtet wird — gerade von denen, die das Gegenteil erwartet hatten.",
+    "mosquitoT": "Wenige Mücken am Strand",
+    "mosquitoD": "Gäste der Villa bemerken am Strand meist nur wenige Mücken, ohne die Plagegeister anderer Reiseziele. Im Wald und in der Abenddämmerung tauchen sie auf, wie überall im Amazonas: Bring Mückenschutz und lange Ärmel mit.",
     "aguaT": "Die Dusche braucht keinen Boiler",
     "aguaD": "In der Villa gibt es keinen Warmwasserboiler, weil das Klima keinen braucht. Das Duschwasser ist das natürliche Wasser aus unserem eigenen Brunnen, mit der Temperatur, mit der es ankommt — und die ändert sich mit der Jahreszeit. Das ist der Teil, der die Gäste dem Ort am nächsten bringt. Zum Trinken gibt es einen Filter: jederzeit sauberes Wasser.",
     "telaT": "Es gibt keinen Fernseher",
@@ -691,7 +690,7 @@
       }
     ],
     "q6": "Gibt es Mücken?",
-    "a6": "Kaum. Das klare Wasser und die Sandstrände des Arapiuns haben weit weniger Mücken als das Überschwemmungsgebiet (Várzea) des Amazonas."
+    "a6": "Gäste der Villa bemerken am Strand meist nur wenige Mücken, ohne die Plagegeister anderer Reiseziele. Im Wald und in der Abenddämmerung tauchen sie auf, wie überall im Amazonas: Bring Mückenschutz und lange Ärmel mit."
   },
   "mapa": {
     "alt": "Karte der Region: Die Villa Arapiuns liegt am Ufer des Rio Arapiuns, im Westen. Im Osten, wo der Rio Tapajós auf den Amazonas trifft, liegen Alter do Chão und, etwas weiter, Santarém.",
@@ -807,7 +806,7 @@
     "v1T": "Die Piracaia am 31.",
     "v1D": "Das Silvesteressen ist das Ritual des Hauses: Flussfisch, im Sand gegrillt, bei Kerzenlicht, im Kreis serviert vom Team, das hier lebt.",
     "v2T": "Der Strand am ersten Tag",
-    "v2D": "Weißer Sand, glasklares Süßwasser und so gut wie keine Mücken. Das erste Bad des Jahres liegt wenige Schritte vom Bungalow.",
+    "v2D": "Weißer Sand und glasklares Süßwasser. Das erste Bad des Jahres liegt wenige Schritte vom Bungalow.",
     "v3T": "Fern der Menge",
     "v3D": "Alter do Chão zieht an Silvester Zehntausende an. Nah genug, um anzukommen; weit genug, um beim Klang des Flusses einzuschlafen.",
     "figLuau": "Das Luau · Kerzen und Feuer im Sand",
@@ -830,8 +829,6 @@
     "a2": "Im Silvesterfenster arbeiten wir mit Paketen von 4–5 Nächten, zwischen dem 28. Dezember und dem 2. Januar.",
     "q3": "Gibt es eine Party? Feuerwerk?",
     "a3": "Nicht wie in der Stadt. Die Nacht des 31. hat die Piracaia — Fisch, im Sand bei Kerzenlicht gegrillt — und den Kreis am Strand. Keine Bühne, kein Feuerwerk: der Himmel hier übernimmt seinen Teil.",
-    "q4": "Gibt es Mücken?",
-    "a4": "Der Strand der Villa ist Süßwasser und weißer Sand, so gut wie ohne Mücken. An Silvester herrscht am Arapiuns Trockenzeit, mit niedrigem Fluss und den Stränden auf ihrem Höchststand.",
     "q5": "Wie reise ich aus dem Ausland an?",
     "a5": "Flug nach Santarém (STM) — mit Umstieg ab São Paulo, oder direkt ab Brasília, Belém und Manaus —, Transfer nach Alter do Chão, von dort 1,5 Stunden bis zur Villa. Die Logistik stimmen wir vor der Reise mit Ihnen ab.",
     "q6": "Können wir die ganze Villa buchen?",

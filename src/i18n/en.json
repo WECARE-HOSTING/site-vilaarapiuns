@@ -48,7 +48,6 @@
     "team": "Our own team on the logistics",
     "host": "Local host at the Villa",
     "power": "Power around the clock (solar) and Starlink Wi‑Fi",
-    "mosquito": "Almost no mosquitoes",
     "meals": "On lodge stays, breakfast, lunch and dinner are part of the stay",
     "paddle": "Stand-up paddle and kayak included on lodge stays"
   },
@@ -408,8 +407,8 @@
     "c4D": "A covered space for practice, or for doing nothing at all.",
     "viverT": "What a stay here is like",
     "viverI": "Three things nobody asks about before arriving, and everybody mentions afterwards.",
-    "mosquitoT": "Almost no mosquitoes",
-    "mosquitoD": "The clear water and sand beaches of the Arapiuns have far fewer mosquitoes than the floodplain Amazon. Dinner on the sand without repellent is the surprise that comes up most often from people who arrive expecting the opposite.",
+    "mosquitoT": "Few mosquitoes on the beach",
+    "mosquitoD": "Guests at the Villa usually notice few mosquitoes on the beach, without the swarms you find at other destinations. In the forest and at dusk they do show up, as anywhere in the Amazon: bring repellent and long sleeves.",
     "aguaT": "The shower doesn't need a heater",
     "aguaD": "There's no water heater at the Villa, because the climate doesn't call for one. Your shower is the natural water from our own well, at whatever temperature it arrives — and that changes with the season — it's the part that brings guests closest to the place. For drinking, there's a filter: safe water at all times.",
     "telaT": "There is no television",
@@ -691,7 +690,7 @@
       }
     ],
     "q6": "Are there mosquitoes?",
-    "a6": "Hardly any. The clear water and sand beaches of the Arapiuns have far fewer mosquitoes than the floodplain Amazon."
+    "a6": "Guests at the Villa usually notice few mosquitoes on the beach, without the swarms you find at other destinations. In the forest and at dusk they do show up, as anywhere in the Amazon: bring repellent and long sleeves."
   },
   "mapa": {
     "alt": "Map of the region: Villa Arapiuns sits on the bank of the Arapiuns River, to the west. To the east, where the Tapajós meets the Amazon, are Alter do Chão and, further on, Santarém.",
@@ -807,7 +806,7 @@
     "v1T": "The piracaia on the 31st",
     "v1D": "The New Year's Eve dinner is the house ritual: river fish roasted on the sand, by candlelight, served in a circle by the team who lives here.",
     "v2T": "The beach on day one",
-    "v2D": "White sand, crystal-clear freshwater, and practically no mosquitoes. The first swim of the year is a few steps from your bungalow.",
+    "v2D": "White sand and crystal-clear freshwater. The first swim of the year is a few steps from your bungalow.",
     "v3T": "Far from the crowds",
     "v3D": "Alter do Chão draws tens of thousands for the New Year. Close enough to reach; far enough to fall asleep to the sound of the river.",
     "figLuau": "The luau · candles and fire on the sand",
@@ -830,8 +829,6 @@
     "a2": "For the New Year window we work with 4–5 night packages, between December 28 and January 2.",
     "q3": "Is there a party? Fireworks?",
     "a3": "Not the city kind. The night of the 31st has the piracaia — fish roasted on the sand by candlelight — and a circle on the beach. No stage and no fireworks: the sky here does its own part.",
-    "q4": "Are there mosquitoes?",
-    "a4": "The Villa's beach is freshwater and white sand, with practically no mosquitoes. At New Year the Arapiuns is in its dry season, with the river low and the beaches at their fullest.",
     "q5": "How do I get there from abroad?",
     "a5": "Fly to Santarém (STM) — connections from São Paulo, direct flights from Brasília, Belém and Manaus — then transfer to Alter do Chão; the Villa is 1h30 from there. We arrange the logistics with you before the trip.",
     "q6": "Can we book the whole Villa?",

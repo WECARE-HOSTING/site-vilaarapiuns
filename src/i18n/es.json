@@ -48,7 +48,6 @@
     "team": "Equipo propio en la logística",
     "host": "Anfitrión local en la Villa",
     "power": "Electricidad las 24 horas (solar) y Wi‑Fi Starlink",
-    "mosquito": "Prácticamente sin mosquitos",
     "meals": "En la posada, el desayuno, el almuerzo y la cena forman parte de la estadía",
     "paddle": "Stand up paddle y kayak incluidos en la estadía en la posada"
   },
@@ -408,8 +407,8 @@
     "c4D": "Espacio cubierto para la práctica, o para no hacer nada.",
     "viverT": "Cómo es una estadía aquí",
     "viverI": "Tres cosas que nadie pregunta antes de llegar, y que todo el mundo comenta después.",
-    "mosquitoT": "Prácticamente sin mosquitos",
-    "mosquitoD": "Las aguas claras y las playas de arena del Arapiuns tienen muchos menos mosquitos que la Amazonía de llanura inundable (várzea). Cenar en la arena sin repelente es la sorpresa que más aparece en los relatos de quien llega esperando lo contrario.",
+    "mosquitoT": "Pocos mosquitos en la playa",
+    "mosquitoD": "Quienes se hospedan en la Villa suelen notar pocos mosquitos en la playa, sin los zancudos de otros destinos. En la selva y al atardecer aparecen, como en toda la Amazonía: trae repelente y manga larga.",
     "aguaT": "La ducha no necesita calentador",
     "aguaD": "No hay calentador en la Villa, porque el clima no lo exige. El agua de la ducha es el agua natural de nuestro propio pozo, a la temperatura en que llega, y cambia con la estación — es la parte que más acerca al huésped con el lugar. Para beber, hay filtro: agua potable todo el tiempo.",
     "telaT": "No hay televisión",
@@ -691,7 +690,7 @@
       }
     ],
     "q6": "¿Hay mosquitos?",
-    "a6": "Prácticamente no. Las aguas claras y las playas de arena del Arapiuns tienen muchos menos mosquitos que la Amazonía de llanura inundable (várzea)."
+    "a6": "Quienes se hospedan en la Villa suelen notar pocos mosquitos en la playa, sin los zancudos de otros destinos. En la selva y al atardecer aparecen, como en toda la Amazonía: trae repelente y manga larga."
   },
   "mapa": {
     "alt": "Mapa de la región: Villa Arapiuns está en la margen del río Arapiuns, al oeste. Al este, donde el río Tapajós se encuentra con el río Amazonas, están Alter do Chão y, más adelante, Santarém.",
@@ -807,7 +806,7 @@
     "v1T": "La piracaia del 31",
     "v1D": "La cena de Año Nuevo es el rito de la casa: pescado del río asado en la arena, a la luz de las velas, servido en ronda por el equipo que vive aquí.",
     "v2T": "La playa el primer día",
-    "v2D": "Arena blanca, agua dulce cristalina y casi sin mosquitos. El primer baño del año está a pocos pasos del bungaló.",
+    "v2D": "Arena blanca y agua dulce cristalina. El primer baño del año está a pocos pasos del bungaló.",
     "v3T": "Lejos de la multitud",
     "v3D": "Alter do Chão recibe decenas de miles de personas en Año Nuevo. Lo bastante cerca para llegar; lo bastante lejos para dormir escuchando el río.",
     "figLuau": "El luau · velas y fuego en la arena",
@@ -830,8 +829,6 @@
     "a2": "En la ventana de Año Nuevo trabajamos con paquetes de 4 a 5 noches, entre el 28 de diciembre y el 2 de enero.",
     "q3": "¿Hay fiesta? ¿Fuegos artificiales?",
     "a3": "No al estilo de ciudad. La noche del 31 tiene la piracaia — pescado asado en la arena, a la luz de las velas — y la ronda en la playa. Sin escenario y sin fuegos: el cielo de aquí hace su parte.",
-    "q4": "¿Hay mosquitos?",
-    "a4": "La playa de la Villa es de agua dulce y arena blanca, prácticamente sin mosquitos. En Año Nuevo el Arapiuns está en estación seca, con el río bajo y las playas en su mejor momento.",
     "q5": "¿Cómo llego desde el exterior?",
     "a5": "Vuelo a Santarém (STM) — con conexión desde São Paulo, o directo desde Brasília, Belém y Manaus —, traslado a Alter do Chão y, desde allí, 1h30 hasta la Villa. La logística la coordinamos contigo antes del viaje.",
     "q6": "¿Podemos reservar la Villa entera?",
