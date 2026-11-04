@@ -288,6 +288,3 @@ export const PACOTES = [
  *  Páginas Detox → pagar-detox; todas as outras → pagar-reveillon. /reservar/ continua no ar. */
 export const checkoutReservar = (pathname: string) =>
   `/pt/lp/pagar-${pathname.includes('detox') ? 'detox' : 'reveillon'}/#reservar`;
-
-/** Limite interno de bangalôs no checkout rápido. Nunca renderizar como texto visível. */
-export const LIMITE_BANGALOS_CHECKOUT = 8;

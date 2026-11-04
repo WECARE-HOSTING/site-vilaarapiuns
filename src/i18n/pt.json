@@ -843,7 +843,9 @@
     "notaFinal": "Vagas limitadas na semana da virada.",
     "cta": "Consultar a virada no WhatsApp",
     "ctaPagina": "Ver o réveillon",
-    "verDetox": "Fique para o Detox, de 1 a 10 de janeiro"
+    "verDetox": "Fique para o Detox, de 1 a 10 de janeiro",
+    "q8": "Tem mosquito?",
+    "a8": "Quem fica na Villa costuma notar pouco mosquito na praia, sem o pernilongo de outros destinos. Na mata e ao entardecer eles aparecem, como em toda a Amazônia: traga repelente e manga longa."
   },
   "detox": {
     "h1": "Retiro Detox na Amazônia, de 1 a 10 de janeiro",
@@ -896,7 +898,9 @@
     "a7": "O Arapiuns não tem a água barrenta do Amazonas: é água doce, que corre sobre bancos de areia branca. Em frente à Villa, a água continua cristalina mesmo na cheia de janeiro. No WhatsApp a gente conta como o rio está na sua data.",
     "ctaFinalD": "As vagas para os primeiros dias de 2027 são limitadas. Diga quantas pessoas são e quando querem chegar.",
     "ctaPagina": "Ver o Detox",
-    "nome": "Detox pós-Ano Novo"
+    "nome": "Detox pós-Ano Novo",
+    "q8": "Tem mosquito?",
+    "a8": "Quem fica na Villa costuma notar pouco mosquito na praia, sem o pernilongo de outros destinos. Na mata e ao entardecer eles aparecem, como em toda a Amazônia: traga repelente e manga longa."
   },
   "diario": {
     "titulo": "Diário",

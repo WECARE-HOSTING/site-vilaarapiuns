@@ -843,7 +843,9 @@
     "ctaPagina": "See New Year's Eve",
     "verDetox": "Stay on for the Detox, 1 to 10 January",
     "campoBangalos": "13 bungalows",
-    "campoExclusividade": "exclusive use from 15 guests"
+    "campoExclusividade": "exclusive use from 15 guests",
+    "q8": "Are there mosquitoes?",
+    "a8": "Guests at the Villa usually notice few mosquitoes on the beach, without the swarms you find at other destinations. In the forest and at dusk they do show up, as anywhere in the Amazon: bring repellent and long sleeves."
   },
   "detox": {
     "h1": "Detox Retreat in the Amazon, 1–10 January",
@@ -896,7 +898,9 @@
     "ctaFinalD": "There are 13 bungalows for the first days of 2027. Tell us how many of you there are and when you want to arrive.",
     "ctaPagina": "See the Detox",
     "nome": "Post-New Year Detox",
-    "campoBangalos": "13 bungalows"
+    "campoBangalos": "13 bungalows",
+    "q8": "Are there mosquitoes?",
+    "a8": "Guests at the Villa usually notice few mosquitoes on the beach, without the swarms you find at other destinations. In the forest and at dusk they do show up, as anywhere in the Amazon: bring repellent and long sleeves."
   },
   "diario": {
     "titulo": "Journal",

@@ -843,7 +843,9 @@
     "ctaPagina": "Ver el Fin de Año",
     "verDetox": "Quédese para el Detox, del 1 al 10 de enero",
     "campoBangalos": "13 bungalós",
-    "campoExclusividade": "exclusividad a partir de 15"
+    "campoExclusividade": "exclusividad a partir de 15",
+    "q8": "¿Hay mosquitos?",
+    "a8": "Quienes se hospedan en la Villa suelen notar pocos mosquitos en la playa, sin los zancudos de otros destinos. En la selva y al atardecer aparecen, como en toda la Amazonía: trae repelente y manga larga."
   },
   "detox": {
     "h1": "Retiro Detox en la Amazonía, del 1 al 10 de enero",
@@ -896,7 +898,9 @@
     "ctaFinalD": "Son 13 bungalós para los primeros días de 2027. Díganos cuántas personas son y cuándo quieren llegar.",
     "ctaPagina": "Ver el Detox",
     "nome": "Detox de Año Nuevo",
-    "campoBangalos": "13 bungalós"
+    "campoBangalos": "13 bungalós",
+    "q8": "¿Hay mosquitos?",
+    "a8": "Quienes se hospedan en la Villa suelen notar pocos mosquitos en la playa, sin los zancudos de otros destinos. En la selva y al atardecer aparecen, como en toda la Amazonía: trae repelente y manga larga."
   },
   "diario": {
     "titulo": "Diario",

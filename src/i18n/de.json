@@ -843,7 +843,9 @@
     "ctaPagina": "Silvester ansehen",
     "verDetox": "Bleiben Sie zum Detox, 1. bis 10. Januar",
     "campoBangalos": "13 Bungalows",
-    "campoExclusividade": "Exklusivität ab 15 Personen"
+    "campoExclusividade": "Exklusivität ab 15 Personen",
+    "q8": "Gibt es Mücken?",
+    "a8": "Gäste der Villa bemerken am Strand meist nur wenige Mücken, ohne die Plagegeister anderer Reiseziele. Im Wald und in der Abenddämmerung tauchen sie auf, wie überall im Amazonas: Bring Mückenschutz und lange Ärmel mit."
   },
   "detox": {
     "h1": "Detox-Retreat im Amazonas, 1. bis 10. Januar",
@@ -896,7 +898,9 @@
     "ctaFinalD": "Es gibt 13 Bungalows für die ersten Tage von 2027. Sagen Sie uns, wie viele Sie sind und wann Sie ankommen möchten.",
     "ctaPagina": "Zum Detox",
     "nome": "Detox nach Neujahr",
-    "campoBangalos": "13 Bungalows"
+    "campoBangalos": "13 Bungalows",
+    "q8": "Gibt es Mücken?",
+    "a8": "Gäste der Villa bemerken am Strand meist nur wenige Mücken, ohne die Plagegeister anderer Reiseziele. Im Wald und in der Abenddämmerung tauchen sie auf, wie überall im Amazonas: Bring Mückenschutz und lange Ärmel mit."
   },
   "diario": {
     "titulo": "Journal",
