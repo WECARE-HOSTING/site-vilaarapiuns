@@ -11,13 +11,13 @@
     "tagline": "Posada en la Amazonía · Río Arapiuns, Pará"
   },
   "titulo": {
-    "home": "Villa Arapiuns | Lodge amazónico en el Río Arapiuns | Alter do Chão",
+    "home": "Posada en la Amazonía · a 1h30 de Alter do Chão | Villa Arapiuns",
     "lodge": "La Posada · Villa Arapiuns",
     "packages": "Paquetes · Villa Arapiuns",
     "privateVilla": "Grupos · Villa Arapiuns",
-    "reveillon": "Fin de Año · Villa Arapiuns",
+    "reveillon": "Fin de Año en la Amazonía 2026/27 · Río Arapiuns | Villa Arapiuns",
     "gettingHere": "Cómo Llegar · Villa Arapiuns",
-    "detox": "Detox de Año Nuevo 2027 | Río Arapiuns | Villa Arapiuns"
+    "detox": "Retiro Detox en la Amazonía · 1–10 ene 2027 | Villa Arapiuns"
   },
   "nav": {
     "lodge": "La Posada",
@@ -48,7 +48,6 @@
     "team": "Equipo propio en la logística",
     "host": "Anfitrión local en la Villa",
     "power": "Electricidad las 24 horas (solar) y Wi‑Fi Starlink",
-    "mosquito": "Prácticamente sin mosquitos",
     "meals": "En la posada, el desayuno, el almuerzo y la cena forman parte de la estadía",
     "paddle": "Stand up paddle y kayak incluidos en la estadía en la posada"
   },
@@ -77,19 +76,19 @@
     "aviseme": "¡Hola! Quiero recibir novedades y próximas fechas de Villa Arapiuns."
   },
   "desc": {
-    "home": "Trece bungalós en el río Arapiuns, a 1h30 de Alter do Chão. Quédese unos días en la Villa, o venga en un paquete con itinerario cerrado desde Alter do Chão.",
+    "home": "Sitio oficial de Villa Arapiuns: posada en la Amazonía con trece bungalós en el río Arapiuns, a 1h30 de Alter do Chão. Quédese unos días en la Villa, o venga en un paquete con itinerario cerrado desde Alter do Chão.",
     "lodge": "Los 13 bungalós de Villa Arapiuns: arquitectura tapajónica de dos plantas, caoba, marquetería y tejido artesanal.",
     "dining": "La mesa de Villa Arapiuns: pescado del río, harina de yuca de la comunidad, café recién hecho — y la Piracaia a la orilla del río.",
     "experiences": "Senderos, canoa, playa y talleres con las comunidades ribereñas del Arapiuns.",
     "packages": "Paquetes desde Alter do Chão con itinerario cerrado: una noche con siete experiencias, o dos noches con diez.",
     "privateVilla": "La Villa Arapiuns entera para un solo grupo: retiros, equipos de empresa, observación de aves y la pesca a pulmón nocturna con los ribereños. Exclusividad a partir de 15 personas.",
-    "reveillon": "Fin de Año 2026/27 en Villa Arapiuns: el año nuevo en una playa fluvial de arena blanca en el Río Arapiuns, a 1h30 de Alter do Chão. Paquetes de 4 a 5 noches para grupos y familias.",
+    "reveillon": "Fin de Año en la Amazonía en Villa Arapiuns: el año nuevo en una playa fluvial de arena blanca en el Río Arapiuns, a 1h30 de Alter do Chão. Paquetes de 4 a 5 noches para grupos y familias.",
     "gettingHere": "Cómo llegar a Villa Arapiuns: vuelo hasta Santarém, traslado a Alter do Chão y, desde allí, 1h30 hasta la Villa. La logística se coordina con el anfitrión antes del viaje.",
     "gallery": "Fotos de Villa Arapiuns: los bungalós, el río, la selva y las comunidades del Arapiuns.",
     "reviews": "Lo que cuentan los huéspedes después de alojarse en Villa Arapiuns.",
     "book": "Reserve su estadía en Villa Arapiuns por WhatsApp y hable directo con la casa.",
     "bookSent": "Su mensaje llegó. Respondemos en un plazo de 24 horas.",
-    "detox": "Detox de Año Nuevo en Villa Arapiuns, del 1 al 10 de enero de 2027: comida de la selva, açaí, sin alcohol servido por la casa y 13 bungalós en el Río Arapiuns, a 1h30 de Alter do Chão."
+    "detox": "Retiro detox en la Amazonía, del 1 al 10 de enero de 2027: después de Año Nuevo, el río. Agua cristalina, silencio y tiempo para desconectarse en el Río Arapiuns, a 1h30 de Alter do Chão."
   },
   "home": {
     "hookA": "Un Caribe de agua dulce,",
@@ -359,7 +358,7 @@
       }
     ],
     "campoLancha": "a 1h30 de {place}",
-    "heroMarca": "Villa Arapiuns | Posada en el Río Arapiuns",
+    "heroMarca": "Villa Arapiuns | Posada en la Amazonía",
     "heroSub": "Posada en el Río Arapiuns, a 1h30 de Alter do Chão. 13 bungalós junto a una playa de agua dulce."
   },
   "modo": {
@@ -408,8 +407,8 @@
     "c4D": "Espacio cubierto para la práctica, o para no hacer nada.",
     "viverT": "Cómo es una estadía aquí",
     "viverI": "Tres cosas que nadie pregunta antes de llegar, y que todo el mundo comenta después.",
-    "mosquitoT": "Prácticamente sin mosquitos",
-    "mosquitoD": "Las aguas claras y las playas de arena del Arapiuns tienen muchos menos mosquitos que la Amazonía de llanura inundable (várzea). Cenar en la arena sin repelente es la sorpresa que más aparece en los relatos de quien llega esperando lo contrario.",
+    "mosquitoT": "Pocos mosquitos en la playa",
+    "mosquitoD": "Quienes se hospedan en la Villa suelen notar pocos mosquitos en la playa, sin los zancudos de otros destinos. En la selva y al atardecer aparecen, como en toda la Amazonía: trae repelente y manga larga.",
     "aguaT": "La ducha no necesita calentador",
     "aguaD": "No hay calentador en la Villa, porque el clima no lo exige. El agua de la ducha es el agua natural de nuestro propio pozo, a la temperatura en que llega, y cambia con la estación — es la parte que más acerca al huésped con el lugar. Para beber, hay filtro: agua potable todo el tiempo.",
     "telaT": "No hay televisión",
@@ -691,7 +690,7 @@
       }
     ],
     "q6": "¿Hay mosquitos?",
-    "a6": "Prácticamente no. Las aguas claras y las playas de arena del Arapiuns tienen muchos menos mosquitos que la Amazonía de llanura inundable (várzea)."
+    "a6": "Quienes se hospedan en la Villa suelen notar pocos mosquitos en la playa, sin los zancudos de otros destinos. En la selva y al atardecer aparecen, como en toda la Amazonía: trae repelente y manga larga."
   },
   "mapa": {
     "alt": "Mapa de la región: Villa Arapiuns está en la margen del río Arapiuns, al oeste. Al este, donde el río Tapajós se encuentra con el río Amazonas, están Alter do Chão y, más adelante, Santarém.",
@@ -788,7 +787,7 @@
     "cta": "Pedir propuesta por WhatsApp"
   },
   "reveillon": {
-    "h1": "Fin de Año en la playa de la Villa",
+    "h1": "Fin de Año en la Amazonía, en el Río Arapiuns",
     "intro": "Entre el 28 de diciembre y el 2 de enero, el año cambia aquí: playa de agua dulce y arena blanca, la piracaia a la orilla del río, la ronda de velas en la arena — y ninguna multitud. Alter do Chão se llena en Año Nuevo; la Villa está a 1h30 río arriba, entre dos áreas de preservación.",
     "campoJanela": "28 dic – 02 ene",
     "b1T": "La ventana",
@@ -807,7 +806,7 @@
     "v1T": "La piracaia del 31",
     "v1D": "La cena de Año Nuevo es el rito de la casa: pescado del río asado en la arena, a la luz de las velas, servido en ronda por el equipo que vive aquí.",
     "v2T": "La playa el primer día",
-    "v2D": "Arena blanca, agua dulce cristalina y casi sin mosquitos. El primer baño del año está a pocos pasos del bungaló.",
+    "v2D": "Arena blanca y agua dulce cristalina. El primer baño del año está a pocos pasos del bungaló.",
     "v3T": "Lejos de la multitud",
     "v3D": "Alter do Chão recibe decenas de miles de personas en Año Nuevo. Lo bastante cerca para llegar; lo bastante lejos para dormir escuchando el río.",
     "figLuau": "El luau · velas y fuego en la arena",
@@ -830,21 +829,23 @@
     "a2": "En la ventana de Año Nuevo trabajamos con paquetes de 4 a 5 noches, entre el 28 de diciembre y el 2 de enero.",
     "q3": "¿Hay fiesta? ¿Fuegos artificiales?",
     "a3": "No al estilo de ciudad. La noche del 31 tiene la piracaia — pescado asado en la arena, a la luz de las velas — y la ronda en la playa. Sin escenario y sin fuegos: el cielo de aquí hace su parte.",
-    "q4": "¿Hay mosquitos?",
-    "a4": "La playa de la Villa es de agua dulce y arena blanca, prácticamente sin mosquitos. En Año Nuevo el Arapiuns está en estación seca, con el río bajo y las playas en su mejor momento.",
     "q5": "¿Cómo llego desde el exterior?",
     "a5": "Vuelo a Santarém (STM) — con conexión desde São Paulo, o directo desde Brasília, Belém y Manaus —, traslado a Alter do Chão y, desde allí, 1h30 hasta la Villa. La logística la coordinamos contigo antes del viaje.",
     "q6": "¿Podemos reservar la Villa entera?",
     "a6": "Sí. A partir de 15 personas el grupo tiene derecho de exclusividad: trece bungalós para hasta 26 huéspedes, el pabellón, el hamacario y la playa, sin nadie más en la fecha.",
+    "q7": "¿El agua del río es turbia?",
+    "a7": "El Arapiuns no tiene el agua turbia del Amazonas: es agua dulce que corre sobre bancos de arena blanca. Frente a la Villa, el agua sigue cristalina incluso en la crecida de enero. Por WhatsApp le contamos cómo está el río en sus fechas.",
     "notaFinal": "La ventana de Año Nuevo tiene una sola fecha — y trece bungalós.",
     "cta": "Consultar el Fin de Año por WhatsApp",
     "ctaPagina": "Ver el Fin de Año",
     "verDetox": "Quédese para el Detox, del 1 al 10 de enero",
     "campoBangalos": "13 bungalós",
-    "campoExclusividade": "exclusividad a partir de 15"
+    "campoExclusividade": "exclusividad a partir de 15",
+    "q8": "¿Hay mosquitos?",
+    "a8": "Quienes se hospedan en la Villa suelen notar pocos mosquitos en la playa, sin los zancudos de otros destinos. En la selva y al atardecer aparecen, como en toda la Amazonía: trae repelente y manga larga."
   },
   "detox": {
-    "h1": "Detox de Año Nuevo en el Río Arapiuns",
+    "h1": "Retiro Detox en la Amazonía, del 1 al 10 de enero",
     "intro": "La fiesta terminó. Del 1 al 10 de enero de 2027, la Villa recibe a quien quiere empezar el año despacio: comida de la selva, nada de cócteles y ningún parlante, a 1h30 de Alter do Chão.",
     "campoJanela": "01 – 10 ene",
     "janelaCurta": "1–10 ene",
@@ -889,10 +890,14 @@
     "a5": "Sí. A partir de 15 personas el grupo tiene exclusividad: los 13 bungalós para hasta 26 huéspedes, el pabellón, el redário, la shala y la playa, sin nadie de fuera en la fecha.",
     "q6": "¿Cómo llego?",
     "a6": "Vuelo a Santarém (STM), traslado por tierra hasta Alter do Chão y, desde allí, 1h30 hasta la Villa. La logística la coordinamos contigo antes del viaje.",
+    "q7": "¿El agua del río es turbia?",
+    "a7": "El Arapiuns no tiene el agua turbia del Amazonas: es agua dulce que corre sobre bancos de arena blanca. Frente a la Villa, el agua sigue cristalina incluso en la crecida de enero. Por WhatsApp le contamos cómo está el río en sus fechas.",
     "ctaFinalD": "Son 13 bungalós para los primeros días de 2027. Díganos cuántas personas son y cuándo quieren llegar.",
     "ctaPagina": "Ver el Detox",
     "nome": "Detox de Año Nuevo",
-    "campoBangalos": "13 bungalós"
+    "campoBangalos": "13 bungalós",
+    "q8": "¿Hay mosquitos?",
+    "a8": "Quienes se hospedan en la Villa suelen notar pocos mosquitos en la playa, sin los zancudos de otros destinos. En la selva y al atardecer aparecen, como en toda la Amazonía: trae repelente y manga larga."
   },
   "diario": {
     "titulo": "Diario",
@@ -1284,7 +1289,7 @@
     "msg_reveillon": "Quiero reservar el Año Nuevo (28/12/2026 al 02/01/2027).",
     "msg_detox": "Quiero reservar el Detox post Año Nuevo (1 al 10/01/2027). Llegada el __, salida el __.",
     "devolucao": "Sin disponibilidad, devolución total del importe.",
-    "restam": "Quedan solo {n} alojamientos para estas fechas.",
+    "restam": "Plazas limitadas.",
     "preReserva": "Prerreserva recibida. Nos pondremos en contacto para confirmar la disponibilidad."
   }
 }
