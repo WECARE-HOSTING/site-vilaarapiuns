@@ -89,7 +89,7 @@
     "reviews": "O que os hóspedes contam depois de ficar na Villa Arapiuns.",
     "book": "Reserve sua estadia na Villa Arapiuns pelo WhatsApp e fale direto com a Villa.",
     "bookSent": "Sua mensagem chegou. Respondemos em até 24 horas.",
-    "detox": "Retiro Detox na Amazônia, de 1 a 10 de janeiro de 2027: depois da virada, o rio. Desacelerar e desligar no Rio Arapiuns, a 1h30 de Alter do Chão."
+    "detox": "Retiro Detox na Amazônia, de 1 a 10 de janeiro de 2027: depois da virada, o rio. Água cristalina, silêncio e tempo para desligar no Rio Arapiuns, a 1h30 de Alter do Chão."
   },
   "home": {
     "hookA": "Imagina acordar no dia 1",
@@ -789,8 +789,8 @@
   },
   "reveillon": {
     "h1": "Réveillon na Amazônia, no Rio Arapiuns",
-    "intro": "De 28 de dezembro a 2 de janeiro, a 1h30 de Alter do Chão. Uma virada para começar o ano inteiro: práticas de yoga e meditação na shala, sound healing, banho de rio e comida da floresta. São 8 bangalôs disponíveis nesta semana.",
-    "campoBangalos": "8 bangalôs disponíveis",
+    "intro": "De 28 de dezembro a 2 de janeiro, a 1h30 de Alter do Chão. Uma virada para começar o ano inteiro: práticas de yoga e meditação na shala, sound healing, banho de rio e comida da floresta. A Villa tem 13 bangalôs, e as vagas são limitadas.",
+    "campoBangalos": "Villa com 13 bangalôs",
     "campoExclusividade": "exclusividade sob consulta",
     "campoJanela": "28 dez – 02 jan",
     "b1T": "A janela da virada",
@@ -839,8 +839,8 @@
     "q6": "Posso fechar a Villa inteira?",
     "a6": "Exclusividade para grupos sob consulta: os 13 bangalôs, a shala, o pavilhão, o redário e a praia, sem ninguém de fora na data. Chame no WhatsApp.",
     "q7": "A água do rio é barrenta?",
-    "a7": "O Arapiuns não tem a água barrenta do Amazonas: é água doce, que corre sobre bancos de areia branca. A cor e a transparência mudam ao longo do ano com o nível do rio, e no WhatsApp a gente conta como ele está na sua data.",
-    "notaFinal": "Vagas limitadas: 8 bangalôs disponíveis na semana da virada.",
+    "a7": "O Arapiuns não tem a água barrenta do Amazonas: é água doce, que corre sobre bancos de areia branca. Em frente à Villa, a água continua cristalina mesmo na cheia de janeiro. No WhatsApp a gente conta como o rio está na sua data.",
+    "notaFinal": "Vagas limitadas na semana da virada.",
     "cta": "Consultar a virada no WhatsApp",
     "ctaPagina": "Ver o réveillon",
     "verDetox": "Fique para o Detox, de 1 a 10 de janeiro"
@@ -852,8 +852,8 @@
     "janelaCurta": "1 a 10 jan",
     "campoMinimo": "mínimo 2 noites",
     "cta": "Quero saber do Detox no WhatsApp",
-    "notaFinal": "Vagas limitadas: 8 bangalôs disponíveis.",
-    "campoBangalos": "8 bangalôs disponíveis",
+    "notaFinal": "Vagas limitadas.",
+    "campoBangalos": "Villa com 13 bangalôs",
     "figHero": "Banho de rio · o grupo inteiro dentro d'água",
     "figHeroAlt": "Grupo de mulheres com água até o pescoço, lado a lado no rio largo, com a outra margem ao fundo",
     "b1T": "De 1 a 10 de janeiro",
@@ -893,8 +893,8 @@
     "q6": "Como chego?",
     "a6": "Voo até Santarém (STM), traslado por terra até Alter do Chão e, de lá, 1h30 até a Villa. A logística combinamos com você antes da viagem.",
     "q7": "A água do rio é barrenta?",
-    "a7": "O Arapiuns não tem a água barrenta do Amazonas: é água doce, que corre sobre bancos de areia branca. A cor e a transparência mudam ao longo do ano com o nível do rio, e no WhatsApp a gente conta como ele está na sua data.",
-    "ctaFinalD": "São 8 bangalôs disponíveis para os primeiros dias de 2027. Diga quantas pessoas são e quando querem chegar.",
+    "a7": "O Arapiuns não tem a água barrenta do Amazonas: é água doce, que corre sobre bancos de areia branca. Em frente à Villa, a água continua cristalina mesmo na cheia de janeiro. No WhatsApp a gente conta como o rio está na sua data.",
+    "ctaFinalD": "As vagas para os primeiros dias de 2027 são limitadas. Diga quantas pessoas são e quando querem chegar.",
     "ctaPagina": "Ver o Detox",
     "nome": "Detox pós-Ano Novo"
   },
