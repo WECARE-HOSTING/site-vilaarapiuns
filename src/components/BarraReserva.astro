@@ -11,7 +11,7 @@
  * há provedor de newsletter no site e não entra serviço novo de terceiro.
  * O clique é medido pelo listener de wa.me do BaseLayout; `data-cta` diz qual.
  */
-import { whatsappUrl, BANGALOS_RESTANTES } from '@/data/site';
+import { whatsappUrl } from '@/data/site';
 import { useTranslations } from '@/i18n/utils';
 import type { Locale } from '@/i18n/config';
 
@@ -29,7 +29,7 @@ const avise = whatsappUrl(t('whatsapp.aviseme'));
   <div class="barra-reserva__miolo">
     <p class="barra-reserva__pacote">
       <span class="barra-reserva__etiqueta">{etiqueta}</span>
-      <span class="barra-reserva__restam" data-restam>{t('barra.restam').replace('{n}', String(BANGALOS_RESTANTES))}</span>
+      <span class="barra-reserva__restam" data-restam>{t('barra.restam')}</span>
       <span class="barra-reserva__devolucao">{t('barra.devolucao')}</span>
       <a href={avise} class="barra-reserva__avise" target="_blank" rel="noopener noreferrer" data-cta={`aviseme_${pacote}`}>{t('barra.aviseme')}</a>
     </p>
