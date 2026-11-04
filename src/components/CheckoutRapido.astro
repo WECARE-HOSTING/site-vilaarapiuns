@@ -108,7 +108,7 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
     const datas = isNaN(c.getTime()) ? '' : `check-in ${fmt(c)}, check-out ${fmt(new Date(c.getTime() + n * 864e5))}`;
     const resumo = `${d.fixas ? '' : datas + ' · '}${desc.join(' + ') || 'escolha os bangalôs'}${c03 + c412 ? ` + ${c03 + c412} criança(s)` : ''} · ${n} noites · ${pessoas} pessoas`;
     f.querySelector('[data-resumo]')!.textContent = resumo;
-    f.querySelector('[data-total]')!.textContent = excede ? `Acima de ${d.bangalos} bangalôs / ${d.max} pessoas: fale no WhatsApp` : ok ? brl(total) : '—';
+    f.querySelector('[data-total]')!.textContent = excede ? 'Para mais bangalôs ou pessoas, fale com a gente no WhatsApp' : ok ? brl(total) : '—';
     f.querySelector('[data-sinal-valor]')!.textContent = ok ? brl(sinal) : '—';
     const msg = `Oi! ${d.pacote}, ${datas}: ${resumo}.`;
     f.querySelector<HTMLAnchorElement>('[data-wa-link]')!.href = `${d.wa}?text=${encodeURIComponent(msg)}`;
