@@ -28,10 +28,11 @@ const p = Astro.props;
 const fim = new Date(Date.parse(p.dataMax + 'T00:00:00Z') + p.minNoites * 864e5).toISOString().slice(0, 10);
 const WA = `https://wa.me/${SITE.contact.whatsapp}`;
 const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+import { LIMITE_BANGALOS_CHECKOUT } from '../data/site';
 ---
 <main class="ck">
   <form id="ck" class="ck-caixa" data-wa={WA} data-fim={fim} data-tag="carlospecucci" data-pacote={p.nome} data-min={p.minNoites}
-    data-sinal={p.sinalPct} data-pornoite={p.porNoite ? 1 : 0} data-max={p.maxHospedes} data-fixas={p.datasFixas ? 1 : undefined} data-bangalos={p.totalBangalos}>
+    data-sinal={p.sinalPct} data-pornoite={p.porNoite ? 1 : 0} data-max={p.maxHospedes} data-fixas={p.datasFixas ? 1 : undefined} data-bangalos={LIMITE_BANGALOS_CHECKOUT}>
     <a href="/pt/" class="ck-marca">Villa Arapiuns · Rio Arapiuns, Pará</a>
     <h1 class="ck-h1">{p.nome}</h1>
     <p class="ck-promessa">{p.promessa}</p>
@@ -51,7 +52,7 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
       {p.ocupacoes.map((o, i) => (
         <label>
           <span>{o.nome}<small>{brl(o.precoPessoa)}/pessoa{p.porNoite ? '/noite' : ''}</small></span>
-          <input type="number" inputmode="numeric" name={`oc${i}`} min="0" max={p.totalBangalos} value={i === 1 ? 1 : 0} data-pessoas={o.pessoas} data-preco={o.precoPessoa} aria-label={`Bangalôs ${o.nome}`} />
+          <input type="number" inputmode="numeric" name={`oc${i}`} min="0" max={LIMITE_BANGALOS_CHECKOUT} value={i === 1 ? 1 : 0} data-pessoas={o.pessoas} data-preco={o.precoPessoa} aria-label={`Bangalôs ${o.nome}`} />
         </label>
       ))}
     </div>
@@ -108,7 +109,7 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
     const datas = isNaN(c.getTime()) ? '' : `check-in ${fmt(c)}, check-out ${fmt(new Date(c.getTime() + n * 864e5))}`;
     const resumo = `${d.fixas ? '' : datas + ' · '}${desc.join(' + ') || 'escolha os bangalôs'}${c03 + c412 ? ` + ${c03 + c412} criança(s)` : ''} · ${n} noites · ${pessoas} pessoas`;
     f.querySelector('[data-resumo]')!.textContent = resumo;
-    f.querySelector('[data-total]')!.textContent = excede ? `Acima de ${d.bangalos} bangalôs / ${d.max} pessoas: fale no WhatsApp` : ok ? brl(total) : '—';
+    f.querySelector('[data-total]')!.textContent = excede ? 'Para mais bangalôs ou pessoas, fale com a gente no WhatsApp' : ok ? brl(total) : '—';
     f.querySelector('[data-sinal-valor]')!.textContent = ok ? brl(sinal) : '—';
     const msg = `Oi! ${d.pacote}, ${datas}: ${resumo}.`;
     f.querySelector<HTMLAnchorElement>('[data-wa-link]')!.href = `${d.wa}?text=${encodeURIComponent(msg)}`;
