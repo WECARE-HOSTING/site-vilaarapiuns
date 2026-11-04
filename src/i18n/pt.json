@@ -11,13 +11,13 @@
     "tagline": "Pousada na Amazônia · Rio Arapiuns, Pará"
   },
   "titulo": {
-    "home": "Villa Arapiuns | Pousada no Rio Arapiuns | Alter do Chão",
+    "home": "Pousada na Amazônia · a 1h30 de Alter do Chão | Villa Arapiuns",
     "lodge": "Pousada no Rio Arapiuns | 13 bangalôs | Villa Arapiuns",
     "packages": "Pacotes saindo de Alter do Chão · Villa Arapiuns",
     "privateVilla": "Villa inteira para grupos de 15 a 26 | Rio Arapiuns | Villa Arapiuns",
-    "reveillon": "Réveillon Wellness na Amazônia, a 1h30 de Alter do Chão",
+    "reveillon": "Réveillon na Amazônia 2026/27 · Rio Arapiuns | Villa Arapiuns",
     "gettingHere": "Como chegar por Santarém e Alter do Chão · Villa Arapiuns",
-    "detox": "Pós-Ano Novo Detox 2027 no Rio Arapiuns | Villa Arapiuns"
+    "detox": "Retiro Detox na Amazônia · 1–10 jan 2027 | Villa Arapiuns"
   },
   "nav": {
     "lodge": "A Pousada",
@@ -77,19 +77,19 @@
     "aviseme": "Olá! Quero receber as novidades e as próximas datas da Villa Arapiuns."
   },
   "desc": {
-    "home": "Site oficial da Villa Arapiuns: 13 bangalôs no Rio Arapiuns, a 1h30 de Alter do Chão. Reserve direto com a casa pelo WhatsApp +55 47 99206-7078.",
+    "home": "Site oficial da Villa Arapiuns: pousada na Amazônia com 13 bangalôs no Rio Arapiuns, a 1h30 de Alter do Chão. Reserve direto com a casa pelo WhatsApp +55 47 99206-7078.",
     "lodge": "Pousada no Rio Arapiuns, a 1h30 de Alter do Chão: 13 bangalôs entre a floresta e a areia branca. Réveillon e praias.",
     "dining": "A mesa da Villa Arapiuns: peixe do rio, farinha da comunidade, café passado na hora — e a Piracaia à beira-rio.",
     "experiences": "Trilhas, canoa, praia e oficinas com as comunidades ribeirinhas do Arapiuns.",
     "packages": "Pacotes saindo de Alter do Chão com roteiro fechado: uma noite com sete experiências, ou duas noites com dez.",
     "privateVilla": "A Villa Arapiuns inteira para o seu grupo, de 15 a 26 pessoas: 13 bangalôs, shala, pavilhão, redário e praia de água doce no Rio Arapiuns, a 1h30 de Alter do Chão.",
-    "reveillon": "Vire o ano com os pés na areia branca, bem em frente à Ponta Grande. Silêncio, rio, comida da floresta e ritual de passagem. Restam 8 acomodações.",
+    "reveillon": "Réveillon na Amazônia: vire o ano com os pés na areia branca do Rio Arapiuns, bem em frente à Ponta Grande, a 1h30 de Alter do Chão. Silêncio, rio e ritual de passagem.",
     "gettingHere": "Como chegar à Villa Arapiuns: voo até Santarém, traslado a Alter do Chão e, de lá, 1h30 até a Villa. A logística é combinada com o anfitrião antes da viagem.",
     "gallery": "Fotos da Villa Arapiuns: os bangalôs, o rio, a mata e as comunidades do Arapiuns.",
     "reviews": "O que os hóspedes contam depois de ficar na Villa Arapiuns.",
     "book": "Reserve sua estadia na Villa Arapiuns pelo WhatsApp e fale direto com a Villa.",
     "bookSent": "Sua mensagem chegou. Respondemos em até 24 horas.",
-    "detox": "Depois da virada, o rio. De 1 a 10 de janeiro: desacelerar, detox digital, comida da floresta e água cristalina, a 1h30 de Alter do Chão."
+    "detox": "Retiro Detox na Amazônia, de 1 a 10 de janeiro de 2027: depois da virada, o rio. Desacelerar e desligar no Rio Arapiuns, a 1h30 de Alter do Chão."
   },
   "home": {
     "hookA": "Imagina acordar no dia 1",
@@ -359,7 +359,7 @@
       }
     ],
     "campoLancha": "a 1h30 de {place}",
-    "heroMarca": "Villa Arapiuns | Pousada no Rio Arapiuns",
+    "heroMarca": "Villa Arapiuns | Pousada na Amazônia",
     "heroSub": "Pousada no Rio Arapiuns, 1h30 de Alter do Chão, bem em frente à Ponta Grande."
   },
   "modo": {
@@ -788,7 +788,7 @@
     "cta": "Pedir proposta no WhatsApp"
   },
   "reveillon": {
-    "h1": "Réveillon Wellness no Rio Arapiuns",
+    "h1": "Réveillon na Amazônia, no Rio Arapiuns",
     "intro": "De 28 de dezembro a 2 de janeiro, a 1h30 de Alter do Chão. Uma virada para começar o ano inteiro: práticas de yoga e meditação na shala, sound healing, banho de rio e comida da floresta. São 8 bangalôs disponíveis nesta semana.",
     "campoBangalos": "8 bangalôs disponíveis",
     "campoExclusividade": "exclusividade sob consulta",
@@ -838,13 +838,15 @@
     "a5": "Voo até Santarém (STM) — com conexão a partir de São Paulo, ou direto de Brasília, Belém e Manaus —, traslado até Alter do Chão e, de lá, 1h30 até a Villa. A logística combinamos com você antes da viagem.",
     "q6": "Posso fechar a Villa inteira?",
     "a6": "Exclusividade para grupos sob consulta: os 8 bangalôs disponíveis, a shala, o pavilhão, o redário e a praia, sem ninguém de fora na data. Chame no WhatsApp.",
+    "q7": "A água do rio é barrenta?",
+    "a7": "Não. O Arapiuns não tem a água barrenta do Amazonas: é água doce, que corre sobre bancos de areia branca. A cor e a transparência mudam ao longo do ano com o nível do rio, e no WhatsApp a gente conta como ele está na sua data.",
     "notaFinal": "Vagas limitadas: 8 bangalôs disponíveis na semana da virada.",
     "cta": "Consultar a virada no WhatsApp",
     "ctaPagina": "Ver o réveillon",
     "verDetox": "Fique para o Detox, de 1 a 10 de janeiro"
   },
   "detox": {
-    "h1": "Detox pós-Ano Novo no Rio Arapiuns",
+    "h1": "Retiro Detox na Amazônia, de 1 a 10 de janeiro",
     "intro": "A festa acabou. De 1 a 10 de janeiro de 2027, a Villa recebe quem quer começar o ano devagar: comida da floresta, nenhum drinque e nenhuma caixa de som, a 1h30 de Alter do Chão.",
     "campoJanela": "01 – 10 jan",
     "janelaCurta": "1 a 10 jan",
@@ -890,6 +892,10 @@
     "a5": "Sim. A partir de 15 pessoas o grupo tem exclusividade: os 8 bangalôs disponíveis, o pavilhão, o redário, a shala e a praia, sem ninguém de fora na data.",
     "q6": "Como chego?",
     "a6": "Voo até Santarém (STM), traslado por terra até Alter do Chão e, de lá, 1h30 até a Villa. A logística combinamos com você antes da viagem.",
+    "q7": "Tem mosquito?",
+    "a7": "Na praia de areia branca, com o vento do rio, aparece pouco mosquito. Na mata e no fim da tarde eles existem, como em qualquer lugar da Amazônia: traga repelente e uma roupa de manga longa para o entardecer.",
+    "q8": "A água do rio é barrenta?",
+    "a8": "Não. O Arapiuns não tem a água barrenta do Amazonas: é água doce, que corre sobre bancos de areia branca. A cor e a transparência mudam ao longo do ano com o nível do rio, e no WhatsApp a gente conta como ele está na sua data.",
     "ctaFinalD": "São 8 bangalôs disponíveis para os primeiros dias de 2027. Diga quantas pessoas são e quando querem chegar.",
     "ctaPagina": "Ver o Detox",
     "nome": "Detox pós-Ano Novo"

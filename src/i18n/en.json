@@ -11,13 +11,13 @@
     "tagline": "Amazon Lodge · Arapiuns River, Pará"
   },
   "titulo": {
-    "home": "Villa Arapiuns | Amazon Lodge on the Arapiuns River | Alter do Chão",
+    "home": "Amazon Lodge · 1h30 from Alter do Chão | Villa Arapiuns",
     "lodge": "The Lodge · Villa Arapiuns",
     "packages": "Packages · Villa Arapiuns",
     "privateVilla": "Groups · Villa Arapiuns",
-    "reveillon": "New Year's Eve · Villa Arapiuns",
+    "reveillon": "New Year's Eve in the Amazon 2026/27 · Arapiuns River | Villa Arapiuns",
     "gettingHere": "Getting Here · Villa Arapiuns",
-    "detox": "Post-New Year Detox 2027 | Arapiuns River | Villa Arapiuns"
+    "detox": "Amazon Detox Retreat · 1–10 Jan 2027 | Villa Arapiuns"
   },
   "nav": {
     "lodge": "The Lodge",
@@ -77,19 +77,19 @@
     "aviseme": "Hi! I'd like to hear about news and upcoming dates at Villa Arapiuns."
   },
   "desc": {
-    "home": "Official site of Villa Arapiuns: 13 bungalows on the Arapiuns River, 90 minutes from Alter do Chão. Book direct with the house on WhatsApp +55 47 99206-7078.",
+    "home": "Official site of Villa Arapiuns: an Amazon lodge with 13 bungalows on the Arapiuns River, 1h30 from Alter do Chão. Book direct with the house on WhatsApp +55 47 99206-7078.",
     "lodge": "The 13 bungalows of Villa Arapiuns: two-storey Tapajônica architecture, mahogany, marquetry and handwoven cloth.",
     "dining": "The table at Villa Arapiuns: river fish, cassava flour from the community, coffee brewed to order — and the Piracaia at the water's edge.",
     "experiences": "Trails, canoe, beach and workshops with the riverside communities of the Arapiuns.",
     "packages": "Packages departing from Alter do Chão with a set itinerary: one night with seven experiences, or two nights with ten.",
     "privateVilla": "The whole of Villa Arapiuns for one group: retreats, company teams, birdwatching and night dive-fishing with the families who live on the river. Exclusive use from 15 people.",
-    "reveillon": "New Year's Eve 2026/27 at Villa Arapiuns: see the year turn on a white-sand freshwater beach on the Rio Arapiuns, 1h30 from Alter do Chão. 4–5 night packages for groups and families.",
+    "reveillon": "New Year's Eve in the Amazon at Villa Arapiuns: see the year turn on a white-sand freshwater beach on the Arapiuns River, 1h30 from Alter do Chão. 4–5 night packages for groups and families.",
     "gettingHere": "How to reach Villa Arapiuns: fly to Santarém, transfer to Alter do Chão, and from there 90 minutes to the Villa. Logistics are arranged with the host before the trip.",
     "gallery": "Photographs of Villa Arapiuns: the bungalows, the river, the forest and the Arapiuns communities.",
     "reviews": "What guests say after staying at Villa Arapiuns.",
     "book": "Book your stay at Villa Arapiuns on WhatsApp and talk straight to the house.",
     "bookSent": "Your message arrived. We reply within 24 hours.",
-    "detox": "Post-New Year Detox at Villa Arapiuns, 1 to 10 January 2027: forest food, açaí, no alcohol served by the house and 13 bungalows on the Arapiuns River, 90 minutes from Alter do Chão."
+    "detox": "Detox retreat in the Amazon, 1 to 10 January 2027: after New Year, the river. Slow down and switch off on the Arapiuns River, 1h30 from Alter do Chão."
   },
   "home": {
     "hookA": "A freshwater Caribbean",
@@ -359,7 +359,7 @@
       }
     ],
     "campoLancha": "1h30 from {place}",
-    "heroMarca": "Villa Arapiuns | Amazon Lodge",
+    "heroMarca": "Villa Arapiuns | Lodge in the Amazon",
     "heroSub": "A lodge on the Arapiuns River, 90 minutes from Alter do Chão. 13 bungalows on a freshwater beach."
   },
   "modo": {
@@ -788,7 +788,7 @@
     "cta": "Ask for a quote on WhatsApp"
   },
   "reveillon": {
-    "h1": "New Year 2026/27 on the Arapiuns River | Alter do Chão",
+    "h1": "New Year's Eve in the Amazon, on the Arapiuns River",
     "intro": "From December 28 to January 2, 90 minutes from Alter do Chão. There are 13 bungalows: book your own, or close the Villa for a group of 15 to 26.",
     "campoJanela": "Dec 28 – Jan 02",
     "b1T": "The window",
@@ -836,6 +836,8 @@
     "a5": "Fly to Santarém (STM) — connections from São Paulo, direct flights from Brasília, Belém and Manaus — then transfer to Alter do Chão; the Villa is 1h30 from there. We arrange the logistics with you before the trip.",
     "q6": "Can we book the whole Villa?",
     "a6": "Yes. From 15 guests your group has exclusive use: thirteen bungalows for up to 26 guests, the pavilion, the hammock grove and the beach, with no one else on the property.",
+    "q7": "Is the river water muddy?",
+    "a7": "No. The Arapiuns doesn't have the muddy water of the Amazon itself: it's fresh water running over white sandbanks. Its colour and clarity change through the year with the river level, and on WhatsApp we'll tell you how it looks for your dates.",
     "notaFinal": "Limited places: 13 bungalows, for at most 26 people over the New Year week.",
     "cta": "Ask about New Year's Eve on WhatsApp",
     "ctaPagina": "See New Year's Eve",
@@ -844,7 +846,7 @@
     "campoExclusividade": "exclusive use from 15 guests"
   },
   "detox": {
-    "h1": "Post-New Year Detox on the Arapiuns River",
+    "h1": "Detox Retreat in the Amazon, 1–10 January",
     "intro": "The party is over. From 1 to 10 January 2027, the Villa hosts people who want to start the year slowly: forest food, no cocktails and no speakers, 90 minutes from Alter do Chão.",
     "campoJanela": "01 – 10 Jan",
     "janelaCurta": "1–10 Jan",
@@ -889,6 +891,10 @@
     "a5": "Yes. From 15 people the group has exclusive use: the 13 bungalows for up to 26 guests, the pavilion, the hammock house, the shala and the beach, with nobody from outside on your dates.",
     "q6": "How do I get there?",
     "a6": "Fly to Santarém (STM), transfer by road to Alter do Chão; the Villa is 90 minutes from there. We arrange the logistics with you before the trip.",
+    "q7": "Are there mosquitoes?",
+    "a7": "On the white-sand beach, with the breeze off the river, there are few mosquitoes. In the forest and at dusk they're around, as anywhere in the Amazon: bring repellent and a long-sleeved layer for the evening.",
+    "q8": "Is the river water muddy?",
+    "a8": "No. The Arapiuns doesn't have the muddy water of the Amazon itself: it's fresh water running over white sandbanks. Its colour and clarity change through the year with the river level, and on WhatsApp we'll tell you how it looks for your dates.",
     "ctaFinalD": "There are 13 bungalows for the first days of 2027. Tell us how many of you there are and when you want to arrive.",
     "ctaPagina": "See the Detox",
     "nome": "Post-New Year Detox",
