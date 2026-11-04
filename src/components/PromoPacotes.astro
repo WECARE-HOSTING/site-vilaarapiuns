@@ -24,7 +24,7 @@ const pacotes = [
     alt: 'Roda de conversa na areia branca da Villa Arapiuns',
     rotulo: 'Réveillon 2026/27',
     gancho: 'Imagina acordar no dia 1 com o rio na porta do bangalô.',
-    texto: 'A virada na areia branca, todas as refeições incluídas.',
+    texto: 'A virada na areia branca, com o rio em frente.',
     pagar: '/pt/lp/pagar-reveillon/',
     ver: '/pt/lp/reveillon/',
     wa: 'Olá! Vim pelo site e quero fechar o pacote de Réveillon na Villa Arapiuns.',
@@ -36,7 +36,7 @@ const pacotes = [
     alt: 'Banho de rio em água cristalina no Rio Arapiuns',
     rotulo: 'Ano Novo Detox · 1 a 10/01',
     gancho: 'Depois da festa da virada, o corpo pede pausa.',
-    texto: 'Dias de rio, floresta e silêncio, todas as refeições incluídas.',
+    texto: 'Dias de rio, floresta e silêncio para começar o ano devagar.',
     pagar: '/pt/lp/pagar-detox/',
     ver: '/pt/lp/detox-pos-reveillon/',
     wa: 'Olá! Vim pelo site e quero fechar o pacote Ano Novo Detox na Villa Arapiuns.',
@@ -74,7 +74,7 @@ const pacotes = [
 {pacotes.length > 0 && variante === 'faixa' && (
   <aside class="promo-faixa container-editorial my-10" aria-label="Pacotes de virada">
     <p class="font-display text-xl leading-snug">Imagina acordar no dia 1 com o rio na porta do bangalô.</p>
-    <p class="mt-1">Réveillon e Ano Novo Detox, todas as refeições incluídas.</p>
+    <p class="mt-1">Réveillon e Ano Novo Detox no Rio Arapiuns. Vagas limitadas.</p>
     <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
       {pacotes.map((p) => (
         <a href={p.pagar} class="btn btn-primario" data-promo={p.id} data-promo-acao="pagar" data-promo-origem={origem}>

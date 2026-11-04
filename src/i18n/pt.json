@@ -49,7 +49,8 @@
     "host": "Anfitrião local na Villa",
     "power": "Energia 24h (solar) e Wi‑Fi Starlink",
     "mosquito": "Praticamente sem mosquito",
-    "meals": "Todas as refeições incluídas na hospedagem (café da manhã, almoço e jantar)"
+    "meals": "Na pousada, café da manhã, almoço e jantar fazem parte da estadia",
+    "paddle": "Stand-up paddle e caiaque incluídos na estadia na pousada"
   },
   "dia": {
     "incluso": "Refeição",
@@ -77,7 +78,7 @@
   },
   "desc": {
     "home": "Site oficial da Villa Arapiuns: 13 bangalôs no Rio Arapiuns, a 1h30 de Alter do Chão. Reserve direto com a casa pelo WhatsApp +55 47 99206-7078.",
-    "lodge": "Pousada no Rio Arapiuns, a 1h30 de Alter do Chão: bangalôs com todas as refeições incluídas, energia solar 24h e Starlink. Réveillon e praias.",
+    "lodge": "Pousada no Rio Arapiuns, a 1h30 de Alter do Chão: 13 bangalôs entre a floresta e a areia branca. Réveillon e praias.",
     "dining": "A mesa da Villa Arapiuns: peixe do rio, farinha da comunidade, café passado na hora — e a Piracaia à beira-rio.",
     "experiences": "Trilhas, canoa, praia e oficinas com as comunidades ribeirinhas do Arapiuns.",
     "packages": "Pacotes saindo de Alter do Chão com roteiro fechado: uma noite com sete experiências, ou duas noites com dez.",
@@ -110,7 +111,7 @@
     "casaP1": "As portas são de mogno, com marchetaria: cunhas de veio oposto irradiando de um centro octogonal, cortadas e encaixadas à mão. O mesmo octógono volta como medalhão nas portas internas.",
     "casaP2": "As mantas são tecidas em tear, xadrez de chocolate e aveia. A luminária da varanda é de fibra trançada. Os bangalôs são de arquitetura tapajônica, de dois andares. Nada disso veio de catálogo — e é por isso que a Villa não se parece com nenhuma outra pousada do rio.",
     "diaT": "Um dia na Villa",
-    "diaI": "Do café na varanda à fogueira na praia. As atividades pagas direto à comunidade vêm marcadas.",
+    "diaI": "Do café na varanda à fogueira na praia, num dia do pacote. O café da manhã e o jantar na Villa estão no pacote; o almoço na comunidade, no dia do passeio, é pago à parte, direto à comunidade, e vem marcado.",
     "precoT": "Preço",
     "precoSob": "Sob consulta",
     "precoD": "A diária cai conforme o grupo cresce e a estadia se alonga. Diga quantas pessoas e quantas noites, e a gente responde com o valor fechado pelo WhatsApp, sem formulário.",
@@ -359,19 +360,19 @@
     ],
     "campoLancha": "a 1h30 de {place}",
     "heroMarca": "Villa Arapiuns | Pousada no Rio Arapiuns",
-    "heroSub": "Pousada no Rio Arapiuns, 1h30 de Alter do Chão, bem em frente à Ponta Grande. Todas as refeições incluídas."
+    "heroSub": "Pousada no Rio Arapiuns, 1h30 de Alter do Chão, bem em frente à Ponta Grande."
   },
   "modo": {
     "titulo": "Duas maneiras de ficar",
     "intro": "A Villa recebe de dois jeitos, e eles não são o mesmo produto. Escolha pelo que você quer do tempo.",
     "pousadaT": "Pousada",
     "pousadaD": "Você fica os dias na Villa e escolhe o que fazer — ou não fazer. Passeios são contratados à parte, conforme o interesse do grupo.",
-    "pousadaInc": "Hospedagem em bangalô · todas as refeições incluídas (café da manhã, almoço e jantar)",
+    "pousadaInc": "Hospedagem em bangalô · café da manhã, almoço e jantar: não há restaurante por perto, e as refeições fazem parte da estadia · stand-up paddle e caiaque, também incluídos",
     "pousadaFora": "Deslocamento até a Villa, passeios e bebidas alcoólicas",
     "pacoteT": "Pacote completo",
     "pacoteD": "Sai de Alter do Chão com roteiro e atividades já fechados. Uma noite com sete experiências, ou duas noites com dez.",
     "pacoteInc": "Hospedagem · atividades do roteiro · café da manhã e jantar",
-    "pacoteFora": "Bebidas alcoólicas. O roteiro em si não tem extras.",
+    "pacoteFora": "Bebidas alcoólicas. Os extras pagos à parte são o almoço na comunidade, a massagem e as atividades com as comunidades (farinhada, tecelagem).",
     "inclusoRot": "Incluso",
     "foraRot": "À parte",
     "aPartirDe": "A partir de",
@@ -434,7 +435,7 @@
     "intro": "Peixe do rio, farinha da comunidade, fruta do quintal e café passado na hora. Cozinha própria, servindo no pavilhão aberto.",
     "escopoT": "O que está incluído",
     "escopo1T": "Refeições: incluídas",
-    "escopo1D": "Na pousada, todas as refeições incluídas (café da manhã, almoço e jantar). Nos pacotes saindo de Alter do Chão, café da manhã e jantar.",
+    "escopo1D": "Na pousada, café da manhã, almoço e jantar fazem parte da estadia. Nos pacotes saindo de Alter do Chão, café da manhã e jantar.",
     "escopo3T": "Bebidas alcoólicas: à parte",
     "escopo3D": "Cerveja, vinho e destilados não estão inclusos em nenhuma das modalidades, e são cobrados à parte.",
     "piraT": "A Piracaia",
@@ -808,7 +809,7 @@
     "v1T": "A piracaia de 31",
     "v1D": "O jantar da virada é o rito da casa: peixe do rio assado na areia, à luz de velas, servido em roda pela equipe que vive aqui.",
     "v2T": "A praia no primeiro dia",
-    "v2D": "Areia branca, água doce cristalina e praticamente sem mosquito. O primeiro banho do ano é a poucos passos do bangalô.",
+    "v2D": "Areia branca e água doce cristalina. O primeiro banho do ano é a poucos passos do bangalô.",
     "v3T": "Longe da multidão",
     "v3D": "Alter do Chão recebe dezenas de milhares de pessoas na virada. Perto o bastante para chegar; longe o bastante para dormir ouvindo o rio.",
     "figLuau": "O luau · velas e fogo na areia",
