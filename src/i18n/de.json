@@ -11,13 +11,13 @@
     "tagline": "Lodge im Amazonasgebiet · Rio Arapiuns, Pará"
   },
   "titulo": {
-    "home": "Villa Arapiuns | Amazonas-Lodge am Rio Arapiuns | Alter do Chão",
+    "home": "Lodge im Amazonas · 1,5 Std. von Alter do Chão | Villa Arapiuns",
     "lodge": "Die Lodge · Villa Arapiuns",
     "packages": "Pakete · Villa Arapiuns",
     "privateVilla": "Gruppen · Villa Arapiuns",
-    "reveillon": "Silvester · Villa Arapiuns",
+    "reveillon": "Silvester im Amazonas 2026/27 · Rio Arapiuns | Villa Arapiuns",
     "gettingHere": "Anreise · Villa Arapiuns",
-    "detox": "Detox nach Neujahr 2027 | Rio Arapiuns | Villa Arapiuns"
+    "detox": "Detox-Retreat im Amazonas · 1.–10. Jan. 2027 | Villa Arapiuns"
   },
   "nav": {
     "lodge": "Die Lodge",
@@ -48,7 +48,6 @@
     "team": "Eigenes Team für die Logistik",
     "host": "Gastgeber vor Ort in der Villa",
     "power": "Strom rund um die Uhr (Solar) und Starlink-WLAN",
-    "mosquito": "So gut wie keine Mücken",
     "meals": "Beim Aufenthalt in der Lodge gehören Frühstück, Mittag- und Abendessen zum Aufenthalt",
     "paddle": "Stand-up-Paddle und Kajak beim Lodge-Aufenthalt inklusive"
   },
@@ -77,19 +76,19 @@
     "aviseme": "Hallo! Ich möchte Neuigkeiten und kommende Termine der Villa Arapiuns erhalten."
   },
   "desc": {
-    "home": "Dreizehn Bungalows am Rio Arapiuns, 1,5 Stunden von Alter do Chão. Bleiben Sie ein paar Tage in der Villa, oder kommen Sie mit einem Paket mit festem Programm ab Alter do Chão.",
+    "home": "Offizielle Website der Villa Arapiuns: Lodge im Amazonas mit dreizehn Bungalows am Rio Arapiuns, 1,5 Stunden von Alter do Chão. Bleiben Sie ein paar Tage in der Villa, oder kommen Sie mit einem Paket mit festem Programm ab Alter do Chão.",
     "lodge": "Die 13 Bungalows der Villa Arapiuns: zweigeschossige tapajónische Architektur, Mahagoni, Intarsien und handgewebte Stoffe.",
     "dining": "Der Tisch der Villa Arapiuns: Fisch aus dem Fluss, Maniokmehl aus der Gemeinde, frisch aufgebrühter Kaffee — und die Piracaia am Flussufer.",
     "experiences": "Wanderwege, Kanu, Strand und Workshops mit den Flussgemeinden des Arapiuns.",
     "packages": "Pakete ab Alter do Chão mit festem Programm: eine Nacht mit sieben Erlebnissen oder zwei Nächte mit zehn.",
     "privateVilla": "Die ganze Villa Arapiuns für eine Gruppe: Retreats, Firmenteams, Vogelbeobachtung und nächtliches Tauchfischen mit den Familien am Fluss. Exklusivnutzung ab 15 Personen.",
-    "reveillon": "Silvester 2026/27 in der Villa Arapiuns: Jahreswechsel an einem weißen Süßwasserstrand am Rio Arapiuns, 1,5 Stunden von Alter do Chão. Pakete mit 4–5 Nächten für Gruppen und Familien.",
+    "reveillon": "Silvester im Amazonas in der Villa Arapiuns: Jahreswechsel an einem weißen Süßwasserstrand am Rio Arapiuns, 1,5 Stunden von Alter do Chão. Pakete mit 4–5 Nächten für Gruppen und Familien.",
     "gettingHere": "So erreichen Sie die Villa Arapiuns: Flug nach Santarém, Transfer nach Alter do Chão und von dort 1,5 Stunden bis zur Villa. Die Logistik wird vor der Reise mit dem Gastgeber abgestimmt.",
     "gallery": "Fotos der Villa Arapiuns: die Bungalows, der Fluss, der Wald und die Gemeinden des Arapiuns.",
     "reviews": "Was Gäste nach ihrem Aufenthalt in der Villa Arapiuns erzählen.",
     "book": "Buchen Sie Ihren Aufenthalt in der Villa Arapiuns über WhatsApp und sprechen Sie direkt mit dem Haus.",
     "bookSent": "Ihre Nachricht ist angekommen. Wir antworten innerhalb von 24 Stunden.",
-    "detox": "Detox nach Neujahr in der Villa Arapiuns, 1. bis 10. Januar 2027: Essen aus dem Wald, Açaí, kein Alkohol vom Haus und 13 Bungalows am Rio Arapiuns, 1,5 Stunden von Alter do Chão."
+    "detox": "Detox-Retreat im Amazonas, 1. bis 10. Januar 2027: nach Neujahr der Fluss. Kristallklares Wasser, Ruhe und Zeit zum Abschalten am Rio Arapiuns, 1,5 Stunden von Alter do Chão."
   },
   "home": {
     "hookA": "Eine Karibik aus Süßwasser,",
@@ -359,7 +358,7 @@
       }
     ],
     "campoLancha": "1,5 Std. ab {place}",
-    "heroMarca": "Villa Arapiuns | Lodge am Rio Arapiuns",
+    "heroMarca": "Villa Arapiuns | Lodge im Amazonas",
     "heroSub": "Lodge am Rio Arapiuns, 1,5 Stunden von Alter do Chão. 13 Bungalows an einem Süßwasserstrand."
   },
   "modo": {
@@ -408,8 +407,8 @@
     "c4D": "Ein überdachter Raum für die Praxis — oder dafür, gar nichts zu tun.",
     "viverT": "Wie sich ein Aufenthalt hier anfühlt",
     "viverI": "Drei Dinge, nach denen vor der Ankunft niemand fragt und die danach alle erwähnen.",
-    "mosquitoT": "So gut wie keine Mücken",
-    "mosquitoD": "Das klare Wasser und die Sandstrände des Arapiuns haben weit weniger Mücken als der Überschwemmungswald des Amazonas. Abendessen im Sand ohne Mückenschutz ist die Überraschung, von der am häufigsten berichtet wird — gerade von denen, die das Gegenteil erwartet hatten.",
+    "mosquitoT": "Wenige Mücken am Strand",
+    "mosquitoD": "Gäste der Villa bemerken am Strand meist nur wenige Mücken, ohne die Plagegeister anderer Reiseziele. Im Wald und in der Abenddämmerung tauchen sie auf, wie überall im Amazonas: Bring Mückenschutz und lange Ärmel mit.",
     "aguaT": "Die Dusche braucht keinen Boiler",
     "aguaD": "In der Villa gibt es keinen Warmwasserboiler, weil das Klima keinen braucht. Das Duschwasser ist das natürliche Wasser aus unserem eigenen Brunnen, mit der Temperatur, mit der es ankommt — und die ändert sich mit der Jahreszeit. Das ist der Teil, der die Gäste dem Ort am nächsten bringt. Zum Trinken gibt es einen Filter: jederzeit sauberes Wasser.",
     "telaT": "Es gibt keinen Fernseher",
@@ -691,7 +690,7 @@
       }
     ],
     "q6": "Gibt es Mücken?",
-    "a6": "Kaum. Das klare Wasser und die Sandstrände des Arapiuns haben weit weniger Mücken als das Überschwemmungsgebiet (Várzea) des Amazonas."
+    "a6": "Gäste der Villa bemerken am Strand meist nur wenige Mücken, ohne die Plagegeister anderer Reiseziele. Im Wald und in der Abenddämmerung tauchen sie auf, wie überall im Amazonas: Bring Mückenschutz und lange Ärmel mit."
   },
   "mapa": {
     "alt": "Karte der Region: Die Villa Arapiuns liegt am Ufer des Rio Arapiuns, im Westen. Im Osten, wo der Rio Tapajós auf den Amazonas trifft, liegen Alter do Chão und, etwas weiter, Santarém.",
@@ -788,7 +787,7 @@
     "cta": "Angebot per WhatsApp anfragen"
   },
   "reveillon": {
-    "h1": "Silvester am Strand der Villa",
+    "h1": "Silvester im Amazonas, am Rio Arapiuns",
     "intro": "Zwischen dem 28. Dezember und dem 2. Januar wechselt das Jahr hier: weißer Süßwasserstrand, die Piracaia am Flussufer, ein Kerzenkreis im Sand — und keine Menschenmassen. Alter do Chão ist an Silvester überfüllt; die Villa liegt 1,5 Stunden flussaufwärts, zwischen zwei Schutzgebieten.",
     "campoJanela": "28. Dez – 02. Jan",
     "b1T": "Das Zeitfenster",
@@ -807,7 +806,7 @@
     "v1T": "Die Piracaia am 31.",
     "v1D": "Das Silvesteressen ist das Ritual des Hauses: Flussfisch, im Sand gegrillt, bei Kerzenlicht, im Kreis serviert vom Team, das hier lebt.",
     "v2T": "Der Strand am ersten Tag",
-    "v2D": "Weißer Sand, glasklares Süßwasser und so gut wie keine Mücken. Das erste Bad des Jahres liegt wenige Schritte vom Bungalow.",
+    "v2D": "Weißer Sand und glasklares Süßwasser. Das erste Bad des Jahres liegt wenige Schritte vom Bungalow.",
     "v3T": "Fern der Menge",
     "v3D": "Alter do Chão zieht an Silvester Zehntausende an. Nah genug, um anzukommen; weit genug, um beim Klang des Flusses einzuschlafen.",
     "figLuau": "Das Luau · Kerzen und Feuer im Sand",
@@ -830,21 +829,23 @@
     "a2": "Im Silvesterfenster arbeiten wir mit Paketen von 4–5 Nächten, zwischen dem 28. Dezember und dem 2. Januar.",
     "q3": "Gibt es eine Party? Feuerwerk?",
     "a3": "Nicht wie in der Stadt. Die Nacht des 31. hat die Piracaia — Fisch, im Sand bei Kerzenlicht gegrillt — und den Kreis am Strand. Keine Bühne, kein Feuerwerk: der Himmel hier übernimmt seinen Teil.",
-    "q4": "Gibt es Mücken?",
-    "a4": "Der Strand der Villa ist Süßwasser und weißer Sand, so gut wie ohne Mücken. An Silvester herrscht am Arapiuns Trockenzeit, mit niedrigem Fluss und den Stränden auf ihrem Höchststand.",
     "q5": "Wie reise ich aus dem Ausland an?",
     "a5": "Flug nach Santarém (STM) — mit Umstieg ab São Paulo, oder direkt ab Brasília, Belém und Manaus —, Transfer nach Alter do Chão, von dort 1,5 Stunden bis zur Villa. Die Logistik stimmen wir vor der Reise mit Ihnen ab.",
     "q6": "Können wir die ganze Villa buchen?",
     "a6": "Ja. Ab 15 Gästen hat Ihre Gruppe Exklusivrecht: dreizehn Bungalows für bis zu 26 Gäste, der Pavillon, der Hängemattenhain und der Strand, ohne Fremde am Termin.",
+    "q7": "Ist das Flusswasser schlammig?",
+    "a7": "Der Arapiuns hat nicht das schlammige Wasser des Amazonas: Es ist Süßwasser, das über weiße Sandbänke fließt. Vor der Villa bleibt das Wasser kristallklar, auch beim Hochwasser im Januar. Per WhatsApp sagen wir Ihnen, wie der Fluss zu Ihren Daten aussieht.",
     "notaFinal": "Das Silvesterfenster hat nur einen Termin — und dreizehn Bungalows.",
     "cta": "Silvester auf WhatsApp anfragen",
     "ctaPagina": "Silvester ansehen",
     "verDetox": "Bleiben Sie zum Detox, 1. bis 10. Januar",
     "campoBangalos": "13 Bungalows",
-    "campoExclusividade": "Exklusivität ab 15 Personen"
+    "campoExclusividade": "Exklusivität ab 15 Personen",
+    "q8": "Gibt es Mücken?",
+    "a8": "Gäste der Villa bemerken am Strand meist nur wenige Mücken, ohne die Plagegeister anderer Reiseziele. Im Wald und in der Abenddämmerung tauchen sie auf, wie überall im Amazonas: Bring Mückenschutz und lange Ärmel mit."
   },
   "detox": {
-    "h1": "Detox nach Neujahr am Rio Arapiuns",
+    "h1": "Detox-Retreat im Amazonas, 1. bis 10. Januar",
     "intro": "Die Party ist vorbei. Vom 1. bis 10. Januar 2027 empfängt die Villa alle, die das Jahr langsam beginnen wollen: Essen aus dem Wald, keine Cocktails und keine Lautsprecher, 1,5 Stunden von Alter do Chão.",
     "campoJanela": "01. – 10. Jan",
     "janelaCurta": "1.–10. Jan",
@@ -889,10 +890,14 @@
     "a5": "Ja. Ab 15 Personen hat die Gruppe die Villa exklusiv: die 13 Bungalows für bis zu 26 Gäste, den Pavillon, das Hängemattenhaus, die Shala und den Strand, ohne fremde Gäste an Ihren Tagen.",
     "q6": "Wie komme ich hin?",
     "a6": "Flug nach Santarém (STM), Transfer über Land nach Alter do Chão, von dort 1,5 Stunden bis zur Villa. Die Logistik stimmen wir vor der Reise mit Ihnen ab.",
+    "q7": "Ist das Flusswasser schlammig?",
+    "a7": "Der Arapiuns hat nicht das schlammige Wasser des Amazonas: Es ist Süßwasser, das über weiße Sandbänke fließt. Vor der Villa bleibt das Wasser kristallklar, auch beim Hochwasser im Januar. Per WhatsApp sagen wir Ihnen, wie der Fluss zu Ihren Daten aussieht.",
     "ctaFinalD": "Es gibt 13 Bungalows für die ersten Tage von 2027. Sagen Sie uns, wie viele Sie sind und wann Sie ankommen möchten.",
     "ctaPagina": "Zum Detox",
     "nome": "Detox nach Neujahr",
-    "campoBangalos": "13 Bungalows"
+    "campoBangalos": "13 Bungalows",
+    "q8": "Gibt es Mücken?",
+    "a8": "Gäste der Villa bemerken am Strand meist nur wenige Mücken, ohne die Plagegeister anderer Reiseziele. Im Wald und in der Abenddämmerung tauchen sie auf, wie überall im Amazonas: Bring Mückenschutz und lange Ärmel mit."
   },
   "diario": {
     "titulo": "Journal",
@@ -1284,7 +1289,7 @@
     "msg_reveillon": "Ich möchte Silvester buchen (28.12.2026 bis 02.01.2027).",
     "msg_detox": "Ich möchte das Detox nach Neujahr buchen (1. bis 10.01.2027). Anreise am __, Abreise am __.",
     "devolucao": "Keine Verfügbarkeit: volle Rückerstattung.",
-    "restam": "Nur noch {n} Unterkünfte für diese Termine frei.",
+    "restam": "Begrenzte Plätze.",
     "preReserva": "Vorreservierung erhalten. Wir melden uns, um die Verfügbarkeit zu bestätigen."
   }
 }
