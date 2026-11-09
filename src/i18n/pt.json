@@ -15,7 +15,7 @@
     "lodge": "Pousada no Rio Arapiuns | 13 bangalôs | Villa Arapiuns",
     "packages": "Pacotes saindo de Alter do Chão · Villa Arapiuns",
     "privateVilla": "Villa inteira para grupos de 15 a 26 | Rio Arapiuns | Villa Arapiuns",
-    "reveillon": "Réveillon na Amazônia 2026/27 · Rio Arapiuns | Villa Arapiuns",
+    "reveillon": "Réveillon 2026/27 na Amazônia | Rio Arapiuns | Alter do Chão",
     "gettingHere": "Como chegar por Santarém e Alter do Chão · Villa Arapiuns",
     "detox": "Retiro Detox na Amazônia · 1–10 jan 2027 | Villa Arapiuns"
   },
@@ -82,7 +82,7 @@
     "experiences": "Trilhas, canoa, praia e oficinas com as comunidades ribeirinhas do Arapiuns.",
     "packages": "Pacotes saindo de Alter do Chão com roteiro fechado: uma noite com sete experiências, ou duas noites com dez.",
     "privateVilla": "A Villa Arapiuns inteira para o seu grupo, de 15 a 26 pessoas: 13 bangalôs, shala, pavilhão, redário e praia de água doce no Rio Arapiuns, a 1h30 de Alter do Chão.",
-    "reveillon": "Réveillon na Amazônia: vire o ano com os pés na areia branca do Rio Arapiuns, bem em frente à Ponta Grande, a 1h30 de Alter do Chão. Silêncio, rio e ritual de passagem. Vagas limitadas.",
+    "reveillon": "Réveillon 2026/27 na Amazônia: de 28 de dezembro a 2 de janeiro no Rio Arapiuns, a 1h30 de Alter do Chão. Pacotes de 4 a 5 noites. Vagas limitadas.",
     "gettingHere": "Como chegar à Villa Arapiuns: voo até Santarém, traslado a Alter do Chão e, de lá, 1h30 até a Villa. A logística é combinada com o anfitrião antes da viagem.",
     "gallery": "Fotos da Villa Arapiuns: os bangalôs, o rio, a mata e as comunidades do Arapiuns.",
     "reviews": "O que os hóspedes contam depois de ficar na Villa Arapiuns.",
@@ -842,7 +842,11 @@
     "ctaPagina": "Ver o réveillon",
     "verDetox": "Fique para o Detox, de 1 a 10 de janeiro",
     "q8": "Tem mosquito?",
-    "a8": "Quem fica na Villa costuma notar pouco mosquito na praia, sem o pernilongo de outros destinos. Na mata e ao entardecer eles aparecem, como em toda a Amazônia: traga repelente e manga longa."
+    "a8": "Quem fica na Villa costuma notar pouco mosquito na praia, sem o pernilongo de outros destinos. Na mata e ao entardecer eles aparecem, como em toda a Amazônia: traga repelente e manga longa.",
+    "q9": "Quais são as datas do Réveillon 2026/27?",
+    "a9": "De 28 de dezembro de 2026 a 2 de janeiro de 2027. Os pacotes têm 4 ou 5 noites, a 1h30 de Alter do Chão. Vagas limitadas.",
+    "q10": "O que o pacote de Réveillon inclui?",
+    "a10": "A estadia de 4 a 5 noites, com yoga e meditação na shala, sound healing, banho de rio e a praia de areia branca. No dia 31, a piracaia na areia. As refeições fazem parte da estadia."
   },
   "detox": {
     "h1": "Retiro Detox na Amazônia, de 1 a 10 de janeiro",

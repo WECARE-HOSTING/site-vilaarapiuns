@@ -3,7 +3,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { test } from 'node:test';
 
 import { PAGE_KEYS, SLUGS } from '../src/i18n/routes.ts';
-import { COMPONENTE_DA_PAGINA, fontesPorCaminho } from '../tools/lastmod.mjs';
+import { COMPONENTE_DA_PAGINA, chavesDoComponente, fontesPorCaminho } from '../tools/lastmod.mjs';
 
 test('lastmod: toda PageKey tem componente de conteúdo, e o arquivo existe', () => {
   for (const k of PAGE_KEYS) {
@@ -11,6 +11,15 @@ test('lastmod: toda PageKey tem componente de conteúdo, e o arquivo existe', ()
     assert.ok(comp, `PageKey "${k}" sem componente em COMPONENTE_DA_PAGINA`);
     assert.ok(existsSync(`src/content-pages/${comp}.astro`), `src/content-pages/${comp}.astro não existe`);
   }
+});
+
+test('lastmod: useList entra no recorte (lista renderizada é conteúdo da URL)', () => {
+  const chaves = chavesDoComponente('Experiencias');
+  for (const k of ['exp.aguaLista', 'exp.mataLista', 'exp.genteLista', 'exp.videoItens', 'exp.contato']) {
+    assert.ok(chaves.includes(k), `Experiencias não rastreia ${k}`);
+  }
+  assert.ok(chavesDoComponente('Galeria').includes('galeria.capitulos'));
+  assert.ok(chavesDoComponente('Chegar').includes('chegar.embarqueItens'));
 });
 
 test('lastmod: as fontes de cada URL existem (nenhuma data sai de arquivo fantasma)', () => {

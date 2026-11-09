@@ -135,22 +135,29 @@ export function fontesPorCaminho(slugs) {
  */
 const chavesCache = new Map();
 /**
- * Chaves do dicionário que o componente lê. t('sec.chave') literal → só
- * aquela chave; t(`sec.${x}`) dinâmico → a seção inteira (não dá para saber
- * qual chave). Seções de moldura ficam de fora.
+ * Chaves do dicionário que o componente lê. t('sec.chave') ou
+ * useList(...)('sec.lista') literal → só aquela chave; t(`sec.${x}`)
+ * dinâmico → a seção inteira (não dá para saber qual chave). Seções de
+ * moldura ficam de fora.
  */
-function chavesDoComponente(comp) {
+function registraChave(chaves, moldura, quote, ref) {
+  const sec = ref.split('.')[0];
+  if (moldura.has(sec)) return;
+  chaves.add(quote === '`' && ref.includes('${') ? sec : ref);
+}
+
+export function chavesDoComponente(comp) {
   if (chavesCache.has(comp)) return chavesCache.get(comp);
   const txt = readFileSync(`${RAIZ}src/content-pages/${comp}.astro`, 'utf-8');
   const MOLDURA = new Set(['nav', 'cta', 'footer', 'whatsapp', 'a11y', 'carousel', 'trust', 'site']);
   const chaves = new Set();
-  for (const m of txt.matchAll(/t\(\s*(['"`])([^'"`]+)\1/g)) {
-    const ref = m[2];
-    const sec = ref.split('.')[0];
-    if (MOLDURA.has(sec)) continue;
-    chaves.add(m[1] === '`' && ref.includes('${') ? sec : ref);
-  }
+  for (const m of txt.matchAll(/t\(\s*(['"`])([^'"`]+)\1/g)) registraChave(chaves, MOLDURA, m[1], m[2]);
   for (const m of txt.matchAll(/t\(\s*`([A-Za-z0-9_]+)\.\$\{/g)) chaves.add(m[1]);
+  // useList(locale)<...>('secao.lista') renderiza conteúdo que t() não cita.
+  // Sem isto, uma lista alterada (ex.: exp.aguaLista em 31/10) não movia o lastmod.
+  for (const m of txt.matchAll(/useList\([\s\S]*?\)\s*(?:<[\s\S]*?>)?\s*\(\s*(['"`])([^'"`]+)\1/g)) {
+    registraChave(chaves, MOLDURA, m[1], m[2]);
+  }
   const lista = [...chaves].sort();
   chavesCache.set(comp, lista);
   return lista;
