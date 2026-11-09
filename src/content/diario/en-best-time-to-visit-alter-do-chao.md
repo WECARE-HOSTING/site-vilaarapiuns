@@ -3,8 +3,9 @@ locale: en
 grupo: melhor-epoca
 slug: best-time-to-visit-alter-do-chao
 titulo: "Best time to visit Alter do Chão: a month-by-month beach calendar"
+tituloSeo: "Best time to visit Alter do Chão: beaches from Aug to Jan"
 tituloCurto: "Best time to visit"
-descricao: "When the Tapajós and Arapiuns beaches appear and disappear, month by month, and which months suit beaches, flooded forest, festivals or an empty river."
+descricao: "White-sand beaches from August to January, peak in October and November, on the Tapajós and the Arapiuns. Month by month: dry season, flood and New Year."
 resposta: "For beaches, come between August and January, when the rivers fall and the white sandbanks emerge — October and November are the peak, with the water at its lowest and the sand at its widest. From February to June the rivers rise, the beaches go under, and the forest floods into the igapó you can paddle through. July is the turn, with the beaches coming back."
 data: 2026-08-28
 revisado: 2026-10-28
@@ -67,7 +68,7 @@ Neither is the good season. They are different trips, and the mistake is arrivin
 
 **A festival:** September, for Sairé.
 
-**New Year:** the window is 28 December to 2 January, and it books out first.
+**New Year:** the window is 28 December to 2 January, and it books out first. That stay is [New Year's Eve 2026/27 on the Arapiuns](/en/new-years-eve/); from 1 to 10 January, the [post-New Year detox](/en/post-new-year-detox/).
 
 **Wildlife:** the dry season concentrates animals near remaining water, which generally makes them easier to encounter — though we will not promise you a species list, because nobody honest promises wildlife.
 

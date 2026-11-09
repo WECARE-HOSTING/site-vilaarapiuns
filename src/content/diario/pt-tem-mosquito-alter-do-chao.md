@@ -65,7 +65,7 @@ Você está a poucos graus da linha do Equador, sobre areia clara, ao lado de um
 
 Na Villa Arapiuns a casa é **praticamente sem mosquito** — não prometemos zero, porque é floresta. O jantar sai na areia, e os bangalôs têm **energia solar 24h** e **Wi‑Fi Starlink**, com **todas as refeições incluídas** na pousada (nos pacotes, café da manhã e jantar). Há primeiros socorros no local; atendimento médico, não — por isso a conversa com o serviço de saúde do viajante continua valendo.
 
-Outubro e novembro são o pico da seca, com os bancos de areia na largura máxima, e a temporada de praias segue até janeiro, passando pelo [Réveillon no Rio Arapiuns](/pt/reveillon/). Para entender o rio antes de vir, leia o [guia do Rio Arapiuns](/pt/diario/rio-arapiuns-guia/). Chegada e alimentação são combinadas com o anfitrião antes da viagem: [fale com a gente no WhatsApp](https://wa.me/5547992067078).
+Outubro e novembro são o pico da seca, com os bancos de areia na largura máxima, e a temporada de praias segue até janeiro, passando pelo [Réveillon no Rio Arapiuns](/pt/reveillon/) e, em janeiro, pelo [Detox pós-Ano Novo](/pt/detox-pos-ano-novo/). Para entender o rio antes de vir, leia o [guia do Rio Arapiuns](/pt/diario/rio-arapiuns-guia/). Chegada e alimentação são combinadas com o anfitrião antes da viagem: [fale com a gente no WhatsApp](https://wa.me/5547992067078).
 
 ## Por que escrevemos isso
 
