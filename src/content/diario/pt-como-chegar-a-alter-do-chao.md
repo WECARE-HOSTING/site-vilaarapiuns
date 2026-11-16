@@ -2,9 +2,10 @@
 locale: pt
 grupo: chegar-alter
 slug: como-chegar-a-alter-do-chao
+tituloSeo: "Como chegar a Alter do Chão e ao Rio Arapiuns"
 titulo: "Como chegar a Alter do Chão — e ao Arapiuns, mais adiante"
 tituloCurto: "Como chegar a Alter do Chão"
-descricao: "Voos até Santarém, o transfer até Alter do Chão e o trecho final até o Arapiuns. Horários, custos, conexões e o que realmente pode dar errado, escrito do outro lado da viagem."
+descricao: "Como chegar a Alter do Chão: voo até Santarém (STM) e 40 minutos até a vila; a Villa Arapiuns fica a 1h30 de Alter do Chão. Horários e conexões."
 resposta: "Chega-se a Alter do Chão voando até Santarém (STM), no Pará, e depois rodando cerca de 40 minutos. Há voo direto para Santarém saindo de Manaus, Belém e Brasília; de São Paulo há conexão, geralmente por Brasília, e o trajeto mais rápido leva cerca de quatro horas e quinze minutos. Da Villa Arapiuns são mais 1h30, saindo de Alter do Chão."
 data: 2026-08-26
 imagem: chegada-barco
