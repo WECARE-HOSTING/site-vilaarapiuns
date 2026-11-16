@@ -3,12 +3,12 @@ locale: en
 grupo: melhor-epoca
 slug: best-time-to-visit-alter-do-chao
 titulo: "Best time to visit Alter do Chão: a month-by-month beach calendar"
-tituloSeo: "Best time to visit Alter do Chão: beaches from Aug to Jan"
+tituloSeo: "Best time to go to Alter do Chão: beaches from Aug to Jan"
 tituloCurto: "Best time to visit"
-descricao: "White-sand beaches from August to January, peak in October and November, on the Tapajós and the Arapiuns. Month by month: dry season, flood and New Year."
+descricao: "The best time to go to Alter do Chão is August to January, peaking in October and November. Month by month: dry season, flood and New Year."
 resposta: "For beaches, come between August and January, when the rivers fall and the white sandbanks emerge — October and November are the peak, with the water at its lowest and the sand at its widest. From February to June the rivers rise, the beaches go under, and the forest floods into the igapó you can paddle through. July is the turn, with the beaches coming back."
 data: 2026-08-28
-revisado: 2026-10-28
+revisado: 2026-11-16
 imagem: banco-areia-gente
 imagemAlt: "Two people walking away across an enormous pale sandbank, with more figures and moored boats far off at the waterline under a hazy sky"
 legenda: "Late dry season · the sandbanks at their widest"

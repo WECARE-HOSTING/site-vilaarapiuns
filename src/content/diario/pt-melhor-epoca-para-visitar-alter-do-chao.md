@@ -3,12 +3,12 @@ locale: pt
 grupo: melhor-epoca
 slug: melhor-epoca-para-visitar-alter-do-chao
 titulo: "Melhor época para visitar Alter do Chão: calendário de praias mês a mês"
-tituloSeo: "Melhor época em Alter do Chão: praias de agosto a janeiro"
+tituloSeo: "Melhor época para ir a Alter do Chão: ago a jan"
 tituloCurto: "Melhor época para visitar"
-descricao: "Praias de agosto a janeiro no Tapajós e no Arapiuns, com pico em outubro e novembro. Calendário mês a mês da seca, da cheia e da virada do ano."
+descricao: "A melhor época para ir a Alter do Chão é agosto a janeiro, com pico em outubro e novembro. Mês a mês no Tapajós e no Arapiuns: seca, cheia e virada do ano."
 resposta: "Para praias, venha entre agosto e janeiro, quando os rios baixam e os bancos de areia branca aparecem — outubro e novembro são o pico, com a água no nível mais baixo e a areia na largura máxima. De fevereiro a junho os rios sobem, as praias somem debaixo d'água, e a floresta alaga formando o igapó, que dá pra navegar de canoa. Julho é a virada, com as praias voltando."
 data: 2026-08-28
-revisado: 2026-10-28
+revisado: 2026-11-16
 imagem: banco-areia-gente
 imagemAlt: "Duas pessoas caminhando ao longe sobre um enorme banco de areia clara, com mais figuras e barcos ancorados distantes na linha d'água sob um céu enevoado"
 legenda: "Fim da estação seca · os bancos de areia na largura máxima"

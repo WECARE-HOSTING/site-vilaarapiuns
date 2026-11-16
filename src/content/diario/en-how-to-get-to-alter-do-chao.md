@@ -2,12 +2,13 @@
 locale: en
 grupo: chegar-alter
 slug: how-to-get-to-alter-do-chao
+tituloSeo: "How to get to Alter do Chão and the Arapiuns River"
 titulo: "How to get to Alter do Chão — and to the Arapiuns beyond it"
 tituloCurto: "Getting to Alter do Chão"
-descricao: "Flights to Santarém, the transfer to Alter do Chão, and the final leg up the Rio Arapiuns. Times, costs, connections and what actually goes wrong, written from the far end of the trip."
+descricao: "How to get to Alter do Chão: fly to Santarém (STM), 40 minutes to the village, then 1h30 to the Arapiuns. Times, connections and what usually goes wrong."
 resposta: "Alter do Chão is reached by flying to Santarém (STM) in Pará, Brazil, then driving about 40 minutes. There are direct flights to Santarém from Manaus, Belém and Brasília; from São Paulo you connect, usually through Brasília, and the fastest routings take about four and a quarter hours. Villa Arapiuns is a further 1h30 up the Rio Arapiuns from Alter do Chão."
 data: 2026-08-26
-revisado: 2026-10-28
+revisado: 2026-11-16
 imagem: chegada-barco
 imagemAlt: "Four people wading through shallow river water carrying bags, with open water to the horizon"
 legenda: "Landing on the Arapiuns · the last hundred metres are on foot"
