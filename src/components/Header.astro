@@ -257,8 +257,9 @@ const reservarHref = checkoutReservar(Astro.url.pathname);
         ? palco.offsetHeight - cabecalho.offsetHeight
         : window.innerHeight * 0.75;
 
+    const rolar = document.getElementById('va-rolagem') ?? document.documentElement;
     const aoRolar = () => {
-      const rolou = window.scrollY > limiar();
+      const rolou = rolar.scrollTop > limiar();
       // Sem backdrop-filter aqui: ele cria bloco de contenção e o painel
       // `fixed inset-0` do menu, que é descendente do header, colapsaria
       // para o tamanho da barra. E sobre bg-mar opaco o blur não faz nada.
@@ -267,20 +268,25 @@ const reservarHref = checkoutReservar(Astro.url.pathname);
       veu?.classList.toggle('opacity-0', rolou);
     };
     aoRolar();
-    window.addEventListener('scroll', aoRolar, { passive: true });
+    rolar.addEventListener('scroll', aoRolar, { passive: true });
   }
 
   if (menu) {
     let scrollSalvo = 0;
 
+    const rolarMenu = document.getElementById('va-rolagem');
     menu.addEventListener('toggle', () => {
       if (menu.open) {
-        scrollSalvo = window.scrollY;
-        document.body.style.overflow = 'hidden';
+        scrollSalvo = rolarMenu ? rolarMenu.scrollTop : window.scrollY;
+        if (rolarMenu) rolarMenu.style.overflow = 'hidden';
+        else document.body.style.overflow = 'hidden';
       } else {
-        document.body.style.overflow = '';
+        if (rolarMenu) rolarMenu.style.overflow = '';
+        else document.body.style.overflow = '';
         // Antes o overflow era mutado sem restaurar: no iOS a posição sumia.
-        if (window.scrollY !== scrollSalvo) window.scrollTo(0, scrollSalvo);
+        if (rolarMenu) {
+          if (rolarMenu.scrollTop !== scrollSalvo) rolarMenu.scrollTop = scrollSalvo;
+        } else if (window.scrollY !== scrollSalvo) window.scrollTo(0, scrollSalvo);
       }
     });
 

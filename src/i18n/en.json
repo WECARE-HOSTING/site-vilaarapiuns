@@ -1318,7 +1318,9 @@
     "h1": "Privacy policy",
     "intro": "This page explains how Villa Arapiuns handles data when you ask for a stay, pay a deposit, message us on WhatsApp or browse the site. The house is on the Arapiuns River, 1h30 from Alter do Chão, with 13 bungalows for up to 26 guests.",
     "controladorT": "Who is responsible",
-    "controladorD": "Villa Arapiuns is responsible for the site and for reservations. To talk about your data, write to reservas@villaarapiuns.com.br.",
+    "controladorD": "The controller is Villa Arapiuns. For data and reservations, write to reservas@villaarapiuns.com.br. The legal name and the CNPJ will be added to this page when the person responsible confirms them.",
+    "baseT": "Why we use the data",
+    "baseD": "The reservation and the deposit rest on the contract, including the steps to arrange the stay. Statistics and marketing run only with your consent, and only while that consent lasts. When you withdraw it, those two stop.",
     "reservaT": "Reservation data",
     "reservaD": "On the form and in messages we keep what you send: name, email, phone or WhatsApp, dates, number of people and the text of the message. We use it to reply, arrange the stay and confirm availability.",
     "pagamentoT": "Payment through InfinitePay",
@@ -1327,11 +1329,15 @@
     "whatsappD": "WhatsApp buttons open a conversation with the house. The message may include the package, the number of people and a label for the visit source, such as the ad that brought you. The conversation also follows WhatsApp's own rules.",
     "cookiesT": "Cookies and data in the browser",
     "cookiesD": "Your choice is stored in the browser. If you arrived with campaign parameters (utm_source, utm_medium, utm_campaign, utm_content, utm_term, gclid, fbclid), the session keeps them until the browser closes, for the WhatsApp label and the order details.",
+    "prazoT": "How long we keep data",
+    "prazoD": "The record of your cookie choice stays until you change it or ask us to delete it. Reservation data and the payment confirmation, identifiers, amount and receipt, stay for the length of the stay and for as long as needed to perform the contract, handle a refund, and meet tax rules and consumer-protection rules in Brazil. Statistics and marketing exist only with consent and only while it lasts.",
     "medicaoT": "Google Analytics, Google Ads and Meta",
     "medicaoD": "With your consent, Google Analytics 4 measures how the site is used. Google Ads may record a purchase only after the deposit payment is confirmed. The Meta Pixel, once you accept marketing, records page view, checkout start, contact and purchase, with the amount in reais and an order id. Without marketing consent the Pixel is not loaded. You can accept all, reject what is not essential, or turn statistics and marketing on separately.",
+    "transferenciaT": "Processing outside Brazil",
+    "transferenciaD": "Google, Meta and InfinitePay may process data outside Brazil.",
     "direitosT": "Your rights",
     "direitosD": "You can ask for access, correction, deletion and information about how your data is used, and you can withdraw consent when consent is the basis. Write to reservas@villaarapiuns.com.br. Cookie preferences can be reopened from the footer.",
     "contatoT": "Contact",
-    "contatoD": "Privacy and reservations: reservas@villaarapiuns.com.br. Card and Pix payments happen only on the InfinitePay page. Do not send a password or card number by email or WhatsApp."
+    "contatoD": "Privacy and reservations: reservas@villaarapiuns.com.br. When online checkout is on, the charge happens on the InfinitePay page. Do not send a password or card number by email or WhatsApp."
   }
 }

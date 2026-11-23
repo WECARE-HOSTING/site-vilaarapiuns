@@ -1318,7 +1318,9 @@
     "h1": "プライバシーポリシー",
     "intro": "予約の依頼、手付金の支払い、WhatsAppでの連絡、サイトの閲覧のときに、Villa Arapiunsがデータをどう扱うかを説明します。宿はアラピウンス川沿いにあり、アルテル・ド・シャンから1時間30分、バンガロー13棟、定員26名です。",
     "controladorT": "責任者",
-    "controladorD": "サイトと予約の責任者はVilla Arapiunsです。データについての連絡先は reservas@villaarapiuns.com.br です。",
+    "controladorD": "このサイトの管理者は Villa Arapiuns です。データと予約の連絡先は reservas@villaarapiuns.com.br です。正式名称とCNPJは、責任者が確認したときにこのページへ載せます。",
+    "baseT": "データを使う理由",
+    "baseD": "予約と手付金は、滞在を決めるまでの手続きを含む契約に基づきます。統計とマーケティングは同意があるあいだだけ行い、同意を撤回した時点で止まります。",
     "reservaT": "予約データ",
     "reservaD": "フォームとメッセージでは、お名前、メール、電話またはWhatsApp、日程、人数、本文を受け取ります。返事、滞在の手配、空室の確認に使います。",
     "pagamentoT": "InfinitePayでの支払い",
@@ -1327,11 +1329,15 @@
     "whatsappD": "WhatsAppのボタンは宿との会話を開きます。メッセージにはパッケージ、人数、訪問の出所を示すラベル（たとえば広告）が含まれることがあります。会話はWhatsAppの規則にも従います。",
     "cookiesT": "クッキーとブラウザ内のデータ",
     "cookiesD": "選択はこのブラウザに保存します。キャンペーンのパラメータ（utm_source、utm_medium、utm_campaign、utm_content、utm_term、gclid、fbclid）付きで開いた場合、セッションはブラウザを閉じるまでその値を保持し、WhatsAppのラベルと注文データに使います。",
+    "prazoT": "保管する期間",
+    "prazoD": "クッキーの選択の記録は、選択を変えるか削除を求めるまで残します。予約データと支払い確認（識別子、金額、領収書）は、滞在のあいだと、契約の履行、返金、ブラジルの税と消費者保護のルールに必要なあいだ残します。統計とマーケティングは同意があるあいだだけです。",
     "medicaoT": "Googleアナリティクス、Google広告、Meta",
     "medicaoD": "同意があるとき、Googleアナリティクス4がサイトの利用を測ります。Google広告の購入は、手付金の支払いが確認されたあとにだけ記録できます。マーケティングを許可すると、Metaピクセルはページ表示、購入手続きの開始、問い合わせ、購入を、レアル建ての金額と注文IDとともに記録します。マーケティングの同意がなければピクセルは読み込まれません。すべて許可する、必須以外を拒否する、統計とマーケティングを別々に選ぶ、のいずれかができます。",
+    "transferenciaT": "ブラジル国外での取り扱い",
+    "transferenciaD": "Google、Meta、InfinitePayはブラジル国外でデータを扱うことがあります。",
     "direitosT": "お客様の権利",
     "direitosD": "開示、訂正、削除、利用状況の説明を求めることができ、同意が根拠である場合はその撤回もできます。reservas@villaarapiuns.com.br までご連絡ください。クッキーの設定はフッターから再度開けます。",
     "contatoT": "連絡先",
-    "contatoD": "プライバシーと予約の連絡先は reservas@villaarapiuns.com.br です。カードとPixの支払いはInfinitePayのページだけで行います。パスワードやカード番号をメールやWhatsAppで送らないでください。"
+    "contatoD": "プライバシーと予約の連絡先は reservas@villaarapiuns.com.br です。オンラインの支払いが有効なとき、請求はInfinitePayのページで行われます。パスワードやカード番号をメールやWhatsAppで送らないでください。"
   }
 }

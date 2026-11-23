@@ -383,11 +383,15 @@ const trilha =
     <BarraPromo />
     <slot name="header" />
 
-    <main id="conteudo">
-      <slot />
-    </main>
-
-    <slot name="footer" />
+    <!-- A rolagem mora aqui, e o banner fica depois, no fluxo. Um banner
+         fixo cobria o pé da viewport por cima do texto; o padding no fim
+         do documento não tirava essa cobertura no primeiro olhar. -->
+    <div id="va-rolagem">
+      <main id="conteudo">
+        <slot />
+      </main>
+      <slot name="footer" />
+    </div>
 
     <VideoLightbox locale={locale} />
     <BannerConsentimento locale={locale} />

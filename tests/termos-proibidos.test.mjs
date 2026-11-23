@@ -16,6 +16,7 @@ const ARQUIVOS = [
   'src/components/WhatsappFlutuante.astro',
   'src/components/Rastreio.astro',
   'src/components/Footer.astro',
+  'src/components/BarraPromo.astro',
   'src/layouts/BaseLayout.astro',
   'src/pages/pt/lp/pagar-reveillon.astro',
   'src/pages/pt/lp/pagar-detox.astro',

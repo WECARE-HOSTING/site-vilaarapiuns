@@ -119,14 +119,28 @@ const t = useTranslations(locale);
   }
 </script>
 
+<style is:global>
+  /* O banner entra no fluxo, debaixo da área que rola. Pregado na
+     viewport, ele cobria o pé da tela por cima das condições, e o
+     padding no fim do documento não as levantava no primeiro olhar. */
+  html:not([data-lgpd-ok]) body {
+    height: 100svh;
+    max-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  html:not([data-lgpd-ok]) #va-rolagem {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: auto;
+  }
+</style>
 <style>
-  html:not([data-lgpd-ok]) { --va-consent-offset: 11rem; }
   html[data-lgpd-ok] .lgpd { display: none; }
   .lgpd {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    position: relative;
+    flex: 0 0 auto;
     z-index: 40;
     max-height: calc(100svh - 8rem);
     overflow: auto;
@@ -174,9 +188,9 @@ const t = useTranslations(locale);
   .lgpd-prefs label { display: flex; gap: .6rem; align-items: flex-start; font-size: .88rem; }
   .lgpd-prefs input { margin-top: .2rem; }
   @media (max-width: 40rem) {
-    .lgpd { padding: .55rem .75rem calc(.55rem + env(safe-area-inset-bottom)); }
-    .lgpd p { font-size: .84rem; }
-    .lgpd-acoes { margin-top: .45rem; gap: .35rem; }
-    .lgpd-acoes button, .lgpd-prefs button { padding: .5rem .7rem; font-size: .84rem; }
+    .lgpd { padding: .4rem .7rem calc(.4rem + env(safe-area-inset-bottom)); }
+    .lgpd p { font-size: .78rem; line-height: 1.3; }
+    .lgpd-acoes { margin-top: .35rem; gap: .3rem; }
+    .lgpd-acoes button, .lgpd-prefs button { padding: .4rem .55rem; font-size: .78rem; }
   }
 </style>

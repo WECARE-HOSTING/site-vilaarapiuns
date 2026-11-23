@@ -1318,7 +1318,9 @@
     "h1": "Política de Privacidade",
     "intro": "Esta página descreve como a Villa Arapiuns trata dados quando você pede uma reserva, paga um sinal, fala no WhatsApp ou navega no site. A casa fica no Rio Arapiuns, a 1h30 de Alter do Chão, com 13 bangalôs para até 26 hóspedes.",
     "controladorT": "Quem é responsável",
-    "controladorD": "A responsável pelo site e pelas reservas é a Villa Arapiuns. Para falar sobre seus dados, escreva para reservas@villaarapiuns.com.br.",
+    "controladorD": "O controlador é a Villa Arapiuns. O contato para dados e reservas é reservas@villaarapiuns.com.br. A razão social e o CNPJ entram nesta página quando o responsável confirmar.",
+    "baseT": "Por que usamos os dados",
+    "baseD": "A reserva e o pagamento do sinal se apoiam no contrato, inclusive nos passos para fechar a estadia. Estatística e marketing só acontecem com o seu consentimento, e só enquanto esse aceite durar. Quando você retira o aceite, esses dois tratamentos param.",
     "reservaT": "Dados de reserva",
     "reservaD": "No formulário e nas mensagens coletamos o que você envia: nome, e-mail, telefone ou WhatsApp, datas, número de pessoas e o texto da mensagem. Usamos esses dados para responder, organizar a estadia e confirmar vaga.",
     "pagamentoT": "Pagamento pela InfinitePay",
@@ -1327,11 +1329,15 @@
     "whatsappD": "Os botões de WhatsApp abrem uma conversa com a casa. A mensagem pode trazer o pacote, a quantidade de pessoas e uma etiqueta da origem da visita, como o anúncio que trouxe você. A conversa também segue as regras do WhatsApp.",
     "cookiesT": "Cookies e dados no navegador",
     "cookiesD": "Guardamos a sua escolha no próprio navegador. Se você chegou com parâmetros de campanha (utm_source, utm_medium, utm_campaign, utm_content, utm_term, gclid, fbclid), a sessão guarda esses valores até o navegador fechar, para a etiqueta do WhatsApp e os dados do pedido.",
+    "prazoT": "Por quanto tempo",
+    "prazoD": "O registro da escolha de cookies fica até você mudar a escolha ou pedir a exclusão. Os dados da reserva e da confirmação de pagamento, identificadores, valor e comprovante, ficam pelo tempo da estadia e pelo tempo exigido para cumprir o contrato, tratar estorno e atender às regras fiscais e de defesa do consumidor no Brasil. Estatística e marketing só com consentimento e só enquanto ele durar.",
     "medicaoT": "Google Analytics, Google Ads e Meta",
     "medicaoD": "Com o seu consentimento, o Google Analytics 4 mede o uso do site. O Google Ads pode registrar uma compra só depois que o pagamento do sinal é confirmado. O Meta Pixel, quando você aceita marketing, registra visualização de página, início de checkout, contato e compra, com valor em reais e um identificador do pedido. Sem o aceite de marketing o Pixel não é carregado. Você pode aceitar tudo, recusar o que não é essencial ou ligar estatísticas e marketing separadamente.",
+    "transferenciaT": "Tratamento fora do Brasil",
+    "transferenciaD": "Google, Meta e InfinitePay podem tratar dados fora do Brasil.",
     "direitosT": "Os seus direitos",
     "direitosD": "Você pode pedir acesso, correção, eliminação e informação sobre o uso dos seus dados, e pode retirar o consentimento quando ele for a base do tratamento. Escreva para reservas@villaarapiuns.com.br. As preferências de cookies podem ser reabertas no rodapé.",
     "contatoT": "Contato",
-    "contatoD": "O contato de privacidade e de reservas é reservas@villaarapiuns.com.br. Pagamento de cartão e Pix acontece só na página da InfinitePay. Não envie senha nem número de cartão por e-mail ou WhatsApp."
+    "contatoD": "O contato de privacidade e de reservas é reservas@villaarapiuns.com.br. Quando o checkout online está ligado, a cobrança acontece na página da InfinitePay. Não envie senha nem número de cartão por e-mail ou WhatsApp."
   }
 }

@@ -65,9 +65,12 @@ test('a escolha sobrevive no storage e o Pixel só dispara com marketing e ID', 
   }
 });
 
-test('o banner fica no pé, abaixo do cabeçalho, e não nasce colado no topo', () => {
+test('o banner não cobre o texto: fica no fluxo, e a página rola acima dele', () => {
   const css = readFileSync('src/components/BannerConsentimento.astro', 'utf8');
-  assert.match(css, /bottom:\s*0/);
+  const layout = readFileSync('src/layouts/BaseLayout.astro', 'utf8');
+  assert.match(layout, /id="va-rolagem"/);
+  assert.match(css, /#va-rolagem[\s\S]*overflow:\s*auto/);
+  assert.doesNotMatch(css, /position:\s*fixed/);
   assert.match(css, /z-index:\s*40/);
   assert.match(css, /max-height:\s*calc\(100svh - 8rem\)/);
   assert.doesNotMatch(css, /top:\s*0/);
