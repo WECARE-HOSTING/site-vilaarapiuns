@@ -107,5 +107,9 @@ const colunaReserva = ['packages', 'privateVilla', 'reveillon', 'detox', 'gettin
     <p class="mt-10 text-xs">
       © {ano} {SITE.name} · {t('footer.tipo')}
     </p>
+    <p class="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-xs">
+      <a href={href(locale, 'privacy')} class="underline underline-offset-4 hover:text-areia">{t('footer.privacidade')}</a>
+      <button type="button" data-abrir-consentimento class="cursor-pointer border-0 bg-transparent p-0 font-inherit text-inherit underline underline-offset-4 hover:text-areia">{t('footer.cookies')}</button>
+    </p>
   </div>
 </footer>

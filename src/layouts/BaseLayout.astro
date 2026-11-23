@@ -1,5 +1,7 @@
 ---
 import BarraPromo from '@/components/BarraPromo.astro';
+import BannerConsentimento from '@/components/BannerConsentimento.astro';
+import Rastreio from '@/components/Rastreio.astro';
 import '@/styles/global.css';
 import { HTML_LANG, LOCALES, ROOT_LOCALE, type Locale } from '@/i18n/config';
 import { href, type PageKey } from '@/i18n/routes';
@@ -70,7 +72,7 @@ const xDefault = alternativas
  * O preview de link é o momento de aquisição real deste negócio: o WhatsApp é
  * o canal de reserva, e antes cada link colado num grupo chegava como um
  * retângulo cinza sem foto, porque o twitter:card pedia imagem grande e não
- * existia og:image nenhum. A imagem padrão é o banco de areia branca no Rio
+ * existia og:image nenhum. A imagem padrão é o banco de areia no Rio
  * Arapiuns. O arquivo não se chama `og.jpg`: o WhatsApp guarda o cartão pela
  * URL, e regravar o arquivo antigo não troca o preview que já foi visto.
  */
@@ -265,30 +267,46 @@ const trilha =
 
     {SITE.analytics.measurementId && (
       <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${SITE.analytics.measurementId}`}></script>
-      <script is:inline define:vars={{ GA_ID: SITE.analytics.measurementId }}>
+      <script is:inline define:vars={{ GA_ID: SITE.analytics.measurementId, ADS_ID: import.meta.env.PUBLIC_GOOGLE_ADS_ID || '' }}>
         window.dataLayer = window.dataLayer || [];
         function gtag(){ dataLayer.push(arguments); }
+        /* Consent Mode antes do config. Padrão negado; se a pessoa já escolheu,
+           o update sai no mesmo instante. A forma do JSON é va_consent_v1
+           (src/lib/consentimento.ts). click_reservar não é conversão de compra. */
+        gtag('consent', 'default', {
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+          analytics_storage: 'denied',
+          functionality_storage: 'granted',
+          security_storage: 'granted',
+          wait_for_update: 500
+        });
+        try {
+          var salvo = JSON.parse(localStorage.getItem('va_consent_v1') || 'null');
+          if (salvo && salvo.essenciais === true) {
+            var est = salvo.estatisticas ? 'granted' : 'denied';
+            var mkt = salvo.marketing ? 'granted' : 'denied';
+            gtag('consent', 'update', {
+              analytics_storage: est,
+              ad_storage: mkt,
+              ad_user_data: mkt,
+              ad_personalization: mkt,
+              functionality_storage: 'granted',
+              security_storage: 'granted'
+            });
+          }
+        } catch (err) {}
         gtag('js', new Date());
         gtag('config', GA_ID);
+        if (ADS_ID) gtag('config', ADS_ID);
         /* 04/11/2026: o define:vars do Astro embrulha este script num IIFE, então
            `function gtag` ficava LOCAL e window.gtag não existia. Os scripts de
            módulo (CheckoutRapido, LandingPacote) chamam window.gtag?.(...) e o
-           click_reservar sumia em silêncio. Expor no window resolve. */
+           click_reservar sumia em silêncio. Expor no window resolve.
+           click_reservar segue como evento, e não como conversão principal
+           do Google Ads (suspensa). A compra é o purchase da página de obrigado. */
         window.gtag = gtag;
-
-        /* Origem Google Ads no WhatsApp (04/11/2026): utm_source=google fica
-           guardado na sessão; nas páginas de Réveillon/Detox o clique em wa.me
-           ganha a marca [google-reveillon] ou [google-detox] no fim do texto. */
-        try {
-          if (new URLSearchParams(location.search).get('utm_source') === 'google') sessionStorage.setItem('va_utm_source', 'google');
-        } catch (err) {}
-        function marcaOrigem() {
-          try { if (sessionStorage.getItem('va_utm_source') !== 'google') return ''; } catch (err) { return ''; }
-          var p = location.pathname;
-          if (/reveillon/.test(p)) return '[google-reveillon]';
-          if (/detox/.test(p)) return '[google-detox]';
-          return '';
-        }
 
         /**
          * CONVERSA INICIADA — o KPI primário deste negócio.
@@ -317,17 +335,6 @@ const trilha =
           var alvo = e.target;
           var a = alvo && alvo.closest ? alvo.closest('a[href*="wa.me"], a[data-cta]') : null;
           if (!a) return;
-          var ehWa = a.href.indexOf('wa.me') > -1;
-          if (ehWa) {
-            var marca = marcaOrigem();
-            if (marca) {
-              try {
-                var u = new URL(a.href);
-                var txt = u.searchParams.get('text') || '';
-                if (txt.indexOf(marca) === -1) { u.searchParams.set('text', (txt ? txt + ' ' : '') + marca); a.href = u.toString(); }
-              } catch (err) {}
-            }
-          }
           gtag('event', 'generate_lead', {
             metodo: a.href.indexOf('wa.me') > -1 ? 'whatsapp' : 'formulario',
             pagina: location.pathname,
@@ -363,6 +370,9 @@ const trilha =
   </head>
 
   <body>
+    <script is:inline>
+      try { if (localStorage.getItem('va_consent_v1')) document.documentElement.setAttribute('data-lgpd-ok', ''); } catch (err) {}
+    </script>
     <a
       href="#conteudo"
       class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-mar focus:text-areia focus:px-5 focus:py-3"
@@ -373,12 +383,18 @@ const trilha =
     <BarraPromo />
     <slot name="header" />
 
-    <main id="conteudo">
-      <slot />
-    </main>
-
-    <slot name="footer" />
+    <!-- A rolagem mora aqui, e o banner fica depois, no fluxo. Um banner
+         fixo cobria o pé da viewport por cima do texto; o padding no fim
+         do documento não tirava essa cobertura no primeiro olhar. -->
+    <div id="va-rolagem">
+      <main id="conteudo">
+        <slot />
+      </main>
+      <slot name="footer" />
+    </div>
 
     <VideoLightbox locale={locale} />
+    <BannerConsentimento locale={locale} />
+    <Rastreio />
   </body>
 </html>

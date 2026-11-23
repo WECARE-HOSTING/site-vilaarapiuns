@@ -1,0 +1,11 @@
+name = "villa-arapiuns-checkout"
+main = "index.ts"
+compatibility_date = "2026-11-23"
+
+# Conta InfinitePay da Villa (InfiniteTag $wecarehosting). A chave é opcional e NÃO fica neste arquivo:
+#   npx wrangler secret put INFINITEPAY_API_KEY
+# Webhook, se a conta passar a exigir:
+#   npx wrangler secret put INFINITEPAY_WEBHOOK_URL
+[vars]
+INFINITEPAY_HANDLE = "wecarehosting"
+ALLOWED_ORIGINS = "https://villaarapiuns.com.br,https://www.villaarapiuns.com.br,https://vilaarapiuns.com.br,https://www.vilaarapiuns.com.br,http://localhost:4321,http://127.0.0.1:4321"

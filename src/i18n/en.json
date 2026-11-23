@@ -34,7 +34,8 @@
     "menu": "Menu",
     "close": "Close",
     "language": "Language",
-    "detox": "Detox"
+    "detox": "Detox",
+    "privacy": "Privacy"
   },
   "cta": {
     "book": "Book",
@@ -62,7 +63,9 @@
     "local": "Where we are",
     "partida": "Group departures",
     "tipo": "Community-based tourism",
-    "brasil": "Brazil"
+    "brasil": "Brazil",
+    "privacidade": "Privacy policy",
+    "cookies": "Cookies"
   },
   "whatsapp": {
     "geral": "Hello! I found Villa Arapiuns through the website and would like to know more.",
@@ -88,7 +91,8 @@
     "reviews": "What guests say after staying at Villa Arapiuns.",
     "book": "Book your stay at Villa Arapiuns on WhatsApp and talk straight to the house.",
     "bookSent": "Your message arrived. We reply within 24 hours.",
-    "detox": "Detox retreat in the Amazon, 1 to 10 January 2027: after New Year, the river. Crystal-clear water, quiet and time to switch off on the Arapiuns River, 1h30 from Alter do Chão."
+    "detox": "Detox retreat in the Amazon, 1 to 10 January 2027: after New Year, the river. Crystal-clear water, quiet and time to switch off on the Arapiuns River, 1h30 from Alter do Chão.",
+    "privacy": "How Villa Arapiuns handles reservation data, InfinitePay payments, WhatsApp, cookies, Google Analytics, Google Ads and the Meta Pixel."
   },
   "home": {
     "hookA": "A freshwater Caribbean",
@@ -1295,5 +1299,45 @@
     "devolucao": "No availability, full refund.",
     "restam": "Limited availability.",
     "preReserva": "Pre-booking received. We'll contact you to confirm availability."
+  },
+  "consent": {
+    "texto": "We store one essential record so we can remember this choice. Statistics (Google Analytics) and marketing (Google Ads and the Meta Pixel) run only if you allow them.",
+    "aceitar": "Accept all",
+    "recusar": "Reject non-essential",
+    "preferencias": "Preferences",
+    "salvar": "Save preferences",
+    "essenciaisT": "Essential",
+    "essenciaisD": "Remember this choice. Always on.",
+    "estatisticasT": "Statistics",
+    "estatisticasD": "Help us understand site use with Google Analytics 4.",
+    "marketingT": "Marketing",
+    "marketingD": "Allow Google Ads and the Meta Pixel: page view, checkout start, contact and purchase.",
+    "politica": "Privacy policy"
+  },
+  "privacidade": {
+    "h1": "Privacy policy",
+    "intro": "This page explains how Villa Arapiuns handles data when you ask for a stay, pay a deposit, message us on WhatsApp or browse the site. The house is on the Arapiuns River, 1h30 from Alter do Chão, with 13 bungalows for up to 26 guests.",
+    "controladorT": "Who is responsible",
+    "controladorD": "The controller, in the operation of the Villa Arapiuns brand, is We Care Hosting Serviços Ltda, CNPJ 30.870.784/0001-70, Rua Eduardo Souza Aranha, 67, São Paulo/SP. The contact for data and reservations is reservas@villaarapiuns.com.br.",
+    "baseT": "Why we use the data",
+    "baseD": "The reservation and the deposit rest on the contract, including the steps to arrange the stay. Statistics and marketing run only with your consent, and only while that consent lasts. When you withdraw it, those two stop.",
+    "reservaT": "Reservation data",
+    "reservaD": "On the form and in messages we keep what you send: name, email, phone or WhatsApp, dates, number of people and the text of the message. We use it to reply, arrange the stay and confirm availability.",
+    "pagamentoT": "Payment through InfinitePay",
+    "pagamentoD": "The New Year deposit is charged in the InfinitePay checkout. This site does not receive the card number. We receive the order confirmation: identifiers, amount, capture method and the receipt link, so we can record the pre-booking. If there is no availability, the amount paid is returned in full.",
+    "whatsappT": "WhatsApp",
+    "whatsappD": "WhatsApp buttons open a conversation with the house. The message may include the package, the number of people and a label for the visit source, such as the ad that brought you. The conversation also follows WhatsApp's own rules.",
+    "cookiesT": "Cookies and data in the browser",
+    "cookiesD": "Your choice is stored in the browser. If you arrived with campaign parameters (utm_source, utm_medium, utm_campaign, utm_content, utm_term, gclid, fbclid), the session keeps them until the browser closes, for the WhatsApp label and the order details.",
+    "prazoT": "How long we keep data",
+    "prazoD": "The record of your cookie choice stays until you change it or ask us to delete it. Reservation data and the payment confirmation, identifiers, amount and receipt, stay for the length of the stay and for as long as needed to perform the contract, handle a refund, and meet tax rules and consumer-protection rules in Brazil. Statistics and marketing exist only with consent and only while it lasts.",
+    "medicaoT": "Google Analytics, Google Ads and Meta",
+    "medicaoD": "With your consent, Google Analytics 4 measures how the site is used. Google Ads may record a purchase only after the deposit payment is confirmed. The Meta Pixel, once you accept marketing, records page view, checkout start, contact and purchase, with the amount in reais and an order id. Without marketing consent the Pixel is not loaded. You can accept all, reject what is not essential, or turn statistics and marketing on separately.",
+    "transferenciaT": "Processing outside Brazil",
+    "transferenciaD": "Google, Meta and InfinitePay may process data outside Brazil.",
+    "direitosT": "Your rights",
+    "direitosD": "You can ask for access, correction, deletion and information about how your data is used, and you can withdraw consent when consent is the basis. Write to reservas@villaarapiuns.com.br. Cookie preferences can be reopened from the footer.",
+    "contatoT": "Contact",
+    "contatoD": "Privacy and reservations: reservas@villaarapiuns.com.br. When online checkout is on, the charge happens on the InfinitePay page. Do not send a password or card number by email or WhatsApp."
   }
 }

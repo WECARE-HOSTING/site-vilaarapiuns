@@ -1,60 +1,67 @@
 ---
 /**
- * CHECKOUT-FIRST (link da bio do Instagram). Rascunho, noindex, fora do sitemap (/lp/).
- * Acima da dobra: pacote, promessa, calculadora, total + sinal, botões de pagamento.
- * Abaixo: só links pequenos para a LP completa e o WhatsApp.
- * Pagamento: pay.infinitepay.io/{InfiniteTag}/{valor com vírgula} (sem valor = 500).
- * O link InfinitePay não diz QUEM pagou: o botão "Já paguei" manda o resumo no WhatsApp.
+ * Fechamento do pacote (link da bio, noindex, fora do sitemap).
+ * O botão abre o link estático da InfinitePay (wecarehosting) com o sinal
+ * já calculado. Sem valor calculado, a conversa segue no WhatsApp.
+ * Esse link não confirma pagamento: purchase só na página de obrigado,
+ * e só com payment_check paid === true.
  */
 import { SITE } from '@/data/site';
+import WhatsappFlutuante from '@/components/WhatsappFlutuante.astro';
+import { PACOTES, type PacoteFechamento } from '@/lib/fechamento';
 
 interface Props {
-  nome: string;
-  promessa: string;
-  datas: string;
+  pacoteId: PacoteFechamento['id'];
+  /** Ocupações já exibidas na página. null = preço ainda não entra na tela. */
+  ocupacoes?: { nome: string; pessoas: number; precoPessoa: number }[] | null;
   lp: string;
-  ocupacoes: { nome: string; pessoas: number; precoPessoa: number }[];
-  porNoite: boolean;
-  minNoites: number;
-  maxNoites: number;
-  dataMin: string;
-  dataMax: string;
-  datasFixas?: boolean;
-  sinalPct: number;
-  totalBangalos: number;
-  maxHospedes: number;
+  promessa: string;
 }
 const p = Astro.props;
-const fim = new Date(Date.parse(p.dataMax + 'T00:00:00Z') + p.minNoites * 864e5).toISOString().slice(0, 10);
+const pacote = PACOTES[p.pacoteId];
+const ocupacoes = p.ocupacoes === undefined ? pacote.ocupacoes : p.ocupacoes;
+const fim = pacote.checkIn;
 const WA = `https://wa.me/${SITE.contact.whatsapp}`;
 const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+const mensagemBase = `Oi! Dúvida sobre ${pacote.nome}.`;
 ---
-<main class="ck">
-  <form id="ck" class="ck-caixa" data-wa={WA} data-fim={fim} data-tag="carlospecucci" data-pacote={p.nome} data-min={p.minNoites}
-    data-sinal={p.sinalPct} data-pornoite={p.porNoite ? 1 : 0} data-max={p.maxHospedes} data-fixas={p.datasFixas ? 1 : undefined} data-bangalos={p.totalBangalos}>
-    <a href="/pt/" class="ck-marca">Villa Arapiuns · Rio Arapiuns, Pará</a>
-    <h1 class="ck-h1">{p.nome}</h1>
-    <p class="ck-promessa">{p.promessa}</p>
-    <p class="ck-escassez"><span>{p.datas}</span> · <strong>Vagas limitadas.</strong></p>
 
-    {p.datasFixas ? (
-      <input type="hidden" name="chegada" value={p.dataMin} /><input type="hidden" name="noites" value={p.maxNoites} />
+<main class="ck">
+  <form id="ck" class="ck-caixa" data-wa={WA} data-fim={fim} data-pacote={pacote.nome} data-pacote-id={pacote.id} data-min={pacote.noites}
+    data-sinal={pacote.sinalPct} data-pornoite={pacote.porNoite ? 1 : 0} data-max={pacote.maxHospedes} data-fixas={pacote.datasFixas ? 1 : undefined} data-bangalos={pacote.totalBangalos}
+    data-publicado={pacote.publicado && ocupacoes ? 1 : 0}>
+    <div class="ck-topo">
+      <a href="/pt/" class="ck-marca">Villa Arapiuns · Rio Arapiuns, Pará</a>
+      <WhatsappFlutuante mensagem={mensagemBase} />
+    </div>
+    <h1 class="ck-h1">{pacote.nome}</h1>
+    <p class="ck-promessa">{p.promessa}</p>
+    <p class="ck-escassez"><span>{pacote.datas}</span> · <strong>Vagas limitadas.</strong></p>
+    <p class="ck-capacidade">13 bangalôs, até 26 hóspedes.</p>
+
+    {pacote.datasFixas ? (
+      <input type="hidden" name="chegada" value={pacote.checkIn} /><input type="hidden" name="noites" value={pacote.noites} />
     ) : (
       <div class="ck-linha">
-        <label><span>Chegada (check-in)</span><input type="date" name="chegada" min={p.dataMin} max={p.dataMax} value={p.dataMin} /></label>
-        <label><span>Quantas noites? (mín. {p.minNoites})</span><select name="noites">{Array.from({ length: p.maxNoites - p.minNoites + 1 }, (_, i) => p.minNoites + i).map((n) => <option value={n}>{n} noites</option>)}</select></label>
+        <label><span>Chegada (check-in)</span><input type="date" name="chegada" min={pacote.checkIn} value={pacote.checkIn} /></label>
+        <label><span>Quantas noites? (mín. {pacote.noites})</span><input type="number" name="noites" min={pacote.noites} value={pacote.noites} /></label>
       </div>
     )}
 
     <p class="ck-rot">Quantos bangalôs?</p>
-    <div class="ck-oc">
-      {p.ocupacoes.map((o, i) => (
-        <label>
-          <span>{o.nome}<small>{brl(o.precoPessoa)}/pessoa{p.porNoite ? '/noite' : ''}</small></span>
-          <input type="number" inputmode="numeric" name={`oc${i}`} min="0" max={p.totalBangalos} value={i === 1 ? 1 : 0} data-pessoas={o.pessoas} data-preco={o.precoPessoa} aria-label={`Bangalôs ${o.nome}`} />
-        </label>
-      ))}
-    </div>
+    <p class="ck-pessoas" data-pessoas-nota hidden></p>
+    {ocupacoes ? (
+      <div class="ck-oc">
+        {ocupacoes.map((o, i) => (
+          <label>
+            <span>{o.nome}<small>{brl(o.precoPessoa)}/pessoa{pacote.porNoite ? '/noite' : ''}</small></span>
+            <input type="number" inputmode="numeric" name={`oc${i}`} min="0" max={pacote.totalBangalos} value={i === 1 ? 1 : 0} data-pessoas={o.pessoas} data-preco={o.precoPessoa} aria-label={`Bangalôs ${o.nome}`} />
+          </label>
+        ))}
+      </div>
+    ) : (
+      <p class="ck-nota">O valor deste pacote ainda não está publicado. A distribuição Single, Duplo e Triplo entra aqui quando houver preço. Até lá, a reserva segue no WhatsApp.</p>
+    )}
     <div class="ck-linha">
       <label><span>Crianças 0–3 (grátis)</span><input type="number" inputmode="numeric" name="cri03" min="0" max="10" value="0" /></label>
       <label><span>Crianças 4–12 (50%)</span><input type="number" inputmode="numeric" name="cri412" min="0" max="10" value="0" /></label>
@@ -62,13 +69,16 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
 
     <p class="ck-resumo" data-resumo></p>
     <dl class="ck-total">
-      <dt>Total</dt><dd data-total>—</dd>
-      <dt>Sinal {p.sinalPct}% agora</dt><dd data-sinal-valor class="ck-destaque">—</dd>
+      <dt>Total do pacote</dt><dd data-total>—</dd>
+      <dt>Sinal {pacote.sinalPct}% agora</dt><dd data-sinal-valor class="ck-destaque">—</dd>
     </dl>
-    <button type="submit" name="modo" value="sinal" class="ck-btn">Pagar sinal de {p.sinalPct}%</button>
-    <button type="submit" name="modo" value="total" class="ck-btn ck-btn2">Pagar total</button>
-    <p class="ck-devolucao">Sem disponibilidade, devolução integral do valor.</p>
-    <p class="ck-nota">Cartão de crédito em até 12x, pela InfinitePay (Pix: fale no WhatsApp). Todas as refeições incluídas.</p>
+    <ul class="ck-condicoes" data-condicoes>
+      <li>Café da manhã, almoço e jantar incluídos.</li>
+      <li>Cartão de crédito em até 12x, pela InfinitePay. O parcelamento tem acréscimo da InfinitePay, pago por quem compra, e o valor final aparece antes de confirmar. Pix: fale no WhatsApp.</li>
+    </ul>
+    <p class="ck-devolucao" data-devolucao>Sem disponibilidade, devolução integral do valor.</p>
+    <button type="submit" name="modo" value="sinal" class="ck-btn" data-rotulo={`Pagar sinal de ${pacote.sinalPct}%`}>Pagar sinal de {pacote.sinalPct}%</button>
+    <p class="ck-estado" data-checkout-estado role="status" hidden></p>
     <p class="ck-prereserva" data-prereserva role="status" hidden>Pré-reserva recebida. Vamos entrar em contato para confirmar a disponibilidade.</p>
     <a data-ja-paguei href={WA} target="_blank" rel="noopener" class="ck-pago">Já paguei: enviar meu comprovante no WhatsApp</a>
 
@@ -85,79 +95,132 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
 
 <script>
   import { limitarNoites } from '@/scripts/noites';
+  import { cotar, distribuirPessoas, formatarBRL, interpretarPessoas, PACOTES, reaisDeCentavos, type PacoteFechamento } from '@/lib/fechamento';
+  import { contagemDeInputs, linkEstaticoInfinitePay } from '@/lib/checkout';
+  import { etiqueta, lerUtm, persistirUtm } from '@/lib/utm';
+
   const f = document.querySelector<HTMLFormElement>('#ck')!;
   const d = f.dataset;
+  const pacote = PACOTES[d.pacoteId as PacoteFechamento['id']];
   const fmt = (x: Date) => x.toLocaleDateString('pt-BR', { timeZone: 'UTC', day: '2-digit', month: '2-digit' });
   const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   const val = (n: string) => Math.max(+((f.elements.namedItem(n) as HTMLInputElement | null)?.value ?? 0) || 0, 0);
+
+  const pessoasParam = interpretarPessoas(new URLSearchParams(location.search).get('pessoas'));
+  const dist = distribuirPessoas(pessoasParam, { maxHospedes: +d.max! });
+  if (dist.informado) {
+    for (const input of f.querySelectorAll<HTMLInputElement>('[data-pessoas]')) {
+      const pessoas = +input.dataset.pessoas!;
+      input.value = String(pessoas === 1 ? dist.single : pessoas === 2 ? dist.duplo : pessoas === 3 ? dist.triplo : 0);
+    }
+    const nota = f.querySelector<HTMLElement>('[data-pessoas-nota]')!;
+    nota.hidden = false;
+    nota.textContent = dist.limitado
+      ? `O link pedia ${pessoasParam} pessoas. A casa recebe até ${d.max} hóspedes, em 13 bangalôs. Ajuste à vontade ou fale no WhatsApp.`
+      : `Quantidade do link: ${dist.pessoas} ${dist.pessoas === 1 ? 'pessoa' : 'pessoas'}. Você pode mudar Single, Duplo e Triplo.`;
+  }
+
+  const utm = (() => { try { return persistirUtm(location.search, sessionStorage); } catch { return {}; } })();
+  const marcaDe = () => etiqueta(utm, location.pathname, pacote.id);
+
   const calc = () => {
     const { chegada: c, noites: n0 } = limitarNoites(f);
     const n = Math.max(n0, +d.min!);
-    const mult = d.pornoite === '1' ? n : 1;
-    const oc = [...f.querySelectorAll<HTMLInputElement>('[data-pessoas]')];
-    let total = 0, bang = 0, pessoas = 0;
-    const desc: string[] = [];
-    for (const i of oc) { const q = Math.max(+i.value || 0, 0); if (!q) continue; bang += q; pessoas += q * +i.dataset.pessoas!; total += q * +i.dataset.pessoas! * +i.dataset.preco! * mult; desc.push(`${q} ${i.getAttribute('aria-label')!.replace('Bangalôs ', '')}`); }
-    const c03 = val('cri03'), c412 = val('cri412');
-    const precos = oc.filter((i) => +i.value > 0).map((i) => +i.dataset.preco!);
-    if (c412 && precos.length) total += c412 * Math.min(...precos) * 0.5 * mult; // 4–12: 50% da ocupação mais barata escolhida
-    pessoas += c03 + c412;
-    const excede = bang > +d.bangalos! || pessoas > +d.max!;
-    const ok = total > 0 && !excede;
-    const sinal = ok ? Math.round(total * +d.sinal!) / 100 : 0;
+    const inputs = [...f.querySelectorAll<HTMLInputElement>('[data-pessoas]')];
+    const contagem = contagemDeInputs(inputs.map((i) => ({ pessoas: +i.dataset.pessoas!, q: +i.value || 0 })), val('cri03'), val('cri412'));
+    const cotacao = cotar({ ...pacote, noites: d.pornoite === '1' ? n : pacote.noites }, contagem, 'sinal');
     const datas = isNaN(c.getTime()) ? '' : `check-in ${fmt(c)}, check-out ${fmt(new Date(c.getTime() + n * 864e5))}`;
-    const resumo = `${d.fixas ? '' : datas + ' · '}${desc.join(' + ') || 'escolha os bangalôs'}${c03 + c412 ? ` + ${c03 + c412} criança(s)` : ''} · ${n} noites · ${pessoas} pessoas`;
+    const resumo = `${d.fixas ? '' : datas + ' · '}${cotacao.linhas.join(' + ') || 'escolha os bangalôs'} · ${n} noites · ${cotacao.pessoas} pessoas`;
     f.querySelector('[data-resumo]')!.textContent = resumo;
-    f.querySelector('[data-total]')!.textContent = excede ? 'Para mais bangalôs ou pessoas, fale com a gente no WhatsApp' : ok ? brl(total) : '—';
-    f.querySelector('[data-sinal-valor]')!.textContent = ok ? brl(sinal) : '—';
+    const excede = cotacao.motivo === 'capacidade';
+    f.querySelector('[data-total]')!.textContent = excede ? 'Para mais bangalôs ou pessoas, fale com a gente no WhatsApp' : cotacao.ok ? formatarBRL(cotacao.totalCentavos) : '—';
+    f.querySelector('[data-sinal-valor]')!.textContent = cotacao.ok ? formatarBRL(cotacao.sinalCentavos) : '—';
     const msg = `Oi! ${d.pacote}, ${datas}: ${resumo}.`;
-    f.querySelector<HTMLAnchorElement>('[data-wa-link]')!.href = `${d.wa}?text=${encodeURIComponent(msg)}`;
-    f.querySelector<HTMLAnchorElement>('[data-ja-paguei]')!.href = `${d.wa}?text=${encodeURIComponent(`Paguei! ${msg} Segue o comprovante.`)}`;
-    return { ok, total, sinal, msg };
+    const marca = marcaDe();
+    const comMarca = marca ? `${msg} ${marca}` : msg;
+    f.querySelector<HTMLAnchorElement>('[data-wa-link]')!.href = `${d.wa}?text=${encodeURIComponent(comMarca)}`;
+    f.querySelector<HTMLAnchorElement>('[data-ja-paguei]')!.href = `${d.wa}?text=${encodeURIComponent(`Paguei! ${comMarca} Segue o comprovante.`)}`;
+    document.dispatchEvent(new CustomEvent('va-resumo', { detail: { mensagem: `Oi! Dúvida sobre ${d.pacote}. ${resumo}.` } }));
+    return { cotacao, resumo, msg: comMarca, datas };
   };
   f.addEventListener('input', calc); calc();
+
   const pre = f.querySelector<HTMLElement>('[data-prereserva]')!;
-  const mostrarPre = () => { pre.hidden = false; };
-  f.querySelector('[data-ja-paguei]')!.addEventListener('click', mostrarPre);
+  const estado = f.querySelector<HTMLElement>('[data-checkout-estado]')!;
+  f.querySelector('[data-ja-paguei]')!.addEventListener('click', () => { pre.hidden = false; });
+
   f.addEventListener('submit', (e) => {
     e.preventDefault();
-    const { ok, total, sinal, msg } = calc();
-    const modo = ((e as SubmitEvent).submitter as HTMLButtonElement | null)?.value;
-    const v = modo === 'total' ? total : sinal;
-    if (ok) mostrarPre();
-    // GA4 (02/11/2026): clique no Reservar, importável no Google Ads como conversão.
-    (window as any).gtag?.('event', 'click_reservar', { pacote: d.pacote, modo: modo || 'sinal', destino: ok ? 'infinitepay' : 'whatsapp', pagina: location.pathname, transport_type: 'beacon' });
-    window.open(ok ? `https://pay.infinitepay.io/${d.tag}/${v.toFixed(2).replace('.', ',')}` : `${d.wa}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+    const { cotacao, msg } = calc();
+    const modo = 'sinal' as const;
+    const url = cotacao.ok ? linkEstaticoInfinitePay(reaisDeCentavos(cotacao.sinalCentavos)) : null;
+    (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag?.('event', 'click_reservar', {
+      pacote: d.pacote, modo, destino: url ? 'infinitepay' : 'whatsapp', pagina: location.pathname, transport_type: 'beacon',
+    });
+    if (!url) {
+      pre.hidden = false;
+      window.open(`${d.wa}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+      return;
+    }
+    const valor = reaisDeCentavos(cotacao.sinalCentavos);
+    (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag?.('event', 'begin_checkout', {
+      currency: 'BRL',
+      value: valor,
+      items: [{ item_id: `${pacote.id}-sinal`, item_name: pacote.nome, price: valor, quantity: 1 }],
+      pacote: pacote.id,
+      pagina: location.pathname,
+    });
+    (window as unknown as { vaPixel?: { initiateCheckout: (x: { value: number; currency: string }) => void } }).vaPixel?.initiateCheckout({
+      value: valor, currency: 'BRL',
+    });
+    pre.hidden = false;
+    estado.hidden = true;
+    window.open(url, '_blank', 'noopener');
   });
 </script>
 
 <style>
-  .ck { min-height: 100svh; background: var(--color-areia-clara); display: flex; justify-content: center; padding: 1rem .9rem 2rem; }
-  .ck-caixa { width: 100%; max-width: 30rem; }
+  .ck { min-height: 100%; background: var(--color-areia-clara); display: flex; justify-content: center; padding: .6rem .9rem .8rem; }
+  .ck-caixa { width: 100%; max-width: 34rem; }
+  .ck-topo { position: sticky; top: 0; z-index: 45; display: flex; align-items: center; justify-content: space-between; gap: .75rem; background: var(--color-areia-clara); padding-bottom: .2rem; }
   .ck-marca { font-family: var(--font-label); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--color-areia-funda); }
-  .ck-h1 { font-size: 1.9rem; line-height: 1.05; margin-top: .35rem; }
-  .ck-promessa { margin-top: .35rem; font-size: .95rem; color: var(--color-mar-fundo); }
-  .ck-escassez { margin-top: .5rem; font-size: .85rem; color: var(--color-erro); }
-  .ck-linha, .ck-oc { display: grid; gap: .5rem; margin-top: .6rem; }
+  .ck-h1 { font-size: 1.65rem; line-height: 1.05; margin-top: .2rem; }
+  .ck-promessa { margin-top: .2rem; font-size: .92rem; color: var(--color-mar-fundo); }
+  .ck-escassez { margin-top: .3rem; font-size: .85rem; color: var(--color-erro); }
+  .ck-capacidade { margin-top: .1rem; font-size: .85rem; color: var(--color-mar); }
+  .ck-pessoas { margin-top: .3rem; font-size: .82rem; color: var(--color-mar-fundo); }
+  .ck-linha, .ck-oc { display: grid; gap: .4rem; margin-top: .4rem; }
   .ck-linha { grid-template-columns: 1fr 1fr; }
-  .ck-oc { grid-template-columns: repeat(3, 1fr); margin-top: .3rem; }
+  .ck-oc { grid-template-columns: repeat(3, 1fr); margin-top: .2rem; }
   .ck label > span { display: block; font-family: var(--font-label); font-size: .72rem; text-transform: uppercase; letter-spacing: .05em; color: var(--color-areia-funda); }
   .ck label small { display: block; text-transform: none; letter-spacing: 0; color: var(--color-mar); font-family: var(--font-sans); font-size: .72rem; }
-  .ck select { width: 100%; padding: .6rem; font-size: 1.05rem; border: 2px solid var(--color-ceu); background: #fff; color: var(--color-mar-fundo); font-weight: 700; }
-  .ck input { width: 100%; padding: .6rem; font-size: 1.05rem; border: 1px solid var(--color-areia-sol); background: #fff; color: var(--color-mar-fundo); }
-  .ck-total { display: grid; grid-template-columns: 1fr auto; gap: .15rem .5rem; margin-top: .3rem; font-size: .9rem; align-items: baseline; }
-  .ck-resumo { margin-top: .8rem; padding-top: .6rem; border-top: 1px solid var(--color-areia-sol); font-size: .78rem; color: var(--color-mar); }
-  .ck-rot { margin-top: .7rem; font-weight: 700; font-size: .85rem; color: var(--color-mar-fundo); }
+  .ck input { width: 100%; padding: .4rem .5rem; font-size: 1.05rem; border: 1px solid var(--color-areia-sol); background: #fff; color: var(--color-mar-fundo); }
+  .ck-total { display: grid; grid-template-columns: 1fr auto; gap: .1rem .5rem; margin-top: .25rem; font-size: .9rem; align-items: baseline; }
+  .ck-resumo { margin-top: .45rem; padding-top: .4rem; border-top: 1px solid var(--color-areia-sol); font-size: .78rem; color: var(--color-mar); }
+  .ck-rot { margin-top: .45rem; font-weight: 700; font-size: .85rem; color: var(--color-mar-fundo); }
   .ck-total dd { text-align: right; font-weight: 700; }
   .ck-destaque { color: var(--color-ceu); font-size: 1.15rem; }
-  .ck-btn { display: block; width: 100%; margin-top: .7rem; padding: 1rem; background: var(--color-ceu); color: #fff; font-weight: 800; font-size: 1.1rem; border-radius: .25rem; }
+  .ck-btn { display: block; width: 100%; margin-top: .55rem; padding: .8rem; background: var(--color-ceu); color: #fff; font-weight: 800; font-size: 1.05rem; border-radius: .25rem; }
   .ck-btn:hover { background: var(--color-ceu-hover); }
-  .ck-btn2 { margin-top: .45rem; background: transparent; color: var(--color-ceu); border: 2px solid var(--color-ceu); font-size: 1rem; padding: .75rem; }
-  .ck-btn2:hover { background: var(--color-espuma); }
-  .ck-devolucao { margin-top: .5rem; text-align: center; font-weight: 700; font-size: .85rem; color: var(--color-mar-fundo); }
-  .ck-prereserva { margin-top: .6rem; padding: .7rem; text-align: center; font-weight: 700; background: var(--color-espuma); color: var(--color-mar-fundo); }
-  .ck-nota { margin-top: .5rem; font-size: .75rem; text-align: center; color: var(--color-mar-fundo); }
+  .ck-btn:disabled { opacity: .7; }
+  .ck-condicoes { margin-top: .45rem; padding-left: 1.1rem; font-size: .85rem; color: var(--color-mar-fundo); display: grid; gap: .15rem; }
+  .ck-devolucao { margin-top: .35rem; text-align: center; font-weight: 700; font-size: .85rem; color: var(--color-mar-fundo); }
+  .ck-estado, .ck-prereserva { margin-top: .6rem; padding: .7rem; text-align: center; font-weight: 700; background: var(--color-espuma); color: var(--color-mar-fundo); }
+  .ck-nota { margin-top: .5rem; font-size: .8rem; text-align: center; color: var(--color-mar-fundo); }
   .ck-pago { display: block; margin-top: .4rem; text-align: center; font-size: .78rem; color: var(--color-mar); text-decoration: underline; }
-  .ck-links { display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem .9rem; margin-top: 1.4rem; font-size: .78rem; }
+  .ck-links { display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem .9rem; margin-top: .8rem; font-size: .78rem; }
+  @media (max-width: 40rem) {
+    .ck { padding: .4rem .7rem .5rem; }
+    .ck-h1 { font-size: 1.4rem; }
+    .ck-promessa, .ck-escassez, .ck-capacidade, .ck-pessoas { font-size: .8rem; }
+    .ck-promessa, .ck-escassez { margin-top: .15rem; }
+    .ck-linha, .ck-oc { margin-top: .3rem; gap: .3rem; }
+    .ck input { padding: .28rem .4rem; }
+    .ck-resumo { margin-top: .3rem; padding-top: .25rem; }
+    .ck-rot { margin-top: .3rem; }
+    .ck-condicoes { margin-top: .3rem; font-size: .8rem; }
+    .ck-devolucao { margin-top: .2rem; font-size: .8rem; }
+    .ck-btn { margin-top: .35rem; padding: .65rem; }
+  }
   .ck-links a { color: var(--color-ceu); text-decoration: underline; }
 </style>
