@@ -34,7 +34,8 @@
     "menu": "Menü",
     "close": "Schließen",
     "language": "Sprache",
-    "detox": "Detox"
+    "detox": "Detox",
+    "privacy": "Datenschutz"
   },
   "cta": {
     "book": "Buchen",
@@ -62,7 +63,9 @@
     "local": "Wo wir sind",
     "partida": "Abfahrt der Gruppen",
     "tipo": "Gemeindebasierter Tourismus",
-    "brasil": "Brasilien"
+    "brasil": "Brasilien",
+    "privacidade": "Datenschutz",
+    "cookies": "Cookies"
   },
   "whatsapp": {
     "geral": "Hallo! Ich würde gern mehr über die Villa Arapiuns erfahren.",
@@ -88,7 +91,8 @@
     "reviews": "Was Gäste nach ihrem Aufenthalt in der Villa Arapiuns erzählen.",
     "book": "Buchen Sie Ihren Aufenthalt in der Villa Arapiuns über WhatsApp und sprechen Sie direkt mit dem Haus.",
     "bookSent": "Ihre Nachricht ist angekommen. Wir antworten innerhalb von 24 Stunden.",
-    "detox": "Detox-Retreat im Amazonas, 1. bis 10. Januar 2027: nach Neujahr der Fluss. Kristallklares Wasser, Ruhe und Zeit zum Abschalten am Rio Arapiuns, 1,5 Stunden von Alter do Chão."
+    "detox": "Detox-Retreat im Amazonas, 1. bis 10. Januar 2027: nach Neujahr der Fluss. Kristallklares Wasser, Ruhe und Zeit zum Abschalten am Rio Arapiuns, 1,5 Stunden von Alter do Chão.",
+    "privacy": "Wie die Villa Arapiuns Reservierungsdaten, Zahlungen über InfinitePay, WhatsApp, Cookies, Google Analytics, Google Ads und das Meta-Pixel behandelt."
   },
   "home": {
     "hookA": "Eine Karibik aus Süßwasser,",
@@ -1295,5 +1299,39 @@
     "devolucao": "Keine Verfügbarkeit: volle Rückerstattung.",
     "restam": "Begrenzte Plätze.",
     "preReserva": "Vorreservierung erhalten. Wir melden uns, um die Verfügbarkeit zu bestätigen."
+  },
+  "consent": {
+    "texto": "Wir speichern einen wesentlichen Eintrag, damit wir diese Wahl behalten. Statistik (Google Analytics) und Marketing (Google Ads und Meta-Pixel) laufen nur, wenn Sie zustimmen.",
+    "aceitar": "Alles akzeptieren",
+    "recusar": "Nicht Wesentliches ablehnen",
+    "preferencias": "Einstellungen",
+    "salvar": "Einstellungen speichern",
+    "essenciaisT": "Wesentlich",
+    "essenciaisD": "Merken sich diese Wahl. Immer aktiv.",
+    "estatisticasT": "Statistik",
+    "estatisticasD": "Helfen, die Nutzung der Seite mit Google Analytics 4 zu verstehen.",
+    "marketingT": "Marketing",
+    "marketingD": "Erlauben Google Ads und das Meta-Pixel: Seite, Zahlungsbeginn, Kontakt und Kauf.",
+    "politica": "Datenschutz"
+  },
+  "privacidade": {
+    "h1": "Datenschutz",
+    "intro": "Diese Seite beschreibt, wie die Villa Arapiuns Daten behandelt, wenn Sie eine Reservierung anfragen, eine Anzahlung leisten, uns auf WhatsApp schreiben oder die Seite nutzen. Das Haus liegt am Rio Arapiuns, 1 Stunde 30 Minuten von Alter do Chão, mit 13 Bungalows für bis zu 26 Gäste.",
+    "controladorT": "Wer verantwortlich ist",
+    "controladorD": "Verantwortlich für die Seite und die Reservierungen ist die Villa Arapiuns. Zu Ihren Daten schreiben Sie an reservas@villaarapiuns.com.br.",
+    "reservaT": "Reservierungsdaten",
+    "reservaD": "Im Formular und in Nachrichten behalten wir, was Sie senden: Name, E-Mail, Telefon oder WhatsApp, Daten, Personenzahl und den Text. Wir nutzen das, um zu antworten, den Aufenthalt zu organisieren und die Verfügbarkeit zu bestätigen.",
+    "pagamentoT": "Zahlung über InfinitePay",
+    "pagamentoD": "Die Anzahlung zu Silvester wird im Checkout von InfinitePay eingezogen. Diese Seite erhält keine Kartennummer. Wir erhalten die Bestätigung: Kennungen, Betrag, Zahlungsart und den Beleglink. Ist kein Platz frei, wird der gezahlte Betrag vollständig zurückerstattet.",
+    "whatsappT": "WhatsApp",
+    "whatsappD": "Die WhatsApp-Schaltflächen öffnen ein Gespräch mit dem Haus. Die Nachricht kann Paket, Personenzahl und ein Kennzeichen der Herkunft enthalten, etwa die Anzeige, über die Sie kamen. Das Gespräch folgt auch den Regeln von WhatsApp.",
+    "cookiesT": "Cookies und Daten im Browser",
+    "cookiesD": "Ihre Wahl bleibt im Browser gespeichert. Kamen Sie mit Kampagnenparametern (utm_source, utm_medium, utm_campaign, utm_content, utm_term, gclid, fbclid), behält die Sitzung sie bis zum Schließen des Browsers, für das WhatsApp-Kennzeichen und die Bestelldaten.",
+    "medicaoT": "Google Analytics, Google Ads und Meta",
+    "medicaoD": "Mit Ihrer Einwilligung misst Google Analytics 4 die Nutzung der Seite. Google Ads kann einen Kauf erst nach bestätigter Anzahlung erfassen. Das Meta-Pixel zeichnet, wenn Sie Marketing erlauben, Seitenaufruf, Zahlungsbeginn, Kontakt und Kauf auf, mit Betrag in Real und einer Bestellkennung. Ohne diese Einwilligung wird das Pixel nicht geladen. Sie können alles akzeptieren, Nicht-Wesentliches ablehnen oder Statistik und Marketing getrennt schalten.",
+    "direitosT": "Ihre Rechte",
+    "direitosD": "Sie können Auskunft, Berichtigung, Löschung und Information über die Nutzung verlangen und eine Einwilligung widerrufen, wenn sie die Grundlage ist. Schreiben Sie an reservas@villaarapiuns.com.br. Die Cookie-Einstellungen lassen sich in der Fußzeile wieder öffnen.",
+    "contatoT": "Kontakt",
+    "contatoD": "Datenschutz und Reservierung: reservas@villaarapiuns.com.br. Kartenzahlung und Pix laufen nur auf der Seite von InfinitePay. Senden Sie kein Passwort und keine Kartennummer per E-Mail oder WhatsApp."
   }
 }

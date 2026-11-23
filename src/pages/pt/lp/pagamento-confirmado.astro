@@ -1,0 +1,193 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import WhatsappFlutuante from '@/components/WhatsappFlutuante.astro';
+import { SITE } from '@/data/site';
+
+const WA = `https://wa.me/${SITE.contact.whatsapp}`;
+---
+<BaseLayout locale="pt" pageKey="reveillon" title="Pagamento | Villa Arapiuns" description="Confirmação do sinal pago à Villa Arapiuns." indexavel={false} caminho="/pt/lp/pagamento-confirmado/" semSchemaNegocio>
+  <main class="ck">
+    <article class="ck-caixa" data-confirmacao>
+      <div class="ck-topo">
+        <WhatsappFlutuante mensagem="Oi! Acabei de pagar o sinal na Villa Arapiuns e quero confirmar os dados do pedido." />
+      </div>
+      <a href="/pt/" class="ck-marca">Villa Arapiuns · Rio Arapiuns, Pará</a>
+      <h1 class="ck-h1" data-titulo>Confirmando pagamento…</h1>
+      <p class="ck-promessa" data-corpo>Estamos conferindo este pedido com a InfinitePay. Recarregar a página não registra a compra de novo.</p>
+      <dl class="ck-total" data-dados hidden>
+        <dt>Pedido</dt><dd data-pedido>—</dd>
+        <dt>Transação</dt><dd data-transacao>—</dd>
+        <dt>Valor confirmado</dt><dd data-valor>—</dd>
+        <dt>Forma</dt><dd data-forma>—</dd>
+      </dl>
+      <p class="ck-estado" data-estado role="status"></p>
+      <a data-comprovante href="" hidden>Abrir comprovante</a>
+      <a data-wa-link class="ck-btn" href={WA} target="_blank" rel="noopener">Falar no WhatsApp sobre este pedido</a>
+      <p class="ck-nota"><a href={`mailto:${SITE.contact.email}`}>{SITE.contact.email}</a> · +55 47 99206-7078</p>
+    </article>
+  </main>
+</BaseLayout>
+
+<script>
+  import { PACOTES } from '@/lib/fechamento';
+  import { apiCheckout, confirmarPagamento, itemCompra, lerPedido, marcarDisparo, planoDeConversoes } from '@/lib/checkout';
+  import { lerEscolha } from '@/lib/consentimento';
+  import { etiqueta, lerUtm } from '@/lib/utm';
+  import { SITE } from '@/data/site';
+
+  const raiz = document.querySelector<HTMLElement>('[data-confirmacao]')!;
+  const titulo = raiz.querySelector<HTMLElement>('[data-titulo]')!;
+  const corpo = raiz.querySelector<HTMLElement>('[data-corpo]')!;
+  const estado = raiz.querySelector<HTMLElement>('[data-estado]')!;
+  const dados = raiz.querySelector<HTMLElement>('[data-dados]')!;
+  const comprovante = raiz.querySelector<HTMLAnchorElement>('[data-comprovante]')!;
+  const wa = raiz.querySelector<HTMLAnchorElement>('[data-wa-link]')!;
+
+  const pedido = (() => { try { return lerPedido(sessionStorage); } catch { return null; } })();
+  const utm = (() => { try { return lerUtm(sessionStorage); } catch { return {}; } })();
+  const params = new URLSearchParams(location.search);
+
+  function textoWhatsapp(extra: string) {
+    const pacote = pedido?.pacoteId === 'detox' || pedido?.pacoteId === 'reveillon' ? PACOTES[pedido.pacoteId].nome : 'Villa Arapiuns';
+    const marca = etiqueta(utm, location.pathname, pedido?.pacoteId);
+    const partes = [
+      `Oi! ${extra}`,
+      pacote,
+      pedido?.resumo || '',
+      params.get('order_nsu') ? `pedido ${params.get('order_nsu')}` : '',
+      params.get('transaction_nsu') ? `transação ${params.get('transaction_nsu')}` : '',
+      marca,
+    ].filter(Boolean);
+    return partes.join(' · ');
+  }
+
+  function ligarWhatsapp(extra: string) {
+    const texto = textoWhatsapp(extra);
+    wa.href = `https://wa.me/${SITE.contact.whatsapp}?text=${encodeURIComponent(texto)}`;
+    document.dispatchEvent(new CustomEvent('va-resumo', { detail: { mensagem: texto } }));
+  }
+
+  function adsConfig() {
+    const w = window as unknown as { __VA_ADS_ID__?: string; __VA_ADS_LABEL__?: string };
+    const env = (import.meta as { env?: Record<string, string | undefined> }).env;
+    return {
+      adsId: w.__VA_ADS_ID__ ?? env?.PUBLIC_GOOGLE_ADS_ID ?? '',
+      adsLabel: w.__VA_ADS_LABEL__ ?? env?.PUBLIC_GOOGLE_ADS_PURCHASE_LABEL ?? '',
+      pixelId: ((window as unknown as { __VA_PIXEL_ID__?: string }).__VA_PIXEL_ID__) ?? env?.PUBLIC_META_PIXEL_ID ?? '',
+    };
+  }
+
+  function disparar(orderNsu: string, valorBRL: number) {
+    const nome = pedido?.nome || 'Sinal Villa Arapiuns';
+    const pacoteId = pedido?.pacoteId || 'reveillon';
+    const item = itemCompra(pacoteId, nome, valorBRL);
+    let marketing = false;
+    try { marketing = !!lerEscolha(localStorage)?.marketing; } catch { marketing = false; }
+    const ids = adsConfig();
+    const plano = planoDeConversoes({
+      pago: true,
+      orderNsu,
+      storage: sessionStorage,
+      adsId: ids.adsId,
+      adsLabel: ids.adsLabel,
+      pixelId: ids.pixelId,
+      marketingConsent: marketing,
+    });
+    const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag;
+    if (plano.ga4) {
+      gtag?.('event', 'purchase', {
+        transaction_id: orderNsu,
+        value: valorBRL,
+        currency: 'BRL',
+        items: [item],
+        transport_type: 'beacon',
+      });
+      marcarDisparo(sessionStorage, 'ga4', orderNsu);
+    }
+    if (plano.ads) {
+      gtag?.('event', 'conversion', {
+        send_to: `${ids.adsId}/${ids.adsLabel}`,
+        value: valorBRL,
+        currency: 'BRL',
+        transaction_id: orderNsu,
+      });
+      marcarDisparo(sessionStorage, 'ads', orderNsu);
+    }
+    if (plano.meta) {
+      const enviar = () => {
+        (window as unknown as { vaPixel?: { purchase: (x: { value: number; currency: string; eventID: string }) => void } }).vaPixel?.purchase({
+          value: valorBRL,
+          currency: 'BRL',
+          eventID: orderNsu,
+        });
+        marcarDisparo(sessionStorage, 'meta', orderNsu);
+      };
+      if ((window as unknown as { vaPixel?: unknown }).vaPixel) enviar();
+      else document.addEventListener('va-pixel-pronto', enviar, { once: true });
+    }
+    (window as unknown as { __VA_COMPRA__?: { orderNsu: string; valorBRL: number } }).__VA_COMPRA__ = { orderNsu, valorBRL };
+  }
+
+  ligarWhatsapp('Quero confirmar o pagamento do sinal.');
+
+  // Sem await no topo do módulo: o Rastreio (Pixel) precisa avaliar antes do purchase.
+  void (async () => {
+  const confirmado = await confirmarPagamento(params, {
+    apiBase: apiCheckout(),
+    sinalCentavosSalvo: pedido?.sinalCentavos ?? null,
+  });
+
+  if (params.get('order_nsu')) {
+    dados.hidden = false;
+    raiz.querySelector('[data-pedido]')!.textContent = params.get('order_nsu');
+    raiz.querySelector('[data-transacao]')!.textContent = params.get('transaction_nsu') || '—';
+  }
+
+  if (confirmado.estado === 'pago') {
+    titulo.textContent = 'Pagamento confirmado';
+    corpo.textContent = 'O sinal entrou. A casa confirma a disponibilidade e fala com você em seguida.';
+    estado.textContent = 'Pré-reserva recebida. Vamos entrar em contato para confirmar a disponibilidade.';
+    dados.hidden = false;
+    raiz.querySelector('[data-valor]')!.textContent = confirmado.valorBRL.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    raiz.querySelector('[data-forma]')!.textContent = confirmado.captureMethod || '—';
+    if (confirmado.receiptUrl) {
+      comprovante.hidden = false;
+      comprovante.href = confirmado.receiptUrl;
+    }
+    ligarWhatsapp('Paguei o sinal e quero confirmar a pré-reserva.');
+    disparar(confirmado.orderNsu, confirmado.valorBRL);
+    document.addEventListener('va-consent', () => disparar(confirmado.orderNsu, confirmado.valorBRL));
+  } else if (confirmado.estado === 'nao_pago') {
+    titulo.textContent = 'Pagamento ainda não confirmado';
+    corpo.textContent = 'A InfinitePay ainda não marcou este pedido como pago. Se o Pix acabou de sair, espere um instante e atualize. Nada aqui conta como compra enquanto o pagamento não constar.';
+    estado.textContent = 'Nenhuma compra foi registrada.';
+  } else if (confirmado.estado === 'incompleto') {
+    titulo.textContent = 'Faltam dados do pagamento';
+    corpo.textContent = 'Este endereço abre depois do checkout, com o número do pedido. Se você já pagou, chame no WhatsApp com o comprovante.';
+    estado.textContent = 'Nenhuma compra foi registrada.';
+  } else {
+    titulo.textContent = 'Não foi possível confirmar agora';
+    corpo.textContent = confirmado.estado === 'sem_endpoint'
+      ? 'A confirmação online ainda não está ligada neste ambiente. Se você pagou, fale no WhatsApp com o comprovante. Nada foi registrado como compra.'
+      : 'A consulta do pagamento não respondeu. Atualize em instantes ou fale no WhatsApp. Nada foi registrado como compra.';
+    estado.textContent = 'Nenhuma compra foi registrada.';
+  }
+  })();
+</script>
+
+<style>
+  .ck { min-height: 100svh; background: var(--color-areia-clara); display: flex; justify-content: center; padding: 1rem .9rem calc(2rem + var(--va-consent-offset, 0px)); }
+  .ck-caixa { width: 100%; max-width: 30rem; }
+  .ck-topo { position: sticky; top: .75rem; z-index: 45; display: flex; justify-content: flex-end; margin-bottom: .35rem; }
+  .ck-marca { font-family: var(--font-label); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--color-areia-funda); }
+  .ck-h1 { font-size: 1.9rem; line-height: 1.05; margin-top: .35rem; }
+  .ck-promessa { margin-top: .6rem; font-size: .95rem; color: var(--color-mar-fundo); }
+  .ck-total { display: grid; grid-template-columns: 1fr auto; gap: .35rem .75rem; margin-top: 1rem; font-size: .9rem; }
+  .ck-total dd { text-align: right; font-weight: 700; overflow-wrap: anywhere; }
+  .ck-estado { margin-top: .9rem; padding: .7rem; text-align: center; font-weight: 700; background: var(--color-espuma); color: var(--color-mar-fundo); }
+  .ck-btn { display: block; width: 100%; margin-top: .9rem; padding: 1rem; background: var(--color-ceu); color: #fff; font-weight: 800; font-size: 1.05rem; border-radius: .25rem; text-align: center; }
+  .ck-btn:hover { background: var(--color-ceu-hover); color: #fff; }
+  a[data-comprovante] { display: block; margin-top: .8rem; text-align: center; color: var(--color-ceu); text-decoration: underline; font-weight: 700; }
+  .ck-nota { margin-top: .8rem; text-align: center; font-size: .8rem; }
+  .ck-nota a { color: var(--color-ceu); }
+</style>

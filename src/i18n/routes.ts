@@ -15,6 +15,7 @@ export const PAGE_KEYS = [
   'reviews',
   'book',
   'bookSent',
+  'privacy',
 ] as const;
 
 export type PageKey = (typeof PAGE_KEYS)[number];
@@ -44,6 +45,7 @@ export const SLUGS: Record<PageKey, Record<Locale, string>> = {
   reviews:      { en: 'reviews',       pt: 'avaliacoes',       es: 'opiniones',      de: 'bewertungen',    ja: 'reviews' },
   book:         { en: 'book',          pt: 'reservar',         es: 'reservar',       de: 'buchen',         ja: 'book' },
   bookSent:     { en: 'book/sent',     pt: 'reservar/enviado', es: 'reservar/enviado', de: 'buchen/gesendet', ja: 'book/sent' },
+  privacy:      { en: 'privacy',       pt: 'privacidade',      es: 'privacidad',     de: 'datenschutz',    ja: 'privacy' },
 };
 
 /** Páginas que aparecem no menu principal. As demais são alcançadas por CTA. */

@@ -1,0 +1,88 @@
+---
+/**
+ * Persistência de UTM, etiqueta no WhatsApp e Meta Pixel.
+ * O Pixel só é inserido depois do consentimento de marketing.
+ * GA4 e o Consent Mode ficam no script inline do BaseLayout, antes do config.
+ */
+---
+
+<script>
+  import { deveDispararMeta, lerEscolha, type EscolhaConsentimento, type EventoMeta } from '@/lib/consentimento';
+  import { comEtiqueta, etiqueta, lerUtm, persistirUtm } from '@/lib/utm';
+
+  const pixelId = ((import.meta as { env?: Record<string, string | undefined> }).env?.PUBLIC_META_PIXEL_ID || '').trim();
+  try { persistirUtm(location.search, sessionStorage); } catch { /* sessão bloqueada */ }
+
+  const marcaAtual = () => {
+    try { return etiqueta(lerUtm(sessionStorage), location.pathname); } catch { return ''; }
+  };
+
+  document.addEventListener('click', (e) => {
+    const alvo = e.target as Element | null;
+    const a = alvo?.closest?.('a[href*="wa.me"]') as HTMLAnchorElement | null;
+    if (!a) return;
+    const marca = marcaAtual();
+    if (marca) a.href = comEtiqueta(a.href, marca);
+    disparar('Contact');
+  }, true);
+
+  let pixelPronto = false;
+
+  function escolhaAtual(): EscolhaConsentimento | null {
+    try { return lerEscolha(localStorage); } catch { return null; }
+  }
+
+  function injetarPixel() {
+    if (pixelPronto || !pixelId) return;
+    const w = window as unknown as { fbq?: (...args: unknown[]) => void; _fbq?: unknown };
+    if (typeof w.fbq !== 'function') {
+      const n = function (this: { callMethod?: (...a: unknown[]) => void; queue: unknown[] }) {
+        const args = arguments;
+        if (n.callMethod) n.callMethod.apply(n, args as unknown as unknown[]);
+        else n.queue.push(args);
+      } as ((...args: unknown[]) => void) & { callMethod?: (...a: unknown[]) => void; queue: unknown[]; loaded: boolean; version: string; push: unknown };
+      n.queue = [];
+      n.loaded = true;
+      n.version = '2.0';
+      n.push = n;
+      w.fbq = n;
+      if (!w._fbq) w._fbq = n;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://connect.facebook.net/en_US/fbevents.js';
+      document.head.appendChild(s);
+      w.fbq('init', pixelId);
+    }
+    pixelPronto = true;
+  }
+
+  function disparar(evento: EventoMeta, dados?: Record<string, unknown>, eventID?: string) {
+    if (!deveDispararMeta(evento, escolhaAtual(), pixelId)) return;
+    injetarPixel();
+    const w = window as unknown as { fbq?: (...args: unknown[]) => void };
+    if (eventID) w.fbq?.('track', evento, dados || {}, { eventID });
+    else w.fbq?.('track', evento, dados || {});
+  }
+
+  function sincronizar() {
+    if (!deveDispararMeta('PageView', escolhaAtual(), pixelId)) return;
+    const primeira = !pixelPronto;
+    injetarPixel();
+    if (primeira) disparar('PageView');
+  }
+
+  sincronizar();
+  document.addEventListener('va-consent', () => sincronizar());
+
+  const pixel = {
+    contact: () => disparar('Contact'),
+    initiateCheckout: (dados: { value: number; currency: string; eventID?: string }) => {
+      disparar('InitiateCheckout', { value: dados.value, currency: dados.currency }, dados.eventID);
+    },
+    purchase: (dados: { value: number; currency: string; eventID: string }) => {
+      disparar('Purchase', { value: dados.value, currency: dados.currency }, dados.eventID);
+    },
+  };
+  (window as unknown as { vaPixel?: typeof pixel }).vaPixel = pixel;
+  document.dispatchEvent(new CustomEvent('va-pixel-pronto'));
+</script>

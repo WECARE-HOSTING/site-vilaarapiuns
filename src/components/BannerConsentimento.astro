@@ -1,0 +1,182 @@
+---
+/**
+ * Banner LGPD. Fica no pé da página (z-index abaixo do cabeçalho e da barra
+ * de promo) para não cobrir logo nem menu, e não disputa o topo com a promo.
+ */
+import { href } from '@/i18n/routes';
+import { useTranslations } from '@/i18n/utils';
+import type { Locale } from '@/i18n/config';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<div class="lgpd" data-lgpd role="dialog" aria-labelledby="lgpd-titulo" aria-describedby="lgpd-texto">
+  <div class="lgpd-caixa">
+    <p id="lgpd-titulo" class="lgpd-titulo">Villa Arapiuns</p>
+    <p id="lgpd-texto">{t('consent.texto')}</p>
+    <p class="lgpd-politica"><a href={href(locale, 'privacy')}>{t('consent.politica')}</a></p>
+    <div class="lgpd-acoes">
+      <button type="button" data-lgpd-aceitar>{t('consent.aceitar')}</button>
+      <button type="button" data-lgpd-recusar>{t('consent.recusar')}</button>
+      <button type="button" data-lgpd-prefs>{t('consent.preferencias')}</button>
+    </div>
+    <fieldset class="lgpd-prefs" data-lgpd-painel hidden>
+      <legend class="sr-only">{t('consent.preferencias')}</legend>
+      <label>
+        <input type="checkbox" checked disabled />
+        <span><strong>{t('consent.essenciaisT')}</strong> {t('consent.essenciaisD')}</span>
+      </label>
+      <label>
+        <input type="checkbox" data-lgpd-estatisticas />
+        <span><strong>{t('consent.estatisticasT')}</strong> {t('consent.estatisticasD')}</span>
+      </label>
+      <label>
+        <input type="checkbox" data-lgpd-marketing />
+        <span><strong>{t('consent.marketingT')}</strong> {t('consent.marketingD')}</span>
+      </label>
+      <button type="button" data-lgpd-salvar>{t('consent.salvar')}</button>
+    </fieldset>
+  </div>
+</div>
+
+<script>
+  import {
+    aceitarTudo,
+    consentModeDe,
+    lerEscolha,
+    preferencias,
+    recusarNaoEssenciais,
+    salvarEscolha,
+    type EscolhaConsentimento,
+  } from '@/lib/consentimento';
+
+  const raiz = document.querySelector<HTMLElement>('[data-lgpd]');
+  if (raiz) {
+    const painel = raiz.querySelector<HTMLElement>('[data-lgpd-painel]')!;
+    const est = raiz.querySelector<HTMLInputElement>('[data-lgpd-estatisticas]')!;
+    const mkt = raiz.querySelector<HTMLInputElement>('[data-lgpd-marketing]')!;
+
+    const medir = () => {
+      const visivel = !raiz.hidden && getComputedStyle(raiz).display !== 'none';
+      const h = visivel ? raiz.offsetHeight : 0;
+      document.documentElement.style.setProperty('--va-consent-offset', `${h}px`);
+    };
+    const mostrar = (aberta: boolean) => {
+      raiz.hidden = false;
+      document.documentElement.removeAttribute('data-lgpd-ok');
+      if (!aberta) painel.hidden = true;
+      medir();
+    };
+    const fechar = () => {
+      raiz.hidden = true;
+      painel.hidden = true;
+      document.documentElement.setAttribute('data-lgpd-ok', '');
+      medir();
+    };
+    const aplicar = (escolha: EscolhaConsentimento) => {
+      salvarEscolha(localStorage, escolha);
+      const estado = consentModeDe(escolha);
+      (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag?.('consent', 'update', estado);
+      document.dispatchEvent(new CustomEvent('va-consent', { detail: escolha }));
+      fechar();
+    };
+    const refletir = (escolha: EscolhaConsentimento | null) => {
+      est.checked = !!escolha?.estatisticas;
+      mkt.checked = !!escolha?.marketing;
+    };
+
+    let salva: EscolhaConsentimento | null = null;
+    try { salva = lerEscolha(localStorage); } catch { salva = null; }
+    refletir(salva);
+    if (salva || document.documentElement.hasAttribute('data-lgpd-ok')) fechar();
+    else mostrar(false);
+
+    raiz.querySelector('[data-lgpd-aceitar]')!.addEventListener('click', () => aplicar(aceitarTudo(new Date().toISOString())));
+    raiz.querySelector('[data-lgpd-recusar]')!.addEventListener('click', () => aplicar(recusarNaoEssenciais(new Date().toISOString())));
+    raiz.querySelector('[data-lgpd-prefs]')!.addEventListener('click', () => {
+      painel.hidden = !painel.hidden;
+      medir();
+    });
+    raiz.querySelector('[data-lgpd-salvar]')!.addEventListener('click', () => {
+      aplicar(preferencias({ estatisticas: est.checked, marketing: mkt.checked }, new Date().toISOString()));
+    });
+    document.addEventListener('click', (ev) => {
+      const alvo = (ev.target as Element | null)?.closest?.('[data-abrir-consentimento]');
+      if (!alvo) return;
+      ev.preventDefault();
+      try { refletir(lerEscolha(localStorage)); } catch { /* mantém o que está na tela */ }
+      painel.hidden = false;
+      mostrar(true);
+    });
+    document.addEventListener('va-consent-abrir', () => {
+      try { refletir(lerEscolha(localStorage)); } catch { /* mantém o que está na tela */ }
+      painel.hidden = false;
+      mostrar(true);
+    });
+    window.addEventListener('resize', medir);
+  }
+</script>
+
+<style>
+  html:not([data-lgpd-ok]) { --va-consent-offset: 11rem; }
+  html[data-lgpd-ok] .lgpd { display: none; }
+  .lgpd {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 40;
+    max-height: calc(100svh - 8rem);
+    overflow: auto;
+    background: var(--color-areia-clara);
+    color: var(--color-mar-fundo);
+    border-top: 1px solid var(--color-areia-sol);
+    box-shadow: 0 -8px 24px rgb(13 50 68 / .08);
+    padding: .85rem 1rem calc(.85rem + env(safe-area-inset-bottom));
+  }
+  .lgpd-caixa { width: min(100%, 52rem); margin: 0 auto; }
+  .lgpd-titulo {
+    font-family: var(--font-label);
+    font-size: .72rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--color-areia-funda);
+  }
+  .lgpd p { font-size: .92rem; line-height: 1.4; }
+  .lgpd-politica { margin-top: .35rem; }
+  .lgpd-politica a { color: var(--color-ceu); text-decoration: underline; }
+  .lgpd-acoes { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .7rem; }
+  .lgpd-acoes button, .lgpd-prefs button {
+    padding: .65rem .9rem;
+    font-weight: 700;
+    font-size: .9rem;
+    border-radius: .25rem;
+  }
+  .lgpd-acoes button:first-child, .lgpd-prefs button {
+    background: var(--color-ceu);
+    color: #fff;
+  }
+  .lgpd-acoes button:first-child:hover, .lgpd-prefs button:hover { background: var(--color-ceu-hover); }
+  .lgpd-acoes button:not(:first-child) {
+    background: transparent;
+    color: var(--color-ceu);
+    border: 2px solid var(--color-ceu);
+  }
+  .lgpd-prefs {
+    display: grid;
+    gap: .55rem;
+    margin-top: .75rem;
+    padding-top: .75rem;
+    border-top: 1px solid var(--color-areia-sol);
+  }
+  .lgpd-prefs label { display: flex; gap: .6rem; align-items: flex-start; font-size: .88rem; }
+  .lgpd-prefs input { margin-top: .2rem; }
+  @media (max-width: 40rem) {
+    .lgpd { padding: .55rem .75rem calc(.55rem + env(safe-area-inset-bottom)); }
+    .lgpd p { font-size: .84rem; }
+    .lgpd-acoes { margin-top: .45rem; gap: .35rem; }
+    .lgpd-acoes button, .lgpd-prefs button { padding: .5rem .7rem; font-size: .84rem; }
+  }
+</style>

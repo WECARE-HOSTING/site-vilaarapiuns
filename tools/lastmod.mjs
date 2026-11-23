@@ -59,6 +59,7 @@ export const COMPONENTE_DA_PAGINA = {
   reviews: 'Avaliacoes',
   book: 'Reservar',
   bookSent: 'Enviado',
+  privacy: 'Privacidade',
 };
 
 function dataSP(d) {

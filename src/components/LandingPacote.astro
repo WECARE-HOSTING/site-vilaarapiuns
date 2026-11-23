@@ -41,9 +41,10 @@ interface Props {
   porNoite?: boolean;
 }
 const p = Astro.props;
+const pacoteId = p.slug.includes('detox') ? 'detox' : p.slug.includes('reveillon') ? 'reveillon' : '';
 const fim = new Date(Date.parse(p.dataMax + 'T00:00:00Z') + p.minNoites * 864e5).toISOString().slice(0, 10);
 const WA = `https://wa.me/${SITE.contact.whatsapp}`;
-/** Link público InfinitePay: pay.infinitepay.io/{InfiniteTag}/{valor com vírgula}. Sem valor dá 500. */
+/** A cobrança sai pelo Checkout Integrado (proxy). Sem proxy, o botão abre o WhatsApp. */
 const INFINITETAG = 'carlospecucci';
 const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
@@ -117,14 +118,14 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
         ) : (
           <p class={`mt-4 text-3xl font-display ${p.precoNoitePessoa ? 'text-mar' : 'text-erro'}`}>{p.precoNoitePessoa ? brl(p.precoNoitePessoa) : '[PREÇO A DEFINIR]'}</p>
         )}
-        <p class="mt-2">{p.ocupacoes ? (p.porNoite ? 'por pessoa / noite' : 'por pessoa, pacote completo') : 'por pessoa / noite'} · sinal de {p.sinalPct ?? '[SINAL A DEFINIR]'}% para a pré-reserva, no cartão em até 12x (InfinitePay)</p>
+        <p class="mt-2">{p.ocupacoes ? (p.porNoite ? 'por pessoa / noite' : 'por pessoa, pacote completo') : 'por pessoa / noite'} · sinal de {p.sinalPct ?? '[SINAL A DEFINIR]'}% para a pré-reserva. Cartão em até 12x, com os juros absorvidos pela Villa Arapiuns, sem acréscimo para o hóspede. Pix disponível.</p>
         {p.aParte && <p class="mt-4 text-sm"><strong>À parte:</strong> {p.aParte.join(' · ')}</p>}
         <p class="mt-6 lp-escassez">
           <strong>Vagas limitadas.</strong> A Villa tem {p.totalBangalos} bangalôs.
         </p>
       </div>
 
-      <form id="reservar" class="lp-card scroll-mt-24" data-wa={WA} data-fim={fim} data-pacote={p.pacoteNome} data-min={p.minNoites} data-tag={INFINITETAG} data-preco={p.precoNoitePessoa ?? ''} data-sinal={p.sinalPct ?? ''} data-pornoite={p.porNoite ? 1 : 0} data-max={p.maxHospedes ?? 26} data-bangalos={p.totalBangalos}>
+      <form id="reservar" class="lp-card scroll-mt-24" data-wa={WA} data-fim={fim} data-pacote={p.pacoteNome} data-pacote-id={pacoteId} data-min={p.minNoites} data-tag={INFINITETAG} data-preco={p.precoNoitePessoa ?? ''} data-sinal={p.sinalPct ?? ''} data-pornoite={p.porNoite ? 1 : 0} data-max={p.maxHospedes ?? 26} data-bangalos={p.totalBangalos}>
         <h3 class="font-display text-2xl text-mar">Reservar</h3>
         <label class="block mt-4"><span class="lp-rotulo">Chegada (check-in)</span>
           <input type="date" name="chegada" min={p.dataMin} max={p.dataMax} value={p.dataMin} required class="lp-campo" readonly={p.datasFixas} /></label>
@@ -154,7 +155,8 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
         <button type="submit" name="modo" value="total" class="w-full mt-2 py-3 border border-ceu text-ceu font-semibold">Pagar o valor total</button>
         <p class="mt-2 text-sm text-center font-semibold">Sem disponibilidade, devolução integral do valor.</p>
         <p class="mt-3 p-3 text-center font-semibold bg-espuma" data-prereserva role="status" hidden>Pré-reserva recebida. Vamos entrar em contato para confirmar a disponibilidade.</p>
-        <p class="mt-2 text-xs text-center">Sinal ou total: cartão de crédito em até 12x, pela InfinitePay. Para Pix, fale no WhatsApp.</p>
+        <p class="mt-2 text-xs text-center">Sinal ou total no checkout: cartão em até 12x, juros absorvidos pela Villa Arapiuns, sem acréscimo para o hóspede. Pix disponível.</p>
+        <p class="mt-2 text-sm text-center font-semibold" data-checkout-estado role="status" hidden></p>
         <a data-wa-link href={`${WA}?text=${encodeURIComponent(msgPadrao)}`} target="_blank" rel="noopener" class="block text-center mt-3 underline">Prefiro falar no WhatsApp</a>
         <p class="mt-3 text-xs">O sinal registra a pré-reserva; a gente confirma a disponibilidade com você. Sem disponibilidade, devolução integral do valor. Cancelamento: reembolso de 100% até 30 dias antes do check-in, 50% de 29 a 15 dias, sem reembolso a 14 dias ou menos (ou no-show). <a href="#faq" class="underline">Ver política completa</a>.</p>
       </form>
@@ -175,6 +177,8 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
 
 <script>
   import { limitarNoites } from '@/scripts/noites';
+  import { apiCheckout, contagemDeInputs, criarLink, mensagemFallback, novoOrderNsu, redirectObrigado, salvarPedido } from '@/lib/checkout';
+  import { etiqueta, persistirUtm } from '@/lib/utm';
   const f = document.querySelector<HTMLFormElement>('#reservar');
   const r = document.querySelector<HTMLElement>('[data-rapido]');
   if (f && r) {
@@ -225,18 +229,51 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
       return { msg, sinal, total };
     };
     f.addEventListener('input', calc); calc();
-    f.addEventListener('submit', (e) => {
+    f.addEventListener('submit', async (e) => {
       e.preventDefault();
       const { msg, sinal, total } = calc();
-      const modo = ((e as SubmitEvent).submitter as HTMLButtonElement | null)?.value;
+      const modo = ((e as SubmitEvent).submitter as HTMLButtonElement | null)?.value === 'total' ? 'total' : 'sinal';
       const valor = modo === 'total' ? total : sinal;
-      const url = valor
-        ? `https://pay.infinitepay.io/${d.tag}/${valor.toFixed(2).replace('.', ',')}`
-        : `${d.wa}?text=${encodeURIComponent(msg)}`; // sem preço definido: cai no WhatsApp
-      if (valor) f.querySelector<HTMLElement>('[data-prereserva]')!.hidden = false;
-      // GA4 (02/11/2026): clique no Reservar, importável no Google Ads como conversão.
-      (window as any).gtag?.('event', 'click_reservar', { pacote: d.pacote, modo: modo || 'sinal', destino: valor ? 'infinitepay' : 'whatsapp', pagina: location.pathname, transport_type: 'beacon' });
-      window.open(url, '_blank', 'noopener');
+      const utm = (() => { try { return persistirUtm(location.search, sessionStorage); } catch { return {}; } })();
+      const marca = etiqueta(utm, location.pathname, d.pacoteId);
+      const inputs = [...f.querySelectorAll<HTMLInputElement>('[data-pessoas]')];
+      const contagem = contagemDeInputs(inputs.map((i) => ({ pessoas: +i.dataset.pessoas!, q: +i.value || 0 })), Math.max(+(f.cri03?.value ?? 0) || 0, 0), Math.max(+(f.cri412?.value ?? 0) || 0, 0));
+      const pacoteId = d.pacoteId === 'detox' ? 'detox' : d.pacoteId === 'reveillon' ? 'reveillon' : '';
+      // click_reservar permanece como evento de clique. A conversão de compra é o purchase, depois do pagamento confirmado.
+      (window as any).gtag?.('event', 'click_reservar', { pacote: d.pacote, modo, destino: valor && pacoteId ? 'checkout' : 'whatsapp', pagina: location.pathname, transport_type: 'beacon' });
+      if (!valor || !pacoteId) {
+        window.open(`${d.wa}?text=${encodeURIComponent(marca ? `${msg} ${marca}` : msg)}`, '_blank', 'noopener');
+        return;
+      }
+      const orderNsu = novoOrderNsu(pacoteId);
+      const sinalCentavos = Math.round((sinal || 0) * 100);
+      const totalCentavos = Math.round((total || 0) * 100);
+      try {
+        salvarPedido(sessionStorage, {
+          pacoteId, ...contagem, modo, orderNsu, redirectUrl: redirectObrigado(location.origin), etiqueta: marca,
+          nome: d.pacote || pacoteId, resumo: msg, totalCentavos, sinalCentavos, utm,
+        });
+      } catch { /* a confirmação ainda lê a query da InfinitePay */ }
+      const aviso = f.querySelector<HTMLElement>('[data-checkout-estado]')!;
+      const resultado = await criarLink({
+        pacoteId, ...contagem, modo, orderNsu, redirectUrl: redirectObrigado(location.origin), etiqueta: marca,
+      }, { apiBase: apiCheckout() });
+      if (resultado.destino === 'checkout') {
+        f.querySelector<HTMLElement>('[data-prereserva]')!.hidden = false;
+        const cobrado = (modo === 'total' ? total : sinal) || 0;
+        (window as any).gtag?.('event', 'begin_checkout', {
+          currency: 'BRL', value: cobrado,
+          items: [{ item_id: `${pacoteId}-sinal`, item_name: d.pacote, price: cobrado, quantity: 1 }],
+          pacote: pacoteId, pagina: location.pathname,
+        });
+        (window as any).vaPixel?.initiateCheckout?.({ value: cobrado, currency: 'BRL', eventID: orderNsu });
+        location.assign(resultado.url);
+        return;
+      }
+      aviso.hidden = false;
+      aviso.textContent = 'O pagamento online não abriu. Nada foi cobrado. Siga pelo WhatsApp para garantir o sinal.';
+      f.querySelector<HTMLElement>('[data-prereserva]')!.hidden = false;
+      window.open(`${d.wa}?text=${encodeURIComponent(mensagemFallback(d.pacote || pacoteId, msg, marca))}`, '_blank', 'noopener');
     });
   }
 </script>
