@@ -14,7 +14,7 @@ Quem cobra é um proxy pequeno, em `workers/infinitepay-proxy/`. Ele:
 3. O Detox está na estrutura e **não tem preço**. O proxy responde 409
    `preco_nao_publicado`. Nada é inventado.
 4. Chama `POST https://api.checkout.infinitepay.io/links` com o handle
-   `carlospecucci`, o valor **em centavos**, `order_nsu` e `redirect_url`
+   `wecarehosting`, o valor **em centavos**, `order_nsu` e `redirect_url`
    apontando para `/pt/lp/pagamento-confirmado/` (noindex).
 5. Se existir `INFINITEPAY_API_KEY`, manda `X-Api-Key`. Se existir
    `INFINITEPAY_WEBHOOK_URL`, manda `webhook_url`. As duas são opcionais e
@@ -31,7 +31,7 @@ pacote e a etiqueta de UTM. Nada é cobrado.
 
 Isto não está no repositório e não sobe com o push:
 
-1. **Conta InfinitePay do Carlos** (`handle: carlospecucci`). Confirmar com ele
+1. **Conta InfinitePay da Villa** (`handle: wecarehosting`, InfiniteTag `$wecarehosting`). Confirmar
    se a API de links exige chave. Se exigir, guardar como segredo do Worker,
    não no git e não no HTML.
 2. **Subir o Worker** (Cloudflare ou outro runtime que execute

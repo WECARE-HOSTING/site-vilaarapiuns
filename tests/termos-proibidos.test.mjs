@@ -58,5 +58,6 @@ test('política e banner, nos cinco idiomas, também passam no filtro', () => {
 test('o teste reconhece os termos, inclusive dentro de uma frase', () => {
   assert.ok(acharTermosProibidos('praia de areia branca').includes('areia branca'));
   assert.ok(acharTermosProibidos('WeCare Hosting').includes('We Care'));
+  assert.deepEqual(acharTermosProibidos('handle wecarehosting'), []);
   assert.deepEqual(acharTermosProibidos('a pessoa procura a casa'), []);
 });

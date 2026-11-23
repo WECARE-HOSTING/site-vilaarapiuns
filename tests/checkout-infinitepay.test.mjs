@@ -35,7 +35,7 @@ const pedidoDuplo = {
   etiqueta: '[google-reveillon]',
 };
 
-test('o proxy cobra 30% em centavos na conta do Carlos e não usa o preço do navegador', async () => {
+test('o proxy cobra 30% em centavos na conta wecarehosting e não usa o preço do navegador', async () => {
   let enviado;
   const fetchImpl = async (url, init) => {
     enviado = { url, body: JSON.parse(init.body), headers: init.headers };
@@ -51,7 +51,7 @@ test('o proxy cobra 30% em centavos na conta do Carlos e não usa o preço do na
   assert.equal(json.price, 360_000);
   assert.equal(json.total, 1_200_000);
   assert.equal(enviado.url, 'https://api.checkout.infinitepay.io/links');
-  assert.equal(enviado.body.handle, 'carlospecucci');
+  assert.equal(enviado.body.handle, 'wecarehosting');
   assert.equal(enviado.body.order_nsu, 'reveillon-abc123');
   assert.equal(enviado.body.items[0].price, 360_000);
   assert.equal(enviado.body.items[0].quantity, 1);
@@ -87,7 +87,7 @@ test('payment_check só devolve paid quando a InfinitePay diz true', async () =>
   const fetchImpl = async (url, init) => {
     const body = JSON.parse(init.body);
     assert.equal(url, 'https://api.checkout.infinitepay.io/payment_check');
-    assert.equal(body.handle, 'carlospecucci');
+    assert.equal(body.handle, 'wecarehosting');
     assert.equal(body.order_nsu, 'reveillon-abc123');
     return new Response(JSON.stringify({ paid: true, paid_amount: 360000, capture_method: 'pix', receipt_url: 'https://checkout.infinitepay.io/r/1' }), { status: 200 });
   };
@@ -180,5 +180,19 @@ test('o fechamento e a landing não apontam mais para o link estático', () => {
   ];
   for (const f of arquivos) {
     assert.doesNotMatch(readFileSync(f, 'utf8'), /pay\.infinitepay\.io/);
+  }
+});
+
+test('a cobrança deste checkout usa só o handle wecarehosting', () => {
+  const arquivos = [
+    'src/lib/checkout-proxy.ts',
+    'src/components/LandingPacote.astro',
+    'workers/infinitepay-proxy/wrangler.toml',
+    'docs/checkout-infinitepay.md',
+  ];
+  for (const f of arquivos) {
+    const texto = readFileSync(f, 'utf8');
+    assert.match(texto, /wecarehosting/);
+    assert.doesNotMatch(texto, /carlospecucci/);
   }
 });

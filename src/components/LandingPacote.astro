@@ -45,7 +45,7 @@ const pacoteId = p.slug.includes('detox') ? 'detox' : p.slug.includes('reveillon
 const fim = new Date(Date.parse(p.dataMax + 'T00:00:00Z') + p.minNoites * 864e5).toISOString().slice(0, 10);
 const WA = `https://wa.me/${SITE.contact.whatsapp}`;
 /** A cobrança sai pelo Checkout Integrado (proxy). Sem proxy, o botão abre o WhatsApp. */
-const INFINITETAG = 'carlospecucci';
+const INFINITETAG = 'wecarehosting';
 const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
 ---

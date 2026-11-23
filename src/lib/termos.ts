@@ -17,7 +17,7 @@ export const TERMOS_PROIBIDOS: { nome: string; re: RegExp }[] = [
   { nome: 'desintoxica', re: /desintoxic/i },
   { nome: 'imunidade', re: /\bimunidade\b/i },
   { nome: 'sound healing', re: /sound healing/i },
-  { nome: 'We Care', re: /we\s*care/i },
+  { nome: 'We Care', re: /we\s*care\b/i },
   { nome: 'cura', re: /\bcura\b/i },
 ];
 

@@ -79,8 +79,8 @@ export function redirectPermitido(valor: string, permitidas: string[]): boolean 
 }
 
 function handleDe(env: ProxyEnv): string {
-  const h = (env.INFINITEPAY_HANDLE || 'carlospecucci').trim();
-  return h || 'carlospecucci';
+  const h = (env.INFINITEPAY_HANDLE || 'wecarehosting').trim();
+  return h || 'wecarehosting';
 }
 
 function pacoteDe(id: string | undefined): PacoteFechamento | null {
