@@ -6,6 +6,7 @@ import { handleCheckoutRequest } from '../src/lib/checkout-proxy.ts';
 import {
   confirmarPagamento,
   criarLink,
+  linkEstaticoInfinitePay,
   itemCompra,
   lerRetorno,
   marcarDisparo,
@@ -171,15 +172,15 @@ test('order_nsu é único e só tem caracteres seguros', () => {
   assert.match(a, /^reveillon-[a-z0-9-]+$/);
 });
 
-test('o fechamento e a landing não apontam mais para o link estático', () => {
-  const arquivos = [
-    'src/components/CheckoutRapido.astro',
-    'src/components/LandingPacote.astro',
-    'src/pages/pt/lp/pagar-reveillon.astro',
-    'src/pages/pt/lp/pagamento-confirmado.astro',
-  ];
-  for (const f of arquivos) {
-    assert.doesNotMatch(readFileSync(f, 'utf8'), /pay\.infinitepay\.io/);
+test('o botão de pagar abre o link estático da wecarehosting, com vírgula nos centavos', () => {
+  assert.equal(linkEstaticoInfinitePay(3600), 'https://pay.infinitepay.io/wecarehosting/3600,00');
+  assert.equal(linkEstaticoInfinitePay(3600.5), 'https://pay.infinitepay.io/wecarehosting/3600,50');
+  assert.equal(linkEstaticoInfinitePay(0), null);
+  assert.match(readFileSync('src/lib/checkout.ts', 'utf8'), /https:\/\/pay\.infinitepay\.io\/wecarehosting\//);
+  for (const f of ['src/components/CheckoutRapido.astro', 'src/components/LandingPacote.astro']) {
+    const texto = readFileSync(f, 'utf8');
+    assert.match(texto, /linkEstaticoInfinitePay/);
+    assert.doesNotMatch(texto, /carlospecucci/);
   }
 });
 

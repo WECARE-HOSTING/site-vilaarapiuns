@@ -44,7 +44,7 @@ const p = Astro.props;
 const pacoteId = p.slug.includes('detox') ? 'detox' : p.slug.includes('reveillon') ? 'reveillon' : '';
 const fim = new Date(Date.parse(p.dataMax + 'T00:00:00Z') + p.minNoites * 864e5).toISOString().slice(0, 10);
 const WA = `https://wa.me/${SITE.contact.whatsapp}`;
-/** A cobrança sai pelo Checkout Integrado (proxy). Sem proxy, o botão abre o WhatsApp. */
+/** Conta InfinitePay da Villa. O botão usa o link estático com o valor já calculado. */
 const INFINITETAG = 'wecarehosting';
 const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
@@ -177,7 +177,7 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
 
 <script>
   import { limitarNoites } from '@/scripts/noites';
-  import { apiCheckout, contagemDeInputs, criarLink, mensagemFallback, novoOrderNsu, redirectObrigado, salvarPedido } from '@/lib/checkout';
+  import { linkEstaticoInfinitePay } from '@/lib/checkout';
   import { etiqueta, persistirUtm } from '@/lib/utm';
   const f = document.querySelector<HTMLFormElement>('#reservar');
   const r = document.querySelector<HTMLElement>('[data-rapido]');
@@ -229,51 +229,28 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
       return { msg, sinal, total };
     };
     f.addEventListener('input', calc); calc();
-    f.addEventListener('submit', async (e) => {
+    f.addEventListener('submit', (e) => {
       e.preventDefault();
       const { msg, sinal, total } = calc();
       const modo = ((e as SubmitEvent).submitter as HTMLButtonElement | null)?.value === 'total' ? 'total' : 'sinal';
       const valor = modo === 'total' ? total : sinal;
+      const url = valor ? linkEstaticoInfinitePay(valor) : null;
       const utm = (() => { try { return persistirUtm(location.search, sessionStorage); } catch { return {}; } })();
       const marca = etiqueta(utm, location.pathname, d.pacoteId);
-      const inputs = [...f.querySelectorAll<HTMLInputElement>('[data-pessoas]')];
-      const contagem = contagemDeInputs(inputs.map((i) => ({ pessoas: +i.dataset.pessoas!, q: +i.value || 0 })), Math.max(+(f.cri03?.value ?? 0) || 0, 0), Math.max(+(f.cri412?.value ?? 0) || 0, 0));
-      const pacoteId = d.pacoteId === 'detox' ? 'detox' : d.pacoteId === 'reveillon' ? 'reveillon' : '';
-      // click_reservar permanece como evento de clique. A conversão de compra é o purchase, depois do pagamento confirmado.
-      (window as any).gtag?.('event', 'click_reservar', { pacote: d.pacote, modo, destino: valor && pacoteId ? 'checkout' : 'whatsapp', pagina: location.pathname, transport_type: 'beacon' });
-      if (!valor || !pacoteId) {
-        window.open(`${d.wa}?text=${encodeURIComponent(marca ? `${msg} ${marca}` : msg)}`, '_blank', 'noopener');
+      const texto = marca ? `${msg} ${marca}` : msg;
+      (window as any).gtag?.('event', 'click_reservar', { pacote: d.pacote, modo, destino: url ? 'infinitepay' : 'whatsapp', pagina: location.pathname, transport_type: 'beacon' });
+      if (!url) {
+        window.open(`${d.wa}?text=${encodeURIComponent(texto)}`, '_blank', 'noopener');
         return;
       }
-      const orderNsu = novoOrderNsu(pacoteId);
-      const sinalCentavos = Math.round((sinal || 0) * 100);
-      const totalCentavos = Math.round((total || 0) * 100);
-      try {
-        salvarPedido(sessionStorage, {
-          pacoteId, ...contagem, modo, orderNsu, redirectUrl: redirectObrigado(location.origin), etiqueta: marca,
-          nome: d.pacote || pacoteId, resumo: msg, totalCentavos, sinalCentavos, utm,
-        });
-      } catch { /* a confirmação ainda lê a query da InfinitePay */ }
-      const aviso = f.querySelector<HTMLElement>('[data-checkout-estado]')!;
-      const resultado = await criarLink({
-        pacoteId, ...contagem, modo, orderNsu, redirectUrl: redirectObrigado(location.origin), etiqueta: marca,
-      }, { apiBase: apiCheckout() });
-      if (resultado.destino === 'checkout') {
-        f.querySelector<HTMLElement>('[data-prereserva]')!.hidden = false;
-        const cobrado = (modo === 'total' ? total : sinal) || 0;
-        (window as any).gtag?.('event', 'begin_checkout', {
-          currency: 'BRL', value: cobrado,
-          items: [{ item_id: `${pacoteId}-sinal`, item_name: d.pacote, price: cobrado, quantity: 1 }],
-          pacote: pacoteId, pagina: location.pathname,
-        });
-        (window as any).vaPixel?.initiateCheckout?.({ value: cobrado, currency: 'BRL', eventID: orderNsu });
-        location.assign(resultado.url);
-        return;
-      }
-      aviso.hidden = false;
-      aviso.textContent = 'O pagamento online não abriu. Nada foi cobrado. Siga pelo WhatsApp para garantir o sinal.';
+      (window as any).gtag?.('event', 'begin_checkout', {
+        currency: 'BRL', value: valor,
+        items: [{ item_id: `${d.pacoteId || 'pacote'}-${modo}`, item_name: d.pacote, price: valor, quantity: 1 }],
+        pacote: d.pacoteId, pagina: location.pathname,
+      });
+      (window as any).vaPixel?.initiateCheckout?.({ value: valor, currency: 'BRL' });
       f.querySelector<HTMLElement>('[data-prereserva]')!.hidden = false;
-      window.open(`${d.wa}?text=${encodeURIComponent(mensagemFallback(d.pacote || pacoteId, msg, marca))}`, '_blank', 'noopener');
+      window.open(url, '_blank', 'noopener');
     });
   }
 </script>

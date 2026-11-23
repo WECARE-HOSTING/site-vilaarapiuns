@@ -1,9 +1,10 @@
 ---
 /**
  * Fechamento do pacote (link da bio, noindex, fora do sitemap).
- * Cobra o sinal no Checkout Integrado. Sem o proxy, o visitante segue no
- * WhatsApp com o resumo — o link estático da InfinitePay não volta mais.
- * Detox usa a mesma estrutura; sem preço publicado o servidor recusa a cobrança.
+ * O botão abre o link estático da InfinitePay (wecarehosting) com o sinal
+ * já calculado. Sem valor calculado, a conversa segue no WhatsApp.
+ * Esse link não confirma pagamento: purchase só na página de obrigado,
+ * e só com payment_check paid === true.
  */
 import { SITE } from '@/data/site';
 import WhatsappFlutuante from '@/components/WhatsappFlutuante.astro';
@@ -94,8 +95,8 @@ const mensagemBase = `Oi! Dúvida sobre ${pacote.nome}.`;
 
 <script>
   import { limitarNoites } from '@/scripts/noites';
-  import { cotar, distribuirPessoas, formatarBRL, interpretarPessoas, PACOTES, type PacoteFechamento } from '@/lib/fechamento';
-  import { apiCheckout, contagemDeInputs, criarLink, mensagemFallback, novoOrderNsu, redirectObrigado, salvarPedido } from '@/lib/checkout';
+  import { cotar, distribuirPessoas, formatarBRL, interpretarPessoas, PACOTES, reaisDeCentavos, type PacoteFechamento } from '@/lib/fechamento';
+  import { contagemDeInputs, linkEstaticoInfinitePay } from '@/lib/checkout';
   import { etiqueta, lerUtm, persistirUtm } from '@/lib/utm';
 
   const f = document.querySelector<HTMLFormElement>('#ck')!;
@@ -146,83 +147,36 @@ const mensagemBase = `Oi! Dúvida sobre ${pacote.nome}.`;
 
   const pre = f.querySelector<HTMLElement>('[data-prereserva]')!;
   const estado = f.querySelector<HTMLElement>('[data-checkout-estado]')!;
-  const botao = f.querySelector<HTMLButtonElement>('button[type="submit"]')!;
   f.querySelector('[data-ja-paguei]')!.addEventListener('click', () => { pre.hidden = false; });
 
-  f.addEventListener('submit', async (e) => {
+  f.addEventListener('submit', (e) => {
     e.preventDefault();
-    const { cotacao, resumo, msg } = calc();
+    const { cotacao, msg } = calc();
     const modo = 'sinal' as const;
-    const ok = cotacao.ok;
+    const url = cotacao.ok ? linkEstaticoInfinitePay(reaisDeCentavos(cotacao.sinalCentavos)) : null;
     (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag?.('event', 'click_reservar', {
-      pacote: d.pacote, modo, destino: ok ? 'checkout' : 'whatsapp', pagina: location.pathname, transport_type: 'beacon',
+      pacote: d.pacote, modo, destino: url ? 'infinitepay' : 'whatsapp', pagina: location.pathname, transport_type: 'beacon',
     });
-    if (!ok) {
+    if (!url) {
       pre.hidden = false;
       window.open(`${d.wa}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
       return;
     }
-    const orderNsu = novoOrderNsu(pacote.id);
-    const marca = marcaDe();
-    salvarPedido(sessionStorage, {
-      pacoteId: pacote.id,
-      single: cotacao.linhas.length ? contagemAtual().single : 0,
-      duplo: contagemAtual().duplo,
-      triplo: contagemAtual().triplo,
-      cri03: val('cri03'),
-      cri412: val('cri412'),
-      modo,
-      orderNsu,
-      redirectUrl: redirectObrigado(location.origin),
-      etiqueta: marca,
-      nome: pacote.nome,
-      resumo,
-      totalCentavos: cotacao.totalCentavos,
-      sinalCentavos: cotacao.sinalCentavos,
-      utm,
+    const valor = reaisDeCentavos(cotacao.sinalCentavos);
+    (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag?.('event', 'begin_checkout', {
+      currency: 'BRL',
+      value: valor,
+      items: [{ item_id: `${pacote.id}-sinal`, item_name: pacote.nome, price: valor, quantity: 1 }],
+      pacote: pacote.id,
+      pagina: location.pathname,
     });
-    botao.disabled = true;
-    botao.textContent = 'Abrindo pagamento…';
-    estado.hidden = true;
-    const resultado = await criarLink({
-      pacoteId: pacote.id,
-      ...contagemAtual(),
-      modo,
-      orderNsu,
-      redirectUrl: redirectObrigado(location.origin),
-      etiqueta: marca,
-    }, { apiBase: apiCheckout() });
-    botao.disabled = false;
-    botao.textContent = botao.dataset.rotulo || botao.textContent;
-    if (resultado.destino === 'checkout') {
-      const valor = cotacao.sinalCentavos / 100;
-      (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag?.('event', 'begin_checkout', {
-        currency: 'BRL',
-        value: valor,
-        items: [{ item_id: `${pacote.id}-sinal`, item_name: pacote.nome, price: valor, quantity: 1 }],
-        pacote: pacote.id,
-        pagina: location.pathname,
-      });
-      (window as unknown as { vaPixel?: { initiateCheckout: (x: { value: number; currency: string; eventID?: string }) => void } }).vaPixel?.initiateCheckout({
-        value: valor, currency: 'BRL', eventID: orderNsu,
-      });
-      pre.hidden = false;
-      location.assign(resultado.url);
-      return;
-    }
-    const textoEstado = resultado.motivo === 'sem_endpoint'
-      ? 'O pagamento online ainda não está ligado neste ambiente. Nada foi cobrado. Siga pelo WhatsApp para garantir o sinal.'
-      : 'Não foi possível abrir o pagamento agora. Nada foi cobrado. Siga pelo WhatsApp para garantir o sinal.';
-    estado.hidden = false;
-    estado.textContent = textoEstado;
+    (window as unknown as { vaPixel?: { initiateCheckout: (x: { value: number; currency: string }) => void } }).vaPixel?.initiateCheckout({
+      value: valor, currency: 'BRL',
+    });
     pre.hidden = false;
-    window.open(`${d.wa}?text=${encodeURIComponent(mensagemFallback(pacote.nome, resumo, marca))}`, '_blank', 'noopener');
+    estado.hidden = true;
+    window.open(url, '_blank', 'noopener');
   });
-
-  function contagemAtual() {
-    const inputs = [...f.querySelectorAll<HTMLInputElement>('[data-pessoas]')];
-    return contagemDeInputs(inputs.map((i) => ({ pessoas: +i.dataset.pessoas!, q: +i.value || 0 })), val('cri03'), val('cri412'));
-  }
 </script>
 
 <style>

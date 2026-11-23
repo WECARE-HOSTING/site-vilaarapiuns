@@ -1,10 +1,13 @@
 /**
- * Checkout Integrado da InfinitePay, do lado do navegador.
+ * Cobrança da Villa na InfinitePay.
  *
- * O navegador não chama a InfinitePay direto: fala com o proxy
- * (PUBLIC_CHECKOUT_API_BASE). Sem proxy, ou se o proxy recusar, o visitante
- * segue no WhatsApp com o resumo. O link estático antigo não confirma
- * pagamento e não separa pedido, então não volta.
+ * O caminho no ar é o link estático da conta wecarehosting
+ * (https://pay.infinitepay.io/wecarehosting/{valor}). O valor é o sinal ou o
+ * total já calculado, com vírgula nos centavos. Esse link não devolve o
+ * visitante para a página de obrigado, então não dispara purchase.
+ *
+ * criarLink e confirmarPagamento ficam para um Checkout Integrado futuro.
+ * Sem payment_check com paid === true, nenhuma compra é registrada.
  */
 
 import { reaisDeCentavos } from '@/lib/fechamento';
@@ -39,6 +42,17 @@ export type PedidoSalvo = PedidoCheckout & {
 };
 
 export const CHAVE_PEDIDO = 'va_pedido';
+export const HANDLE_INFINITEPAY = 'wecarehosting';
+
+/**
+ * Link estático. `reais` tem de ser o sinal ou o total já calculado.
+ * 3600 vira 3600,00. Valor inválido não gera link.
+ */
+export function linkEstaticoInfinitePay(reais: number): string | null {
+  if (!Number.isFinite(reais) || reais <= 0) return null;
+  const valor = reais.toFixed(2).replace('.', ',');
+  return `https://pay.infinitepay.io/${HANDLE_INFINITEPAY}/${valor}`;
+}
 
 export function novoOrderNsu(pacoteId: string, agora = Date.now(), aleatorio = Math.random()): string {
   const rnd = Math.floor(Math.abs(aleatorio) * 36 ** 6).toString(36).padStart(6, '0');
