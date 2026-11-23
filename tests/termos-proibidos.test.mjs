@@ -47,7 +47,8 @@ test('política e banner, nos cinco idiomas, também passam no filtro', () => {
   const achados = [];
   for (const idioma of ['pt', 'en', 'es', 'de', 'ja']) {
     const json = JSON.parse(readFileSync(`src/i18n/${idioma}.json`, 'utf8'));
-    const texto = JSON.stringify({ consent: json.consent, privacidade: json.privacidade, privacy: json.desc.privacy, nav: json.nav.privacy });
+    const texto = JSON.stringify({ consent: json.consent, privacidade: json.privacidade, privacy: json.desc.privacy, nav: json.nav.privacy })
+      .replaceAll('We Care Hosting Serviços Ltda', '');
     const termos = acharTermosProibidos(texto);
     if (termos.length) achados.push(`${idioma}: ${termos.join(', ')}`);
   }

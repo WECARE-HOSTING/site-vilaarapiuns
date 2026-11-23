@@ -27,7 +27,7 @@ test('a faixa do topo não usa areia branca', () => {
   assert.match(barra, /Vire o ano no Rio Arapiuns\. Vagas limitadas\./);
 });
 
-test('a política, nos cinco idiomas, diz prazo, base, transferência e a lacuna do CNPJ, sem prazo numérico', () => {
+test('a política, nos cinco idiomas, traz a identificação jurídica confirmada, sem prazo numérico', () => {
   for (const idioma of ['pt', 'en', 'es', 'de', 'ja']) {
     const json = JSON.parse(readFileSync(`src/i18n/${idioma}.json`, 'utf8'));
     const p = json.privacidade;
@@ -35,10 +35,15 @@ test('a política, nos cinco idiomas, diz prazo, base, transferência e a lacuna
       assert.equal(typeof p[chave], 'string', `${idioma} sem ${chave}`);
       assert.ok(p[chave].trim().length > 0, `${idioma} ${chave} vazio`);
     }
-    assert.match(p.controladorD, /CNPJ/);
+    assert.match(p.controladorD, /We Care Hosting Serviços Ltda/);
+    assert.match(p.controladorD, /30\.870\.784\/0001-70/);
+    assert.match(p.controladorD, /Rua Sardenha, 21, Jardim Passárgada I, Cotia\/SP/);
+    assert.doesNotMatch(p.controladorD, /Passargada/);
     assert.match(p.controladorD, /reservas@villaarapiuns\.com\.br/);
+    assert.doesNotMatch(p.controladorD, /contato@wecarehosting\.com\.br/i);
     assert.doesNotMatch(p.prazoD, /\d+\s*(anos|years|años|Jahre|年)/i);
-    assert.doesNotMatch(p.controladorD, /\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}/);
+    const foraDoNome = p.controladorD.replaceAll('We Care Hosting Serviços Ltda', '');
+    assert.doesNotMatch(foraDoNome, /we care/i);
     const bloco = JSON.stringify({
       base: p.baseD, prazo: p.prazoD, fora: p.transferenciaD, quem: p.controladorD,
     });
