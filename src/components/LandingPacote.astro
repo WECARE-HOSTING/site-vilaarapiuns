@@ -44,8 +44,6 @@ const p = Astro.props;
 const pacoteId = p.slug.includes('detox') ? 'detox' : p.slug.includes('reveillon') ? 'reveillon' : '';
 const fim = new Date(Date.parse(p.dataMax + 'T00:00:00Z') + p.minNoites * 864e5).toISOString().slice(0, 10);
 const WA = `https://wa.me/${SITE.contact.whatsapp}`;
-/** Conta InfinitePay da Villa. O botão usa o link estático com o valor já calculado. */
-const INFINITETAG = 'wecarehosting';
 const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
 ---
@@ -118,14 +116,14 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
         ) : (
           <p class={`mt-4 text-3xl font-display ${p.precoNoitePessoa ? 'text-mar' : 'text-erro'}`}>{p.precoNoitePessoa ? brl(p.precoNoitePessoa) : '[PREÇO A DEFINIR]'}</p>
         )}
-        <p class="mt-2">{p.ocupacoes ? (p.porNoite ? 'por pessoa / noite' : 'por pessoa, pacote completo') : 'por pessoa / noite'} · sinal de {p.sinalPct ?? '[SINAL A DEFINIR]'}% para a pré-reserva, no cartão em até 12x (InfinitePay)</p>
+        <p class="mt-2">{p.ocupacoes ? (p.porNoite ? 'por pessoa / noite' : 'por pessoa, pacote completo') : 'por pessoa / noite'} · sinal de {p.sinalPct ?? '[SINAL A DEFINIR]'}% para a pré-reserva, no cartão em até 12x (InfinitePay, com acréscimo no parcelamento)</p>
         {p.aParte && <p class="mt-4 text-sm"><strong>À parte:</strong> {p.aParte.join(' · ')}</p>}
         <p class="mt-6 lp-escassez">
           <strong>Vagas limitadas.</strong> A Villa tem {p.totalBangalos} bangalôs.
         </p>
       </div>
 
-      <form id="reservar" class="lp-card scroll-mt-24" data-wa={WA} data-fim={fim} data-pacote={p.pacoteNome} data-pacote-id={pacoteId} data-min={p.minNoites} data-tag={INFINITETAG} data-preco={p.precoNoitePessoa ?? ''} data-sinal={p.sinalPct ?? ''} data-pornoite={p.porNoite ? 1 : 0} data-max={p.maxHospedes ?? 26} data-bangalos={p.totalBangalos}>
+      <form id="reservar" class="lp-card scroll-mt-24" data-wa={WA} data-fim={fim} data-pacote={p.pacoteNome} data-pacote-id={pacoteId} data-min={p.minNoites} data-preco={p.precoNoitePessoa ?? ''} data-sinal={p.sinalPct ?? ''} data-pornoite={p.porNoite ? 1 : 0} data-max={p.maxHospedes ?? 26} data-bangalos={p.totalBangalos}>
         <h3 class="font-display text-2xl text-mar">Reservar</h3>
         <label class="block mt-4"><span class="lp-rotulo">Chegada (check-in)</span>
           <input type="date" name="chegada" min={p.dataMin} max={p.dataMax} value={p.dataMin} required class="lp-campo" readonly={p.datasFixas} /></label>
@@ -155,7 +153,7 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
         <button type="submit" name="modo" value="total" class="w-full mt-2 py-3 border border-ceu text-ceu font-semibold">Pagar o valor total</button>
         <p class="mt-2 text-sm text-center font-semibold">Sem disponibilidade, devolução integral do valor.</p>
         <p class="mt-3 p-3 text-center font-semibold bg-espuma" data-prereserva role="status" hidden>Pré-reserva recebida. Vamos entrar em contato para confirmar a disponibilidade.</p>
-        <p class="mt-2 text-xs text-center">Sinal ou total: cartão de crédito em até 12x, pela InfinitePay. Para Pix, fale no WhatsApp.</p>
+        <p class="mt-2 text-xs text-center">Sinal ou total: cartão de crédito em até 12x, pela InfinitePay. O parcelamento tem acréscimo da InfinitePay, pago por quem compra, e o valor final aparece antes de confirmar. Para Pix, fale no WhatsApp.</p>
         <p class="mt-2 text-sm text-center font-semibold" data-checkout-estado role="status" hidden></p>
         <a data-wa-link href={`${WA}?text=${encodeURIComponent(msgPadrao)}`} target="_blank" rel="noopener" class="block text-center mt-3 underline">Prefiro falar no WhatsApp</a>
         <p class="mt-3 text-xs">O sinal registra a pré-reserva; a gente confirma a disponibilidade com você. Sem disponibilidade, devolução integral do valor. Cancelamento: reembolso de 100% até 30 dias antes do check-in, 50% de 29 a 15 dias, sem reembolso a 14 dias ou menos (ou no-show). <a href="#faq" class="underline">Ver política completa</a>.</p>

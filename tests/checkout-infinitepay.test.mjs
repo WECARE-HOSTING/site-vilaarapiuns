@@ -186,8 +186,8 @@ test('o botão de pagar abre o link estático da wecarehosting, com vírgula nos
 
 test('a cobrança deste checkout usa só o handle wecarehosting', () => {
   const arquivos = [
+    'src/lib/checkout.ts',
     'src/lib/checkout-proxy.ts',
-    'src/components/LandingPacote.astro',
     'workers/infinitepay-proxy/wrangler.toml',
     'docs/checkout-infinitepay.md',
   ];

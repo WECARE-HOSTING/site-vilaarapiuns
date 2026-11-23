@@ -6,15 +6,30 @@ const checkout = readFileSync('src/components/CheckoutRapido.astro', 'utf8');
 const llms = readFileSync('public/llms.txt', 'utf8');
 const barra = readFileSync('src/components/BarraPromo.astro', 'utf8');
 
-test('o fechamento diz café, almoço e jantar, e o cartão como está no ar', () => {
+const landing = readFileSync('src/components/LandingPacote.astro', 'utf8');
+const proibidoNoPagamento = /sem acréscimo|sem juros|juros absorvidos|interest-free/i;
+
+test('o fechamento diz café, almoço e jantar, e o acréscimo do parcelamento fica com quem compra', () => {
   assert.match(checkout, /Café da manhã, almoço e jantar incluídos\./);
-  assert.match(checkout, /Cartão de crédito em até 12x, pela InfinitePay \(Pix: fale no WhatsApp\)\./);
+  assert.match(checkout, /Cartão de crédito em até 12x, pela InfinitePay\. O parcelamento tem acréscimo da InfinitePay, pago por quem compra, e o valor final aparece antes de confirmar\. Pix: fale no WhatsApp\./);
   assert.match(checkout, /Sem disponibilidade, devolução integral do valor\./);
   assert.doesNotMatch(checkout, /Todas as refeições/);
   assert.doesNotMatch(checkout, /all meals/i);
   assert.doesNotMatch(checkout, /Pix disponível/);
-  assert.doesNotMatch(checkout, /juros absorvidos/);
-  assert.doesNotMatch(checkout, /sem acréscimo/);
+  assert.doesNotMatch(checkout, proibidoNoPagamento);
+});
+
+test('a landing e o FAQ dizem que o acréscimo do parcelamento é de quem compra, sem isenção', () => {
+  assert.match(landing, /Sinal ou total: cartão de crédito em até 12x, pela InfinitePay\. O parcelamento tem acréscimo da InfinitePay, pago por quem compra, e o valor final aparece antes de confirmar\. Para Pix, fale no WhatsApp\./);
+  assert.match(landing, /no cartão em até 12x \(InfinitePay, com acréscimo no parcelamento\)/);
+  assert.doesNotMatch(landing, /data-tag=/);
+  assert.doesNotMatch(landing, /INFINITETAG/);
+  assert.doesNotMatch(landing, proibidoNoPagamento);
+  for (const pagina of ['src/pages/pt/lp/reveillon.astro', 'src/pages/pt/lp/detox-pos-reveillon.astro']) {
+    const texto = readFileSync(pagina, 'utf8');
+    assert.match(texto, /O parcelamento tem acréscimo da InfinitePay, pago por quem compra, e o valor final aparece antes de confirmar\./);
+    assert.doesNotMatch(texto, proibidoNoPagamento);
+  }
 });
 
 test('llms.txt não chama a estadia de all meals', () => {
