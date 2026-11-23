@@ -35,12 +35,21 @@ test('a política, nos cinco idiomas, traz a identificação jurídica confirmad
       assert.equal(typeof p[chave], 'string', `${idioma} sem ${chave}`);
       assert.ok(p[chave].trim().length > 0, `${idioma} ${chave} vazio`);
     }
+    if (idioma === 'pt') {
+      assert.equal(
+        p.controladorD,
+        'O controlador, na operação da marca Villa Arapiuns, é a We Care Hosting Serviços Ltda, CNPJ 30.870.784/0001-70, Rua Eduardo Souza Aranha, 67, São Paulo/SP. O contato para dados e reservas é reservas@villaarapiuns.com.br.',
+      );
+    }
     assert.match(p.controladorD, /We Care Hosting Serviços Ltda/);
     assert.match(p.controladorD, /30\.870\.784\/0001-70/);
-    assert.match(p.controladorD, /Rua Sardenha, 21, Jardim Passárgada I, Cotia\/SP/);
-    assert.doesNotMatch(p.controladorD, /Passargada/);
+    assert.match(p.controladorD, /Rua Eduardo Souza Aranha, 67, São Paulo\/SP/);
+    assert.match(p.controladorD, /Villa Arapiuns/);
+    assert.doesNotMatch(p.controladorD, /Rua Sardenha/);
+    assert.doesNotMatch(p.controladorD, /Pass[aá]rgada/);
     assert.match(p.controladorD, /reservas@villaarapiuns\.com\.br/);
     assert.doesNotMatch(p.controladorD, /contato@wecarehosting\.com\.br/i);
+    assert.doesNotMatch(p.controladorD, /^(The controller is Villa Arapiuns|El responsable es Villa Arapiuns|Verantwortlich ist die Villa Arapiuns|このサイトの管理者は Villa Arapiuns)/);
     assert.doesNotMatch(p.prazoD, /\d+\s*(anos|years|años|Jahre|年)/i);
     const foraDoNome = p.controladorD.replaceAll('We Care Hosting Serviços Ltda', '');
     assert.doesNotMatch(foraDoNome, /we care/i);
