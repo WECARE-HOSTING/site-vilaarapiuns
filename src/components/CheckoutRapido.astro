@@ -11,6 +11,7 @@ import { SITE, whatsappUrl } from '@/data/site';
 import {
   MSG_NAO_ACUMULA,
   MSG_PIX,
+  NOTA_CRIANCAS,
   TEXTO_CARTAO,
   TEXTO_PIX,
   TEXTO_REFEICOES,
@@ -35,9 +36,12 @@ interface Props {
   tag?: string;
   /** Réveillon: campo de código, preços riscados e a linha do Pix com prazo. */
   promocao?: boolean;
+  /** Falso tira "Vagas limitadas." e deixa só as datas. O padrão, no Detox, mantém a frase. */
+  escassez?: boolean;
 }
 const p = Astro.props;
 const tag = p.tag ?? 'carlospecucci';
+const escassez = p.escassez !== false;
 const fim = new Date(Date.parse(p.dataMax + 'T00:00:00Z') + p.minNoites * 864e5).toISOString().slice(0, 10);
 const WA = `https://wa.me/${SITE.contact.whatsapp}`;
 const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
@@ -50,7 +54,11 @@ const pixInicial = whatsappUrl(MSG_PIX);
     <a href="/pt/" class="ck-marca">Villa Arapiuns · Rio Arapiuns, Pará</a>
     <h1 class="ck-h1">{p.nome}</h1>
     <p class="ck-promessa">{p.promessa}</p>
-    <p class="ck-escassez"><span>{p.datas}</span> · <strong>Vagas limitadas.</strong></p>
+    {escassez ? (
+      <p class="ck-escassez"><span>{p.datas}</span> · <strong>Vagas limitadas.</strong></p>
+    ) : (
+      <p class="ck-datas">{p.datas}</p>
+    )}
 
     {p.datasFixas ? (
       <input type="hidden" name="chegada" value={p.dataMin} /><input type="hidden" name="noites" value={p.maxNoites} />
@@ -74,6 +82,7 @@ const pixInicial = whatsappUrl(MSG_PIX);
       <label><span>Crianças 0–3 (grátis)</span><input type="number" inputmode="numeric" name="cri03" min="0" max="10" value="0" /></label>
       <label><span>Crianças 4–12 (50%)</span><input type="number" inputmode="numeric" name="cri412" min="0" max="10" value="0" /></label>
     </div>
+    {p.promocao && <p class="ck-criancas">{NOTA_CRIANCAS}</p>}
 
     {p.promocao && (
       <div class="ck-codigo" data-codigo-box>
@@ -110,7 +119,7 @@ const pixInicial = whatsappUrl(MSG_PIX);
         <p class="ck-nota">{TEXTO_REFEICOES}</p>
       </>
     ) : (
-      <p class="ck-nota">Cartão de crédito em até 12x, pela InfinitePay (Pix: fale no WhatsApp). Todas as refeições incluídas.</p>
+      <p class="ck-nota">Cartão de crédito em até 12x, pela InfinitePay (Pix: fale no WhatsApp). Café da manhã, almoço e jantar incluídos.</p>
     )}
     <p class="ck-prereserva" data-prereserva role="status" hidden>Pré-reserva recebida. Vamos entrar em contato para confirmar a disponibilidade.</p>
     <a data-ja-paguei href={WA} target="_blank" rel="noopener" class="ck-pago">Já paguei: enviar meu comprovante no WhatsApp</a>
@@ -353,6 +362,8 @@ const pixInicial = whatsappUrl(MSG_PIX);
   .ck-h1 { font-size: 1.9rem; line-height: 1.05; margin-top: .35rem; }
   .ck-promessa { margin-top: .35rem; font-size: .95rem; color: var(--color-mar-fundo); }
   .ck-escassez { margin-top: .5rem; font-size: .85rem; color: var(--color-erro); }
+  .ck-datas { margin-top: .5rem; font-size: .85rem; color: var(--color-mar-fundo); }
+  .ck-criancas { margin-top: .4rem; font-size: .78rem; line-height: 1.35; color: var(--color-mar-fundo); }
   .ck-linha, .ck-oc { display: grid; gap: .5rem; margin-top: .6rem; }
   .ck-linha { grid-template-columns: 1fr 1fr; }
   .ck-oc { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: .3rem; }

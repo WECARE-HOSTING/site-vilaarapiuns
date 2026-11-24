@@ -3,8 +3,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import CheckoutRapido from '@/components/CheckoutRapido.astro';
 import { REVEILLON, TEXTO_PROMESSA } from '@/data/reveillon-tabela';
 ---
-<BaseLayout locale="pt" pageKey="reveillon" title="Pagar Réveillon 2027 | Villa Arapiuns | Rio Arapiuns" description="Réveillon de 28/12 a 2/1 no Rio Arapiuns, a 1h30 de Alter do Chão. Vagas limitadas." indexavel={false} caminho="/pt/lp/pagar-reveillon/" semSchemaNegocio imageAlt="Rio e floresta na Villa Arapiuns, no Pará">
-  <CheckoutRapido nome={REVEILLON.nome} promessa={TEXTO_PROMESSA} datas={REVEILLON.datas} lp="/pt/lp/reveillon/" tag={REVEILLON.tag} promocao
+<BaseLayout locale="pt" pageKey="reveillon" title="Pagar Réveillon 2027 | Villa Arapiuns | Rio Arapiuns" description="Réveillon de 28/12 a 2/1 no Rio Arapiuns, a 1h30 de Alter do Chão." indexavel={false} caminho="/pt/lp/pagar-reveillon/" semSchemaNegocio imageAlt="Rio e floresta na Villa Arapiuns, no Pará">
+  <CheckoutRapido nome={REVEILLON.nome} promessa={TEXTO_PROMESSA} datas={REVEILLON.datas} lp="/pt/lp/reveillon/" tag={REVEILLON.tag} promocao escassez={false}
     ocupacoes={REVEILLON.ocupacoes}
     porNoite={false} minNoites={REVEILLON.noites} maxNoites={REVEILLON.noites} dataMin={REVEILLON.checkIn} dataMax={REVEILLON.checkIn} datasFixas sinalPct={REVEILLON.sinalPct} totalBangalos={REVEILLON.totalBangalos} maxHospedes={REVEILLON.maxHospedes} />
 </BaseLayout>

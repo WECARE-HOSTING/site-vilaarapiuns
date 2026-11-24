@@ -41,6 +41,8 @@ export const MSG_CODIGO_INVALIDO = 'Código inválido. O preço continua o cheio
 export const MSG_CODIGO_ENCERRADO = 'Código encerrado.';
 export const MSG_CODIGO_VAZIO = 'Digite o código.';
 export const MSG_NAO_ACUMULA = 'Um código só. Não acumula com outro desconto.';
+/** 4–12: 50% do valor por pessoa da ocupação escolhida mais barata. 0–3: não entram no total. */
+export const NOTA_CRIANCAS = 'Crianças de 4 a 12 anos pagam 50% do valor por pessoa da ocupação mais barata escolhida. Até 3 anos não pagam.';
 
 export type EstadoCodigo = 'vazio' | 'encerrado' | 'invalido' | 'aplicado';
 
