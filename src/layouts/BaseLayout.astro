@@ -14,6 +14,8 @@ interface Props {
   description: string;
   /** Caminho absoluto de uma imagem própria da página; cai na imagem padrão do site. */
   image?: string;
+  /** Texto alternativo da imagem de preview. Sem isto, vale o do dicionário. */
+  imageAlt?: string;
   /**
    * Falso põe a página fora do índice E tira os hreflang: alternates de
    * idioma numa página que não deve ser indexada não servem para nada.
@@ -42,7 +44,7 @@ interface Props {
   semSchemaNegocio?: boolean;
 }
 
-const { locale, pageKey, title, description, image, indexavel = true, caminho, alternativas, semSchemaNegocio = false } = Astro.props;
+const { locale, pageKey, title, description, image, imageAlt, indexavel = true, caminho, alternativas, semSchemaNegocio = false } = Astro.props;
 const t = useTranslations(locale);
 
 const canonical = new URL(caminho ?? href(locale, pageKey), SITE.domain).toString();
@@ -247,7 +249,7 @@ const trilha =
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     {ogImageEhJpeg && <meta property="og:image:type" content="image/jpeg" />}
-    <meta property="og:image:alt" content={t('seo.ogImageAlt')} />
+    <meta property="og:image:alt" content={imageAlt ?? t('seo.ogImageAlt')} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={ogImage} />
 
