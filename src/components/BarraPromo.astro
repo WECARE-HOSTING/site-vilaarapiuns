@@ -1,11 +1,13 @@
 ---
 /** Barra fina no topo de todas as páginas PT (01/11/2026). Some nas páginas de
- * pagamento e depois da janela dos pacotes. Uma linha no celular. */
+ * pagamento, na LP do Detox (o texto dela traz "areia branca" e "Vagas
+ * limitadas", que essa página não publica) e depois da janela dos pacotes.
+ * Uma linha no celular. */
 const caminho = Astro.url.pathname;
 const agora = new Date();
 const rev = agora < new Date('2027-01-03T00:00:00-03:00');
 const det = agora < new Date('2027-01-11T00:00:00-03:00');
-const mostra = caminho.startsWith('/pt/') && !caminho.startsWith('/pt/lp/pagar-') && (rev || det);
+const mostra = caminho.startsWith('/pt/') && !caminho.startsWith('/pt/lp/pagar-') && !caminho.startsWith('/pt/lp/detox-pos-reveillon') && (rev || det);
 ---
 {mostra && (
   <div class="barra-promo" role="region" aria-label="Pacotes de virada">
