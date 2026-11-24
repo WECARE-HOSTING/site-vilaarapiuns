@@ -7,7 +7,7 @@ const arquivo = 'dist/pt/lp/pagar-detox/index.html';
 test('pagar-detox: condição por grupo, sem preço público', { skip: !existsSync(arquivo) }, () => {
   const html = readFileSync(arquivo, 'utf8');
 
-  for (const proibido of ['R$', 'pay.infinitepay.io', 'Vagas limitadas', 'areia branca', 'Todas as refeições']) {
+  for (const proibido of ['R$', 'pay.infinitepay.io', 'Vagas limitadas', 'areia branca', 'Todas as refeições', 'mín. 2 noites']) {
     assert.equal(html.includes(proibido), false, `não deveria conter ${JSON.stringify(proibido)}`);
   }
 
