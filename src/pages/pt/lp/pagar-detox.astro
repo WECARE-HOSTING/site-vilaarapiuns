@@ -1,9 +1,55 @@
 ---
+/**
+ * O Detox é valor por grupo, sob proposta. Os números que esta página
+ * publicava (single 1.800, duplo 1.200, triplo 1.000 por pessoa/noite, sinal
+ * 30% e o link InfinitePay) não têm fonte no repositório. Oferta publicada
+ * vincula (CDC art. 30). Enquanto o Leonardo não confirmar, a página só
+ * encaminha ao WhatsApp. Se os valores voltarem, a fonte é o precos.txt.
+ */
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import CheckoutRapido from '@/components/CheckoutRapido.astro';
+import { SITE, whatsappUrl } from '@/data/site';
+
+const mensagem = 'Oi! Quero saber a condição do Detox de 1 a 10/1/2027.';
+const whatsapp = whatsappUrl(mensagem);
 ---
-<BaseLayout locale="pt" pageKey="detox" title="Pagar Detox pós-Réveillon | Villa Arapiuns | Rio Arapiuns" description="Detox de 1 a 10/1/2027 no Rio Arapiuns, a 1h30 de Alter do Chão. Vagas limitadas." indexavel={false} caminho="/pt/lp/pagar-detox/" semSchemaNegocio>
-  <CheckoutRapido nome="Detox pós-Réveillon" promessa="Desacelere no Rio Arapiuns: água cristalina, areia branca e silêncio." datas="1 a 10/1/2027 · mín. 2 noites" lp="/pt/lp/detox-pos-reveillon/"
-    ocupacoes={[{ nome: 'Single', pessoas: 1, precoPessoa: 1800 }, { nome: 'Duplo', pessoas: 2, precoPessoa: 1200 }, { nome: 'Triplo', pessoas: 3, precoPessoa: 1000 }]}
-    porNoite minNoites={2} maxNoites={9} dataMin="2027-01-01" dataMax="2027-01-08" sinalPct={30} totalBangalos={13} maxHospedes={26} />
+<BaseLayout locale="pt" pageKey="detox" title="Pagar Detox pós-Réveillon | Villa Arapiuns | Rio Arapiuns" description="Detox de 1 a 10/1/2027 no Rio Arapiuns, a 1h30 de Alter do Chão." imageAlt="Rio Arapiuns em frente à Villa" indexavel={false} caminho="/pt/lp/pagar-detox/" semSchemaNegocio>
+  <div class="ck">
+    <div class="ck-caixa">
+      <a href="/pt/" class="ck-marca">Villa Arapiuns · Rio Arapiuns, Pará</a>
+      <h1 class="ck-h1">Detox pós-Réveillon</h1>
+      <p class="ck-promessa">Desacelere no Rio Arapiuns: o rio, a floresta e o silêncio.</p>
+      <p class="ck-datas">1 a 10/1/2027 · mín. 2 noites</p>
+
+      <section id="reservar" class="ck-condicao">
+        <p>Condição por grupo, consulte no WhatsApp</p>
+        <a class="ck-btn" href={whatsapp} target="_blank" rel="noopener noreferrer" data-cta="whatsapp_pagar_detox">Falar no WhatsApp</a>
+      </section>
+      <p class="ck-nota">Café da manhã, almoço e jantar incluídos.</p>
+
+      <nav class="ck-links" aria-label="Saiba mais">
+        <a href="/pt/lp/detox-pos-reveillon/#incluido">O que está incluído</a>
+        <a href="/pt/lp/detox-pos-reveillon/#chegar">Como chegar</a>
+        <a href="/pt/lp/detox-pos-reveillon/#faq">Cancelamento</a>
+        <a href="/pt/lp/detox-pos-reveillon/#faq">Perguntas frequentes</a>
+        <a href={`mailto:${SITE.contact.email}`}>{SITE.contact.email}</a>
+      </nav>
+    </div>
+  </div>
 </BaseLayout>
+
+<style>
+  .ck { min-height: 100svh; background: var(--color-areia-clara); display: flex; justify-content: center; padding: 1rem .9rem 2rem; }
+  .ck-caixa { width: 100%; max-width: 30rem; }
+  .ck-marca { font-family: var(--font-label); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--color-areia-funda); }
+  .ck-h1 { font-size: 1.9rem; line-height: 1.05; margin-top: .35rem; }
+  .ck-promessa { margin-top: .35rem; font-size: .95rem; color: var(--color-mar-fundo); }
+  .ck-datas { margin-top: .5rem; font-size: .85rem; color: var(--color-mar); }
+  .ck-condicao { margin-top: 1.4rem; padding-top: .9rem; border-top: 1px solid var(--color-areia-sol); }
+  .ck-condicao p { font-size: 1.15rem; font-weight: 700; line-height: 1.35; color: var(--color-mar-fundo); }
+  .ck-btn { display: block; width: 100%; margin-top: .9rem; padding: 1rem; background: var(--color-ceu); color: #fff; font-weight: 800; font-size: 1.1rem; border-radius: .25rem; text-align: center; text-decoration: none; }
+  .ck-btn:hover { background: var(--color-ceu-hover); }
+  .ck-btn:focus-visible { outline: 2px solid var(--color-mar-fundo); outline-offset: 3px; }
+  .ck-nota { margin-top: .7rem; font-size: .85rem; text-align: center; color: var(--color-mar-fundo); }
+  .ck-links { display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem .9rem; margin-top: 1.4rem; font-size: .78rem; }
+  .ck-links a { color: var(--color-ceu); text-decoration: underline; }
+</style>
