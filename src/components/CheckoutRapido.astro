@@ -12,8 +12,6 @@ import {
   TEXTO_CARTAO,
   TEXTO_GRUPO,
   TEXTO_PIX_CONFERE,
-  TEXTO_PIX_SEM_ACUMULO,
-  TEXTO_PIX_TELA,
 } from '@/data/reveillon-tabela';
 
 interface Props {
@@ -101,18 +99,6 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
     </dl>
     <p class="ck-nota" data-confirma>{TEXTO_PIX_CONFERE}</p>
     <button type="submit" name="modo" value="total" class="ck-btn" data-pagar-total>Pagar total</button>
-    {p.promocao && (
-      <div data-pix-bloco>
-        <a data-pix-pagar class="ck-btn ck-btn2" href="#" target="_blank" rel="noopener">Pix</a>
-        <p class="ck-pix-valor">
-          <span class="ck-preco-antigo" data-pix-cheio hidden></span>
-          <span data-pix-agora></span>
-        </p>
-        <p class="ck-pix-href" data-pix-href></p>
-        <p class="ck-nota">{TEXTO_PIX_TELA}</p>
-        <p class="ck-nota" data-pix-sem-acumulo hidden>{TEXTO_PIX_SEM_ACUMULO}</p>
-      </div>
-    )}
     <p class="ck-devolucao">Sem disponibilidade, devolução integral do valor.</p>
     <p class="ck-nota">{TEXTO_CARTAO}</p>
     <p class="ck-nota">Café da manhã, almoço e jantar incluídos.</p>
@@ -184,9 +170,7 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
   function pintarCampo() {
     const box = f.querySelector<HTMLElement>('[data-codigo-box]');
     const msg = f.querySelector<HTMLElement>('[data-codigo-msg]');
-    const pix = f.querySelector<HTMLElement>('[data-pix-bloco]');
     if (box) box.hidden = !aberto;
-    if (pix) pix.hidden = !aberto;
     if (!aberto) {
       pedido = false;
       if (msg) {
@@ -230,7 +214,6 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
     const faixaCartao: Faixa = aberto && pedido ? 'reveillon15' : 'cheio';
     const cartao = totalTabela(tabela, faixaCartao, cfg);
     const cheio = totalTabela(tabela, 'cheio', cfg);
-    const pix = totalTabela(tabela, 'pix20', cfg);
     const nomes = [...f.querySelectorAll<HTMLInputElement>('[data-oc]')].flatMap((i) => {
       const q = Math.max(+i.value || 0, 0);
       return q ? [`${q} ${i.getAttribute('aria-label')!.replace('Bangalôs ', '')}`] : [];
@@ -249,25 +232,8 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
     totalCheio.hidden = !mostraCheio;
     totalCheio.textContent = mostraCheio ? brl(cheio.total) : '';
     pintarPrecos(faixaCartao);
-    const aviso = f.querySelector<HTMLElement>('[data-pix-sem-acumulo]');
-    if (aviso) aviso.hidden = !(aberto && pedido);
-    const pixBloco = f.querySelector<HTMLElement>('[data-pix-bloco]');
-    const pixA = f.querySelector<HTMLAnchorElement>('[data-pix-pagar]');
-    if (pixBloco) pixBloco.hidden = !aberto || cartao.excede;
-    if (pixA) {
-      const href = aberto && pix.ok ? linkPagamento(d.tag!, pix.total) : '#';
-      pixA.href = href;
-      pixA.textContent = pix.ok ? `Pix · ${brl(pix.total)}` : 'Pix';
-      const cheioEl = f.querySelector<HTMLElement>('[data-pix-cheio]')!;
-      const agoraEl = f.querySelector('[data-pix-agora]')!;
-      cheioEl.hidden = !pix.ok;
-      cheioEl.textContent = pix.ok ? brl(cheio.total) : '';
-      agoraEl.textContent = pix.ok ? `No Pix, ${brl(pix.total)}` : '';
-      const hrefEl = f.querySelector('[data-pix-href]')!;
-      hrefEl.textContent = pix.ok ? href : '';
-    }
     void c;
-    return { cartao, pix };
+    return { cartao };
   };
 
   async function sincronizar(aplicarCampo: boolean) {
@@ -310,17 +276,6 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
 
   const pre = f.querySelector<HTMLElement>('[data-prereserva]')!;
   const mostrar = () => { pre.hidden = false; };
-
-  f.querySelector('[data-pix-pagar]')?.addEventListener('click', (ev) => {
-    const { pix } = calc();
-    if (!aberto || !pix.ok) { ev.preventDefault(); return; }
-    mostrar();
-    const u = utm();
-    (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.('event', 'click_reservar', {
-      pacote: d.pacote, modo: 'total', forma_pagamento: 'pix', destino: 'infinitepay', pagina: location.pathname,
-      utm_source: u.utm_source, utm_campaign: u.utm_campaign, utm_content: u.utm_content, transport_type: 'beacon',
-    });
-  });
 
   f.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -385,10 +340,6 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
   .ck-total dd { text-align: right; font-weight: 700; }
   .ck-btn { display: block; width: 100%; margin-top: .7rem; padding: 1rem; background: var(--color-ceu); color: #fff; font-weight: 800; font-size: 1.1rem; border-radius: .25rem; text-align: center; }
   .ck-btn:hover { background: var(--color-ceu-hover); color: #fff; }
-  .ck-btn2 { margin-top: .45rem; background: transparent; color: var(--color-ceu); border: 2px solid var(--color-ceu); font-size: 1rem; padding: .75rem; }
-  .ck-btn2:hover { background: var(--color-espuma); }
-  .ck-pix-valor { margin-top: .35rem; text-align: center; font-weight: 700; }
-  .ck-pix-href { margin-top: .2rem; text-align: center; font-size: .7rem; word-break: break-all; color: var(--color-mar); }
   .ck-devolucao { margin-top: .5rem; text-align: center; font-weight: 700; font-size: .85rem; color: var(--color-mar-fundo); }
   .ck-prereserva { margin-top: .6rem; padding: .7rem; text-align: center; font-weight: 700; background: var(--color-espuma); color: var(--color-mar-fundo); }
   .ck-nota { margin-top: .5rem; font-size: .75rem; text-align: center; color: var(--color-mar-fundo); }
