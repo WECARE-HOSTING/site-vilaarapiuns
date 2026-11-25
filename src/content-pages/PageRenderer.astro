@@ -123,8 +123,8 @@ const ogDaPagina = OG_PROPRIO[pageKey]
   ? (await getImage({ src: OG_PROPRIO[pageKey]!, width: 1200, height: 630, fit: 'cover', format: 'jpeg', quality: 78 })).src
   : undefined;
 const ALT_OG_REVEILLON: Partial<Record<Locale, string>> = {
-  pt: 'Grupo em roda ao anoitecer no Rio Arapiuns, na Villa Arapiuns',
-  en: 'A group in a circle at dusk on the Arapiuns River, at Villa Arapiuns',
+  pt: 'Grupo em roda à noite, na areia, com lanternas, no Rio Arapiuns',
+  en: 'A group in a circle at night on the sand, with lanterns, on the Arapiuns River',
 };
 const imageAlt = pageKey === 'reveillon' ? ALT_OG_REVEILLON[locale] : undefined;
 ---
