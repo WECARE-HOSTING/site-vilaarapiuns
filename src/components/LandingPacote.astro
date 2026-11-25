@@ -178,7 +178,9 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
         <p class="mt-3 p-3 text-center font-semibold bg-espuma" data-prereserva role="status" hidden>Pré-reserva recebida. Vamos entrar em contato para confirmar a disponibilidade.</p>
         <p class="mt-2 text-xs text-center">Sinal ou total: cartão de crédito em até 12x, pela InfinitePay. Para Pix, fale no WhatsApp.</p>
         <a data-wa-link href={`${WA}?text=${encodeURIComponent(msgPadrao)}`} target="_blank" rel="noopener" class="block text-center mt-3 underline">Prefiro falar no WhatsApp</a>
-        <p class="mt-3 text-xs">O sinal registra a pré-reserva; a gente confirma a disponibilidade com você. Sem disponibilidade, devolução integral do valor. Cancelamento: reembolso de 100% até 30 dias antes do check-in, 50% de 29 a 15 dias, sem reembolso a 14 dias ou menos (ou no-show). <a href="#faq" class="underline">Ver política completa</a>.</p>
+        <p class="mt-3 text-xs">{p.slug === 'reveillon'
+          ? 'O sinal registra a pré-reserva; a gente confirma a disponibilidade com você. Sem disponibilidade, devolução integral do valor. Cancelamento pedido até 28/11: reembolso integral. De 29/11 a 13/12: 50% de reembolso. De 14/12 em diante, ou no-show: sem reembolso.'
+          : 'O sinal registra a pré-reserva; a gente confirma a disponibilidade com você. Sem disponibilidade, devolução integral do valor. Cancelamento: reembolso de 100% até 30 dias antes do check-in, 50% de 29 a 15 dias, sem reembolso a 14 dias ou menos (ou no-show).'} <a href="#faq" class="underline">Ver política completa</a>.</p>
       </form>
     </div>
   </section>
