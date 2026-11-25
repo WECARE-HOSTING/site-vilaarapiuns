@@ -14,6 +14,8 @@ interface Props {
   description: string;
   /** Caminho absoluto de uma imagem própria da página; cai na imagem padrão do site. */
   image?: string;
+  /** Texto alternativo da imagem de preview. Sem isto, vale o do dicionário. */
+  imageAlt?: string;
   /**
    * Alt do og:image. O padrão do site descreve o banco de areia; uma página
    * que não pode publicar essa frase passa o seu. Sem a prop, nada muda.

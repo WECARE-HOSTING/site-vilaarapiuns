@@ -5,15 +5,24 @@
  * Abaixo: só links pequenos para a LP completa e o WhatsApp.
  * Pagamento: pay.infinitepay.io/{InfiniteTag}/{valor com vírgula} (sem valor = 500).
  * O link InfinitePay não diz QUEM pagou: o botão "Já paguei" manda o resumo no WhatsApp.
+ * O URL com o valor NÃO sai no HTML: o script monta na hora do clique.
  */
-import { SITE } from '@/data/site';
+import { SITE, whatsappUrl } from '@/data/site';
+import {
+  MSG_NAO_ACUMULA,
+  MSG_PIX,
+  NOTA_CRIANCAS,
+  TEXTO_CARTAO,
+  TEXTO_PIX,
+  TEXTO_REFEICOES,
+} from '@/data/reveillon-tabela';
 
 interface Props {
   nome: string;
   promessa: string;
   datas: string;
   lp: string;
-  ocupacoes: { nome: string; pessoas: number; precoPessoa: number }[];
+  ocupacoes: readonly { nome: string; pessoas: number; precoPessoa: number }[];
   porNoite: boolean;
   minNoites: number;
   maxNoites: number;
@@ -23,19 +32,33 @@ interface Props {
   sinalPct: number;
   totalBangalos: number;
   maxHospedes: number;
+  /** Handle InfinitePay. Sem prop, fica o da página que já usava este componente. */
+  tag?: string;
+  /** Réveillon: campo de código, preços riscados e a linha do Pix com prazo. */
+  promocao?: boolean;
+  /** Falso tira "Vagas limitadas." e deixa só as datas. O padrão, no Detox, mantém a frase. */
+  escassez?: boolean;
 }
 const p = Astro.props;
+const tag = p.tag ?? 'carlospecucci';
+const escassez = p.escassez !== false;
 const fim = new Date(Date.parse(p.dataMax + 'T00:00:00Z') + p.minNoites * 864e5).toISOString().slice(0, 10);
 const WA = `https://wa.me/${SITE.contact.whatsapp}`;
 const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
+const pixInicial = whatsappUrl(MSG_PIX);
 ---
 <main class="ck">
-  <form id="ck" class="ck-caixa" data-wa={WA} data-fim={fim} data-tag="carlospecucci" data-pacote={p.nome} data-min={p.minNoites}
-    data-sinal={p.sinalPct} data-pornoite={p.porNoite ? 1 : 0} data-max={p.maxHospedes} data-fixas={p.datasFixas ? 1 : undefined} data-bangalos={p.totalBangalos}>
+  <form id="ck" class="ck-caixa" data-wa={WA} data-fim={fim} data-tag={tag} data-pacote={p.nome} data-min={p.minNoites}
+    data-sinal={p.sinalPct} data-pornoite={p.porNoite ? 1 : 0} data-max={p.maxHospedes} data-fixas={p.datasFixas ? 1 : undefined} data-bangalos={p.totalBangalos}
+    data-promo={p.promocao ? 1 : undefined}>
     <a href="/pt/" class="ck-marca">Villa Arapiuns · Rio Arapiuns, Pará</a>
     <h1 class="ck-h1">{p.nome}</h1>
     <p class="ck-promessa">{p.promessa}</p>
-    <p class="ck-escassez"><span>{p.datas}</span> · <strong>Vagas limitadas.</strong></p>
+    {escassez ? (
+      <p class="ck-escassez"><span>{p.datas}</span> · <strong>Vagas limitadas.</strong></p>
+    ) : (
+      <p class="ck-datas">{p.datas}</p>
+    )}
 
     {p.datasFixas ? (
       <input type="hidden" name="chegada" value={p.dataMin} /><input type="hidden" name="noites" value={p.maxNoites} />
@@ -50,7 +73,7 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
     <div class="ck-oc">
       {p.ocupacoes.map((o, i) => (
         <label>
-          <span>{o.nome}<small>{brl(o.precoPessoa)}/pessoa{p.porNoite ? '/noite' : ''}</small></span>
+          <span>{o.nome}<small><span data-cheio>{brl(o.precoPessoa)}</span><span data-sufixo>/pessoa{p.porNoite ? '/noite' : ''}</span><span data-novo hidden></span></small></span>
           <input type="number" inputmode="numeric" name={`oc${i}`} min="0" max={p.totalBangalos} value={i === 1 ? 1 : 0} data-pessoas={o.pessoas} data-preco={o.precoPessoa} aria-label={`Bangalôs ${o.nome}`} />
         </label>
       ))}
@@ -59,16 +82,45 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
       <label><span>Crianças 0–3 (grátis)</span><input type="number" inputmode="numeric" name="cri03" min="0" max="10" value="0" /></label>
       <label><span>Crianças 4–12 (50%)</span><input type="number" inputmode="numeric" name="cri412" min="0" max="10" value="0" /></label>
     </div>
+    {p.promocao && <p class="ck-criancas">{NOTA_CRIANCAS}</p>}
+
+    {p.promocao && (
+      <div class="ck-codigo" data-codigo-box>
+        <label for="ck-codigo"><span>Código promocional</span></label>
+        <div class="ck-codigo-linha">
+          <input id="ck-codigo" data-codigo-input type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="40" aria-describedby="ck-codigo-aviso" />
+          <button type="button" class="ck-aplicar" data-codigo-aplicar>Aplicar</button>
+        </div>
+        <p id="ck-codigo-aviso" class="ck-codigo-aviso">{MSG_NAO_ACUMULA}</p>
+      </div>
+    )}
+    {p.promocao && <p class="ck-codigo-msg" data-codigo-msg role="status" hidden></p>}
 
     <p class="ck-resumo" data-resumo></p>
     <dl class="ck-total">
-      <dt>Total</dt><dd data-total>—</dd>
-      <dt>Sinal {p.sinalPct}% agora</dt><dd data-sinal-valor class="ck-destaque">—</dd>
+      <dt>Total</dt>
+      <dd>
+        <span class="ck-preco-antigo" data-total-cheio hidden></span>
+        <span data-total-agora>—</span>
+      </dd>
+      <dt>Sinal {p.sinalPct}% agora</dt>
+      <dd>
+        <span class="ck-preco-antigo" data-sinal-cheio hidden></span>
+        <span data-sinal-agora class="ck-destaque">—</span>
+      </dd>
     </dl>
     <button type="submit" name="modo" value="sinal" class="ck-btn">Pagar sinal de {p.sinalPct}%</button>
     <button type="submit" name="modo" value="total" class="ck-btn ck-btn2">Pagar total</button>
     <p class="ck-devolucao">Sem disponibilidade, devolução integral do valor.</p>
-    <p class="ck-nota">Cartão de crédito em até 12x, pela InfinitePay (Pix: fale no WhatsApp). Todas as refeições incluídas.</p>
+    {p.promocao ? (
+      <>
+        <p class="ck-nota">{TEXTO_CARTAO}</p>
+        <p class="ck-nota"><a data-pix href={pixInicial} target="_blank" rel="noopener">{TEXTO_PIX}</a></p>
+        <p class="ck-nota">{TEXTO_REFEICOES}</p>
+      </>
+    ) : (
+      <p class="ck-nota">Cartão de crédito em até 12x, pela InfinitePay (Pix: fale no WhatsApp). Café da manhã, almoço e jantar incluídos.</p>
+    )}
     <p class="ck-prereserva" data-prereserva role="status" hidden>Pré-reserva recebida. Vamos entrar em contato para confirmar a disponibilidade.</p>
     <a data-ja-paguei href={WA} target="_blank" rel="noopener" class="ck-pago">Já paguei: enviar meu comprovante no WhatsApp</a>
 
@@ -85,50 +137,222 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
 
 <script>
   import { limitarNoites } from '@/scripts/noites';
+  import {
+    MSG_CODIGO_ENCERRADO,
+    MSG_CODIGO_INVALIDO,
+    MSG_CODIGO_OK,
+    MSG_CODIGO_VAZIO,
+    MSG_PIX,
+    MSG_PIX_PROMO,
+    REVEILLON,
+    TEXTO_PIX,
+    TEXTO_PIX_PROMO,
+    avaliarCodigo,
+    cotar,
+    horaDaOrigem,
+    instanteEfetivo,
+    linkPagamento,
+    precoComDesconto,
+    promocaoAberta,
+    type LinhaOcupacao,
+  } from '@/data/reveillon-tabela';
+
   const f = document.querySelector<HTMLFormElement>('#ck')!;
   const d = f.dataset;
   const fmt = (x: Date) => x.toLocaleDateString('pt-BR', { timeZone: 'UTC', day: '2-digit', month: '2-digit' });
   const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  const brl0 = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 });
   const val = (n: string) => Math.max(+((f.elements.namedItem(n) as HTMLInputElement | null)?.value ?? 0) || 0, 0);
+  const temPromo = d.promo === '1';
+  const codigoInput = () => f.querySelector<HTMLInputElement>('[data-codigo-input]');
+  let descontoPct = 0;
+  let codigoAplicado: 'REVEILLON15' | 'nenhum' = 'nenhum';
+  let pedido = false;
+
+  async function agora(): Promise<number> {
+    const servidor = await horaDaOrigem(location.origin);
+    let ms = instanteEfetivo(servidor, Date.now());
+    if (import.meta.env.DEV) {
+      const { lerSimula } = await import('@/scripts/reveillon-simula-dev');
+      const sim = lerSimula(location.search);
+      if (sim !== null) ms = sim;
+    }
+    return ms;
+  }
+
+  function pintarPix(aberto: boolean) {
+    const a = f.querySelector<HTMLAnchorElement>('[data-pix]');
+    if (!a) return;
+    a.textContent = aberto ? TEXTO_PIX_PROMO : TEXTO_PIX;
+    a.href = `${d.wa}?text=${encodeURIComponent(aberto ? MSG_PIX_PROMO : MSG_PIX)}`;
+  }
+
+  function pintarCampo(aberto: boolean) {
+    const box = f.querySelector<HTMLElement>('[data-codigo-box]');
+    const msg = f.querySelector<HTMLElement>('[data-codigo-msg]')!;
+    if (!box) return;
+    if (!aberto) {
+      box.hidden = true;
+      pedido = false;
+      descontoPct = 0;
+      codigoAplicado = 'nenhum';
+      msg.hidden = false;
+      msg.dataset.estado = 'encerrado';
+      msg.textContent = MSG_CODIGO_ENCERRADO;
+      return;
+    }
+    box.hidden = false;
+    if (msg.dataset.estado === 'encerrado') {
+      msg.hidden = true;
+      msg.textContent = '';
+      delete msg.dataset.estado;
+    }
+  }
+
+  function pintarPrecos() {
+    for (const input of f.querySelectorAll<HTMLInputElement>('[data-pessoas]')) {
+      const cheio = input.parentElement!.querySelector<HTMLElement>('[data-cheio]')!;
+      const novo = input.parentElement!.querySelector<HTMLElement>('[data-novo]')!;
+      const sufixo = input.parentElement!.querySelector<HTMLElement>('[data-sufixo]')!;
+      if (descontoPct > 0) {
+        cheio.classList.add('ck-riscado');
+        novo.hidden = false;
+        novo.textContent = `${brl0(precoComDesconto(+input.dataset.preco!, descontoPct))}${sufixo.textContent}`;
+        sufixo.hidden = true;
+      } else {
+        cheio.classList.remove('ck-riscado');
+        novo.hidden = true;
+        novo.textContent = '';
+        sufixo.hidden = false;
+      }
+    }
+  }
+
   const calc = () => {
     const { chegada: c, noites: n0 } = limitarNoites(f);
     const n = Math.max(n0, +d.min!);
-    const mult = d.pornoite === '1' ? n : 1;
-    const oc = [...f.querySelectorAll<HTMLInputElement>('[data-pessoas]')];
-    let total = 0, bang = 0, pessoas = 0;
+    const entradas = [...f.querySelectorAll<HTMLInputElement>('[data-pessoas]')];
+    const linhas: LinhaOcupacao[] = entradas.map((i) => ({ pessoas: +i.dataset.pessoas!, precoPessoa: +i.dataset.preco!, qtd: Math.max(+i.value || 0, 0) }));
+    const base = { linhas, cri03: val('cri03'), cri412: val('cri412'), noites: n, porNoite: d.pornoite === '1', sinalPct: +d.sinal!, totalBangalos: +d.bangalos!, maxHospedes: +d.max! };
+    const cot = cotar({ ...base, descontoPct });
+    const cheio = descontoPct > 0 ? cotar({ ...base, descontoPct: 0 }) : cot;
     const desc: string[] = [];
-    for (const i of oc) { const q = Math.max(+i.value || 0, 0); if (!q) continue; bang += q; pessoas += q * +i.dataset.pessoas!; total += q * +i.dataset.pessoas! * +i.dataset.preco! * mult; desc.push(`${q} ${i.getAttribute('aria-label')!.replace('Bangalôs ', '')}`); }
-    const c03 = val('cri03'), c412 = val('cri412');
-    const precos = oc.filter((i) => +i.value > 0).map((i) => +i.dataset.preco!);
-    if (c412 && precos.length) total += c412 * Math.min(...precos) * 0.5 * mult; // 4–12: 50% da ocupação mais barata escolhida
-    pessoas += c03 + c412;
-    const excede = bang > +d.bangalos! || pessoas > +d.max!;
-    const ok = total > 0 && !excede;
-    const sinal = ok ? Math.round(total * +d.sinal!) / 100 : 0;
+    entradas.forEach((i, idx) => { if (linhas[idx].qtd) desc.push(`${linhas[idx].qtd} ${i.getAttribute('aria-label')!.replace('Bangalôs ', '')}`); });
+    const c03 = base.cri03, c412 = base.cri412;
     const datas = isNaN(c.getTime()) ? '' : `check-in ${fmt(c)}, check-out ${fmt(new Date(c.getTime() + n * 864e5))}`;
-    const resumo = `${d.fixas ? '' : datas + ' · '}${desc.join(' + ') || 'escolha os bangalôs'}${c03 + c412 ? ` + ${c03 + c412} criança(s)` : ''} · ${n} noites · ${pessoas} pessoas`;
+    const resumo = `${d.fixas ? '' : datas + ' · '}${desc.join(' + ') || 'escolha os bangalôs'}${c03 + c412 ? ` + ${c03 + c412} criança(s)` : ''} · ${n} noites · ${cot.pessoas} pessoas`;
     f.querySelector('[data-resumo]')!.textContent = resumo;
-    f.querySelector('[data-total]')!.textContent = excede ? 'Para mais bangalôs ou pessoas, fale com a gente no WhatsApp' : ok ? brl(total) : '—';
-    f.querySelector('[data-sinal-valor]')!.textContent = ok ? brl(sinal) : '—';
-    const msg = `Oi! ${d.pacote}, ${datas}: ${resumo}.`;
+    const totalAgora = f.querySelector('[data-total-agora]')!;
+    const sinalAgora = f.querySelector('[data-sinal-agora]')!;
+    const totalCheio = f.querySelector<HTMLElement>('[data-total-cheio]')!;
+    const sinalCheio = f.querySelector<HTMLElement>('[data-sinal-cheio]')!;
+    totalAgora.textContent = cot.excede ? 'Para mais bangalôs ou pessoas, fale com a gente no WhatsApp' : cot.ok ? brl(cot.total) : '—';
+    sinalAgora.textContent = cot.ok ? brl(cot.sinal) : '—';
+    const mostraCheio = descontoPct > 0 && cot.ok && cheio.ok;
+    totalCheio.hidden = !mostraCheio;
+    sinalCheio.hidden = !mostraCheio;
+    totalCheio.textContent = mostraCheio ? brl(cheio.total) : '';
+    sinalCheio.textContent = mostraCheio ? brl(cheio.sinal) : '';
+    pintarPrecos();
+    const citaCodigo = codigoAplicado === 'REVEILLON15' ? ' Código REVEILLON15.' : '';
+    const msg = `Oi! ${d.pacote}, ${datas}: ${resumo}.${citaCodigo}`;
     f.querySelector<HTMLAnchorElement>('[data-wa-link]')!.href = `${d.wa}?text=${encodeURIComponent(msg)}`;
     f.querySelector<HTMLAnchorElement>('[data-ja-paguei]')!.href = `${d.wa}?text=${encodeURIComponent(`Paguei! ${msg} Segue o comprovante.`)}`;
-    return { ok, total, sinal, msg };
+    return { ok: cot.ok, total: cot.total, sinal: cot.sinal, msg };
   };
-  f.addEventListener('input', calc); calc();
+
+  async function sincronizar(aplicarCampo: boolean) {
+    if (!temPromo) return;
+    const ms = await agora();
+    const aberto = promocaoAberta(ms, REVEILLON.fim);
+    pintarPix(aberto);
+    pintarCampo(aberto);
+    f.dataset.relogio = aberto ? 'aberto' : 'encerrado';
+    if (!aberto) { calc(); return; }
+    if (!aplicarCampo) { calc(); return; }
+    const estado = avaliarCodigo(codigoInput()?.value ?? '', ms, REVEILLON.fim, REVEILLON.codigo);
+    const msg = f.querySelector<HTMLElement>('[data-codigo-msg]')!;
+    pedido = estado === 'aplicado';
+    descontoPct = pedido ? REVEILLON.descontoPct : 0;
+    codigoAplicado = pedido ? 'REVEILLON15' : 'nenhum';
+    msg.hidden = false;
+    if (estado === 'aplicado') {
+      msg.dataset.estado = 'ok';
+      msg.textContent = MSG_CODIGO_OK;
+      (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.('event', 'codigo_aplicado', { codigo: 'REVEILLON15', pacote: d.pacote, pagina: location.pathname });
+    } else if (estado === 'invalido') {
+      msg.dataset.estado = 'erro';
+      msg.textContent = MSG_CODIGO_INVALIDO;
+    } else if (estado === 'vazio') {
+      msg.dataset.estado = 'erro';
+      msg.textContent = MSG_CODIGO_VAZIO;
+    }
+    calc();
+  }
+
+  f.addEventListener('input', (ev) => {
+    if ((ev.target as HTMLElement | null)?.matches?.('[data-codigo-input]')) return;
+    calc();
+  });
+  codigoInput()?.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Enter') { ev.preventDefault(); void sincronizar(true); }
+  });
+  f.querySelector('[data-codigo-aplicar]')?.addEventListener('click', () => { void sincronizar(true); });
+
   const pre = f.querySelector<HTMLElement>('[data-prereserva]')!;
   const mostrarPre = () => { pre.hidden = false; };
   f.querySelector('[data-ja-paguei]')!.addEventListener('click', mostrarPre);
   f.addEventListener('submit', (e) => {
     e.preventDefault();
-    const { ok, total, sinal, msg } = calc();
-    const modo = ((e as SubmitEvent).submitter as HTMLButtonElement | null)?.value;
-    const v = modo === 'total' ? total : sinal;
-    if (ok) mostrarPre();
-    // GA4 (02/11/2026): clique no Reservar, importável no Google Ads como conversão.
-    (window as any).gtag?.('event', 'click_reservar', { pacote: d.pacote, modo: modo || 'sinal', destino: ok ? 'infinitepay' : 'whatsapp', pagina: location.pathname, transport_type: 'beacon' });
-    window.open(ok ? `https://pay.infinitepay.io/${d.tag}/${v.toFixed(2).replace('.', ',')}` : `${d.wa}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+    void (async () => {
+      if (temPromo) {
+        const ms = await agora();
+        const aberto = promocaoAberta(ms, REVEILLON.fim);
+        pintarPix(aberto);
+        if (!aberto) {
+          const tinha = descontoPct > 0;
+          pedido = false;
+          descontoPct = 0;
+          codigoAplicado = 'nenhum';
+          pintarCampo(false);
+          f.dataset.relogio = 'encerrado';
+          calc();
+          if (tinha) return;
+        } else {
+          f.dataset.relogio = 'aberto';
+          if (pedido && avaliarCodigo(codigoInput()?.value ?? '', ms, REVEILLON.fim, REVEILLON.codigo) !== 'aplicado') {
+            pedido = false;
+            descontoPct = 0;
+            codigoAplicado = 'nenhum';
+            calc();
+            return;
+          }
+          if (!pedido) descontoPct = 0;
+        }
+      }
+      const { ok, total, sinal, msg } = calc();
+      const modo = ((e as SubmitEvent).submitter as HTMLButtonElement | null)?.value;
+      const v = modo === 'total' ? total : sinal;
+      if (ok) mostrarPre();
+      const payload: Record<string, unknown> = { pacote: d.pacote, modo: modo || 'sinal', destino: ok ? 'infinitepay' : 'whatsapp', pagina: location.pathname, transport_type: 'beacon' };
+      if (temPromo) payload.codigo = codigoAplicado;
+      (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.('event', 'click_reservar', payload);
+      window.open(ok ? linkPagamento(d.tag!, v) : `${d.wa}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+    })();
   });
+
+  void (async () => {
+    if (temPromo) {
+      const ms = await agora();
+      const aberto = promocaoAberta(ms, REVEILLON.fim);
+      pintarPix(aberto);
+      pintarCampo(aberto);
+      f.dataset.relogio = aberto ? 'aberto' : 'encerrado';
+    } else {
+      f.dataset.relogio = 'sem-promo';
+    }
+    calc();
+  })();
 </script>
 
 <style>
@@ -138,13 +362,29 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
   .ck-h1 { font-size: 1.9rem; line-height: 1.05; margin-top: .35rem; }
   .ck-promessa { margin-top: .35rem; font-size: .95rem; color: var(--color-mar-fundo); }
   .ck-escassez { margin-top: .5rem; font-size: .85rem; color: var(--color-erro); }
+  .ck-datas { margin-top: .5rem; font-size: .85rem; color: var(--color-mar-fundo); }
+  .ck-criancas { margin-top: .4rem; font-size: .78rem; line-height: 1.35; color: var(--color-mar-fundo); }
   .ck-linha, .ck-oc { display: grid; gap: .5rem; margin-top: .6rem; }
   .ck-linha { grid-template-columns: 1fr 1fr; }
-  .ck-oc { grid-template-columns: repeat(3, 1fr); margin-top: .3rem; }
+  .ck-oc { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: .3rem; }
   .ck label > span { display: block; font-family: var(--font-label); font-size: .72rem; text-transform: uppercase; letter-spacing: .05em; color: var(--color-areia-funda); }
   .ck label small { display: block; text-transform: none; letter-spacing: 0; color: var(--color-mar); font-family: var(--font-sans); font-size: .72rem; }
   .ck select { width: 100%; padding: .6rem; font-size: 1.05rem; border: 2px solid var(--color-ceu); background: #fff; color: var(--color-mar-fundo); font-weight: 700; }
   .ck input { width: 100%; padding: .6rem; font-size: 1.05rem; border: 1px solid var(--color-areia-sol); background: #fff; color: var(--color-mar-fundo); }
+  .ck-codigo { margin-top: .8rem; }
+  .ck-codigo-linha { display: grid; grid-template-columns: 1fr auto; gap: .4rem; }
+  .ck-aplicar { padding: .6rem .85rem; background: transparent; color: var(--color-ceu); border: 2px solid var(--color-ceu); font-weight: 800; font-size: .95rem; border-radius: .25rem; }
+  .ck-aplicar:hover { background: var(--color-espuma); }
+  .ck-codigo-aviso { margin-top: .3rem; font-size: .75rem; color: var(--color-mar); }
+  .ck-codigo-msg { margin-top: .35rem; font-size: .85rem; font-weight: 700; color: var(--color-mar-fundo); }
+  .ck-codigo-msg[data-estado="erro"] { color: var(--color-erro); }
+  .ck-riscado { text-decoration: line-through; color: var(--color-mar); font-weight: 500; margin-right: .3rem; }
+  .ck label small [data-novo]:not([hidden]) { font-weight: 700; color: var(--color-mar-fundo); }
+  @media (max-width: 26rem) {
+    .ck label small [data-cheio].ck-riscado,
+    .ck label small [data-novo]:not([hidden]) { display: block; margin-right: 0; }
+  }
+  .ck-preco-antigo:not([hidden]) { display: block; text-decoration: line-through; font-weight: 500; color: var(--color-mar); font-size: .8rem; }
   .ck-total { display: grid; grid-template-columns: 1fr auto; gap: .15rem .5rem; margin-top: .3rem; font-size: .9rem; align-items: baseline; }
   .ck-resumo { margin-top: .8rem; padding-top: .6rem; border-top: 1px solid var(--color-areia-sol); font-size: .78rem; color: var(--color-mar); }
   .ck-rot { margin-top: .7rem; font-weight: 700; font-size: .85rem; color: var(--color-mar-fundo); }
@@ -157,6 +397,7 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
   .ck-devolucao { margin-top: .5rem; text-align: center; font-weight: 700; font-size: .85rem; color: var(--color-mar-fundo); }
   .ck-prereserva { margin-top: .6rem; padding: .7rem; text-align: center; font-weight: 700; background: var(--color-espuma); color: var(--color-mar-fundo); }
   .ck-nota { margin-top: .5rem; font-size: .75rem; text-align: center; color: var(--color-mar-fundo); }
+  .ck-nota a { color: var(--color-ceu); text-decoration: underline; }
   .ck-pago { display: block; margin-top: .4rem; text-align: center; font-size: .78rem; color: var(--color-mar); text-decoration: underline; }
   .ck-links { display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem .9rem; margin-top: 1.4rem; font-size: .78rem; }
   .ck-links a { color: var(--color-ceu); text-decoration: underline; }
