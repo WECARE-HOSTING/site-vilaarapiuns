@@ -1,0 +1,137 @@
+# BEGIN TABELA-REVEILLON-2026 (v1, 25/11/2026)
+# Formato pensado para leitura por código: comentário com #, depois chave=valor e CSV.
+# Valores em R$, por pessoa, pacote de 5 noites (28/12/2026 a 02/01/2027), salvo a coluna total_quarto.
+# Inteiros, exceto onde houver centavo (ex.: sinal legado criança REVEILLON15 = 637.50).
+# Fonte geral do bloco: Leonardo, 25/11/2026 16h50, via Diretor de Marketing ("Sim").
+
+versao=1
+evento=reveillon
+checkin=2026-12-28
+checkout=2027-01-02
+pacote_noites=5
+moeda=BRL
+unidade_base=por_pessoa
+caminho_padrao=pagamento_total_no_site
+validade_descontos=2026-11-28T23:59:59-03:00
+capacidade_max_pessoas=26
+capacidade_max_bangalos=13
+taxa_cartao=EM_ABERTO
+sinal_30=legado_apenas
+
+# --- Preço cheio por pessoa ---
+# Confere com as linhas 90-98 e 133-143 deste arquivo (R$ 9.000 / 6.000 / 5.000).
+# Fonte: tabela já registrada no arquivo; reafirmada por Leonardo, 25/11/2026 16h50.
+pessoa.cheio.single=9000
+pessoa.cheio.duplo=6000
+pessoa.cheio.triplo=5000
+
+# --- Cartão com REVEILLON15 (15%), por pessoa ---
+# 15% sobre o cheio: 9000*0,85=7650; 6000*0,85=5100; 5000*0,85=4250.
+# Fonte: Leonardo, 24/11/2026 (linha 201); em 25/11/2026 16h50, vale só no cartão.
+pessoa.reveillon15.single=7650
+pessoa.reveillon15.duplo=5100
+pessoa.reveillon15.triplo=4250
+
+# --- Pix com 20%, por pessoa ---
+# 20% sobre o total: 9000*0,80=7200; 6000*0,80=4800; 5000*0,80=4000.
+# Fonte: Leonardo, 24/11/2026 13h08 (linha 202); em 25/11/2026 16h50, botão no checkout, só por Pix.
+pessoa.pix20.single=7200
+pessoa.pix20.duplo=4800
+pessoa.pix20.triplo=4000
+
+# --- Criança ---
+# Até 3 anos: 0. De 4 a 12 anos: 50% do valor por pessoa da ocupação mais barata (triplo),
+# na mesma faixa (cheio / REVEILLON15 / Pix). Base = triplo, como no checkout de cartão do PR #59,
+# aprovado por Leonardo em 25/11/2026 08h31. A regra de criança no Réveillon foi aprovada
+# por Leonardo em 25/11/2026 16h50.
+# Contas: 5000*0,50=2500; 4250*0,50=2125; 4000*0,50=2000.
+pessoa.cheio.crianca_ate_3=0
+pessoa.reveillon15.crianca_ate_3=0
+pessoa.pix20.crianca_ate_3=0
+pessoa.cheio.crianca_4_12=2500
+pessoa.reveillon15.crianca_4_12=2125
+pessoa.pix20.crianca_4_12=2000
+
+# --- Como montar o total de uma configuração ---
+# total = preco_por_pessoa * numero_de_pessoas, na faixa vigente.
+# single = 1 adulto; duplo = 2 adultos; triplo = 3 adultos; somar as crianças à parte.
+# Depois de validade_descontos, vale só a faixa cheio.
+# Fonte: Leonardo, 25/11/2026 16h50.
+
+# --- Totais por quarto (só os adultos da ocupação) e soma por criança de 4 a 12 ---
+# single: 1*9000/7650/7200; duplo: 2*6000/5100/4800=12000/10200/9600;
+# triplo: 3*5000/4250/4000=15000/12750/12000; criança 4-12: 2500/2125/2000.
+# Fonte: derivado da tabela por pessoa; regra aprovada por Leonardo, 25/11/2026 16h50.
+total_quarto.cheio.single=9000
+total_quarto.reveillon15.single=7650
+total_quarto.pix20.single=7200
+total_quarto.cheio.duplo=12000
+total_quarto.reveillon15.duplo=10200
+total_quarto.pix20.duplo=9600
+total_quarto.cheio.triplo=15000
+total_quarto.reveillon15.triplo=12750
+total_quarto.pix20.triplo=12000
+total_quarto.cheio.crianca_4_12=2500
+total_quarto.reveillon15.crianca_4_12=2125
+total_quarto.pix20.crianca_4_12=2000
+total_quarto.cheio.crianca_ate_3=0
+total_quarto.reveillon15.crianca_ate_3=0
+total_quarto.pix20.crianca_ate_3=0
+
+# --- Regras do caminho padrão ---
+# Fonte: Leonardo, 25/11/2026 16h50, via Diretor de Marketing ("Sim").
+regra.descontos_nao_se_somam=true
+regra.desconto_maximo_pct=20
+regra.reveillon15_somente_cartao=true
+regra.pix20_somente_pix=true
+regra.depois_do_prazo=preco_cheio
+regra.grupo_acima_de_26=trava_no_checkout
+regra.taxa_cartao=EM_ABERTO
+regra.hospede_paga=exatamente_a_tabela
+regra.conferencia=webhook_paid_infinitepay_contra_este_bloco
+regra.diferenca.mensagem_unica=true
+regra.diferenca.prazo=min(pagamento+48h,2026-11-28T23:59:59-03:00)
+regra.diferenca.horas=48
+regra.diferenca.teto=2026-11-28T23:59:59-03:00
+regra.diferenca.status_ate_pagar=pre_reserva_pendente
+
+# --- Sinal legado de 30% (fora do caminho padrão), por pessoa ---
+# Só para casos já tratados com sinal. 30% sobre a faixa correspondente.
+# cheio: 2700/1800/1500; REVEILLON15: 2295/1530/1275; Pix: 2160/1440/1200;
+# criança 4-12: 750/637.50/600 (4250*0,50*0,30=637.50).
+# Fonte: Leonardo, 25/11/2026 16h50 (sai do caminho padrão; fica só para casos legados).
+sinal30.cheio.single=2700
+sinal30.cheio.duplo=1800
+sinal30.cheio.triplo=1500
+sinal30.reveillon15.single=2295
+sinal30.reveillon15.duplo=1530
+sinal30.reveillon15.triplo=1275
+sinal30.pix20.single=2160
+sinal30.pix20.duplo=1440
+sinal30.pix20.triplo=1200
+sinal30.cheio.crianca_4_12=750
+sinal30.reveillon15.crianca_4_12=637.50
+sinal30.pix20.crianca_4_12=600
+sinal30.cheio.crianca_ate_3=0
+sinal30.reveillon15.crianca_ate_3=0
+sinal30.pix20.crianca_ate_3=0
+
+# CSV (mesmo conteúdo, para carga direta). faixa,ocupacao,pessoa,total_quarto,sinal30_pessoa
+# total_quarto da criança é a soma por criança, não um quarto.
+# csv_header=faixa,ocupacao,pessoa,total_quarto,sinal30_pessoa
+# csv,cheio,single,9000,9000,2700
+# csv,cheio,duplo,6000,12000,1800
+# csv,cheio,triplo,5000,15000,1500
+# csv,cheio,crianca_4_12,2500,2500,750
+# csv,cheio,crianca_ate_3,0,0,0
+# csv,reveillon15,single,7650,7650,2295
+# csv,reveillon15,duplo,5100,10200,1530
+# csv,reveillon15,triplo,4250,12750,1275
+# csv,reveillon15,crianca_4_12,2125,2125,637.50
+# csv,reveillon15,crianca_ate_3,0,0,0
+# csv,pix20,single,7200,7200,2160
+# csv,pix20,duplo,4800,9600,1440
+# csv,pix20,triplo,4000,12000,1200
+# csv,pix20,crianca_4_12,2000,2000,600
+# csv,pix20,crianca_ate_3,0,0,0
+# END TABELA-REVEILLON-2026

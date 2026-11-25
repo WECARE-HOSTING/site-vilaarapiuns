@@ -8,12 +8,14 @@ import {
   MSG_CODIGO_INVALIDO,
   MSG_CODIGO_OK,
   MSG_CODIGO_VAZIO,
-  MSG_PIX,
-  MSG_PIX_PROMO,
+  NOTA_CRIANCAS,
   REVEILLON,
+  TEXTO_ABRINDO,
   TEXTO_CARTAO,
-  TEXTO_PIX,
-  TEXTO_PIX_PROMO,
+  TEXTO_GRUPO,
+  TEXTO_PIX_CONFERE,
+  TEXTO_PIX_SEM_ACUMULO,
+  TEXTO_PIX_TELA,
   TEXTO_PROMESSA,
   TEXTO_REFEICOES,
   avaliarCodigo,
@@ -89,21 +91,18 @@ test('com REVEILLON15: single 7650, duplo 5100, triplo 4250, sinal recalculado',
   assert.equal(cotarRev({ triplo: 1, desconto: true }).sinal, 3825);
 });
 
-test('crianças: 0–3 grátis; 4–12 pagam 50% do adulto, já com desconto', () => {
-  const semCrianca = cotarRev({ duplo: 1, cri03: 2 });
-  assert.equal(semCrianca.total, 12000);
-  assert.equal(semCrianca.pessoas, 4);
-
-  const meiaCheia = cotarRev({ duplo: 1, cri412: 1 });
-  assert.equal(meiaCheia.total, 12000 + 3000);
-  assert.equal(meiaCheia.sinal, 4500);
-
-  const meiaComCodigo = cotarRev({ duplo: 1, cri412: 1, desconto: true });
-  assert.equal(meiaComCodigo.total, 10200 + 2550);
-  assert.equal(meiaComCodigo.sinal, 3825);
-
-  const mistura = cotarRev({ single: 1, triplo: 1, cri412: 1, desconto: true });
-  assert.equal(mistura.total, 7650 + 12750 + 2125);
+test('criança no Réveillon é 50% do triplo da faixa, não da ocupação escolhida', async () => {
+  const { parseTabela, totalTabela } = await import('../src/data/tabela-reveillon-2026.ts');
+  const { readFileSync } = await import('node:fs');
+  const mapa = parseTabela(readFileSync('src/data/tabela-reveillon-2026-v1.txt', 'utf8'));
+  const duplo = { single: 0, duplo: 1, triplo: 0, cri03: 0, cri412: 1 };
+  assert.equal(totalTabela(mapa, 'cheio', duplo).total, 14500);
+  assert.notEqual(totalTabela(mapa, 'cheio', duplo).total, 12000 + 3000);
+  assert.equal(totalTabela(mapa, 'reveillon15', duplo).total, 12325);
+  assert.equal(totalTabela(mapa, 'pix20', duplo).total, 11600);
+  const bebe = totalTabela(mapa, 'cheio', { single: 0, duplo: 1, triplo: 0, cri03: 1, cri412: 0 });
+  assert.equal(bebe.total, 12000);
+  assert.equal(bebe.pessoas, 3);
 });
 
 test('o Pix de 20% não entra na conta e nenhum segundo desconto acumula', () => {
@@ -198,14 +197,15 @@ test('textos da página e um código só', () => {
   assert.equal(TEXTO_PROMESSA, '5 noites de rio, floresta e silêncio para começar o ano.');
   assert.equal(TEXTO_CARTAO, 'Cartão de crédito em até 12x, pela InfinitePay.');
   assert.equal(TEXTO_REFEICOES, 'Café da manhã, almoço e jantar incluídos.');
-  assert.equal(TEXTO_PIX, 'Pix: fale no WhatsApp');
-  assert.equal(TEXTO_PIX_PROMO, 'No Pix, 20%: fale no WhatsApp');
-  assert.match(MSG_PIX_PROMO, /Réveillon 28\/12 a 2\/1/);
-  assert.match(MSG_PIX_PROMO, /REVEILLON15/);
-  assert.doesNotMatch(MSG_PIX, /REVEILLON15/);
-  assert.doesNotMatch(MSG_PIX, /20%/);
+  assert.equal(TEXTO_PIX_TELA, 'Na tela da InfinitePay, escolha Pix.');
+  assert.equal(TEXTO_PIX_CONFERE, 'A reserva só fica confirmada depois que a Villa conferir o pagamento.');
+  assert.match(TEXTO_PIX_SEM_ACUMULO, /não entra/);
+  assert.equal(TEXTO_ABRINDO, 'Abrindo o pagamento…');
+  assert.match(TEXTO_GRUPO, /26 pessoas/);
+  assert.equal(NOTA_CRIANCAS, 'Crianças de 4 a 12 anos pagam 50% do valor por pessoa do triplo. Até 3 anos não pagam.');
+  assert.doesNotMatch(TEXTO_CARTAO, /sem juros/i);
   const proibidos = [/sem juros/i, /sem acréscimo/i, /sem acrescimo/i, /juros/i];
-  const textos = [TEXTO_PROMESSA, TEXTO_CARTAO, TEXTO_REFEICOES, TEXTO_PIX, TEXTO_PIX_PROMO, MSG_PIX, MSG_PIX_PROMO, MSG_CODIGO_OK, MSG_CODIGO_INVALIDO, MSG_CODIGO_ENCERRADO];
+  const textos = [TEXTO_PROMESSA, TEXTO_CARTAO, TEXTO_REFEICOES, TEXTO_PIX_TELA, TEXTO_PIX_CONFERE, TEXTO_PIX_SEM_ACUMULO, TEXTO_ABRINDO, TEXTO_GRUPO, NOTA_CRIANCAS, MSG_CODIGO_OK, MSG_CODIGO_INVALIDO, MSG_CODIGO_ENCERRADO];
   for (const texto of textos) for (const regra of proibidos) assert.doesNotMatch(texto, regra);
 });
 
@@ -317,23 +317,39 @@ test('build de produção não leva bypass nem link pronto com valor', { skip: !
   assert.doesNotMatch(html, /pay\.infinitepay\.io\/[a-z0-9]+\/\d/);
   assert.match(html, new RegExp(TEXTO_CARTAO.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   assert.match(html, new RegExp(TEXTO_REFEICOES.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
-  assert.match(html, new RegExp(TEXTO_PIX.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
-  assert.match(html, /5547992067078/);
+  assert.match(html, /Pagar total/);
+  assert.match(html, /data-pix-pagar/);
+  assert.doesNotMatch(html, /Pix: fale no WhatsApp/);
+  assert.doesNotMatch(html, /Já paguei/);
+  assert.doesNotMatch(html, /Pré-reserva recebida/);
+  assert.match(html, /Abrindo o pagamento/);
   assert.match(html, /28\/12 a 2\/1 · 5 noites/);
-  assert.match(html, /Crianças de 4 a 12 anos pagam 50% do valor por pessoa da ocupação mais barata escolhida/);
+  assert.match(html, /50% do valor por pessoa do triplo/);
   assert.match(html, /Até 3 anos não pagam/);
   assert.doesNotMatch(html, /Vagas limitadas/);
   assert.doesNotMatch(html, /Todas as refeições/);
+  assert.doesNotMatch(html, /href="https:\/\/wa\.me\/5547/);
   for (const frase of FRASES) assert.doesNotMatch(html, frase, frase.toString());
 
+  const lp = readFileSync('dist/pt/lp/reveillon/index.html', 'utf8');
+  assert.match(lp, /Reserve pelo link/);
+  assert.match(lp, /utm_campaign=reveillon2026/);
+  assert.match(lp, /utm_content=lp-hero/);
+  assert.doesNotMatch(lp, /id="reservar"/);
+  assert.doesNotMatch(lp, /carlospecucci/);
+
   const detox = readFileSync('dist/pt/lp/pagar-detox/index.html', 'utf8');
-  assert.match(detox, /data-tag="carlospecucci"/);
+  assert.doesNotMatch(detox, /carlospecucci/);
+  assert.doesNotMatch(detox, /wecarehosting/);
+  assert.doesNotMatch(detox, /data-tag=/);
   assert.match(detox, /Café da manhã, almoço e jantar incluídos/);
   assert.doesNotMatch(detox, /Todas as refeições/);
   assert.doesNotMatch(detox, /data-promo="1"/);
-  assert.doesNotMatch(detox, /wecarehosting/);
-  assert.match(detox, /data-preco="1800"/);
-  assert.match(detox, /data-preco="1200"/);
-  assert.match(detox, /data-preco="1000"/);
+  assert.doesNotMatch(detox, /data-preco=/);
   assert.doesNotMatch(detox, /Crianças de 4 a 12 anos pagam 50%/);
+
+  const detoxLp = readFileSync('dist/pt/lp/detox-pos-reveillon/index.html', 'utf8');
+  assert.doesNotMatch(detoxLp, /carlospecucci/);
+  assert.doesNotMatch(detoxLp, /wecarehosting/);
+  assert.doesNotMatch(detoxLp, /data-tag=/);
 });

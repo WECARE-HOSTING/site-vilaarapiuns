@@ -1,0 +1,48 @@
+---
+/**
+ * Retorno do checkout. Não confirma a reserva: isso só acontece depois
+ * que a Villa conferir o pagamento. Sem webhook ligado, a página não
+ * consulta a InfinitePay e não registra compra.
+ */
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { SITE } from '@/data/site';
+---
+<BaseLayout locale="pt" pageKey="reveillon" title="Pagamento | Villa Arapiuns" description="Retorno do pagamento do Réveillon. A reserva depende da conferência da Villa." indexavel={false} caminho="/pt/lp/pagamento-confirmado/" semSchemaNegocio imageAlt="Rio e floresta na Villa Arapiuns, no Pará">
+  <main class="ck">
+    <article class="ck-caixa">
+      <a href="/pt/" class="ck-marca">Villa Arapiuns · Rio Arapiuns, Pará</a>
+      <h1 class="ck-h1">Pagamento em conferência</h1>
+      <p class="ck-promessa">A reserva só fica confirmada depois que a Villa conferir o pagamento. Esta página não registra a compra.</p>
+      <dl class="ck-total" data-dados>
+        <dt>Pedido</dt><dd data-pedido>—</dd>
+        <dt>Transação</dt><dd data-transacao>—</dd>
+        <dt>Forma</dt><dd data-forma>—</dd>
+      </dl>
+      <p class="ck-estado" role="status">Nada aqui conta como reserva confirmada.</p>
+      <p class="ck-nota"><a href={`mailto:${SITE.contact.email}`}>{SITE.contact.email}</a></p>
+      <p class="ck-nota"><a href="/pt/lp/reveillon/">Voltar ao Réveillon</a></p>
+    </article>
+  </main>
+</BaseLayout>
+<script>
+  const params = new URLSearchParams(location.search);
+  const por = (nome: string) => params.get(nome) || '—';
+  const pedido = document.querySelector('[data-pedido]');
+  const transacao = document.querySelector('[data-transacao]');
+  const forma = document.querySelector('[data-forma]');
+  if (pedido) pedido.textContent = por('order_nsu');
+  if (transacao) transacao.textContent = por('transaction_nsu');
+  if (forma) forma.textContent = por('capture_method');
+</script>
+<style>
+  .ck { min-height: 100svh; background: var(--color-areia-clara); display: flex; justify-content: center; padding: 1.5rem .9rem 2rem; }
+  .ck-caixa { width: 100%; max-width: 30rem; }
+  .ck-marca { font-family: var(--font-label); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--color-areia-funda); }
+  .ck-h1 { font-size: 1.9rem; line-height: 1.05; margin-top: .35rem; }
+  .ck-promessa { margin-top: .6rem; font-size: .95rem; color: var(--color-mar-fundo); }
+  .ck-total { display: grid; grid-template-columns: 1fr auto; gap: .35rem .75rem; margin-top: 1rem; font-size: .9rem; }
+  .ck-total dd { text-align: right; font-weight: 700; overflow-wrap: anywhere; }
+  .ck-estado { margin-top: .9rem; padding: .7rem; text-align: center; font-weight: 700; background: var(--color-espuma); color: var(--color-mar-fundo); }
+  .ck-nota { margin-top: .8rem; text-align: center; font-size: .85rem; }
+  .ck-nota a { color: var(--color-ceu); }
+</style>

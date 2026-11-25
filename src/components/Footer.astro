@@ -11,6 +11,8 @@ const { locale } = Astro.props;
 const t = useTranslations(locale);
 
 const ano = new Date().getFullYear();
+const caminho = Astro.url.pathname;
+const vendaReveillon = caminho === '/pt/reveillon/' || caminho.startsWith('/pt/lp/reveillon/') || caminho.startsWith('/pt/lp/pagar-reveillon/') || caminho.startsWith('/pt/lp/pagamento-confirmado/');
 const colunaVisita = ['lodge', 'dining', 'gallery'] as const;
 
 /**
@@ -33,9 +35,9 @@ const colunaReserva = ['packages', 'privateVilla', 'reveillon', 'detox', 'gettin
         </p>
 
         <div class="mt-8 flex flex-col gap-2 text-sm">
-          <a href={whatsappUrl(t('whatsapp.geral'))} class="link-escuro w-fit" target="_blank" rel="noopener noreferrer">
+          {!vendaReveillon && <a href={whatsappUrl(t('whatsapp.geral'))} class="link-escuro w-fit" target="_blank" rel="noopener noreferrer">
             {t('cta.whatsapp')}
-          </a>
+          </a>}
           {SITE.contact.email && (
             <a href={`mailto:${SITE.contact.email}`} class="link-escuro w-fit" target="_blank" rel="noopener noreferrer">
               {SITE.contact.email}

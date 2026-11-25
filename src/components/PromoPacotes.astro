@@ -11,10 +11,11 @@
 import { Image } from 'astro:assets';
 import piracaia from '@/assets/imgs/piracaia-roda.jpg';
 import banho from '@/assets/imgs/banho-rio-grupo.jpg';
-import { whatsappUrl } from '@/data/site';
+import { linkCheckoutReveillon, whatsappUrl } from '@/data/site';
 
 interface Props { variante?: 'cards' | 'faixa'; origem: string }
 const { variante = 'cards', origem } = Astro.props;
+const utmReveillon = origem === 'home' ? 'home-card' : 'promopacotes';
 const agora = new Date();
 const pacotes = [
   {
@@ -60,9 +61,9 @@ const pacotes = [
               <h3 class="font-display text-2xl mt-2 leading-tight">{p.gancho}</h3>
               <p class="mt-2">{p.texto}</p>
               <div class="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:flex-wrap">
-                <a href={p.pagar} class="btn btn-primario" data-promo={p.id} data-promo-acao="pagar" data-promo-origem={origem}>Garanta a sua</a>
+                <a href={p.id === 'reveillon' ? linkCheckoutReveillon(utmReveillon) : p.pagar} class="btn btn-primario" data-promo={p.id} data-promo-acao="pagar" data-promo-origem={origem}>{p.id === 'reveillon' ? 'Reserve pelo link' : 'Garanta a sua'}</a>
                 <a href={p.ver} class="underline underline-offset-4" data-promo={p.id} data-promo-acao="ver" data-promo-origem={origem}>Ver o pacote</a>
-                <a href={whatsappUrl(p.wa)} class="underline underline-offset-4" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+                {p.id !== 'reveillon' && <a href={whatsappUrl(p.wa)} class="underline underline-offset-4" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>}
               </div>
             </div>
           </article>
@@ -77,8 +78,8 @@ const pacotes = [
     <p class="mt-1">Réveillon e Ano Novo Detox no Rio Arapiuns. Vagas limitadas.</p>
     <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
       {pacotes.map((p) => (
-        <a href={p.pagar} class="btn btn-primario" data-promo={p.id} data-promo-acao="pagar" data-promo-origem={origem}>
-          {p.id === 'reveillon' ? 'Garanta seu Réveillon' : 'Garanta seu Detox'}
+        <a href={p.id === 'reveillon' ? linkCheckoutReveillon(utmReveillon) : p.pagar} class="btn btn-primario" data-promo={p.id} data-promo-acao="pagar" data-promo-origem={origem}>
+          {p.id === 'reveillon' ? 'Reserve pelo link' : 'Garanta seu Detox'}
         </a>
       ))}
       {pacotes.map((p) => (
