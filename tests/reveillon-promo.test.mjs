@@ -326,14 +326,23 @@ test('build de produção não leva bypass nem link pronto com valor', { skip: !
   assert.doesNotMatch(html, /Todas as refeições/);
   for (const frase of FRASES) assert.doesNotMatch(html, frase, frase.toString());
 
+  const lp = readFileSync('dist/pt/lp/reveillon/index.html', 'utf8');
+  assert.match(lp, /id="reservar"/);
+  assert.match(lp, /data-tag="wecarehosting"/);
+  assert.doesNotMatch(lp, /carlospecucci/);
+
   const detox = readFileSync('dist/pt/lp/pagar-detox/index.html', 'utf8');
-  assert.match(detox, /data-tag="carlospecucci"/);
+  assert.doesNotMatch(detox, /carlospecucci/);
+  assert.doesNotMatch(detox, /wecarehosting/);
+  assert.doesNotMatch(detox, /data-tag=/);
   assert.match(detox, /Café da manhã, almoço e jantar incluídos/);
   assert.doesNotMatch(detox, /Todas as refeições/);
   assert.doesNotMatch(detox, /data-promo="1"/);
-  assert.doesNotMatch(detox, /wecarehosting/);
-  assert.match(detox, /data-preco="1800"/);
-  assert.match(detox, /data-preco="1200"/);
-  assert.match(detox, /data-preco="1000"/);
+  assert.doesNotMatch(detox, /data-preco=/);
   assert.doesNotMatch(detox, /Crianças de 4 a 12 anos pagam 50%/);
+
+  const detoxLp = readFileSync('dist/pt/lp/detox-pos-reveillon/index.html', 'utf8');
+  assert.doesNotMatch(detoxLp, /carlospecucci/);
+  assert.doesNotMatch(detoxLp, /wecarehosting/);
+  assert.doesNotMatch(detoxLp, /data-tag=/);
 });
