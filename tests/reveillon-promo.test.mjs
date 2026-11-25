@@ -14,8 +14,6 @@ import {
   TEXTO_CARTAO,
   TEXTO_GRUPO,
   TEXTO_PIX_CONFERE,
-  TEXTO_PIX_SEM_ACUMULO,
-  TEXTO_PIX_TELA,
   TEXTO_PROMESSA,
   TEXTO_REFEICOES,
   avaliarCodigo,
@@ -197,15 +195,13 @@ test('textos da página e um código só', () => {
   assert.equal(TEXTO_PROMESSA, '5 noites de rio, floresta e silêncio para começar o ano.');
   assert.equal(TEXTO_CARTAO, 'Cartão de crédito em até 12x, pela InfinitePay.');
   assert.equal(TEXTO_REFEICOES, 'Café da manhã, almoço e jantar incluídos.');
-  assert.equal(TEXTO_PIX_TELA, 'Na tela da InfinitePay, escolha Pix.');
   assert.equal(TEXTO_PIX_CONFERE, 'A reserva só fica confirmada depois que a Villa conferir o pagamento.');
-  assert.match(TEXTO_PIX_SEM_ACUMULO, /não entra/);
   assert.equal(TEXTO_ABRINDO, 'Abrindo o pagamento…');
   assert.match(TEXTO_GRUPO, /26 pessoas/);
   assert.equal(NOTA_CRIANCAS, 'Crianças de 4 a 12 anos pagam 50% do valor por pessoa do triplo. Até 3 anos não pagam.');
   assert.doesNotMatch(TEXTO_CARTAO, /sem juros/i);
   const proibidos = [/sem juros/i, /sem acréscimo/i, /sem acrescimo/i, /juros/i];
-  const textos = [TEXTO_PROMESSA, TEXTO_CARTAO, TEXTO_REFEICOES, TEXTO_PIX_TELA, TEXTO_PIX_CONFERE, TEXTO_PIX_SEM_ACUMULO, TEXTO_ABRINDO, TEXTO_GRUPO, NOTA_CRIANCAS, MSG_CODIGO_OK, MSG_CODIGO_INVALIDO, MSG_CODIGO_ENCERRADO];
+  const textos = [TEXTO_PROMESSA, TEXTO_CARTAO, TEXTO_REFEICOES, TEXTO_PIX_CONFERE, TEXTO_ABRINDO, TEXTO_GRUPO, NOTA_CRIANCAS, MSG_CODIGO_OK, MSG_CODIGO_INVALIDO, MSG_CODIGO_ENCERRADO];
   for (const texto of textos) for (const regra of proibidos) assert.doesNotMatch(texto, regra);
 });
 
@@ -318,7 +314,8 @@ test('build de produção não leva bypass nem link pronto com valor', { skip: !
   assert.match(html, new RegExp(TEXTO_CARTAO.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   assert.match(html, new RegExp(TEXTO_REFEICOES.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
   assert.match(html, /Pagar total/);
-  assert.match(html, /data-pix-pagar/);
+  assert.doesNotMatch(html, /data-pix-pagar/);
+  assert.doesNotMatch(html, /escolha Pix/);
   assert.doesNotMatch(html, /Pix: fale no WhatsApp/);
   assert.doesNotMatch(html, /Já paguei/);
   assert.doesNotMatch(html, /Pré-reserva recebida/);

@@ -139,7 +139,7 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
         ) : (
           <p class={`mt-4 text-3xl font-display ${p.precoNoitePessoa ? 'text-mar' : 'text-erro'}`}>{p.precoNoitePessoa ? brl(p.precoNoitePessoa) : '[PREÇO A DEFINIR]'}</p>
         )}
-        <p class="mt-2">{p.slug === 'reveillon' ? 'por pessoa, pacote completo. O total se paga no checkout, no cartão ou no Pix.' : `${p.ocupacoes ? (p.porNoite ? 'por pessoa / noite' : 'por pessoa, pacote completo') : 'por pessoa / noite'} · sinal de ${p.sinalPct ?? '[SINAL A DEFINIR]'}% para a pré-reserva, no cartão em até 12x (InfinitePay)`}</p>
+        <p class="mt-2">{p.slug === 'reveillon' ? 'por pessoa, pacote completo. O total se paga no checkout, no cartão.' : `${p.ocupacoes ? (p.porNoite ? 'por pessoa / noite' : 'por pessoa, pacote completo') : 'por pessoa / noite'} · sinal de ${p.sinalPct ?? '[SINAL A DEFINIR]'}% para a pré-reserva, no cartão em até 12x (InfinitePay)`}</p>
         {p.aParte && <p class="mt-4 text-sm"><strong>À parte:</strong> {p.aParte.join(' · ')}</p>}
         <p class="mt-6 lp-escassez">
           <strong>Vagas limitadas.</strong> A Villa tem {p.totalBangalos} bangalôs.
@@ -149,7 +149,7 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
       {p.slug === 'reveillon' ? (
         <div class="lp-card">
           <h3 class="font-display text-2xl text-mar">Reserve pelo link</h3>
-          <p class="mt-3">O pagamento do pacote é no checkout: total no cartão ou Pix.</p>
+          <p class="mt-3">O pagamento do pacote é no checkout, no cartão.</p>
           <a href={linkCheckoutReveillon('lp-card')} class="btn btn-primario mt-5" data-cta="reservar_reveillon_lp_card">Reserve pelo link</a>
         </div>
       ) : <form id="reservar" class="lp-card scroll-mt-24" data-wa={WA} data-fim={fim} data-pacote={p.pacoteNome} data-min={p.minNoites} data-tag={INFINITETAG} data-preco={p.precoNoitePessoa ?? ''} data-sinal={p.sinalPct ?? ''} data-pornoite={p.porNoite ? 1 : 0} data-max={p.maxHospedes ?? 26} data-bangalos={p.totalBangalos}>
