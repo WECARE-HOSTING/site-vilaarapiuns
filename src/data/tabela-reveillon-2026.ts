@@ -62,10 +62,11 @@ export function totalTabela(mapa: Record<string, string>, faixa: Faixa, c: Confi
   const cri03 = Math.max(c.cri03 || 0, 0);
   const cri412 = Math.max(c.cri412 || 0, 0);
   const bangalos = single + duplo + triplo;
-  const pessoas = single * 1 + duplo * 2 + triplo * 3 + cri03 + cri412;
+  const noLimite = single * 1 + duplo * 2 + triplo * 3 + cri412;
+  const pessoas = noLimite + cri03;
   const maxPessoas = numero(mapa, 'capacidade_max_pessoas');
   const maxBangalos = numero(mapa, 'capacidade_max_bangalos');
-  const acimaDe26 = pessoas > maxPessoas;
+  const acimaDe26 = noLimite > maxPessoas;
   const excede = acimaDe26 || bangalos > maxBangalos;
   const total = single * quartos[faixa].single
     + duplo * quartos[faixa].duplo

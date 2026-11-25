@@ -42,6 +42,19 @@ test('criança é 50% do triplo da faixa, em qualquer ocupação', () => {
   assert.equal(totalTabela(mapa, 'pix20', bebe).total, 7200);
 });
 
+test('bebê não entra no limite de 26; criança de 4 a 12 entra', () => {
+  const base = { single: 0, duplo: 13, triplo: 0, cri412: 0 };
+  const comBebe = totalTabela(mapa, 'cheio', { ...base, cri03: 1 });
+  assert.equal(comBebe.pessoas, 27);
+  assert.equal(comBebe.acimaDe26, false);
+  assert.equal(comBebe.ok, true);
+  assert.equal(comBebe.total, 13 * 12000);
+  const comCrianca = totalTabela(mapa, 'cheio', { ...base, cri03: 0, cri412: 1 });
+  assert.equal(comCrianca.acimaDe26, true);
+  assert.equal(comCrianca.ok, false);
+  assert.equal(comCrianca.excede, true);
+});
+
 test('totais: duplo, duplo com criança, e trava acima de 26', () => {
   const duplo = totalTabela(mapa, 'cheio', { single: 0, duplo: 1, triplo: 0, cri03: 0, cri412: 0 });
   assert.equal(duplo.total, 12000);

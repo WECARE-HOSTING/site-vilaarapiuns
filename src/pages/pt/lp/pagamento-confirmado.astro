@@ -5,21 +5,19 @@
  * consulta a InfinitePay e não registra compra.
  */
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { SITE } from '@/data/site';
 ---
-<BaseLayout locale="pt" pageKey="reveillon" title="Pagamento | Villa Arapiuns" description="Retorno do pagamento do Réveillon. A reserva depende da conferência da Villa." indexavel={false} caminho="/pt/lp/pagamento-confirmado/" semSchemaNegocio imageAlt="Rio e floresta na Villa Arapiuns, no Pará">
+<BaseLayout locale="pt" pageKey="reveillon" title="Pagamento | Villa Arapiuns" description="Retorno do pagamento do Réveillon. A Villa confere o pagamento antes de confirmar a reserva." indexavel={false} caminho="/pt/lp/pagamento-confirmado/" semSchemaNegocio imageAlt="Rio e floresta na Villa Arapiuns, no Pará">
   <main class="ck">
     <article class="ck-caixa">
       <a href="/pt/" class="ck-marca">Villa Arapiuns · Rio Arapiuns, Pará</a>
-      <h1 class="ck-h1">Pagamento em conferência</h1>
-      <p class="ck-promessa">A reserva só fica confirmada depois que a Villa conferir o pagamento. Esta página não registra a compra.</p>
+      <h1 class="ck-h1">Pagamento recebido</h1>
+      <p class="ck-promessa">Pagamento recebido pela InfinitePay. A Villa confere o pagamento e confirma a sua reserva.</p>
+      <p class="ck-nota">reservas@villaarapiuns.com.br</p>
       <dl class="ck-total" data-dados>
         <dt>Pedido</dt><dd data-pedido>—</dd>
         <dt>Transação</dt><dd data-transacao>—</dd>
         <dt>Forma</dt><dd data-forma>—</dd>
       </dl>
-      <p class="ck-estado" role="status">Nada aqui conta como reserva confirmada.</p>
-      <p class="ck-nota"><a href={`mailto:${SITE.contact.email}`}>{SITE.contact.email}</a></p>
       <p class="ck-nota"><a href="/pt/lp/reveillon/">Voltar ao Réveillon</a></p>
     </article>
   </main>

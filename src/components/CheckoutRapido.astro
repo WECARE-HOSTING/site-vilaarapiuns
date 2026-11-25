@@ -99,6 +99,7 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
         <span data-total-agora>—</span>
       </dd>
     </dl>
+    <p class="ck-nota" data-confirma>{TEXTO_PIX_CONFERE}</p>
     <button type="submit" name="modo" value="total" class="ck-btn" data-pagar-total>Pagar total</button>
     {p.promocao && (
       <div data-pix-bloco>
@@ -109,7 +110,6 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
         </p>
         <p class="ck-pix-href" data-pix-href></p>
         <p class="ck-nota">{TEXTO_PIX_TELA}</p>
-        <p class="ck-nota">{TEXTO_PIX_CONFERE}</p>
         <p class="ck-nota" data-pix-sem-acumulo hidden>{TEXTO_PIX_SEM_ACUMULO}</p>
       </div>
     )}
