@@ -321,6 +321,7 @@ test('build de produção não leva bypass nem link pronto com valor', { skip: !
   assert.match(html, /data-pix-pagar/);
   assert.doesNotMatch(html, /Pix: fale no WhatsApp/);
   assert.doesNotMatch(html, /Já paguei/);
+  assert.doesNotMatch(html, /comprovante/);
   assert.doesNotMatch(html, /Pré-reserva recebida/);
   assert.match(html, /Abrindo o pagamento/);
   assert.match(html, /28\/12 a 2\/1 · 5 noites/);
@@ -328,7 +329,9 @@ test('build de produção não leva bypass nem link pronto com valor', { skip: !
   assert.match(html, /Até 3 anos não pagam/);
   assert.doesNotMatch(html, /Vagas limitadas/);
   assert.doesNotMatch(html, /Todas as refeições/);
-  assert.doesNotMatch(html, /href="https:\/\/wa\.me\/5547/);
+  assert.match(html, /Dúvidas\? WhatsApp \+55 47 99206-7078/);
+  assert.match(html, /href="https:\/\/wa\.me\/5547992067078"/);
+  assert.doesNotMatch(html, /wa\.me\/5547992067078\?/);
   for (const frase of FRASES) assert.doesNotMatch(html, frase, frase.toString());
 
   const lp = readFileSync('dist/pt/lp/reveillon/index.html', 'utf8');

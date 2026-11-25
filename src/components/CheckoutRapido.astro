@@ -2,9 +2,9 @@
 /**
  * Checkout do Réveillon. O valor sai da TABELA-REVEILLON-2026.
  * Pagamento: pay.infinitepay.io/{tag}/{valor com vírgula}, montado no clique.
- * Sinal de 30% não entra neste caminho. Sem WhatsApp.
+ * Sinal de 30% não entra neste caminho. O pagamento não passa pelo WhatsApp.
  */
-import { SITE } from '@/data/site';
+import { SITE, telefoneLegivel } from '@/data/site';
 import {
   MSG_NAO_ACUMULA,
   NOTA_CRIANCAS,
@@ -123,7 +123,7 @@ const brl = (n: number) => n.toLocaleString('pt-BR', { style: 'currency', curren
       <a href={`${p.lp}#chegar`}>Como chegar</a>
       <a href={`${p.lp}#faq`}>Cancelamento</a>
       <a href={`${p.lp}#faq`}>Perguntas frequentes</a>
-      <a href={`mailto:${SITE.contact.email}`}>{SITE.contact.email}</a>
+      <a href={`https://wa.me/${SITE.contact.whatsapp}`}>Dúvidas? WhatsApp {telefoneLegivel()}</a>
     </nav>
   </form>
 </main>
