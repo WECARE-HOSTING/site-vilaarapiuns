@@ -12,7 +12,7 @@
 
 ## Global Constraints
 
-- **Contato único:** WhatsApp `5547992067078`, e-mail `reservas@villaarapiuns.com.br` — **alias de função** encaminhando para a Gabriela, NÃO o endereço pessoal dela. O rodapé mostra o e-mail como texto visível, e a copy do site não nomeia quem atende. O número `5511969760096` sai do site inteiro.
+- **Contato único:** WhatsApp `número anterior`, e-mail `reservas@villaarapiuns.com.br` — **alias de função** encaminhando para a Gabriela, NÃO o endereço pessoal dela. O rodapé mostra o e-mail como texto visível, e a copy do site não nomeia quem atende. O número `5511969760096` sai do site inteiro.
 - **Remetente SMTP:** `site@vilaarapiuns.com.br`. **BCC:** `carlos@wecarehosting.com.br`. **Prazo prometido:** 24 horas.
 - **O repositório é público.** Nenhuma senha, em nenhum arquivo versionado, em nenhuma circunstância. Conferir `git diff` antes de todo commit.
 - **Nada de push, nada de deploy.** Publicar é fase separada e só com ordem direta do Carlos. Todos os commits ficam locais, no branch `redesign`.
@@ -217,7 +217,7 @@ Criar `tools/contato-unico.mjs`:
 import { readFileSync, globSync, existsSync } from 'node:fs';
 
 const PROIBIDO = ['5511969760096', '11969760096', '969760096', '96976-0096'];
-const OBRIGATORIO = ['5547992067078', 'reservas@villaarapiuns.com.br'];
+const OBRIGATORIO = ['número anterior', 'reservas@villaarapiuns.com.br'];
 
 const paginas = globSync('dist/**/*.html');
 if (paginas.length === 0) {
@@ -267,7 +267,7 @@ Em `package.json`, `"scripts"`: `"contato:check": "node tools/contato-unico.mjs"
 - [ ] **Step 2: Rodar e ver FALHAR**
 
 Run: `npm run build && npm run contato:check`
-Expected: FALHA, com `número retirado ainda presente — "5511969760096"` em muitas páginas e `"5547992067078" ausente em 55 de 55 páginas`.
+Expected: FALHA, com `número retirado ainda presente — "5511969760096"` em muitas páginas e `"número anterior" ausente em 55 de 55 páginas`.
 
 (`dist/enviar.php` ainda não existe; o script não o exige — a Tarefa 5 cria.)
 
@@ -287,7 +287,7 @@ Em `src/data/site.ts`, substituir o bloco `contact` inteiro:
      * em que trocar é uma linha neste arquivo — não um deploy para consertar
      * oito lugares. `tools/contato-unico.mjs` guarda essa fronteira.
      */
-    whatsapp: '5547992067078',
+    whatsapp: 'número anterior',
     /**
      * Destino do formulário de reserva e do link no rodapé. Era `null` e
      * marcado PENDENTE desde a Fase 2; o bloco de e-mail do Footer já estava
@@ -302,7 +302,7 @@ E no fim do arquivo, junto de `whatsappUrl()`:
 
 ```ts
 /**
- * Escreve o WhatsApp para leitura humana: 5547992067078 → +55 47 99206-7078.
+ * Escreve o WhatsApp para leitura humana: número anterior → número anterior.
  *
  * Deriva dos mesmos dígitos de propósito. Guardar o número formatado num
  * segundo campo é convidar os dois a divergirem, e número de contato errado
@@ -345,10 +345,10 @@ Expected: `astro check` sem erro; `OK — 55 páginas: contato único, sem resí
 
 ```bash
 grep -o 'telephone":"[^"]*"' dist/pt/index.html
-grep -c 'wa.me/5547992067078' dist/pt/reservar/index.html
+grep -c 'wa.me/número anterior' dist/pt/reservar/index.html
 ```
 
-Expected: `telephone":"+5547992067078"`, e contagem ≥ 1.
+Expected: `telephone":"número anterior"`, e contagem ≥ 1.
 
 - [ ] **Step 7: Commit**
 
@@ -1294,7 +1294,7 @@ function textoAuto(string $idioma, string $chave, array $trocas): string {
 $trocas = [
   // Único dado do visitante que entra: o nome, já sem CR/LF pelo umaLinha().
   '{nome}' => $nome,
-  '{whatsapp}' => 'https://wa.me/5547992067078',
+  '{whatsapp}' => 'https://wa.me/número anterior',
 ];
 $autoAssunto = textoAuto($idioma, 'assunto', []);
 $autoCorpo   = textoAuto($idioma, 'corpo', $trocas);

@@ -19,7 +19,7 @@ import { readFileSync, globSync, existsSync } from 'node:fs';
 const PROIBIDO = [
   '5511969760096', '11969760096', '969760096', '96976-0096',
   // Canal comercial anterior (47), substituído pelo Business 5511968518330.
-  '5547992067078', '47992067078', '992067078', '99206-7078', '99206 7078', '9920-67078',
+  'número anterior', 'número anterior', 'número anterior', 'número anterior', 'número anterior', 'número anterior',
 ];
 const OBRIGATORIO = ['5511968518330', 'reservas@villaarapiuns.com.br'];
 
