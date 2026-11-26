@@ -16,8 +16,12 @@
  */
 import { readFileSync, globSync, existsSync } from 'node:fs';
 
-const PROIBIDO = ['5511969760096', '11969760096', '969760096', '96976-0096'];
-const OBRIGATORIO = ['5547992067078', 'reservas@villaarapiuns.com.br'];
+const PROIBIDO = [
+  '5511969760096', '11969760096', '969760096', '96976-0096',
+  // Canal comercial anterior (47), substituído pelo Business 5511968518330.
+  'número anterior', 'número anterior', 'número anterior', 'número anterior', 'número anterior', 'número anterior',
+];
+const OBRIGATORIO = ['5511968518330', 'reservas@villaarapiuns.com.br'];
 
 const paginas = globSync('dist/**/*.html');
 if (paginas.length === 0) {
@@ -79,7 +83,7 @@ for (const f of [...paginas, ...paginasPhp]) {
 
 /**
  * Fecha o ponto cego descrito no achado I5 do review da Tarefa 6:
- * `enviar-mail.php:35` hardcoda `https://wa.me/5547992067078` para a
+ * `enviar-mail.php:35` hardcoda `https://wa.me/5511968518330` para a
  * auto-resposta, fora do alcance da checagem de HTML acima (PHP não é
  * página) e fora do dicionário (mover para lá criaria cinco cópias em vez
  * de uma). O número canônico é `SITE.contact.whatsapp` em

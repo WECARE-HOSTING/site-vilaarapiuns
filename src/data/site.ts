@@ -61,8 +61,10 @@ export const SITE = {
      * COORDENADA DO PIN DA FICHA DO GOOGLE (Business Profile), lida em
      * 11/10/2026 na resposta do próprio Google Maps para o cid de
      * `contact.googleMaps` (4567770498331262782 = 0x3f63fb11308b3f3e): a ficha
-     * "Villa Arapiuns", com o WhatsApp +55 47 99206-7078 e o link para
+     * "Villa Arapiuns", com o WhatsApp número anterior e o link para
      * villaarapiuns.com.br/pt/, está em [-2.3843517, -55.2025123].
+     * O número canônico agora é +55 11 96851-8330, por decisão do Leonardo
+     * em 26/11 às 13h28.
      *
      * É a fonte que o dono controla e a que o Google já mostra no topo da busca
      * pela marca — publicar a MESMA coordenada no schema reforça a entidade em
@@ -105,7 +107,7 @@ export const SITE = {
      * em que trocar é uma linha neste arquivo — não um deploy para consertar
      * oito lugares. `tools/contato-unico.mjs` guarda essa fronteira.
      */
-    whatsapp: '5547992067078',
+    whatsapp: '5511968518330',
     /**
      * Destino do formulário de reserva e do link no rodapé — que RENDERIZA
      * este valor como texto visível em TODA página do site menos uma (ver
@@ -225,7 +227,7 @@ export function whatsappUrl(message: string): string {
 }
 
 /**
- * Escreve o WhatsApp para leitura humana: 5547992067078 → +55 47 99206-7078.
+ * Escreve o WhatsApp para leitura humana: 5511968518330 → +55 11 96851-8330.
  *
  * Deriva dos mesmos dígitos de propósito. Guardar o número formatado num
  * segundo campo é convidar os dois a divergirem, e número de contato errado

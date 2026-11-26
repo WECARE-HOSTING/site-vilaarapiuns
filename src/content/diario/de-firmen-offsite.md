@@ -14,7 +14,7 @@ legenda: "Der Pavillon · der Plenumsraum, an allen vier Seiten offen"
 destino: privateVilla
 duvidas:
   - q: "Was kostet ein Firmen-Offsite am Rio Arapiuns?"
-    a: "Der Preis wird pro Gruppe kalkuliert, nach Personenzahl und Nächten, und sinkt, je größer die Gruppe. Im Gruppenpaket: Exklusivnutzung ab fünfzehn Personen, dreizehn Bangalôs für bis zu sechsundzwanzig Personen, Pavillon und Shala sowie Starlink; die Logistik ab Alter do Chão und alles Weitere im Preis legen wir im Angebot dar. Flüge, Aktivitäten mit den Gemeinden und Technik laufen separat. Angebot per WhatsApp an +55 47 99206-7078 oder an reservas@villaarapiuns.com.br."
+    a: "Der Preis wird pro Gruppe kalkuliert, nach Personenzahl und Nächten, und sinkt, je größer die Gruppe. Im Gruppenpaket: Exklusivnutzung ab fünfzehn Personen, dreizehn Bangalôs für bis zu sechsundzwanzig Personen, Pavillon und Shala sowie Starlink; die Logistik ab Alter do Chão und alles Weitere im Preis legen wir im Angebot dar. Flüge, Aktivitäten mit den Gemeinden und Technik laufen separat. Angebot per WhatsApp an +55 11 96851-8330 oder an reservas@villaarapiuns.com.br."
   - q: "Kann das Team von dort online arbeiten?"
     a: "Ja. Vor Ort gibt es Starlink mit stabiler Solarversorgung, und es trägt das ganze Team gleichzeitig durch eine Online-Besprechung. Wenn Ihr Programm mitten in der Woche einen Call mit der Zentrale braucht, findet er statt — ohne dass jemand für Empfang auf eine Böschung steigt."
   - q: "Welche Präsentationstechnik gibt es?"
@@ -96,7 +96,7 @@ Die Logistik ab Alter do Chão und alles Weitere im Preis legen wir im Angebot d
 
 **Pakete:** Ein Offsite-Paket von der Stange gibt es nicht — das Paket ist Ihre Gruppe, Ihre Termine und Ihr Programm. Wer keine Exklusivnutzung braucht, findet unsere festen [Pakete ab Alter do Chão](/de/pakete/), mit festem Programm.
 
-**So bekommen Sie ein Angebot:** Schicken Sie uns Termine, Personenzahl, Anzahl der Nächte und das, was Ihr Programm wirklich von einem Ort braucht — per [WhatsApp an +55 47 99206-7078](https://wa.me/5547992067078), per E-Mail an [reservas@villaarapiuns.com.br](mailto:reservas@villaarapiuns.com.br) oder über die [Buchungsanfrage](/de/buchen/). Sie bekommen eine echte Zahl zurück. Ab drei Nächten geht die Rechnung auf; für eine einzige Nacht sagen wir es Ihnen lieber vorher.
+**So bekommen Sie ein Angebot:** Schicken Sie uns Termine, Personenzahl, Anzahl der Nächte und das, was Ihr Programm wirklich von einem Ort braucht — per [WhatsApp an +55 11 96851-8330](https://wa.me/5511968518330), per E-Mail an [reservas@villaarapiuns.com.br](mailto:reservas@villaarapiuns.com.br) oder über die [Buchungsanfrage](/de/buchen/). Sie bekommen eine echte Zahl zurück. Ab drei Nächten geht die Rechnung auf; für eine einzige Nacht sagen wir es Ihnen lieber vorher.
 
 ## Vertragliches
 

@@ -14,7 +14,7 @@ legenda: "The pavilion · the plenary space, open on all four sides"
 destino: privateVilla
 duvidas:
   - q: "What does a corporate offsite there cost?"
-    a: "It is quoted per group, by number of people and nights, and the rate falls as the group grows. The group package covers exclusive use from fifteen guests, thirteen bungalows for up to twenty-six people, the pavilion and the shala, and Starlink; logistics from Alter do Chão and anything else in the rate, we set out in the proposal. Flights, community activities and AV sit outside it. Ask for a quote on WhatsApp at +55 47 99206-7078 or at reservas@villaarapiuns.com.br."
+    a: "It is quoted per group, by number of people and nights, and the rate falls as the group grows. The group package covers exclusive use from fifteen guests, thirteen bungalows for up to twenty-six people, the pavilion and the shala, and Starlink; logistics from Alter do Chão and anything else in the rate, we set out in the proposal. Flights, community activities and AV sit outside it. Ask for a quote on WhatsApp at +55 11 96851-8330 or at reservas@villaarapiuns.com.br."
   - q: "Can the team work online from there?"
     a: "Yes. There is Starlink on site, on stable solar power, and it carries the whole team through an online meeting at once. If your programme needs a call with head office mid-week, it happens — without anyone climbing a bank hunting for signal."
   - q: "What presentation setup is there?"
@@ -96,7 +96,7 @@ Logistics from Alter do Chão and anything else in the rate, we set out in the p
 
 **Packages:** there is no off-the-shelf offsite package — the package is your group, your dates and your programme. If you do not need exclusive use, see our fixed [packages from Alter do Chão](/en/packages/), with a set itinerary.
 
-**How to get a quote:** send the dates, how many people, how many nights and what your programme actually needs from a space — by [WhatsApp on +55 47 99206-7078](https://wa.me/5547992067078), by email to [reservas@villaarapiuns.com.br](mailto:reservas@villaarapiuns.com.br), or through the [booking request](/en/book/). You get a real number back. From three nights up the maths works; for a single night it does not, and we would rather say so first.
+**How to get a quote:** send the dates, how many people, how many nights and what your programme actually needs from a space — by [WhatsApp on +55 11 96851-8330](https://wa.me/5511968518330), by email to [reservas@villaarapiuns.com.br](mailto:reservas@villaarapiuns.com.br), or through the [booking request](/en/book/). You get a real number back. From three nights up the maths works; for a single night it does not, and we would rather say so first.
 
 ## Contracting
 

@@ -65,7 +65,7 @@ You are near the Equator, on pale sand, beside water that throws light straight 
 
 At Villa Arapiuns the property is **practically mosquito-free** — we won't promise zero, because this is forest. Dinner is served on the sand, the bungalows have **24h solar power** and **Starlink Wi‑Fi**, and the lodge includes **all meals** (packages include breakfast and dinner). There is first aid on site, not medical care, so the travel-clinic conversation still applies.
 
-October and November are the peak of the dry season, with the sandbanks at their widest, and beach season runs through January, including [New Year's Eve on the Arapiuns](/en/new-years-eve/). To understand the river before you come, read the [Arapiuns River guide](/en/diario/rio-arapiuns-guide/). Arrival logistics and meals are arranged with the host before your trip: [message us on WhatsApp](https://wa.me/5547992067078).
+October and November are the peak of the dry season, with the sandbanks at their widest, and beach season runs through January, including [New Year's Eve on the Arapiuns](/en/new-years-eve/). To understand the river before you come, read the [Arapiuns River guide](/en/diario/rio-arapiuns-guide/). Arrival logistics and meals are arranged with the host before your trip: [message us on WhatsApp](https://wa.me/5511968518330).
 
 ## Why we bothered writing this
 

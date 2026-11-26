@@ -64,7 +64,7 @@ $trocas = [
   // de uma — mas `tools/contato-unico.mjs` agora lê o PHP construído e falha
   // o build se este link se afastar do número canônico (achado I5 do review
   // da Tarefa 6).
-  '{whatsapp}' => 'https://wa.me/5547992067078',
+  '{whatsapp}' => 'https://wa.me/5511968518330',
 ];
 $autoAssunto = textoAuto($idioma, 'assunto', []);
 [$autoCorpo, $origemCorpo] = textoAutoComOrigem($idioma, 'corpo', $trocas);

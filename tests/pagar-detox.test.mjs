@@ -14,7 +14,7 @@ test('pagar-detox: condição por grupo, sem preço público', { skip: !existsSy
   assert.ok(html.includes('Condição por grupo, consulte no WhatsApp'));
   assert.ok(html.includes('Café da manhã, almoço e jantar incluídos.'));
   assert.ok(html.includes('o rio, a floresta e o silêncio.'));
-  assert.ok(html.includes('https://wa.me/5547992067078?text='));
+  assert.ok(html.includes('https://wa.me/5511968518330?text='));
   assert.ok(html.includes(encodeURIComponent('Oi! Quero saber a condição do Detox de 1 a 10/1/2027.')));
   assert.ok(html.includes('1 a 10/1/2027'));
 });
