@@ -271,7 +271,7 @@
       },
       {
         "id": "porsol",
-        "assunto": "The sunset",
+        "assunto": "Late afternoon at Ponta Grande",
         "medida": "17:30",
         "alt": "A row of people sitting on the sand with their backs to the camera, watching the sun sink over the wide river"
       },
@@ -337,7 +337,7 @@
     "heroPaisagem": [
       {
         "id": "praiaBranca",
-        "alt": "A white sandbank on the Rio Arapiuns, the still water mirroring a sky of high cloud, with a palm-thatched shade at the tip"
+        "alt": "A sandbank on the Rio Arapiuns, the still water mirroring a sky of high cloud, with a palm-thatched shade at the tip"
       },
       {
         "alt": "A golden sandbar reaching into the river under a deep blue sky with high clouds, a trail of footprints in the sand"
@@ -354,7 +354,7 @@
       },
       {
         "id": "porDoSol",
-        "alt": "Sunset over the river seen from under the foliage, orange sky above dark water in short waves"
+        "alt": "Late afternoon over the river seen from under the foliage, orange sky above dark water in short waves"
       }
     ],
     "campoLancha": "1h30 from {place}",

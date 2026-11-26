@@ -126,7 +126,7 @@ const ofertas = [
    * Arapiuns e Imersão Completa. Usar `modo.pacoteT` nos dois emitiria duas
    * Offers idênticas separadas só pelo preço, o que não diz nada a quem lê.
    */
-  { nome: t('pacote.p1T'),    desc: pageKey === 'reveillon'
+  { nome: t('pacote.p1T'),    desc: pageKey === 'reveillon' || pageKey === 'home'
       ? t('pacote.p1D').replace('o pôr do sol', 'o fim de tarde').replace('sunset', 'late afternoon')
       : t('pacote.p1D') },
   { nome: t('pacote.p2T'),    desc: t('pacote.p2D') },

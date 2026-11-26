@@ -92,7 +92,7 @@ const momentos = [
   { hora: '08:30', titulo: 'Trilha até o Lago Azul', detalhe: 'Com o guia da Villa. Canoa na lagoa escondida.' },
   { hora: '12:30', titulo: 'Almoço na comunidade', detalhe: 'Peixe fresco, feito pela família que recebe o grupo.', tipo: 'comunidade' as const, refeicao: true },
   { hora: '14:00', titulo: 'Farinhada e tecelagem', detalhe: 'Oficina com as artesãs da comunidade.', tipo: 'comunidade' as const },
-  { hora: '17:30', titulo: 'Pôr do sol na Ponta Grande' },
+  { hora: '17:30', titulo: locale === 'en' ? 'Late afternoon at Ponta Grande' : locale === 'pt' ? 'Fim de tarde na Ponta Grande' : 'Pôr do sol na Ponta Grande' },
   { hora: '19:30', titulo: 'Jantar e fogueira na praia', refeicao: true },
 ];
 
@@ -300,7 +300,7 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
      manteve a coluna de reels por cima dela, e o resultado no ar foi o
      contrário do pretendido: dez cartões 9:16 opacos tapavam justamente o rio
      que a rodada existia para mostrar, e logo abaixo o parágrafo de intro caía
-     em `text-ceu` sobre areia branca — ilegível. O cliente viu em produção e
+     em `text-ceu` sobre o fundo claro — ilegível. O cliente viu em produção e
      pediu para tirar ("ficou ruim esses quadrados no meio").
 
      Os dez reels não se perderam: os cinco vídeos continuam em Experiências,
@@ -401,7 +401,7 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
 
 <!-- ══════════════════ A ABERTURA: a primeira palavra em chão de papel ═══════
      Este parágrafo e estas medidas vinham DENTRO do hero, sobre a foto, em
-     azul sobre areia branca. Desceram para o chão creme em 16/09/2026 pelo
+     azul sobre o fundo claro. Desceram para o chão creme em 16/09/2026 pelo
      motivo mais simples que existe: ali dava para ler. É também a Disciplina 3
      voltando ao lugar — o hero guarda o gancho, que é a única frase que
      aguenta ficar sobre imagem; o corpo do texto mora no papel.

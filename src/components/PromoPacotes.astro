@@ -22,10 +22,10 @@ const pacotes = [
     id: 'reveillon',
     ativo: agora < new Date('2027-01-03T00:00:00-03:00'),
     foto: piracaia,
-    alt: 'Roda de conversa na areia branca da Villa Arapiuns',
+    alt: 'Roda de conversa à beira da água cristalina da Villa Arapiuns',
     rotulo: 'Réveillon 2026/27',
     gancho: 'Imagina acordar no dia 1 com o rio na porta do bangalô.',
-    texto: 'A virada na areia branca, com o rio em frente.',
+    texto: 'A virada à beira da água cristalina, com o rio em frente.',
     pagar: '/pt/lp/pagar-reveillon/',
     ver: '/pt/lp/reveillon/',
     wa: 'Olá! Vim pelo site e quero fechar o pacote de Réveillon na Villa Arapiuns.',
@@ -49,7 +49,7 @@ const pacotes = [
     <div class="container-editorial">
       <p class="etiqueta">Virada no Rio Arapiuns</p>
       <h2 id={`promo-${origem}`} class="font-display text-titulo mt-2">Comece 2027 com o rio na porta</h2>
-      <p class="text-intro mt-3 container-texto sm:mx-0">1h30 de Alter do Chão, bem em frente à Ponta Grande. Água cristalina e areia branca.</p>
+      <p class="text-intro mt-3 container-texto sm:mx-0">1h30 de Alter do Chão, bem em frente à Ponta Grande. Água cristalina.</p>
       <div class="mt-8 grid gap-6 md:grid-cols-2">
         {pacotes.map((p) => (
           <article class="promo-card">
@@ -75,7 +75,7 @@ const pacotes = [
 {pacotes.length > 0 && variante === 'faixa' && (
   <aside class="promo-faixa container-editorial my-10" aria-label="Pacotes de virada">
     <p class="font-display text-xl leading-snug">Imagina acordar no dia 1 com o rio na porta do bangalô.</p>
-    <p class="mt-1">Réveillon e Ano Novo Detox no Rio Arapiuns. Vagas limitadas.</p>
+    <p class="mt-1">Réveillon e Ano Novo Detox no Rio Arapiuns.</p>
     <div class="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
       {pacotes.map((p) => (
         <a href={p.id === 'reveillon' ? linkCheckoutReveillon(utmReveillon) : p.pagar} class="btn btn-primario" data-promo={p.id} data-promo-acao="pagar" data-promo-origem={origem}>
