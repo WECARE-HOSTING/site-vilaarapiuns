@@ -61,8 +61,10 @@ export const SITE = {
      * COORDENADA DO PIN DA FICHA DO GOOGLE (Business Profile), lida em
      * 11/10/2026 na resposta do próprio Google Maps para o cid de
      * `contact.googleMaps` (4567770498331262782 = 0x3f63fb11308b3f3e): a ficha
-     * "Villa Arapiuns", com o WhatsApp +55 11 96851-8330 e o link para
+     * "Villa Arapiuns", com o WhatsApp +55 47 99206-7078 e o link para
      * villaarapiuns.com.br/pt/, está em [-2.3843517, -55.2025123].
+     * O número canônico agora é +55 11 96851-8330, por decisão do Leonardo
+     * em 26/11 às 13h28.
      *
      * É a fonte que o dono controla e a que o Google já mostra no topo da busca
      * pela marca — publicar a MESMA coordenada no schema reforça a entidade em
