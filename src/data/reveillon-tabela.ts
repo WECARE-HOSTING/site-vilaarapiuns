@@ -32,17 +32,16 @@ export const REVEILLON = {
 export const TEXTO_PROMESSA = '5 noites de rio, floresta e silêncio para começar o ano.';
 export const TEXTO_CARTAO = 'Cartão de crédito em até 12x, pela InfinitePay.';
 export const TEXTO_REFEICOES = 'Café da manhã, almoço e jantar incluídos.';
-export const TEXTO_PIX = 'Pix: fale no WhatsApp';
-export const TEXTO_PIX_PROMO = 'No Pix, 20%: fale no WhatsApp';
-export const MSG_PIX = 'Oi! Quero falar sobre o Pix do Réveillon 28/12 a 2/1.';
-export const MSG_PIX_PROMO = 'Oi! Quero o Réveillon 28/12 a 2/1 no Pix, com 20%. Código REVEILLON15.';
+export const TEXTO_PIX_CONFERE = 'A reserva só fica confirmada depois que a Villa conferir o pagamento.';
+export const TEXTO_ABRINDO = 'Abrindo o pagamento…';
+export const TEXTO_GRUPO = 'Para grupos acima de 26 pessoas, a Villa monta uma proposta à parte.';
 export const MSG_CODIGO_OK = 'REVEILLON15 aplicado. 15% de desconto.';
 export const MSG_CODIGO_INVALIDO = 'Código inválido. O preço continua o cheio.';
 export const MSG_CODIGO_ENCERRADO = 'Código encerrado.';
 export const MSG_CODIGO_VAZIO = 'Digite o código.';
 export const MSG_NAO_ACUMULA = 'Um código só. Não acumula com outro desconto.';
-/** 4–12: 50% do valor por pessoa da ocupação escolhida mais barata. 0–3: não entram no total. */
-export const NOTA_CRIANCAS = 'Crianças de 4 a 12 anos pagam 50% do valor por pessoa da ocupação mais barata escolhida. Até 3 anos não pagam.';
+/** 4–12: 50% do triplo da mesma faixa, qualquer ocupação. 0–3: zero. */
+export const NOTA_CRIANCAS = 'Crianças de 4 a 12 anos pagam 50% do valor por pessoa do triplo. Até 3 anos não pagam.';
 
 export type EstadoCodigo = 'vazio' | 'encerrado' | 'invalido' | 'aplicado';
 

@@ -7,7 +7,7 @@
  */
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
-import { SITE, whatsappUrl } from '@/data/site';
+import { SITE, linkCheckoutReveillon, whatsappUrl } from '@/data/site';
 
 interface Item { t: string; d: string }
 interface Props {
@@ -77,9 +77,9 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
         {linkCondicao ? (
           <a href={linkCondicao} class="btn btn-primario" target="_blank" rel="noopener noreferrer" data-cta="whatsapp_detox_lp">Falar no WhatsApp</a>
         ) : (
-          <a href="#reservar" class="btn btn-primario">{p.datasFixas ? 'Reservar e pagar' : 'Ver total e pagar'}</a>
+          <a href={linkCheckoutReveillon('lp-hero')} class="btn btn-primario" data-cta="reservar_reveillon_lp">Reserve pelo link</a>
         )}
-        <a href={linkCondicao ?? `${WA}?text=${encodeURIComponent(msgPadrao)}`} class="lp-btn-claro" target="_blank" rel="noopener">Consultar no WhatsApp</a>
+        {linkCondicao && <a href={linkCondicao} class="lp-btn-claro" target="_blank" rel="noopener">Consultar no WhatsApp</a>}
       </p>
     </div>
   </section>
@@ -102,7 +102,7 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
           <li>Estrada até <strong>Alter do Chão</strong> (cerca de 35 km).</li>
           <li><strong>1h30</strong> de Alter do Chão até a Villa, no Rio Arapiuns.</li>
         </ol>
-        <p class="mt-6 text-sm">Dúvidas sobre a chegada? A gente orienta no WhatsApp.</p>
+        {p.slug === 'reveillon' ? null : <p class="mt-6 text-sm">Dúvidas sobre a chegada? A gente orienta no WhatsApp.</p>}
       </div>
       <slot name="chegada" />
     </div>
@@ -139,14 +139,20 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
         ) : (
           <p class={`mt-4 text-3xl font-display ${p.precoNoitePessoa ? 'text-mar' : 'text-erro'}`}>{p.precoNoitePessoa ? brl(p.precoNoitePessoa) : '[PREÇO A DEFINIR]'}</p>
         )}
-        <p class="mt-2">{p.ocupacoes ? (p.porNoite ? 'por pessoa / noite' : 'por pessoa, pacote completo') : 'por pessoa / noite'} · sinal de {p.sinalPct ?? '[SINAL A DEFINIR]'}% para a pré-reserva, no cartão em até 12x (InfinitePay)</p>
+        <p class="mt-2">{p.slug === 'reveillon' ? 'por pessoa, pacote completo. O total se paga no checkout, no cartão.' : `${p.ocupacoes ? (p.porNoite ? 'por pessoa / noite' : 'por pessoa, pacote completo') : 'por pessoa / noite'} · sinal de ${p.sinalPct ?? '[SINAL A DEFINIR]'}% para a pré-reserva, no cartão em até 12x (InfinitePay)`}</p>
         {p.aParte && <p class="mt-4 text-sm"><strong>À parte:</strong> {p.aParte.join(' · ')}</p>}
         <p class="mt-6 lp-escassez">
           <strong>Vagas limitadas.</strong> A Villa tem {p.totalBangalos} bangalôs.
         </p>
       </div>
 
-      <form id="reservar" class="lp-card scroll-mt-24" data-wa={WA} data-fim={fim} data-pacote={p.pacoteNome} data-min={p.minNoites} data-tag={INFINITETAG} data-preco={p.precoNoitePessoa ?? ''} data-sinal={p.sinalPct ?? ''} data-pornoite={p.porNoite ? 1 : 0} data-max={p.maxHospedes ?? 26} data-bangalos={p.totalBangalos}>
+      {p.slug === 'reveillon' ? (
+        <div class="lp-card">
+          <h3 class="font-display text-2xl text-mar">Reserve pelo link</h3>
+          <p class="mt-3">O pagamento do pacote é no checkout, no cartão.</p>
+          <a href={linkCheckoutReveillon('lp-card')} class="btn btn-primario mt-5" data-cta="reservar_reveillon_lp_card">Reserve pelo link</a>
+        </div>
+      ) : <form id="reservar" class="lp-card scroll-mt-24" data-wa={WA} data-fim={fim} data-pacote={p.pacoteNome} data-min={p.minNoites} data-tag={INFINITETAG} data-preco={p.precoNoitePessoa ?? ''} data-sinal={p.sinalPct ?? ''} data-pornoite={p.porNoite ? 1 : 0} data-max={p.maxHospedes ?? 26} data-bangalos={p.totalBangalos}>
         <h3 class="font-display text-2xl text-mar">Reservar</h3>
         <label class="block mt-4"><span class="lp-rotulo">Chegada (check-in)</span>
           <input type="date" name="chegada" min={p.dataMin} max={p.dataMax} value={p.dataMin} required class="lp-campo" readonly={p.datasFixas} /></label>
@@ -181,7 +187,7 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
         <p class="mt-3 text-xs">{p.slug === 'reveillon'
           ? 'O sinal registra a pré-reserva; a gente confirma a disponibilidade com você. Sem disponibilidade, devolução integral do valor. Cancelamento pedido até 28/11: reembolso integral. De 29/11 a 13/12: 50% de reembolso. De 14/12 em diante, ou no-show: sem reembolso.'
           : 'O sinal registra a pré-reserva; a gente confirma a disponibilidade com você. Sem disponibilidade, devolução integral do valor. Cancelamento: reembolso de 100% até 30 dias antes do check-in, 50% de 29 a 15 dias, sem reembolso a 14 dias ou menos (ou no-show).'} <a href="#faq" class="underline">Ver política completa</a>.</p>
-      </form>
+      </form>}
     </div>
   </section>
   )}
@@ -195,7 +201,7 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
     </div>
   </section>
 
-  {!p.condicaoMensagem && <a href="#reservar" class="lp-sticky sm:hidden">Reservar com sinal</a>}
+  {!p.condicaoMensagem && <a href={linkCheckoutReveillon('lp-sticky')} class="lp-sticky sm:hidden" data-cta="reservar_reveillon_lp_sticky">Reserve pelo link</a>}
 </div>
 
 <script>

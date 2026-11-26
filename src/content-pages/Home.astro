@@ -36,7 +36,7 @@ import LinhaDoDia from '@/components/LinhaDoDia.astro';
 import MapaSituacao from '@/components/MapaSituacao.astro';
 import { href } from '@/i18n/routes';
 import { useTranslations, useList } from '@/i18n/utils';
-import { SITE, whatsappUrl } from '@/data/site';
+import { SITE, linkCheckoutReveillon, whatsappUrl } from '@/data/site';
 import { ACOMODACOES } from '@/data/acomodacoes';
 import { HTML_LANG, type Locale } from '@/i18n/config';
 
@@ -385,7 +385,11 @@ const vistaCartaz = await getImage({ src: villaDeCimaPoster, width: 1280, format
     {/* O Réveillon continua a um toque, como terceiro comando, mais discreto. */}
     {mostraReveillon && (
       <p class="mt-4">
-        <a href={href(locale, 'reveillon')} class="etiqueta text-white no-underline underline-offset-[0.3em] hover:underline [text-shadow:0_1px_3px_rgb(13_50_68_/_0.6)]">{t('nav.reveillon')} · {t('reveillon.campoJanela')}</a>
+        {locale === 'pt' ? (
+          <a href={linkCheckoutReveillon('home-reveillon')} data-cta="reservar_reveillon_home" class="etiqueta text-white no-underline underline-offset-[0.3em] hover:underline [text-shadow:0_1px_3px_rgb(13_50_68_/_0.6)]">Reserve pelo link</a>
+        ) : (
+          <a href={href(locale, 'reveillon')} class="etiqueta text-white no-underline underline-offset-[0.3em] hover:underline [text-shadow:0_1px_3px_rgb(13_50_68_/_0.6)]">{t('nav.reveillon')} · {t('reveillon.campoJanela')}</a>
+        )}
       </p>
     )}
   </div>

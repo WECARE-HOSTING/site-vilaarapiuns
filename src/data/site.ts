@@ -284,7 +284,18 @@ export const PACOTES = [
 ] as const;
 
 
+/** Checkout do Réveillon, com a origem do clique. O Detox continua em pagar-detox. */
+export function linkCheckoutReveillon(origem: string): string {
+  const q = new URLSearchParams({
+    utm_source: 'site',
+    utm_medium: 'cta',
+    utm_campaign: 'reveillon2026',
+    utm_content: origem,
+  });
+  return `/pt/lp/pagar-reveillon/?${q}`;
+}
+
 /** "Reservar" do header/menu/rodapé abre o checkout PT (decisão do Leonardo, 31/10).
  *  Páginas Detox → pagar-detox; todas as outras → pagar-reveillon. /reservar/ continua no ar. */
-export const checkoutReservar = (pathname: string) =>
-  `/pt/lp/pagar-${pathname.includes('detox') ? 'detox' : 'reveillon'}/#reservar`;
+export const checkoutReservar = (pathname: string, origem = 'menu') =>
+  pathname.includes('detox') ? '/pt/lp/pagar-detox/#reservar' : linkCheckoutReveillon(origem);
