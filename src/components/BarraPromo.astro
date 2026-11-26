@@ -9,10 +9,7 @@ const rev = agora < new Date('2027-01-03T00:00:00-03:00');
 const det = agora < new Date('2027-01-11T00:00:00-03:00');
 const mostra = caminho.startsWith('/pt/') && !caminho.startsWith('/pt/lp/pagar-') && !caminho.startsWith('/pt/lp/detox-pos-reveillon') && (rev || det);
 const preservarDetox = caminho.startsWith('/pt/detox');
-const naRotaReveillon = caminho === '/pt/reveillon/' || caminho.startsWith('/pt/lp/reveillon/');
-const faixaDesktop = naRotaReveillon
-  ? 'Vire o ano na água cristalina do Rio Arapiuns.'
-  : 'Vire o ano na areia branca do Rio Arapiuns. Vagas limitadas.';
+const faixaDesktop = 'Vire o ano na água cristalina do Rio Arapiuns.';
 const linkRev = (origem) => `/pt/lp/pagar-reveillon/?${new URLSearchParams({ utm_source: 'site', utm_medium: 'cta', utm_campaign: 'reveillon2026', utm_content: origem })}`;
 ---
 {mostra && preservarDetox && (

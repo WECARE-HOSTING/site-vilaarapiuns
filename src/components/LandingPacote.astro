@@ -142,7 +142,11 @@ const msgPadrao = `Oi! Quero reservar: ${p.pacoteNome}`;
         <p class="mt-2">{p.slug === 'reveillon' ? 'por pessoa, pacote completo. O total se paga no checkout, no cartão.' : `${p.ocupacoes ? (p.porNoite ? 'por pessoa / noite' : 'por pessoa, pacote completo') : 'por pessoa / noite'} · sinal de ${p.sinalPct ?? '[SINAL A DEFINIR]'}% para a pré-reserva, no cartão em até 12x (InfinitePay)`}</p>
         {p.aParte && <p class="mt-4 text-sm"><strong>À parte:</strong> {p.aParte.join(' · ')}</p>}
         <p class="mt-6 lp-escassez">
-          <strong>Vagas limitadas.</strong> A Villa tem {p.totalBangalos} bangalôs.
+          {p.slug === 'reveillon' ? (
+            <>A Villa tem {p.totalBangalos} bangalôs.</>
+          ) : (
+            <><strong>Vagas limitadas.</strong> A Villa tem {p.totalBangalos} bangalôs.</>
+          )}
         </p>
       </div>
 

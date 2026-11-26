@@ -122,6 +122,17 @@ const OG_PROPRIO: Partial<Record<PageKey, ImageMetadata>> = {
 const ogDaPagina = OG_PROPRIO[pageKey]
   ? (await getImage({ src: OG_PROPRIO[pageKey]!, width: 1200, height: 630, fit: 'cover', format: 'jpeg', quality: 78 })).src
   : undefined;
+const ALT_OG: Partial<Record<PageKey, Partial<Record<Locale, string>>>> = {
+  reveillon: {
+    pt: 'Grupo em roda à noite, na areia, com lanternas, no Rio Arapiuns',
+    en: 'A group in a circle at night on the sand, with lanterns, on the Arapiuns River',
+  },
+  home: {
+    pt: 'Banco de areia no Rio Arapiuns, com quiosque de palha',
+    en: 'Sandbank on the Arapiuns River with a thatched shade',
+  },
+};
+const imageAlt = ALT_OG[pageKey]?.[locale];
 ---
 
 <BaseLayout
@@ -130,6 +141,7 @@ const ogDaPagina = OG_PROPRIO[pageKey]
   title={title}
   description={description}
   image={ogDaPagina}
+  imageAlt={imageAlt}
   indexavel={!NOINDEX_KEYS.includes(pageKey)}
 >
   {/* Na home o cabeçalho nasce sobre a foto do hero: fundo transparente,
