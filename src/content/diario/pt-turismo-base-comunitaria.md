@@ -79,4 +79,4 @@ Treze bangalôs de arquitetura tapajônica na margem do Arapiuns, para até 26 h
 
 ## Para planejar a visita
 
-Na pousada, **todas as refeições incluídas**; o almoço na comunidade é pago à parte. Os bangalôs têm **energia solar 24h** e **Wi‑Fi Starlink**, e a casa é praticamente sem mosquito. Para conhecer as praias e as comunidades do rio, leia o [guia do Rio Arapiuns](/pt/diario/rio-arapiuns-guia/); a temporada de praias vai até janeiro, passando pelo [Réveillon no Rio Arapiuns](/pt/reveillon/). Chegada e alimentação são combinadas com o anfitrião antes da viagem: [fale com a gente no WhatsApp](https://wa.me/5547992067078).
+Na pousada, **todas as refeições incluídas**; o almoço na comunidade é pago à parte. Os bangalôs têm **energia solar 24h** e **Wi‑Fi Starlink**, e a casa é praticamente sem mosquito. Para conhecer as praias e as comunidades do rio, leia o [guia do Rio Arapiuns](/pt/diario/rio-arapiuns-guia/); a temporada de praias vai até janeiro, passando pelo [Réveillon no Rio Arapiuns](/pt/reveillon/). Chegada e alimentação são combinadas com o anfitrião antes da viagem: [fale com a gente no WhatsApp](https://wa.me/5511968518330).

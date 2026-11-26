@@ -14,7 +14,7 @@ legenda: "O pavilhão · o espaço de plenária, aberto dos quatro lados"
 destino: privateVilla
 duvidas:
   - q: "Quanto custa um offsite corporativo aí?"
-    a: "A cotação é por grupo, conforme o número de pessoas e de noites, e a tarifa cai conforme o grupo cresce. O pacote do grupo inclui uso exclusivo a partir de quinze pessoas, treze bangalôs para até vinte e seis pessoas, pavilhão e shala e Starlink; a logística desde Alter do Chão e o que mais entra na diária, a gente detalha na proposta. Passagens, atividades com as comunidades e som/vídeo ficam fora. Peça a cotação no WhatsApp +55 47 99206-7078 ou em reservas@villaarapiuns.com.br."
+    a: "A cotação é por grupo, conforme o número de pessoas e de noites, e a tarifa cai conforme o grupo cresce. O pacote do grupo inclui uso exclusivo a partir de quinze pessoas, treze bangalôs para até vinte e seis pessoas, pavilhão e shala e Starlink; a logística desde Alter do Chão e o que mais entra na diária, a gente detalha na proposta. Passagens, atividades com as comunidades e som/vídeo ficam fora. Peça a cotação no WhatsApp +55 11 96851-8330 ou em reservas@villaarapiuns.com.br."
   - q: "Dá para trabalhar online de lá?"
     a: "Dá. Tem Starlink no local, com energia solar estável, e ele sustenta o time inteiro numa reunião online ao mesmo tempo. Se o seu programa precisa de uma call com a matriz no meio da semana, ela acontece — sem alguém subir num barranco atrás de sinal."
   - q: "Que estrutura existe para apresentação?"
@@ -96,7 +96,7 @@ A logística desde Alter do Chão e o que mais entra na diária, a gente detalha
 
 **Pacotes:** não existe pacote de offsite de prateleira — o pacote é o seu grupo, as suas datas e o seu programa. Quem não precisa de exclusividade encontra os nossos [pacotes saindo de Alter do Chão](/pt/pacotes/), com roteiro fechado.
 
-**Como pedir a cotação:** mande as datas, quantas pessoas, quantas noites e o que o seu programa precisa de um espaço — pelo [WhatsApp +55 47 99206-7078](https://wa.me/5547992067078), por e-mail para [reservas@villaarapiuns.com.br](mailto:reservas@villaarapiuns.com.br) ou pelo [pedido de reserva](/pt/reservar/). Você recebe um número real. A partir de três noites a conta fecha; para uma noite só, não — e a gente prefere dizer antes.
+**Como pedir a cotação:** mande as datas, quantas pessoas, quantas noites e o que o seu programa precisa de um espaço — pelo [WhatsApp +55 11 96851-8330](https://wa.me/5511968518330), por e-mail para [reservas@villaarapiuns.com.br](mailto:reservas@villaarapiuns.com.br) ou pelo [pedido de reserva](/pt/reservar/). Você recebe um número real. A partir de três noites a conta fecha; para uma noite só, não — e a gente prefere dizer antes.
 
 ## Contratação
 

@@ -63,7 +63,7 @@ Usted está cerca del Ecuador, sobre arena clara, junto a un agua que le devuelv
 
 ## En la Villa, hoy
 
-En la Villa Arapiuns casi no hay mosquitos — no prometemos cero, esto es selva. Los bungalós tienen energía solar las 24 horas y wifi Starlink, y en la posada todas las comidas están incluidas. Hay primeros auxilios en el lugar, no atención médica. La temporada de playas va hasta enero, con [Año Nuevo en el Arapiuns](/es/ano-nuevo/); más sobre el río en la [guía del Río Arapiuns](/es/diario/guia-del-rio-arapiuns/). La llegada y las comidas se coordinan con el anfitrión antes del viaje: [escríbanos por WhatsApp](https://wa.me/5547992067078).
+En la Villa Arapiuns casi no hay mosquitos — no prometemos cero, esto es selva. Los bungalós tienen energía solar las 24 horas y wifi Starlink, y en la posada todas las comidas están incluidas. Hay primeros auxilios en el lugar, no atención médica. La temporada de playas va hasta enero, con [Año Nuevo en el Arapiuns](/es/ano-nuevo/); más sobre el río en la [guía del Río Arapiuns](/es/diario/guia-del-rio-arapiuns/). La llegada y las comidas se coordinan con el anfitrión antes del viaje: [escríbanos por WhatsApp](https://wa.me/5511968518330).
 
 ## Por qué nos tomamos el trabajo de escribir esto
 

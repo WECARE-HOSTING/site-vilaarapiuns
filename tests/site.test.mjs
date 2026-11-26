@@ -22,7 +22,7 @@ test('preco: nunca converte a moeda, é sempre BRL', () => {
 
 test('whatsappUrl: monta o link com a mensagem codificada', () => {
   const url = whatsappUrl('Olá, quero reservar');
-  assert.ok(url.startsWith('https://wa.me/'));
+  assert.ok(url.startsWith('https://wa.me/5511968518330?'));
   assert.ok(url.includes(encodeURIComponent('Olá, quero reservar')));
 });
 
@@ -33,5 +33,6 @@ test('telefoneLegivel: formata o WhatsApp configurado como +55 DD NNNNN-NNNN', (
   // pra um comprimento que a função não sabe formatar, é o teste (não só o
   // deploy) que vai avisar.
   const resultado = telefoneLegivel();
+  assert.equal(resultado, '+55 11 96851-8330');
   assert.match(resultado, /^\+55 \d{2} \d{4,5}-\d{4}$/);
 });

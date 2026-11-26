@@ -444,7 +444,7 @@ try {
    */
   const corpoEsperado = dicDe.autoresp.corpo
     .replaceAll('{nome}', VALIDO.nome)
-    .replaceAll('{whatsapp}', 'https://wa.me/5547992067078');
+    .replaceAll('{whatsapp}', 'https://wa.me/5511968518330');
   const corpoRecebido = ar.slice(ar.indexOf('\n\n') + 2);
   ok('auto-resposta é EXATAMENTE o corpo do dicionário com as trocas — prova ausência de qualquer eco',
      corpoRecebido === corpoEsperado,

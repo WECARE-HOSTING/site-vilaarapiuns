@@ -63,7 +63,7 @@ Sie sind in der Nähe des Äquators, auf hellem Sand, neben Wasser, das das Lich
 
 ## Bei uns in der Villa
 
-In der Villa Arapiuns gibt es so gut wie keine Mücken — null versprechen wir nicht, es ist Regenwald. Die Bungalows haben rund um die Uhr Solarstrom und Starlink-WLAN, in der Pousada sind alle Mahlzeiten inklusive. Vor Ort gibt es Erste Hilfe, aber keine ärztliche Versorgung. Mehr zum Fluss steht im [Rio-Arapiuns-Führer](/de/diario/rio-arapiuns-fuehrer/), und die Strandsaison reicht bis Januar, [Silvester am Arapiuns](/de/silvester/) inklusive. Anreise und Verpflegung stimmen Sie vorab mit dem Gastgeber ab: [per WhatsApp](https://wa.me/5547992067078).
+In der Villa Arapiuns gibt es so gut wie keine Mücken — null versprechen wir nicht, es ist Regenwald. Die Bungalows haben rund um die Uhr Solarstrom und Starlink-WLAN, in der Pousada sind alle Mahlzeiten inklusive. Vor Ort gibt es Erste Hilfe, aber keine ärztliche Versorgung. Mehr zum Fluss steht im [Rio-Arapiuns-Führer](/de/diario/rio-arapiuns-fuehrer/), und die Strandsaison reicht bis Januar, [Silvester am Arapiuns](/de/silvester/) inklusive. Anreise und Verpflegung stimmen Sie vorab mit dem Gastgeber ab: [per WhatsApp](https://wa.me/5511968518330).
 
 ## Warum wir uns die Mühe gemacht haben, das zu schreiben
 
